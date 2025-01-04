@@ -1,9 +1,24 @@
 ---
+icon: laptop-code
 description: >-
   Threat management and response operations are focused on safeguarding an
   organisation's digital environment through a structured and proactive approach
   to defence.
-icon: laptop-code
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Incident Response (IR)
