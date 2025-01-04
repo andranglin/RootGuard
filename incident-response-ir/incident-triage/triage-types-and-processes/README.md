@@ -1,5 +1,7 @@
 ---
 icon: laptop-code
+cover: ../../../.gitbook/assets/Screenshot 2025-01-04 152247.png
+coverY: 0
 ---
 
 # Triage Types and Processes

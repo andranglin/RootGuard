@@ -1,5 +1,7 @@
 ---
 icon: laptop-code
+cover: ../../../.gitbook/assets/Screenshot 2025-01-04 152247 (1).png
+coverY: 0
 ---
 
 # Approaches for Investigating Common Attack Techniques

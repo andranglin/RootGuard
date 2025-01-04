@@ -1,5 +1,7 @@
 ---
 icon: laptop-code
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 152539.png
+coverY: 0
 ---
 
 # Response Strategies
