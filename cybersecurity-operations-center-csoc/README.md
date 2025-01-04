@@ -1,11 +1,11 @@
 ---
 icon: laptop-code
-cover: ../.gitbook/assets/Screenshot 2023-10-01 084908.png
+cover: ../.gitbook/assets/Screenshot 2025-01-04 145556.png
 coverY: 0
 layout:
   cover:
     visible: true
-    size: full
+    size: hero
   title:
     visible: true
   description:
