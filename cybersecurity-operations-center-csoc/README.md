@@ -1,5 +1,21 @@
 ---
 icon: laptop-code
+cover: ../.gitbook/assets/Screenshot 2023-10-01 084908.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Cybersecurity Operations Center (CSOC)
