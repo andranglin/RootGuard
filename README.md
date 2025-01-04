@@ -4,11 +4,12 @@ description: >-
   Threat management and response operations are focused on safeguarding an
   organisation's digital environment through a structured and proactive approach
   to defence.
+cover: .gitbook/assets/Screenshot 2025-01-04 150636.png
 coverY: 0
 layout:
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
