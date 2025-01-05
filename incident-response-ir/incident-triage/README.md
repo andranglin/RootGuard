@@ -1,6 +1,6 @@
 ---
 icon: laptop-code
-cover: ../../.gitbook/assets/Screenshot 2025-01-04 152158.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-05 110640.png
 coverY: 0
 ---
 
