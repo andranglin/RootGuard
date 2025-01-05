@@ -1,9 +1,11 @@
 ---
+icon: laptop-code
 description: >-
   Prefetch, Amcache.hve, ShimCache, Shell Bags, Jump Lists, Recycle Bin, Master
   File Table ($MFT), $J, $LogFile, Alternate Data Streams (ADS), and Link File -
   Shortcut (.ink)
-icon: laptop-code
+cover: ../.gitbook/assets/Screenshot 2025-01-05 104546.png
+coverY: 0
 ---
 
 # Evidence of Execution
@@ -773,3 +775,7 @@ Analyse output using Timeline Explorer:
 * Look for Windows services with suspicious image paths
 * Perform further data reduction by looking for service image paths, _not_ in the System32 folder
 * Sort by registry LastWrite times to focus on a specific period of attacker activity. Reference: [https://www.sans.org/blog/finding-registry-malware-persistence-with-recmd/](https://www.sans.org/blog/finding-registry-malware-persistence-with-recmd/)
+
+
+
+{% file src="../.gitbook/assets/SANS DFIR Windows Artifact Analysis Evidence Of Execution.pdf" %}

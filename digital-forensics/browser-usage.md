@@ -1,5 +1,7 @@
 ---
 icon: laptop-code
+cover: ../.gitbook/assets/Screenshot 2025-01-05 105751.png
+coverY: 0
 ---
 
 # Browser Usage

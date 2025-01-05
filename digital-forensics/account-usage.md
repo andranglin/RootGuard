@@ -1,5 +1,7 @@
 ---
 icon: laptop-code
+cover: ../.gitbook/assets/Screenshot 2025-01-05 104759.png
+coverY: 0
 ---
 
 # Account Usage
