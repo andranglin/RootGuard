@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Command and Control (C2) (TA0011) Techniques
 
-## <mark style="color:blue;">Introduction</mark>
+### <mark style="color:blue;">Introduction</mark>
 
 Forensically investigating Command and Control (C\&C) techniques on workstations and server systems involves identifying how an attacker communicates with compromised systems to control them remotely and potentially exfiltrate data. This process is critical for understanding the scope of an attack and mitigating further risks.
 
@@ -77,7 +77,7 @@ Forensically investigating Command and Control (C\&C) techniques on workstations
 
 C\&C investigation requires a multi-faceted approach, combining network analysis, endpoint inspection, and potentially malware analysis to fully understand the attacker's methods and impact. Tailoring the investigation to the specifics of the incident and the environment is crucial.
 
-## <mark style="color:blue;">Using KQL to Investigate Command and Control (C2) Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Command and Control (C2) Activities in an Environment Using Defender/Sentinel</mark>
 
 Command and Control (C2) techniques involve adversaries communicating with compromised systems to control them, exfiltrate data, or execute commands remotely.
 

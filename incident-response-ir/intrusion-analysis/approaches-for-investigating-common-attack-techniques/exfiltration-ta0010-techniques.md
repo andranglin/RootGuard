@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Exfiltration (TA0010) Techniques
 
-## <mark style="color:blue;">Introduction</mark>
+### <mark style="color:blue;">Introduction</mark>
 
 Investigating data exfiltration forensically on workstations and server systems involves identifying and analysing how sensitive data was transferred from the network. This process is critical in understanding the scope of a security breach. Exfiltration can occur in various ways, including unauthorised email transmissions, external storage devices, cloud storage uploads, and covert channels.
 
@@ -75,7 +75,7 @@ Investigating data exfiltration forensically on workstations and server systems 
 
 Forensic investigations of data exfiltration require careful analysis of various data sources and the application of appropriate forensic techniques. Tailoring the investigation to the specifics of the incident and the nature of the data involved is crucial.
 
-## <mark style="color:blue;">Using KQL to Investigate Data Exfiltration Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Data Exfiltration Activities in an Environment Using Defender/Sentinel</mark>
 
 Exfiltration techniques involve adversaries stealing data from a compromised network or system and transferring it to an external location under their control.
 

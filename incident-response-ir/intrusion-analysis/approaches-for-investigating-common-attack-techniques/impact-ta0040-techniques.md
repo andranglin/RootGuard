@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Impact (TA0040) Techniques
 
-## <mark style="color:blue;">Introduction</mark>
+### <mark style="color:blue;">Introduction</mark>
 
 Forensically investigating the impact of a compromise on workstations and server systems is an essential step in understanding the extent of damage, the data affected, and what steps are necessary for recovery and future prevention. This process involves a thorough examination of affected systems to identify the scope of the attack, assess the damage, and uncover the methods used by the attackers.
 
@@ -73,7 +73,7 @@ Forensically investigating the impact of a compromise on workstations and server
 
 Forensic investigations into the impact of a compromise require a multi-faceted approach, combining technical analysis with an understanding of business operations and data sensitivity. Tailoring the investigation to the specifics of the incident and the environment is essential for a comprehensive assessment.
 
-## <mark style="color:blue;">Using KQL to Investigate Impact Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Impact Activities in an Environment Using Defender/Sentinel</mark>
 
 Impact techniques are used by adversaries to disrupt availability or compromise the integrity of systems and data. These techniques often result in data destruction, system corruption, or operational disruption.
 

@@ -71,7 +71,7 @@ Investigating persistence mechanisms in a network, Windows workstations, and ser
 
 Persistence investigation requires a comprehensive approach, leveraging various tools and techniques to uncover how attackers maintain access. Tailor your investigation to the specifics of the incident and the environment you are dealing with.
 
-## <mark style="color:blue;">Using KQL to Investigate Persistence Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Persistence Activities in an Environment Using Defender/Sentinel</mark>
 
 Persistence techniques allow adversaries to maintain access to a compromised system even after reboots or other interruptions.
 

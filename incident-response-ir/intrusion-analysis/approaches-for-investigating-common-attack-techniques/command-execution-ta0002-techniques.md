@@ -73,7 +73,7 @@ Investigating command execution on a network, particularly in Windows workstatio
 
 Investigating command execution requires a thorough analysis of various data sources, including system logs, memory, and network traffic. Each step, from data collection to detailed analysis and reporting, is crucial in understanding the scope and impact of the executed commands. Maintaining an updated knowledge of forensic tools and techniques is essential for effective investigation in the ever-evolving landscape of cybersecurity threats.
 
-## <mark style="color:blue;">Using KQL to Investigate Command Execution Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Command Execution Activities in an Environment Using Defender/Sentinel</mark>
 
 Note: While there are other methods and tools for investigating these kinds of attacks, the goal is to tackle them from a beginner's point of view without utilising intricate KQL queries that a Level 1 SOC analyst wouldn't find difficult to comprehend. Other areas on the site will demonstrate the same process using other tools, such as Splunk, Velociraptor, or Eric Zimmerman Tools.
 

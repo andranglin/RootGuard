@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Lateral Movement (TA0008) Techniques
 
-## <mark style="color:blue;">Introduction</mark>
+### <mark style="color:blue;">Introduction</mark>
 
 Forensically investigating lateral movement techniques on workstations and server systems is crucial to understanding how an attacker moves within a network after gaining initial access. Lateral movement involves techniques that enable an attacker to access and control remote systems within a network.
 
@@ -71,7 +71,7 @@ Forensically investigating lateral movement techniques on workstations and serve
 
 Lateral movement investigations require a detailed and methodical approach, as attackers often use sophisticated methods to avoid detection. Tailor the investigation to the specifics of the incident and the environment in which you are operating.
 
-## <mark style="color:blue;">Using KQL to Investigate Lateral Movement Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Lateral Movement Activities in an Environment Using Defender/Sentinel</mark>
 
 Lateral Movement techniques involve adversaries trying to move through the network to gain access to other systems and sensitive data.
 

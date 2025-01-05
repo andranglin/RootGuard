@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Defence Evasion (TA0005) Techniques
 
-## <mark style="color:blue;">Introduction</mark>
+### <mark style="color:blue;">Introduction</mark>
 
 Forensically investigating defence evasion involves understanding and identifying the methods used by attackers to avoid detection and bypass security measures on workstations and server systems. Defence evasion is a critical tactic in the MITRE ATT\&CK framework, and it includes techniques like disabling security software, deleting logs, obfuscation, rootkits, privilege escalation, and more.
 
@@ -82,7 +82,7 @@ Forensically investigating defence evasion involves understanding and identifyin
 
 Each case of defence evasion can be unique, requiring a tailored approach depending on the specifics of the incident and the environment.
 
-## <mark style="color:blue;">Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel</mark>
 
 Defence Evasion techniques allow adversaries to avoid detection throughout their compromise activities.
 

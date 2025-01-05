@@ -71,7 +71,7 @@ Legal and Compliance Considerations
 
 Forensic investigation of initial access is a meticulous and detailed process. Each step is critical to uncovering the full scope of the intrusion and preventing future incidents. Stay updated with the latest forensic techniques and tools as cyber threats evolve.
 
-## <mark style="color:blue;">Using KQL to Investigate Initial Access Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Initial Access Activities in an Environment Using Defender/Sentinel</mark>
 
 Initial Access is the first stage in the attack lifecycle, where adversaries gain entry into a network.
 

@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Privilege Escalation (TA0004) Techniques
 
-## <mark style="color:blue;">Introduction</mark>
+### <mark style="color:blue;">Introduction</mark>
 
 Investigating privilege escalation incidents forensically on workstations and server systems is critical in identifying how an attacker or malicious user gained elevated access. Privilege escalation can occur in various ways, such as exploiting system vulnerabilities, misconfigurations, or leveraging stolen credentials.
 
@@ -67,7 +67,7 @@ Investigating privilege escalation incidents forensically on workstations and se
 
 Each privilege escalation incident is unique and might require a customised approach. Tailor the investigation to the specifics of the case and the environment in which you are operating.
 
-## <mark style="color:blue;">Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel</mark>
 
 Privilege Escalation techniques allow adversaries to gain higher-level permissions on a system. These elevated privileges may be used to execute malicious actions, access sensitive data, or move laterally across the network.
 

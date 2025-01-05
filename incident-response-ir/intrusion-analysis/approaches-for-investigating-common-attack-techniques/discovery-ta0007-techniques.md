@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Discovery (TA0007) Techniques
 
-## <mark style="color:blue;">Introduction</mark>
+### <mark style="color:blue;">Introduction</mark>
 
 Forensically investigating discovery techniques on workstations and server systems involves identifying how an attacker or malicious entity gathered information about your systems and network. Discovery is a tactic in the MITRE ATT\&CK framework that encompasses various techniques used by adversaries to gain knowledge about the system, network, and environment they have compromised.
 
@@ -72,7 +72,7 @@ Forensically investigating discovery techniques on workstations and server syste
 
 Each case of discovery by an attacker can be unique, requiring a tailored approach based on the specifics of the incident and the environment.
 
-## <mark style="color:blue;">Using KQL to Investigate Discovery Activities in an Environment Using Defender/Sentinel</mark>
+### <mark style="color:blue;">Using KQL to Investigate Discovery Activities in an Environment Using Defender/Sentinel</mark>
 
 Discovery techniques involve adversaries trying to gather information about the system and network they have compromised. This information is often used to facilitate further attacks or lateral movement.
 
