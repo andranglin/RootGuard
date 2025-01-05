@@ -1,5 +1,6 @@
 ---
 icon: laptop-code
+description: 'Work in progress: Will be add content on a frequent basis.'
 cover: ../.gitbook/assets/Screenshot 2025-01-04 145751.png
 coverY: 0
 layout:

@@ -60,3 +60,4 @@
 * [Malware Analysis](malware-analysis.md)
 * [Intrusion Detection/Prevention](intrusion-detection-prevention.md)
 * [About Me](about-me.md)
+* [Training and Projects](training-and-projects.md)
