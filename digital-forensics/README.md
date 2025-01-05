@@ -94,4 +94,8 @@ Digital forensic analysts often pursue specialised training and certifications t
    * Stay updated with the latest trends, tools, and case studies in digital forensics.
    * Engage in self-paced learning through online platforms like Cybrary, Pluralsight, or SANS.
 
-By following a structured path and continuously honing technical and analytical skills, aspiring forensic analysts can build a successful and impactful career in digital forensics.
+Aspiring forensic analysts can build a successful and impactful career in digital forensics by following a structured path and continuously honing technical and analytical skills.
+
+Note: Resources like Posters and Cheatsheets are helpful when used as guides
+
+{% file src="../.gitbook/assets/DFIR Fundamentals.pdf" %}

@@ -306,3 +306,10 @@ When these three elements work in harmony, organisations can minimise the impact
 * **Improves Stakeholder Trust:** Shows customers, partners, and regulators a commitment to cybersecurity best practices.
 
 Effective incident response is critical to an organisation's overall cybersecurity strategy. By implementing practical and battle-tested incident response processes, organisations can protect their assets, maintain customer trust, and reduce the long-term impact of cyber threats. It helps mitigate immediate risks and strengthens the organisation's resilience against future attacks.
+
+Note: [SANS](https://www.sans.org/security-resources/?msc=main-nav) provide some good free resources in the area, including Posters and Cheatsheets:
+
+
+
+{% file src="../../.gitbook/assets/Hunt Evil Poster.pdf" %}
+

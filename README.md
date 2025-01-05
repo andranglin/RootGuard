@@ -118,7 +118,7 @@ Training and certifications demonstrate expertise and build trust in an analystâ
    * Keep up with the latest threat landscapes, attack techniques, and defensive strategies.
    * Regularly update skills through online platforms like Cybrary, TryHackMe, or Hack The Box.
 
-By following a structured and well-defined pathway, maintaining a commitment to continuous improvement, aspiring professionals can establish themselves as effective and sought-after incident response analysts.
+By following a structured and well-defined pathway and maintaining a commitment to continuous improvement, aspiring professionals can establish themselves as effective and sought-after incident response analysts.
 
 ## <mark style="color:blue;">Training Resources</mark>
 
@@ -132,6 +132,7 @@ By following a structured and well-defined pathway, maintaining a commitment to 
 * [<mark style="color:blue;">Velociraptor Training:</mark>](https://www.velocidex.com/) Offers free resources to learn digital forensics and threat-hunting using Velociraptor.
 * [<mark style="color:blue;">Hack The Box (Blue Tier Challenges):</mark>](https://www.hackthebox.com/) Free scenarios that mimic real-world defence challenges.
 * [<mark style="color:blue;">Microsoft Learn for Security Engineers:</mark>](https://learn.microsoft.com/en-us/training/roles/security-engineer/) Free courses and hands-on labs to prepare for Microsoft Security certifications (e.g., SC-200).
+* [SANS:](https://www.sans.org/security-resources/?msc=main-nav) Provides several free resources to support the community (Blogs, Webcasts, Posters, Cheatsheets and White Papers)
 
 ## <mark style="color:blue;">Other Resources</mark>
 

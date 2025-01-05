@@ -531,3 +531,7 @@ JLECmd.exe -d C:\Users\ -csv C:\Output\JumpLists_Exfiltration.csv
 ```
 
 **Analysis:** Review Jump Lists for evidence of data transfer applications, such as FTP clients, VPNs, or remote desktop tools.
+
+For more on Eric Zimmerman's Tools, visit his website at: [Eric Zimmerman's Tools](https://ericzimmerman.github.io/#!index.md)
+
+{% file src="../../../.gitbook/assets/Eric Zimmerman's Tools Commandline Cheatsheet.pdf" %}
