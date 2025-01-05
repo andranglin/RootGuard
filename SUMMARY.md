@@ -61,5 +61,5 @@
 * [Intrusion Detection/Prevention](intrusion-detection-prevention.md)
 * [About Me](about-me.md)
 * [Training and Projects](training-and-projects.md)
-* [Junior Cybersecurity Analyst Interview and Job Preparation Guide](junior-cybersecurity-analyst-interview-and-job-preparation-guide/README.md)
-  * [Prep Questions for Junior Cybersecurity Analysts Interview](junior-cybersecurity-analyst-interview-and-job-preparation-guide/prep-questions-for-junior-cybersecurity-analysts-interview.md)
+* [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
+  * [Practice Interview Questions: Junior Cybersecurity Analysts](job-preparation-guide-junior-cybersecurity-analyst/practice-interview-questions-junior-cybersecurity-analysts.md)
