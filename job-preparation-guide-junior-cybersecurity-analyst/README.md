@@ -1,4 +1,9 @@
-# Junior Cyber Analysts Interview and Job Prep
+---
+cover: ../.gitbook/assets/Screenshot 2025-01-05 133257.png
+coverY: 0
+---
+
+# Job Preparation Guide: Junior Cybersecurity Analyst
 
 ### <mark style="color:blue;">**What is a Junior Cybersecurity Analyst Role?**</mark>
 

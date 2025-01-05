@@ -1,4 +1,9 @@
-# Prep Questions for Junior Cybersecurity Analysts Interview
+---
+cover: ../.gitbook/assets/Screenshot 2025-01-05 133354.png
+coverY: 0
+---
+
+# Practice Interview Questions: Junior Cybersecurity Analysts
 
 ### <mark style="color:blue;">**Technical Questions**</mark>
 
