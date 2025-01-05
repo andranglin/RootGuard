@@ -1,8 +1,6 @@
 # Prep Questions for Junior Cybersecurity Analysts Interview
 
-## <mark style="color:blue;">**Technical Questions**</mark>
-
-### **Basic Concepts**&#x20;
+### <mark style="color:blue;">**Technical Questions**</mark>
 
 1. **What is the CIA Triad?**
 
@@ -42,13 +40,11 @@
 
 9. **What is the role of SIEM in a SOC?**
 
-* **Answer:** SIEM (Security Information and Event Management) collects, analyzes, and correlates logs to detect and respond to security events.
+* **Answer:** SIEM (Security Information and Event Management) collects, analyses, and correlates logs to detect and respond to security events.
 
 10. **What is the principle of least privilege?**
 
 * **Answer:** Restricting user access to only the resources necessary for their role.
-
-### **Advanced Concepts and Tools**
 
 11. **What is the role of EDR in a SOC?**
 
@@ -64,26 +60,26 @@
   * **Symmetric Encryption:** Uses one key for encryption and decryption.
   * **Asymmetric Encryption:** Uses a public key for encryption and a private key for decryption.
 
-**14 What is threat intelligence, and how is it used in a SOC?**
+14. **What is threat intelligence, and how is it used in a SOC?**
 
 * **Answer:** Threat intelligence provides information about current and emerging threats, enabling proactive defences and better detection of IoCs.
 
-**15 How would you use Splunk to detect unusual login patterns?**
+15. **How would you use Splunk to detect unusual login patterns?**
 
 * **Answer:**
   * Query login events using SPL (Search Processing Language).
   * Identify anomalies in login times, geolocations, or failed attempts.
   * Create dashboards for continuous monitoring.
 
-**16 What is DNS poisoning, and how can it be detected?**
+16. &#x20;**What is DNS poisoning, and how can it be detected?**
 
-* **Answer:** DNS poisoning involves altering DNS records to redirect users to malicious sites. Detect using DNS logs, identifying mismatched records, and monitoring for unauthorized changes.
+* **Answer:** DNS poisoning involves altering DNS records to redirect users to malicious sites. Detect using DNS logs, identifying mismatched records, and monitoring for unauthorised changes.
 
-**17 How do you secure sensitive data in transit?**
+17. &#x20;**How do you secure sensitive data in transit?**
 
 * **Answer:** Use encryption protocols like TLS/SSL, enforce secure cipher suites, and avoid deprecated protocols like SSLv3.
 
-**18 What is a honeypot, and how is it used in threat detection?**
+18. &#x20;**What is a honeypot, and how is it used in threat detection?**
 
 * **Answer:** A honeypot is a decoy system designed to attract attackers, allowing observation and collection of attack methods.
 
@@ -94,7 +90,7 @@
   * Unexpected script executions.
   * PowerShell network connections to unknown IPs.
 
-2. **What are the components of a secure software development lifecycle (SDLC)?**
+20. **What are the components of a secure software development lifecycle (SDLC)?**
 
 * **Answer:**
   * Secure design.
@@ -130,7 +126,7 @@
   * **Hash Collision:** Two different inputs produce the same hash value.
   * **Hash Mismatch:** A hash value does not match the expected value, indicating data alteration or corruption.
 
-25. **Explain the importance of timestamp normalization in SIEM logs.**
+25. **Explain the importance of timestamp normalisation in SIEM logs.**
 
 * **Answer:** It ensures logs from different sources align with a standard time format, allowing accurate event correlation.
 
@@ -144,7 +140,7 @@
 27. **What are the steps to perform static malware analysis?**
 
 * **Answer:**
-  1. Extract and analyze file metadata.
+  1. Extract and analyse file metadata.
   2. Check file hashes against known malware databases.
   3. Inspect strings and code without executing the malware.
 
@@ -169,7 +165,7 @@
   * Check parent-child relationships.
   * Monitor processes consuming excessive CPU or memory.
 
-## <mark style="color:blue;">**Log Analysis and Monitoring**</mark>
+### <mark style="color:blue;">**Log Analysis and Monitoring**</mark>
 
 31. **What are the key Windows Event IDs for monitoring logon activity?**
 
@@ -181,19 +177,19 @@
 
 32. **How would you identify suspicious command-line activities?**
 
-* **Answer:** Look for unusual or rarely used commands, obfuscated scripts, or command execution from unauthorized accounts.
+* **Answer:** Look for unusual or rarely used commands, obfuscated scripts, or command execution from unauthorised accounts.
 
 33. **What is the difference between security logs and application logs?**
 
 * **Answer:**
-  * **Security logs** track access, authentication, and unauthorized activities.
+  * **Security logs** track access, authentication, and unauthorised activities.
   * **Application logs** record software-specific events and errors.
 
-34. **How do you analyze suspicious log entries?**
+34. **How do you analyse suspicious log entries?**
 
-* **Answer:** Look for abnormal login times, repeated failed attempts, unauthorized access to critical resources, or patterns like privilege escalation.
+* **Answer:** Look for abnormal login times, repeated failed attempts, unauthorised access to critical resources, or patterns like privilege escalation.
 
-35. **What is the importance of time synchronization in log analysis?**
+35. **What is the importance of time synchronisation in log analysis?**
 
 * **Answer:** Ensures all logs across devices have consistent timestamps for accurate correlation and investigation.
 
@@ -207,7 +203,7 @@
   * **4674:** Sensitive privilege use.
   * **4672:** Assigning special privileges.
 
-## <mark style="color:blue;">**Threat Hunting and Incident Response**</mark>
+### <mark style="color:blue;">**Threat Hunting and Incident Response**</mark>
 
 38. **How would you detect PowerShell-based attacks?**
 
@@ -221,7 +217,7 @@
 
 * **Answer:**
   * Check for unusual processes.
-  * Analyze file hashes using threat intelligence.
+  * Analyse file hashes using threat intelligence.
   * Review autorun entries and scheduled tasks.
 
 41. **How do you identify command-and-control (C2) communication?**
@@ -234,29 +230,29 @@
   * **Playbook:** High-level procedures for specific incidents.
   * **Runbook:** Step-by-step guides for implementing playbook actions.
 
-## <mark style="color:blue;">**Network Security and Malware Analysis**</mark>
+### <mark style="color:blue;">**Network Security and Malware Analysis**</mark>
 
 43. **What is the purpose of a sandbox environment?**
 
-* **Answer:** A secure environment for analyzing potentially malicious files or software without risking the production environment.
+* **Answer:** A secure environment for analysing potentially malicious files or software without risking the production environment.
 
-44. **How do you analyze packet captures for suspicious activity?**
+44. **How do you analyse packet captures for suspicious activity?**
 
 * **Answer:** Use tools like Wireshark to inspect network traffic for anomalies such as unusual IPs, ports, or payloads.
 
 45. **What is the purpose of network segmentation in security?**
 
-* **Answer:** Minimizes the spread of threats and improves monitoring by isolating sensitive systems.
+* **Answer:** Minimises the spread of threats and improves monitoring by isolating sensitive systems.
 
 46. **How do you detect malicious traffic in a packet capture (PCAP)?**
 
-* **Answer:** Look for unusual protocols, unauthorized IPs, or payloads with malicious content.
+* **Answer:** Look for unusual protocols, unauthorised IPs, or payloads with malicious content.
 
 47. **What is the role of the NetFlow tool in network security?**
 
 * **Answer:** Provides metadata about traffic flows, helping identify anomalies like data exfiltration.
 
-## <mark style="color:blue;">**Cloud Security and Tools (10)**</mark>
+### <mark style="color:blue;">**Cloud Security and Tools**</mark>
 
 48. **What are common threats in cloud environments?**
 
@@ -264,18 +260,18 @@
 
 49. **How do you use Splunk for threat detection?**
 
-* **Answer:** Use SPL queries to analyze logs, create dashboards, and set alerts for anomalous activities.
+* **Answer:** Use SPL queries to analyse logs, create dashboards, and set alerts for anomalous activities.
 
 50. **How do you investigate a misconfigured cloud storage bucket?**
 
 * **Answer:**
   * Identify permissions and access logs.
-  * Check for unauthorized data access.
+  * Check for unauthorised data access.
   * Correct permissions to least privilege.
 
 51. **What tools would you use for threat detection in the cloud?**
 
-* **Answer:** Use tools like AWS GuardDuty, Azure Sentinel, or Google Chronicle for monitoring and alerting.
+* **Answer:** Use tools like AWS GuardDuty, Asure Sentinel, or Google Chronicle for monitoring and alerting.
 
 52. **What are common vulnerabilities in cloud deployments?**
 
@@ -288,11 +284,11 @@
 
 * **Answer:** SIEM collects logs from cloud resources, applies correlation rules, and provides dashboards for monitoring threats.
 
-## <mark style="color:blue;">Incident Response and Automation</mark>
+### <mark style="color:blue;">Incident Response and Automation</mark>
 
 54. **What is playbook automation in incident response?**
 
-* **Answer:** Automating repetitive tasks, such as IP blocking or log analysis, using tools like SOAR (Security Orchestration, Automation, and Response).
+* **Answer:** Automating repetitive tasks, such as IP blocking, using tools like SOAR (Security Orchestration, Automation, and Response).
 
 55. **What are the stages of the incident response lifecycle?**
 
@@ -306,40 +302,40 @@
 
 57. **How do you handle obfuscated scripts during analysis?**
 
-* **Answer:** Deobfuscate using tools or manually analyze patterns. Check for encoding techniques or hidden payloads.
+* **Answer:** Deobfuscate using tools or manually analyse patterns. Check for encoding techniques or hidden payloads.
 
 58. **What is the purpose of using a SOAR platform in a SOC?**
 
 * **Answer:** To automate repetitive security tasks, enhance collaboration, and reduce incident response times.
 
-59. **How do you prioritize response actions during an active attack?**
+59. **How do you prioritise response actions during an active attack?**
 
 * **Answer:** Contain the threat to prevent further damage, followed by identification, eradication, and recovery steps.
 
 60. **How would you use YARA rules in malware analysis?**
 
-* **Answer:** Create signatures to match specific characteristics of known malware, enabling detection across files or memory.
+* **Answer:** CreateAnalyseures to match specific characteristics of known malware, enabling detection across files or memory.
 
 61. **What is a memory dump, and how is it useful?**
 
-* **Answer:** A memory dump captures the contents of system RAM, allowing forensic analysis of running processes, loaded modules, and malware artifacts.
+* **Answer:** A memory dump captures the contents of system RAM, running processes, loaded modules, and malware artifacts.
 
 62. **What are common SIEM queries to detect brute force attacks?**
 
 * **Answer:**
   * Look for repeated failed login attempts.
-  * Correlate login events from the same IP in a short time frame.
-  * Analyze user account lockout logs.
+  * Correlate login analysis from the same IP in the time frame.
+  * Analyse user account lockout logs.
 
-63. **How do you use Velociraptor in threat hunting?**
+63. **How would you use Velociraptor in threat hunting?**
 
-* **Answer:** Use its VQL queries to hunt for malicious processes, analyze file changes, and monitor Windows Security Logs for suspicious activity.
+* **Answer:** Use VQL queries to hunt for malicious processes, analyse file changes, and monitor Windows for suspicious activity.
 
-## <mark style="color:blue;">**Scenario-Based Questions**</mark>&#x20;
+### <mark style="color:blue;">**Scenario-Based Questions**</mark>&#x20;
 
-1. **A user reports their system is slow and files are disappearing. How would you approach this situation?**
-   * **Answer:** Begin by isolating the system to prevent further potential spread of malware. Then, collect initial logs and evidence, such as task manager outputs, network activity, and recent event logs. Analyze for malware indicators like unexpected processes or unauthorized file access.
-2. **What steps would you take if you identified an unauthorized login to a critical server?**
+1. **A user reports** **their system unauthorisedfiles are disappearing. How would you approach this situation?**
+   * **Answer:** Begin by isolating the system to prevent further potential spread of malware. Then, collect initial logs and evidence, such as task manager outputs, network activity, and recent event logs. Analyse for malware indicators like unexpected processes or unauthorised file access.&#x20;
+2. What action would you take if you identified unauthorised access to a critical server?
    * **Answer:**
      1. Alert relevant stakeholders.
      2. Immediately terminate the session.
@@ -348,35 +344,35 @@
      5. Patch vulnerabilities and reset credentials.
      6. Monitor for further attempts.
 3. **Describe your response if an employee reports a phishing email.**
-   * **Answer:** Quarantine the email in the organization’s system, investigate its source, and check for similar emails in the network. Educate the reporting employee and notify others about the threat.
-4. **You find suspicious outbound traffic from a workstation to an unknown IP. What do you do?**
+   * **Answer: Quarantine the email, investigate its source, and check for other users who may have received the organisation, if malicious block associated IOCs on the email security devices.** Educate the reporting employee and others about the threat.
+4. **You find suspicious outbound traffic from a workstation to an unknown IP. Whatanalyse do?**
    * **Answer:**
      1. Block the IP in the firewall.
      2. Investigate the workstation for signs of compromise.
-     3. Analyze network traffic to identify patterns or associated malicious activity.
-5. **How would you handle a ransomware outbreak in the organization?**
-   * **Answer:**
-     1. Isolate affected systems.
-     2. Identify the ransomware type.
-     3. Notify incident response teams.
-     4. Use backups for recovery if available.
-     5. Conduct a root cause analysis and improve defenses.
-6. **What do you do if you detect a brute force attack on a system?**
+     3. Analyse network traffic to identify patterns or associated malicious activity.
+5. **How would you handle a ransomware outbreak in the organisation?**&#x20;
+   * Answer:
+     * Isolate affected systems
+     * Identify the ransomware type.
+     * Notify incident response teams.
+     * Use backups for recovery if available.
+     * Conduct a root cause analysis and improve defences.
+6. What do you do if you detect a brute-force attack on a syste&#x6D;**?**
    * **Answer:**
      1. Identify the source of the attack.
      2. Block the source IP(s).
      3. Increase account lockout settings.
      4. Notify the account owner and SOC team.
      5. Conduct a vulnerability assessment to prevent future occurrences.
-7. **A critical patch is released. How do you prioritize deployment?**
+7. **A critical patch is released. How do you prioritise deployment?**
    * **Answer:**
      1. Identify affected systems.
      2. Assess the severity of the vulnerability.
-     3. Prioritize based on exposure and criticality.
-     4. Test the patch in a sandbox environment.
-     5. Deploy in phases to minimize disruption.
+     3. Prioritise based on exposure and criticality.
+     4. Testorganisation’sa sandbox environment.
+     5. Deploy in phases to minimise disruption.
 8. **What actions would you take if a malicious insider is identified?**
-   * **Answer:** Follow the organization’s incident response policy:
+   * **Answer:** Follow the organisation’s incident response policy:
      1. Gather evidence discreetly.
      2. Notify HR and legal teams.
      3. Revoke access to systems.
@@ -386,7 +382,7 @@
      1. Isolate the infected machine.
      2. Review logs for suspicious activities.
      3. Identify indicators of compromise (IoCs).
-     4. Analyze file hashes against threat intelligence sources.
+     4. Analyse file hashes against threat intelligence sources.
      5. Eradicate malware and validate remediation.
 10. **How would you handle a report of data exfiltration?**
     * **Answer:**
@@ -400,19 +396,19 @@
       1. Isolate the employee’s system immediately.
       2. Scan for malware using endpoint detection tools.
       3. Check logs for lateral movement.
-      4. Educate the employee on recognizing phishing attempts.
-12. **How would you prioritize multiple security alerts in a SOC environment?**
+      4. Educate the employee on recognising phishing attempts.
+12. **How would you prioritise multiple security alerts in a SOC environment?**
     * **Answer:** Use a risk-based approach considering factors like the criticality of affected systems, the type of alert, and potential business impact.
 13. **What would you do if a security tool flagged false positives repeatedly?**
     * **Answer:** Tune the tool’s detection rules based on observed patterns, update threat intelligence sources, and document changes for continuous improvement.
 14. **A user reports seeing pop-ups and redirects on their browser. What could this indicate?**
     * **Answer:** Likely adware or browser hijacking. Investigate by checking installed extensions, processes, and web traffic for anomalies.
 15. **What would you do if DNS traffic spikes unexpectedly?**
-    * **Answer:** Investigate for signs of DNS tunneling or exfiltration. Analyze DNS logs for unusual domains or patterns.
+    * **Answer:** Investigate for signs of DNS tunneling or exfiltration. Analyse DNS logs for unusual domains or patterns.
 16. **You detect a large number of failed login attempts from a single IP. What do you do?**
     * **Answer:**
       1. Block the IP temporarily.
-      2. Analyze logs to confirm a brute force attack.
+      2. Analyse logs to confirm a brute force attack.
       3. Notify affected users to secure their accounts.
       4. Strengthen access controls.
 17. **How would you handle an alert about suspicious file encryption activity?**
@@ -421,22 +417,22 @@
       2. Identify the source of encryption processes.
       3. Look for ransomware IoCs and mitigate further spread.
       4. Restore files from backup.
-18. **How do you ensure the SOC operates efficiently during a major incident?**
+18. **How do you ensure the SOC operates efficiently during a significant incident?**
 
 * **Answer:**
   * Define roles and responsibilities in the incident response plan.
   * Ensure effective communication channels.
   * Use automation to reduce repetitive tasks.
 
-19. **A critical vulnerability is identified in software used by your organization. What next?**
+19. **A critical vulnerability is identified in software used by your organisation. What next?**
 
 * **Answer:** Assess exposure, notify teams, and apply mitigations like virtual patches or configuration changes until an official patch is available.
 
-20. **Describe your response if unauthorized access to an email account is reported.**
+20. **Describe your response if unauthorised access to an email account is reported.**
 
 * **Answer:**
   1. Reset the account credentials.
-  2. Investigate login logs for suspicious IPs.
+  2. Investigate login attempts from authorised or suspicious IPs.
   3. Check for potential data leaks.
   4. Enable multi-factor authentication (MFA) if not already in place.
 
@@ -444,7 +440,7 @@
 
 * **Answer:**
   1. Identify the source of the calls.
-  2. Review logs for unauthorized access attempts.
+  2. Review logs for unauthorised access attempts.
   3. Check if API keys have been leaked or misused.
   4. Rotate API credentials and apply stricter rate limiting.
 
@@ -452,7 +448,7 @@
 
 * **Answer:**
   1. Enable DDoS protection via WAF or CDN services.
-  2. Analyze traffic to identify patterns or attacker IPs.
+  2. Analyse traffic to identify patterns or attacker IPs.
   3. Implement rate limiting and block IP ranges if necessary.
   4. Notify stakeholders and continue monitoring.
 
@@ -468,7 +464,7 @@
 * **Answer:**
   1. Check file integrity monitoring (FIM) logs for changes.
   2. Correlate with user or process activity.
-  3. Investigate the source and mitigate if unauthorized.
+  3. Investigate the source and mitigate if unauthorised.
 
 25. **An endpoint protection solution quarantines a critical business application. What do you do?**
 
@@ -480,7 +476,7 @@
 26. **How would you handle an employee who repeatedly violates acceptable use policies?**
 
 * **Answer:**
-  1. Document instances of policy violations.
+  1. Sanitise instances of policy violations.
   2. Educate the employee on the risks.
   3. Escalate to HR if violations persist.
 
@@ -494,7 +490,7 @@
 28. **Describe your approach to mitigating a cross-site scripting (XSS) vulnerability.**
 
 * **Answer:**
-  * Sanitize and validate all user inputs.
+  * Sanitise and validate all user inputs.
   * Apply content security policies (CSPs).
   * Notify developers to patch application code.
 
@@ -509,7 +505,7 @@
 
 * **Answer:**
   1. Disconnect the device from the network.
-  2. Analyze the malware using a sandbox.
+  2. Analyse the malware using a sandbox.
   3. Scan connected systems for signs of infection.
 
 ## <mark style="color:blue;">**Behavioural Questions**</mark>
@@ -517,7 +513,7 @@
 1. **How do you manage multiple tasks and alerts in a high-pressure SOC environment?**
 
 * **Answer:**
-  * Prioritize tasks based on severity and impact.
+  * Prioritise tasks based on severity and impact.
   * Use ticketing systems to track progress.
   * Communicate effectively with the team to delegate tasks.
 
@@ -539,6 +535,6 @@
   * Reference documented processes or evidence to support your position.
   * Escalate to a supervisor if no agreement is reached.
 
-**5What motivates you to pursue a career in cybersecurity?**
+5. **What motivates you to pursue a career in cybersecurity?**
 
-* **Answer:** Highlight personal interests in problem-solving, passion for technology, and a desire to protect organizations from evolving threats.
+* **Answer:** Highlight personal interests in problem-solving, passion for technology, and a desire to protect organisations from evolving threats.
