@@ -62,4 +62,5 @@
 * [Training and Projects](training-and-projects.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
   * [Practice Interview Questions: Junior Cybersecurity Analysts](job-preparation-guide-junior-cybersecurity-analyst/practice-interview-questions-junior-cybersecurity-analysts.md)
-* [About Me](about-me.md)
+* [About Me](about-me/README.md)
+  * [Certifications](about-me/certifications.md)
