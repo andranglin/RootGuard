@@ -1,11 +1,11 @@
 ---
 icon: laptop-code
-description: 'Work in progress: Will be add content on a frequent basis.'
-cover: .gitbook/assets/Screenshot 2025-01-04 151532.png
+description: The environment may have already been compromised; you just don't know it yet!
+cover: ../.gitbook/assets/Screenshot 2025-01-04 151532.png
 coverY: 0
 ---
 
-# Intrusion Detection/Prevention
+# Intrusion Detection
 
 ## <mark style="color:blue;">**Introduction**</mark>
 
