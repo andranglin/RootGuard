@@ -13,3 +13,12 @@ The objective is to share my experiences, create a space for continuous learning
 A significant part of our field is the willingness of others to share their research, knowledge and expertise. I will refer to the content of other professionals whose work has helped my development.
 
 Thanks for stopping by.
+
+
+
+**You can also visit:**
+
+**LinkedIn:** [https://www.linkedin.com/in/adrian-anglin-76b29972](https://www.linkedin.com/in/adrian-anglin-76b29972)
+
+**Twitter:** @adriananglin
+
