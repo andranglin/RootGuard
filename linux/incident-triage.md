@@ -306,6 +306,80 @@ grep -v cron /var/log/auth.log* | grep -i -e "command=" -e "su:" -e "groupadd" -
 ```
 {% endcode %}
 
+### <mark style="color:blue;">Open Files and Space Usage</mark> <a href="#open-files-and-space-usage" id="open-files-and-space-usage"></a>
+
+```bash
+lsof
+du
+```
+
+### <mark style="color:blue;">Disk / Partition Information</mark> <a href="#disk--partition-information" id="disk--partition-information"></a>
+
+```bash
+fdisk -l
+```
+
+### <mark style="color:blue;">Strings Present In File</mark> <a href="#strings-present-in-file" id="strings-present-in-file"></a>
+
+```bash
+strings [filepath]
+strings -e b [filepath]
+```
+
+### Hidden Directories and Files <a href="#hidden-directories-and-files" id="hidden-directories-and-files"></a>
+
+```bash
+find / -type d -name ".*"
+```
+
+### <mark style="color:blue;">Immutable Files and Directories (Often Suspicious)</mark> <a href="#immutable-files-and-directories-often-suspicious" id="immutable-files-and-directories-often-suspicious"></a>
+
+```bash
+lsattr / -R 2> /dev/null | grep "\----i"
+```
+
+### <mark style="color:blue;">SUID/SGID and Sticky Bit Special Permissions</mark> <a href="#suidsgid-and-sticky-bit-special-permissions" id="suidsgid-and-sticky-bit-special-permissions"></a>
+
+```bash
+find / -type f \( -perm -04000 -o -perm -02000 \) -exec ls -lg {} \;
+```
+
+### <mark style="color:blue;">File and Directories with no user/group name</mark> <a href="#file-and-directories-with-no-usergroup-name" id="file-and-directories-with-no-usergroup-name"></a>
+
+```bash
+find / \( -nouser -o -nogroup \) -exec ls -lg  {} \;
+```
+
+### <mark style="color:blue;">File Types in Current Directory</mark> <a href="#file-types-in-current-directory" id="file-types-in-current-directory"></a>
+
+```bash
+file * -p
+```
+
+### <mark style="color:blue;">Executables on File System</mark> <a href="#executables-on-file-system" id="executables-on-file-system"></a>
+
+```bash
+find / -type f -exec file -p '{}' \; |  grep ELF
+```
+
+### <mark style="color:blue;">Hidden Executables on File System</mark> <a href="#hidden-executables-on-file-system" id="hidden-executables-on-file-system"></a>
+
+```bash
+find / -name ".*" -exec file -p '{}' \; | grep ELF
+```
+
+### <mark style="color:blue;">Files Modified Within the Past Day</mark> <a href="#files-modified-within-the-past-day" id="files-modified-within-the-past-day"></a>
+
+```bash
+find / -mtime -1
+```
+
+### <mark style="color:blue;">Find Files for a Particular User</mark> <a href="#find-files-for-a-particular-user" id="find-files-for-a-particular-user"></a>
+
+```bash
+find /home/ -user fred -type f
+```
+
 ### <mark style="color:blue;">Hunting Unusual Files</mark>
 
 {% code overflow="wrap" %}
