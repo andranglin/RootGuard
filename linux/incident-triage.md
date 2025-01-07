@@ -221,7 +221,26 @@ cat /proc/<PID>
 pstree -a
 ```
 
-#### Recover a Deleted Process Binary.
+### <mark style="color:blue;">Recover deleted binary, which is currently running</mark> <a href="#recover-deleted-binary-which-is-currently-running" id="recover-deleted-binary-which-is-currently-running"></a>
+
+```bash
+cp /proc/[PID]/exe /[destination]/[binaryname]
+```
+
+### <mark style="color:blue;">Capture Binary Data for Review</mark> <a href="#capture-binary-data-for-review" id="capture-binary-data-for-review"></a>
+
+```bash
+cp /proc/[PID]/ /[destination]/[PID]/
+```
+
+### <mark style="color:blue;">Binary Hash Information</mark> <a href="#binary-hash-information" id="binary-hash-information"></a>
+
+```bash
+sha1sum /[destination]/[binaryname]
+md5sum /[destination]/[binaryname]
+```
+
+### <mark style="color:blue;">Recover a Deleted Process Binary</mark>.
 
 This method attempts to recover the binary executable from the process’s memory by extracting a portion of the memory associated with the process.
 
