@@ -395,7 +395,7 @@ strings [filepath]
 strings -e b [filepath]
 ```
 
-### Hidden Directories and Files <a href="#hidden-directories-and-files" id="hidden-directories-and-files"></a>
+### <mark style="color:blue;">Hidden Directories and Files</mark> <a href="#hidden-directories-and-files" id="hidden-directories-and-files"></a>
 
 ```bash
 find / -type d -name ".*"
