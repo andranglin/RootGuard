@@ -63,6 +63,8 @@
     * [Defender For Identity](intrusion-detection/kql-dfir-hunt-and-detection-queries/defender-for-identity.md)
     * [Defender For Office](intrusion-detection/kql-dfir-hunt-and-detection-queries/defender-for-office.md)
     * [Defender For Endpoint](intrusion-detection/kql-dfir-hunt-and-detection-queries/defender-for-endpoint.md)
+* [Linux Systems](linux-systems/README.md)
+  * [Basic Lunix Commands](linux-systems/basic-lunix-commands.md)
 * [Training and Projects](training-and-projects.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
   * [Practice Interview Questions: Junior Cybersecurity Analysts](job-preparation-guide-junior-cybersecurity-analyst/practice-interview-questions-junior-cybersecurity-analysts.md)
