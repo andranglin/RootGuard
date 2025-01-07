@@ -1006,6 +1006,48 @@ utmpdump /var/run/utmp
 utmpdump /var/log/wtmp
 ```
 
+### <mark style="color:blue;">Size Of File (Bytes)</mark> <a href="#size-of-file-bytes" id="size-of-file-bytes"></a>
+
+```bash
+wc -c [file]
+```
+
+### <mark style="color:blue;">IP Making Most Requests in Access Log</mark> <a href="#ip-making-most-requests-in-access-log" id="ip-making-most-requests-in-access-log"></a>
+
+```bash
+cut -d " " -f 1 access.log | sort | uniq -c | sort -n -k 1,1
+```
+
+### <mark style="color:blue;">Count of Unique IPs in Access Log</mark> <a href="#count-of-unique-ips-in-access-log" id="count-of-unique-ips-in-access-log"></a>
+
+```bash
+cut -d " " -f 1 access.log | sort -u | wc -l
+```
+
+### <mark style="color:blue;">Unique User Agents in Access Log</mark> <a href="#unique-user-agents-in-access-log" id="unique-user-agents-in-access-log"></a>
+
+```bash
+awk -F \" '{ print $6 }' access.log | sort -u
+```
+
+### <mark style="color:blue;">Most Requested URLs For POST Request in Access Log</mark> <a href="#most-requested-urls-for-post-request-in-access-log" id="most-requested-urls-for-post-request-in-access-log"></a>
+
+```bash
+awk -F \" '{ print $2 }' access.log | grep "POST" | sort | uniq -c | sort -n -k 1,1
+```
+
+### <mark style="color:blue;">Lines In File</mark> <a href="#lines-in-file" id="lines-in-file"></a>
+
+```bash
+wc -l [file]
+```
+
+### <mark style="color:blue;">Search Files Recursively in a Directory for Keyword</mark> <a href="#search-files-recursively-in-directory-for-keyword" id="search-files-recursively-in-directory-for-keyword"></a>
+
+```bash
+grep -H -i -r "password" /
+```
+
 ### <mark style="color:blue;">Log Analysis</mark>
 
 Tools such as SIEM or CA scanners could speed up the analysis of the log analysis.
@@ -1045,6 +1087,19 @@ Examining access.log content:
 * `Mozilla/5.0 …` = User-Agent
 
 We can use external tools such as `goaccess` to briefly analyze access.log.
+
+### <mark style="color:blue;">Decode base64 Encoded File</mark> <a href="#decode-base64-encoded-file" id="decode-base64-encoded-file"></a>
+
+```bash
+base64 -d [filename]
+echo [b64stream] | base64 -d
+```
+
+### <mark style="color:blue;">Difference Between 2 Files</mark> <a href="#difference-between-2-files" id="difference-between-2-files"></a>
+
+```bash
+diff [file1] [file2]
+```
 
 ### <mark style="color:blue;">Privilege Escalation Hunting Ideas</mark>
 
