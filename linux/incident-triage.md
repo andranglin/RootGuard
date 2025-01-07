@@ -199,6 +199,75 @@ cat /etc/crontab
 crontab -l
 ```
 
+### <mark style="color:blue;">Process Information</mark> <a href="#process-information-2" id="process-information-2"></a>
+
+```bash
+ps -s
+ps -l
+ps -o
+ps -t
+ps -m
+ps -a
+ps -ax
+top
+```
+
+### <mark style="color:blue;">Process Tree</mark> <a href="#process-tree" id="process-tree"></a>
+
+```bash
+ps -auxwf
+```
+
+### <mark style="color:blue;">Process Command Line Information</mark> <a href="#process-command-line-information" id="process-command-line-information"></a>
+
+```bash
+cat /proc/[PID]/cmdline
+cat /proc/[PID]/comm
+```
+
+### <mark style="color:blue;">Detailed Process Information</mark> <a href="#detailed-process-information" id="detailed-process-information"></a>
+
+```bash
+ls -al /proc/[PID]
+```
+
+### <mark style="color:blue;">Process Environment Variables (incl user who ran binary)</mark> <a href="#process-environment-variables-incl-user-who-ran-binary" id="process-environment-variables-incl-user-who-ran-binary"></a>
+
+```bash
+strings /proc/[PID]/environ
+cat /proc/[PID]/environ
+```
+
+### <mark style="color:blue;">Process File Descriptors/Maps (what the process is ‘accessing’ or using)</mark> <a href="#process-file-descriptorsmaps-what-the-process-is-accessing-or-using" id="process-file-descriptorsmaps-what-the-process-is-accessing-or-using"></a>
+
+```bash
+ls -al /proc/[PID]/fd
+cat /proc/[PID]/maps
+```
+
+### <mark style="color:blue;">Process Stack/Status Information (may reveal useful elements)</mark> <a href="#process-stackstatus-information-may-reveal-useful-elements" id="process-stackstatus-information-may-reveal-useful-elements"></a>
+
+```bash
+cat /proc/[PID]/stack
+cat /proc/[PID]/status
+```
+
+### <mark style="color:blue;">Deleted Binaries Which are Still Running</mark> <a href="#deleted-binaries-which-are-still-running" id="deleted-binaries-which-are-still-running"></a>
+
+```bash
+ls -alr /proc/*/exe 2> /dev/null |  grep deleted
+```
+
+### <mark style="color:blue;">Process Working Directories (including common targeted directories)</mark> <a href="#process-working-directories-including-common-targeted-directories" id="process-working-directories-including-common-targeted-directories"></a>
+
+```bash
+ls -alr /proc/*/cwd
+ls -alr /proc/*/cwd 2> /dev/null | grep tmp
+ls -alr /proc/*/cwd 2> /dev/null | grep dev
+ls -alr /proc/*/cwd 2> /dev/null | grep var
+ls -alr /proc/*/cwd 2> /dev/null | grep home
+```
+
 ### <mark style="color:blue;">Review Processes</mark>
 
 Review all running processes; the following command could identify potentially malicious processes
@@ -1087,6 +1156,13 @@ Examining access.log content:
 * `Mozilla/5.0 …` = User-Agent
 
 We can use external tools such as `goaccess` to briefly analyze access.log.
+
+### <mark style="color:blue;">Strings Present In File</mark> <a href="#strings-present-in-file" id="strings-present-in-file"></a>
+
+```bash
+strings [filepath]
+strings -e b [filepath]
+```
 
 ### <mark style="color:blue;">Decode base64 Encoded File</mark> <a href="#decode-base64-encoded-file" id="decode-base64-encoded-file"></a>
 
