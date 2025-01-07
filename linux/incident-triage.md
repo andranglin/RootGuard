@@ -1,5 +1,5 @@
 ---
-cover: ../../.gitbook/assets/Screenshot 2025-01-07 210910.png
+cover: ../.gitbook/assets/Screenshot 2025-01-07 210910.png
 coverY: 0
 ---
 
@@ -89,23 +89,6 @@ cat /proc/<PID>
 # Show process in tree view
 pstree -a
 ```
-
-| File/Directory in /proc/PID | Description                                                                      |
-| --------------------------- | -------------------------------------------------------------------------------- |
-| cmdline                     | Command-line arguments passed to the process                                     |
-| cwd                         | Symbolic link to the current working directory of the process                    |
-| exe                         | Symbolic link to the executable file of the process                              |
-| fd                          | Directory containing symbolic links to open file descriptors used by the process |
-| status                      | Various status information about the process                                     |
-| mem                         | Represents the process’s memory space                                            |
-| cpuinfo                     | CPU-related information for the process                                          |
-| maps                        | Memory maps of the process                                                       |
-| limits                      | Resource limits imposed on the process                                           |
-| io                          | I/O statistics for the process                                                   |
-| stat                        | Various statistics about the process                                             |
-| sched                       | Scheduling information for the process                                           |
-| syscall                     | Information about system calls made by the process                               |
-| oom\_score                  | OOM (Out-Of-Memory) score of the process                                         |
 
 #### Recover a Deleted Process Binary.
 
@@ -357,7 +340,7 @@ cat /var/spool/cron/atjobs
 ```
 {% endcode %}
 
-#### **Services and Systemd**
+### **Services and Systemd**
 
 Examine systemd configurations and unit files to identify any modifications or suspicious configurations that may have been made to services or startup processes.
 
@@ -511,11 +494,7 @@ df
 
 Using a CA scanner with YARA and SIGMA detection capabilities significantly speeds up our hunt for malicious and suspicious files in compromised systems. Running this scanner can save a considerable amount of time and prove invaluable during DFIR investigations.
 
-#### <mark style="color:blue;">THOR Lite</mark>
-
-THOR is a portable scanner to detect attacker tools and activity on suspicious or compromised server systems. We can use this free tool to scan our compromised hosts. Download: https://www.nextron-systems.com/thor-lite/ Extract the zip files and copy the license file into the extracted folder.
-
-<figure><img src="https://github.com/fareedfauzi/fareedfauzi.github.io/assets/56353946/d8f13e66-351f-450a-a5d6-774423a5045c" alt=""><figcaption></figcaption></figure>
+### <mark style="color:blue;">THOR Lite</mark>
 
 {% code overflow="wrap" %}
 ```bash
@@ -638,7 +617,7 @@ dcfldd if=/dev/sdb of=/media/sf_tmp/linux_forensic.img hash=sha256 hashwindow=1M
 
 ### <mark style="color:blue;">Memory Acquisition</mark>
 
-Memory acquisition and memory analysis are quite rare in Linux forensics as most analysts rely on live response actions and commands. To perform memory acquisition, we will use AVML or LIME.
+Memory acquisition and memory analysis are rare in Linux forensics, as most analysts rely on live response actions and commands. To perform memory acquisition, we will use AVML or LIME.
 
 #### <mark style="color:blue;">AVML</mark>
 
@@ -792,40 +771,9 @@ Note: If Autopsy or Sleauth-kit cannot open the disk partition, do convert the r
 
 #### **Directory**
 
-All directories from `/` to `/tmp` are crucial as well. Reviewing all the files in the system is a must to ensure we find all possible findings. But, what should we look at mostly during DFIR?
+All directories from `/` to `/tmp` are crucial as well. Reviewing all the files in the system must ensure we find all possible findings. But what should we look at mainly during DFIR?
 
-#### **/var/log**
 
-* Like Windows event logs in Windows OS
-* Security logs, application logs, etc
-
-#### **/home/$USER**
-
-* Like `%USERPROFILE%` in Windows OS
-* User data and user configuration information
-
-#### **/etc**
-
-* Like `%SystemRoot%/System32/config` (Registry) in Windows OS
-* Primary system configuration directory
-*   Separate configuration files/dirs for each app. Source image: https://computingforgeeks.com/understanding-the-linux-file-system-hierarchy/
-
-    <figure><img src="https://github.com/fareedfauzi/fareedfauzi.github.io/assets/56353946/d7e2f6b8-8f5e-4be6-be9d-bc4a1f503432" alt=""><figcaption></figcaption></figure>
-
-### <mark style="color:blue;">**File Analysis**</mark>
-
-Always check the content of the file, MAC time, and INODE file such as below figure&#x20;
-
-<figure><img src="https://github.com/fareedfauzi/fareedfauzi.github.io/assets/56353946/34fd7fe4-c85d-4edb-bf7b-114062b32e36" alt=""><figcaption></figcaption></figure>
-
-#### Identify if it a malware or not by:
-
-1. Lookup hash in VT
-2. strings command
-3. Upload binary in VT (sensitive)
-4. Upload binary in local sandbox
-5. Reverse engineering
-6. Dynamic analysis in malware lab
 
 ### <mark style="color:blue;">Log Analysis</mark>
 
