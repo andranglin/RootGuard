@@ -31,15 +31,12 @@ EmailEvents
     TotalRecipients = array_length(EmailRecipients), // Count unique email recipients
     DevicesWithFileInteraction = array_length(DevicesWithFile) // Count unique devices interacting with the file
 //| order by Tim desc // Sort by the most recent email event
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Identifying Executable File Attachments Sent to Users</mark>
 
-Use Case:
-
-Threat Actors often use executable files to gain initial access. This query detects a common set of extensions that are normally targeted at Windows systems.
+**Use Case:** Threat Actors often use executable files to gain initial access. This query detects a common set of extensions that are normally targeted at Windows systems.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -64,13 +61,7 @@ EmailEvents
 
 ## <mark style="color:blue;">Search for Malware File Detected In Office 365</mark>
 
-#### Use Case:
-
-This advanced query allows SOC analysts to:
-
-* Detect and prioritize malware activity within Office workloads.
-* Identify patterns in malware types and affected file extensions.
-* Gain insights into impacted users and files for targeted remediation.
+**Use Case:** This advanced query allows SOC analysts to: Detect and prioritize malware activity within Office workloads. Identify patterns in malware types and affected file extensions. Gain insights into impacted users and files for targeted remediation.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -136,15 +127,12 @@ EmailEvents
     SuspiciousSubjectCount, // Count of emails with suspicious subjects
     ExecutableAttachments // Count of emails with executable attachments
 | order by Timestamp desc // Sort by the most recent campaigns
-
 ```
 {% endcode %}
 
 ## <mark style="color:blue;">Identifying Emails Categorised as Suspicious Delivered to Users</mark>&#x20;
 
-#### Use Case:
-
-This query is ideal for investigating emails sent to a compromised address, analyzing associated threats, and understanding post-delivery actions to mitigate risks effectively.
+**Use Case:** This query is ideal for investigating emails sent to a compromised address, analyzing associated threats, and understanding post-delivery actions to mitigate risks effectively.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -199,9 +187,7 @@ EmailInformation
 
 ### <mark style="color:blue;">Identify User UrlClick Events</mark>&#x20;
 
-User Cases:
-
-Identify emails with URLs  sent to user and they may have clicked URL and it wasn’t blocked.
+User Cases: Identify emails with URLs sent to user and they may have clicked URL and it wasn’t blocked.
 
 {% code overflow="wrap" %}
 ```kusto

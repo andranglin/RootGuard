@@ -2,9 +2,7 @@
 
 ### <mark style="color:blue;">Devices Accessed By Compromised Device</mark>
 
-#### Use Case:
-
-Query  helpful for identifying lateral movement and suspicious activities stemming from the compromised device. It enables SOC analysts to correlate activity and prioritise mitigation steps effectively.
+Use Case: Query helpful for identifying lateral movement and suspicious activities stemming from the compromised device. It enables SOC analysts to correlate activity and prioritise mitigation steps effectively.&#x20;
 
 Defender :
 
@@ -45,7 +43,6 @@ IdentityLogonEvents
     TargetDevices, // List of target devices
     AccessEventCount // Count of access events
 | order by FormattedTimestamp desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
@@ -87,15 +84,12 @@ IdentityLogonEvents
     TargetDevices, // List of target devices
     AccessEventCount // Count of access events
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Identify All Suspicious Activities From The Compromised Accounts</mark>
 
-#### Use Case:
-
-This query is useful for investigating potential lateral movement, unauthorised access, or malicious actions originating from compromised accounts. It provides actionable insights to guide further analysis and remediation.
+**Use Case:** This query is useful for investigating potential lateral movement, unauthorised access, or malicious actions originating from compromised accounts. It provides actionable insights to guide further analysis and remediation.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -182,15 +176,10 @@ SecurityEvent
     LogonTypeName, // Logon type description
     ProcessName // Name of the process involved
 | order by TimeGenerated desc // Sort by most recent events
-
 ```
 {% endcode %}
 
-#### Use Case:
-
-This query is ideal for monitoring failed login attempts in cloud environments where Azure AD is the authentication provider. It provides detailed insights into failed attempts, aiding in detecting brute force attacks or identifying suspicious login activity. Let me know if you need further adjustments!
-
-Failed login attempts for one or multiple user accounts from the **SigninLogs** table
+**Use Case:** This query is ideal for monitoring failed login attempts in cloud environments where Azure AD is the authentication provider. It provides detailed insights into failed attempts, aiding in detecting brute force attacks or identifying suspicious login activity. Let me know if you need further adjustments! Failed login attempts for one or multiple user accounts from the SigninLogs table
 
 {% code overflow="wrap" %}
 ```kusto
@@ -238,15 +227,12 @@ SigninLogs
     MFAStatuses = make_set(MFARequired) // MFA statuses
     by UserPrincipalName, bin(TimeGenerated, 1h) // Group by user and hourly bins
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
-A query using the **IdentityLogonEvents** table to identify failed login attempts with additional insights for investigation:
+A query using the IdentityLogonEvents table to identify failed login attempts with additional insights for investigation:&#x20;
 
-#### Use Case:
-
-This query is useful for identifying failed login attempts, understanding their context (e.g., IPs, devices, failure reasons), and detecting anomalies like brute force attacks or misconfigurations. It provides detailed and actionable information for investigation and remediation.
+**Use Case:** This query is useful for identifying failed login attempts, understanding their context (e.g., IPs, devices, failure reasons), and detecting anomalies like brute force attacks or misconfigurations. It provides detailed and actionable information for investigation and remediation.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -304,9 +290,7 @@ IdentityLogonEvents
 
 ### <mark style="color:blue;">Lateral Movement By Compromised Accounts</mark>
 
-#### Use Case:
-
-This query is tailored for detecting lateral movement by compromised accounts in your environment. By monitoring logon activity across devices, it helps identify patterns that could indicate attempts to expand access within the network.
+**Use Case:** This query is tailored for detecting lateral movement by compromised accounts in your environment. By monitoring logon activity across devices, it helps identify patterns that could indicate attempts to expand access within the network.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -349,15 +333,12 @@ IdentityLogonEvents
     FailureReasons = make_set(FailureReason) // List of failure reasons (for failed attempts)
     by AccountName, bin(Timestamp, 1h) // Group by account and hourly time bins
 | order by Timestamp desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">User Added To Sensitive Group</mark>
 
-#### Use Case:
-
-This query provides a detailed audit of group membership changes involving sensitive groups, including the initiator of the change and the added user. It is particularly useful for identifying unauthorized or suspicious changes in group memberships. Let me know if further refinements are needed!
+**Use Case:** This query provides a detailed audit of group membership changes involving sensitive groups, including the initiator of the change and the added user. It is particularly useful for identifying unauthorized or suspicious changes in group memberships. Let me know if further refinements are needed!
 
 {% code overflow="wrap" %}
 ```kusto
@@ -381,19 +362,12 @@ IdentityDirectoryEvents
     ActionType, // Action type for context
     AdditionalFields // Include all additional fields for further context if needed
 | order by Timestamp desc // Sort results by the most recent changes
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Anomalous Group Policy Discovery</mark>
 
-#### Use Case:
-
-This query is ideal for detecting:
-
-* Unauthorised enumeration of Group Policies.
-* Suspicious activity from new or unexpected devices, accounts, or IP addresses.
-* Potential reconnaissance or pre-attack activity.
+**Use Case:** This query is ideal for detecting: Unauthorised enumeration of Group Policies. Suspicious activity from new or unexpected devices, accounts, or IP addresses. Potential reconnaissance or pre-attack activity.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -430,15 +404,12 @@ IdentityQueryEvents
     QueryCount, // Number of queries
     IsHighFrequency // Flag for high-frequency queries
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">SMB File Copy</mark>
 
-#### Use Case:
-
-This query detects SMB file copy events that are initiated by suspect accounts. It helps identify unauthorised file transfers, providing relevant details for further investigation.
+**Use Case:** This query detects SMB file copy events that are initiated by suspect accounts. It helps identify unauthorised file transfers, providing relevant details for further investigation.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -462,7 +433,6 @@ IdentityDirectoryEvents
     SMBFileCopyCount, // Number of files copied
     AccountName // Accout name 
 | order by Timestamp desc // Sort results by the most recent events
-
 ```
 {% endcode %}
 
@@ -478,6 +448,5 @@ SecurityEvent
 | summarize EventCount = count() // Count occurrences of each unique combination
     by Computer, AccountName, ShareName, ShareLocalPath
 | order by EventCount desc // Sort by the highest number of events
-
 ```
 {% endcode %}
