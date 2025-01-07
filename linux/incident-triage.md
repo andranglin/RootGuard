@@ -75,7 +75,25 @@ ls /etc/*.d
 cat /etc/*.d/*
 ```
 
-## <mark style="color:blue;">Network Connections / Socket Stats</mark> <a href="#network-connections--socket-stats" id="network-connections--socket-stats"></a>
+### <mark style="color:blue;">Review Network</mark>
+
+Investigate any malicious connection and unexpected IP address
+
+{% code overflow="wrap" %}
+```bash
+#  List all TCP and UDP connections on your system along with their respective listening and non-listening sockets
+netstat -antup
+
+# kernel routing table
+netstat -rn
+route
+
+# Check static DNS lookups
+cat /etc/hosts
+```
+{% endcode %}
+
+### <mark style="color:blue;">Network Connections / Socket Stats</mark> <a href="#network-connections--socket-stats" id="network-connections--socket-stats"></a>
 
 ```bash
 netstat
@@ -216,24 +234,6 @@ head -1 maps
 
 # Extract memory content (1000 bytes) at specified ADDRESS to tmp directory
 dd if=mem bs=1 skip=ADDRESS count=1000 of=/tmp/recovered_proc_file
-```
-{% endcode %}
-
-### <mark style="color:blue;">Review Network</mark>
-
-Investigate any malicious connection and unexpected IP address
-
-{% code overflow="wrap" %}
-```bash
-#  List all TCP and UDP connections on your system along with their respective listening and non-listening sockets
-netstat -antup
-
-# kernel routing table
-netstat -rn
-route
-
-# Check static DNS lookups
-cat /etc/hosts
 ```
 {% endcode %}
 
@@ -410,6 +410,19 @@ cat /home/$USER/.recently-used.xbel
 ```
 {% endcode %}
 
+### <mark style="color:blue;">Persistent Areas of Interest</mark> <a href="#persistent-areas-of-interest" id="persistent-areas-of-interest"></a>
+
+```bash
+/etc/rc.local
+/etc/initd
+/etc/rc*.d
+/etc/modules
+/etc/cron*
+/var/spool/cron/*
+/usr/lib/cron/
+/usr/lib/cron/tabs
+```
+
 ### <mark style="color:blue;">**Webshell**</mark>
 
 Identifying potential webshell installations or modifications
@@ -453,7 +466,7 @@ cat /var/spool/cron/atjobs
 ```
 {% endcode %}
 
-### **Services and Systemd**
+### <mark style="color:blue;">**Services and Systemd**</mark>
 
 Examine systemd configurations and unit files to identify any modifications or suspicious configurations that may have been made to services or startup processes.
 
@@ -890,7 +903,15 @@ Note: If Autopsy or Sleauth-kit cannot open the disk partition, do convert the r
 
 All directories from `/` to `/tmp` are crucial as well. Reviewing all the files in the system must ensure we find all possible findings. But what should we look at mainly during DFIR?
 
+### <mark style="color:blue;">Audit Logs</mark> <a href="#audit-logs" id="audit-logs"></a>
 
+```bash
+ls -al /var/log/*
+ls -al /var/log/*tmp
+utmpdump /var/log/btmp
+utmpdump /var/run/utmp
+utmpdump /var/log/wtmp
+```
 
 ### <mark style="color:blue;">Log Analysis</mark>
 
