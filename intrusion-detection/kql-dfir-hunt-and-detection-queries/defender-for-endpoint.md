@@ -25,9 +25,7 @@ DeviceEvents
 
 ### <mark style="color:blue;">Detecting Anomalous RDP Connections</mark>
 
-#### Use Case:
-
-#### This query is designed to detect anomalous RDP activity in your environment, potentially indicating lateral movement or brute force attempts. By excluding known legitimate processes and focusing on private IPs, the query ensures that it highlights significant anomalies for further investigation.
+**Use Case:** This query is designed to detect anomalous RDP activity in your environment, potentially indicating lateral movement or brute force attempts. By excluding known legitimate processes and focusing on private IPs, the query ensures that it highlights significant anomalies for further investigation.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -75,19 +73,12 @@ DeviceNetworkEvents
     IPAddresses, // List of unique remote IPs involved in the activity
     ProcessNames // List of processes initiating the activity
 | order by RDPCount desc // Sort by RDP activity count in descending order
-
 ```
 {% endcode %}
 
-Detect Encoded Powershell and Decode
+### <mark style="color:blue;">Detect Encoded Powershell and Decode</mark>
 
-#### Use Case:
-
-This advanced query enables SOC analysts to:
-
-1. Detect and investigate suspicious encoded PowerShell commands.
-2. Decode and analyse commands to identify potential malicious activity.
-3. Highlight commands containing known malicious patterns for prioritisation.
+**Use Case:** This advanced query enables SOC analysts to: Detect and investigate suspicious encoded PowerShell commands. Decode and analyse commands to identify potential malicious activity. Highlight commands containing known malicious patterns for prioritisation.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -118,15 +109,12 @@ DeviceProcessEvents
     CommandLength, // Length of the decoded command
     SuspiciousKeywords // Indicator for suspicious patterns
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Inbound Public RDP Connections</mark>
 
-Use Case:
-
-Detect and analyse **inbound network connections** that may indicate potential security risks, particularly focusing on **RDP connections** and **suspicious svchost processes**.
+**Use Case:** Detect and analyse inbound network connections that may indicate potential security risks, particularly focusing on RDP connections and suspicious svchost processes.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -151,8 +139,6 @@ DeviceNetworkEvents
     IsRDPConnection, // Flag for RDP-specific connections
     SuspiciousProcess // Flag for suspicious svchost process
 | order by TimeGenerated desc // Sort by most recent events
-
-
 ```
 {% endcode %}
 
@@ -182,19 +168,12 @@ DeviceNetworkEvents
     Organization, // Organization associated with the remote IP
     IsSuspiciousAccount // Flag for suspicious accounts
     | order by TimeGenerated desc // Sort by most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Multiple Failed Remote Logons</mark>
 
-#### Use Case:
-
-This query helps detect suspicious patterns of failed logon attempts, such as:
-
-1. **Brute Force Attacks:** High-volume logon attempts from a single remote IP.
-2. **Lateral Movement Attempts:** Failed logons across multiple devices or accounts.
-3. **Threat Intelligence Correlation:** Identifying known malicious IPs attempting access.
+**Use Case:** This query helps detect suspicious patterns of failed logon attempts, such as: Brute Force Attacks: High-volume logon attempts from a single remote IP. Lateral Movement Attempts: Failed logons across multiple devices or accounts. Threat Intelligence Correlation: Identifying known malicious IPs attempting access.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -225,14 +204,7 @@ DeviceLogonEvents
 
 ### <mark style="color:blue;">Detect Putty Connections</mark>
 
-#### Use Cases:
-
-1. **Detect Unauthorised SSH/Telnet/RDP Connections:**
-   * Identifies potential misuse of PuTTY to connect to sensitive or unauthorised external systems.
-2. **Investigate Suspicious Remote Connections:**
-   * Provides geolocation, process details, and port usage for deeper forensic analysis.
-3. **Detect Misuse of Privileged Accounts:**
-   * Flags PuTTY usage by accounts that might be used for lateral movement or external exfiltration.
+**Use Cases:** Detect Unauthorised SSH/Telnet/RDP Connections: Identifies potential misuse of PuTTY to connect to sensitive or unauthorised external systems. Investigate Suspicious Remote Connections: Provides geolocation, process details, and port usage for deeper forensic analysis. Detect Misuse of Privileged Accounts: Flags PuTTY usage by accounts that might be used for lateral movement or external exfiltration.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -259,20 +231,12 @@ DeviceNetworkEvents
     ProcessHash, // SHA256 hash of the initiating process
     InitiatingProcessCommandLine // Full command line of the initiating process
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect RDP Recon Activities</mark>
 
-#### Use Cases:
-
-1. **Detect Potential Brute Force or Lateral Movement:**
-   * Identify devices with unusual RDP activity targeting multiple distinct IPs within a short timeframe.
-2. **Investigate Malicious RDP Usage:**
-   * Flag devices with excessive or suspicious RDP connection activity.
-3. **Monitor for Unauthorized Activity:**
-   * Detect potential misuse of RDP by correlating accounts and devices involved.
+**Use Cases:** Detect Potential Brute Force or Lateral Movement: Identify devices with unusual RDP activity targeting multiple distinct IPs within a short timeframe. Investigate Malicious RDP Usage: Flag devices with excessive or suspicious RDP connection activity. Monitor for Unauthorized Activity: Detect potential misuse of RDP by correlating accounts and devices involved.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -308,16 +272,7 @@ DeviceNetworkEvents
 
 ### <mark style="color:blue;">Detect Registry Tampering</mark>
 
-#### Use Cases:
-
-1. **Detect and Investigate Registry Tampering:**
-   * Identify attempts to modify critical registry keys, which may indicate malware or privilege escalation attempts.
-2. **Monitor Successful Tampering:**
-   * Highlight successful tampering attempts for immediate response.
-3. **Assess Threat Levels:**
-   * Prioritise high-risk events involving critical keys with successful tampering.
-4. **Forensic Analysis:**
-   * Use detailed process and registry key information for post-incident investigations.
+**Use Cases:** Detect and Investigate Registry Tampering: Identify attempts to modify critical registry keys, which may indicate malware or privilege escalation attempts. Monitor Successful Tampering: Highlight successful tampering attempts for immediate response. Assess Threat Levels: Prioritise high-risk events involving critical keys with successful tampering. Forensic Analysis: Use detailed process and registry key information for post-incident investigations.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -348,20 +303,12 @@ DeviceEvents
     OriginalRegistryValue, // Original value of the registry key
     AttemptedRegistryValue // Value attempted during the tampering
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect ISO File Mounts Followed by Browser-launched URL Activity</mark>
 
-#### Use Cases:
-
-1. **Detect Suspicious ISO File Mounts:**
-   * Correlates ISO file mounts with subsequent browser activity, potentially indicating phishing or lateral movement attempts.
-2. **Identify Malicious URL Usage:**
-   * Links browser activity to recently mounted ISO files, often a vector for malicious payloads.
-3. **Investigate User Behavior:**
-   * Associates user accounts and devices with specific file and web activity for deeper forensic analysis.
+**Use Cases:** Detect Suspicious ISO File Mounts: Correlates ISO file mounts with subsequent browser activity, potentially indicating phishing or lateral movement attempts. Identify Malicious URL Usage: Links browser activity to recently mounted ISO files, often a vector for malicious payloads. Investigate User Behavior: Associates user accounts and devices with specific file and web activity for deeper forensic analysis.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -403,20 +350,12 @@ DeviceFileEventsISO
     RemoteIP, // Remote IP address of the URL
     RemotePort // Remote port of the URL
 | order by ISOMountTime desc // Sort by the most recent ISO file mounts
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Identify Historical "whoami" Activity</mark>
 
-#### Use Cases:
-
-1. **Detect Suspicious "whoami" Usage:**
-   * Identify devices or accounts with recent "whoami" activity that have no prior history, which might indicate reconnaissance by attackers.
-2. **Monitor Command Usage Trends:**
-   * Track new or unusual accounts executing commands like "whoami" as part of a forensic investigation.
-3. **Investigate Account and Device Behavior:**
-   * Correlate account activity with device activity for enhanced context during incident response.
+**Use Cases:** Detect Suspicious "whoami" Usage: Identify devices or accounts with recent "whoami" activity that have no prior history, which might indicate reconnaissance by attackers. Monitor Command Usage Trends: Track new or unusual accounts executing commands like "whoami" as part of a forensic investigation. Investigate Account and Device Behavior: Correlate account activity with device activity for enhanced context during incident response.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -449,14 +388,7 @@ RecentWhoamiActivity
 
 ### <mark style="color:blue;">Detect Suspicious PowerShell Commands Altering the Execution Policy</mark>
 
-#### Use Cases:
-
-1. **Detect Execution Policy Changes:**
-   * Identify unauthorized or suspicious modifications to PowerShell's execution policy.
-2. **Investigate Potential Misuse of PowerShell:**
-   * Correlate execution policy changes with user accounts and parent processes to detect abuse.
-3. **Threat Hunting:**
-   * Highlight non-system accounts making potentially malicious changes to PowerShell settings.
+**Use Cases:** Detect Execution Policy Changes: Identify unauthorized or suspicious modifications to PowerShell's execution policy. Investigate Potential Misuse of PowerShell: Correlate execution policy changes with user accounts and parent processes to detect abuse. Threat Hunting: Highlight non-system accounts making potentially malicious changes to PowerShell settings.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -481,20 +413,12 @@ DeviceEvents
     ProcessID, // ID of the PowerShell process
     ParentProcessName // Name of the parent process
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Powershell Connecting to Internet Systems</mark>
 
-#### Use Cases:
-
-1. **Monitor PowerShell Network Activity:**
-   * Detect PowerShell commands making network connections to public IPs from private IPs.
-2. **Investigate Unauthorized Access:**
-   * Identify unusual or suspicious network activity initiated by user accounts.
-3. **Threat Hunting:**
-   * Highlight potential lateral movement or exfiltration attempts using PowerShell.
+**Use Cases:** Monitor PowerShell Network Activity: Detect PowerShell commands making network connections to public IPs from private IPs. Investigate Unauthorized Access: Identify unusual or suspicious network activity initiated by user accounts. Threat Hunting: Highlight potential lateral movement or exfiltration attempts using PowerShell.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -514,22 +438,12 @@ DeviceNetworkEvents
     RemotePort, // Remote port used in the connection
     RemoteUrl // Remote URL accessed
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Users Added to Local Administrators Group</mark>
 
-#### Use Cases:
-
-1. **Monitor Privilege Escalation:**
-   * Detect unauthorized addition of accounts to local administrator groups.
-2. **Threat Hunting:**
-   * Identify potential lateral movement or privilege escalation by attackers.
-3. **Audit and Compliance:**
-   * Provide evidence of group membership changes for compliance reporting.
-4. **Investigate Insider Threats:**
-   * Highlight unexpected group membership changes initiated by legitimate accounts.
+**Use Cases:** Monitor Privilege Escalation: Detect unauthorized addition of accounts to local administrator groups. Threat Hunting: Identify potential lateral movement or privilege escalation by attackers. Audit and Compliance: Provide evidence of group membership changes for compliance reporting. Investigate Insider Threats: Highlight unexpected group membership changes initiated by legitimate accounts.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -552,20 +466,12 @@ DeviceEvents
 | extend 
     IsSuspicious = iif(InitiatorAccount == "system" or AddedAccount has "admin", "False", "True") // Flag suspicious changes
 | order by TimeGenerated desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Known Credential Dumping Tools or Techniques</mark>
 
-#### Use Cases:
-
-1. **Detailed Credential Dumping Analysis:**
-   * Provides in-depth context for each detected event.
-2. **Parent-Child Process Relationships:**
-   * Useful for tracking execution chains and identifying anomalous parent processes.
-3. **Scope of Impact:**
-   * Highlights the number of affected devices and accounts for prioritising investigations.
+**Use Cases:** Detailed Credential Dumping Analysis: Provides in-depth context for each detected event. Parent-Child Process Relationships: Useful for tracking execution chains and identifying anomalous parent processes. Scope of Impact: Highlights the number of affected devices and accounts for prioritising investigations.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -649,23 +555,12 @@ credential_dumping_tools
     EventCount,
     AffectedDevices,
     AffectedAccounts;
-
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Certutil Remote Download</mark>
 
-#### Use Cases:
-
-1. **Detect Malicious File Downloads:**
-   * Identify attackers leveraging `certutil` to download malicious files remotely.
-2. **Investigate Certutil Abuse:**
-   * Certutil is often abused in living-off-the-land attacks; this query highlights such activity.
-3. **Threat Hunting:**
-   * Proactively search for potential threats involving `certutil` usage.
-4. **Incident Response:**
-   * Quickly correlate certutil events with potential lateral movement or privilege escalation.
+**Use Cases:** Detect Malicious File Downloads: Identify attackers leveraging certutil to download malicious files remotely. Investigate Certutil Abuse: Certutil is often abused in living-off-the-land attacks; this query highlights such activity. Threat Hunting: Proactively search for potential threats involving certutil usage. Incident Response: Quickly correlate certutil events with potential lateral movement or privilege escalation.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -687,22 +582,12 @@ DeviceProcessEvents
     DeviceId, // Device ID for additional correlation
     IsSuspicious // Indicator if the URL matches known suspicious patterns
 | order by TimeGenerated desc // Sort by most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Browser-Launched URL Activity on a Compromised Device</mark>
 
-#### Use Cases:
-
-1. **Detect Malicious Web Activity:**
-   * Identify suspicious URLs accessed on a compromised device.
-2. **Threat Hunting:**
-   * Correlate browser activity with other suspicious behavior on the same device.
-3. **Incident Response:**
-   * Prioritize investigation of events involving flagged suspicious domains.
-4. **Proactive Defense:**
-   * Use domain-level insights to refine URL filtering policies.
+**Use Cases:** Detect Malicious Web Activity: Identify suspicious URLs accessed on a compromised device. Threat Hunting: Correlate browser activity with other suspicious behavior on the same device. Incident Response: Prioritize investigation of events involving flagged suspicious domains. Proactive Defense: Use domain-level insights to refine URL filtering policies.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -728,22 +613,12 @@ DeviceEvents
     InitiatingProcessCommandLine, // Full command line of the initiating process
     InitiatingProcessFolderPath // Folder path of the initiating process
 | order by Timestamp desc // Sort by the most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect All Processes Created By Malicious File</mark>
 
-#### Use Cases:
-
-1. **Detect and Investigate Malicious File Activity:**
-   * Identify file activity for a specific SHA1 hash or filename.
-2. **Correlate File and Process Activity:**
-   * Link file presence with processes executing or interacting with it.
-3. **Incident Response:**
-   * Trace malicious file activity for root cause analysis and remediation.
-4. **Threat Hunting:**
-   * Enhance detection strategies by identifying patterns in malicious file execution.
+**Use Cases:** Detect and Investigate Malicious File Activity: Identify file activity for a specific SHA1 hash or filename. Correlate File and Process Activity: Link file presence with processes executing or interacting with it. Incident Response: Trace malicious file activity for root cause analysis and remediation. Threat Hunting: Enhance detection strategies by identifying patterns in malicious file execution.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -807,16 +682,7 @@ union isfuzzy=true
 
 ### <mark style="color:blue;">Inbound Connections Compromised Device</mark>
 
-#### Use Cases:
-
-1. **Detect Malicious Inbound Connections:**
-   * Identify unauthorized access attempts on compromised devices.
-2. **Enrich Threat Investigation:**
-   * Correlate inbound connections with process activity for a complete picture.
-3. **Incident Response:**
-   * Prioritize investigation of critical connections flagged as suspicious.
-4. **Threat Hunting:**
-   * Proactively monitor devices for potential exploitation or lateral movement.
+**Use Cases:** Detect Malicious Inbound Connections: Identify unauthorized access attempts on compromised devices. Enrich Threat Investigation: Correlate inbound connections with process activity for a complete picture. Incident Response: Prioritize investigation of critical connections flagged as suspicious. Threat Hunting: Proactively monitor devices for potential exploitation or lateral movement.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -874,20 +740,12 @@ InboundConnections
     FileName, 
     ProcessId
 | order by TimeGenerated desc;
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">List Malicious Activities</mark>
 
-#### Use Cases:
-
-1. **Centralized View of Security Events:**
-   * Provides a single pane of glass for all security-related events from a compromised device.
-2. **Incident Response:**
-   * Enables quick correlation and triage of ASR, AV, SmartScreen, AMSI, exploit guard, and tampering events.
-3. **Forensic Analysis:**
-   * Supplies detailed context for each event to support root cause analysis and containment strategies.
+**Use Cases:** Centralized View of Security Events: Provides a single pane of glass for all security-related events from a compromised device. Incident Response: Enables quick correlation and triage of ASR, AV, SmartScreen, AMSI, exploit guard, and tampering events. Forensic Analysis: Supplies detailed context for each event to support root cause analysis and containment strategies.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -996,22 +854,12 @@ let AMSIEvents = DeviceEvents
     AMSIEvents
 )
 | sort by Timestamp desc // Sort results by the most recent event
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detecting LOLBins with Network Activity</mark>
 
-#### Use Cases:
-
-1. **Detect LOLBin Abuse:**
-   * Identify LOLBins used for network activity, often indicative of malicious behavior.
-2. **Analyze Network Activity:**
-   * Extract and analyze IP addresses used in LOLBin command lines.
-3. **Prioritize Public IP Activity:**
-   * Highlight events involving public IPs to focus on potential exfiltration or attacker communication.
-4. **Threat Hunting:**
-   * Correlate LOLBin activity with other indicators of compromise for proactive threat detection.
+**Use Cases**: Detect LOLBin Abuse: Identify LOLBins used for network activity, often indicative of malicious behavior. Analyze Network Activity: Extract and analyze IP addresses used in LOLBin command lines. Prioritize Public IP Activity: Highlight events involving public IPs to focus on potential exfiltration or attacker communication. Threat Hunting: Correlate LOLBin activity with other indicators of compromise for proactive threat detection.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -1057,22 +905,12 @@ DeviceNetworkEvents
     CommandLineIP, // Extracted IP from command line
     IsPublicIP // Whether the IP is public
 | sort by Timestamp desc; // Sort results by most recent events
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect and Analyse LOLBin Activity</mark>
 
-#### Use Cases:
-
-1. **Detect Malicious Use of LOLBins:**
-   * Identify unusual or frequent usage of LOLBins, which may indicate attacker activity.
-2. **Investigate Process Ancestry:**
-   * Analyze parent processes to identify suspicious chains leading to LOLBin execution.
-3. **Correlate LOLBin Usage Across Devices and Accounts:**
-   * Track patterns of LOLBin usage across devices or user accounts to uncover potential lateral movement.
-4. **Prioritize Investigation:**
-   * Focus on LOLBins with high `Total Executions` or unusual parent processes.
+**Use Cases:** Detect Malicious Use of LOLBins: Identify unusual or frequent usage of LOLBins, which may indicate attacker activity. Investigate Process Ancestry: Analyze parent processes to identify suspicious chains leading to LOLBin execution. Correlate LOLBin Usage Across Devices and Accounts: Track patterns of LOLBin usage across devices or user accounts to uncover potential lateral movement. Prioritize Investigation: Focus on LOLBins with high Total Executions or unusual parent processes.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -1114,22 +952,12 @@ DeviceProcessEvents
     ParentProcesses = make_set(ParentProcess) // List distinct parent processes
     by InitiatingProcessFileName // Group by the LOLBin name
 | sort by TotalExecutions desc; // Sort by the highest number of executions
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Signs of Fileless Malware</mark>
 
-#### Use Cases:
-
-1. **Detect Fileless Malware:**
-   * Identify behaviors commonly associated with fileless malware.
-2. **Threat Hunting:**
-   * Uncover patterns in script execution, registry modifications, and in-memory attacks.
-3. **Incident Response:**
-   * Correlate suspicious activities to identify and prioritize potential compromises.
-4. **Proactive Monitoring:**
-   * Enhance detection capabilities for fileless threats that evade traditional file-based detection.
+**Use Cases:** Detect Fileless Malware: Identify behaviors commonly associated with fileless malware. Threat Hunting: Uncover patterns in script execution, registry modifications, and in-memory attacks. Incident Response: Correlate suspicious activities to identify and prioritize potential compromises. Proactive Monitoring: Enhance detection capabilities for fileless threats that evade traditional file-based detection.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -1176,22 +1004,12 @@ union isfuzzy=true
     "Suspicious Process Execution")
 | project TimeGenerated, DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessCommandLine, TargetRegistryKey, InitiatingProcessParentFileName, RemoteIP, RemoteDomain, RemotePort, Indicator
 | order by TimeGenerated desc;
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Signs of Lateral Movement Using WMI</mark>
 
-#### Use Cases:
-
-1. **Detect Lateral Movement via WMI:**
-   * Identify attackers leveraging WMI for remote command execution or reconnaissance.
-2. **Threat Hunting:**
-   * Proactively search for unusual WMI activity across the network.
-3. **Incident Response:**
-   * Correlate WMI-related activity with other indicators of compromise.
-4. **Persistence Detection:**
-   * Detect registry modifications associated with WMI persistence mechanisms.
+**Use Cases:** Detect Lateral Movement via WMI: Identify attackers leveraging WMI for remote command execution or reconnaissance. Threat Hunting: Proactively search for unusual WMI activity across the network. Incident Response: Correlate WMI-related activity with other indicators of compromise. Persistence Detection: Detect registry modifications associated with WMI persistence mechanisms.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -1236,22 +1054,12 @@ union isfuzzy=true
 )
 | project TimeGenerated, DeviceName, InitiatingProcessFileName, InitiatingProcessCommandLine, RemoteIP, RemotePort, InitiatingProcessParentFileName, ProcessCommandLine, TargetRegistryKey, Indicator
 | order by TimeGenerated desc;
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Signs of Privilege Escalation</mark>
 
-#### Use Cases:
-
-1. **Detect Privilege Escalation:**
-   * Identify accounts or processes attempting to elevate privileges.
-2. **Proactive Threat Hunting:**
-   * Uncover patterns of suspicious behavior indicative of privilege escalation.
-3. **Incident Response:**
-   * Correlate detected events with other indicators of compromise.
-4. **Audit and Compliance:**
-   * Monitor for unauthorized privilege changes.
+**Use Cases:** Detect Privilege Escalation: Identify accounts or processes attempting to elevate privileges. Proactive Threat Hunting: Uncover patterns of suspicious behavior indicative of privilege escalation. Incident Response: Correlate detected events with other indicators of compromise. Audit and Compliance: Monitor for unauthorized privilege changes.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -1349,22 +1157,12 @@ union isfuzzy=true
     TargetGroup, 
     Indicator
 | order by TimeGenerated desc;
-
 ```
 {% endcode %}
 
 ### <mark style="color:blue;">Detect Suspicious PowerShell Activity</mark>
 
-#### Use Cases:
-
-1. **Detect Fileless Malware:**
-   * Identify obfuscated or encoded commands often used in fileless attacks.
-2. **Monitor Outbound Connections:**
-   * Detect PowerShell processes establishing external network connections.
-3. **Detect Script Execution from Untrusted Paths:**
-   * Identify unauthorized or unexpected PowerShell script execution.
-4. **Threat Hunting:**
-   * Investigate suspicious PowerShell usage across endpoints.
+**Use Cases:** Detect Fileless Malware: Identify obfuscated or encoded commands often used in fileless attacks. Monitor Outbound Connections: Detect PowerShell processes establishing external network connections. Detect Script Execution from Untrusted Paths: Identify unauthorized or unexpected PowerShell script execution. Threat Hunting: Investigate suspicious PowerShell usage across endpoints.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -1452,16 +1250,7 @@ union isfuzzy=true
 
 ### <mark style="color:blue;">Detect Suspicious WMI Activity with Remote IPs</mark>
 
-#### Use Cases:
-
-1. **Detect Lateral Movement:**
-   * Identify potential misuse of `WMIC.exe` for lateral movement within a network.
-2. **Proactive Threat Hunting:**
-   * Investigate WMI commands making connections to remote IPs.
-3. **Incident Response:**
-   * Correlate WMI activity with suspicious remote connections for further analysis.
-4. **Filter Noise:**
-   * Automatically exclude localhost and private IPs to focus on external connections.
+**Use Cases:** Detect Lateral Movement: Identify potential misuse of WMIC.exe for lateral movement within a network. Proactive Threat Hunting: Investigate WMI commands making connections to remote IPs. Incident Response: Correlate WMI activity with suspicious remote connections for further analysis. Filter Noise: Automatically exclude localhost and private IPs to focus on external connections.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -1484,6 +1273,5 @@ DeviceProcessEvents
     IsPrivateIP, // Whether the IP is private
     IsSuspiciousIP // Whether the IP is flagged as suspicious
 | order by TimeGenerated desc; // Sort results by the most recent events
-
 ```
 {% endcode %}
