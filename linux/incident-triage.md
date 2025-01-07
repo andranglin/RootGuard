@@ -5,11 +5,11 @@ coverY: 0
 
 # Incident Triage
 
-### <mark style="color:blue;">Live response commands</mark>
+### <mark style="color:blue;">Live Response Commands</mark>
 
 These commands can review anomalous behaviour and verify compromise in real-time action. Some of the commands, such as `cat /var/www/html/webshell.php`, can also be used to perform post-compromise disk analysis, where we only need to supply the full path of the mounted compromised disk, for example, `cat /media/compromised_disk/var/www/html/webshell.php`.
 
-### <mark style="color:blue;">General information</mark>
+### <mark style="color:blue;">General Information</mark>
 
 First, we will collect the required information regarding the system to be analysed.
 
@@ -40,6 +40,109 @@ cat /etc/hostname
 ```
 {% endcode %}
 
+### <mark style="color:blue;">System Information</mark> <a href="#system-information-1" id="system-information-1"></a>
+
+```bash
+date
+uname –a
+lsb_release -a
+hostname
+cat /proc/version
+lsmod
+```
+
+### <mark style="color:blue;">Initialisation Files</mark> <a href="#initialisation-files" id="initialisation-files"></a>
+
+```bash
+cat /etc/bash.bashrc
+cat ~/.bash_profile 
+cat ~/.bashrc 
+```
+
+### <mark style="color:blue;">Environment and Startup Programs</mark> <a href="#environment-and-startup-programs" id="environment-and-startup-programs"></a>
+
+```bash
+env
+cat /etc/profile
+ls /etc/profile.d/
+cat /etc/profile.d/*
+```
+
+### <mark style="color:blue;">Configuration Information</mark> <a href="#configuration-information" id="configuration-information"></a>
+
+```bash
+ls /etc/*.d
+cat /etc/*.d/*
+```
+
+## <mark style="color:blue;">Network Connections / Socket Stats</mark> <a href="#network-connections--socket-stats" id="network-connections--socket-stats"></a>
+
+```bash
+netstat
+netstat -apetul
+netstat -plan
+netstat -plant
+netstat -naote
+ss
+ss -l
+ss -ta
+ss -tp
+```
+
+### <mark style="color:blue;">DNS Information for Domain</mark> <a href="#dns-information-for-domain" id="dns-information-for-domain"></a>
+
+```bash
+dig www.jaiminton.com a
+dig www.jaiminton.com any
+dig www.jaiminton.com ns
+dig www.jaiminton.com soa
+dig www.jaiminton.com hinfo
+dig www.jaiminton.com txt
+dig +short www.jaiminton.com
+```
+
+### <mark style="color:blue;">IPs Allowed to Perform Domain Transfer</mark> <a href="#ips-allowed-to-perform-domain-transfer" id="ips-allowed-to-perform-domain-transfer"></a>
+
+```bash
+cat /etc/bind/named.conf.local
+```
+
+### <mark style="color:blue;">IP Table Information</mark> <a href="#ip-table-information" id="ip-table-information"></a>
+
+```bash
+ls /etc/iptables
+cat /etc/iptables/*.v4
+cat /etc/iptables/*.v6
+iptables -L
+```
+
+### <mark style="color:blue;">Account Information</mark> <a href="#account-information" id="account-information"></a>
+
+```bash
+cat /etc/passwd
+cat /etc/shadow
+cat /etc/sudoers
+cat /etc/sudoers.d/*
+cut -d: -f1 /etc/passwd
+getent passwd | cut -d: -f1
+compgen -u
+```
+
+### <mark style="color:blue;">Current User</mark> <a href="#current-user" id="current-user"></a>
+
+```bash
+whoami
+who
+```
+
+### <mark style="color:blue;">Last Logged-on Users</mark> <a href="#last-logged-on-users" id="last-logged-on-users"></a>
+
+```bash
+last
+lastb
+cat /var/log/auth.log
+```
+
 ### <mark style="color:blue;">Logon activities</mark>
 
 Review the logon activities of the compromised host.
@@ -66,6 +169,16 @@ grep -v cron /var/log/auth.log* | grep -v sudo | grep i "login:session"
 
 # CentOS, Red Hat Enterprise Linux (RHEL) of auth.log
 cat /var/log/secure
+```
+
+### <mark style="color:blue;">Scheduled Tasks</mark> <a href="#scheduled-tasks" id="scheduled-tasks"></a>
+
+```bash
+ls /etc/cron.*
+ls /etc/cron.*/*
+cat /etc/cron.*/*
+cat /etc/crontab
+crontab -l
 ```
 
 ### <mark style="color:blue;">Review Processes</mark>
@@ -452,7 +565,7 @@ find /lib /usr/bin /usr/sbin -type f -newermt "$(date -d '10 days ago' +'%Y-%m-%
 ls /usr/lib/python3*
 ```
 
-### <mark style="color:blue;">**PAM**</mark>
+### <mark style="color:blue;">Pluggable Authentication Modules (PAM)</mark> <a href="#pluggable-authentication-modules-pam" id="pluggable-authentication-modules-pam"></a>
 
 ```bash
 # Display contents of the PAM configuration file
@@ -460,6 +573,10 @@ cat /etc/pam.conf
 
 # Check contents of the PAM directory
 cat /etc/pam.d
+
+cat /etc/pam.d/sudo
+cat /etc/pam.conf
+ls /etc/pam.d/
 ```
 
 ### <mark style="color:blue;">**MOTD**</mark>
