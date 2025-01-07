@@ -1,9 +1,9 @@
 ---
-cover: ../.gitbook/assets/Screenshot 2025-01-04 151855 (1).png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 151855 (1).png
 coverY: 0
 ---
 
-# Basic Lunix Commands
+# Basic Commands
 
 ### <mark style="color:blue;">User Information</mark>
 
