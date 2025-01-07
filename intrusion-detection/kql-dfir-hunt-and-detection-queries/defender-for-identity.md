@@ -1,8 +1,13 @@
+---
+cover: ../../.gitbook/assets/Screenshot 2025-01-05 160037 (1).png
+coverY: 0
+---
+
 # Defender For Identity
 
 ### <mark style="color:blue;">Devices Accessed By Compromised Device</mark>
 
-Use Case: Query helpful for identifying lateral movement and suspicious activities stemming from the compromised device. It enables SOC analysts to correlate activity and prioritise mitigation steps effectively.&#x20;
+**Use Case:** Query helpful for identifying lateral movement and suspicious activities stemming from the compromised device. It enables SOC analysts to correlate activity and prioritise mitigation steps effectively.&#x20;
 
 Defender :
 

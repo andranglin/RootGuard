@@ -1,7 +1,7 @@
 ---
 icon: laptop-code
 description: 'Work in progress: Will be add content on a frequent basis.'
-cover: ../.gitbook/assets/Screenshot 2025-01-04 151057.png
+cover: ../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
 coverY: 0
 ---
 
@@ -98,4 +98,6 @@ Aspiring forensic analysts can build a successful and impactful career in digita
 
 Note: Resources like Posters and Cheatsheets are helpful when used as guides
 
-{% file src="../.gitbook/assets/DFIR Fundamentals.pdf" %}
+{% file src="../.gitbook/assets/SANS DFIR Fundaments.pdf" %}
+
+{% file src="../.gitbook/assets/SANS DFIR Windows Forensic Analysis.pdf" %}

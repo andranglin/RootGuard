@@ -1,3 +1,8 @@
+---
+cover: ../../.gitbook/assets/Screenshot 2025-01-05 160037.png
+coverY: 0
+---
+
 # Defender For Office
 
 ### <mark style="color:blue;">Identify Email Attachments Send From Compromised Mailbox</mark>
@@ -187,7 +192,7 @@ EmailInformation
 
 ### <mark style="color:blue;">Identify User UrlClick Events</mark>&#x20;
 
-User Cases: Identify emails with URLs sent to user and they may have clicked URL and it wasn’t blocked.
+**User Cases:** Identify emails with URLs sent to user and they may have clicked URL and it wasn’t blocked.
 
 {% code overflow="wrap" %}
 ```kusto
