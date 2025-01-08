@@ -1,3 +1,8 @@
+---
+cover: .gitbook/assets/Screenshot 2025-01-08 172820.png
+coverY: 0
+---
+
 # Welcome
 
 ### <mark style="color:purple;">Welcome to RootGuard</mark>
