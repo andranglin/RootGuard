@@ -1,6 +1,8 @@
 # Table of contents
 
 * [Welcome](README.md)
+* [About Me](about-me/README.md)
+  * [Professional Profile](about-me/professional-profile.md)
 * [Incident Response (IR)](<README (1).md>)
   * [Response Strategies](incident-response-ir/response-strategies/README.md)
     * [Privilege Escalation Assessment](incident-response-ir/response-strategies/privilege-escalation-assessment.md)
@@ -70,5 +72,3 @@
 * [Training and Projects](training-and-projects.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
   * [Practice Interview Questions: Junior Cybersecurity Analysts](job-preparation-guide-junior-cybersecurity-analyst/practice-interview-questions-junior-cybersecurity-analysts.md)
-* [About Me](about-me/README.md)
-  * [Professional Profile](about-me/professional-profile.md)
