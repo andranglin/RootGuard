@@ -6,7 +6,7 @@ coverY: 0
 
 # About Me
 
-Hi, I'm Adrian Anglin. I'm an Information and Cyber Security Professional interested in offensive and defensive security operations. These days, most of my time is spent doing Digital Forensics, Incident Response, Threat Hunting, and other operational areas within InfoSec. My journey into the tech space started as a Network Engineer, and some years later, I moved into InfoSec.&#x20;
+Hi, I'm Adrian Anglin. I'm an Information and Cyber Security Professional interested in offensive and defensive security operations. These days, most of my time is spent doing Digital Forensics, Incident Response, Threat Hunting, and other operational areas within InfoSec. My journey into the tech space started as a Network Engineer, and some years later, I moved into InfoSec. Feel free to checkout my [Professional Profile](professional-profile.md)
 
 Over the years, I have studied various areas of information and cybersecurity and earned several degrees and professional certifications. I am a cybersecurity enthusiast at heart and a continuous learner. The reason for setting up this site is to share my experiences and the content of other professionals whose work has been helpful in my development. Thanks to all the other professionals who have shared their expertise and knowledge with the broader community.&#x20;
 
