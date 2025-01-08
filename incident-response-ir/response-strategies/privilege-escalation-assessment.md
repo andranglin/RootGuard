@@ -6,6 +6,20 @@ icon: laptop-code
 
 **Description:** Investigating privilege escalation incidents forensically on workstations and server systems is critical in identifying how an attacker or malicious user gained elevated access. Privilege escalation can occur in various ways, such as exploiting system vulnerabilities, misconfigurations, or leveraging stolen credentials.
 
+<details>
+
+<summary>Understanding Privilege Escalation</summary>
+
+* **Vertical Escalation: The attacker gains higher-level privileges (e.g., regular user to the administrator).**
+
+- **Horizontal Escalation**: The attacker expands access across accounts at the same privilege level.
+
+* **Common Techniques**: Exploiting vulnerabilities, password cracking, manipulating user accounts, token manipulation, etc.
+
+</details>
+
+
+
 ### **1. Understanding Privilege Escalation**
 
 * **Vertical Escalation: The attacker gains higher-level privileges (e.g., regular user to the administrator).**
