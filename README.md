@@ -7,7 +7,7 @@ coverY: 0
 
 ### <mark style="color:purple;">Welcome to RootGuard</mark>
 
-Thank you for visiting! This site is intended to be a hub for DFIR-related skills and knowledge sharing while providing support and guidance for new cybersecurity analysts. Whether you're a seasoned professional or simply curious about cyber defensive operations, the objective is to be able to offer some help.
+Thanks for stopping by! This site is intended to be a hub for DFIR-related skills and knowledge sharing while providing support and guidance for new cybersecurity analysts. Whether you're a seasoned professional or simply curious about cyber defensive operations, the objective is to be able to offer some help.
 
 ### <mark style="color:purple;">What You'll Discover Here</mark>
 
