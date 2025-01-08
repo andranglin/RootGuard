@@ -71,4 +71,4 @@
   * [Incident Triage](linux/incident-triage.md)
 * [Training and Projects](training-and-projects.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
-  * [Practice Interview Questions: Junior Cybersecurity Analysts](job-preparation-guide-junior-cybersecurity-analyst/practice-interview-questions-junior-cybersecurity-analysts.md)
+  * [Practice Questions: Junior Cybersecurity Analysts Interview](job-preparation-guide-junior-cybersecurity-analyst/practice-questions-junior-cybersecurity-analysts-interview.md)

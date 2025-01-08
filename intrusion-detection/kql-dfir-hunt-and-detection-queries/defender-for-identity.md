@@ -9,12 +9,12 @@ coverY: 0
 
 **Use Case:** Query helpful for identifying lateral movement and suspicious activities stemming from the compromised device. It enables SOC analysts to correlate activity and prioritise mitigation steps effectively.&#x20;
 
-Defender :
+Defender&#x20;
 
-{% code overflow="wrap" %}
-```kusto
-// Define the compromised device and search window
-let CompromisedDevice = "PC01.exampledomain.com";
+{% tabs %}
+{% tab title="Defender" %}
+<pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto"><strong>// Define the compromised device and search window
+</strong>let CompromisedDevice = "PC01.exampledomain.com";
 let SearchWindow = 48h; // Customizable: h = hours, d = days
 
 // Query to investigate devices accessed by the compromised device
@@ -48,11 +48,10 @@ IdentityLogonEvents
     TargetDevices, // List of target devices
     AccessEventCount // Count of access events
 | order by FormattedTimestamp desc // Sort by the most recent events
-```
-{% endcode %}
+</code></pre>
+{% endtab %}
 
-#### Sentinel:
-
+{% tab title="Sentinel" %}
 {% code overflow="wrap" %}
 ```kusto
 // Define the compromised device and search window
@@ -91,6 +90,8 @@ IdentityLogonEvents
 | order by TimeGenerated desc // Sort by the most recent events
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### <mark style="color:blue;">Identify All Suspicious Activities From The Compromised Accounts</mark>
 
