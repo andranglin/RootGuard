@@ -21,4 +21,4 @@ To help other cybersecurity professionals develop their skills by sharing insigh
 
 Explore the resources, test the tools mentioned, and if suitable, integrate them into your operational workflows and share them with other professionals. The site will also use the incredible work of other professionals, providing attribution and asking you to check out and support their work.
 
-### <mark style="color:purple;">**Jump Right In**</mark>
+#### <mark style="color:purple;">**Jump Right In**</mark>
