@@ -327,7 +327,7 @@ Get-ChildItem -Path C:\Users\admin\AppData\Roaming\0319B08F-2B65-4192-B2D2-1E2F6
 ```
 {% endcode %}
 
-**Gather File hashes**
+### <mark style="color:blue;">**Gather File hashes**</mark>
 
 Get-FileHash cmdlet can be used to get the hash using a different algorithm e.g. MD5. SHA1 , SHA256 etc. By default, the Get-FileHash cmdlet uses the SHA256 algorithm, although any hash algorithm that is supported by the target operating system can be used. **SHA256**
 
@@ -337,7 +337,7 @@ Get-FileHash -Path 'C:\Users\admin\AppData\Roaming\0319B08F-2B65-4192-B2D2-1E2F6
 ```
 {% endcode %}
 
-**MD5**
+### <mark style="color:blue;">**MD5**</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -420,7 +420,7 @@ Get-ADComputer -Filter "Name -Like '*'" -Properties * | where Enabled -eq $True 
 ```
 {% endcode %}
 
-### List of IPV4 addresses who have connected (RDP)
+### <mark style="color:blue;">List of IPV4 addresses who have connected (RDP)</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -428,7 +428,7 @@ Get-WinEvent -Log 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operat
 ```
 {% endcode %}
 
-### User Autologon Registry Items
+### <mark style="color:blue;">User Autologon Registry Items</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -444,13 +444,13 @@ Get-ChildItem C:\Windows\*\config\systemprofile -recurse -force -ea 0 -include *
 ```
 {% endcode %}
 
-### Startup Commands for Certain Programs
+### <mark style="color:blue;">Startup Commands for Certain Programs</mark>
 
 ```cs
 Get-CimInstance Win32_StartupCommand | select Name, command, Location, User
 ```
 
-### Installed Software Directories
+### <mark style="color:blue;">Installed Software Directories</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -458,7 +458,7 @@ Get-ChildItem "C:\Program Files", "C:\Program Files (x86)" | ft Parent,Name,Last
 ```
 {% endcode %}
 
-### Software in Registry
+### <mark style="color:blue;">Software in Registry</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -466,7 +466,7 @@ Get-ChildItem -path Registry::HKEY_LOCAL_MACHINE\SOFTWARE | ft Name
 ```
 {% endcode %}
 
-### Connected Drives
+### <mark style="color:blue;">Connected Drives</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -475,19 +475,19 @@ Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"};
 ```
 {% endcode %}
 
-### Firewall Config
+### <mark style="color:blue;">Firewall Config</mark>
 
 ```powershell
 Start-Process "netsh" -ArgumentList "firewall show config" -NoNewWindow -Wait
 ```
 
-### Credential Manager
+### <mark style="color:blue;">Credential Manager</mark>
 
 ```cs
 start-process "cmdkey" -ArgumentList "/list" -NoNewWindow -Wait
 ```
 
-### Scan Process Creation Logs for ‘AppData’
+### <mark style="color:blue;">Scan Process Creation Logs for ‘AppData’</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -497,7 +497,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Security'; Id='4688';}| ? {$_.Message 
 
 ## <mark style="color:blue;">More Detail Checks and Analysis</mark>
 
-### T1176 Browser Extensions
+### <mark style="color:blue;">T1176 Browser Extensions</mark>
 
 **Chrome**
 
@@ -537,7 +537,7 @@ Get-ChildItem -path "C:\Program Files\Internet Explorer\Plugins\" -recurse -erro
 ```
 {% endcode %}
 
-### T1031 Modify Existing Service
+### <mark style="color:blue;">T1031 Modify Existing Service</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -545,7 +545,7 @@ Get-ItemProperty REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\\ -ea 0 | wher
 ```
 {% endcode %}
 
-### T1050 New Service
+### <mark style="color:blue;">T1050 New Service</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -554,7 +554,7 @@ Get-WinEvent -FilterHashtable @{ LogName='System'; Id='7045';} | FL TimeCreated,
 ```
 {% endcode %}
 
-### T1137 Office Application Startup
+### <mark style="color:blue;">T1137 Office Application Startup</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -570,7 +570,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Microsoft Office Alerts'; Id='300';} |
 ```
 {% endcode %}
 
-### T1060 Registry Run Keys / Startup Folder
+### <mark style="color:blue;">T1060 Registry Run Keys / Startup Folder</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -579,7 +579,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Microsoft-Windows-Shell-Core/Operation
 ```
 {% endcode %}
 
-### T1053 Scheduled Task
+### <mark style="color:blue;">T1053 Scheduled Task</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -591,7 +591,7 @@ gci -path 'registry::HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\
 ```
 {% endcode %}
 
-### T1019 System Firmware
+### <mark style="color:blue;">T1019 System Firmware</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -599,7 +599,7 @@ Get-CimInstance -Class win32_bios
 ```
 {% endcode %}
 
-### T1100 Web Shell
+### <mark style="color:blue;">T1100 Web Shell</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -608,7 +608,7 @@ gci -path "C:\inetpub\wwwroot" -recurse -File -ea SilentlyContinue | Select-Stri
 ```
 {% endcode %}
 
-### T1074 Data Staging
+### <mark style="color:blue;">T1074 Data Staging</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -617,7 +617,7 @@ gci C:\Windows\Temp -recurse -ea 0 -force | ?{ $_.PSIsContainer }
 ```
 {% endcode %}
 
-### Query WMI Persistence
+### <mark style="color:blue;">Query WMI Persistence</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -652,7 +652,7 @@ reg query 'HKU\[SID]\Software\Microsoft\Office\[versionnumber]\Word\Security\Tru
 ```
 {% endcode %}
 
-### Check Office Security Settings
+### <mark style="color:blue;">Check Office Security Settings</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -661,7 +661,7 @@ gci REGISTRY::HKCU\Software\Microsoft\Office\*\*\Security -rec
 ```
 {% endcode %}
 
-### Check Outlook Temporary Files
+### <mark style="color:blue;">Check Outlook Temporary Files</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -678,7 +678,7 @@ Get-WinEvent -FilterHashtable @{ LogName='OAlerts';} |Where { $_.Message -Match 
 ```
 {% endcode %}
 
-**Determine if user opened a document**
+**Determine if a user opened a document**
 
 ```cs
 gci "REGISTRY::HKU\\Software\Microsoft\Office\\Word\Reading Locations\*"
@@ -716,7 +716,7 @@ Get-NetTCPConnection -State LISTEN | Select LocalAddress, LocalPort, OwningProce
 ```
 {% endcode %}
 
-**Obtain hash and possible tunneled network connections for running executables**
+**Obtain hash and possible tunnelled network connections for running executables**
 
 {% code overflow="wrap" %}
 ```powershell
@@ -736,7 +736,7 @@ Get-NetTCPConnection -State LISTEN |? LocalAddress -Like "127.0.0.1" | Select Lo
 ```
 {% endcode %}
 
-### Obtain workstation name for tunneled authentication
+### <mark style="color:blue;">Obtain workstation name for tunneled authentication</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -744,7 +744,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Security'; Id='4624'; Data='::';} | FL
 ```
 {% endcode %}
 
-### Obtain processes where binaries file version doesn’t match OS Release
+### <mark style="color:blue;">Obtain processes where binaries file version doesn’t match OS Release</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -752,7 +752,7 @@ gps -FileVersionInfo -ea 0|? {$_.ProductVersion -notmatch $([System.Environment]
 ```
 {% endcode %}
 
-### Obtain process binary file external names
+### <mark style="color:blue;">Obtain process binary file external names</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -762,7 +762,7 @@ gps -module -FileVersionInfo -ea 0 | sort -uniq | FL *name,*version
 ```
 {% endcode %}
 
-### Baseline processes and services
+### <mark style="color:blue;">Baseline processes and services</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -801,7 +801,7 @@ gci -path C:\Windows\System32\Tasks\ -recurse -File
 ```
 {% endcode %}
 
-### PsExec Lateral Movement Detection (Destinations)
+### <mark style="color:blue;">PsExec Lateral Movement Detection (Destinations)</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -813,7 +813,7 @@ Get-WinEvent -FilterHashtable @{ LogName='System'; Id='7045'; Data='PSEXESVC'} |
 ```
 {% endcode %}
 
-### Services Lateral Movement Detection (Destinations)
+### <mark style="color:blue;">Services Lateral Movement Detection (Destinations)</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -827,7 +827,7 @@ Get-WinEvent -FilterHashtable @{ LogName='System'; Id='7045';} | FL TimeCreated,
 ```
 {% endcode %}
 
-### Map Network Shares Lateral Movement Detection (Destinations)
+### <mark style="color:blue;">Map Network Shares Lateral Movement Detection (Destinations)</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -843,7 +843,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Security'; Id='5140';} | FL TimeCreate
 ```
 {% endcode %}
 
-### WMI/WMIC Lateral Movement Detection (Destinations)
+### <mark style="color:blue;">WMI/WMIC Lateral Movement Detection (Destinations)</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -856,7 +856,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Microsoft-Windows-WMI-Activity/Operati
 ```
 {% endcode %}
 
-### PowerShell Lateral Movement Detection (Destinations)
+### <mark style="color:blue;">PowerShell Lateral Movement Detection (Destinations)</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -872,7 +872,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Microsoft-Windows-WinRM/Operational'; 
 ```
 {% endcode %}
 
-### Remote Desktop Lateral Movement Detection (Destinations)
+### <mark style="color:blue;">Remote Desktop Lateral Movement Detection (Destinations)</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -890,7 +890,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Microsoft-Windows-TerminalServices-Loc
 
 ## <mark style="color:blue;">Delete Malware Artifacts</mark>
 
-#### Terminate Malicious Process
+### <mark style="color:blue;">Terminate Malicious Process</mark>
 
 Stop-Process can be used to terminate processes based on process name or process ID (PID), or pass a process object.
 
@@ -902,7 +902,7 @@ Get-Process RAVBg64 | Stop-Process
 
 You may need to stop this process imapsv.exe instead of RAVBg64.exe, if the machine has already restarted as this filename is used in registry for persistence.
 
-#### Remove Persistence
+### <mark style="color:blue;">Remove Persistence</mark>
 
 **Get-ItemProperty cmdlet can be used for listing registry entries as shown below:**
 
@@ -912,7 +912,7 @@ Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'IM
 ```
 {% endcode %}
 
-**Remove-ItemProperty can be used for removing NanoCore persistence registry entry**
+**Remove-ItemProperty can be used for removing malware related persistence registry entry**
 
 {% code overflow="wrap" %}
 ```powershell
@@ -948,9 +948,9 @@ Remove-Item -Path [C:\Users\Public\malware.exe] -Force
 Get-ChildItem * -Include *.exe -Recurse | Remove-Item
 ```
 
-## Alternate Data Streams Discovery
+## <mark style="color:blue;">Alternate Data Streams Discovery</mark>
 
-#### Use Alternate Data Streams to find download location
+#### <mark style="color:blue;">Use Alternate Data Streams to find the download location</mark>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -995,11 +995,9 @@ $a=$(gci REGISTRY::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAcce
 ```
 {% endcode %}
 
-
-
 ## <mark style="color:blue;">Native Windows Approach</mark>
 
-#### Check for Unusual Accounts
+### <mark style="color:blue;">Check for Unusual Accounts</mark>
 
 Look for unusual accounts created, especially in the Administrators group:
 
@@ -1007,14 +1005,14 @@ Look for unusual accounts created, especially in the Administrators group:
 * C:> net user List members of the Admin group:
 * C:> net localgroup administrators&#x20;
 
-#### Check For Unusual Files
+### <mark style="color:blue;">Check For Unusual Files</mark>
 
 Look for unusually big files bigger than 5MB. This can be an indication of a system compromised for illegal content storage. Look for unusual files added recently in system folders, especially C:\WINDOWS\system32. Use WinDirStat to show disk usage statistics: [**https://windirstat.net/**](https://windirstat.net/). Look for files using the “hidden” attribute in all subfolders:
 
 * C:> _dir_ _/S_ _/A:H_  Look for files larger than 10 MG
 * FOR /R C:\ %i in (\*) do @if %\~zi gtr 10000000 echo %i %\~zi GUI on Win10: open Explorer  and in the search box enter: size:>10M
 
-#### Check For Unusual Processes
+### <mark style="color:blue;">Check For Unusual Processes</mark>
 
 Check all running processes for unusual/unknown entries, especially processes with username “SYSTEM”  and “ADMINISTRATOR”:
 
@@ -1035,7 +1033,7 @@ Use Base64 decoding tools online
 
 * [https://www.base64decode.org/](https://www.base64decode.org/)
 
-#### Check for Unusual Network Services
+### <mark style="color:blue;">Check for Unusual Network Services</mark>
 
 Look for unusual/unexpected network services installed and started:
 
@@ -1044,7 +1042,7 @@ Look for unusual/unexpected network services installed and started:
 * C:> sc query | more
 * C:>  tasklist /svc
 
-#### Check for Unusual Network Activity
+### <mark style="color:blue;">Check for Unusual Network Activity</mark>
 
 Check for file shares and verify each one is linked to a normal activity:
 
@@ -1058,7 +1056,7 @@ Look at the opened sessions on the machine:
 * C:> _nbtstat –S_ Look for any suspicious activity on the system’s ports:
 * C:> _netstat –na 5_ (5 makes it refresh every 5 seconds)
 
-#### Check Startup Folders
+### <mark style="color:blue;">Check Startup Folders</mark>
 
 Look for unusual startup programs for all users (path depends on Windows release): For GUI access: Open the WinX Menu
 
@@ -1068,7 +1066,7 @@ Look for unusual startup programs for all users (path depends on Windows release
 * dir "C:\Users\[Username]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 * C:> wmic startup list full
 
-#### Check for Unusual Registry Entries
+### <mark style="color:blue;">Check for Unusual Registry Entries</mark>
 
 Look for unusual programs launched at boot time in the Windows registry:
 
@@ -1080,7 +1078,7 @@ Inspect both HKLM and HKCU , can be analyzed with the regedit GUI The Autoruns u
 
 * C:> reg query hklm\software\microsoft\windows\currentversion\run
 
-#### Check for Unusual Automated Tasks
+### <mark style="color:blue;">Check for Unusual Automated Tasks</mark>
 
 Look at the list of scheduled tasks for any unusual entries:
 
@@ -1100,9 +1098,9 @@ Via the command prompt, on some versions of Windows, an admin can inspect logs w
 
 * C:> wevtutil qe security /f:text
 * Search for events affecting the firewall, the anti-virus, the file protection, or any suspicious new service.
-* Look for a huge amount of failed login attempts or locked out accounts.
+* Look for a huge amount of failed login attempts or locked-out accounts.
 
-If you are using Splunk: Search for “index=<_index-of-your-Windows-Event Logs_> **XXXX**” Some Windows Event IDs to look for (depends on your OS):
+If you are using Splunk, Search for “index=<_index-of-your-Windows-Event Logs_> **XXXX**” Some Windows Event IDs to look for (depending on your OS):
 
 * **64004** - Windows File Protection warning event.
 * **4688** - New process created. Look for unusual processes or wrong names (spelling is off, lowercase drive letters, extra spaces).
