@@ -18,7 +18,7 @@ Threat hunting is the proactive process of searching for cyber threats that have
 * Zero-day exploits
 * Anomalies indicating compromise
 
-### **Skillset Required for Threat Hunting**
+### <mark style="color:blue;">**Skillset Required for Threat Hunting**</mark>
 
 1. **Technical Proficiency**:
    * Strong understanding of operating systems (Windows, Linux, macOS) and their internals.
@@ -38,7 +38,7 @@ Threat hunting is the proactive process of searching for cyber threats that have
    * Team collaboration for sharing insights with SOC teams and stakeholders.
    * Continuous learning to stay ahead of emerging threats.
 
-### **Tasks and Responsibilities of a Threat Hunter**
+### <mark style="color:blue;">**Tasks and Responsibilities of a Threat Hunter**</mark>
 
 In a medium-sized organisation, threat hunters play a pivotal role in identifying and mitigating risks. Their responsibilities include:
 
@@ -58,12 +58,12 @@ In a medium-sized organisation, threat hunters play a pivotal role in identifyin
    * Documenting findings in detailed reports.
    * Advising on remediation steps and security improvements.
 
-### **Training and Certifications Required**
+### <mark style="color:blue;">**Training and Certifications Required**</mark>
 
 Training and certifications validate a threat hunter’s expertise and ensure readiness for advanced challenges. Key certifications include:
 
 1. **GIAC Certified Threat Hunter (GCTH)**:
-   * Focuses on advanced threat hunting techniques and tools.
+   * Focuses on advanced threat-hunting techniques and tools.
 2. **Certified Threat Intelligence Analyst (CTIA)**:
    * Covers threat intelligence gathering and analysis.
 3. **MITRE ATT\&CK Defender (MAD)**:
@@ -75,7 +75,7 @@ Training and certifications validate a threat hunter’s expertise and ensure re
 6. **SANS Threat Hunting and Advanced Incident Response (FOR508)**:
    * Advanced training for hands-on threat hunting and forensic investigation.
 
-### **Path to Becoming an Effective Threat Hunter**
+### <mark style="color:blue;">**Path to Becoming an Effective Threat Hunter**</mark>
 
 1. **Educational Background**:
    * Obtain a degree in computer science, cybersecurity, or information technology.

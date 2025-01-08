@@ -32,7 +32,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 
 ## <mark style="color:blue;">Management and Approaches to Incident Response</mark>&#x20;
 
-### Proactive Approaches
+### <mark style="color:blue;">Proactive Approaches</mark>
 
 **Objective:** Minimise the likelihood and impact of incidents through preparation and prevention.
 
@@ -41,7 +41,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 * Training and Awareness: Educate employees on cybersecurity best practices and common attack vectors.
 * Red Team Exercises: Conduct simulated attacks to test the organisation's defences and readiness.
 
-### Reactive Approaches
+### <mark style="color:blue;">Reactive Approaches</mark>
 
 **Objective:** Respond effectively once an incident is detected to mitigate damage.
 
@@ -49,7 +49,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 * Incident Containment: Isolate affected systems to prevent the spread of the attack.
 * Root Cause Analysis: Investigate the source and nature of the incident to address vulnerabilities.
 
-### Technical Approaches
+### <mark style="color:blue;">Technical Approaches</mark>
 
 **Objective:** Leverage technology to enhance detection, response, and recovery.
 
@@ -57,7 +57,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 * Endpoint Detection and Response (EDR): Monitor endpoints for malicious activity and deploy quick countermeasures.
 * Network Segmentation: Limit lateral movement by segmenting networks into secure zones.
 
-### Strategic Approaches
+### <mark style="color:blue;">Strategic Approaches</mark>
 
 Objective: Align incident management with organisational goals and regulatory requirements.
 
@@ -65,7 +65,7 @@ Objective: Align incident management with organisational goals and regulatory re
 * Regulatory Compliance: Ensure incident response aligns with frameworks like GDPR, HIPAA, or ISO 27001.
 * Continuous Improvement: Use lessons learned from incidents to refine policies, processes, and tools.
 
-### Collaborative Approaches
+### <mark style="color:blue;">Collaborative Approaches</mark>
 
 Objective: Foster teamwork and partnerships to enhance response capabilities.
 
@@ -73,7 +73,7 @@ Objective: Foster teamwork and partnerships to enhance response capabilities.
 * External Partnerships: Leverage relationships with third-party security providers, law enforcement, and incident response consultants.
 * Information Sharing: Participate in Information Sharing and Analysis Centers (ISACs) to gain insights from industry peers.
 
-### Post-Incident Approaches
+### <mark style="color:blue;">Post-Incident Approaches</mark>
 
 Objective: Recover from incidents and strengthen defences against future attacks.
 
@@ -81,16 +81,16 @@ Objective: Recover from incidents and strengthen defences against future attacks
 * Policy Updates: Refine cybersecurity policies and procedures based on lessons learned.
 * Restoration and Validation: Ensure systems are clean, patched, and functional before returning to normal operations.
 
-## Examples of Combining Types and Approaches
+## <mark style="color:blue;">Examples of Combining Types and Approaches</mark>
 
-### Phishing Attack Response
+### <mark style="color:blue;">Phishing Attack Response</mark>
 
 * Detection: SIEM alerts on anomalous email activity.
 * Containment: Disable compromised accounts and block malicious domains.
 * Technical Approach: Analyse phishing emails to update email filters and block future attempts.
 * Post-Incident: Train employees to recognise phishing attempts and improve email security policies.
 
-### Ransomware Attack Response
+### <mark style="color:blue;">Ransomware Attack Response</mark>
 
 * Containment: Isolate infected systems to prevent lateral spread.
 * Technical Approach: Use EDR tools to remove ransomware and restore data from secure backups.
@@ -103,7 +103,7 @@ Effective incident response and management require a combination of approaches t
 
 An **incident response (IR) process** is a structured approach to handling and mitigating cybersecurity incidents. The overall process typically consists of the following **phases**:
 
-### 1. Preparation
+### <mark style="color:blue;">1. Preparation</mark>
 
 * Purpose: Establish the groundwork to effectively handle incidents.
 * Key Activities:
@@ -146,7 +146,7 @@ An **incident response (IR) process** is a structured approach to handling and m
 * Run tabletop exercises and red team/blue team drills.
 * Test playbooks for real-world applicability.
 
-### 2. Identification
+### <mark style="color:blue;">2. Identification</mark>
 
 * Purpose: Detect and confirm potential incidents to determine their scope and severity.
 * Key Activities:
@@ -179,7 +179,7 @@ An **incident response (IR) process** is a structured approach to handling and m
 * Record initial findings, impacted assets, and potential scope.
 * Maintain an evidence log for later analysis.
 
-### 3. Containment
+### <mark style="color:blue;">3. Containment</mark>
 
 * Purpose: Limit the damage caused by the incident and prevent further impact.
 * Key Activities:
@@ -205,7 +205,7 @@ An **incident response (IR) process** is a structured approach to handling and m
    * Notify internal stakeholders and legal teams as needed.
    * Avoid sharing sensitive details externally until authorised.
 
-### 4. Eradication
+### <mark style="color:blue;">4. Eradication</mark>
 
 * Purpose: Eliminate the root cause of the incident and remove threats from the environment.
 * Key Activities:
@@ -228,7 +228,7 @@ An **incident response (IR) process** is a structured approach to handling and m
    * Close exploited vulnerabilities.
    * Implement additional security controls (MFA, network segmentation).
 
-### 5. Recovery
+### <mark style="color:blue;">5. Recovery</mark>
 
 * Purpose: Restore normal operations and services while ensuring the environment is secure.
 * Key Activities:
@@ -251,7 +251,7 @@ An **incident response (IR) process** is a structured approach to handling and m
    * Implement heightened monitoring of previously affected systems.
    * Watch for related indicators of compromise (IOCs).
 
-### 6. Lessons Learned
+### <mark style="color:blue;">6. Lessons Learned</mark>
 
 * Purpose: Evaluate the response to improve future incident handling.
 * Key Activities:
@@ -280,7 +280,7 @@ An **incident response (IR) process** is a structured approach to handling and m
      * Response steps taken.
      * Impact and recovery outcomes.
 
-### Supporting Components:
+### <mark style="color:blue;">Supporting Components:</mark>
 
 * Incident Tracking: Maintain detailed records of incidents from detection to resolution.
 * Communication Plan: Define internal and external communication protocols, including media handling and regulatory notifications.
@@ -311,5 +311,5 @@ Note: [SANS](https://www.sans.org/security-resources/?msc=main-nav) provide some
 
 
 
-{% file src="../../.gitbook/assets/Hunt Evil Poster.pdf" %}
+{% file src="../../.gitbook/assets/SANS DFIR Hunt Evil.pdf" %}
 

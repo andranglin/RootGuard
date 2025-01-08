@@ -378,7 +378,7 @@ EvtxECmd.exe -f C:\Windows\System32\winevt\Logs\Microsoft-Windows-Security-Audit
 
 **Instruction:** Manually check the registry for evidence of executed system information discovery commands. **Path:**
 
-```cs
+```kusto
 HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun
 ```
 

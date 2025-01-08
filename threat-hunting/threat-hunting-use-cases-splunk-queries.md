@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Threat Hunting Use Cases - Splunk Queries
 
-### **Windows Audit Log Tampering**
+### <mark style="color:blue;">**Windows Audit Log Tampering**</mark>
 
 Check for any tampering done to Windows audit logs.
 
@@ -14,7 +14,7 @@ Check for any tampering done to Windows audit logs.
 ```
 {% endcode %}
 
-### **Finding Large Web Uploads**
+### <mark style="color:blue;">**Finding Large Web Uploads**</mark>
 
 Find large file uploads that could point to data exfiltration in your network.
 
@@ -24,7 +24,7 @@ Find large file uploads that could point to data exfiltration in your network.
 ```
 {% endcode %}
 
-### **Detecting Recurring Malware on Host**
+### <mark style="color:blue;">**Detecting Recurring Malware on Host**</mark>
 
 Using anti-virus logs to detect if malware is recurring on a host after being removed.
 
@@ -34,7 +34,7 @@ Using anti-virus logs to detect if malware is recurring on a host after being re
 ```
 {% endcode %}
 
-### Detecting Brute Force Attacks
+### <mark style="color:blue;">Detecting Brute Force Attacks</mark>
 
 A brute-force attack consists of a multiple login attempts using many passwords by an unauthorized user/attacker with the hope of eventually guessing the correct password.
 
@@ -50,7 +50,7 @@ index=linux source="/var/log/auth.log" "Failed password" | bin _time span=5m | s
 ```
 {% endcode %}
 
-### **Detecting Unencrypted Web Communications**
+### <mark style="color:blue;">**Detecting Unencrypted Web Communications**</mark>
 
 Find unencrypted web communications that could lead to a data breach.
 
@@ -60,7 +60,7 @@ Find unencrypted web communications that could lead to a data breach.
 ```
 {% endcode %}
 
-### **Identifying Web Users By Country**
+### <mark style="color:blue;">**Identifying Web Users By Country**</mark>
 
 Use IPs in your data to report and visualize user locations.
 
@@ -68,7 +68,7 @@ Use IPs in your data to report and visualize user locations.
 `Index=proxy | iplocation src_ip | geostats dc(src_ip) by Country`
 ```
 
-### **Identifying Slow Web Content**
+### <mark style="color:blue;">**Identifying Slow Web Content**</mark>
 
 A slow loading web site can not only frustrate users, but can also hurt search rankings.
 
@@ -78,7 +78,7 @@ A slow loading web site can not only frustrate users, but can also hurt search r
 ```
 {% endcode %}
 
-### **Finding New Local Admin Accounts**
+### <mark style="color:blue;">**Finding New Local Admin Accounts**</mark>
 
 Often an attack will include the creation of a new user, followed by permissions being elevated to an admin level.
 
@@ -88,7 +88,7 @@ Often an attack will include the creation of a new user, followed by permissions
 ```
 {% endcode %}
 
-### **Finding Interactive Logins From Service Accounts**
+### <mark style="color:blue;">**Finding Interactive Logins From Service Accounts**</mark>
 
 Most service accounts should never interactively log into servers.
 
@@ -98,7 +98,7 @@ Most service accounts should never interactively log into servers.
 ```
 {% endcode %}
 
-### **Log Volume Trending**
+### <mark style="color:blue;">**Log Volume Trending**</mark>
 
 Visualizing the number of events being logged by an application can provide a simple, yet powerful indicator of the state of your application, or changes in the behavior of your code or environment.
 
@@ -108,7 +108,7 @@ Visualizing the number of events being logged by an application can provide a si
 ```
 {% endcode %}
 
-### **Basic TOR Traffic Detection**
+### <mark style="color:blue;">**Basic TOR Traffic Detection**</mark>
 
 Use firewall data to find TOR traffic on your network.
 
@@ -118,7 +118,7 @@ Use firewall data to find TOR traffic on your network.
 ```
 {% endcode %}
 
-### **Measuring Storage I/O Latency**
+### <mark style="color:blue;">**Measuring Storage I/O Latency**</mark>
 
 Quickly find I/O bottlenecks across your systems.
 
@@ -128,7 +128,7 @@ Quickly find I/O bottlenecks across your systems.
 ```
 {% endcode %}
 
-### **Rogue DNS detection**
+### <mark style="color:blue;">**Rogue DNS detection**</mark>
 
 Look for DNS requests that are not destined for the dedicated DNS server.
 
@@ -138,7 +138,7 @@ Look for DNS requests that are not destined for the dedicated DNS server.
 ```
 {% endcode %}
 
-### **Suspicious PowerShell Commands**
+### <mark style="color:blue;">**Suspicious PowerShell Commands**</mark>
 
 Look for logs with commands that try to download external scripts/content or bypass PowerShell.
 
@@ -148,7 +148,7 @@ Look for logs with commands that try to download external scripts/content or byp
 ```
 {% endcode %}
 
-### **Windows audit log cleared**
+### <mark style="color:blue;">**Windows audit log cleared**</mark>
 
 Look for security logs filtered with EventCode 1102.
 
@@ -158,7 +158,7 @@ Look for security logs filtered with EventCode 1102.
 ```
 {% endcode %}
 
-### **Detecting Network and Port Scanning**
+### <mark style="color:blue;">**Detecting Network and Port Scanning**</mark>
 
 Look for distinct count of destination ports within a short span of time.
 
@@ -170,7 +170,7 @@ index=*sysmon sourcetype=firewall* | stats dc(dest_port) as num_dest_port dc(des
 ```
 {% endcode %}
 
-### **Unusual Access**
+### <mark style="color:blue;">**Unusual Access**</mark>
 
 Look for count of multiple failed login attempts where successful login is true.
 
@@ -180,7 +180,7 @@ Look for count of multiple failed login attempts where successful login is true.
 ```
 {% endcode %}
 
-### **Malware Attack**
+### <mark style="color:blue;">**Malware Attack**</mark>
 
 Look for infection count of malware attack.
 
@@ -190,7 +190,7 @@ Look for infection count of malware attack.
 ```
 {% endcode %}
 
-### **Attempt To Add Certificate To Untrusted Store**
+### <mark style="color:blue;">**Attempt To Add Certificate To Untrusted Store**</mark>
 
 Adversaries may add their root certificate to the certificate store to cause the web browser to trust that certificate and not display a security warning when it encounters the previously unseen certificate. This action may be the precursor to malicious activity.
 
@@ -200,7 +200,7 @@ Adversaries may add their root certificate to the certificate store to cause the
 ```
 {% endcode %}
 
-### **Batch File Write to System32**
+### <mark style="color:blue;">**Batch File Write to System32**</mark>
 
 While batch files are not inherently malicious, it is uncommon to see them created after OS installation, especially in the Windows directory. This query looks for the suspicious activity of a batch file being created within the C:\Windows\System32 directory tree. There will be only occasional false positives due to administrator actions.
 
@@ -210,7 +210,7 @@ While batch files are not inherently malicious, it is uncommon to see them creat
 ```
 {% endcode %}
 
-### **BCDEdit Failure Recovery Modification**
+### <mark style="color:blue;">**BCDEdit Failure Recovery Modification**</mark>
 
 This search looks for flags passed to bcdedit.exe modifications to the built-in Windows error recovery boot configurations. This is typically used by ransomware to prevent recovery.
 
@@ -220,7 +220,7 @@ This search looks for flags passed to bcdedit.exe modifications to the built-in 
 ```
 {% endcode %}
 
-### **BITS Job Persistence**
+### <mark style="color:blue;">**BITS Job Persistence**</mark>
 
 The following query identifies Microsoft Background Intelligent Transfer Service utility bitsadmin.exe scheduling a BITS job to persist on an endpoint. The query identifies the parameters used to create, resume or add a file to a BITS job. Typically seen combined in an oneliner or run in sequence. If identified, review the BITS job created and capture any files written to disk. It is possible for BITS to be used to upload files and this may require further network data analysis to identify. You can use bitsadmin /list /verbose to list out the jobs during investigation.
 
@@ -230,7 +230,7 @@ The following query identifies Microsoft Background Intelligent Transfer Service
 ```
 {% endcode %}
 
-### **BITSAdmin Download File**
+### <mark style="color:blue;">**BITSAdmin Download File**</mark>
 
 The following query identifies Microsoft Background Intelligent Transfer Service utility **bitsadmin.exe** using the **transfer** parameter to download a remote object. In addition, look for **download** or **upload** on the commandline. The switches are not required to perform a transfer. Capture any files downloaded. Review the reputation of the IP or domain used. Typically, once executed, a follow-on command will be used to execute the dropped file. Note that the network connection or file modification events will not spawn or create from **bitsadmin.exe**. Still, the artifacts will appear parallel to **svchost.exe** with a commandline similar to **svchost.exe -k netsvcs -s BITS**. It’s important to review all parallel and child processes to capture any behaviours and artefacts. In some suspicious and malicious instances, BITS jobs will be created. You can use bitsadmin /list /verbose to list out the jobs during investigation.
 
@@ -240,7 +240,7 @@ The following query identifies Microsoft Background Intelligent Transfer Service
 ```
 {% endcode %}
 
-### **CertUtil Download With URLCache and Split Arguments**
+### <mark style="color:blue;">**CertUtil Download With URLCache and Split Arguments**</mark>
 
 Certutil.exe may download a file from a remote destination using **urlcache**. This behavior does require a URL to be passed on the command-line. In addition,\*\* f\*\* (force) and **split** (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for **certutil.exe** to contact public IP space. However, it is uncommon for **certutil.exe** to write files to world writeable paths.\ During triage, capture any files on disk and review them. Review the reputation of the remote IP or domain in question.
 
@@ -250,7 +250,7 @@ Certutil.exe may download a file from a remote destination using **urlcache**. T
 ```
 {% endcode %}
 
-### **CertUtil Download With VerifyCtl and Split Arguments**
+### <mark style="color:blue;">**CertUtil Download With VerifyCtl and Split Arguments**</mark>
 
 Certutil.exe may download a file from a remote destination using **VerifyCtl**. This behavior does require a URL to be passed on the command-line. In addition, **f** (force) and **split** (Split embedded ASN.1 element and save to files) will be used. It is not entirely common for **certutil.exe** to contact public IP space. \ During triage, capture any files on disk and review them. Review the reputation of the remote IP or domain in question. Using **VerifyCtl**, the file will either be written to the current working directory or **%APPDATA%..\LocalLow\Microsoft\CryptnetUrlCache\Content\<hash>.**
 
@@ -260,7 +260,7 @@ Certutil.exe may download a file from a remote destination using **VerifyCtl**. 
 ```
 {% endcode %}
 
-### **Certutil exe certificate extraction**
+### <mark style="color:blue;">**Certutil exe certificate extraction**</mark>
 
 This search looks for arguments to certutil.exe indicating the manipulation or extraction of Certificate. This certificate can then be used to sign new authentication tokens specially inside Federated environments such as Windows ADFS.
 
@@ -270,7 +270,7 @@ This search looks for arguments to certutil.exe indicating the manipulation or e
 ```
 {% endcode %}
 
-### **CertUtil With Decode Argument**
+### <mark style="color:blue;">**CertUtil With Decode Argument**</mark>
 
 CertUtil.exe may encode and decode a file, including PE and script code. Encoding will convert a file to base64 with **----BEGIN CERTIFICATE-----** and **----END CERTIFICATE-----** tags. Malicious usage will include decoding an encoded file that was downloaded. Once decoded, a parallel process will load it. Note that two additional command switches may be used **- encodehex** and **decodehex**. Similarly, the file will be encoded in HEX and later decoded for further execution. During triage, identify the source of the file being decoded. Review its contents or execution behavior for further analysis.
 
@@ -280,7 +280,7 @@ CertUtil.exe may encode and decode a file, including PE and script code. Encodin
 ```
 {% endcode %}
 
-### **Create local admin accounts using net exe**
+### <mark style="color:blue;">**Create local admin accounts using net exe**</mark>
 
 This search looks for the creation of local administrator accounts using net.exe.
 
@@ -290,7 +290,7 @@ This search looks for the creation of local administrator accounts using net.exe
 ```
 {% endcode %}
 
-### Create Remote Thread into LSASS
+### <mark style="color:blue;">Create Remote Thread into LSASS</mark>
 
 Actors may create a remote thread into the LSASS service as part of a workflow to dump credentials.
 
@@ -300,7 +300,7 @@ Actors may create a remote thread into the LSASS service as part of a workflow t
 ```
 {% endcode %}
 
-### Create Service In Suspicious File Path
+### <mark style="color:blue;">Create Service In Suspicious File Path</mark>
 
 This detection is to identify the creation of a “user mode service” whose service file path is located in a non-common service folder in Windows.
 
@@ -310,7 +310,7 @@ This detection is to identify the creation of a “user mode service” whose se
 ```
 {% endcode %}
 
-### **Common Windows Process Masquerading**
+### <mark style="color:blue;">**Common Windows Process Masquerading**</mark>
 
 “Masquerading occurs when the name or location of an object, legitimate or malicious, is manipulated or abused to evade defences and observation. This may include manipulating file metadata, tricking users into misidentifying the file type, and giving legitimate task or service names.” Malware authors often use this technique to hide malicious executables behind legitimate Windows executable names (e.g. lsass.exe, svchost.exe, etc).
 
@@ -320,7 +320,7 @@ This detection is to identify the creation of a “user mode service” whose se
 ```
 {% endcode %}
 
-### **Unusual Child Process Spawned using DDE Exploit**
+### <mark style="color:blue;">**Unusual Child Process Spawned using DDE Exploit**</mark>
 
 Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary commands. DDE is a client-server protocol for one-time and/or continuous inter-process communication (IPC) between applications. Once a link is established, applications can autonomously exchange transactions consisting of strings, warm data links (notifications when a data item changes), hot data links (duplications of changes to a data item), and requests for command execution.
 
@@ -330,7 +330,7 @@ Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary com
 ```
 {% endcode %}
 
-### **Detecting Tampering of Windows Defender Command Prompt**
+### <mark style="color:blue;">**Detecting Tampering of Windows Defender Command Prompt**</mark>
 
 Threat actors often try to disable Windows Defender after compromising a machine in an attempt to avoid detection. This is often done using “sc” \[service control], a legitimate tool provided by Microsoft for managing services. This action interferes with event detection and may lead to a security event going undetected, potentially leading to further network compromise.
 
@@ -340,7 +340,7 @@ Threat actors often try to disable Windows Defender after compromising a machine
 ```
 {% endcode %}
 
-### **Disable UAC**
+### <mark style="color:blue;">**Disable UAC**</mark>
 
 Threat actors often try to disable User Access Control (UAC) to escalate privileges after compromising a machine. This is often done by changing the registry key for system policies using “reg.exe,” a legitimate tool provided by Microsoft for modifying the registry via command prompt or scripts. This action interferes with UAC and may enable a threat actor to escalate privileges on the compromised system, thereby allowing further exploitation of the system.
 
@@ -350,7 +350,7 @@ Threat actors often try to disable User Access Control (UAC) to escalate privile
 ```
 {% endcode %}
 
-### **Unusually Long Command Line Strings**
+### <mark style="color:blue;">**Unusually Long Command Line Strings**</mark>
 
 Often, after a threat actor gains access to a system, they will attempt to run some kind of malware to further infect the victim machine. These malware often have long command line strings, which could be a possible indicator of attack. Here, we use sysmon and Splunk to first find the average command string length and search for command strings that stretch over multiple lines, thus identifying anomalies and possibly malicious commands.
 
@@ -360,7 +360,7 @@ Often, after a threat actor gains access to a system, they will attempt to run s
 ```
 {% endcode %}
 
-### **Clearing Windows Logs with Wevtutil**
+### <mark style="color:blue;">**Clearing Windows Logs with Wevtutil**</mark>
 
 Threat actors often try to clear Windows Event logs after compromising a machine in an attempt to clear traces. This is often done using “wevtutil,” a legitimate tool provided by Microsoft. This action interferes with event collection and notification and may lead to a security event going undetected, thereby potentially leading to further compromise of the network.
 
@@ -370,7 +370,7 @@ Threat actors often try to clear Windows Event logs after compromising a machine
 ```
 {% endcode %}
 
-### **Unusual Child Process for Spoolsv.Exe or Connhost.Exe**
+### <mark style="color:blue;">**Unusual Child Process for Spoolsv.Exe or Connhost.Exe**</mark>
 
 After gaining initial access to a system, threat actors attempt to escalate privileges as they may be operating within a lower privileged process which does not allow them to access protected information or carry out tasks which require higher permissions. A common way of escalating privileges in a system is by externally invoking and exploiting spoolsv or connhost executables, both of which are legitimate Windows applications. This query searches for an invocation of either of these executables by a user, thus alerting us of any potentially malicious activity.
 
@@ -380,7 +380,7 @@ After gaining initial access to a system, threat actors attempt to escalate priv
 ```
 {% endcode %}
 
-### **Detecting Shadow Copy Deletion via Vssadmin.exe**
+### <mark style="color:blue;">**Detecting Shadow Copy Deletion via Vssadmin.exe**</mark>
 
 After compromising a network of systems, threat actors often try to delete Shadow Copy to prevent administrators from restoring the systems to versions present before the attack. This is often done via vssadmin, a legitimate Windows tool for interacting with shadow copies. This non-detection of this technique, often employed by ransomware strains such as “Olympic Destroyer,” may lead to a failure in recovering systems after an attack.
 
@@ -388,7 +388,7 @@ After compromising a network of systems, threat actors often try to delete Shado
 `index=*sysmon EventType=4688 CommandLine:"delete" OriginalFileName:"VSSADMIN.EXE"`
 ```
 
-### **Webshell-Indicative Process Tree**
+### <mark style="color:blue;">**Webshell-Indicative Process Tree**</mark>
 
 A web shell is a web script placed on an openly accessible web server to allow an adversary to use the server as a gateway in a network. As the shell operates, commands will be issued from within the web application into the broader server operating system. This query looks for host enumeration executables initiated by any web service that would not normally be executed within that environment.
 
@@ -398,7 +398,7 @@ A web shell is a web script placed on an openly accessible web server to allow a
 ```
 {% endcode %}
 
-### **Get System Elevation**
+### <mark style="color:blue;">**Get System Elevation**</mark>
 
 Cyber actors frequently escalate to the SYSTEM account after gaining entry to a Windows host, enabling them to carry out various attacks more effectively. Tools such as Meterpreter, Cobalt Strike, and Empire carry out automated steps to “Get System”, which is the same as switching over to the System user account. Most of these tools utilize multiple techniques to try and attain SYSTEM: in the first technique, they create a named pipe and connect an instance of cmd.exe to it, which allows them to impersonate the security context of cmd.exe, which is SYSTEM. In the second technique, a malicious DLL is injected into a process running as SYSTEM; the injected DLL steals the SYSTEM token and applies it where necessary to escalate privileges. This query looks for both of these techniques.
 
@@ -410,7 +410,7 @@ index=*sysmon (Image="C:\\Windows\\System32\\cmd.exe" OR CommandLine="*%COMSPEC%
 ```
 {% endcode %}
 
-### **Boot or Logon Initialization Scripts**
+### <mark style="color:blue;">**Boot or Logon Initialization Scripts**</mark>
 
 Adversaries may schedule software to run whenever a user logs into the system; this is done to establish persistence and sometimes for lateral movement. This trigger is established through the registry key HKEY\_CURRENT\_USER\EnvironmentUserInitMprLogonScript. This signature looks for edits to existing keys or the creation of new keys in that path. Users purposefully adding benign scripts to this path will result in false positives; that case is rare, however. There are other ways of running a script at startup or login that are not covered in this signature. Note that this signature overlaps with the Windows Sysinternals Autoruns tool, which would also show changes to this registry path.
 
@@ -420,7 +420,7 @@ Adversaries may schedule software to run whenever a user logs into the system; t
 ```
 {% endcode %}
 
-### **Local Network Sniffing**
+### <mark style="color:blue;">**Local Network Sniffing**</mark>
 
 Adversaries may use various tools to gain visibility into the network's current status: which processes are listening on which ports, which services are running on other hosts, etc. This query looks for the names of the most common network sniffing tools. While this may be noisy on networks where sysadmins regularly use any of these tools, their use is noteworthy in most networks.
 
@@ -430,7 +430,7 @@ Adversaries may use various tools to gain visibility into the network's current 
 ```
 {% endcode %}
 
-### **DLL Injection with Mavinject**
+### <mark style="color:blue;">**DLL Injection with Mavinject**</mark>
 
 Injecting a malicious DLL into a process is a common adversary TTP. Although the ways of doing this are numerous, mavinject.exe is a commonly used tool because it roles up many of the necessary steps into one and is available within Windows. Attackers may rename the executable, so we also use the common argument “INJECTRUNNING” as a related signature here. Whitelisting certain applications may be necessary to reduce noise for this query.
 
@@ -440,7 +440,7 @@ Injecting a malicious DLL into a process is a common adversary TTP. Although the
 ```
 {% endcode %}
 
-### Processes Started From Irregular Parent
+### <mark style="color:blue;">Processes Started From Irregular Parent</mark>
 
 Adversaries may start legitimate processes and then use their memory space to run malicious code. This query looks for common Windows processes that have been abused this way in the past; when the processes are started for this purpose, they may not have the standard parent that we would expect. This list is not exhaustive, and it is possible for cyber actors to avoid this discrepancy. These signatures only work if Sysmon reports the parent process, which may not always be the case if the parent dies before sysmon processes the event.
 
@@ -450,7 +450,7 @@ Adversaries may start legitimate processes and then use their memory space to ru
 ```
 {% endcode %}
 
-### **Clear Powershell Console Command History**
+### <mark style="color:blue;">**Clear Powershell Console Command History**</mark>
 
 Adversaries may attempt to conceal their tracks by deleting the history of commands run within the Powershell console or turning off history saving to begin with. This query looks for several commands that would do this. This does not capture the event if it is done within the console itself; only commandline-based commands are detected. Note that the command to remove the history file directly may vary a bit if the history file is not saved in the default path on a particular system.
 
@@ -460,7 +460,7 @@ Adversaries may attempt to conceal their tracks by deleting the history of comma
 ```
 {% endcode %}
 
-### **Local Permission Group Discovery**
+### <mark style="color:blue;">**Local Permission Group Discovery**</mark>
 
 Cyber actors frequently enumerate local or domain permissions groups. The net utility is usually used for this purpose. This query looks for any instances of net.exe, which is not generally used for benign purposes, although system administrator actions may trigger false positives.
 
@@ -470,7 +470,7 @@ Cyber actors frequently enumerate local or domain permissions groups. The net ut
 ```
 {% endcode %}
 
-### **Network Share Connection Removal**
+### <mark style="color:blue;">**Network Share Connection Removal**</mark>
 
 Adversaries may use network shares to exfiltrate data; they will then remove the shares to cover their tracks. This query looks for the removal of network shares via commandline, which is otherwise a rare event.
 
@@ -480,7 +480,7 @@ Adversaries may use network shares to exfiltrate data; they will then remove the
 ```
 {% endcode %}
 
-### **MSBuild and msxsl**
+### <mark style="color:blue;">**MSBuild and msxsl**</mark>
 
 Trusted developer utilities such as MSBuild may be leveraged to run malicious code with elevated privileges. This query looks for any instances of msbuild.exe, which will execute any C# code placed within a given XML document, and msxsl.exe, which processes XSL transformation specifications for XML files and will execute a variety of scripting languages contained within the XSL file. Both of these executables are rarely used outside of Visual Studio.
 
@@ -490,7 +490,7 @@ Trusted developer utilities such as MSBuild may be leveraged to run malicious co
 ```
 {% endcode %}
 
-### **Compiled HTML Access**
+### <mark style="color:blue;">**Compiled HTML Access**</mark>
 
 Adversaries may hide malicious code in .chm compiled HTML files. When these files are read, Windows uses the HTML help executable named hh.exe, which is the signature for this query.
 
@@ -500,7 +500,7 @@ Adversaries may hide malicious code in .chm compiled HTML files. When these file
 ```
 {% endcode %}
 
-### **CMSTP**
+### <mark style="color:blue;">**CMSTP**</mark>
 
 CMSTP.exe is the Microsoft Connection Manager Profile Installer, which can be leveraged to setup listeners that will receive and install malware from remote sources in trusted fashion. When CMSTP.exe is seen in combination with an external connection, it is a good indication of this TTP.
 
@@ -510,7 +510,7 @@ CMSTP.exe is the Microsoft Connection Manager Profile Installer, which can be le
 ```
 {% endcode %}
 
-### **Registry Edit from Screensaver**
+### <mark style="color:blue;">**Registry Edit from Screensaver**</mark>
 
 Adversaries may use screensaver files to run malicious code. This query triggers suspicious edits to the screensaver registry keys, which dictate which .scr file the screensaver runs.
 
@@ -520,7 +520,7 @@ Adversaries may use screensaver files to run malicious code. This query triggers
 ```
 {% endcode %}
 
-### **Scheduled Task - File Access**
+### <mark style="color:blue;">**Scheduled Task - File Access**</mark>
 
 An adversary may use the Windows Task Scheduler to schedule a command to be run at a specified time, date, and even host to gain persistence, privilege escalation, or remote execution. The Task Scheduler stores tasks as files in two locations: C: WindowsTasks (legacy) or C: WindowsSystem32Tasks. Accordingly, this query looks for the creation of task files in these two locations.
 
@@ -530,7 +530,7 @@ An adversary may use the Windows Task Scheduler to schedule a command to be run 
 ```
 {% endcode %}
 
-### **Component Object Model Hijacking**
+### <mark style="color:blue;">**Component Object Model Hijacking**</mark>
 
 Adversaries may establish persistence or escalate privileges by executing malicious content triggered by hijacked references to Component Object Model (COM) objects. This is typically done by replacing COM object registry entries under the HKEY\_CURRENT\_USER\Software\Classes\CLSID or HKEY\_LOCAL\_MACHINE\SOFTWARE\Classes\CLSID keys. Accordingly, this query looks for any changes under these keys.
 
@@ -540,7 +540,7 @@ Adversaries may establish persistence or escalate privileges by executing malici
 ```
 {% endcode %}
 
-### **Indicator Blocking - Driver Unloaded**
+### <mark style="color:blue;">**Indicator Blocking - Driver Unloaded**</mark>
 
 Adversaries may attempt to evade system defences by unloading minifilter drivers used by host-based sensors such as Sysmon through the use of the fltmc command-line utility. Accordingly, this query looks for command-line invocations of this utility when used to unload minifilter drivers.
 
@@ -550,7 +550,7 @@ Adversaries may attempt to evade system defences by unloading minifilter drivers
 ```
 {% endcode %}
 
-### Credentials in Files & Registry
+### <mark style="color:blue;">Credentials in Files & Registry</mark>
 
 Adversaries may search the Windows Registry on compromised systems for insecurely stored credentials for credential access. This can be accomplished using the query functionality of the reg.exe system utility, by looking for keys and values that contain strings such as “password.” In addition, adversaries may use toolkits such as PowerSploit to dump credentials from various applications such as IIS.Accordingly, this query looks for invocations of reg.exe in this capacity as well as that of several PowerSploit modules with similar functionality.
 
@@ -560,7 +560,7 @@ Adversaries may search the Windows Registry on compromised systems for insecurel
 ```
 {% endcode %}
 
-### **AppInit DLLs**
+### <mark style="color:blue;">**AppInit DLLs**</mark>
 
 Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppInit DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the AppInit\_DLLs value in the Registry keys HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows or HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows are loaded by user32.dll into every process that loads user32.dll. These values can be abused to obtain elevated privileges by causing a malicious DLL to be loaded and run in the context of separate processes. Accordingly, this query looks for modifications to these registry keys that may indicate this type of abuse.
 
@@ -570,7 +570,7 @@ Adversaries may establish persistence and/or elevate privileges by executing mal
 ```
 {% endcode %}
 
-### **NTFS Alternate Data Stream Execution - System Utilities**
+### <mark style="color:blue;">**NTFS Alternate Data Stream Execution - System Utilities**</mark>
 
 Adversaries may use NTFS Alternate Data Streams (ADSs) to evade security tools by storing malicious data or binaries in file attribute metadata. ADSs are also powerful because various Windows tools can directly execute them; this query looks at common ways of executing ADSs using system utilities such as Powershell.
 
@@ -590,7 +590,7 @@ index=*sysmon EventCode=1 (Image=C:\\Windows\\*\\wscript.exe OR Image=C:\\Window
 ```
 {% endcode %}
 
-### **NTFS Alternate Data Stream Execution - LOLBAS**
+### <mark style="color:blue;">**NTFS Alternate Data Stream Execution - LOLBAS**</mark>
 
 Adversaries may use NTFS Alternate Data Streams (ADSs) to evade security tools by storing malicious data or binaries in file attribute metadata. ADSs are also powerful because various Windows tools can directly execute their contents; this query looks at standard ways of executing ADSs using Living off the Land Binaries and Scripts (LOLBAS).
 
@@ -619,7 +619,7 @@ index=*sysmon EventCode=1 (Image=C:\\Windows\\System32\\bitsadmin.exe OR C:\\Win
 ```
 {% endcode %}
 
-### **Execution with AT**
+### <mark style="color:blue;">**Execution with AT**</mark>
 
 In order to gain persistence, privilege escalation, or remote execution, an adversary may use the Windows built-in command AT (at.exe) to schedule a command to be run at a specified time, date, and even host. This method has been used by adversaries and administrators alike. Its use may lead to the detection of compromised hosts and compromised users if it is used to move laterally. The built-in Windows tool schtasks.exe (CAR-2013-08-001) offers greater flexibility when creating, modifying, and enumerating tasks. For these reasons, schtasks.exe is more commonly used by administrators, tools/scripts, and power users.
 
@@ -629,7 +629,7 @@ In order to gain persistence, privilege escalation, or remote execution, an adve
 ```
 {% endcode %}
 
-### **Running executables with the same hash and different names**
+### <mark style="color:blue;">**Running executables with the same hash and different names**</mark>
 
 Executables are generally not renamed, thus a given hash of an executable should only have ever one name. Identifying instances where multiple process names share the same hash may find cases where tools are copied by attackers to different folders or hosts to avoid detection.
 
@@ -641,7 +641,7 @@ Although this query was initially based on MD5 hashes, it is equally applicable 
 ```
 {% endcode %}
 
-### **Suspicious Arguments**
+### <mark style="color:blue;">**Suspicious Arguments**</mark>
 
 Malicious actors may rename built-in commands or external tools, such as those provided by SysInternals, to better blend in with the environment. In those cases, the file path name is arbitrary and may blend well with the background. If the arguments are closely inspected, it may be possible to infer what tools are running and understand what an adversary is doing. When any legitimate software shares the same command lines, it must be whitelisted according to the expected parameters.
 
@@ -651,7 +651,7 @@ Malicious actors may rename built-in commands or external tools, such as those p
 ```
 {% endcode %}
 
-### **User Login Activity Monitoring**
+### <mark style="color:blue;">**User Login Activity Monitoring**</mark>
 
 Monitoring logon and logoff events for network hosts is very important for situational awareness. This information can be used to indicate unusual activity and corroborate activity seen elsewhere.
 
@@ -663,7 +663,7 @@ It could be applied to a number of different types of monitoring, depending on w
 ```
 {% endcode %}
 
-### **PowerShell Execution**
+### <mark style="color:blue;">**PowerShell Execution**</mark>
 
 PowerShell is a scripting environment included with Windows that is used by both attackers and administrators. Execution of PowerShell scripts in most Windows versions is opaque and not typically secured by antivirus, which makes using PowerShell an easy way to circumvent security measures. This query detects the execution of PowerShell scripts.
 
@@ -678,7 +678,7 @@ index=*sysmon EventCode=1 Image="C:\\Windows\\*\\powershell.exe" ParentImage!="C
 ```
 {% endcode %}
 
-### Services launching Cmd
+### <mark style="color:blue;">Services launching Cmd</mark>
 
 Windows runs the Service Control Manager (SCM) within the process services.exe. Windows launches services as independent processes or DLL loads within a svchost.exe group. To be a legitimate service, a process (or DLL) must have the appropriate service entry point SvcMain. If an application does not have the entry point, it will timeout (default is 30 seconds), and the process will be killed. To survive the timeout, adversaries and red teams can create services that direct to cmd.exe with the flag /c, followed by the desired command. The /c flag causes the command shell to run a command and immediately exit. As a result, the desired program will remain running and report an error starting the service. This query will catch the command prompt instance used to launch the malicious executable. Additionally, the children and descendants of services.exe will run as a SYSTEM user by default. Thus, services are a convenient way for an adversary to gain Persistence and Privilege Escalation.
 
@@ -688,7 +688,7 @@ Windows runs the Service Control Manager (SCM) within the process services.exe. 
 ```
 {% endcode %}
 
-### **Command Launched from WinLogon**
+### <mark style="color:blue;">**Command Launched from WinLogon**</mark>
 
 An adversary can use accessibility features (Ease of Access), such as StickyKeys or Utilman, to launch a command shell from the logon screen and gain SYSTEM access. Since an adversary does not have physical access to the machine, this technique must be run within Remote Desktop. To prevent an adversary from getting to the login screen without first authenticating, Network-Level Authentication (NLA) must be enabled. If a debugger is set up for one of the accessibility features, then it will intercept the process launch of the feature and instead execute a new command line. This query looks for instances of cmd.exe or powershell.exe launched directly from the logon process, winlogon.exe.&#x20;
 
@@ -698,7 +698,7 @@ An adversary can use accessibility features (Ease of Access), such as StickyKeys
 ```
 {% endcode %}
 
-### Host Discovery Commands
+### <mark style="color:blue;">Host Discovery Commands</mark>
 
 When entering a host for the first time, an adversary may try to discover information about the host. There are several built-in Windows commands that can be used to learn about the software configurations, active users, administrators, and networking configuration. These commands should be monitored to identify when an adversary is learning information about the system and environment. The information returned may impact choices an adversary can make when establishing persistence, escalating privileges, or moving laterally.
 
@@ -710,7 +710,7 @@ Because these commands are built in, they may run frequently by power users or e
 ```
 {% endcode %}
 
-### **Create a Remote Process via WMIC**
+### <mark style="color:blue;">**Create a Remote Process via WMIC**</mark>
 
 Adversaries may use Windows Management Instrumentation (WMI) to move laterally by launching executables remotely. The query CAR-2014-12-001 describes how to detect these processes with network traffic monitoring and process monitoring on the target host. However, if the command line utility wmic.exe is used on the source host, then it can additionally be detected on a query. The command line on the source host is constructed into something like wmic.exe /node:"\<hostname>" process call create "\<command line>". It is possible to connect via IP address, where the string "\<hostname>" would instead look like an IP Address.
 
@@ -722,7 +722,7 @@ Although this query was created after CAR-2014-12-001, it is a much simpler (alt
 ```
 {% endcode %}
 
-### UAC Bypass
+### <mark style="color:blue;">UAC Bypass</mark>
 
 Bypassing user account control (UAC Bypass) is generally done by piggybacking on a system process that has auto-escalate privileges. This query looks to detect those cases as described by the open-source UACME tool.
 
@@ -732,7 +732,7 @@ Bypassing user account control (UAC Bypass) is generally done by piggybacking on
 ```
 {% endcode %}
 
-### **Generic Regsvr32**
+### <mark style="color:blue;">**Generic Regsvr32**</mark>
 
 Regsvr32 can be used to execute arbitrary code in the context of a Windows signed binary, which can be used to bypass application whitelisting. This query looks for suspicious usage of the tool. It’s not likely that you’ll get millions of hits, but it does occur during normal activity, so some form of baselining would be necessary for this to be an alerting query. Alternatively, it can be used for hunting by manually looking for new or anomalous DLLs.
 
@@ -742,7 +742,7 @@ Regsvr32 can be used to execute arbitrary code in the context of a Windows signe
 ```
 {% endcode %}
 
-### **Credential Dumping via Mimikatz**
+### <mark style="color:blue;">**Credential Dumping via Mimikatz**</mark>
 
 Credential dumpers like Mimikatz can be loaded into memory and read data from other processes. This query looks for instances where processes request specific permissions to read parts of the LSASS process to detect credential dumping. One weakness is that all current implementations are “overturned” to look for common access patterns used by Mimikatz.
 
@@ -754,7 +754,7 @@ Credential dumpers like Mimikatz can be loaded into memory and read data from ot
 
 (GrantedAccess=0x1410 OR GrantedAccess=0x1010 OR GrantedAccess=0x1438 OR GrantedAccess=0x143a OR GrantedAccess=0x1418) CallTrace="C:\windows\SYSTEM32\ntdll.dll+\* |C:\windows\System32\KERNELBASE.dll+20edd|UNKNOWN(\*)"  | table \_time hostname user SourceImage GrantedAccess
 
-### Access Permission Modification
+### <mark style="color:blue;">Access Permission Modification</mark>
 
 Adversaries sometimes modify object access rights at the operating system level. There are varying motivations behind this action - they may not want some files/objects to be changed on systems for persistence reasons and, therefore, provide admin-only rights; also, they may want files to be accessible with lower levels of permissions.
 
@@ -764,7 +764,7 @@ Adversaries sometimes modify object access rights at the operating system level.
 ```
 {% endcode %}
 
-### **Lsass Process Dump via Procdump**
+### <mark style="color:blue;">**Lsass Process Dump via Procdump**</mark>
 
 ProcDump is a sysinternal command-line utility whose primary purpose is monitoring an application for CPU spikes and generating crash dumps during a spike that an administrator or developer can use to determine the cause of the spike. ProcDump may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching procdump.exe as a privileged user with command line options indicating that lsass.exe should be dumped to a file with an arbitrary name.
 
@@ -774,7 +774,7 @@ ProcDump is a sysinternal command-line utility whose primary purpose is monitori
 ```
 {% endcode %}
 
-### **Credential Dumping via Windows Task Manager**
+### <mark style="color:blue;">**Credential Dumping via Windows Task Manager**</mark>
 
 The Windows Task Manager may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching Task Manager as a privileged user, selecting lsass.exe, and clicking “Create dump file”. This saves a dump file to disk with a deterministic name that includes the name of the process being dumped.
 
@@ -784,7 +784,7 @@ The Windows Task Manager may be used to dump the memory space of lsass.exe to di
 ```
 {% endcode %}
 
-### **Active Directory Dumping via NTDSUtil**
+### <mark style="color:blue;">**Active Directory Dumping via NTDSUtil**</mark>
 
 The NTDSUtil tool may be used to dump a Microsoft Active Directory database to disk for processing with a credential access tool such as Mimikatz. This is performed by launching ntdsutil.exe as a privileged user with command line arguments indicating that media should be created for offline Active Directory installation and specifying a folder path. This process will create a copy of the Active Directory database, ntds.dit, to the specified folder path.
 
@@ -794,7 +794,7 @@ The NTDSUtil tool may be used to dump a Microsoft Active Directory database to d
 ```
 {% endcode %}
 
-### **Shadow Copy Deletion**
+### <mark style="color:blue;">**Shadow Copy Deletion**</mark>
 
 The Windows Volume Shadow Copy Service is a built-in OS feature that can be used to create backup copies of files and volumes.
 
@@ -806,7 +806,7 @@ Adversaries may delete these shadow copies, typically through the usage of syste
 ```
 {% endcode %}
 
-### **WMIC shadowcopy delete**
+### <mark style="color:blue;">**WMIC shadowcopy delete**</mark>
 
 {% code overflow="wrap" %}
 ```
@@ -814,7 +814,7 @@ Adversaries may delete these shadow copies, typically through the usage of syste
 ```
 {% endcode %}
 
-### **MiniDump of LSASS**
+### <mark style="color:blue;">**MiniDump of LSASS**</mark>
 
 This query detects the minidump variant of credential dumping, in which a process opens lsass.exe to extract credentials using the Win32 API call MiniDumpWriteDump. Tools like SafetyKatz, SafetyDump, and Outflank-Dumpert default to this variant and may be detected by this query. However, remember that not all options for using those tools will result in this specific behaviour.
 
@@ -826,7 +826,7 @@ The query is based on a Sigma query contributed by Samir Bousseaden and written 
 ```
 {% endcode %}
 
-### **Rare LolBAS Command Lines**
+### <mark style="color:blue;">**Rare LolBAS Command Lines**</mark>
 
 LoLBAS are binaries and scripts built into Windows, frequently signed by Microsoft, and may be used by an attacker. Some LoLBAS are used very rarely, and it might be possible to alert every time they’re used (this would depend on your environment), but many others are very common and can’t be simply alerted.
 

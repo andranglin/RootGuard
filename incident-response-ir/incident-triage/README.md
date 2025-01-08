@@ -10,11 +10,11 @@ coverY: 0
 
 Incident Response (IR) is a specialised area of cybersecurity that focuses on investigating and responding to security incidents. IR techniques are used to uncover the origins and scope of an attack and facilitate a structured approach to mitigate damage, recover affected systems, and strengthen organisational defences.
 
-## Difference Between Digital Forensics and Incident Response (DFIR)
+## <mark style="color:blue;">Difference Between Digital Forensics and Incident Response (DFIR)</mark>
 
 Digital Forensics and Incident Response are two interconnected components of cybersecurity within the broader DFIR discipline. While they often overlap, they have distinct objectives, processes, and focuses:
 
-### 1. Purpose
+### <mark style="color:blue;">1. Purpose</mark>
 
 * Digital Forensics:
   * Focuses on the investigative aspect of cybersecurity.
@@ -25,7 +25,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Aims to contain, mitigate, and recover from security breaches or attacks.
   * Prioritises rapid action to minimise damage and restore operations.
 
-### 2. Key Goals
+### <mark style="color:blue;">2. Key Goals</mark>
 
 * Digital Forensics:
   * Reconstruct the timeline and scope of an attack.
@@ -36,7 +36,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Remove the threat and prevent further damage.
   * Restore affected systems and ensure business continuity.
 
-### 3. Timing
+### <mark style="color:blue;">3. Timing</mark>
 
 * Digital Forensics:
   * Conducted after an incident to investigate its root cause and gather evidence.
@@ -45,7 +45,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Takes place during or immediately after an incident is detected.
   * Prioritises real-time containment and remediation.
 
-### 4. Focus
+### <mark style="color:blue;">4. Focus</mark>
 
 * Digital Forensics:
 * Emphasises analysing artifacts such as:
@@ -61,7 +61,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Blocking attacker access
   * Deploying patches and recovery measures
 
-### 5. Tools and Techniques
+### <mark style="color:blue;">5. Tools and Techniques</mark>
 
 * Digital Forensics:
 * Specialised tools for evidence collection and analysis:
@@ -84,7 +84,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Firewalls and IDS/IPS systems
 * Techniques include log analysis, threat containment, and system restoration.
 
-### 6. Use Cases
+### <mark style="color:blue;">6. Use Cases</mark>
 
 * Digital Forensics:
   * Investigating a past breach or insider threat.
@@ -95,7 +95,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Containing phishing or social engineering incidents.
   * Responding to Distributed Denial of Service (DDoS) attacks.
 
-### 7. Output
+### <mark style="color:blue;">7. Output</mark>
 
 * Digital Forensics:
 * A detailed forensic report outlining:

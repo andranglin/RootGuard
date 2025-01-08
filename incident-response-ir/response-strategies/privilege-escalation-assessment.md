@@ -80,8 +80,6 @@ icon: laptop-code
     * Firewalls and IDS/IPS systems
   * Techniques include log analysis, threat containment, and system restoration.
 
-###
-
 ### **11. Key Considerations**
 
 * **Legal and Compliance**: Ensure all investigative actions comply with legal and organisational guidelines.

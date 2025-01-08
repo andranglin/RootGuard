@@ -4,7 +4,7 @@ icon: laptop-code
 
 # Daily and Weekly Threat Hunting KQL Queries
 
-## **1. Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)**
+## <mark style="color:blue;">**1. Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)**</mark>
 
 **Overview:**
 
@@ -237,7 +237,7 @@ DeviceProcessEvents | where FileName == "certutil.exe" and ProcessCommandLine ha
 ```
 {% endcode %}
 
-## **2. Discovery Activities (MITRE ATT\&CK: T1016, T1083, T1046)**
+## <mark style="color:blue;">**2. Discovery Activities (MITRE ATT\&CK: T1016, T1083, T1046)**</mark>
 
 **Overview:**
 
@@ -470,7 +470,7 @@ DeviceProcessEvents | where FileName == "gpresult.exe" | summarize count() by De
 ```
 {% endcode %}
 
-## **3. Credential Theft (MITRE ATT\&CK: T1003, T1078)**
+## <mark style="color:blue;">**3. Credential Theft (MITRE ATT\&CK: T1003, T1078)**</mark>
 
 #### **Overview:**
 
@@ -703,7 +703,7 @@ DeviceProcessEvents | where FileName == "exploit.exe" and ProcessCommandLine has
 ```
 {% endcode %}
 
-## **4. Lateral Movement (MITRE ATT\&CK: T1076, T1021)**
+## <mark style="color:blue;">**4. Lateral Movement (MITRE ATT\&CK: T1076, T1021)**</mark>
 
 **Overview:**
 
@@ -936,7 +936,7 @@ DeviceLogonEvents | where LogonType == "RemoteInteractive" and todatetime(Timest
 ```
 {% endcode %}
 
-## **5. Data Theft (MITRE ATT\&CK: T1041, T1071)**
+## <mark style="color:blue;">**5. Data Theft (MITRE ATT\&CK: T1041, T1071)**</mark>
 
 **Overview:**
 
@@ -1169,7 +1169,7 @@ DeviceProcessEvents | where FileName in ("thunderbird.exe", "eudora.exe") | summ
 ```
 {% endcode %}
 
-## **6. Execution of Actor Tools and Command-line Activities (MITRE ATT\&CK: T1059)**
+## <mark style="color:blue;">**6. Execution of Actor Tools and Command-line Activities (MITRE ATT\&CK: T1059)**</mark>
 
 **Overview:**
 
@@ -1402,7 +1402,7 @@ DeviceProcessEvents | where FileName == "mstsc.exe" | summarize count() by Devic
 ```
 {% endcode %}
 
-## **7. Windows Security Logs (Identity and Logon Activities)**
+## <mark style="color:blue;">**7. Windows Security Logs (Identity and Logon Activities)**</mark>
 
 **Overview:**
 
@@ -1633,7 +1633,7 @@ DeviceLogonEvents | where AccountName == "ANONYMOUS LOGON" | summarize count() b
 ```
 {% endcode %}
 
-## **Conclusion**
+## <mark style="color:blue;">**Conclusion**</mark>
 
 This guide provides SOC analysts with a structured approach to threat hunting in a Windows enterprise environment, leveraging **Microsoft Defender XDR** and focusing on key areas of the **MITRE ATT\&CK Framework**. It covers:
 

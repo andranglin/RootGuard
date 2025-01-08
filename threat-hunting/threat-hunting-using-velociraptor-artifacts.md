@@ -4,11 +4,11 @@ icon: laptop-code
 
 # Threat Hunting Using Velociraptor Artifacts
 
-## Hunting for Ransomware Activities
+## <mark style="color:blue;">Hunting for Ransomware Activities</mark>
 
-Ransomware remains one of the most pervasive and damaging cyber threats organisations face today. It involves malicious software designed to encrypt data and demand ransom payments for its release. Hunting for ransomware activities is a proactive approach to detect and mitigate ransomware before it can execute its payload. This process leverages threat intelligence, behavioural analytics, and advanced tools like Velociraptor to uncover the early signs of ransomware infection. Velociraptor, an open-source endpoint monitoring and forensic platform, excels at detecting indicators such as unusual file access patterns, lateral movement, and unauthorised data exfiltration. By integrating Velociraptor into their ransomware hunting practices, organisations can significantly reduce their exposure to this growing threat and enhance their overall cybersecurity posture.
+Ransomware remains one of the most pervasive and damaging cyber threats organisations face today. It involves malicious software designed to encrypt data and demand ransom payments for its release. Hunting for ransomware activities is a proactive approach to detect and mitigate ransomware before it can execute its payload. This process leverages threat intelligence, behavioural analytics, and advanced tools like Velociraptor to uncover the early signs of ransomware infection. Velociraptor, an open-source endpoint monitoring and forensic platform, excels at detecting indicators such as unusual file access patterns, lateral movement, and unauthorised data exfiltration. By integrating Velociraptor into their ransomware-hunting practices, organisations can significantly reduce their exposure to this growing threat and enhance their overall cybersecurity posture.
 
-### 1. **Detecting Malware Infection**
+### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detecting Malware Infection**</mark>
 
 **Description:** Malware infection detection involves identifying signs of compromise through executable files, persistence mechanisms, and suspicious behaviour. This section focuses on detecting malware that could be infecting systems through various techniques.
 
@@ -35,7 +35,7 @@ Ransomware remains one of the most pervasive and damaging cyber threats organisa
 10. **Artifact Name:** `Windows.FileSystem.MalwareFiles`&#x20;
     * **Description:** Searches for known malware file hashes in common directories.
 
-### 2. **Actor Discovery Activities**
+### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Actor Discovery Activities**</mark>
 
 **Description:** Discovery activities involve attackers attempting to gather information about the environment, including systems, users, and network shares. Monitoring these activities can provide early indicators of compromise.
 
@@ -62,7 +62,7 @@ Ransomware remains one of the most pervasive and damaging cyber threats organisa
 20. **Artifact Name:** `Windows.Audit.AccountLogonEvents`&#x20;
     * **Description:** Captures events related to user logon activities, which attackers often target during discovery.
 
-### 3. **Credential Theft Attempts**
+### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Theft Attempts**</mark>
 
 **Description:** Credential theft enables attackers to escalate privileges or move laterally across systems. These artifacts focus on detecting malicious attempts to dump or steal credentials from memory, registries, or credential stores.
 
@@ -89,7 +89,7 @@ Ransomware remains one of the most pervasive and damaging cyber threats organisa
 30. **Artifact Name:** `Windows.Kerberos.TicketGrants`&#x20;
     * **Description:** Monitors for unusual Kerberos ticket-granting-ticket (TGT) requests, which could indicate credential theft.
 
-### 4. **Lateral Movement Evidence**
+### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Lateral Movement Evidence**</mark>
 
 **Description:** Lateral movement allows attackers to expand access across a network, using tools and techniques like remote services, file sharing, and administrative accounts. These artifacts help detect such activities.
 
@@ -143,7 +143,7 @@ Ransomware remains one of the most pervasive and damaging cyber threats organisa
 50. **Artifact Name:** `Windows.FileSystem.FileShares`&#x20;
     * **Description:** Monitors file shares for unusual activity or access, which could indicate attempts to steal data.
 
-### 6. **Execution of Actor Tools & Command-Line Activities**
+### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Execution of Actor Tools & Command-Line Activities**</mark>
 
 **Description:** Attackers use a variety of tools and command-line utilities to execute their malicious actions. These artifacts help detect the use of attacker tools and suspicious command-line executions
 
@@ -170,7 +170,7 @@ Ransomware remains one of the most pervasive and damaging cyber threats organisa
 60. **Artifact Name:** `Windows.System.EncodedScriptExecution`&#x20;
     * **Description:** Detects execution of encoded or obfuscated scripts, often used to hide malicious actions.
 
-### 7. **Identity & Logon Activities Using Windows Security Logs**
+### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identity & Logon Activities Using Windows Security Logs**</mark>
 
 **Description:** Monitoring user logon activities can help identify compromised accounts, unusual logon times, and suspicious access patterns.
 
@@ -197,9 +197,9 @@ Ransomware remains one of the most pervasive and damaging cyber threats organisa
 70. **Artifact Name:** `Windows.Security.LocalAccountCreation`&#x20;
     * **Description:** Monitors for new user accounts created locally, which could indicate the creation of backdoor accounts.
 
-## Threat-Hunting Guide Using Velociraptor Artifacts: With Example VQL
+## <mark style="color:blue;">Threat-Hunting Guide Using Velociraptor Artifacts: With Example VQL</mark>
 
-### **1. Malware Infection Detection**
+### <mark style="color:blue;">**1. Malware Infection Detection**</mark>
 
 **Description:** Malware infections involve malicious code or files being installed or executed on the system. Attackers often use these infections to establish persistence and gain control over the system.
 
@@ -251,7 +251,7 @@ SELECT * FROM prefetch() WHERE filename LIKE '%malware%'
 
 **Description:** Detects execution of malware based on prefetch file entries.
 
-### **2. Actor Discovery Activities**
+### <mark style="color:blue;">**2. Actor Discovery Activities**</mark>
 
 **Description:** Discovery activities are used by attackers to learn more about the environment, such as gathering information about the network, users, and systems.
 
@@ -303,7 +303,7 @@ SELECT * FROM pslist() WHERE cmdline LIKE '%wmic%' AND cmdline LIKE '%computersy
 
 **Description:** Detects WMI commands used by attackers to gather system information.
 
-### **3. Credential Theft Attempts**
+### <mark style="color:blue;">**3. Credential Theft Attempts**</mark>
 
 **Description:** Credential theft attempts involve attackers trying to extract user credentials from memory, files, or the registry. These credentials are then used to escalate privileges or move laterally within the network.
 
@@ -355,7 +355,7 @@ SELECT * FROM windows_event_log() WHERE event_id = 4768
 
 **Description:** Tracks unusual Kerberos TGT requests that may be used in ticket-based attacks.
 
-### **4. Evidence of Lateral Movement**
+### <mark style="color:blue;">**4. Evidence of Lateral Movement**</mark>
 
 **Description:** Lateral movement refers to an attacker’s ability to move through a network by exploiting remote services, shared credentials, or other vectors. Detecting these movements is crucial for containing an attacker’s spread.
 
@@ -407,7 +407,7 @@ SELECT * FROM pslist() WHERE cmdline LIKE '%winrm%' AND cmdline LIKE '%RemoteShe
 
 **Description:** Detects the use of Windows Remote Management (WinRM) for executing commands on remote systems.
 
-### **5. Data Theft Attempts**
+### <mark style="color:blue;">**5. Data Theft Attempts**</mark>
 
 **Description:** Data theft attempts involve stealing sensitive information, often by exfiltrating files over the network or copying data to external storage devices.
 
@@ -459,7 +459,7 @@ SELECT * FROM usb_devices() WHERE event_type = 'connect'`
 
 **Description:** Detects when USB storage devices are connected to the system, which could be used for data theft.
 
-### **6. Execution of Actor Tools & Command-Line Activities**
+### <mark style="color:blue;">**6. Execution of Actor Tools & Command-Line Activities**</mark>
 
 **Description:** Attackers use a variety of tools and scripts to achieve their objectives. Monitoring the execution of these tools and their associated command-line activity can help detect compromise.
 
@@ -509,7 +509,7 @@ SELECT * FROM pslist() WHERE cmdline LIKE '%cmd.exe%' AND cmdline LIKE '%/c%'
 
 **Description:** Detects suspicious command-line execution using `cmd.exe`, often used in post-exploitation.
 
-### **7. Identity & Logon Activity Monitoring**
+### <mark style="color:blue;">**7. Identity & Logon Activity Monitoring**</mark>
 
 **Description:** Monitoring logon events can reveal compromised accounts, brute force attempts, and unusual authentication patterns, which may indicate an ongoing attack.
 
