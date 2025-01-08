@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Incident Response (IR)](README.md)
+* [Welcome](README.md)
+* [Incident Response (IR)](<README (1).md>)
   * [Response Strategies](incident-response-ir/response-strategies/README.md)
     * [Privilege Escalation Assessment](incident-response-ir/response-strategies/privilege-escalation-assessment.md)
     * [Command and Control Assessment](incident-response-ir/response-strategies/command-and-control-assessment.md)
