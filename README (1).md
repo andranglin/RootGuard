@@ -148,3 +148,17 @@ By following a structured and well-defined pathway and maintaining a commitment 
 * &#x20;[The DFIR Report: ](https://thedfirreport.com/)Detailed breakdowns of real-world attacks and defensive strategies.
 
 These resources provide an excellent foundation for individuals looking to develop or enhance their Blue Team skills with a mix of theoretical knowledge and hands-on practice. Let me know if you'd like guidance on any specific area!
+
+### <mark style="color:blue;">Links to respective areas included in this section:</mark>
+
+{% content-ref url="incident-response-ir/response-strategies/" %}
+[response-strategies](incident-response-ir/response-strategies/)
+{% endcontent-ref %}
+
+{% content-ref url="incident-response-ir/intrusion-analysis/" %}
+[intrusion-analysis](incident-response-ir/intrusion-analysis/)
+{% endcontent-ref %}
+
+{% content-ref url="incident-response-ir/incident-triage/" %}
+[incident-triage](incident-response-ir/incident-triage/)
+{% endcontent-ref %}
