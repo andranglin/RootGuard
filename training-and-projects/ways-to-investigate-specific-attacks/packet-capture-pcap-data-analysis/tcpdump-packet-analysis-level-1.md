@@ -1,4 +1,27 @@
-# Tcpdump for Network Forensics
+# Tcpdump Packet Analysis (Level 1)
+
+### <mark style="color:blue;">**Importance of Having Access to PCAP Data in an Investigation**</mark>
+
+PCAP (Packet Capture) data is a critical resource in cybersecurity investigations, providing a complete, raw record of network traffic at the packet level. Having access to PCAP data allows investigators to analyse both the content and behaviour of network communications, enabling the following key capabilities:
+
+1. **Comprehensive Visibility:**
+   * PCAP data offers an unfiltered view of network activity, capturing every packet exchanged between hosts. This is invaluable for identifying anomalous behaviour, malicious communications, and policy violations.
+2. **Attack Reconstruction:**
+   * Investigators can use PCAP data to recreate the sequence of events during an attack, such as lateral movement, command-and-control (C2) communication, or data exfiltration. This helps determine the scope and timeline of the incident.
+3. **Payload Inspection:**
+   * Unlike log files, PCAP captures the full content of network packets. This allows for deep payload inspection, helping detect malware delivery, ransomware encryption protocols, or exfiltrated sensitive data.
+4. **Detection of Anomalies and IoCs:**
+   * By analyzing PCAP data, investigators can identify Indicators of Compromise (IoCs), such as suspicious IPs, domains, or unusual traffic patterns and correlate these with known attack vectors.
+5. **Validation and Proof:**
+   * PCAP data is a reliable and detailed record that validates findings, supports forensic conclusions, and provides evidence in legal or compliance investigations.
+6. **Threat Intelligence Correlation:**
+   * PCAP data can be cross-referenced with threat intelligence feeds to detect known malware signatures, malicious domains, or rogue IP addresses.
+7. **Proactive Security Improvements:**
+   * Post-incident analysis of PCAP data provides insights into vulnerabilities exploited during the attack, guiding the implementation of preventive measures to improve network defences.
+
+In summary, PCAP data is essential for effective and accurate network forensic investigations, offering unparalleled detail and insight into the network-level activities underpinning modern cyberattacks.
+
+### <mark style="color:blue;">Basic Tcpdump Queries</mark>
 
 The following are basic Tcpdump queries tailored for network forensics investigations involving a `.pcap` file. These queries are structured to extract critical information; however, they are basic queries intended for those with limited experience analysing pcap data.
 
