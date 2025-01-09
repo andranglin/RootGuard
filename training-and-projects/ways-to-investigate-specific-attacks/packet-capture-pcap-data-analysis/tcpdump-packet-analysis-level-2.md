@@ -1,3 +1,8 @@
+---
+cover: ../../../.gitbook/assets/Screenshot 2025-01-05 133615 (2).png
+coverY: 0
+---
+
 # Tcpdump Packet Analysis (Level 2)
 
 ### <mark style="color:blue;">The Importance of Having Access to PCAP Data in an Investigation</mark>

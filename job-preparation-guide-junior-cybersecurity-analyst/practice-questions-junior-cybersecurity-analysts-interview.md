@@ -1,9 +1,9 @@
 ---
-cover: ../.gitbook/assets/Screenshot 2025-01-05 133354.png
+cover: ../.gitbook/assets/Screenshot 2025-01-05 133354 (1).png
 coverY: 0
 ---
 
-# Practice Interview Questions: Junior Cybersecurity Analysts
+# Practice Questions: Junior Cybersecurity Analysts Interview
 
 ### <mark style="color:blue;">**Technical Questions**</mark>
 

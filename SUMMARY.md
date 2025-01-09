@@ -74,6 +74,6 @@
     * [Domain Dominance Attacks](training-and-projects/ways-to-investigate-specific-attacks/domain-dominance-attacks.md)
     * [Packet Capture (pcap) Data Analysis](training-and-projects/ways-to-investigate-specific-attacks/packet-capture-pcap-data-analysis/README.md)
       * [Tcpdump Packet Analysis (Level 2)](training-and-projects/ways-to-investigate-specific-attacks/packet-capture-pcap-data-analysis/tcpdump-packet-analysis-level-2.md)
-      * [Tcpdump Packet Analysis (Level 1)](training-and-projects/ways-to-investigate-specific-attacks/packet-capture-pcap-data-analysis/tcpdump-packet-analysis-level-1.md)
+    * [Tcpdump Packet Analysis (Level 1)](training-and-projects/ways-to-investigate-specific-attacks/tcpdump-packet-analysis-level-1.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
   * [Practice Questions: Junior Cybersecurity Analysts Interview](job-preparation-guide-junior-cybersecurity-analyst/practice-questions-junior-cybersecurity-analysts-interview.md)

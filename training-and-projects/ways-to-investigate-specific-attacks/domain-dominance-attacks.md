@@ -1,3 +1,8 @@
+---
+cover: ../../.gitbook/assets/Screenshot 2025-01-05 133354.png
+coverY: 0
+---
+
 # Domain Dominance Attacks
 
 ## <mark style="color:blue;">What is</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Domain Dominance**</mark>&#x20;
