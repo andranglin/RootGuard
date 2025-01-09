@@ -22,4 +22,26 @@ To help other cybersecurity professionals develop their skills by sharing insigh
 
 Explore the resources, test the tools mentioned, and if suitable, integrate them into your operational workflows and share them with other professionals. The site will also use the incredible work of other professionals, providing attribution and asking you to check out and support their work.
 
-#### <mark style="color:purple;">**Jump Right In**</mark>
+### <mark style="color:purple;">**Jump Right In:**</mark>
+
+<details>
+
+<summary>Sections</summary>
+
+[README (1).md](<README (1).md> "mention")
+
+[cybersecurity-operations-center-csoc](cybersecurity-operations-center-csoc/ "mention")
+
+[digital-forensics](digital-forensics/ "mention")
+
+[threat-hunting](threat-hunting/ "mention")
+
+[malware-analysis.md](malware-analysis.md "mention")
+
+[intrusion-detection](intrusion-detection/ "mention")
+
+[linux](linux/ "mention")
+
+[training-and-projects.md](training-and-projects.md "mention")
+
+</details>
