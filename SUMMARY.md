@@ -69,7 +69,7 @@
 * [Linux](linux/README.md)
   * [Basic Commands](linux/basic-commands.md)
   * [Incident Triage](linux/incident-triage.md)
-* [Training and Projects](training-and-projects/README.md)
+* [Training and Projects](training-and-projects.md)
   * [Domain Dominance Attacks](training-and-projects/domain-dominance-attacks.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
   * [Practice Questions: Junior Cybersecurity Analysts Interview](job-preparation-guide-junior-cybersecurity-analyst/practice-questions-junior-cybersecurity-analysts-interview.md)

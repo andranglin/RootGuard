@@ -1,12 +1,12 @@
 # Domain Dominance Attacks
 
-## <mark style="color:blue;">**Domain Dominance**</mark>&#x20;
+## <mark style="color:blue;">What is</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Domain Dominance**</mark>&#x20;
 
 Refers to a stage in an adversary’s attack lifecycle where they gain control over a network's **Active Directory (AD) domain** or significant portions of it. This is a critical phase because AD is the backbone of identity and access management in most enterprise environments. Controlling an AD domain allows attackers to elevate privileges, persist in the environment, and move laterally across the network undetected.
 
 ***
 
-### <mark style="color:blue;">**Key Objectives of Domain Dominance**</mark>
+### <mark style="color:blue;">**Key Objectives of Domain Dominance Attacks**</mark>
 
 1. **Privilege Escalation:**
    * Attackers escalate their privileges to domain or enterprise administrator levels.
@@ -19,7 +19,7 @@ Refers to a stage in an adversary’s attack lifecycle where they gain control o
 
 ***
 
-### <mark style="color:blue;">**Techniques Used in Domain Dominance**</mark>
+### <mark style="color:blue;">**Techniques Used**</mark>
 
 Attackers employ a variety of techniques to achieve Domain Dominance:
 
@@ -42,7 +42,7 @@ Attackers employ a variety of techniques to achieve Domain Dominance:
 
 ***
 
-### <mark style="color:blue;">**Indicators of Domain Dominance**</mark>
+### <mark style="color:blue;">**Indicators of Domain Dominance Attacks**</mark>
 
 Detecting domain dominance attacks involves monitoring specific actions and anomalies in Active Directory logs:
 
@@ -54,7 +54,7 @@ Detecting domain dominance attacks involves monitoring specific actions and anom
 
 ***
 
-### <mark style="color:blue;">**Implications of Domain Dominance**</mark>
+### <mark style="color:blue;">**Implications**</mark>
 
 If an attacker achieves Domain Dominance:
 
@@ -64,7 +64,7 @@ If an attacker achieves Domain Dominance:
 
 ***
 
-### <mark style="color:blue;">**Mitigations for Domain Dominance**</mark>
+### <mark style="color:blue;">**Mitigations**</mark>
 
 1. **Secure Privileged Accounts:**
    * Use multi-factor authentication (MFA) and limit administrative access.
@@ -80,7 +80,7 @@ If an attacker achieves Domain Dominance:
 
 ***
 
-## <mark style="color:blue;">Defending Against Domain Dominance</mark>
+## <mark style="color:blue;">Defending Against Domain Dominance Attacks</mark>
 
 This requires a multifaceted approach combining detection techniques, proactive defence mechanisms, and specialised tools. Below is an exploration of specific detection methods and tools to mitigate the risks of domain dominance attacks.
 
@@ -236,7 +236,7 @@ SecurityEvent
 
 ***
 
-## <mark style="color:blue;">**Domain Dominance Attacks**</mark>&#x20;
+## <mark style="color:blue;">**Types of Domain Dominance Attacks and Detection Queries**</mark>&#x20;
 
 Typically associated with adversaries attempting to gain control over an Active Directory (AD) domain to extend their influence and persist in a compromised environment. Below is an overview of some key techniques and how to detect them using **KQL queries**:
 
@@ -358,7 +358,7 @@ SecurityEvent
 
 ***
 
-## <mark style="color:blue;">Automating the detection of</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Domain Dominance Attacks**</mark>
+## <mark style="color:blue;">Automating the Detection</mark>
 
 ### <mark style="color:blue;">**1. Set Up Detection Rules**</mark>
 
