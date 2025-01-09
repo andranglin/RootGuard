@@ -1,6 +1,5 @@
 ---
 icon: laptop-code
-description: 'Work in progress: Will be add content on a frequent basis.'
 cover: ../.gitbook/assets/Screenshot 2025-01-04 151229.png
 coverY: 0
 ---
@@ -11,12 +10,16 @@ coverY: 0
 
 Threat hunting is the proactive process of searching for cyber threats that have evaded traditional security measures within an organisation’s network. Unlike reactive approaches that respond to alerts, threat hunters seek out hidden or advanced threats by leveraging intelligence, tools, and expertise. This discipline is vital for medium-sized organisations aiming to strengthen their cybersecurity posture without relying solely on automated defences.
 
-### Threat hunting helps uncover:
+***
+
+### <mark style="color:blue;">Threat hunting helps uncover</mark>
 
 * Advanced Persistent Threats (APTs)
 * Insider threats
 * Zero-day exploits
 * Anomalies indicating compromise
+
+***
 
 ### <mark style="color:blue;">**Skillset Required for Threat Hunting**</mark>
 
@@ -38,6 +41,8 @@ Threat hunting is the proactive process of searching for cyber threats that have
    * Team collaboration for sharing insights with SOC teams and stakeholders.
    * Continuous learning to stay ahead of emerging threats.
 
+***
+
 ### <mark style="color:blue;">**Tasks and Responsibilities of a Threat Hunter**</mark>
 
 In a medium-sized organisation, threat hunters play a pivotal role in identifying and mitigating risks. Their responsibilities include:
@@ -58,6 +63,8 @@ In a medium-sized organisation, threat hunters play a pivotal role in identifyin
    * Documenting findings in detailed reports.
    * Advising on remediation steps and security improvements.
 
+***
+
 ### <mark style="color:blue;">**Training and Certifications Required**</mark>
 
 Training and certifications validate a threat hunter’s expertise and ensure readiness for advanced challenges. Key certifications include:
@@ -74,6 +81,8 @@ Training and certifications validate a threat hunter’s expertise and ensure re
    * Broadens knowledge of security operations and governance.
 6. **SANS Threat Hunting and Advanced Incident Response (FOR508)**:
    * Advanced training for hands-on threat hunting and forensic investigation.
+
+***
 
 ### <mark style="color:blue;">**Path to Becoming an Effective Threat Hunter**</mark>
 
