@@ -14,6 +14,8 @@ The goal of cyber incident management is to minimise the impact of these inciden
 
 Cybersecurity incidents vary in nature and severity, necessitating different types of response strategies and management approaches. Below are common types of incidents and the corresponding approaches to incident response and management:
 
+***
+
 ## <mark style="color:blue;">Types of Incidents</mark>
 
 **Malware Attacks:** Incidents involving viruses, ransomware, worms, or spyware that compromise systems or data.
@@ -29,6 +31,8 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 **Advanced Persistent Threats (APTs):** Long-term, sophisticated attacks by well-funded adversaries targeting critical infrastructure or intellectual property.&#x20;
 
 **Supply Chain Attacks:** Exploitation of vulnerabilities in third-party vendors or suppliers to infiltrate the target organisation.
+
+***
 
 ## <mark style="color:blue;">Management and Approaches to Incident Response</mark>&#x20;
 
@@ -81,6 +85,8 @@ Objective: Recover from incidents and strengthen defences against future attacks
 * Policy Updates: Refine cybersecurity policies and procedures based on lessons learned.
 * Restoration and Validation: Ensure systems are clean, patched, and functional before returning to normal operations.
 
+***
+
 ## <mark style="color:blue;">Examples of Combining Types and Approaches</mark>
 
 ### <mark style="color:blue;">Phishing Attack Response</mark>
@@ -98,6 +104,8 @@ Objective: Recover from incidents and strengthen defences against future attacks
 * Collaborative Approach: Report the incident to relevant authorities and engage forensic experts.
 
 Effective incident response and management require a combination of approaches tailored to the type of incident and the organisation's specific needs. By leveraging proactive, reactive, technical, strategic, collaborative, and post-incident practices, organisations can enhance their ability to handle cybersecurity incidents, reduce impact, and strengthen overall resilience.
+
+***
 
 ## <mark style="color:blue;">Cyber Incident Response Process and Operations - Key Components</mark>&#x20;
 
@@ -280,6 +288,8 @@ An **incident response (IR) process** is a structured approach to handling and m
      * Response steps taken.
      * Impact and recovery outcomes.
 
+***
+
 ### <mark style="color:blue;">Supporting Components:</mark>
 
 * Incident Tracking: Maintain detailed records of incidents from detection to resolution.
@@ -290,6 +300,8 @@ An **incident response (IR) process** is a structured approach to handling and m
 * Incident Timeline Tracker: A template to document the sequence of events.
 * Forensic Checklist: Ensure consistent evidence handling during investigations.
 * Post-Incident Review Template: Structure for documenting lessons learned.
+
+***
 
 ## <mark style="color:blue;">Importance of Cyber Incident Management</mark>&#x20;
 
@@ -307,9 +319,10 @@ When these three elements work in harmony, organisations can minimise the impact
 
 Effective incident response is critical to an organisation's overall cybersecurity strategy. By implementing practical and battle-tested incident response processes, organisations can protect their assets, maintain customer trust, and reduce the long-term impact of cyber threats. It helps mitigate immediate risks and strengthens the organisation's resilience against future attacks.
 
+***
+
+### <mark style="color:blue;">Supplementary Resources:</mark>
+
 Note: [SANS](https://www.sans.org/security-resources/?msc=main-nav) provide some good free resources in the area, including Posters and Cheatsheets:
 
-
-
 {% file src="../../.gitbook/assets/SANS DFIR Hunt Evil.pdf" %}
-
