@@ -1,6 +1,5 @@
 ---
 icon: laptop-code
-description: 'Work in progress: Will be add content on a frequent basis.'
 cover: ../.gitbook/assets/Screenshot 2025-01-04 145751.png
 coverY: 0
 layout:
@@ -36,6 +35,8 @@ A Cybersecurity Operations Center (CSOC) is a centralised function that serves a
 
 CSOCs operate 24/7 in most cases to ensure round-the-clock protection against evolving cyber threats, making them an essential component of modern cybersecurity strategies.
 
+***
+
 ### <mark style="color:blue;">Skillset Required for a CSOC Analyst</mark>
 
 A CSOC Analyst plays a critical role in detecting cybersecurity threats. To excel in this role, individuals must possess a combination of technical expertise, analytical thinking, and communication skills.
@@ -66,6 +67,8 @@ A CSOC Analyst plays a critical role in detecting cybersecurity threats. To exce
 * **Teamwork:** Collaboration with other SOC analysts and IT teams.
 * **Attention to Detail:** Meticulous review of logs and alerts to identify anomalies.
 
+***
+
 ### <mark style="color:blue;">Daily Task of a CSOC Analyst</mark>
 
 CSOC Analysts are at the forefront of defending an organisation against cyber threats. Their day-to-day responsibilities include:
@@ -89,6 +92,8 @@ CSOC Analysts are at the forefront of defending an organisation against cyber th
    * Ensuring SIEM, IDS/IPS, and other security tools are operational and updated.
    * Fine-tuning alert thresholds to reduce false positives.
 
+***
+
 ### <mark style="color:blue;">Training and Certifications Required</mark>
 
 A solid foundation in cybersecurity principles, combined with industry-recognised certifications, can significantly enhance a candidate’s employability as a CSOC Analyst. Recommended certifications include:
@@ -109,6 +114,8 @@ A solid foundation in cybersecurity principles, combined with industry-recognise
    * SANS Cyber Threat Intelligence (GCTI)
 
 Training courses offered by organisations like SANS, Cybrary and online platforms such as Coursera and Udemy provide excellent opportunities to gain relevant knowledge and practical skills.
+
+***
 
 ### <mark style="color:blue;">Path to Becoming a CSOC Analyst</mark>
 
