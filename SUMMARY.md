@@ -72,5 +72,6 @@
 * [Training and Projects](training-and-projects.md)
   * [Ways to Investigate Specific Attacks](training-and-projects/ways-to-investigate-specific-attacks/README.md)
     * [Domain Dominance Attacks](training-and-projects/ways-to-investigate-specific-attacks/domain-dominance-attacks.md)
+  * [Tcpdump for Network Forensics](training-and-projects/tcpdump-for-network-forensics.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
   * [Practice Questions: Junior Cybersecurity Analysts Interview](job-preparation-guide-junior-cybersecurity-analyst/practice-questions-junior-cybersecurity-analysts-interview.md)
