@@ -200,32 +200,74 @@ Deploy MFA for all privileged accounts, including service accounts.
 
 ### <mark style="color:blue;">**4. Threat Hunting Examples**</mark>
 
+**Note:** _Always test and evaluate queries, as not all will work in an environment and will depend on the log sources that are collected and monitored._
+
 **4.1 Kerberoasting Detection**
 
 Hunt for abnormal Kerberos ticket requests:
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 ```kusto
 SecurityEvent
 | where EventID == 4769
 | where TicketEncryptionType in ("0x12", "0x17")
 | summarize count() by ClientAddress, ServiceName, bin(TimeGenerated, 1h)
 ```
+{% endtab %}
+
+{% tab title="Splunk" %}
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows 
+sourcetype=WinEventLog:Security
+EventCode=4769
+| eval is_suspicious=if((TicketEncryptionType!="0x12" AND TicketEncryptionType!="0x17") OR (ClientAddress!="<expected_IP_ranges>"), 1, 0)
+| stats count by TimeGenerated, TargetUserName, ServiceName, TicketEncryptionType, ClientAddress, is_suspicious
+| where is_suspicious=1
+| table TimeGenerated, TargetUserName, ServiceName, TicketEncryptionType, ClientAddress
+| sort - TimeGenerated
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 **4.2 DCSync Detection**
 
 Hunt for directory replication service attempts:
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 ```kusto
 SecurityEvent
 | where EventID == 4662
 | where Properties has "Replicating Directory Changes"
 | summarize count() by SubjectUserName, TargetAccount, bin(TimeGenerated, 1h)
 ```
+{% endtab %}
+
+{% tab title="Splunk" %}
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+ObjectServer=DS
+| search Properties="Replicating Directory Changes" OR Properties="Replicating Directory Changes All"
+| stats count by _time, SubjectAccountName, TargetObject, ObjectName, Properties
+| rename SubjectAccountName as "AccountName", TargetObject as "Target", ObjectName as "ObjectAccessed"
+| sort - _time
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 **4.3 Abnormal Logons**
 
 Identify unexpected logon patterns:
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 ```kusto
 SecurityEvent
 | where EventID == 4624
@@ -233,6 +275,39 @@ SecurityEvent
 | where AccountName !in ("<known service accounts>")
 | summarize count() by IpAddress, AccountName, bin(TimeGenerated, 1h)
 ```
+{% endtab %}
+
+{% tab title="Splunk" %}
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows 
+sourcetype=WinEventLog:Security
+EventCode=4624
+| eval LogonTypeDescription=case(
+    LogonType=="2", "Interactive",
+    LogonType=="3", "Network",
+    LogonType=="4", "Batch",
+    LogonType=="5", "Service",
+    LogonType=="7", "Unlock",
+    LogonType=="8", "NetworkCleartext",
+    LogonType=="9", "NewCredentials",
+    LogonType=="10", "RemoteInteractive",
+    LogonType=="11", "CachedInteractive",
+    true(), "Other"
+)
+| eval IsSuspicious=if(
+    (IpAddress!="<known_ip_range>" AND UserName!="<excluded_service_accounts>") OR 
+    (LogonType=="10" AND IpAddress!="<expected_RDP_ip_ranges>") OR
+    (Date_Wday NOT IN ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") AND Date_Hour NOT IN (9, 10, 11, 12, 13, 14, 15, 16)),
+    "Yes", "No"
+)
+| where IsSuspicious="Yes"
+| stats count by _time, UserName, IpAddress, WorkstationName, LogonTypeDescription
+| sort - _time
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -244,8 +319,13 @@ Typically associated with adversaries attempting to gain control over an Active 
 
 ### <mark style="color:blue;">**1. Credential Dumping**</mark>
 
+**Note:** _Always test and evaluate queries, as not all will work in an environment and will depend on the log sources that are collected and monitored._
+
 Adversaries dump credentials from domain controllers or other AD-related hosts using tools like `Mimikatz` or techniques such as `DCSync`.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
+{% code overflow="wrap" %}
 ```kusto
 SecurityEvent
 | where EventID in (4662, 4672, 4723, 4738, 4740)
@@ -253,19 +333,234 @@ SecurityEvent
 | extend AccountUsed = iff(EventID == 4662, SubjectUserName, TargetUserName)
 | summarize count() by EventID, AccountUsed, bin(TimeGenerated, 1h)
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Splunk" %}
+#### **1. Credential Dumping via LSASS**
+
+Detect suspicious access to the `lsass.exe` process:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4688
+| where NewProcessName="C:\\Windows\\System32\\lsass.exe" OR ParentProcessName="C:\\Windows\\System32\\lsass.exe"
+| stats count by _time, NewProcessName, ParentProcessName, ProcessId, SubjectUserName, SubjectLogonId
+| rename NewProcessName as "Executed Process", ParentProcessName as "Parent Process"
+| sort - _time
+```
+{% endcode %}
+
+**Key Indicators:**
+
+* Unusual processes spawning or accessing `lsass.exe`, such as **Mimikatz** or malicious scripts.
 
 ***
+
+#### **2. Credential Dumping via NTDS.dit Access**
+
+Detect access to the Active Directory database file (`NTDS.dit`):
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+| where ObjectName="C:\\Windows\\NTDS\\NTDS.dit"
+| stats count by _time, SubjectUserName, AccessMask, ObjectName, ProcessName
+| rename SubjectUserName as "Accessing Account", ObjectName as "Accessed Object", ProcessName as "Executing Process"
+| sort - _time
+```
+{% endcode %}
+
+**Key Indicators:**
+
+* Unauthorized access to `NTDS.dit` using `AccessMask` values that indicate read or dump operations.
+
+***
+
+#### **3. SAM Database Access**
+
+Detect unauthorised access to the Security Account Manager (SAM) database:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4663
+| where ObjectName="C:\\Windows\\System32\\config\\SAM"
+| stats count by _time, SubjectUserName, AccessMask, ObjectName, ProcessName
+| rename SubjectUserName as "Accessing Account", ObjectName as "Accessed Object", ProcessName as "Executing Process"
+| sort - _time
+```
+{% endcode %}
+
+**Key Indicators:**
+
+* Processes accessing `C:\\Windows\\System32\\config\\SAM` that are not part of routine system operations.
+
+***
+
+#### **4. Tools like Mimikatz**
+
+Detect the use of suspicious tools known for credential dumping:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4688
+| where NewProcessName IN ("C:\\Users\\*\\Desktop\\mimikatz.exe", "C:\\Windows\\Temp\\*")
+| stats count by _time, NewProcessName, CommandLine, SubjectUserName, ParentProcessName
+| rename NewProcessName as "Suspicious Process", CommandLine as "Executed Command"
+| sort - _time
+```
+{% endcode %}
+
+**Key Indicators:**
+
+* Unusual processes like **mimikatz.exe**, or those spawned from temporary directories.
+
+***
+
+#### **5. Unusual Dump File Creations**
+
+Detect suspicious file dumps, such as those created using the **procdump** tool:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4663
+| where ObjectName matches ".*\\.dmp"
+| stats count by _time, SubjectUserName, ObjectName, AccessMask, ProcessName
+| rename SubjectUserName as "Accessing Account", ObjectName as "Dump File Created", ProcessName as "Executing Process"
+| sort - _time
+```
+{% endcode %}
+
+**Key Indicators:**
+
+* Creation of `.dmp` files in suspicious directories, often indicative of credential dumping.
+
+***
+
+#### **6. Suspicious DLL Loading**
+
+Detect malicious DLLs loaded for credential dumping:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=7045
+| where ImagePath IN ("C:\\Windows\\System32\\lsass.exe", "C:\\Windows\\System32\\samlib.dll")
+| stats count by _time, ServiceName, ImagePath, SubjectUserName
+| rename ServiceName as "Service", ImagePath as "DLL Path"
+| sort - _time
+```
+{% endcode %}
+
+#### **7. Follow-Up Actions**
+
+1. **Investigate Accessing Accounts:**
+   * Verify if the `SubjectUserName` is authorised for such actions.
+2. **Correlate with Other Logs:**
+   * Look for privilege escalation (`EventCode=4672`) or abnormal logons (`EventCode=4624`).
+3. **Alerting:**
+   * Set up Splunk alerts for these queries to notify the SOC of potential credential dumping.
+{% endtab %}
+{% endtabs %}
 
 ### <mark style="color:blue;">**2. DCSync Attack**</mark>
 
 Adversaries use the `Replicating Directory Changes` permission to retrieve credentials from domain controllers.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 ```kusto
 SecurityEvent
 | where EventID == 4662
 | where ObjectServer == "DS" and Properties has "Replicating Directory Changes"
 | summarize count() by TargetAccount, SubjectUserName, bin(TimeGenerated, 1h)
 ```
+{% endtab %}
+
+{% tab title="Splunk" %}
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+| where ObjectServer=="DS" AND (Properties="Replicating Directory Changes" OR Properties="Replicating Directory Changes All")
+| stats count by _time, SubjectAccountName, ObjectName, Properties, OperationType
+| rename SubjectAccountName as "Account Performing Action", ObjectName as "Accessed Object", Properties as "Permissions Used", OperationType as "Action"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Explanation of the Query**
+
+1. **Filter by Event Code:**
+   * `EventCode=4662`: Indicates access to directory service objects.
+2. **Monitor Replication Permissions:**
+   * Look for the use of `Replicating Directory Changes` or `Replicating Directory Changes All`, which are necessary for AD replication and are often abused in DCSync attacks.
+3. **Aggregate and Analyse:**
+   * `stats` groups results by key attributes like the account performing the action, the object accessed, and the permissions used.
+4. **Sort Results:**
+   * Sort events by `_time` to display the most recent activities.
+
+***
+
+#### **Enhanced Query with Anomalies**
+
+To refine the detection, include conditions for unexpected accounts and suspicious IP addresses:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+| where ObjectServer=="DS" AND (Properties="Replicating Directory Changes" OR Properties="Replicating Directory Changes All")
+| eval IsSuspicious=if(AccountName!="<authorized_replication_account>" OR IpAddress!="<trusted_ip_range>", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectAccountName, ObjectName, Properties, IpAddress
+| rename SubjectAccountName as "Account Performing Action", ObjectName as "Accessed Object", Properties as "Permissions Used", IpAddress as "Source IP"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Key Indicators of a DCSync Attack**
+
+1. **Account Used:**
+   * Check if the account (`SubjectAccountName`) is authorized for replication activities. DCSync often abuses standard user accounts with elevated permissions.
+2. **Permissions:**
+   * Look for replication-specific permissions: `Replicating Directory Changes` and `Replicating Directory Changes All`.
+3. **Accessed Object:**
+   * Monitor for objects like `CN=DomainDnsZones` or sensitive AD attributes, such as `msDS-KeyVersionNumber`.
+4. **Source IP:**
+   * Verify if the request originates from a trusted domain controller or unexpected systems.
+
+***
+
+#### **Follow-Up Actions**
+
+1. **Investigate Accounts:**
+   * Confirm whether the `SubjectAccountName` belongs to legitimate replication accounts or privileged users.
+2. **Validate Source IP:**
+   * Check if the request originates from trusted domain controllers or anomalous systems.
+3. **Correlate with Other Events:**
+   * Look for associated authentication events (`EventCode=4624`) or privilege escalations (`EventCode=4672`).
+4. **Set Alerts:**
+   * Configure Splunk alerts for this query to notify your SOC in realtime.
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -273,6 +568,8 @@ SecurityEvent
 
 Attackers use stolen `KRBTGT` account credentials to forge Kerberos tickets.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 ```kusto
 SecurityEvent
 | where EventID == 4769
@@ -280,6 +577,86 @@ SecurityEvent
 | extend IsSuspicious = ClientAddress !in ("<Known IP ranges>")
 | summarize count() by ClientAddress, ServiceName, bin(TimeGenerated, 1h)
 ```
+{% endtab %}
+
+{% tab title="Splunk" %}
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4769
+| where ServiceName="krbtgt"
+| eval IsSuspicious=if(ClientAddress!="<trusted_ip_range>" OR TicketOptions="0x40810010" OR TicketEncryptionType!="0x12", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, ServiceName, ClientAddress, TicketOptions, TicketEncryptionType
+| rename SubjectUserName as "Requesting Account", ServiceName as "Service Name", ClientAddress as "Source IP", TicketOptions as "Ticket Flags", TicketEncryptionType as "Encryption Type"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Explanation of the Query**
+
+1. **Filter by Kerberos Service Ticket Requests:**
+   * `EventCode=4769`: Indicates a Kerberos service ticket request.
+   * `ServiceName="krbtgt"`: Focuses on requests involving the Kerberos Ticket Granting Service (`krbtgt`), often targeted in Golden Ticket attacks.
+2. **Evaluate Suspicious Patterns:**
+   * `ClientAddress`: Check if the source IP is outside `<trusted_ip_range>`.
+   * `TicketOptions="0x40810010"`: Common flag used in Golden Tickets.
+   * `TicketEncryptionType!="0x12"`: Indicates non-standard encryption types.
+3. **Highlight Suspicious Events:**
+   * Use `eval` to flag anomalies and filter suspicious events with `where IsSuspicious="Yes"`.
+4. **Aggregate and Display Key Information:**
+   * `stats` groups results by time, requesting account, source IP, and ticket details.
+
+***
+
+#### **Enhanced Query for Authentication Ticket Requests**
+
+Golden Tickets may also generate anomalies in TGT (Ticket Granting Ticket) requests (`Event ID 4768`):
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4768
+| where ServiceName="krbtgt"
+| eval IsSuspicious=if(TicketEncryptionType!="0x12" OR ClientAddress!="<trusted_ip_range>", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, ServiceName, ClientAddress, TicketEncryptionType
+| rename SubjectUserName as "Requesting Account", ServiceName as "Service Name", ClientAddress as "Source IP", TicketEncryptionType as "Encryption Type"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Key Indicators of a Golden Ticket Attack**
+
+1. **Unusual `krbtgt` Service Requests:**
+   * Multiple requests involving the `krbtgt` account.
+2. **Non-Standard Encryption Types:**
+   * Golden Tickets often use custom or unusual encryption types.
+3. **Abnormal Source IP:**
+   * Requests from unexpected systems or IP ranges.
+4. **Long-Lived Tickets:**
+   * Golden Tickets may have unusually long lifetimes.
+
+***
+
+#### **Follow-Up Actions**
+
+1. **Investigate `Requesting Account`:**
+   * Verify if the account is authorized to request tickets involving the `krbtgt` service.
+2. **Validate Source IP:**
+   * Confirm if the IP is within trusted ranges or corresponds to known systems.
+3. **Correlate with Other Events:**
+   * Check for abnormal logons (`EventCode=4624`) or privilege escalation (`EventCode=4672`).
+4. **Set Alerts:**
+   * Configure alerts to notify the SOC for any flagged events.
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -287,12 +664,94 @@ SecurityEvent
 
 Adversaries forge Kerberos tickets for services other than `krbtgt`.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 ```kusto
 SecurityEvent
 | where EventID == 4769
 | where ServiceName !contains "krbtgt"
 | summarize count() by TargetAccount, ClientAddress, bin(TimeGenerated, 1h)
 ```
+{% endtab %}
+
+{% tab title="Splunk" %}
+#### **Detect Silver Ticket Activity**
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4769
+| where ServiceName!="krbtgt" AND (ServiceName="CIFS" OR ServiceName="HTTP" OR ServiceName="LDAP")
+| eval IsSuspicious=if(ClientAddress!="<trusted_ip_range>" OR TicketEncryptionType!="0x12", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, ServiceName, ClientAddress, TicketEncryptionType
+| rename SubjectUserName as "Requesting Account", ServiceName as "Kerberos Service", ClientAddress as "Source IP", TicketEncryptionType as "Encryption Type"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Explanation of the Query**
+
+1. **Filter for Kerberos Service Ticket Requests:**
+   * `EventCode=4769`: Logs related to Kerberos service ticket requests.
+   * `ServiceName!="krbtgt"`: Exclude TGT-related requests (used in Golden Ticket attacks).
+   * Focus on services often targeted by Silver Tickets, like `CIFS`, `HTTP`, or `LDAP`.
+2. **Identify Suspicious Patterns:**
+   * `ClientAddress!="<trusted_ip_range>"`: Detect requests from unusual or external IP addresses.
+   * `TicketEncryptionType!="0x12"`: Non-standard Kerberos encryption types can indicate forged tickets.
+3. **Aggregate Suspicious Events:**
+   * Use `stats` to group results by key attributes like `ServiceName` and `ClientAddress`.
+4. **Display Key Details:**
+   * Rename fields for clarity, such as `SubjectUserName` (the account requesting the ticket) and `ClientAddress` (source IP).
+
+***
+
+#### **Enhanced Query with Anomaly Detection**
+
+For environments with known patterns, use statistical baselines to detect anomalies:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4769
+| where ServiceName!="krbtgt"
+| stats count by SubjectUserName, ServiceName, ClientAddress, TicketEncryptionType
+| eventstats avg(count) as avg_count, stdev(count) as stdev_count by ServiceName
+| eval IsAnomalous=if(count > avg_count + (2 * stdev_count), "Yes", "No")
+| where IsAnomalous="Yes"
+| table _time, SubjectUserName, ServiceName, ClientAddress, count, avg_count, stdev_count, TicketEncryptionType
+```
+{% endcode %}
+
+***
+
+#### **Indicators of a Silver Ticket Attack**
+
+1. **Unusual Service Names:**
+   * Tickets for sensitive services (`CIFS`, `HTTP`, `LDAP`) not typically accessed by the detected account.
+2. **Anomalous Encryption Types:**
+   * Non-standard `TicketEncryptionType` values, especially those differing from your environment's norms (e.g., `0x12`).
+3. **Suspicious Client Addresses:**
+   * Requests from IPs outside known ranges (`ClientAddress` not matching `<trusted_ip_range>`).
+
+***
+
+#### **Follow-Up Actions**
+
+1. **Investigate Requesting Accounts:**
+   * Verify if `SubjectUserName` is authorized to access the targeted service.
+2. **Validate Source IP Addresses:**
+   * Confirm whether `ClientAddress` originates from a legitimate host or unexpected location.
+3. **Correlate with Other Events:**
+   * Look for concurrent privilege escalations (`EventCode=4672`) or unusual logons (`EventCode=4624`).
+4. **Alerting and Automation:**
+   * Configure alerts for flagged events to notify SOC teams in realtime.
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -300,12 +759,94 @@ SecurityEvent
 
 Attackers use hashed credentials to authenticate without knowing the plaintext password.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
+{% code overflow="wrap" %}
 ```kusto
 SecurityEvent
 | where EventID == 4624
 | where LogonType == 3 and AuthenticationPackageName == "NTLM"
 | summarize count() by TargetUserName, IpAddress, LogonType, bin(TimeGenerated, 1h)
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Splunk" %}
+#### **Detect Pass-the-Hash Activity**
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4624
+| where LogonType=3 AND AuthenticationPackageName="NTLM"
+| eval IsSuspicious=if(LogonType=3 AND AuthenticationPackageName="NTLM" AND (IpAddress!="<trusted_ip_range>" OR AccountName!="<known_service_accounts>"), "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, AccountName, IpAddress, WorkstationName, AuthenticationPackageName, LogonType
+| rename AccountName as "Targeted Account", IpAddress as "Source IP", WorkstationName as "Destination Host", AuthenticationPackageName as "Auth Method", LogonType as "Logon Type"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Explanation of the Query**
+
+1. **Filter for Logon Events:**
+   * `EventCode=4624`: Indicates successful logons.
+   * `LogonType=3`: Focus on network logons (often targeted by PtH attacks).
+   * `AuthenticationPackageName="NTLM"`: Identifies NTLM-based authentication.
+2. **Identify Suspicious Patterns:**
+   * Non-standard `IpAddress`: Detect requests from IPs outside `<trusted_ip_range>`.
+   * Unusual `AccountName`: Flag accounts not in `<known_service_accounts>`.
+3. **Aggregate Suspicious Events:**
+   * Group results by time, account name, IP address, and destination host.
+4. **Display Key Details:**
+   * Provide a clear overview of `Targeted Account`, `Source IP`, and `Auth Method`.
+
+***
+
+#### **Enhanced Query with High-Frequency Detection**
+
+Pass-the-Hash attacks often involve multiple logon attempts across different systems.
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4624
+| where LogonType=3 AND AuthenticationPackageName="NTLM"
+| stats count by AccountName, IpAddress, WorkstationName
+| where count > 10
+| sort - count
+```
+{% endcode %}
+
+***
+
+#### **Indicators of a Pass-the-Hash Attack**
+
+1. **Unusual Accounts:**
+   * Use of privileged accounts like `Administrator` from unknown systems.
+2. **Unexpected IPs:**
+   * Requests originating from external or untrusted IP addresses.
+3. **High-Frequency Attempts:**
+   * Multiple NTLM-based authentication requests from the same IP or account within a short time.
+
+***
+
+#### **Follow-Up Actions**
+
+1. **Investigate Account Activity:**
+   * Confirm whether the `Targeted Account` is legitimate and authorized.
+2. **Validate Source IPs:**
+   * Check whether the `Source IP` belongs to known systems.
+3. **Correlate with Other Events:**
+   * Look for privilege escalation attempts (`EventCode=4672`) or unusual administrative activities.
+4. **Configure Alerts:**
+   * Set up alerts for flagged events to notify your SOC in realtime.
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -313,6 +854,9 @@ SecurityEvent
 
 Adversaries use valid Kerberos tickets to authenticate to systems.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
+{% code overflow="wrap" %}
 ```kusto
 SecurityEvent
 | where EventID == 4768
@@ -320,8 +864,86 @@ SecurityEvent
 | extend IsSuspicious = IssuingServer !in ("<Known Kerberos Servers>")
 | summarize count() by TicketEncryptionType, IssuingServer, bin(TimeGenerated, 1h)
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Splunk" %}
+#### **Query to Detect Pass-the-Ticket Activity**
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4769
+| eval IsSuspicious=if((TicketEncryptionType!="0x12" AND TicketEncryptionType!="0x17") OR ClientAddress!="<trusted_ip_range>" OR AccountName!="<known_service_accounts>", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, ServiceName, TicketEncryptionType, ClientAddress, LogonGuid
+| rename SubjectUserName as "Account", ServiceName as "Kerberos Service", TicketEncryptionType as "Encryption Type", ClientAddress as "Source IP"
+| sort - _time
+```
+{% endcode %}
 
 ***
+
+#### **Explanation of the Query**
+
+1. **Filter by Kerberos Service Ticket Requests:**
+   * `EventCode=4769`: Monitors for Kerberos service ticket (TGS) requests.
+2. **Identify Suspicious Patterns:**
+   * Non-standard encryption types (`TicketEncryptionType` not `0x12` or `0x17`).
+   * Requests from unexpected IPs (`ClientAddress` not in `<trusted_ip_range>`).
+   * Anomalous accounts (`AccountName` not in `<known_service_accounts>`).
+3. **Aggregate Suspicious Events:**
+   * Use `stats` to group results by key attributes such as `ServiceName`, `Encryption Type`, and `Source IP`.
+4. **Display Key Details:**
+   * Show `Account`, `Kerberos Service`, `Source IP`, and encryption type.
+
+***
+
+#### **Enhanced Query for TGT Requests**
+
+Pass-the-Ticket attacks might also exploit Ticket Granting Tickets (TGTs). Use the following query for monitoring TGT activity (`EventCode=4768`):
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4768
+| eval IsSuspicious=if(TicketEncryptionType!="0x12" OR ClientAddress!="<trusted_ip_range>", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, ServiceName, TicketEncryptionType, ClientAddress
+| rename SubjectUserName as "Account", ServiceName as "Kerberos Service", TicketEncryptionType as "Encryption Type", ClientAddress as "Source IP"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Indicators of Pass-the-Ticket Attacks**
+
+1. **Unusual Ticket Encryption Types:**
+   * Common Kerberos encryption types are `0x12` (AES256) and `0x17` (AES128). Any deviation could indicate ticket forgery.
+2. **Suspicious Source IPs:**
+   * Requests originating from untrusted or external IP addresses.
+3. **Abnormal Accounts:**
+   * Privileged accounts (e.g., `Administrator`) used unexpectedly or from unauthorized hosts.
+4. **High-Frequency Events:**
+   * Multiple TGS or TGT requests in a short period.
+
+***
+
+#### **Follow-Up Actions**
+
+1. **Investigate Accounts:**
+   * Validate whether the `SubjectUserName` corresponds to authorized users or services.
+2. **Verify Source IPs:**
+   * Check if the `ClientAddress` belongs to trusted systems.
+3. **Correlate with Other Logs:**
+   * Look for associated logon events (`EventCode=4624`) or privilege escalation attempts (`EventCode=4672`).
+4. **Alerting:**
+   * Configure real-time alerts for flagged events to notify your SOC team.
+{% endtab %}
+{% endtabs %}
 
 ### <mark style="color:blue;">**7. DCShadow Attack**</mark>
 
@@ -410,6 +1032,8 @@ Even with detection rules in place, periodic threat hunting ensures you catch wh
 
 **Golden Ticket or Silver Ticket Attacks**:
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 {% code overflow="wrap" %}
 ```kusto
 SecurityEvent
@@ -420,6 +1044,24 @@ SecurityEvent
 | summarize count(), min(TimeGenerated), max(TimeGenerated) by ClientAddress, ServiceName
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Splunk" %}
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4769
+| where ServiceName="krbtgt"
+| eval IsSuspicious=if(ClientAddress!="<trusted_ip_range>" OR TicketOptions="0x40810010" OR TicketEncryptionType!="0x12", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, ServiceName, ClientAddress, TargetUserName, TicketEncryptionType, TicketOptions
+| rename ServiceName as "Kerberos Service", ClientAddress as "Source IP", TargetUserName as "Account Targeted"
+| sort - _time
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
