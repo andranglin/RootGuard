@@ -1,3 +1,8 @@
+---
+cover: ../../../.gitbook/assets/Screenshot 2025-01-05 133615 (2).png
+coverY: 0
+---
+
 # Tshark Basics
 
 ### <mark style="color:blue;">Using TShark for PCAP Data Analysis in an Investigation</mark>
