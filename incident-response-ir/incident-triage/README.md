@@ -10,6 +10,8 @@ coverY: 0
 
 Incident Response (IR) is a specialised area of cybersecurity that focuses on investigating and responding to security incidents. IR techniques are used to uncover the origins and scope of an attack and facilitate a structured approach to mitigate damage, recover affected systems, and strengthen organisational defences.
 
+***
+
 ## <mark style="color:blue;">Difference Between Digital Forensics and Incident Response (DFIR)</mark>
 
 Digital Forensics and Incident Response are two interconnected components of cybersecurity within the broader DFIR discipline. While they often overlap, they have distinct objectives, processes, and focuses:
@@ -112,6 +114,8 @@ While Digital Forensics focuses on uncovering and analysing evidence to understa
 
 DFIR is critical for modern organisations to combat increasingly sophisticated cyber threats. By combining investigative rigour with proactive response strategies, DFIR helps mitigate the immediate impacts of an attack and strengthens long-term security resilience, ensuring business continuity and stakeholder confidence.
 
+***
+
 ## <mark style="color:blue;">IR Resources</mark> <a href="#page-title" id="page-title"></a>
 
 [<mark style="color:blue;">https://www.jaiminton.com</mark>](https://www.jaiminton.com/)<mark style="color:blue;">:</mark> digital forensics and incident response created and published by Jai Minton Information and Cyber Security Professional. Visit his website and support his contributions to the DFIR community.
@@ -136,6 +140,8 @@ DFIR is critical for modern organisations to combat increasingly sophisticated c
 
 [<mark style="color:blue;">SANS Posters & Cheatsheets</mark>](https://www.sans.org/posters/)
 
+***
+
 ## <mark style="color:blue;">Other Open-source Tools</mark>
 
 [<mark style="color:blue;">Awesome Incident Response:</mark> ](https://github.com/meirwah/awesome-incident-response)List of DFIR tools
@@ -145,4 +151,3 @@ DFIR is critical for modern organisations to combat increasingly sophisticated c
 [<mark style="color:blue;">FLARE VM:</mark> ](https://cloud.google.com/blog/topics/threat-intelligence/flare-vm-the-windows-malware/)The Windows Malware Analysis Distribution.
 
 [<mark style="color:blue;">SIFT Workstation:</mark> ](https://www.sans.org/tools/sift-workstation/)The SIFT Workstation is a collection of free and open-source incident response and forensic tools designed to perform detailed digital forensic examinations in various settings. It can match any current incident response and forensic tool suite.
-
