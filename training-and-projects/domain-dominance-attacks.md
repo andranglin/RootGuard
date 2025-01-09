@@ -1212,6 +1212,34 @@ SecurityEvent
 | summarize count(), min(TimeGenerated), max(TimeGenerated) by ClientAddress, ServiceName
 ```
 {% endcode %}
+
+**Advanced KQL Query for Golden and Silver Ticket Attacks**
+
+{% code overflow="wrap" %}
+```kusto
+SecurityEvent
+| where EventID in (4768, 4769) // Kerberos Ticket Events
+| extend EventDescription = case(
+    EventID == 4768, "Kerberos TGT Request",
+    EventID == 4769, "Kerberos Service Ticket Request",
+    "Other")
+| extend IsGoldenTicket = case(
+    ServiceName == "krbtgt" and ClientAddress !in ("<Known IP ranges>"), "Yes", "No")
+| extend IsSilverTicket = case(
+    ServiceName != "krbtgt" and ServiceName in ("CIFS", "HTTP", "LDAP") and ClientAddress !in ("<Known IP ranges>"), "Yes", "No")
+| extend SuspiciousActivity = case(
+    IsGoldenTicket == "Yes" or IsSilverTicket == "Yes", "Yes", "No")
+| summarize 
+    TotalRequests = count(), 
+    FirstSeen = min(TimeGenerated), 
+    LastSeen = max(TimeGenerated),
+    DistinctAccounts = dcount(TargetUserName),
+    DistinctServices = dcount(ServiceName)
+    by ClientAddress, ServiceName, SuspiciousActivity, IsGoldenTicket, IsSilverTicket
+| where SuspiciousActivity == "Yes"
+| sort by LastSeen desc
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Splunk" %}
@@ -1230,6 +1258,10 @@ EventCode=4769
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
+
+dd
 
 ***
 
