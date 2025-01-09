@@ -42,6 +42,6 @@ Explore the resources, test the tools mentioned, and if suitable, integrate them
 
 [linux](linux/ "mention")
 
-[training-and-projects.md](training-and-projects.md "mention")
+[training-and-projects](training-and-projects/ "mention")
 
 </details>
