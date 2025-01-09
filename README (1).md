@@ -1,9 +1,5 @@
 ---
 icon: laptop-code
-description: >-
-  Threat management and response operations are focused on safeguarding an
-  organisation's digital environment through a structured and proactive approach
-  to defence.
 cover: .gitbook/assets/Screenshot 2025-01-04 150636.png
 coverY: 0
 layout:
@@ -30,7 +26,9 @@ Cybersecurity Incident Response (IR) refers to the structured approach to detect
 
 Incident response is guided by frameworks such as the National Institute of Standards and Technology (NIST) Cybersecurity Framework, which outlines key phases: preparation, detection and analysis, containment, eradication, recovery, and post-incident review.
 
-### **Skillset Required for an Incident Response Analyst**
+***
+
+### <mark style="color:blue;">**Skillset Required for an Incident Response Analyst**</mark>
 
 Incident response analysts are the first line of defence against cyber threats. To excel in this role, a blend of technical, analytical, and communication skills is essential:
 
@@ -52,7 +50,9 @@ Incident response analysts are the first line of defence against cyber threats. 
    * Familiarity with MITRE ATT\&CK, Cyber Kill Chain, and other threat modelling frameworks.
    * Understanding compliance requirements like GDPR, HIPAA, NIS2, and PCI DSS.
 
-**Tasks and Responsibilities of an Incident Response Analyst**
+***
+
+### <mark style="color:blue;">**Tasks and Responsibilities of an Incident Response Analyst**</mark>
 
 Incident response analysts perform various critical tasks to ensure the organisation remains secure against evolving threats. Key responsibilities include:
 
@@ -77,7 +77,9 @@ Incident response analysts perform various critical tasks to ensure the organisa
    * Documenting findings, actions taken, and lessons learned.
    * Proposing improvements to the incident response plan and security posture.
 
-**Training and Certifications Required**
+***
+
+### <mark style="color:blue;">**Training and Certifications Required**</mark>
 
 Training and certifications demonstrate expertise and build trust in an analystâ€™s capabilities. Here are some of the most recognised certifications:
 
@@ -98,7 +100,9 @@ Training and certifications demonstrate expertise and build trust in an analystâ
 8. **Splunk Certified User/Analyst**:
    * Enhances skills in leveraging SIEM platforms for incident detection and response.
 
-**Path to Becoming an Incident Response Analyst**
+***
+
+### <mark style="color:blue;">**Path to Becoming an Incident Response Analyst**</mark>
 
 1. **Educational Foundation**:
    * Obtain a bachelorâ€™s degree in cybersecurity, computer science, or information technology.
@@ -120,6 +124,8 @@ Training and certifications demonstrate expertise and build trust in an analystâ
 
 By following a structured and well-defined pathway and maintaining a commitment to continuous improvement, aspiring professionals can establish themselves as effective and sought-after incident response analysts.
 
+***
+
 ## <mark style="color:blue;">Training Resources</mark>
 
 * <mark style="color:blue;">CyberDefenders</mark>[<mark style="color:blue;">:</mark> ](https://cyberdefenders.org/blueteam-ctf-challenges/)Put your knowledge into practice with gamified cyber security challenges.
@@ -133,6 +139,8 @@ By following a structured and well-defined pathway and maintaining a commitment 
 * [<mark style="color:blue;">Hack The Box (Blue Tier Challenges):</mark>](https://www.hackthebox.com/) Free scenarios that mimic real-world defence challenges.
 * [<mark style="color:blue;">Microsoft Learn for Security Engineers:</mark>](https://learn.microsoft.com/en-us/training/roles/security-engineer/) Free courses and hands-on labs to prepare for Microsoft Security certifications (e.g., SC-200).
 * [SANS:](https://www.sans.org/security-resources/?msc=main-nav) Provides several free resources to support the community (Blogs, Webcasts, Posters, Cheatsheets and White Papers)
+
+***
 
 ## <mark style="color:blue;">Other Resources</mark>
 
@@ -148,6 +156,8 @@ By following a structured and well-defined pathway and maintaining a commitment 
 * &#x20;[The DFIR Report: ](https://thedfirreport.com/)Detailed breakdowns of real-world attacks and defensive strategies.
 
 These resources provide an excellent foundation for individuals looking to develop or enhance their Blue Team skills with a mix of theoretical knowledge and hands-on practice. Let me know if you'd like guidance on any specific area!
+
+***
 
 ### <mark style="color:blue;">Links to respective areas included in this section:</mark>
 
