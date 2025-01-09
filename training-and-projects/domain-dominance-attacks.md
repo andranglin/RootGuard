@@ -949,12 +949,96 @@ EventCode=4768
 
 An attacker uses rogue domain controller replication to manipulate AD objects.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
 ```kusto
 SecurityEvent
 | where EventID == 4662
 | where ObjectClass == "domainDNS" and Properties has "msDS-KeyVersionNumber"
 | summarize count() by SubjectUserName, ObjectName, bin(TimeGenerated, 1h)
 ```
+{% endtab %}
+
+{% tab title="Splunk" %}
+#### **Detect DCShadow Attack**
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+| where ObjectServer=="DS" AND (Properties="Replicating Directory Changes" OR Properties="Replicating Directory Changes All")
+| eval IsSuspicious=if(AccountName!="<authorized_replication_account>" OR ClientAddress!="<trusted_ip_range>", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, AccountName, ClientAddress, ObjectName, Properties
+| rename SubjectUserName as "Performing Account", AccountName as "Target Account", ClientAddress as "Source IP", ObjectName as "Modified Object", Properties as "Replication Permissions"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Explanation of the Query**
+
+1. **Monitor Access to Directory Services Objects:**
+   * `EventCode=4662`: Captures directory replication activities.
+2. **Focus on Replication Permissions:**
+   * Detect use of replication-specific permissions such as:
+     * `Replicating Directory Changes`
+     * `Replicating Directory Changes All`
+3. **Evaluate Suspicious Patterns:**
+   * Flag events involving unexpected accounts (`AccountName`).
+   * Identify source IPs outside the `<trusted_ip_range>`.
+4. **Aggregate Suspicious Events:**
+   * Use `stats` to group and display results by attributes like `ObjectName` and `ClientAddress`.
+5. **Display Key Details:**
+   * Present clear information about the `Performing Account`, `Source IP`, and `Modified Object`.
+
+***
+
+#### **Enhanced Query for Shadow Domain Controller Registration**
+
+Detect potential shadow domain controllers by monitoring changes to the `msDS-Behavior-Version` attribute (schema version):
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+| where ObjectServer=="DS" AND ObjectName="CN=Schema,CN=Configuration,DC=<your_domain>"
+| eval IsSuspicious=if(Properties="msDS-Behavior-Version", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, ClientAddress, ObjectName, Properties
+| rename SubjectUserName as "Performing Account", ClientAddress as "Source IP", ObjectName as "Modified Object", Properties as "Attribute Modified"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Indicators of a DCShadow Attack**
+
+1. **Unusual Accounts:**
+   * Unauthorized accounts attempting replication or schema changes.
+2. **Unexpected Source IPs:**
+   * Requests originating from systems that are not domain controllers.
+3. **Modification of Critical Attributes:**
+   * Changes to sensitive AD attributes like `msDS-Behavior-Version`, `msDS-KeyVersionNumber`, or `AdminSDHolder`.
+
+***
+
+#### **Follow-Up Actions**
+
+1. **Investigate Performing Accounts:**
+   * Verify whether the `SubjectUserName` is authorized to perform replication or schema changes.
+2. **Check Source IP:**
+   * Validate the `ClientAddress` against known domain controllers or trusted systems.
+3. **Correlate with Other Events:**
+   * Look for additional replication-related logs (`EventCode=4662`) or privilege escalations (`EventCode=4672`).
+4. **Set Alerts:**
+   * Configure Splunk alerts to notify SOC teams of any flagged events in realtime.
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -962,12 +1046,96 @@ SecurityEvent
 
 Adversaries inject Security Identifier (SID) histories into accounts for privilege escalation.
 
+{% tabs %}
+{% tab title="Defender/Sentinel" %}
+{% code overflow="wrap" %}
 ```kusto
 SecurityEvent
 | where EventID == 4670
 | where Properties has "SIDHistory"
 | summarize count() by TargetAccount, SubjectUserName, bin(TimeGenerated, 1h)
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Splunk" %}
+#### **Detect SID History Injection**
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+| where ObjectServer=="DS" AND Properties="SIDHistory"
+| eval IsSuspicious=if(AccountName!="<trusted_admin_account>" OR ClientAddress!="<trusted_ip_range>", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, AccountName, ClientAddress, ObjectName, Properties
+| rename SubjectUserName as "Performing Account", AccountName as "Target Account", ClientAddress as "Source IP", ObjectName as "Modified Object", Properties as "Modified Attribute"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Explanation of the Query**
+
+1. **Monitor Access to Directory Services Objects:**
+   * `EventCode=4662`: Indicates access or changes to directory objects.
+2. **Focus on the `SIDHistory` Attribute:**
+   * The `Properties="SIDHistory"` filter specifically targets modifications to the `SIDHistory` attribute.
+3. **Evaluate Suspicious Patterns:**
+   * `AccountName!="<trusted_admin_account>"`: Exclude authorized accounts such as domain administrators.
+   * `ClientAddress!="<trusted_ip_range>"`: Exclude requests from known or trusted IP ranges.
+4. **Aggregate Suspicious Events:**
+   * Use `stats` to group events by attributes such as `ObjectName` and `ClientAddress`.
+5. **Display Key Details:**
+   * Provide insights into the `Performing Account`, `Target Account`, and `Modified Attribute`.
+
+***
+
+#### **Enhanced Query for Monitoring Attribute Changes**
+
+If you want to monitor additional sensitive attribute changes, extend the query to include attributes like `AdminCount` or `PrimaryGroupID`:
+
+{% code overflow="wrap" %}
+```splunk-spl
+index=windows
+sourcetype=WinEventLog:Security
+EventCode=4662
+| where ObjectServer=="DS" AND (Properties="SIDHistory" OR Properties="AdminCount" OR Properties="PrimaryGroupID")
+| eval IsSuspicious=if(AccountName!="<trusted_admin_account>" OR ClientAddress!="<trusted_ip_range>", "Yes", "No")
+| where IsSuspicious="Yes"
+| stats count by _time, SubjectUserName, AccountName, ClientAddress, ObjectName, Properties
+| rename SubjectUserName as "Performing Account", AccountName as "Target Account", ClientAddress as "Source IP", ObjectName as "Modified Object", Properties as "Modified Attribute"
+| sort - _time
+```
+{% endcode %}
+
+***
+
+#### **Indicators of SID History Injection**
+
+1. **Unauthorised Accounts:**
+   * Use of non-admin or unexpected accounts to modify `SIDHistory`.
+2. **Suspicious IPs:**
+   * Modifications originating from systems outside your trusted domain controller or admin networks.
+3. **High-Frequency Changes:**
+   * Repeated changes to `SIDHistory` within a short time frame.
+
+***
+
+#### **Follow-Up Actions**
+
+1. **Investigate Performing Accounts:**
+   * Verify whether the `Performing Account` has legitimate access to modify `SIDHistory`.
+2. **Validate Source IP:**
+   * Confirm whether the `Source IP` corresponds to a trusted admin workstation or system.
+3. **Correlate with Other Events:**
+   * Look for privilege escalations (`EventCode=4672`) or unusual logons (`EventCode=4624`) related to the same account.
+4. **Set Alerts:**
+   * Configure alerts in Splunk to notify the SOC of any flagged `SIDHistory` modifications.
+{% endtab %}
+{% endtabs %}
 
 ***
 
