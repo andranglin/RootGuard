@@ -70,7 +70,7 @@
   * [Basic Commands](linux/basic-commands.md)
   * [Incident Triage](linux/incident-triage.md)
 * [Detection Query of the Day](detection-query-of-the-day/README.md)
-  * [Authentication From Suspicious Workstation Name -](detection-query-of-the-day/authentication-from-suspicious-workstation-name.md)
+  * [Authentication From Suspicious Workstation Name](detection-query-of-the-day/authentication-from-suspicious-workstation-name.md)
 * [Training and Projects](training-and-projects.md)
   * [Methods and Tools to Investigate Specific Attacks](training-and-projects/methods-and-tools-to-investigate-specific-attacks/README.md)
     * [Domain Dominance Attacks](training-and-projects/methods-and-tools-to-investigate-specific-attacks/domain-dominance-attacks.md)
