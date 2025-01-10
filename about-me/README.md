@@ -2,6 +2,20 @@
 icon: user
 cover: ../.gitbook/assets/Screenshot 2025-01-10 082509.png
 coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # About Me
