@@ -74,6 +74,7 @@
   * [Identifying Interactive or RemoteInteractive Session From Service Account](detection-query-of-the-day/identifying-interactive-or-remoteinteractive-session-from-service-account.md)
   * [Identifying Split or Part Archive File Transfers](detection-query-of-the-day/identifying-split-or-part-archive-file-transfers.md)
   * [Detect Potential Cleartext Credentials in Command Line](detection-query-of-the-day/detect-potential-cleartext-credentials-in-command-line.md)
+  * [Detecting Command Line Interpreters Launched via Scheduled Tasks](detection-query-of-the-day/detecting-command-line-interpreters-launched-via-scheduled-tasks.md)
 * [Training and Projects](training-and-projects.md)
   * [Methods and Tools to Investigate Specific Attacks](training-and-projects/methods-and-tools-to-investigate-specific-attacks/README.md)
     * [Domain Dominance Attacks](training-and-projects/methods-and-tools-to-investigate-specific-attacks/domain-dominance-attacks.md)
