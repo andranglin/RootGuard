@@ -291,7 +291,7 @@ index=wineventlog EventCode IN (4624, 4625)
 * **Enrichment**: Integrate with threat intelligence feeds to correlate suspicious workstation names or IPs.
 {% endtab %}
 
-{% tab title="authlogs" %}
+{% tab title="Authlogs" %}
 Detecting authentication events from suspicious workstation names, assuming the use of a custom authentication-related index (e.g., `index=authlogs`) and avoiding `wineventlog`. This query works with generic authentication data sources.
 
 {% code overflow="wrap" %}
@@ -348,10 +348,3 @@ index=authlogs sourcetype=authentication
 * **Time Filtering**: Add `earliest` and `latest` time filters for specific date ranges, e.g., `earliest=-24h`.
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-
-
