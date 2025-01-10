@@ -173,6 +173,59 @@ IdentityLogonEvents
 * **Additional Filters**: Add filters for specific user accounts, IP addresses, or logon statuses.
 * **Suspicious Patterns**: Update `SuspiciousWorkstations` to include organization-specific patterns or known attacker conventions.
 {% endtab %}
+
+{% tab title="SigninLogs" %}
+Using KQL query to discover authentication attempts from suspicious workstation names using the `SigninLogs` table in Microsoft Sentinel or Azure Log Analytics:
+
+{% code overflow="wrap" %}
+```kusto
+// Define a list of suspicious workstation patterns
+let SuspiciousWorkstations = dynamic(["UNKNOWN", "TEMP", "WORKSTATION-", "DESKTOP-"]);
+// Query SigninLogs table
+SigninLogs
+| extend WorkstationName = iff(isnotempty(DeviceDetail.deviceDisplayName), tostring(DeviceDetail.deviceDisplayName), tostring(DeviceDetail.operatingSystem)) // Extract and cast to string
+| where WorkstationName has_any (SuspiciousWorkstations)
+      or WorkstationName matches regex @"^(TEMP|DESKTOP|UNKNOWN|WORKSTATION-).*$"  // Match dynamic list or regex patterns
+| summarize
+    TotalAttempts = count(),
+    FailedAttempts = countif(ResultType != "0"), // Non-zero ResultType indicates failure
+    SuccessfulAttempts = countif(ResultType == "0"),
+    UniqueUsers = dcount(UserPrincipalName)
+    by tostring(WorkstationName), UserPrincipalName, AppDisplayName, bin(TimeGenerated, 1h)
+| order by TotalAttempts desc
+| project TimeGenerated, WorkstationName, UserPrincipalName, AppDisplayName, TotalAttempts, SuccessfulAttempts, FailedAttempts, UniqueUsers
+```
+{% endcode %}
+
+#### Explanation:
+
+1. **Suspicious Patterns**:
+   * `SuspiciousWorkstations` Defines workstation name patterns commonly linked to suspicious activity.
+   * Uses `has_any` for a quick match and `regex` for flexible pattern matching.
+2. **Field Normalisation**:
+   * Extracts workstation name from `DeviceDetail.deviceDisplayName` or falls back to `DeviceDetail.operatingSystem` if empty.
+3. **Logon Results**:
+   * `ResultType == "0"` Indicates successful logons.
+   * Any other `ResultType` is treated as a failure.
+4. **Aggregation**:
+   * Groups by `WorkstationName`, `UserPrincipalName`, and `AppDisplayName`.
+   * Summarizes:
+     * `TotalAttempts`: Total authentication attempts.
+     * `FailedAttempts`: Count of failed logons.
+     * `SuccessfulAttempts`: Count of successful logons.
+     * `UniqueUsers`: Count of distinct users.
+5. **Time Binning**:
+   * Bins results into 1-hour intervals using `bin(TimeGenerated, 1h)`.
+6. **Results**:
+   * Sorted by `TotalAttempts` and displays:
+     * `TimeGenerated`, `WorkstationName`, `UserPrincipalName`, `AppDisplayName`, `TotalAttempts`, `SuccessfulAttempts`, `FailedAttempts`, and `UniqueUsers`.
+
+#### Customisation:
+
+* **Patterns**: Update `SuspiciousWorkstations` to include organisation-specific suspicious workstation naming conventions.
+* **Time Range**: Add a time filter using `| where TimeGenerated between (datetime(YYYY-MM-DD HH:MM:SS) .. datetime(YYYY-MM-DD HH:MM:SS))`.
+* **Additional Fields**: Extend with other fields from `SigninLogs` for more context, such as IP addresses or location data.
+{% endtab %}
 {% endtabs %}
 
 ### <mark style="color:blue;">Splunk Query:</mark>
