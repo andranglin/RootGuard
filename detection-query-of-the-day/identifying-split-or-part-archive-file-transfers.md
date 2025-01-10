@@ -1,7 +1,7 @@
-# Split or Part Archive Files
+# Identifying Split or Part Archive File Transfers
 
 {% tabs %}
-{% tab title="DeviceFileEvents (Defender/Sentinel)" %}
+{% tab title="KQL" %}
 Detecting split or part archive files in a dataset can be useful for identifying potential data exfiltration or malicious activity. The following is a KQL query that works with the DeviceFileEvents table in Microsoft Sentinel to discover split or part archive files based on naming patterns:
 
 {% code overflow="wrap" %}
@@ -56,7 +56,41 @@ DeviceFileEvents
 This query can help detect potentially suspicious activity related to split or part archive files in your environment.
 {% endtab %}
 
-{% tab title="Sysmon (Splunk)" %}
+{% tab title="KQL" %}
+This query will look for files with common split archive extensions and patterns in their names:
+
+{% code overflow="wrap" %}
+```kusto
+// Define patterns for split or part archive file names
+let SplitArchivePatterns = dynamic(["*.part*", "*.zip.*", "*.rar.*", "*.z*.*", "*.tar.*", "*.gz.*"]);
+// Query the FileEvents table
+DeviceFileEvents
+| extend FileExtension = tolower(split(FileName, ".")[-1]) // Extract file extension
+| where FileName matches regex @"(.*\.(part[0-9]+|zip\.[0-9]+|rar\.[0-9]+|z\.[0-9]+|tar\.[0-9]+|gz\.[0-9]+))$" 
+      or FileName has_any (SplitArchivePatterns) // Match patterns or dynamic list
+| summarize
+    TotalFiles = count(),
+    UniqueDevices = dcount(DeviceName),
+    UniqueUsers = dcount(RequestAccountName),
+    FileSizeSum = sum(FileSize)
+    by FileName, FolderPath, FileExtension, bin(Timestamp, 1h)
+| order by TotalFiles desc
+| project Timestamp, FileName, FolderPath, FileExtension, TotalFiles, UniqueDevices, UniqueUsers, FileSizeSum
+```
+{% endcode %}
+
+#### Explanation:
+
+1. **Pattern Matching**: The `SplitArchivePatterns` dynamic array contains common extensions for split or part archive files.
+2. **Filtering**: The `where` clause filters the `FileEvents` table to retain only files matching the specified patterns.
+3. **Summarization**: The `summarize` statement aggregates the data to count the total number of files, unique devices, and unique users for each file name and folder path.
+4. **Ordering**: The results are ordered by the total number of files in descending order.
+5. **Projection**: The `project` statement selects the relevant columns for the final output.
+
+This query should help identify split or part archive files in an environment.
+{% endtab %}
+
+{% tab title="Splunk (Sysmon )" %}
 Splunk query to identify **split or part archive files** using Sysmon logs:
 
 {% code overflow="wrap" %}
