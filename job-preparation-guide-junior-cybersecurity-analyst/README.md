@@ -1,6 +1,6 @@
 ---
 icon: microscope
-cover: ../.gitbook/assets/Screenshot 2025-01-05 133257.png
+cover: ../.gitbook/assets/Screenshot 2025-01-10 082032.png
 coverY: 0
 ---
 
