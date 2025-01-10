@@ -79,3 +79,5 @@
       * [Ngrep Basics](training-and-projects/methods-and-tools-to-investigate-specific-attacks/packet-capture-pcap-data-analysis/ngrep-basics.md)
 * [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
   * [Practice Questions: Junior Cybersecurity Analysts Interview](job-preparation-guide-junior-cybersecurity-analyst/practice-questions-junior-cybersecurity-analysts-interview.md)
+* [Detection Query of the Day](detection-query-of-the-day/README.md)
+  * [Authentication From Suspicious Workstation Name](detection-query-of-the-day/authentication-from-suspicious-workstation-name.md)
