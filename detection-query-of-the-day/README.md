@@ -1,5 +1,5 @@
 ---
-icon: globe
+icon: microscope
 cover: ../.gitbook/assets/Screenshot 2025-01-10 084315.png
 coverY: 0
 layout:

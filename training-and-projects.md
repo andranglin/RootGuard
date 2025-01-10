@@ -1,5 +1,5 @@
 ---
-icon: globe
+icon: microscope
 description: 'Work in progress: Will be add content on a frequent basis.'
 cover: .gitbook/assets/Screenshot 2025-01-10 084315.png
 coverY: 0
