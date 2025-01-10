@@ -1,6 +1,6 @@
 ---
 icon: hand-wave
-cover: .gitbook/assets/Success.png
+cover: .gitbook/assets/Screenshot 2025-01-10 074920.png
 coverY: 0
 ---
 
