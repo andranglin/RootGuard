@@ -23,8 +23,8 @@ layout:
 
 Credit to the following individuals, as some of the queries are based on work they have shared with the community.
 
-### <mark style="color:green;">X/Twitter:</mark>
+#### X/Twitter:
 
-* [<mark style="color:green;">@reprise\_99</mark>](https://twitter.com/reprise_99) &#x20;
-* [<mark style="color:green;">@cyb3rmik3</mark>](https://twitter.com/cyb3rmik3)
-* [<mark style="color:green;">@BertJanCyber</mark>](https://twitter.com/BertJanCyber)
+* [@reprise\_99](https://twitter.com/reprise_99) &#x20;
+* [@cyb3rmik3](https://twitter.com/cyb3rmik3)
+* [@BertJanCyber](https://twitter.com/BertJanCyber)
