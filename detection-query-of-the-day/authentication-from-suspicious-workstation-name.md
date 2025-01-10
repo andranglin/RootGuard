@@ -2,7 +2,7 @@
 description: Queries created in KQL and SPL
 ---
 
-# Authentication From Suspicious Workstation Name -
+# Authentication From Suspicious Workstation Name
 
 ### <mark style="color:blue;">KQL Queries</mark>
 
@@ -75,8 +75,8 @@ AccountName) // Normalize workstation/computer name
       or WorkstationName matches regex @"^(TEMP|DESKTOP|UNKNOWN|WORKSTATION-).*$"  // Match dynamic list or regex patterns
 | summarize
     LogonAttempts = count(),
-    FailedAttempts = countif(LogonType == "LogonFailed"),
-    SuccessfulAttempts = countif(LogonType == "LogonSuccess"),
+    FailedAttempts = countif(ActionType == "LogonFailed"),
+    SuccessfulAttempts = countif(ActionType == "LogonSuccess"),
     UniqueUserCount = dcount(AccountName)
     by WorkstationName, AccountName, LogonType, bin(Timestamp, 1h)
 | extend LogonTypeDescription = case(
@@ -133,8 +133,8 @@ IdentityLogonEvents
       or WorkstationName matches regex @"^(TEMP|DESKTOP|UNKNOWN|WORKSTATION-).*$"  // Match patterns or dynamic list
 | summarize
     TotalAttempts = count(),
-    FailedAttempts = countif(LogonType == "LogonFailed"),
-    SuccessfulAttempts = countif(LogonType == "LogonSuccess"),
+    FailedAttempts = countif(ActionType == "LogonFailed"),
+    SuccessfulAttempts = countif(ActionType == "LogonSuccess"),
     UniqueUsers = dcount(AccountDisplayName)
     by WorkstationName, AccountDisplayName, LogonType, bin(Timestamp, 1h)
 | extend LogonTypeDescription = case(
