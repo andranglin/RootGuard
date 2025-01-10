@@ -192,7 +192,7 @@ EmailInformation
 {% code overflow="wrap" %}
 ```kusto
 // Define parameters
-let CompromisedEmailAddress = "adrian.anglin@sperrymarine.com"; // Specify the compromised email address
+let CompromisedEmailAddress = "sample@example.com"; // Specify the compromised email address
 let Timeframe = 2d; // Set the investigation timeframe
 // Extract relevant email events for the compromised email address
 let EmailInformation = EmailEvents
