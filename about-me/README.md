@@ -1,6 +1,5 @@
 ---
 icon: user
-hidden: true
 cover: ../.gitbook/assets/Screenshot 2025-01-10 082509.png
 coverY: 0
 layout:
