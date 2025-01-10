@@ -23,8 +23,8 @@ layout:
 
 Credit to the following individuals, as some of the queries are based on work they have shared with the community.
 
-#### X/Twitter:
+Bert Jan P - [https://kqlquery.com/](https://kqlquery.com/) - @BertJanCyber
 
-* [@reprise\_99](https://twitter.com/reprise_99) &#x20;
-* [@cyb3rmik3](https://twitter.com/cyb3rmik3)
-* [@BertJanCyber](https://twitter.com/BertJanCyber)
+Michalis Michalos - [https://www.michalos.net/](https://www.michalos.net/) - @Cyb3rMik3
+
+Matt Zorich - [https://learnsentinel.blog/](https://learnsentinel.blog/) - @reprise\_99
