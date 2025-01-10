@@ -72,6 +72,7 @@
 * [Detection Query of the Day](detection-query-of-the-day/README.md)
   * [Authentication From Suspicious Workstation Name](detection-query-of-the-day/authentication-from-suspicious-workstation-name.md)
   * [Interactive or RemoteInteractive Session From Service Account](detection-query-of-the-day/interactive-or-remoteinteractive-session-from-service-account.md)
+  * [Split or Part Archive Files](detection-query-of-the-day/split-or-part-archive-files.md)
 * [Training and Projects](training-and-projects.md)
   * [Methods and Tools to Investigate Specific Attacks](training-and-projects/methods-and-tools-to-investigate-specific-attacks/README.md)
     * [Domain Dominance Attacks](training-and-projects/methods-and-tools-to-investigate-specific-attacks/domain-dominance-attacks.md)
