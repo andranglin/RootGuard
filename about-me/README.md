@@ -1,6 +1,6 @@
 ---
 icon: user
-cover: ../.gitbook/assets/Screenshot 2025-01-05 152139.png
+cover: ../.gitbook/assets/Screenshot 2025-01-10 082509.png
 coverY: 0
 ---
 
