@@ -1,8 +1,3 @@
----
-cover: ../../.gitbook/assets/Screenshot 2025-01-05 160037.png
-coverY: 0
----
-
 # Defender For Office
 
 ### <mark style="color:blue;">Identify Email Attachments Send From Compromised Mailbox</mark>

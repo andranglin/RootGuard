@@ -1,7 +1,5 @@
 ---
 icon: laptop-code
-cover: ../.gitbook/assets/Screenshot 2025-01-05 104759 (1).png
-coverY: 0
 ---
 
 # User Activity Tracking (Event Logs)

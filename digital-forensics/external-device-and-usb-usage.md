@@ -1,7 +1,5 @@
 ---
 icon: laptop-code
-cover: ../.gitbook/assets/Screenshot 2025-01-05 105840.png
-coverY: 0
 ---
 
 # External Device & USB Usage

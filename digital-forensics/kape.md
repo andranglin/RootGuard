@@ -4,7 +4,7 @@ icon: laptop-code
 
 # KAPE
 
-### 1. Initial Access
+### <mark style="color:blue;">1. Initial Access</mark>
 
 **1.1. Phishing: Spearphishing Attachment (T1566.001)**
 
@@ -68,7 +68,7 @@ Paths:
 ```
 {% endcode %}
 
-### 2. Execution
+### <mark style="color:blue;">2. Execution</mark>
 
 **2.1. Command and Scripting Interpreter: PowerShell (T1059.001)**
 
@@ -128,7 +128,7 @@ LogNames:
 ```
 {% endcode %}
 
-### 3. Persistence
+### <mark style="color:blue;">3. Persistence</mark>
 
 **3.1. Registry Run Keys / Startup Folder (T1547.001)**
 
@@ -183,7 +183,7 @@ Keys:
 - 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit'
 ```
 
-### 4. Privilege Escalation
+### <mark style="color:blue;">4. Privilege Escalation</mark>
 
 **4.1. Scheduled Task/Job (T1053.005)**
 
@@ -237,7 +237,7 @@ Paths:
 ```
 {% endcode %}
 
-### 5. Defense Evasion
+### <mark style="color:blue;">5. Defense Evasion</mark>
 
 **5.1. Obfuscated Files or Information (T1027)**
 
@@ -289,7 +289,7 @@ Target: Files
 Paths:   - '%UserProfile%\AppData\Local\Temp\*.enc'
 ```
 
-### 6. Credential Access
+### <mark style="color:blue;">6. Credential Access</mark>
 
 **6.1. OS Credential Dumping: LSASS Memory (T1003.001)**
 
@@ -343,7 +343,7 @@ Target: Memory
 ProcessName: lsass.exe
 ```
 
-### 7. Discovery
+### <mark style="color:blue;">7. Discovery</mark>
 
 **7.1. System Information Discovery (T1082)**
 
@@ -396,7 +396,7 @@ Paths:
 ```
 {% endcode %}
 
-### 8. Collection
+### <mark style="color:blue;">8. Collection</mark>
 
 **8.1. Data from Local System (T1005)**
 
@@ -452,7 +452,7 @@ Target: EventLogs
 LogNames:   - 'Microsoft-Windows-PrintService/Operational'
 ```
 
-### 9. Exfiltration
+### <mark style="color:blue;">9. Exfiltration</mark>
 
 **9.1. Exfiltration Over C2 Channel (T1041)**
 
@@ -498,7 +498,7 @@ Target: Files
 Paths:   - '%SystemRoot%\System32\LogFiles\FTP\*'
 ```
 
-### 10. Impact
+### <mark style="color:blue;">10. Impact</mark>
 
 **10.1. Data Destruction (T1485)**
 
@@ -551,3 +551,7 @@ Target:
 Files Paths:   
 - '%UserProfile%\$Recycle.Bin\*'
 ```
+
+
+
+{% file src="../.gitbook/assets/SANS DFIR Eric Zimmerman CommandLine Tools.pdf" %}

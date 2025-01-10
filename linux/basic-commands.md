@@ -1,8 +1,3 @@
----
-cover: ../../.gitbook/assets/Screenshot 2025-01-04 151855 (1).png
-coverY: 0
----
-
 # Basic Commands
 
 ### <mark style="color:blue;">User Information</mark>

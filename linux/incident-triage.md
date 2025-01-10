@@ -1,8 +1,3 @@
----
-cover: ../.gitbook/assets/Screenshot 2025-01-07 210910.png
-coverY: 0
----
-
 # Incident Triage
 
 ### <mark style="color:blue;">Live Response Commands</mark>

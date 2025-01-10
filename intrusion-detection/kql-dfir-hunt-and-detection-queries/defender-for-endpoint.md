@@ -1,8 +1,3 @@
----
-cover: ../../.gitbook/assets/Screenshot 2025-01-04 151057.png
-coverY: 0
----
-
 # Defender For Endpoint
 
 ### <mark style="color:blue;">Detect Local User Account Creation on Endpoint</mark>

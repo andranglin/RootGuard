@@ -1,8 +1,3 @@
----
-cover: ../../.gitbook/assets/Screenshot 2025-01-05 160037 (1).png
-coverY: 0
----
-
 # Defender For Identity
 
 ### <mark style="color:blue;">Devices Accessed By Compromised Device</mark>

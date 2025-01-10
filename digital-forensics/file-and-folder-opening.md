@@ -1,7 +1,5 @@
 ---
 icon: laptop-code
-cover: ../.gitbook/assets/Screenshot 2025-01-05 105444.png
-coverY: 0
 ---
 
 # File and Folder Opening
