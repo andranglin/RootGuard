@@ -96,10 +96,10 @@ AccountName) // Normalize workstation/computer name
 #### Explanation of the Query:
 
 1. **Suspicious Patterns**:
-   * `SuspiciousWorkstations` defines known suspicious naming patterns (e.g., `TEMP`, `UNKNOWN`, etc.).
+   * `SuspiciousWorkstations`defines known suspicious naming patterns (e.g., `TEMP`, `UNKNOWN`, etc.).
    * Includes `has_any` for quick matching and regex for flexible pattern detection.
 2. **Table and Fields**:
-   * The `DeviceLogonEvents` table is queried.
+   * The `DeviceLogonEvents`table is queried.
    * Extracts workstation or device names using `DeviceName` or `AccountName`
 3. **Filters**:
    * Filters records with workstation names matching the suspicious patterns.
@@ -153,7 +153,7 @@ IdentityLogonEvents
 #### Key Features of the Query:
 
 1. **Suspicious Patterns**:
-   * `SuspiciousWorkstations` includes known suspicious naming conventions (e.g., `TEMP`, `WORKSTATION-`).
+   * `SuspiciousWorkstations`includes known suspicious naming conventions (e.g., `TEMP`, `WORKSTATION-`).
    * Matches using `has_any` and `regex` for flexible detection.
 2. **Field Normalisation**:
    * Uses `DeviceName` or `TargetDeviceName` to extract workstation or device information.
@@ -175,7 +175,7 @@ IdentityLogonEvents
 
 * **Time Filtering**: Add `| where Timestamp between (startTime .. endTime)` to restrict the timeframe.
 * **Additional Filters**: Add filters for specific user accounts, IP addresses, or logon statuses.
-* **Suspicious Patterns**: Update `SuspiciousWorkstations` to include organization-specific patterns or known attacker conventions.
+* **Suspicious Patterns**: Update `SuspiciousWorkstations` to include organisation-specific patterns or known attacker conventions.
 {% endtab %}
 
 {% tab title="SigninLogs" %}
@@ -221,7 +221,7 @@ SigninLogs
 5. **Time Binning**:
    * Bins results into 1-hour intervals using `bin(TimeGenerated, 1h)`.
 6. **Results**:
-   * Sorted by `TotalAttempts` and displays:
+   * Sorted by `TotalAttempts`and displays:
      * `TimeGenerated`, `WorkstationName`, `UserPrincipalName`, `AppDisplayName`, `TotalAttempts`, `SuccessfulAttempts`, `FailedAttempts`, and `UniqueUsers`.
 
 #### Customisation:
@@ -237,6 +237,8 @@ SigninLogs
 {% tabs %}
 {% tab title="Wineventlog" %}
 Using Splunk query to discover authentication events originating from suspicious workstation names. This query assumes you're using Windows Event Logs (`index=wineventlog`) or a similar data source for authentication events.
+
+Note: The fields in your Splunk logs may differ slightly; for example, AccountName may be displayed as Account\_Name.
 
 {% code overflow="wrap" %}
 ```kusto
@@ -269,7 +271,7 @@ index=wineventlog EventCode IN (4624, 4625)
    * `4624`: Logon success.
    * `4625`: Logon failure.
 2. **Normalization**:
-   * Uses `coalesce()` to handle scenarios where either `Workstation` or `ComputerName` may be populated.
+   * Uses `coalesce()` to handle scenarios where either `Workstation` or `ComputerName` maybe populated.
 3. **Suspicious Workstation Patterns**:
    * Matches common suspicious workstation naming conventions like `TEMP*`, `DESKTOP-*`, `UNKNOWN`, or `WORKSTATION-*`.
    * Regex patterns used in `match()` provide flexibility.
@@ -295,6 +297,8 @@ index=wineventlog EventCode IN (4624, 4625)
 
 {% tab title="Authlogs" %}
 Detecting authentication events from suspicious workstation names, assuming the use of a custom authentication-related index (e.g., `index=authlogs`) and avoiding `wineventlog`. This query works with generic authentication data sources.
+
+Note: The fields in your Splunk logs may differ slightly; for example, AccountName may be displayed as Account\_Name.
 
 {% code overflow="wrap" %}
 ```splunk-spl
