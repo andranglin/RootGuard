@@ -21,10 +21,8 @@ layout:
 
 **KQL - DFIR Hunt & Detection Queries**: A collection of advanced Kusto Query Language (KQL) queries for Digital Forensics and Incident Response (DFIR). These queries enable threat hunting, detection of malicious activities, and deep analysis of security events within logs from platforms like Microsoft Sentinel and Defender.
 
-Credit to the following individuals, as some of the queries are based on work they have shared with the community.
+Credit to the following individuals, as some of the queries are based on work they have shared with the community:
 
-Bert Jan P - [https://kqlquery.com/](https://kqlquery.com/) - @BertJanCyber
-
-Michalis Michalos - [https://www.michalos.net/](https://www.michalos.net/) - @Cyb3rMik3
-
-Matt Zorich - [https://learnsentinel.blog/](https://learnsentinel.blog/) - @reprise\_99
+* Bert Jan P - [https://kqlquery.com/](https://kqlquery.com/) - @BertJanCyber
+* Michalis Michalos - [https://www.michalos.net/](https://www.michalos.net/) - @Cyb3rMik3
+* Matt Zorich - [https://learnsentinel.blog/](https://learnsentinel.blog/) - @reprise\_99
