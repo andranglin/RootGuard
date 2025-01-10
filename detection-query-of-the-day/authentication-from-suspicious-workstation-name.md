@@ -1,4 +1,8 @@
-# Authentication From Suspicious Workstation Name
+---
+description: Queries created in KQL and SPL
+---
+
+# Authentication From Suspicious Workstation Name -
 
 ### <mark style="color:blue;">KQL Queries</mark>
 
@@ -232,8 +236,6 @@ SigninLogs
 
 {% tabs %}
 {% tab title="Wineventlog" %}
-
-
 Using Splunk query to discover authentication events originating from suspicious workstation names. This query assumes you're using Windows Event Logs (`index=wineventlog`) or a similar data source for authentication events.
 
 {% code overflow="wrap" %}
