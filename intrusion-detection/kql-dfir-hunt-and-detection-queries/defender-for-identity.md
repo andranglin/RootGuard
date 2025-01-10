@@ -415,7 +415,7 @@ IdentityQueryEvents
 {% code overflow="wrap" %}
 ```kusto
 // Define suspect accounts
-let CompromisedAccounts = dynamic(['angliad01', 'account2']); // Add suspect accounts here
+let CompromisedAccounts = dynamic(['account1', 'account2']); // Add suspect accounts here
 // Query to detect unauthorized SMB file copy events
 IdentityDirectoryEvents
 | where ActionType == "SMB file copy" // Filter only SMB file copy events
