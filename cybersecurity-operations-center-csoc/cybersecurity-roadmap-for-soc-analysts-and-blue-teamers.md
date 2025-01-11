@@ -43,7 +43,7 @@ Building a strong foundation is critical for aspiring SOC analysts. Start by acq
 
 ### Step 2: Develop Technical Skills
 
-SOC analysts require technical expertise to analyse and mitigate threats effectively.
+**Note:** Threats come in many forms. Therefore, SOC analysts must have the technical expertise to analyse and mitigate threats effectively.
 
 **Programming Skills:**
 
@@ -79,9 +79,6 @@ Certifications validate your skills and demonstrate your expertise to employers.
 * #### IR-200: Foundational Incident Response
 * **CISSP (Certified Information Systems Security Professional):** Covers comprehensive cybersecurity knowledge.
 * **CCSP (Certified Cloud Security Professional):** Focuses on cloud security expertise.
-
-**Specialised Certifications:**
-
 * **CHFI:** Computer Hacking Forensic Investigator
 * **AWS Certified Security:** Focuses on securing AWS cloud environments.
 * EC-Council Certified Incident Handler (ECIH)&#x20;
