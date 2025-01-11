@@ -1,8 +1,8 @@
 # Table of contents
 
 * [RootGuard](README.md)
-* [About Me](about-me/README.md)
-  * [Professional Profile](about-me/professional-profile.md)
+  * [About Me](rootguard/about-me/README.md)
+    * [Professional Profile](rootguard/about-me/professional-profile.md)
 * [Incident Response (IR)](<README (1).md>)
   * [Response Strategies](incident-response-ir/response-strategies/README.md)
     * [Privilege Escalation Assessment](incident-response-ir/response-strategies/privilege-escalation-assessment.md)
