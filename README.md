@@ -52,7 +52,7 @@ Explore the resources, test the tools mentioned, and if suitable, integrate them
 
 [intrusion-detection](intrusion-detection/ "mention")
 
-[linux](linux/ "mention")
+[linux-ir](linux-ir/ "mention")
 
 [training-and-projects.md](training-and-projects.md "mention")
 
