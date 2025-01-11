@@ -20,13 +20,13 @@ layout:
 
 # Digital Forensics
 
-## <mark style="color:blue;">**What is Digital Forensics?**</mark>
+## **What is Digital Forensics?**
 
 Digital Forensics is a branch of forensic science focused on the identification, collection, preservation, analysis, and presentation of digital evidence. It is a critical discipline used in investigations involving cybercrimes, data breaches, fraud, intellectual property theft, and more. The primary goal of digital forensics is to extract meaningful evidence from digital devices such as computers, mobile phones, and network systems while maintaining data integrity. Digital forensic practices ensure that this evidence is admissible in a court of law or serves investigative purposes.
 
 ***
 
-### <mark style="color:blue;">Key areas of digital forensics include</mark>
+### Key areas of digital forensics include
 
 * **Computer Forensics**: Focuses on computers, hard drives, and operating systems.
 * **Mobile Forensics**: Involves analysing mobile devices and their data.
@@ -36,7 +36,7 @@ Digital Forensics is a branch of forensic science focused on the identification,
 
 ***
 
-### <mark style="color:blue;">**Skillset Required for a Forensic Analyst**</mark>
+### **Skillset Required for a Forensic Analyst**
 
 To excel as a forensic analyst, individuals need a combination of technical expertise, analytical thinking, and investigative skills. Below are the essential skills required:
 
@@ -59,7 +59,7 @@ To excel as a forensic analyst, individuals need a combination of technical expe
 
 ***
 
-### <mark style="color:blue;">**Tasks and Responsibilities of a Forensic Analyst**</mark>
+### **Tasks and Responsibilities of a Forensic Analyst**
 
 Forensic analysts play a pivotal role in cybersecurity and criminal investigations. Responsibilities include:
 
@@ -81,7 +81,7 @@ Forensic analysts play a pivotal role in cybersecurity and criminal investigatio
 
 ***
 
-### <mark style="color:blue;">**Training and Certifications Required**</mark>
+### **Training and Certifications Required**
 
 Digital forensic analysts often pursue specialised training and certifications to build credibility and expertise. Some of the most recognised certifications include:
 
@@ -100,7 +100,7 @@ Digital forensic analysts often pursue specialised training and certifications t
 
 ***
 
-### <mark style="color:blue;">**Path to Becoming a Forensic Analyst**</mark>
+### **Path to Becoming a Forensic Analyst**
 
 1. **Educational Foundation**:
    * Obtain a bachelor’s degree in computer science, cybersecurity, information technology, or a related field.
@@ -121,7 +121,7 @@ Aspiring forensic analysts can build a successful and impactful career in digita
 
 ***
 
-### <mark style="color:blue;">Supplementary Resource</mark>
+### Supplementary Resource
 
 Note: Resources like Posters and Cheatsheets are helpful when used as guides
 

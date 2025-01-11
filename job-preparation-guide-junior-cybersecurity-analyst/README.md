@@ -20,7 +20,7 @@ layout:
 
 # Job Preparation Guide: Junior Cybersecurity Analyst
 
-### <mark style="color:blue;">**What is a Junior Cybersecurity Analyst Role?**</mark>
+### **What is a Junior Cybersecurity Analyst Role?**
 
 A Junior Cybersecurity Analyst plays a pivotal role in protecting an organisation’s digital assets. They work within a Security Operations Center (SOC) or similar team, focusing on detecting, analysing, and responding to cybersecurity threats.
 
@@ -33,7 +33,7 @@ Key Responsibilities:
 
 ***
 
-### <mark style="color:blue;">**Step-by-Step Preparation for Junior Cybersecurity Analyst Interview**</mark>
+### **Step-by-Step Preparation for Junior Cybersecurity Analyst Interview**
 
 #### **1. Understand the Role and Expectations**
 
@@ -136,7 +136,7 @@ Logs are the p"primary data source for detecting threats:
 
 ***
 
-### <mark style="color:blue;">**Checklist Before the Interview**</mark>
+### **Checklist Before the Interview**
 
 * [ ] Review core cybersecurity concepts.
 * [ ] Brush up on networking basics.

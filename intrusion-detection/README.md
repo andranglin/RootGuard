@@ -20,7 +20,7 @@ layout:
 
 # Intrusion Detection
 
-## <mark style="color:blue;">**Introduction**</mark>
+## **Introduction**
 
 In today’s digitally driven landscape, organisational digital assets are the lifeblood of operations, innovation, and competitiveness. These assets, ranging from intellectual property and customer data to operational systems, are prime targets for cybercriminals. To safeguard these critical resources, organisations rely on robust Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS). These technologies act as digital sentinels, monitoring networks, systems, and applications for malicious activities and unauthorised access.
 
@@ -28,7 +28,7 @@ This blog explores the importance of IDS and IPS in securing organisational asse
 
 ***
 
-### <mark style="color:blue;">**What Are Intrusion Detection and Prevention Systems?**</mark>
+### **What Are Intrusion Detection and Prevention Systems?**
 
 * **Intrusion Detection System (IDS):** An IDS monitors network traffic or system activities for suspicious patterns that indicate potential security incidents. It operates in a passive mode, alerting administrators of detected anomalies but does not take action to block threats.
 * **Intrusion Prevention System (IPS):** An IPS builds upon IDS capabilities by actively blocking malicious traffic or activities. It operates inline with network traffic, enabling real-time protection.
@@ -37,7 +37,7 @@ IDS and IPS solutions are often integrated into modern security infrastructures 
 
 ***
 
-### <mark style="color:blue;">**Importance of IDS and IPS for Safeguarding Digital Assets**</mark>
+### **Importance of IDS and IPS for Safeguarding Digital Assets**
 
 1. **Early Threat Detection**:
    * IDS identifies potential threats before they escalate, giving security teams an opportunity to respond swiftly.
@@ -52,7 +52,7 @@ IDS and IPS solutions are often integrated into modern security infrastructures 
 
 ***
 
-### <mark style="color:blue;">**Modern Cyber Threats to Digital Assets**</mark>
+### **Modern Cyber Threats to Digital Assets**
 
 The evolving threat landscape demands advanced IDS/IPS capabilities to counter sophisticated cyberattacks. Below are some prevalent threats:
 
@@ -71,7 +71,7 @@ The evolving threat landscape demands advanced IDS/IPS capabilities to counter s
 
 ***
 
-### <mark style="color:blue;">**Advancements in IDS/IPS Technologies**</mark>
+### **Advancements in IDS/IPS Technologies**
 
 Modern IDS/IPS solutions incorporate advanced technologies to address emerging challenges:
 
@@ -82,7 +82,7 @@ Modern IDS/IPS solutions incorporate advanced technologies to address emerging c
 
 ***
 
-### <mark style="color:blue;">**Best Practices for Implementing IDS/IPS**</mark>
+### **Best Practices for Implementing IDS/IPS**
 
 1. **Comprehensive Coverage:** Deploy IDS/IPS across critical network points and endpoints.
 2. **Regular Updates:** Keep signatures and threat intelligence feeds updated to counter new threats.
@@ -92,7 +92,7 @@ Modern IDS/IPS solutions incorporate advanced technologies to address emerging c
 
 ***
 
-### <mark style="color:blue;">**Conclusion**</mark>
+### **Conclusion**
 
 Intrusion Detection and Prevention Systems are indispensable for securing digital assets in a threat-filled landscape. By providing early detection, active defence, and deep insights, IDS/IPS empower organisations to stay ahead of cyber adversaries. As cyber threats evolve, integrating these systems with other security measures ensures a robust, layered defence strategy that protects operations and sensitive data.
 

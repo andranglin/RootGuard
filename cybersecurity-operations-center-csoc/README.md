@@ -20,7 +20,7 @@ layout:
 
 # Cybersecurity Operations Center (CSOC)
 
-## <mark style="color:blue;">What is a Cybersecurity Operations Center (CSOC)?</mark>
+## What is a Cybersecurity Operations Center (CSOC)?
 
 A Cybersecurity Operations Center (CSOC) is a centralised function that serves as the nerve center for an organisation’s cybersecurity operations. The CSOC is responsible for monitoring, detecting, analysing, and responding to cybersecurity incidents in realtime to protect the organisation’s data, systems, and networks. It is staffed with skilled cybersecurity professionals and equipped with advanced tools and technologies to proactively identify potential threats and mitigate risks.
 
@@ -37,7 +37,7 @@ CSOCs operate 24/7 in most cases to ensure round-the-clock protection against ev
 
 ***
 
-### <mark style="color:blue;">Skillset Required for a CSOC Analyst</mark>
+### Skillset Required for a CSOC Analyst
 
 A CSOC Analyst plays a critical role in detecting cybersecurity threats. To excel in this role, individuals must possess a combination of technical expertise, analytical thinking, and communication skills.
 
@@ -69,7 +69,7 @@ A CSOC Analyst plays a critical role in detecting cybersecurity threats. To exce
 
 ***
 
-### <mark style="color:blue;">Daily Task of a CSOC Analyst</mark>
+### Daily Task of a CSOC Analyst
 
 CSOC Analysts are at the forefront of defending an organisation against cyber threats. Their day-to-day responsibilities include:
 
@@ -94,7 +94,7 @@ CSOC Analysts are at the forefront of defending an organisation against cyber th
 
 ***
 
-### <mark style="color:blue;">Training and Certifications Required</mark>
+### Training and Certifications Required
 
 A solid foundation in cybersecurity principles, combined with industry-recognised certifications, can significantly enhance a candidate’s employability as a CSOC Analyst. Recommended certifications include:
 
@@ -117,7 +117,7 @@ Training courses offered by organisations like SANS, Cybrary and online platform
 
 ***
 
-### <mark style="color:blue;">Path to Becoming a CSOC Analyst</mark>
+### Path to Becoming a CSOC Analyst
 
 #### Step 1: Build Foundational Knowledge
 

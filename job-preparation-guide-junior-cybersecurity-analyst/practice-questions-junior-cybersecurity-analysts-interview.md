@@ -19,7 +19,7 @@ layout:
 
 # Practice Questions: Junior Cybersecurity Analysts Interview
 
-### <mark style="color:blue;">**Technical Questions**</mark>
+### **Technical Questions**
 
 1. **What is the CIA Triad?**
 
@@ -184,7 +184,7 @@ layout:
   * Check parent-child relationships.
   * Monitor processes consuming excessive CPU or memory.
 
-### <mark style="color:blue;">**Log Analysis and Monitoring**</mark>
+### **Log Analysis and Monitoring**
 
 31. **What are the key Windows Event IDs for monitoring logon activity?**
 
@@ -222,7 +222,7 @@ layout:
   * **4674:** Sensitive privilege use.
   * **4672:** Assigning special privileges.
 
-### <mark style="color:blue;">**Threat Hunting and Incident Response**</mark>
+### **Threat Hunting and Incident Response**
 
 38. **How would you detect PowerShell-based attacks?**
 
@@ -249,7 +249,7 @@ layout:
   * **Playbook:** High-level procedures for specific incidents.
   * **Runbook:** Step-by-step guides for implementing playbook actions.
 
-### <mark style="color:blue;">**Network Security and Malware Analysis**</mark>
+### **Network Security and Malware Analysis**
 
 43. **What is the purpose of a sandbox environment?**
 
@@ -271,7 +271,7 @@ layout:
 
 * **Answer:** Provides metadata about traffic flows, helping identify anomalies like data exfiltration.
 
-### <mark style="color:blue;">**Cloud Security and Tools**</mark>
+### **Cloud Security and Tools**
 
 48. **What are common threats in cloud environments?**
 
@@ -303,7 +303,7 @@ layout:
 
 * **Answer:** SIEM collects logs from cloud resources, applies correlation rules, and provides dashboards for monitoring threats.
 
-### <mark style="color:blue;">Incident Response and Automation</mark>
+### Incident Response and Automation
 
 54. **What is playbook automation in incident response?**
 
@@ -350,9 +350,9 @@ layout:
 
 * **Answer:** Use VQL queries to hunt for malicious processes, analyse file changes, and monitor Windows for suspicious activity.
 
-### <mark style="color:blue;">**Scenario-Based Questions**</mark>&#x20;
+### **Scenario-Based Questions**&#x20;
 
-1. **A user reports** **their system unauthorisedfiles are disappearing. How would you approach this situation?**
+1. **A user reports** **their system files are disappearing. How would you approach this situation?**
    * **Answer:** Begin by isolating the system to prevent further potential spread of malware. Then, collect initial logs and evidence, such as task manager outputs, network activity, and recent event logs. Analyse for malware indicators like unexpected processes or unauthorised file access.&#x20;
 2. What action would you take if you identified unauthorised access to a critical server?
    * **Answer:**

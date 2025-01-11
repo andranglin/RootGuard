@@ -20,7 +20,7 @@ layout:
 
 # Incident Response (IR)
 
-## <mark style="color:blue;">**What is Cybersecurity Incident Response?**</mark>
+## **What is Cybersecurity Incident Response?**
 
 Cybersecurity Incident Response (IR) refers to the structured approach to detecting, containing, eradicating, and recovering from cybersecurity incidents such as data breaches, malware attacks, and insider threats. The primary goal is to mitigate the impact of an incident, reduce downtime, and safeguard sensitive data and infrastructure.
 
@@ -28,7 +28,7 @@ Incident response is guided by frameworks such as the National Institute of Stan
 
 ***
 
-### <mark style="color:blue;">**Skillset Required for an Incident Response Analyst**</mark>
+### **Skillset Required for an Incident Response Analyst**
 
 Incident response analysts are the first line of defence against cyber threats. To excel in this role, a blend of technical, analytical, and communication skills is essential:
 
@@ -52,7 +52,7 @@ Incident response analysts are the first line of defence against cyber threats. 
 
 ***
 
-### <mark style="color:blue;">**Tasks and Responsibilities of an Incident Response Analyst**</mark>
+### **Tasks and Responsibilities of an Incident Response Analyst**
 
 Incident response analysts perform various critical tasks to ensure the organisation remains secure against evolving threats. Key responsibilities include:
 
@@ -79,7 +79,7 @@ Incident response analysts perform various critical tasks to ensure the organisa
 
 ***
 
-### <mark style="color:blue;">**Training and Certifications Required**</mark>
+### **Training and Certifications Required**
 
 Training and certifications demonstrate expertise and build trust in an analyst’s capabilities. Here are some of the most recognised certifications:
 
@@ -102,7 +102,7 @@ Training and certifications demonstrate expertise and build trust in an analyst�
 
 ***
 
-### <mark style="color:blue;">**Path to Becoming an Incident Response Analyst**</mark>
+### **Path to Becoming an Incident Response Analyst**
 
 1. **Educational Foundation**:
    * Obtain a bachelor’s degree in cybersecurity, computer science, or information technology.
@@ -126,7 +126,7 @@ By following a structured and well-defined pathway and maintaining a commitment 
 
 ***
 
-## <mark style="color:blue;">Training Resources</mark>
+## Training Resources
 
 * <mark style="color:blue;">CyberDefenders</mark>[<mark style="color:blue;">:</mark> ](https://cyberdefenders.org/blueteam-ctf-challenges/)Put your knowledge into practice with gamified cyber security challenges.
 * [<mark style="color:blue;">Blue Team Labs Online:</mark>](https://blueteamlabs.online/) A platform for defenders to practice their skills in security investigations and challenges covering
@@ -142,7 +142,7 @@ By following a structured and well-defined pathway and maintaining a commitment 
 
 ***
 
-## <mark style="color:blue;">Other Resources</mark>
+## Other Resources
 
 * [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework): Helping organisations to better understand and improve their management of cybersecurity risk
 * &#x20;[Awesome Cybersecurity Blue Team:](https://github.com/fabacab/awesome-cybersecurity-blueteam) A collection of resources, tools, and other things for cybersecurity blue teams.
@@ -159,7 +159,7 @@ These resources provide an excellent foundation for individuals looking to devel
 
 ***
 
-### <mark style="color:blue;">Links to respective areas included in this section:</mark>
+### Links to respective areas included in this section:
 
 {% content-ref url="incident-response-ir/response-strategies/" %}
 [response-strategies](incident-response-ir/response-strategies/)
