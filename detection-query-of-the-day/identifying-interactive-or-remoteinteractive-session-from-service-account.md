@@ -1,4 +1,18 @@
-# Interactive or RemoteInteractive Session From Service Account
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
+# Identifying Interactive or RemoteInteractive Session From Service Account
 
 ### <mark style="color:blue;">KQL Queries:</mark>
 

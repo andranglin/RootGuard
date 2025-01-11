@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Defender For Office
 
 ### <mark style="color:blue;">Identify Email Attachments Send From Compromised Mailbox</mark>

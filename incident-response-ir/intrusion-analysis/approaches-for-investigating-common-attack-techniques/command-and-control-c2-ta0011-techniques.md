@@ -1,5 +1,16 @@
 ---
 icon: laptop-code
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Command and Control (C2) (TA0011) Techniques

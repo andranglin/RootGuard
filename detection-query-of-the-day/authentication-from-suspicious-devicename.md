@@ -1,8 +1,19 @@
 ---
 description: Queries created in KQL and SPL
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
-# Authentication From Suspicious Workstation Name
+# Authentication From Suspicious DeviceName
 
 ### <mark style="color:blue;">KQL Queries</mark>
 

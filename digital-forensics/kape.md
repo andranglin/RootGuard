@@ -1,5 +1,16 @@
 ---
 icon: laptop-code
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # KAPE
@@ -552,6 +563,8 @@ Files Paths:
 - '%UserProfile%\$Recycle.Bin\*'
 ```
 
+### <mark style="color:blue;">Additional Resources</mark>
 
+Eric Zimmerman's Tools:  [https://ericzimmerman.github.io/#!index.md](https://ericzimmerman.github.io/#!index.md) A comprehensive set of DFIR tools accompanied by excellent user guides.&#x20;
 
 {% file src="../.gitbook/assets/SANS DFIR Eric Zimmerman CommandLine Tools.pdf" %}

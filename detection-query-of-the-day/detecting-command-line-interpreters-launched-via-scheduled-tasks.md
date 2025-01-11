@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Detecting Command Line Interpreters Launched via Scheduled Tasks
 
 ### <mark style="color:blue;">KQL Queries:</mark>&#x20;
@@ -144,4 +158,3 @@ EventCode=1
 6. **Sorting and Display**: The results are sorted by the total number of events in descending order and displayed in a table format.
 {% endtab %}
 {% endtabs %}
-

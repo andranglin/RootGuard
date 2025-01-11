@@ -1,5 +1,16 @@
 ---
 icon: laptop-code
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Exfiltration (TA0010) Techniques

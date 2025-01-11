@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Defender For Endpoint
 
 ### <mark style="color:blue;">Detect Local User Account Creation on Endpoint</mark>
