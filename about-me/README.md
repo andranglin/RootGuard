@@ -32,25 +32,25 @@ My passion and interest in information technology and security go beyond my own 
 
 The aim is to provide some theoretical and practical approaches to help others delve deeper into the more common tools and technology. The content on the site reflects the tools, processes, and methodologies I have used and am familiar with. It's impossible to cover all areas at a level appropriate for everyone, so in the areas of focus, I will reference other online resources that I think may be helpful. On these occasions, I will attribute the appropriate credit and request that you support their work. A significant part of our field is the willingness of others to share their research, knowledge and expertise; let's help them so their work continues.
 
-### <mark style="color:purple;">Why should anyone listen to me?</mark>
+### Why should anyone listen to me?
 
 My area of knowledge isn't focused on a single area within the technology space, nor am I an expert; what I am is a continuous learner and someone who has invested time into my development and has gained a considerable amount of experience working in multiple areas with information technology. In my professional career and spare time, I have undertaken multiple successful technology implementations, achieving the goals based on agreed objectives. As part of the day job, managed day-to-day information and cyber security operations and implemented organisational cyber initiatives.
 
-### <mark style="color:purple;">Disclaimer</mark>
+### Disclaimer
 
 Unless I am explicitly quoting someone, the thoughts and opinions expressed are my own. This website and content are provided without warranty of any kind.
 
-### <mark style="color:purple;">Tools and product mentions</mark> <a href="#product-mentions" id="product-mentions"></a>
+### Tools and product mentions <a href="#product-mentions" id="product-mentions"></a>
 
-I use many daily, any mention of a particular tool, product, or service is on my own accord and is not sponsored unless otherwise stated.&#x20;
+I use many daily, and any mention of a particular tool, product, or service is of my own accord and is not sponsored unless otherwise stated.&#x20;
 
-### <mark style="color:purple;">Can the site content be shared?</mark>
+### Can the site content be shared?
 
 Most definitely, provided you give attribution.
 
-### <mark style="color:purple;">**You can also visit**</mark>
+### **You can also visit**
 
 [**LinkedIn**](https://www.linkedin.com/in/adrian-anglin-76b29972)
 
-**Twitter:** @adriananglin
+**X/Twitter:** @adriananglin
 
