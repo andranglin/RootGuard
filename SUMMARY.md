@@ -44,7 +44,7 @@
 * [Cybersecurity Operations Center (CSOC)](cybersecurity-operations-center-csoc/README.md)
   * [KQL Query and Use Cases](cybersecurity-operations-center-csoc/kql-query-and-use-cases.md)
   * [Splunk Query and Use Cases](cybersecurity-operations-center-csoc/splunk-query-and-use-cases.md)
-  * [Cybersecurity RoadMap For SOC Analysts and Blue Teamers](cybersecurity-operations-center-csoc/cybersecurity-roadmap-for-soc-analysts-and-blue-teamers.md)
+  * [Cybersecurity Roadmap to Become A SOC Analyst](cybersecurity-operations-center-csoc/cybersecurity-roadmap-to-become-a-soc-analyst.md)
 * [Digital Forensics](digital-forensics/README.md)
   * [Evidence of Execution](digital-forensics/evidence-of-execution.md)
   * [Account Usage](digital-forensics/account-usage.md)
