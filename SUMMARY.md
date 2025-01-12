@@ -56,7 +56,7 @@
     * [Command and Control (TA0011)](cybersecurity-operations-center-csoc/defender-and-sentinel-kql-use-cases/command-and-control-ta0011.md)
     * [Impact (TA0040)](cybersecurity-operations-center-csoc/defender-and-sentinel-kql-use-cases/impact-ta0040.md)
   * [Splunk Query and Use Cases](cybersecurity-operations-center-csoc/splunk-query-and-use-cases.md)
-  * [Cybersecurity Roadmap to Become A SOC Analyst](cybersecurity-operations-center-csoc/cybersecurity-roadmap-to-become-a-soc-analyst/README.md)
+  * [Cybersecurity Roadmap to Become A SOC Analyst](cybersecurity-operations-center-csoc/cybersecurity-roadmap-to-become-a-soc-analyst.md)
     * [Exfiltration (TA0010)](cybersecurity-operations-center-csoc/cybersecurity-roadmap-to-become-a-soc-analyst/exfiltration-ta0010.md)
 * [Digital Forensics](digital-forensics/README.md)
   * [Evidence of Execution](digital-forensics/evidence-of-execution.md)

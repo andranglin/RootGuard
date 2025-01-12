@@ -15,6 +15,3 @@ layout:
 
 # Defender & Sentinel - KQL Use Cases
 
-## <mark style="color:blue;">12.</mark>&#x20;
-
-## <mark style="color:blue;">13.</mark>&#x20;
