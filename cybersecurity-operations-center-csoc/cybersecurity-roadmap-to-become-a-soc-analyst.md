@@ -84,24 +84,23 @@ Choose certifications wisely for the stage you're at or want to reach in your ca
 * CompTIA Network+: Covers networking concepts and practices.
 * CyberOps: Cisco Certified CyberOps Associate certification
 * CompTIA Security+: An essential credential for understanding general security practices.
-* Microsoft: Microsoft Security Operations Analyst (SC-200)
+* SC-200: Microsoft Security Operations Analyst&#x20;
 * CEH (Certified Ethical Hacker): For those interested in ethical hacking.
+* SOC-200: Foundational Security Operations and Defensive Analysis.
 
 #### **Intermediate to Advanced Certifications:**&#x20;
 
 **Note:** These are certifications you'll likely target once you are employed. Hopefully, your employer will provide the training and certification budget.
 
-* SOC-200: Foundational Security Operations and Defensive Analysis.
-* #### TH-200: Foundational Threat Hunting
-* #### IR-200: Foundational Incident Response
+* TH-200: Foundational Threat Hunting&#x20;
+* IR-200: Foundational Incident Response
 * CISSP (Certified Information Systems Security Professional): Covers comprehensive cybersecurity knowledge.
 * CCSP (Certified Cloud Security Professional): Focuses on cloud security expertise.
 * CHFI: Computer Hacking Forensic Investigator
-* AWS Certified Security: Focuses on securing AWS cloud environments.
-* EC-Council Certified Incident Handler (ECIH)&#x20;
-* Certified Computer Security Incident Handler (CSIH)&#x20;
-* GIAC Certified Incident Handler (GCIH)&#x20;
-* CompTIA Cybersecurity Analyst (CySA+)
+* ECIH: EC-Council Certified Incident Handler
+* CSIH: Certified Computer Security Incident Handler
+* GCIH: GIAC Certified Incident Handler
+* CySA+: CompTIA Cybersecurity Analyst
 
 ***
 
