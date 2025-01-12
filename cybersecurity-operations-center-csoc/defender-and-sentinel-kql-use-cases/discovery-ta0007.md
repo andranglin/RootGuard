@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Discovery (TA0007)
 
 ### **Sub-technique: T1083 - File and Directory Discovery**

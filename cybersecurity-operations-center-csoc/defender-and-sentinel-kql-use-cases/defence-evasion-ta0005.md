@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Defence Evasion (TA0005)
 
 ### **Sub-technique: T1070.001 - Clear Windows Event Logs**
