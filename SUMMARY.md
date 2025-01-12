@@ -53,6 +53,7 @@
     * [Discovery (TA0007)](cybersecurity-operations-center-csoc/defender-and-sentinel-kql-use-cases/discovery-ta0007.md)
     * [9. Lateral Movement (TA0008)](cybersecurity-operations-center-csoc/defender-and-sentinel-kql-use-cases/9.-lateral-movement-ta0008.md)
     * [Collection (TA0009)](cybersecurity-operations-center-csoc/defender-and-sentinel-kql-use-cases/collection-ta0009.md)
+    * [Command and Control (TA0011)](cybersecurity-operations-center-csoc/defender-and-sentinel-kql-use-cases/command-and-control-ta0011.md)
   * [Splunk Query and Use Cases](cybersecurity-operations-center-csoc/splunk-query-and-use-cases.md)
   * [Cybersecurity Roadmap to Become A SOC Analyst](cybersecurity-operations-center-csoc/cybersecurity-roadmap-to-become-a-soc-analyst.md)
 * [Digital Forensics](digital-forensics/README.md)
