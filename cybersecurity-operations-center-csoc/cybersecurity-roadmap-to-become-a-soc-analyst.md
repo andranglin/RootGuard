@@ -125,12 +125,17 @@ Practical experience helps solidify theoretical knowledge and improves your empl
     * [Volatility](https://github.com/volatilityfoundation/volatility)
     * [MemProcFS](https://github.com/ufrisk/MemProcFS)
     * [Wireshark](https://www.wireshark.org/) (Sample PCAP files available [here](https://wiki.wireshark.org/SampleCaptures))
-  * **Tools to Supplement Your Learn:**
-    *   [Awesome Malware Analysis](https://github.com/rshipp/awesome-malware-analysis) – A curated list of malware analysis tools and resources.
+  *   **Tools to Supplement Your Learn:**
 
-        [Awesome Incident Response](https://github.com/meirwah/awesome-incident-response) – A curated list of tools for incident response.
+      *   [Awesome Malware Analysis](https://github.com/rshipp/awesome-malware-analysis) – A curated list of malware analysis tools and resources.
 
-        [Awesome Forensics](https://github.com/Cugu/awesome-forensics) – A curated list of forensic analysis tools and resources.
+          [Awesome Incident Response](https://github.com/meirwah/awesome-incident-response) – A curated list of tools for incident response.
+
+          [Awesome Forensics](https://github.com/Cugu/awesome-forensics) – A curated list of forensic analysis tools and resources.
+
+          [RootGuard](https://github.com/andranglin/RootGuard) - Resources targetted at Individuals looking to get into DFIR
+
+
 
 **Internships and Entry-Level Roles:**
 

@@ -22,7 +22,10 @@ layout:
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where ProcessCommandLine has_any ("encrypt", "ransom") | project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName
+DeviceProcessEvents
+| where ProcessCommandLine has_any ("encrypt", "ransom")
+| project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -32,7 +35,12 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("encrypt", "ransom") | p
 
 {% code overflow="wrap" %}
 ```cs
-DeviceFileEvents | where FileOperation == "Rename" | summarize count() by FileExtension, DeviceName | where count() > 100
+DeviceFileEvents
+| where ActionType == "FileRenamed"
+| summarize eventCount = count() by FileName, DeviceName, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| where eventCount > 100
+| project FileName, DeviceName, eventCount, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by eventCount desc
 ```
 {% endcode %}
 
@@ -42,7 +50,10 @@ DeviceFileEvents | where FileOperation == "Rename" | summarize count() by FileEx
 
 {% code overflow="wrap" %}
 ```cs
-DeviceFileEvents | where FileName in ("ransomnote.txt", "readme.txt") | project Timestamp, DeviceName, FileName, FolderPath
+DeviceFileEvents
+| where FileName in ("ransomnote.txt", "readme.txt")
+| project Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -52,7 +63,19 @@ DeviceFileEvents | where FileName in ("ransomnote.txt", "readme.txt") | project 
 
 {% code overflow="wrap" %}
 ```cs
-DeviceFileEvents | where FileExtension in (".locked", ".crypt", ".enc") | project Timestamp, DeviceName, FileName, FolderPath
+DeviceFileEvents
+| where FileName has_any (".locked", ".crypt", ".enc")
+| project Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc
+
+// Extended Search
+DeviceFileEvents
+| where FileName has_any (".locked", ".crypt", ".enc")
+| extend FileSize = tolong(FileSize)
+| summarize eventCount = count(), TotalFileSize = sum(FileSize) by Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| where eventCount > 10
+| project Timestamp, DeviceName, FileName, FolderPath, eventCount, TotalFileSize, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -62,7 +85,19 @@ DeviceFileEvents | where FileExtension in (".locked", ".crypt", ".enc") | projec
 
 {% code overflow="wrap" %}
 ```cs
-DeviceFileEvents | where FileOperation == "Delete" and FileExtension in (".bak", ".tmp") | project Timestamp, DeviceName, FileName, FolderPath
+DeviceFileEvents
+| where ActionType == "FileDeleted" and FileName has_any (".bak", ".tmp")
+| project Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc
+
+//Extended Search
+DeviceFileEvents
+| where ActionType == "FileDeleted" and FileName has_any (".bak", ".tmp")
+| extend FileSize = tolong(FileSize)
+| summarize eventCount = count(), TotalFileSize = sum(FileSize) by Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| where eventCount > 10
+| project Timestamp, DeviceName, FileName, FolderPath, eventCount, TotalFileSize, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -72,7 +107,18 @@ DeviceFileEvents | where FileOperation == "Delete" and FileExtension in (".bak",
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where ProcessCommandLine has "powershell" and ProcessCommandLine has "encrypt" | project Timestamp, DeviceName, ProcessCommandLine
+DeviceProcessEvents
+| where ProcessCommandLine has "powershell" and ProcessCommandLine has "encrypt"
+| project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
+
+// Extended Search
+DeviceProcessEvents
+| where ProcessCommandLine has "powershell" and ProcessCommandLine has "encrypt"
+| summarize eventCount = count() by Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| where eventCount > 5
+| project Timestamp, DeviceName, ProcessCommandLine, eventCount, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -82,7 +128,19 @@ DeviceProcessEvents | where ProcessCommandLine has "powershell" and ProcessComma
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where ProcessCommandLine has_any ("wannacry", "cryptolocker") | project Timestamp, DeviceName, ProcessCommandLine`
+DeviceProcessEvents
+| where ProcessCommandLine has_any ("wannacry", "cryptolocker")
+| project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
+
+//Extended Search
+DeviceProcessEvents
+| where ProcessCommandLine has_any ("wannacry", "cryptolocker")
+| extend ProcessDuration = datetime_diff('second', now(), ProcessCreationTime)
+| summarize eventCount = count(), TotalProcessDuration = sum(ProcessDuration) by Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| where eventCount > 5
+| project Timestamp, DeviceName, ProcessCommandLine, eventCount, TotalProcessDuration, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -92,7 +150,19 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("wannacry", "cryptolocke
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where ProcessCommandLine has_any ("openssl", "gpg") | project Timestamp, DeviceName, ProcessCommandLine`
+DeviceProcessEvents
+| where ProcessCommandLine has_any ("openssl", "gpg")
+| project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
+
+//Extended Search
+DeviceProcessEvents
+| where ProcessCommandLine has_any ("openssl", "gpg")
+| extend ProcessDuration = datetime_diff('second', now(), ProcessCreationTime)
+| summarize eventCount = count(), TotalProcessDuration = sum(ProcessDuration) by Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| where eventCount > 5
+| project Timestamp, DeviceName, ProcessCommandLine, eventCount, TotalProcessDuration, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -102,7 +172,21 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("openssl", "gpg") | proj
 
 {% code overflow="wrap" %}
 ```cs
-DeviceFileEvents | where FileOperation == "Modify" | summarize count() by DeviceName | where count() > 1000`
+DeviceFileEvents
+| where ActionType == "FileModified"
+| summarize eventCount = count() by DeviceName, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| where eventCount > 1000
+| project DeviceName, FileName, FolderPath, eventCount, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by eventCount desc
+
+//Extended Search
+DeviceFileEvents
+| where ActionType == "FileModified"
+| extend FileSize = tolong(FileSize)
+| summarize eventCount = count(), TotalFileSize = sum(FileSize) by Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| where eventCount > 1000
+| project Timestamp, DeviceName, FileName, FolderPath, eventCount, TotalFileSize, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
@@ -112,8 +196,20 @@ DeviceFileEvents | where FileOperation == "Modify" | summarize count() by Device
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where ProcessCommandLine has_any ("disable", "stop") and ProcessCommandLine has_any ("antivirus", "defender") | project Timestamp, DeviceName, ProcessCommandLine`
+DeviceProcessEvents
+| where ProcessCommandLine has_any ("disable", "stop") and ProcessCommandLine has_any ("antivirus", "defender")
+| project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
+
+//Extended Search
+DeviceProcessEvents
+| where ProcessCommandLine has_any ("disable", "stop") and ProcessCommandLine has_any ("antivirus", "defender")
+| extend ProcessDuration = datetime_diff('second', now(), ProcessCreationTime)
+| summarize eventCount = count(), TotalProcessDuration = sum(ProcessDuration) by Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| where eventCount > 5
+| project Timestamp, DeviceName, ProcessCommandLine, eventCount, TotalProcessDuration, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessParentFileName
+| order by Timestamp desc
 ```
 {% endcode %}
 
-**Purpose**: Detect attempts to disable antivirus protections prior to encryption.
+**Purpose**: Detect attempts to disable antivirus protections before encryption.
