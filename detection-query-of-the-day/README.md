@@ -27,3 +27,5 @@ Good detection capabilities also enable organisations to gain valuable insights 
 Furthermore, strong detection capabilities enhance an organisation's overall security posture and build stakeholder trust. Customers, partners, and regulators expect organisations to have robust security measures in place to protect their data. Demonstrating the ability to detect and respond to threats promptly reassures stakeholders that the organisation takes cybersecurity seriously. This trust is vital for maintaining business relationships and complying with regulatory requirements. Good detection capabilities are essential for early threat identification, informed defence strategies, and maintaining stakeholder trust.
 
 Explore subsections for specific queries that might be useful in day-to-day activities.
+
+Credit to SecurityAura [https://github.com/SecurityAura](https://github.com/SecurityAura) @SecurityAura, as some of the queries used, followed the concepts of the 100DaysOfKQL challenge. Check out the [GitHub](https://github.com/SecurityAura/DE-TH-Aura/tree/main/100DaysOfKQL) repo.
