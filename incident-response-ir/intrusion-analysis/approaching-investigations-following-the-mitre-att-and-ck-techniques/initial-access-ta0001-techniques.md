@@ -15,7 +15,7 @@ layout:
 
 # Initial Access (TA0001) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Investigating initial access in a network, particularly in Windows workstations and server systems, involves a structured approach to identify how an unauthorised entity first gained entry. This process is critical for understanding the scope and impact of a security incident.
 
@@ -82,17 +82,19 @@ Legal and Compliance Considerations
 
 Forensic investigation of initial access is a meticulous and detailed process. Each step is critical to uncovering the full scope of the intrusion and preventing future incidents. Stay updated with the latest forensic techniques and tools as cyber threats evolve.
 
-### <mark style="color:blue;">Using KQL to Investigate Initial Access Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Initial Access Activities in an Environment Using Defender/Sentinel
 
 Initial Access is the first stage in the attack lifecycle, where adversaries gain entry into a network.
 
-Note: While there are simpler methods for looking at these kinds of attacks, the goal is to tackle them from a beginner's point of view without utilising intricate KQL queries that a Junior SOC analyst wouldn't find difficult to comprehend.
+Note: While there are more straightforward methods for looking at these kinds of attacks, the goal is to tackle them from a beginner's point of view without utilising intricate KQL queries that a Junior SOC analyst would find challenging to understand the intent of the query.
 
-### <mark style="color:blue;">**1. T1190 - Exploit Public-Facing Application**</mark>
+### **1. T1190 - Exploit Public-Facing Application**
 
 **Objective**: Detect attempts to exploit vulnerabilities in public-facing applications to gain unauthorised access.&#x20;
 
-1. **Detect Unusual HTTP POST Requests**
+1.  **Detect Unusual HTTP POST Requests**
+
+    _Purpose_: Identify suspicious POST requests that might exploit attempt.
 
 {% code overflow="wrap" %}
 ```cs
@@ -100,9 +102,9 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where Proces
 ```
 {% endcode %}
 
-_Purpose_: Identify suspicious POST requests that might indicate an exploit attempt.
+2.  **Monitor Web Server Logs for Exploit Patterns**
 
-2. **Monitor Web Server Logs for Exploit Patterns**
+    _Purpose_: Detect patterns in web logs that may indicate exploitation.
 
 {% code overflow="wrap" %}
 ```cs
@@ -110,9 +112,9 @@ DeviceFileEvents | where FolderPath has "IIS\\Logs" or FolderPath has "Apache\\L
 ```
 {% endcode %}
 
-_Purpose_: Detect patterns in web server logs that may indicate exploitation.
+3.  **Detect Suspicious Input in Web Forms**
 
-3. **Detect Suspicious Input in Web Forms**
+    _Purpose_: Identify attempts at SQL injection or XSS.
 
 {% code overflow="wrap" %}
 ```cs
@@ -120,9 +122,9 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where Proces
 ```
 {% endcode %}
 
-_Purpose_: Identify attempts at SQL injection or XSS.
+4.  **Identify Access to Vulnerable Endpoints**
 
-4. **Identify Access to Vulnerable Endpoints**
+    _Purpose_: Detect attempts to access known vulnerable endpoints.
 
 {% code overflow="wrap" %}
 ```cs
@@ -130,9 +132,9 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where Proces
 ```
 {% endcode %}
 
-_Purpose_: Detect attempts to access known vulnerable endpoints.
+5.  **Monitor for Known Exploit Tools**
 
-5. **Monitor for Known Exploit Tools**
+    _Purpose_: Identify the use of automated tools to exploit web applications.
 
 {% code overflow="wrap" %}
 ```cs
@@ -140,9 +142,9 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("sqlmap", "metasploit", 
 ```
 {% endcode %}
 
-_Purpose_: Identify the use of automated tools to exploit web applications.
+6.  **Detect Web Shell Uploads**
 
-6. **Detect Web Shell Uploads**
+    _Purpose_: Monitor for the upload of web shells.
 
 {% code overflow="wrap" %}
 ```cs
@@ -150,9 +152,9 @@ DeviceFileEvents | where FileName endswith ".aspx" or FileName endswith ".php" |
 ```
 {% endcode %}
 
-_Purpose_: Monitor for the upload of web shells.
+7.  **Monitor for Suspicious GET Requests**
 
-7. **Monitor for Suspicious GET Requests**
+    _Purpose_: Identify GET requests that attempt to execute commands.
 
 {% code overflow="wrap" %}
 ```cs
@@ -160,9 +162,9 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where Proces
 ```
 {% endcode %}
 
-_Purpose_: Identify GET requests that attempt to execute commands.
+8.  **Detect Suspicious File Uploads**
 
-8. **Detect Suspicious File Uploads**
+    _Purpose_: Monitor for excessive file uploads.
 
 {% code overflow="wrap" %}
 ```cs
@@ -170,9 +172,9 @@ DeviceFileEvents | where FolderPath has_any ("uploads", "files", "images") | sum
 ```
 {% endcode %}
 
-_Purpose_: Monitor for excessive file uploads.
+9.  **Monitor for Exploit Attempts via HTTP Headers**
 
-9. **Monitor for Exploit Attempts via HTTP Headers**
+    _Purpose_: Detect exploit attempts via HTTP headers.
 
 {% code overflow="wrap" %}
 ```cs
@@ -180,9 +182,9 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where Proces
 ```
 {% endcode %}
 
-_Purpose_: Detect exploit attempts via HTTP headers.
+10. **Identify Unexpected Application Behaviour**
 
-10. **Identify Unexpected Application Behavior**
+    _Purpose_: Monitor for web servers executing unexpected processes.
 
 {% code overflow="wrap" %}
 ```cs
@@ -190,13 +192,13 @@ DeviceProcessEvents | where ProcessCommandLine has "w3wp.exe" or ProcessCommandL
 ```
 {% endcode %}
 
-_Purpose_: Monitor for web servers executing unexpected processes.
+### **2. T1078 - Valid Accounts**
 
-### <mark style="color:blue;">**2. T1078 - Valid Accounts**</mark>
+**Objective**: Detect unauthorised access using stolen or compromised credentials.
 
-**Objective**: Detect unauthorized access using stolen or compromised credentials.
+1.  **Detect Logins from Unusual Locations**
 
-1. **Detect Logins from Unusual Locations**
+    _Purpose_: Identify logins from unfamiliar IP addresses.
 
 {% code overflow="wrap" %}
 ```cs
@@ -204,9 +206,9 @@ IdentityLogonEvents | where LogonType == "Network" and AccountType == "User" | s
 ```
 {% endcode %}
 
-_Purpose_: Identify logins from unfamiliar IP addresses.
+2.  **Monitor Logins Outside Business Hours**
 
-2. **Monitor Logins Outside Business Hours**
+    _Purpose_: Detect logins occurring outside regular working hours.
 
 {% code overflow="wrap" %}
 ```cs
@@ -214,9 +216,9 @@ IdentityLogonEvents | where LogonResult == "Success" and LogonTime between (star
 ```
 {% endcode %}
 
-_Purpose_: Detect logins occurring outside regular working hours.
+3.  **Detect Failed Login Attempts**
 
-3. **Detect Failed Login Attempts**
+    _Purpose_: Identify multiple failed login attempts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -224,9 +226,9 @@ IdentityLogonEvents | where LogonResult == "Failed" | summarize count() by Targe
 ```
 {% endcode %}
 
-_Purpose_: Identify multiple failed login attempts.
+4.  **Identify Privileged Account Use**
 
-4. **Identify Privileged Account Use**
+    _Purpose_: Monitor the usage of privileged accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -234,9 +236,9 @@ IdentityLogonEvents | where AccountType == "Privileged" | summarize count() by T
 ```
 {% endcode %}
 
-_Purpose_: Monitor the usage of privileged accounts.
+5.  **Detect Logins from Multiple Geolocations**
 
-5. **Detect Logins from Multiple Geolocations**
+    _Purpose_: Identify users logging in from multiple geolocations in a short period.
 
 {% code overflow="wrap" %}
 ```cs
@@ -244,9 +246,9 @@ IdentityLogonEvents | summarize locations=make_set(IPAddressCountry) by TargetUs
 ```
 {% endcode %}
 
-_Purpose_: Identify users logging in from multiple geolocations in a short period.
+6.  **Monitor for New Account Creations**
 
-6. **Monitor for New Account Creations**
+    _Purpose_: Detect the creation of new accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -254,9 +256,9 @@ IdentityDirectoryEvents | where ActionType == "NewUserCreated" | project Timesta
 ```
 {% endcode %}
 
-_Purpose_: Detect the creation of new accounts.
+7.  **Detect Account Deletions**
 
-7. **Detect Account Deletions**
+    _Purpose_: Monitor for account deletions.
 
 {% code overflow="wrap" %}
 ```cs
@@ -264,9 +266,9 @@ IdentityDirectoryEvents | where ActionType == "UserDeleted" | project Timestamp,
 ```
 {% endcode %}
 
-_Purpose_: Monitor for account deletions.
+8.  **Monitor for Account Privilege Escalation**
 
-8. **Monitor for Account Privilege Escalation**
+    _Purpose_: Detect unauthorised privilege escalations.
 
 {% code overflow="wrap" %}
 ```cs
@@ -274,9 +276,9 @@ IdentityDirectoryEvents | where ActionType == "Add member to role" and RoleName 
 ```
 {% endcode %}
 
-_Purpose_: Detect unauthorized privilege escalations.
+9.  **Detect Suspicious Use of Service Accounts**
 
-9. **Detect Suspicious Use of Service Accounts**
+    _Purpose_: Monitor the use of service accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -284,9 +286,9 @@ IdentityLogonEvents | where TargetUserName has "svc-" or TargetUserName has "ser
 ```
 {% endcode %}
 
-_Purpose_: Monitor the use of service accounts.
-
 10. **Identify Logins with Disabled Accounts**
+
+    _Purpose_: Detect login attempts with disabled accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -296,11 +298,13 @@ IdentityLogonEvents | where AccountEnabled == "False" | summarize count() by Tar
 
 _Purpose_: Detect login attempts with disabled accounts.
 
-### <mark style="color:blue;">**3. T1195 - Supply Chain Compromise**</mark>
+### **3. T1195 - Supply Chain Compromise**
 
 **Objective**: Detect indicators of a supply chain compromise where an adversary infiltrates via a third-party service or software.
 
-1. **Monitor for New or Unknown Software Installations**
+1.  **Monitor for New or Unknown Software Installations**
+
+    _Purpose_: Detect installation of software from potentially compromised supply chains.
 
 {% code overflow="wrap" %}
 ```cs
@@ -308,9 +312,9 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("msiexec", "setup.exe", 
 ```
 {% endcode %}
 
-_Purpose_: Detect installation of software from potentially compromised supply chains.
+2.  **Identify Changes to Critical System Files**
 
-2. **Identify Changes to Critical System Files**
+    _Purpose_: Monitor for modifications to critical system files.
 
 {% code overflow="wrap" %}
 ```csharp
@@ -318,9 +322,9 @@ DeviceFileEvents | where FolderPath has_any ("C:\\Windows", "C:\\Program Files",
 ```
 {% endcode %}
 
-_Purpose_: Monitor for modifications to critical system files.
+3.  **Detect Communication with Known Malicious IPs**
 
-3. **Detect Communication with Known Malicious IPs**
+    _Purpose_: Identify communication with IP addresses known to be associated with supply chain attacks.
 
 {% code overflow="wrap" %}
 ```cs
@@ -328,9 +332,9 @@ DeviceNetworkEvents | where RemoteIP in ("known_malicious_ips_list") | project T
 ```
 {% endcode %}
 
-_Purpose_: Identify communication with IP addresses known to be associated with supply chain attacks.
+4.  **Monitor for Unusual Application Behaviour**
 
-4. **Monitor for Unusual Application Behavior**
+    _Purpose_: Detect unexpected execution of system tools by third-party applications.
 
 {% code overflow="wrap" %}
 ```cs
@@ -338,9 +342,9 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("cmd.exe", "powershell.e
 ```
 {% endcode %}
 
-_Purpose_: Detect unexpected execution of system tools by third-party applications.
+5.  **Identify Suspicious DLL Loads**
 
-5. **Identify Suspicious DLL Loads**
+    _Purpose_: Monitor for DLL loads that may indicate a compromised application.
 
 {% code overflow="wrap" %}
 ```cs
@@ -348,9 +352,9 @@ DeviceImageLoadEvents | where FileName endswith ".dll" and FolderPath has_any ("
 ```
 {% endcode %}
 
-_Purpose_: Monitor for DLL loads that may indicate a compromised application.
+6.  **Detect New or Unknown Network Connections**
 
-6. **Detect New or Unknown Network Connections**
+    _Purpose_: Identify new or unknown network connections that could indicate a supply chain attack.
 
 {% code overflow="wrap" %}
 ```cs
@@ -358,9 +362,9 @@ DeviceNetworkEvents | where ActionType == "ConnectionSuccess" and RemoteIP !in (
 ```
 {% endcode %}
 
-_Purpose_: Identify new or unknown network connections that could indicate a supply chain attack.
+7.  **Monitor for Changes to Startup Programs**
 
-7. **Monitor for Changes to Startup Programs**
+    _Purpose_: Detect unauthorised changes to startup programs.
 
 {% code overflow="wrap" %}
 ```cs
@@ -368,9 +372,9 @@ DeviceRegistryEvents | where RegistryKey has "HKLM\\Software\\Microsoft\\Windows
 ```
 {% endcode %}
 
-_Purpose_: Detect unauthorized changes to startup programs.
+8.  **Identify Unauthorised Code Signing**
 
-8. **Identify Unauthorized Code Signing**
+    _Purpose_: Monitor for unauthorised code signing that could indicate a compromised application.
 
 {% code overflow="wrap" %}
 ```cs
@@ -378,9 +382,9 @@ DeviceFileEvents | where FileName endswith ".exe" or FileName endswith ".dll" | 
 ```
 {% endcode %}
 
-_Purpose_: Monitor for unauthorized code signing that could indicate a compromised application.
+9.  **Detect Changes to System Services**
 
-9. **Detect Changes to System Services**
+    _Purpose_: Identify changes to system services that may be linked to a supply chain compromise.
 
 {% code overflow="wrap" %}
 ```cs
@@ -388,9 +392,9 @@ DeviceServiceEvents | where ActionType == "ServiceInstalled" or ActionType == "S
 ```
 {% endcode %}
 
-_Purpose_: Identify changes to system services that may be linked to a supply chain compromise.
-
 10. **Monitor for Suspicious Scripting Activity**
+
+    _Purpose_: Detect the execution of scripts that could be associated with a supply chain attack.
 
 {% code overflow="wrap" %}
 ```cs
@@ -398,13 +402,13 @@ DeviceProcessEvents | where ProcessCommandLine has_any (".ps1", ".vbs", ".bat") 
 ```
 {% endcode %}
 
-_Purpose_: Detect the execution of scripts that could be associated with a supply chain attack.
+### **4. T1199 - Trusted Relationship**
 
-### <mark style="color:blue;">**4. T1199 - Trusted Relationship**</mark>
+**Objective**: Detect unauthorised access or activity stemming from a trusted relationship, such as a partner or vendor.
 
-**Objective**: Detect unauthorized access or activity stemming from a trusted relationship, such as a partner or vendor.
+1.  **Monitor for Logins from Partner Networks**
 
-1. **Monitor for Logins from Partner Networks**
+    _Purpose_: Identify logins originating from partner networks.
 
 {% code overflow="wrap" %}
 ```cs
@@ -412,9 +416,9 @@ IdentityLogonEvents | where IPAddress in ("partner_ip_range") | summarize count(
 ```
 {% endcode %}
 
-_Purpose_: Identify logins originating from partner networks.
+2.  **Detect Unusual Activity from Trusted Accounts**
 
-2. **Detect Unusual Activity from Trusted Accounts**
+    _Purpose_: Monitor for unusual activity from accounts associated with trusted relationships.
 
 {% code overflow="wrap" %}
 ```cs
@@ -422,9 +426,9 @@ IdentityLogonEvents | where TargetUserName in ("trusted_account_list") | summari
 ```
 {% endcode %}
 
-_Purpose_: Monitor for unusual activity from accounts associated with trusted relationships.
+3.  **Identify Access to Critical Systems by Trusted Accounts**
 
-3. **Identify Access to Critical Systems by Trusted Accounts**
+    _Purpose_: Detect access to critical systems by trusted accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -432,9 +436,9 @@ DeviceLogonEvents | where TargetUserName in ("trusted_account_list") and DeviceN
 ```
 {% endcode %}
 
-_Purpose_: Detect access to critical systems by trusted accounts.
+4.  **Monitor for Changes to Permissions of Trusted Accounts**
 
-4. **Monitor for Changes to Permissions of Trusted Accounts**
+    _Purpose_: Detect changes to permissions for trusted accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -442,9 +446,9 @@ IdentityDirectoryEvents | where TargetUserName in ("trusted_account_list") and A
 ```
 {% endcode %}
 
-_Purpose_: Detect changes to permissions for trusted accounts.
+5.  **Detect Unusual File Access by Trusted Accounts**
 
-5. **Detect Unusual File Access by Trusted Accounts**
+    _Purpose_: Identify unusual file access by trusted accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -452,9 +456,9 @@ DeviceFileEvents | where InitiatingProcessAccountName in ("trusted_account_list"
 ```
 {% endcode %}
 
-_Purpose_: Identify unusual file access by trusted accounts.
+6.  **Monitor for Network Connections from Trusted Vendors**
 
-6. **Monitor for Network Connections from Trusted Vendors**
+    _Purpose_: Detect network connections originating from vendor networks.
 
 {% code overflow="wrap" %}
 ```cs
@@ -462,9 +466,9 @@ DeviceNetworkEvents | where RemoteIP in ("vendor_ip_range") | summarize count() 
 ```
 {% endcode %}
 
-_Purpose_: Detect network connections originating from vendor networks.
+7.  **Identify Changes to Firewall Rules by Trusted Accounts**
 
-7. **Identify Changes to Firewall Rules by Trusted Accounts**
+    _Purpose_: Monitor changes to firewall rules by trusted accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -472,9 +476,9 @@ DeviceRegistryEvents | where RegistryKey has "HKLM\\SYSTEM\\CurrentControlSet\\S
 ```
 {% endcode %}
 
-_Purpose_: Monitor changes to firewall rules by trusted accounts.
+8.  **Detect Installation of Software by Trusted Accounts**
 
-8. **Detect Installation of Software by Trusted Accounts**
+    _Purpose_: Identify software installation by trusted accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -482,9 +486,9 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("install.exe", "setup.ex
 ```
 {% endcode %}
 
-_Purpose_: Identify software installation by trusted accounts.
+9.  **Monitor for Changes to Network Configurations by Trusted Accounts**
 
-9. **Monitor for Changes to Network Configurations by Trusted Accounts**
+    _Purpose_: Detect changes to network configurations by trusted accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -492,9 +496,9 @@ DeviceRegistryEvents | where RegistryKey has "HKLM\\SYSTEM\\CurrentControlSet\\S
 ```
 {% endcode %}
 
-_Purpose_: Detect changes to network configurations by trusted accounts.
-
 10. **Identify Unusual Email Activity from Trusted Accounts**
+
+    _Purpose_: Monitor for unusual email activity from trusted domains.
 
 {% code overflow="wrap" %}
 ```cs
@@ -502,13 +506,13 @@ DeviceEmailEvents | where SenderAddress in ("trusted_email_domains") | summarize
 ```
 {% endcode %}
 
-_Purpose_: Monitor for unusual email activity from trusted domains.
+### **5. T1133 - External Remote Services**
 
-### <mark style="color:blue;">**5. T1133 - External Remote Services**</mark>
+**Objective**: Detect unauthorised access via external remote services such as VPNs, RDP, or other remote access tools.
 
-**Objective**: Detect unauthorized access via external remote services such as VPNs, RDP, or other remote access tools.
+1.  **Detect RDP Logins from Unfamiliar IPs**
 
-1. **Detect RDP Logins from Unfamiliar IPs**
+    _Purpose_: Identify RDP logins from unfamiliar IP addresses.
 
 {% code overflow="wrap" %}
 ```csharp
@@ -516,9 +520,9 @@ IdentityLogonEvents | where LogonType == "RemoteInteractive" and IPAddress not i
 ```
 {% endcode %}
 
-_Purpose_: Identify RDP logins from unfamiliar IP addresses.
+2.  **Monitor VPN Connections from Unusual Locations**
 
-2. **Monitor VPN Connections from Unusual Locations**
+    _Purpose_: Detect VPN connections from unusual locations.
 
 {% code overflow="wrap" %}
 ```cs
@@ -526,9 +530,9 @@ DeviceNetworkEvents | where RemotePort == 443 and RemoteIP not in ("trusted_ip_r
 ```
 {% endcode %}
 
-_Purpose_: Detect VPN connections from unusual locations.
+3.  **Identify SSH Logins from External Sources**
 
-3. **Identify SSH Logins from External Sources**
+    _Purpose_: Monitor SSH logins from external IP addresses.
 
 {% code overflow="wrap" %}
 ```cs
@@ -536,9 +540,9 @@ IdentityLogonEvents | where LogonType == "SSH" and IPAddress not in ("internal_i
 ```
 {% endcode %}
 
-_Purpose_: Monitor SSH logins from external IP addresses.
+4.  **Monitor for Remote Desktop Gateway Access**
 
-4. **Monitor for Remote Desktop Gateway Access**
+    _Purpose_: Identify access to Remote Desktop Gateways.
 
 {% code overflow="wrap" %}
 ```cs
@@ -546,9 +550,9 @@ IdentityLogonEvents | where LogonType == "RemoteInteractive" and DeviceName cont
 ```
 {% endcode %}
 
-_Purpose_: Identify access to Remote Desktop Gateways.
+5.  **Detect Multiple Failed Remote Login Attempts**
 
-5. **Detect Multiple Failed Remote Login Attempts**
+    _Purpose_: Identify multiple failed remote login attempts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -556,9 +560,9 @@ IdentityLogonEvents | where LogonType == "RemoteInteractive" and LogonResult == 
 ```
 {% endcode %}
 
-_Purpose_: Identify multiple failed remote login attempts.
+6.  **Monitor for RDP Connections Outside Business Hours**
 
-6. **Monitor for RDP Connections Outside Business Hours**
+    _Purpose_: Detect RDP connections outside normal working hours.
 
 {% code overflow="wrap" %}
 ```cs
@@ -566,9 +570,9 @@ IdentityLogonEvents | where LogonType == "RemoteInteractive" and (hour(LogonTime
 ```
 {% endcode %}
 
-_Purpose_: Detect RDP connections outside normal working hours.
+7.  **Detect Use of Remote Access Tools**
 
-7. **Detect Use of Remote Access Tools**
+    _Purpose_: Identify the use of remote access tools.
 
 {% code overflow="wrap" %}
 ```cs
@@ -576,9 +580,9 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("teamviewer.exe", "anyde
 ```
 {% endcode %}
 
-_Purpose_: Identify the use of remote access tools.
+8.  **Identify VPN Logins from Multiple Geolocations**
 
-8. **Identify VPN Logins from Multiple Geolocations**
+    _Purpose_: Monitor VPN logins from multiple geolocations.
 
 {% code overflow="wrap" %}
 ```cs
@@ -586,9 +590,9 @@ IdentityLogonEvents | where LogonType == "VPN" | summarize locations=make_set(IP
 ```
 {% endcode %}
 
-_Purpose_: Monitor VPN logins from multiple geolocations.
+9.  **Monitor for External Access to Administrative Accounts**
 
-9. **Monitor for External Access to Administrative Accounts**
+    _Purpose_: Detect remote access to administrative accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -596,9 +600,9 @@ IdentityLogonEvents | where AccountType == "Privileged" and LogonType == "Remote
 ```
 {% endcode %}
 
-_Purpose_: Detect remote access to administrative accounts.
-
 10. **Detect VPN Access from Blacklisted Countries**
+
+    _Purpose_: Identify VPN access attempts from blacklisted countries.
 
 {% code overflow="wrap" %}
 ```cs
@@ -606,13 +610,13 @@ IdentityLogonEvents | where LogonType == "VPN" and IPAddressCountry in ("blackli
 ```
 {% endcode %}
 
-_Purpose_: Identify VPN access attempts from blacklisted countries.
+### **6. T1078.004 - Cloud Accounts**
 
-### <mark style="color:blue;">**6. T1078.004 - Cloud Accounts**</mark>
+**Objective**: Detect unauthorised access using compromised cloud accounts.
 
-**Objective**: Detect unauthorized access using compromised cloud accounts.
+1.  **Monitor Cloud Logins from Unusual Locations**
 
-1. **Monitor Cloud Logins from Unusual Locations**
+    _Purpose_: Detect cloud account access from unexpected countries.
 
 {% code overflow="wrap" %}
 ```cs
@@ -620,9 +624,9 @@ IdentityLogonEvents | where AccountType == "Cloud" and IPAddressCountry != "Unit
 ```
 {% endcode %}
 
-_Purpose_: Detect cloud account access from unexpected countries.
+2.  **Detect Multiple Cloud Logins from Different Locations**
 
-2. **Detect Multiple Cloud Logins from Different Locations**
+    _Purpose_: Identify users logging in from multiple locations in a short period.
 
 {% code overflow="wrap" %}
 ```cs
@@ -630,9 +634,9 @@ IdentityLogonEvents | where AccountType == "Cloud" | summarize locations=make_se
 ```
 {% endcode %}
 
-_Purpose_: Identify users logging in from multiple locations in a short period.
+3.  **Monitor for Cloud Account Logins During Off-Hours**
 
-3. **Monitor for Cloud Account Logins During Off-Hours**
+    _Purpose_: Detect cloud account logins outside normal working hours.
 
 {% code overflow="wrap" %}
 ```cs
@@ -640,9 +644,9 @@ IdentityLogonEvents | where AccountType == "Cloud" and (hour(LogonTime) < 6 or h
 ```
 {% endcode %}
 
-_Purpose_: Detect cloud account logins outside normal working hours.
+4.  **Identify Failed Cloud Login Attempts**
 
-4. **Identify Failed Cloud Login Attempts**
+    _Purpose_: Monitor for failed cloud login attempts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -650,9 +654,9 @@ IdentityLogonEvents | where AccountType == "Cloud" and LogonResult == "Failed" |
 ```
 {% endcode %}
 
-_Purpose_: Monitor for failed cloud login attempts.
+5.  **Detect Use of Cloud Admin Accounts**
 
-5. **Detect Use of Cloud Admin Accounts**
+    _Purpose_: Identify logins using cloud admin accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -660,9 +664,9 @@ IdentityLogonEvents | where AccountType == "Cloud" and TargetUserName contains "
 ```
 {% endcode %}
 
-_Purpose_: Identify logins using cloud admin accounts.
+6.  **Monitor for Cloud Account Privilege Escalation**
 
-6. **Monitor for Cloud Account Privilege Escalation**
+    _Purpose_: Detect unauthorised privilege escalations in cloud accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -670,9 +674,9 @@ IdentityDirectoryEvents | where ActionType == "Add member to role" and AccountTy
 ```
 {% endcode %}
 
-_Purpose_: Detect unauthorized privilege escalations in cloud accounts.
+7.  **Detect Cloud Account Logins from Unrecognised Devices**
 
-7. **Detect Cloud Account Logins from Unrecognized Devices**
+    _Purpose_: Monitor for logins from unrecognised devices.
 
 {% code overflow="wrap" %}
 ```cs
@@ -680,9 +684,9 @@ IdentityLogonEvents | where AccountType == "Cloud" and DeviceName !in ("known_de
 ```
 {% endcode %}
 
-_Purpose_: Monitor for logins from unrecognized devices.
+8.  **Monitor for Cloud Account Logins via Unusual Methods**
 
-8. **Monitor for Cloud Account Logins via Unusual Methods**
+    _Purpose_: Detect cloud account logins using unusual methods.
 
 {% code overflow="wrap" %}
 ```cs
@@ -690,9 +694,9 @@ IdentityLogonEvents | where AccountType == "Cloud" and LogonType not in ("Web", 
 ```
 {% endcode %}
 
-_Purpose_: Detect cloud account logins using unusual methods.
+9.  **Identify Suspicious Cloud Account Activity**
 
-9. **Identify Suspicious Cloud Account Activity**
+    _Purpose_: Monitor OAuth2 logins for suspicious activity.
 
 {% code overflow="wrap" %}
 ```cs
@@ -700,9 +704,9 @@ IdentityLogonEvents | where AccountType == "Cloud" and LogonType == "OAuth2" | s
 ```
 {% endcode %}
 
-_Purpose_: Monitor OAuth2 logins for suspicious activity.
+10. **Detect Unauthorised Cloud API Calls**
 
-10. **Detect Unauthorized Cloud API Calls**
+    _Purpose_: Identify unauthorised API calls made using cloud accounts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -710,13 +714,13 @@ IdentityAPIEvents | where AccountType == "Cloud" and APIType == "Unauthorized" |
 ```
 {% endcode %}
 
-_Purpose_: Identify unauthorized API calls made using cloud accounts.
+### **7. T1566 - Phishing**
 
-### <mark style="color:blue;">**7. T1566 - Phishing**</mark>
+**Objective**: Detect phishing attempts aimed at gaining unauthorised access to systems or credentials.&#x20;
 
-**Objective**: Detect phishing attempts aimed at gaining unauthorized access to systems or credentials.&#x20;
+1.  **Monitor for Emails Containing Suspicious Attachments**
 
-1. **Monitor for Emails Containing Suspicious Attachments**
+    _Purpose_: Identify emails with suspicious attachments that may be phishing attempts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -724,9 +728,9 @@ DeviceEmailEvents | where EmailSubject contains "Invoice" or EmailAttachmentFile
 ```
 {% endcode %}
 
-_Purpose_: Identify emails with suspicious attachments that may be phishing attempts.
+2.  **Detect Emails from Unfamiliar Domains**
 
-2. **Detect Emails from Unfamiliar Domains**
+    _Purpose_: Monitor for emails originating from unfamiliar domains.
 
 {% code overflow="wrap" %}
 ```cs
@@ -734,9 +738,9 @@ DeviceEmailEvents | where SenderDomain not in ("known_domains_list") | project T
 ```
 {% endcode %}
 
-_Purpose_: Monitor for emails originating from unfamiliar domains.
+3.  **Identify Multiple Failed Login Attempts Following Phishing Emails**
 
-3. **Identify Multiple Failed Login Attempts Following Phishing Emails**
+    Purpose: Detect multiple failed login attempts after a phishing campaign.
 
 {% code overflow="wrap" %}
 ```cs
@@ -744,13 +748,9 @@ IdentityLogonEvents | where LogonResult == "Failed" | where Timestamp between (s
 ```
 {% endcode %}
 
-{% code overflow="wrap" %}
-```csharp
-_Purpose_: Detect multiple failed login attempts after a phishing campaign.
-```
-{% endcode %}
+4\.  **Monitor for Credential Harvesting Attempts**
 
-4\. **Monitor for Credential Harvesting Attempts**
+_Purpose_: Identify potential credential harvesting attempts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -758,9 +758,9 @@ DeviceNetworkEvents | where RemotePort == 443 and URL contains "login" and Respo
 ```
 {% endcode %}
 
-_Purpose_: Identify potential credential harvesting attempts.
+5.  **Detect Email Links Leading to Malicious Sites**
 
-1. **Detect Email Links Leading to Malicious Sites**
+    _Purpose_: Monitor emails with links that could lead to malicious websites.
 
 {% code overflow="wrap" %}
 ```cs
@@ -768,9 +768,9 @@ DeviceEmailEvents | where EmailBody contains "http://" or EmailBody contains "ht
 ```
 {% endcode %}
 
-_Purpose_: Monitor emails with links that could lead to malicious websites.
+6.  **Identify Unusual Email Forwarding Rules**
 
-6. **Identify Unusual Email Forwarding Rules**
+    _Purpose_: Detect unauthorised email forwarding rules that may indicate a phishing attack.
 
 {% code overflow="wrap" %}
 ```cs
@@ -778,9 +778,9 @@ IdentityEmailEvents | where ActionType == "SetForwardingRule" | project Timestam
 ```
 {% endcode %}
 
-_Purpose_: Detect unauthorized email forwarding rules that may indicate a phishing attack.
+7.  **Monitor for Phishing Emails Spoofing Trusted Domains**
 
-7. **Monitor for Phishing Emails Spoofing Trusted Domains**
+    _Purpose_: Identify phishing emails spoofing trusted domains.
 
 {% code overflow="wrap" %}
 ```cs
@@ -788,9 +788,9 @@ DeviceEmailEvents | where SenderDomain == "trusted_domain" and SenderAddress not
 ```
 {% endcode %}
 
-_Purpose_: Identify phishing emails spoofing trusted domains.
+8.  **Detect Suspicious Email Activity After Clicking Phishing Links**
 
-8. **Detect Suspicious Email Activity After Clicking Phishing Links**
+    _Purpose_: Monitor for suspicious email activity following phishing attempts.
 
 {% code overflow="wrap" %}
 ```cs
@@ -798,24 +798,22 @@ DeviceEmailEvents | where EmailSubject contains "Urgent" or EmailBody contains "
 ```
 {% endcode %}
 
-_Purpose_: Monitor for suspicious email activity following phishing attempts.
+9.  **Identify Emails Containing Suspicious Macros**
 
-9. **Identify Emails Containing Suspicious Macros**
+    _Purpose_: Detect emails with attachments containing macros that may be used for phishing.
 
 {% code overflow="wrap" %}
-```cs
+```kusto
 DeviceEmailEvents | where EmailAttachmentFileName endswith ".docm" or EmailAttachmentFileName endswith ".xlsm" | project Timestamp, EmailSenderAddress, EmailSubject, EmailAttachmentFileName
 ```
 {% endcode %}
 
-_Purpose_: Detect emails with attachments containing macros that may be used for phishing.
-
 10. **Monitor for Executable Files Sent via Email**
+
+    _Purpose_: Identify emails containing executable files that could be part of a phishing attack.
 
 {% code overflow="wrap" %}
 ```cs
 DeviceEmailEvents | where EmailAttachmentFileName endswith ".exe" or EmailAttachmentFileName endswith ".bat" | project Timestamp, EmailSenderAddress, EmailSubject, EmailAttachmentFileName
 ```
 {% endcode %}
-
-_Purpose_: Identify emails containing executable files that could be part of a phishing attack.

@@ -18,9 +18,9 @@ layout:
     visible: true
 ---
 
-# Approaches for Investigating Common Attack Techniques
+# Approaching Investigations Following the MITRE ATT\&CK Techniques
 
-### <mark style="color:blue;">**Introduction**</mark>
+### **Introduction**
 
 In the ever-evolving landscape of cybersecurity, understanding and mitigating common attack techniques is a fundamental skill for security professionals. Adversaries continuously refine their methods, exploiting vulnerabilities and leveraging sophisticated tactics to infiltrate networks, compromise systems, and exfiltrate sensitive data. As defenders, Security Operations Center (SOC) analysts and threat hunters are at the forefront of this battle, tasked with identifying, investigating, and responding to these threats in realtime.
 
@@ -34,7 +34,7 @@ The respective sections use KQL query examples to demonstrate investigative proc
 
 Investigating common attack techniques requires a methodical approach tailored to the tactics and techniques attackers use. These approaches align well with the MITRE ATT\&CK framework. Below are common attack techniques, their indicators, and investigative strategies:
 
-### <mark style="color:blue;">1. Phishing (T1566)</mark>
+### 1. Phishing (T1566)
 
 **Objective:** Deliver malicious payloads or steal credentials via deceptive emails or links.
 
@@ -56,7 +56,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * User Account Activity:
   * Identify unusual login attempts or failed authentications.
 
-### <mark style="color:blue;">Phishing Playbook</mark>
+### Phishing Playbook
 
 **Preparation:**
 
@@ -91,7 +91,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Notify users about the phishing attempt.
 * Update email filters and threat intelligence rules.
 
-### <mark style="color:blue;">2. Credential Dumping (T1003)</mark>
+### 2. Credential Dumping (T1003)
 
 **Objective:** Extract credentials from memory, files, or databases.
 
@@ -112,7 +112,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Access Control:
   * Verify if privileged accounts were accessed or used.
 
-### <mark style="color:blue;">Credential Dumping Playbook</mark>
+### Credential Dumping Playbook
 
 **Preparation:**
 
@@ -144,7 +144,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Audit all administrative credentials for compromise.
 * Implement just-in-time (JIT) or least privilege access for sensitive accounts.
 
-### <mark style="color:blue;">3. Lateral Movement (T1021)</mark>
+### 3. Lateral Movement (T1021)
 
 **Objective:** Move through the network to reach high-value targets.
 
@@ -165,7 +165,7 @@ Investigating common attack techniques requires a methodical approach tailored t
   * Review Event IDs 4624 and 4648 for patterns of credential use.
   * Detect unusual logins from geographically or temporally abnormal locations.
 
-### <mark style="color:blue;">Lateral Movement Playbook</mark>
+### Lateral Movement Playbook
 
 **Preparation:**
 
@@ -197,7 +197,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Review and harden permissions and firewall rules.
 * Conduct a security assessment of all affected systems.
 
-### <mark style="color:blue;">4. Privilege Escalation (T1068)</mark>
+### 4. Privilege Escalation (T1068)
 
 **Objective:** Gain higher privileges on a compromised system.
 
@@ -217,7 +217,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * File System:
   * Identify new binaries or scripts in sensitive directories.
 
-### <mark style="color:blue;">Privilege Escalation Playbook</mark>
+### Privilege Escalation Playbook
 
 **Preparation:**
 
@@ -249,7 +249,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Reinforce least privilege policies.
 * Conduct periodic privilege audits.
 
-### <mark style="color:blue;">5. Persistence (T1547)</mark>
+### 5. Persistence (T1547)
 
 **Objective:** Maintain long-term access to compromised systems.
 
@@ -269,7 +269,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Service Analysis:
   * Detect new or altered services (sc query, Get-Service).
 
-### <mark style="color:blue;">Persistence Playbook</mark>
+### Persistence Playbook
 
 **Preparation:**
 
@@ -301,7 +301,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Harden registry and startup configurations.
 * Review GPO settings for additional restrictions.
 
-### <mark style="color:blue;">6. Command and Control (C2) Communications (T1071)</mark>
+### 6. Command and Control (C2) Communications (T1071)
 
 **Objective:** Maintain communication between attacker-controlled infrastructure and compromised systems.
 
@@ -322,7 +322,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Threat Intelligence:
   * Match IOCs with known C2 infrastructure.
 
-### <mark style="color:blue;">Command and Control (C2) Playbook</mark>
+### Command and Control (C2) Playbook
 
 **Preparation:**
 
@@ -354,7 +354,7 @@ Investigating common attack techniques requires a methodical approach tailored t
 * Conduct additional scans for residual C2 activity.
 * Harden egress filtering and network segmentation.
 
-### <mark style="color:blue;">7. Data Exfiltration (T1020)</mark>
+### 7. Data Exfiltration (T1020)
 
 Objective: Steal sensitive data from the victim's network.
 
@@ -375,7 +375,7 @@ Objective: Steal sensitive data from the victim's network.
 * Access Logs:
   * Audit file access patterns for sensitive directories.
 
-### <mark style="color:blue;">Data Exfiltration Playbook</mark>
+### Data Exfiltration Playbook
 
 **Preparation:**
 
@@ -407,7 +407,7 @@ Objective: Steal sensitive data from the victim's network.
 * Notify relevant stakeholders if sensitive data was leaked.
 * Strengthen egress controls and user activity monitoring.
 
-### <mark style="color:blue;">8. Execution (T1059)</mark>
+### 8. Execution (T1059)
 
 **Objective:** Run malicious code or scripts on target systems.
 
@@ -427,7 +427,7 @@ Objective: Steal sensitive data from the victim's network.
 * Endpoint Monitoring:
   * Review logs for script block logging (PowerShell Event ID 4104).
 
-### <mark style="color:blue;">Execution Playbook</mark>
+### Execution Playbook
 
 **Preparation:**
 
@@ -459,7 +459,7 @@ Objective: Steal sensitive data from the victim's network.
 * Harden script execution policies (e.g., PowerShell Constrained Language Mode).
 * Update endpoint security configurations.
 
-### <mark style="color:blue;">General Investigation Tips:</mark>
+### General Investigation Tips:
 
 1. Correlate Logs Across Layers:
    * Use SIEM to aggregate and correlate endpoint, network, and application logs.
@@ -470,7 +470,7 @@ Objective: Steal sensitive data from the victim's network.
 4. Automate Where Possible:
    * Use SOAR platforms to automate repetitive analysis tasks.
 
-### <mark style="color:blue;">Automation Workflows</mark>
+### Automation Workflows
 
 1. **Phishing Workflow:**
    * Automated email analysis: Extract URLs/attachments, sandbox them, and flag malicious artifacts.
@@ -488,7 +488,7 @@ Objective: Steal sensitive data from the victim's network.
    * DLP alert triggers for high-volume transfers.
    * Automated throttling or blocking of egress traffic.
 
-### <mark style="color:blue;">Platform Integration</mark>
+### Platform Integration
 
 * Splunk/Sentinel SIEM: Custom SPL or KQL query templates for detecting each technique.
 * Microsoft Defender: Workflows for automated containment and remediation using Defender XDR/Sentinel.

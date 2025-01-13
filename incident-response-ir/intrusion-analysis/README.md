@@ -20,7 +20,7 @@ layout:
 
 # Intrusion Analysis
 
-## <mark style="color:blue;">What is Cyber Incident Management?</mark>
+## What is Cyber Incident Management?
 
 Cyber Incident Management is the systematic process of preparing for, detecting, responding to, and recovering from cybersecurity incidents that threaten an organisation's digital assets, data, or operational continuity. These incidents can range from malware infections, phishing attacks, and ransomware outbreaks to more complex threats such as data breaches, advanced persistent threats (APTs), or insider attacks.
 
@@ -30,7 +30,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 
 ***
 
-## <mark style="color:blue;">Types of Incidents</mark>
+## Types of Incidents
 
 **Malware Attacks:** Incidents involving viruses, ransomware, worms, or spyware that compromise systems or data.
 
@@ -48,9 +48,9 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 
 ***
 
-## <mark style="color:blue;">Management and Approaches to Incident Response</mark>&#x20;
+## Management and Approaches to Incident Response&#x20;
 
-### <mark style="color:blue;">Proactive Approaches</mark>
+### Proactive Approaches
 
 **Objective:** Minimise the likelihood and impact of incidents through preparation and prevention.
 
@@ -59,7 +59,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 * Training and Awareness: Educate employees on cybersecurity best practices and common attack vectors.
 * Red Team Exercises: Conduct simulated attacks to test the organisation's defences and readiness.
 
-### <mark style="color:blue;">Reactive Approaches</mark>
+### Reactive Approaches
 
 **Objective:** Respond effectively once an incident is detected to mitigate damage.
 
@@ -67,7 +67,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 * Incident Containment: Isolate affected systems to prevent the spread of the attack.
 * Root Cause Analysis: Investigate the source and nature of the incident to address vulnerabilities.
 
-### <mark style="color:blue;">Technical Approaches</mark>
+### Technical Approaches
 
 **Objective:** Leverage technology to enhance detection, response, and recovery.
 
@@ -75,7 +75,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 * Endpoint Detection and Response (EDR): Monitor endpoints for malicious activity and deploy quick countermeasures.
 * Network Segmentation: Limit lateral movement by segmenting networks into secure zones.
 
-### <mark style="color:blue;">Strategic Approaches</mark>
+### Strategic Approaches
 
 Objective: Align incident management with organisational goals and regulatory requirements.
 
@@ -83,7 +83,7 @@ Objective: Align incident management with organisational goals and regulatory re
 * Regulatory Compliance: Ensure incident response aligns with frameworks like GDPR, HIPAA, or ISO 27001.
 * Continuous Improvement: Use lessons learned from incidents to refine policies, processes, and tools.
 
-### <mark style="color:blue;">Collaborative Approaches</mark>
+### Collaborative Approaches
 
 Objective: Foster teamwork and partnerships to enhance response capabilities.
 
@@ -91,7 +91,7 @@ Objective: Foster teamwork and partnerships to enhance response capabilities.
 * External Partnerships: Leverage relationships with third-party security providers, law enforcement, and incident response consultants.
 * Information Sharing: Participate in Information Sharing and Analysis Centers (ISACs) to gain insights from industry peers.
 
-### <mark style="color:blue;">Post-Incident Approaches</mark>
+### Post-Incident Approaches
 
 Objective: Recover from incidents and strengthen defences against future attacks.
 
@@ -101,16 +101,16 @@ Objective: Recover from incidents and strengthen defences against future attacks
 
 ***
 
-## <mark style="color:blue;">Examples of Combining Types and Approaches</mark>
+## Examples of Combining Types and Approaches
 
-### <mark style="color:blue;">Phishing Attack Response</mark>
+### Phishing Attack Response
 
 * Detection: SIEM alerts on anomalous email activity.
 * Containment: Disable compromised accounts and block malicious domains.
 * Technical Approach: Analyse phishing emails to update email filters and block future attempts.
 * Post-Incident: Train employees to recognise phishing attempts and improve email security policies.
 
-### <mark style="color:blue;">Ransomware Attack Response</mark>
+### Ransomware Attack Response
 
 * Containment: Isolate infected systems to prevent lateral spread.
 * Technical Approach: Use EDR tools to remove ransomware and restore data from secure backups.
@@ -121,11 +121,11 @@ Effective incident response and management require a combination of approaches t
 
 ***
 
-## <mark style="color:blue;">Cyber Incident Response Process and Operations - Key Components</mark>&#x20;
+## Cyber Incident Response Process and Operations - Key Components&#x20;
 
 An **incident response (IR) process** is a structured approach to handling and mitigating cybersecurity incidents. The overall process typically consists of the following **phases**:
 
-### <mark style="color:blue;">1. Preparation</mark>
+### 1. Preparation
 
 * Purpose: Establish the groundwork to effectively handle incidents.
 * Key Activities:
@@ -168,7 +168,7 @@ An **incident response (IR) process** is a structured approach to handling and m
 * Run tabletop exercises and red team/blue team drills.
 * Test playbooks for real-world applicability.
 
-### <mark style="color:blue;">2. Identification</mark>
+### 2. Identification
 
 * Purpose: Detect and confirm potential incidents to determine their scope and severity.
 * Key Activities:
@@ -201,7 +201,7 @@ An **incident response (IR) process** is a structured approach to handling and m
 * Record initial findings, impacted assets, and potential scope.
 * Maintain an evidence log for later analysis.
 
-### <mark style="color:blue;">3. Containment</mark>
+### 3. Containment
 
 * Purpose: Limit the damage caused by the incident and prevent further impact.
 * Key Activities:
@@ -227,7 +227,7 @@ An **incident response (IR) process** is a structured approach to handling and m
    * Notify internal stakeholders and legal teams as needed.
    * Avoid sharing sensitive details externally until authorised.
 
-### <mark style="color:blue;">4. Eradication</mark>
+### 4. Eradication
 
 * Purpose: Eliminate the root cause of the incident and remove threats from the environment.
 * Key Activities:
@@ -250,7 +250,7 @@ An **incident response (IR) process** is a structured approach to handling and m
    * Close exploited vulnerabilities.
    * Implement additional security controls (MFA, network segmentation).
 
-### <mark style="color:blue;">5. Recovery</mark>
+### 5. Recovery
 
 * Purpose: Restore normal operations and services while ensuring the environment is secure.
 * Key Activities:
@@ -273,11 +273,11 @@ An **incident response (IR) process** is a structured approach to handling and m
    * Implement heightened monitoring of previously affected systems.
    * Watch for related indicators of compromise (IOCs).
 
-### <mark style="color:blue;">6. Lessons Learned</mark>
+### 6. Lessons Learned
 
 * Purpose: Evaluate the response to improve future incident handling.
 * Key Activities:
-  * Conduct post-incident reviews (PIR) or debrief meetings.
+  * Conduct post-incident reviews (PIR) or debriefing meetings.
   * Analyse what went well, what didn’t, and why.
   * Update the IR plan, playbooks, and security measures based on findings.
   * Document the incident, response steps, and outcomes.
@@ -304,7 +304,7 @@ An **incident response (IR) process** is a structured approach to handling and m
 
 ***
 
-### <mark style="color:blue;">Supporting Components:</mark>
+### Supporting Components
 
 * Incident Tracking: Maintain detailed records of incidents from detection to resolution.
 * Communication Plan: Define internal and external communication protocols, including media handling and regulatory notifications.
@@ -323,7 +323,7 @@ Effective cybersecurity incident management relies on the integration of people,
 
 When these three elements work in harmony, organisations can minimise the impact of cyber incidents, protect sensitive data, and maintain operational continuity. Strong incident management processes foster resilience, reduce downtime, and build trust with stakeholders, demonstrating a commitment to robust cybersecurity practices. Conversely, gaps in any of these areas can lead to delayed responses, increased damage, and long-term reputational harm. This underscores the importance of continually refining processes, investing in skilled personnel, and adopting cutting-edge technologies to stay ahead in an ever-changing threat landscape.
 
-### <mark style="color:blue;">Key Benefits</mark>
+### Key Benefits
 
 * **Minimises Operational Disruption**: Rapid containment and recovery reduce downtime and maintain business continuity.
 * **Protects Assets and Data**: Ensures critical data and systems are safeguarded from unauthorised access or destruction.
@@ -335,7 +335,7 @@ Effective incident response is critical to an organisation's overall cybersecuri
 
 ***
 
-### <mark style="color:blue;">Supplementary Resources:</mark>
+### Supplementary Resources:
 
 Note: [SANS](https://www.sans.org/security-resources/?msc=main-nav) provide some good free resources in the area, including Posters and Cheatsheets:
 
