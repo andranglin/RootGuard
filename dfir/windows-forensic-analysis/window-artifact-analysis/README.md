@@ -1,11 +1,5 @@
 ---
-icon: laptop-code
-cover: ../../../.gitbook/assets/Screenshot 2025-01-04 152101.png
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: hero
   title:
     visible: true
   description:
@@ -18,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Intrusion Analysis
+# Window Artifact Analysis
 
 ### What is Cyber Incident Management?
 
@@ -352,5 +346,3 @@ LetsDefend [Incident Response on Windows](https://app.letsdefend.io/training/les
 Bert Jan P [PowerShell Digital Forensics & Incident Response Scripts](https://github.com/Bert-JanP/Incident-Response-Powershell)
 
 Jai Minton [Digital Forensics and Incident Response](https://www.jaiminton.com/cheatsheet/DFIR/)
-
-{% file src="../../../.gitbook/assets/SANS DFIR Hunt Evil.pdf" %}

@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Cyber Incident Response
+# DFIR
 
 ## **What is Cybersecurity Incident Response?**
 
@@ -158,17 +158,3 @@ By following a structured and well-defined pathway and maintaining a commitment 
 These resources provide an excellent foundation for individuals looking to develop or enhance their Blue Team skills with a mix of theoretical knowledge and hands-on practice. Let me know if you'd like guidance on any specific area!
 
 ***
-
-### Links to respective areas included in this section:
-
-{% content-ref url="response-strategies/" %}
-[response-strategies](response-strategies/)
-{% endcontent-ref %}
-
-{% content-ref url="windows/intrusion-analysis/" %}
-[intrusion-analysis](windows/intrusion-analysis/)
-{% endcontent-ref %}
-
-{% content-ref url="windows/system-triage/" %}
-[system-triage](windows/system-triage/)
-{% endcontent-ref %}

@@ -55,17 +55,17 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 <summary>Sections</summary>
 
-[cyber-incident-response](cyber-incident-response/ "mention")
+[dfir](dfir/ "mention")
 
 [cybersecurity-operations-center-csoc](cybersecurity-operations-center-csoc/ "mention")
 
-[digital-forensics](digital-forensics/ "mention")
+[windows-forensic-analysis](dfir/windows-forensic-analysis/ "mention")
 
 [threat-hunting](threat-hunting/ "mention")
 
 [malware-analysis.md](malware-analysis.md "mention")
 
-[cloud-detection-and-analysis-azure](cloud-detection-and-analysis-azure/ "mention")
+[mde-dfir](mde-dfir/ "mention")
 
 [Broken link](broken-reference "mention")
 

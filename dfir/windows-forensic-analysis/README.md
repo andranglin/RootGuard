@@ -1,6 +1,6 @@
 ---
 icon: laptop-code
-cover: ../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
 coverY: 0
 layout:
   cover:
@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Digital Forensics
+# Windows Forensic Analysis
 
 ## **What is Digital Forensics?**
 
@@ -121,10 +121,26 @@ Aspiring forensic analysts can build a successful and impactful career in digita
 
 ***
 
+### References&#x20;
+
+[MITRE ATT\&CK®](https://attack.mitre.org/)
+
+[SANS](https://www.sans.org/posters/)
+
+[NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+
+[Microsoft Incident Response | Microsoft Security](https://www.microsoft.com/en-us/security/business/microsoft-incident-response)
+
+[Incident Response Steps: Potentially Compromised ...](https://itsupport.umd.edu/itsupport/?id=kb_article_view\&sysparm_article=KB0013906)
+
+LetsDefend [Incident Response on Windows](https://app.letsdefend.io/training/lessons/incident-response-windows)
+
+Jai Minton [Digital Forensics and Incident Response](https://www.jaiminton.com/cheatsheet/DFIR/)
+
 ### Supplementary Resource
 
 Note: Resources like Posters and Cheatsheets are helpful when used as guides
 
-{% file src="../.gitbook/assets/SANS DFIR Fundaments.pdf" %}
+{% file src="../../.gitbook/assets/SANS DFIR Fundaments.pdf" %}
 
-{% file src="../.gitbook/assets/SANS DFIR Windows Forensic Analysis.pdf" %}
+{% file src="../../.gitbook/assets/SANS DFIR Windows Forensic Analysis.pdf" %}
