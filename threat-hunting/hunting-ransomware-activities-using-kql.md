@@ -13,7 +13,7 @@ layout:
     visible: true
 ---
 
-# Hunting For Ransomware Activities
+# Hunting Ransomware Activities Using KQL
 
 ## Introduction
 
@@ -331,8 +331,13 @@ DeviceRegistryEvents | where ActionType in ("RegistryKeyValueCreated", "Registry
 Many ransomware variants rename or duplicate files with different extensions, often as part of the encryption process.
 
 {% code overflow="wrap" %}
-```cs
-DeviceFileEvents | where ActionType == "FileRenamed" | where FileName !endswith ".xml" | where FileName !endswith ".wer" | summarize RenameCount = count() by DeviceName, FileName, FolderPath | where RenameCount > 50
+```kusto
+DeviceFileEvents 
+| where ActionType == "FileRenamed" 
+| where FileName !endswith ".xml" 
+| where FileName !endswith ".wer" 
+| summarize RenameCount = count() by DeviceName, FileName, FolderPath 
+| where RenameCount > 50
 ```
 {% endcode %}
 
