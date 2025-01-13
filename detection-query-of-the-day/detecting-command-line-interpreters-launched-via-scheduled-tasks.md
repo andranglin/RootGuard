@@ -14,7 +14,7 @@ layout:
 
 # Detecting Command Line Interpreters Launched via Scheduled Tasks
 
-### <mark style="color:blue;">KQL Queries:</mark>&#x20;
+### KQL Queries:&#x20;
 
 {% tabs %}
 {% tab title="Option 1" %}
@@ -91,7 +91,7 @@ DeviceProcessEvents
 {% endtab %}
 {% endtabs %}
 
-### <mark style="color:blue;">Splunk Queries:</mark>
+### Splunk Queries:
 
 {% tabs %}
 {% tab title="Option 1" %}

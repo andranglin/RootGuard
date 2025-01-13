@@ -14,7 +14,7 @@ layout:
 
 # Identifying Interactive or RemoteInteractive Session From Service Account
 
-### <mark style="color:blue;">KQL Queries:</mark>
+### KQL Queries:
 
 {% tabs %}
 {% tab title="DeviceLogonEvents" %}
@@ -199,7 +199,7 @@ This query detects potential misuse of service accounts for interactive or remot
 {% endtab %}
 {% endtabs %}
 
-### <mark style="color:blue;">Splunk Query</mark>
+### Splunk Query
 
 {% tabs %}
 {% tab title="Wineventlog" %}
@@ -250,7 +250,7 @@ index=wineventlog sourcetype=WinEventLog EventCode=4624
 6. **Output**:
    * Displays the key details: `AccountName`, `LogonTypeDescription`, `TotalLogons`, `SuccessfulLogons`, `FailedLogons`, `UniqueDevices`, and `UniqueAccounts`.
 
-#### Customization:
+#### Customisation:
 
 * **Index and Sourcetype**:
   * Replace `index=your_index` and `sourcetype=your_sourcetype` with the appropriate values for your data source.
@@ -322,9 +322,3 @@ index=custom_auth_logs sourcetype=authentication_logs
 This query helps uncover suspicious or anomalous use of service accounts for interactive or remote interactive sessions, which are typically not standard behaviour.
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-dd

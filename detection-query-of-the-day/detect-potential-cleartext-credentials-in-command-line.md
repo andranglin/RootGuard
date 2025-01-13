@@ -14,7 +14,7 @@ layout:
 
 # Detect Potential Cleartext Credentials in Command Line
 
-### <mark style="color:blue;">KQL Queries</mark>
+### KQL Queries
 
 {% tabs %}
 {% tab title="DeviceProcessEvents" %}
@@ -158,4 +158,3 @@ DeviceFileEvents
 This query should help you identify potential cleartext credentials in command lines within an environment.
 {% endtab %}
 {% endtabs %}
-

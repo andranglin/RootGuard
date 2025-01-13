@@ -36,5 +36,5 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 
 ### Start Learning:&#x20;
 
-* [linux-commandline-basics.md](linux-commandline-basics.md "mention")
-* [linux-incident-triage-basics.md](linux-incident-triage-basics.md "mention")
+* [commandline-basics.md](commandline-basics.md "mention")
+* [incident-response-basics.md](incident-response-basics.md "mention")

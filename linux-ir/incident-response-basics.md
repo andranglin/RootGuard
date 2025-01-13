@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Linux Incident Triage Basics
+# Incident Response Basics
 
 ### Live Response Commands
 

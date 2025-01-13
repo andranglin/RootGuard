@@ -15,7 +15,7 @@ layout:
 
 # Authentication From Suspicious DeviceName
 
-### <mark style="color:blue;">KQL Queries</mark>
+### KQL Queries
 
 Using KQL (Kusto Query Language) query to identify suspicious authentication attempts originating from unusual or suspicious workstation names. This query assumes you're working with Azure Monitor, Sentinel, or a similar platform that supports KQL and logs such as **SecurityEvent**, **SigninLogs**, or other authentication-related logs.
 
@@ -243,7 +243,7 @@ SigninLogs
 {% endtab %}
 {% endtabs %}
 
-### <mark style="color:blue;">Splunk Query:</mark>
+### Splunk Query:
 
 {% tabs %}
 {% tab title="Wineventlog" %}
