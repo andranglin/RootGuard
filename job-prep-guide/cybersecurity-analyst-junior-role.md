@@ -1,11 +1,5 @@
 ---
-icon: microscope
-cover: ../.gitbook/assets/Screenshot 2025-01-10 082032.png
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: hero
   title:
     visible: true
   description:
@@ -18,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Job Preparation Guide: Junior Cybersecurity Analyst
+# Cybersecurity Analyst - Junior Role
 
 ### **What is a Junior Cybersecurity Analyst Role?**
 
