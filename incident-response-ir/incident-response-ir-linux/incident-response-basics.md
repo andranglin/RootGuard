@@ -1342,3 +1342,11 @@ log2timeline.py -z UTC -t / --parsers linux,apache_access,apt_history out.timeli
 psort.py -z utc -o l2tcsv -w box.csv out.timeline "date > '2020-12-11 00:00:00' AND date < '2020-12-13 00:00:00'"
 ```
 {% endcode %}
+
+### References&#x20;
+
+* [Linux Forensics Command Cheat Sheet | Ef’s log (fahmifj.github.io)](https://fahmifj.github.io/blog/linux-forensics-command-cheat-sheet/)
+* [Linux Incident Response — Using ss for Network Analysis | SANS](https://www.sans.org/blog/linux-incident-response-using-ss-for-network-analysis/)
+* [UFW Essentials: Common Firewall Rules and Commands | DigitalOcean](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands)
+* [Linux Incident Response Guide - DFIR - Halkyn Security Blog](https://www.halkynconsulting.co.uk/a/2020/11/linux-incident-response-guide/)
+* [LetsDefend](https://app.letsdefend.io/training/lessons/incident-response-linux)

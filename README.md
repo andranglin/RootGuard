@@ -67,7 +67,7 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 [intrusion-detection](intrusion-detection/ "mention")
 
-[linux-ir](linux-ir/ "mention")
+[Broken link](broken-reference "mention")
 
 [training-and-projects.md](training-and-projects.md "mention")
 

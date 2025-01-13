@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Linux Commandline Basics
+# Commandline Basics
 
 ### User Information
 
@@ -830,3 +830,13 @@ sudo ssh service restart
 (or)
 sudo sshd service restart
 ```
+
+### References:
+
+[The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners)
+
+[60 essential Linux commands](https://www.hostinger.co.uk/tutorials/linux-commands)
+
+[LinuxCommands.org](https://linuxcommand.org/)
+
+[FreeCodeCamp](https://www.freecodecamp.org/news/learn-linux-for-beginners-book-basic-to-advanced/)
