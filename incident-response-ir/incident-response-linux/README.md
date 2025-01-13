@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Incident Response (IR) - Linux
+# Incident Response - Linux
 
 ### Introduction
 
@@ -44,6 +44,6 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 [incident-response.md](incident-response.md)
 {% endcontent-ref %}
 
-{% content-ref url="linux-command-line.md" %}
-[linux-command-line.md](linux-command-line.md)
+{% content-ref url="command-line.md" %}
+[command-line.md](command-line.md)
 {% endcontent-ref %}

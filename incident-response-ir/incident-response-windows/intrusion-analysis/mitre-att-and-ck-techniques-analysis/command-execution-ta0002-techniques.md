@@ -15,7 +15,7 @@ layout:
 
 # Command Execution (TA0002) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Investigating command execution on a network, particularly in Windows workstations and servers, is crucial to understanding the extent and impact of a security incident. This process involves identifying and analysing the commands that an attacker executes after gaining access.
 
