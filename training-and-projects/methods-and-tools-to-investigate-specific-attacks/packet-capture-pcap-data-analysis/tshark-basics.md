@@ -19,7 +19,7 @@ layout:
 
 # Tshark Basics
 
-### <mark style="color:blue;">Using TShark for PCAP Data Analysis in an Investigation</mark>
+### Using TShark for PCAP Data Analysis in an Investigation
 
 **TShark**, the command-line counterpart to Wireshark, is a powerful tool for analysing PCAP data when doing network forensic investigations. It provides detailed insights into network traffic, enabling analysts to uncover malicious activities and understand the scope of security incidents.&#x20;
 
@@ -46,7 +46,7 @@ Below is a set of **TShark** queries designed for forensic analysis of`.pcap` fi
 
 ***
 
-### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**View Basic Packet Information**</mark>
+### <mark style="color:blue;">1.</mark> **View Basic Packet Information**
 
 ```bash
 tshark -r sample.pcap
@@ -56,7 +56,7 @@ tshark -r sample.pcap
 
 ***
 
-### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract HTTP GET and POST Requests**</mark>
+### 2. **Extract HTTP GET and POST Requests**
 
 {% code overflow="wrap" %}
 ```bash
@@ -68,7 +68,7 @@ tshark -r sample.pcap -Y "http.request" -T fields -e http.host -e http.request.m
 
 ***
 
-### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter Traffic by IP Address**</mark>
+### <mark style="color:blue;">3.</mark> **Filter Traffic by IP Address**
 
 ```bash
 tshark -r sample.pcap -Y "ip.addr == 192.168.1.10"
@@ -78,7 +78,7 @@ tshark -r sample.pcap -Y "ip.addr == 192.168.1.10"
 
 ***
 
-### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter DNS Queries**</mark>
+### 4. **Filter DNS Queries**
 
 {% code overflow="wrap" %}
 ```bash
@@ -90,7 +90,7 @@ tshark -r sample.pcap -Y "dns.qry.name" -T fields -e frame.time -e dns.qry.name
 
 ***
 
-### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter by Protocol**</mark>
+### 5. **Filter by Protocol**
 
 *   **HTTP**:
 
@@ -111,7 +111,7 @@ tshark -r sample.pcap -Y "dns.qry.name" -T fields -e frame.time -e dns.qry.name
 
 ***
 
-### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Large Packets (Possible Data Exfiltration)**</mark>
+### 6. **Identify Large Packets (Possible Data Exfiltration)**
 
 {% code overflow="wrap" %}
 ```bash
@@ -123,7 +123,7 @@ tshark -r sample.pcap -Y "frame.len > 1000" -T fields -e frame.time -e ip.src -e
 
 ***
 
-### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect SMB Activity**</mark>
+### 7. **Detect SMB Activity**
 
 {% code overflow="wrap" %}
 ```bash
@@ -135,7 +135,7 @@ tshark -r sample.pcap -Y "smb" -T fields -e frame.time -e ip.src -e ip.dst -e sm
 
 ***
 
-### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Credentials from FTP or HTTP Traffic**</mark>
+### 8. **Extract Credentials from FTP or HTTP Traffic**
 
 *   **FTP**:
 
@@ -153,7 +153,7 @@ tshark -r sample.pcap -Y "smb" -T fields -e frame.time -e ip.src -e ip.dst -e sm
 
 ***
 
-### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Analyse Command-and-Control (C2) Activity**</mark>
+### 9. **Analyse Command-and-Control (C2) Activity**
 
 *   **HTTP-Based C2**:
 
@@ -171,7 +171,7 @@ tshark -r sample.pcap -Y "smb" -T fields -e frame.time -e ip.src -e ip.dst -e sm
 
 ***
 
-### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Port Scanning Activity**</mark>
+### 10. **Detect Port Scanning Activity**
 
 ```bash
 tshark -r sample.pcap -Y "tcp.flags.syn == 1 and tcp.flags.ack == 0"
@@ -181,7 +181,7 @@ tshark -r sample.pcap -Y "tcp.flags.syn == 1 and tcp.flags.ack == 0"
 
 ***
 
-### <mark style="color:blue;">11.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Specific Fields for Analysis**</mark>
+### 11. **Extract Specific Fields for Analysis**
 
 {% code overflow="wrap" %}
 ```bash
@@ -193,7 +193,7 @@ tshark -r sample.pcap -T fields -e frame.time -e ip.src -e ip.dst -e tcp.srcport
 
 ***
 
-### <mark style="color:blue;">12.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect ICMP Tunneling**</mark>
+### 12. **Detect ICMP Tunneling**
 
 {% code overflow="wrap" %}
 ```bash
@@ -205,7 +205,7 @@ tshark -r sample.pcap -Y "icmp" -T fields -e frame.time -e ip.src -e ip.dst -e i
 
 ***
 
-### <mark style="color:blue;">13.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter TLS Traffic**</mark>
+### 13. **Filter TLS Traffic**
 
 {% code overflow="wrap" %}
 ```bash
@@ -217,7 +217,7 @@ tshark -r sample.pcap -Y "ssl" -T fields -e frame.time -e ip.src -e ip.dst -e ss
 
 ***
 
-### <mark style="color:blue;">14.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Unusual DNS Responses**</mark>
+### 14. **Identify Unusual DNS Responses**
 
 ```bash
 tshark -r sample.pcap -Y "dns.flags.response == 1 and dns.a"
@@ -227,7 +227,7 @@ tshark -r sample.pcap -Y "dns.flags.response == 1 and dns.a"
 
 ***
 
-### <mark style="color:blue;">15.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Export Traffic to a New PCAP File**</mark>
+### 15. **Export Traffic to a New PCAP File**
 
 ```bash
 tshark -r sample.pcap -Y "ip.addr == 192.168.1.10" -w filtered.pcap
@@ -237,7 +237,7 @@ tshark -r sample.pcap -Y "ip.addr == 192.168.1.10" -w filtered.pcap
 
 ***
 
-### <mark style="color:blue;">16.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Reassemble HTTP Objects**</mark>
+### 16. **Reassemble HTTP Objects**
 
 ```bash
 tshark -r sample.pcap --export-objects http,output_directory/
@@ -247,7 +247,7 @@ tshark -r sample.pcap --export-objects http,output_directory/
 
 ***
 
-### <mark style="color:blue;">17.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Unencrypted Credentials in Telnet**</mark>
+### <mark style="color:blue;">17.</mark> **Detect Unencrypted Credentials in Telnet**
 
 {% code overflow="wrap" %}
 ```bash
@@ -259,7 +259,7 @@ tshark -r sample.pcap -Y "telnet" -T fields -e frame.time -e ip.src -e ip.dst -e
 
 ***
 
-### <mark style="color:blue;">18.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Monitor RDP Traffic**</mark>
+### 18. **Monitor RDP Traffic**
 
 ```bash
 tshark -r sample.pcap -Y "tcp.port == 3389"
@@ -269,7 +269,7 @@ tshark -r sample.pcap -Y "tcp.port == 3389"
 
 ***
 
-### <mark style="color:blue;">19.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Malicious Traffic Using IoCs**</mark>
+### 19. **Extract Malicious Traffic Using IoCs**
 
 {% code overflow="wrap" %}
 ```bash
@@ -281,7 +281,7 @@ tshark -r sample.pcap -Y "ip.addr == 203.0.113.5 or dns.qry.name contains 'malic
 
 ***
 
-### <mark style="color:blue;">20.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Traffic to Tor Nodes**</mark>
+### <mark style="color:blue;">20.</mark> **Identify Traffic to Tor Nodes**
 
 ```bash
 tshark -r sample.pcap -Y "tcp.port == 9001 or tcp.port == 9030"
@@ -291,7 +291,7 @@ tshark -r sample.pcap -Y "tcp.port == 9001 or tcp.port == 9030"
 
 ***
 
-### <mark style="color:blue;">21.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Suspicious Packet Rates**</mark>
+### 21. **Detect Suspicious Packet Rates**
 
 ```bash
 tshark -r sample.pcap -qz io,stat,1
@@ -301,7 +301,7 @@ tshark -r sample.pcap -qz io,stat,1
 
 ***
 
-#### <mark style="color:blue;">Notes:</mark>
+#### Notes:
 
 * Replace placeholders (e.g., `192.168.1.10`, `203.0.113.5`, `malicious.com`) with investigation-specific details.
 * Use threat intelligence feeds to refine filters with known IoCs.

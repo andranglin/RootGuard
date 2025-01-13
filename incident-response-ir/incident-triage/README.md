@@ -20,17 +20,17 @@ layout:
 
 # Incident Triage
 
-## <mark style="color:blue;">Introduction</mark>
+## Introduction
 
 Incident Response (IR) is a specialised area of cybersecurity that focuses on investigating and responding to security incidents. IR techniques are used to uncover the origins and scope of an attack and facilitate a structured approach to mitigate damage, recover affected systems, and strengthen organisational defences.
 
 ***
 
-## <mark style="color:blue;">Difference Between Digital Forensics and Incident Response (DFIR)</mark>
+## Difference Between Digital Forensics and Incident Response (DFIR)
 
 Digital Forensics and Incident Response are two interconnected components of cybersecurity within the broader DFIR discipline. While they often overlap, they have distinct objectives, processes, and focuses:
 
-### <mark style="color:blue;">1. Purpose</mark>
+### 1. Purpose
 
 * Digital Forensics:
   * Focuses on the investigative aspect of cybersecurity.
@@ -41,7 +41,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Aims to contain, mitigate, and recover from security breaches or attacks.
   * Prioritises rapid action to minimise damage and restore operations.
 
-### <mark style="color:blue;">2. Key Goals</mark>
+### 2. Key Goals
 
 * Digital Forensics:
   * Reconstruct the timeline and scope of an attack.
@@ -52,7 +52,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Remove the threat and prevent further damage.
   * Restore affected systems and ensure business continuity.
 
-### <mark style="color:blue;">3. Timing</mark>
+### 3. Timing
 
 * Digital Forensics:
   * Conducted after an incident to investigate its root cause and gather evidence.
@@ -61,7 +61,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Takes place during or immediately after an incident is detected.
   * Prioritises real-time containment and remediation.
 
-### <mark style="color:blue;">4. Focus</mark>
+### 4. Focus
 
 * Digital Forensics:
 * Emphasises analysing artifacts such as:
@@ -77,7 +77,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Blocking attacker access
   * Deploying patches and recovery measures
 
-### <mark style="color:blue;">5. Tools and Techniques</mark>
+### 5. Tools and Techniques
 
 * Digital Forensics:
 * Specialised tools for evidence collection and analysis:
@@ -100,7 +100,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Firewalls and IDS/IPS systems
 * Techniques include log analysis, threat containment, and system restoration.
 
-### <mark style="color:blue;">6. Use Cases</mark>
+### 6. Use Cases
 
 * Digital Forensics:
   * Investigating a past breach or insider threat.
@@ -111,7 +111,7 @@ Digital Forensics and Incident Response are two interconnected components of cyb
   * Containing phishing or social engineering incidents.
   * Responding to Distributed Denial of Service (DDoS) attacks.
 
-### <mark style="color:blue;">7. Output</mark>
+### 7. Output
 
 * Digital Forensics:
 * A detailed forensic report outlining:
@@ -130,7 +130,7 @@ DFIR is critical for modern organisations to combat increasingly sophisticated c
 
 ***
 
-## <mark style="color:blue;">IR Resources</mark> <a href="#page-title" id="page-title"></a>
+## IR Resources <a href="#page-title" id="page-title"></a>
 
 [<mark style="color:blue;">https://www.jaiminton.com</mark>](https://www.jaiminton.com/)<mark style="color:blue;">:</mark> digital forensics and incident response created and published by Jai Minton Information and Cyber Security Professional. Visit his website and support his contributions to the DFIR community.
 
@@ -156,7 +156,7 @@ DFIR is critical for modern organisations to combat increasingly sophisticated c
 
 ***
 
-## <mark style="color:blue;">Other Open-source Tools</mark>
+## Other Open-source Tools
 
 [<mark style="color:blue;">Awesome Incident Response:</mark> ](https://github.com/meirwah/awesome-incident-response)List of DFIR tools
 

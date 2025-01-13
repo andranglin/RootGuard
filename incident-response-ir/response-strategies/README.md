@@ -20,7 +20,7 @@ layout:
 
 # Response Strategies
 
-## <mark style="color:blue;">**The Importance of a Good Investigative Workflow in DFIR**</mark>
+## **The Importance of a Good Investigative Workflow in DFIR**
 
 In **Digital Forensics and Incident Response (DFIR)**, the ability to effectively manage and analyse evidence during a cyber investigation is paramount. A well-structured investigative workflow ensures incidents are handled systematically, reducing the risk of missed evidence or improper handling. This is particularly critical in high-pressure scenarios where time is of the essence, and decisions made during the investigation can significantly impact the outcome.
 
@@ -30,7 +30,7 @@ Moreover, an effective workflow supports accountability and transparency. By mai
 
 ***
 
-## <mark style="color:blue;">Areas Where an Investigative Workflow Might be Helpful to a DFIR Analyst</mark>
+## Areas Where an Investigative Workflow Might be Helpful to a DFIR Analyst
 
 #### Incident Triage and Prioritisation
 

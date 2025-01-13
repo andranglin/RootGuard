@@ -104,5 +104,5 @@
       * [Tcpdump Packet Analysis (Level 2)](training-and-projects/methods-and-tools-to-investigate-specific-attacks/packet-capture-pcap-data-analysis/tcpdump-packet-analysis-level-2.md)
       * [Tshark Basics](training-and-projects/methods-and-tools-to-investigate-specific-attacks/packet-capture-pcap-data-analysis/tshark-basics.md)
       * [Ngrep Basics](training-and-projects/methods-and-tools-to-investigate-specific-attacks/packet-capture-pcap-data-analysis/ngrep-basics.md)
-* [Job Preparation Guide: Junior Cybersecurity Analyst](job-preparation-guide-junior-cybersecurity-analyst/README.md)
-  * [Practice Questions: Junior Cybersecurity Analysts Interview](job-preparation-guide-junior-cybersecurity-analyst/practice-questions-junior-cybersecurity-analysts-interview.md)
+* [Junior Cybersecurity Analyst - Job Prep Guide](junior-cybersecurity-analyst-job-prep-guide/README.md)
+  * [Junior Cybersecurity Analysts - Interview Practice Questions](junior-cybersecurity-analyst-job-prep-guide/junior-cybersecurity-analysts-interview-practice-questions.md)

@@ -19,7 +19,7 @@ layout:
 
 # Tcpdump Packet Analysis (Level 2)
 
-### <mark style="color:blue;">The Importance of Having Access to PCAP Data in an Investigation</mark>
+### The Importance of Having Access to PCAP Data in an Investigation
 
 Packet Capture (PCAP) data is a critical resource in network security investigations, providing a detailed, timestamped record of all network traffic. By preserving the raw packets exchanged across a network, PCAP data allows investigators to analyse every communication byte for forensic purposes. Its importance can be summarised as follows:
 
@@ -44,7 +44,7 @@ The following Tcpdump queries are designed to identify malicious activities. The
 
 ***
 
-### <mark style="color:blue;">1.</mark> <mark style="color:blue;">**Detect Suspicious SMB Traffic**</mark>
+### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Suspicious SMB Traffic**</mark>
 
 ```bash
 tcpdump -r sample.pcap port 445
@@ -54,7 +54,7 @@ tcpdump -r sample.pcap port 445
 
 ***
 
-### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Large Outbound Traffic (Potential Data Exfiltration)**</mark>
+### 2. **Identify Large Outbound Traffic (Potential Data Exfiltration)**
 
 {% code overflow="wrap" %}
 ```bash
@@ -66,7 +66,7 @@ tcpdump -r sample.pcap src net 192.168.1.0/24 and dst net not 192.168.1.0/24 and
 
 ***
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Command-and-Control (C2) Communication**</mark>
+#### 3. **Detect Command-and-Control (C2) Communication**
 
 *   **Over HTTPS (Port 443)**:
 
@@ -86,7 +86,7 @@ tcpdump -r sample.pcap src net 192.168.1.0/24 and dst net not 192.168.1.0/24 and
 
 ***
 
-### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Find Encrypted Traffic with Unusual Destinations**</mark>
+### 4. **Find Encrypted Traffic with Unusual Destinations**
 
 ```bash
 tcpdump -r sample.pcap port 443 and not dst net 8.8.8.0/24
@@ -96,7 +96,7 @@ tcpdump -r sample.pcap port 443 and not dst net 8.8.8.0/24
 
 ***
 
-### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Abnormal File Transfers (FTP/SMB)**</mark>
+### 5. **Detect Abnormal File Transfers (FTP/SMB)**
 
 *   **FTP (Port 21)**:
 
@@ -112,7 +112,7 @@ tcpdump -r sample.pcap port 443 and not dst net 8.8.8.0/24
 
 ***
 
-### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Look for Brute Force or Credential Theft**</mark>
+### 6. **Look for Brute Force or Credential Theft**
 
 ```bash
 tcpdump -r sample.pcap port 3389 or port 22
@@ -122,7 +122,7 @@ tcpdump -r sample.pcap port 3389 or port 22
 
 ***
 
-### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Port Scanning or Lateral Movement**</mark>
+### 7. **Detect Port Scanning or Lateral Movement**
 
 ```bash
 tcpdump -r sample.pcap 'tcp[tcpflags] & tcp-syn != 0'
@@ -132,7 +132,7 @@ tcpdump -r sample.pcap 'tcp[tcpflags] & tcp-syn != 0'
 
 ***
 
-### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Ransomware Network Beaconing**</mark>
+### <mark style="color:blue;">8.</mark> **Identify Ransomware Network Beaconing**
 
 ```bash
 tcpdump -r sample.pcap 'udp[8:2] = 0x5353 or udp[8:2] = 0x5354'
@@ -142,7 +142,7 @@ tcpdump -r sample.pcap 'udp[8:2] = 0x5353 or udp[8:2] = 0x5354'
 
 ***
 
-### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Monitor for Abnormal DNS Queries**</mark>
+### 9. **Monitor for Abnormal DNS Queries**
 
 ```bash
 tcpdump -r sample.pcap port 53 and 'udp[10] & 0x80 = 0'
@@ -152,7 +152,7 @@ tcpdump -r sample.pcap port 53 and 'udp[10] & 0x80 = 0'
 
 ***
 
-### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Rapidly Generated Outbound Connections**</mark>
+### 10. **Detect Rapidly Generated Outbound Connections**
 
 {% code overflow="wrap" %}
 ```bash
@@ -164,7 +164,7 @@ tcpdump -r sample.pcap src net 192.168.1.0/24 and dst net not 192.168.1.0/24 and
 
 ***
 
-### <mark style="color:blue;">11.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Monitor for Tor Traffic**</mark>
+### <mark style="color:blue;">11.</mark> **Monitor for Tor Traffic**
 
 ```bash
 tcpdump -r sample.pcap dst port 9001 or dst port 9030
@@ -174,7 +174,7 @@ tcpdump -r sample.pcap dst port 9001 or dst port 9030
 
 ***
 
-### <mark style="color:blue;">12.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Capture Malicious HTTP Requests**</mark>
+### 12. **Capture Malicious HTTP Requests**
 
 {% code overflow="wrap" %}
 ```bash
@@ -186,7 +186,7 @@ tcpdump -r sample.pcap port 80 and 'tcp[32:4] = 0x47455420 or tcp[32:4] = 0x504f
 
 ***
 
-### <mark style="color:blue;">13.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Suspicious Use of ICMP (Ping Tunnels)**</mark>
+### 13. **Detect Suspicious Use of ICMP (Ping Tunnels)**
 
 ```bash
 tcpdump -r sample.pcap icmp and greater 100
@@ -196,7 +196,7 @@ tcpdump -r sample.pcap icmp and greater 100
 
 ***
 
-### <mark style="color:blue;">14.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Outbound Traffic to Known Malicious IPs**</mark>
+### 14. **Identify Outbound Traffic to Known Malicious IPs**
 
 ```bash
 tcpdump -r sample.pcap dst net 198.51.100.0/24
@@ -206,7 +206,7 @@ tcpdump -r sample.pcap dst net 198.51.100.0/24
 
 ***
 
-### <mark style="color:blue;">15.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Track Ransomware Encryption Activity**</mark>
+### 15. **Track Ransomware Encryption Activity**
 
 ```bash
 tcpdump -r sample.pcap port 445 and 'tcp[tcpflags] & (tcp-syn|tcp-ack|tcp-push) != 0'
@@ -216,7 +216,7 @@ tcpdump -r sample.pcap port 445 and 'tcp[tcpflags] & (tcp-syn|tcp-ack|tcp-push) 
 
 ***
 
-### <mark style="color:blue;">16.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Packets with Suspicious Payload Sizes**</mark>
+### 16. **Extract Packets with Suspicious Payload Sizes**
 
 ```bash
 tcpdump -r sample.pcap 'greater 1200'
@@ -226,7 +226,7 @@ tcpdump -r sample.pcap 'greater 1200'
 
 ***
 
-### <mark style="color:blue;">17.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Traffic to Unusual Regions**</mark>
+### 17. **Detect Traffic to Unusual Regions**
 
 ```bash
 tcpdump -r sample.pcap dst net not 192.168.0.0/16 and dst net not 10.0.0.0/8

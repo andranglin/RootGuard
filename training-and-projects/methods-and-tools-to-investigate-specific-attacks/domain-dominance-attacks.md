@@ -19,13 +19,13 @@ layout:
 
 # Domain Dominance Attacks
 
-## <mark style="color:blue;">What is</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Domain Dominance**</mark>&#x20;
+## What is **Domain Dominance**&#x20;
 
 Refers to a stage in an adversary’s attack lifecycle where they gain control over a network's **Active Directory (AD) domain** or significant portions of it. This is a critical phase because AD is the backbone of identity and access management in most enterprise environments. Controlling an AD domain allows attackers to elevate privileges, persist in the environment, and move laterally across the network undetected.
 
 ***
 
-### <mark style="color:blue;">**Key Objectives of Domain Dominance Attacks**</mark>
+### **Key Objectives of Domain Dominance Attacks**
 
 1. **Privilege Escalation:**
    * Attackers escalate their privileges to domain or enterprise administrator levels.
@@ -38,7 +38,7 @@ Refers to a stage in an adversary’s attack lifecycle where they gain control o
 
 ***
 
-### <mark style="color:blue;">**Techniques Used**</mark>
+### **Techniques Used**
 
 Attackers employ a variety of techniques to achieve Domain Dominance:
 
@@ -61,7 +61,7 @@ Attackers employ a variety of techniques to achieve Domain Dominance:
 
 ***
 
-### <mark style="color:blue;">**Indicators of Domain Dominance Attacks**</mark>
+### **Indicators of Domain Dominance Attacks**
 
 Detecting domain dominance attacks involves monitoring specific actions and anomalies in Active Directory logs:
 
@@ -73,7 +73,7 @@ Detecting domain dominance attacks involves monitoring specific actions and anom
 
 ***
 
-### <mark style="color:blue;">**Implications**</mark>
+### **Implications**
 
 If an attacker achieves Domain Dominance:
 
@@ -83,7 +83,7 @@ If an attacker achieves Domain Dominance:
 
 ***
 
-### <mark style="color:blue;">**Mitigations**</mark>
+### **Mitigations**
 
 1. **Secure Privileged Accounts:**
    * Use multi-factor authentication (MFA) and limit administrative access.
@@ -99,13 +99,13 @@ If an attacker achieves Domain Dominance:
 
 ***
 
-## <mark style="color:blue;">Defending Against Domain Dominance Attacks</mark>
+## Defending Against Domain Dominance Attacks
 
 This requires a multifaceted approach combining detection techniques, proactive defence mechanisms, and specialised tools. Below is an exploration of specific detection methods and tools to mitigate the risks of domain dominance attacks.
 
 ***
 
-### <mark style="color:blue;">**1. Detection Techniques**</mark>
+### **1. Detection Techniques**
 
 **1.1 Log Monitoring and Analysis**
 
@@ -142,7 +142,7 @@ Enable **PowerShell Script Block Logging** to detect malicious AD commands:
 
 ***
 
-### <mark style="color:blue;">**2. Tools for Defence**</mark>
+### **2. Tools for Defence**
 
 **2.1 Active Directory Monitoring Tools**
 
@@ -185,7 +185,7 @@ Integrate IoC feeds and threat intelligence tools to detect known adversary tact
 
 ***
 
-### <mark style="color:blue;">**3. Proactive Defence Strategies**</mark>
+### **3. Proactive Defence Strategies**
 
 **3.1 Active Directory Hardening**
 
@@ -217,7 +217,7 @@ Deploy MFA for all privileged accounts, including service accounts.
 
 ***
 
-### <mark style="color:blue;">**4. Threat Hunting Examples**</mark>
+### **4. Threat Hunting Examples**
 
 **Note:** _Always test and evaluate queries, as not all will work in an environment and will depend on the log sources that are collected and monitored._
 
@@ -330,13 +330,13 @@ EventCode=4624
 
 ***
 
-## <mark style="color:blue;">**Types of Domain Dominance Attacks and Detection Queries**</mark>&#x20;
+## **Types of Domain Dominance Attacks and Detection Queries**&#x20;
 
 Typically associated with adversaries attempting to gain control over an Active Directory (AD) domain to extend their influence and persist in a compromised environment. Below is an overview of some key techniques and how to detect them using **KQL queries**:
 
 ***
 
-### <mark style="color:blue;">**1. Credential Dumping**</mark>
+### **1. Credential Dumping**
 
 **Note:** _Always test and evaluate queries, as not all will work in an environment and will depend on the log sources that are collected and monitored._
 
@@ -493,7 +493,7 @@ EventCode=7045
 {% endtab %}
 {% endtabs %}
 
-### <mark style="color:blue;">**2. DCSync Attack**</mark>
+### **2. DCSync Attack**
 
 Adversaries use the `Replicating Directory Changes` permission to retrieve credentials from domain controllers.
 
@@ -583,7 +583,7 @@ EventCode=4662
 
 ***
 
-### <mark style="color:blue;">**3. Golden Ticket Attack**</mark>
+### **3. Golden Ticket Attack**
 
 Attackers use stolen `KRBTGT` account credentials to forge Kerberos tickets.
 
@@ -679,7 +679,7 @@ EventCode=4768
 
 ***
 
-### <mark style="color:blue;">**4. Silver Ticket Attack**</mark>
+### **4. Silver Ticket Attack**
 
 Adversaries forge Kerberos tickets for services other than `krbtgt`.
 
@@ -774,7 +774,7 @@ EventCode=4769
 
 ***
 
-### <mark style="color:blue;">**5. Pass-the-Hash (PtH)**</mark>
+### **5. Pass-the-Hash (PtH)**
 
 Attackers use hashed credentials to authenticate without knowing the plaintext password.
 
@@ -869,7 +869,7 @@ EventCode=4624
 
 ***
 
-### <mark style="color:blue;">**6. Pass-the-Ticket (PtT)**</mark>
+### **6. Pass-the-Ticket (PtT)**
 
 Adversaries use valid Kerberos tickets to authenticate to systems.
 
@@ -964,7 +964,7 @@ EventCode=4768
 {% endtab %}
 {% endtabs %}
 
-### <mark style="color:blue;">**7. DCShadow Attack**</mark>
+### **7. DCShadow Attack**
 
 An attacker uses rogue domain controller replication to manipulate AD objects.
 
@@ -1061,7 +1061,7 @@ EventCode=4662
 
 ***
 
-### <mark style="color:blue;">**8. SID History Injection**</mark>
+### **8. SID History Injection**
 
 Adversaries inject Security Identifier (SID) histories into accounts for privilege escalation.
 
@@ -1158,7 +1158,7 @@ EventCode=4662
 
 ***
 
-### <mark style="color:blue;">General Guidance:</mark>
+### General Guidance
 
 1. **Enable Advanced Auditing:** Ensure auditing is configured for sensitive AD activities, especially replication, credential access, and privilege escalation attempts.
 2. **Monitor Kerberos Events:** Track unusual Kerberos ticket requests and errors.
@@ -1167,9 +1167,9 @@ EventCode=4662
 
 ***
 
-## <mark style="color:blue;">Automating the Detection</mark>
+## Automating the Detection
 
-### <mark style="color:blue;">**1. Set Up Detection Rules**</mark>
+### **1. Set Up Detection Rules**
 
 Detection rules trigger alerts when specific patterns are detected. The following is an example of configuring a detection rule in Microsoft Sentinel.
 
@@ -1198,7 +1198,7 @@ Detection rules trigger alerts when specific patterns are detected. The followin
 
 ***
 
-### <mark style="color:blue;">**2. Create Automated Responses**</mark>
+### **2. Create Automated Responses**
 
 Automated responses reduce manual effort in investigating and remediating the detection. Use Playbooks in Sentinel to orchestrate actions.
 
@@ -1213,7 +1213,7 @@ Automated responses reduce manual effort in investigating and remediating the de
 
 ***
 
-### <mark style="color:blue;">**3. Continuous Threat Hunting**</mark>
+### **3. Continuous Threat Hunting**
 
 Even with detection rules in place, periodic threat hunting ensures you catch what rules might miss.
 
@@ -1278,13 +1278,9 @@ EventCode=4769
 {% endtab %}
 {% endtabs %}
 
-
-
-dd
-
 ***
 
-### <mark style="color:blue;">**4. Configure Dashboards**</mark>
+### **4. Configure Dashboards**
 
 Create a dashboard in Sentinel to visualize detection metrics and patterns for Domain Dominance attacks.
 
@@ -1296,7 +1292,7 @@ Create a dashboard in Sentinel to visualize detection metrics and patterns for D
 
 ***
 
-### <mark style="color:blue;">**5. Testing and Tuning**</mark>
+### **5. Testing and Tuning**
 
 Regularly test the rules by simulating attacks using tools like:
 

@@ -19,7 +19,7 @@ layout:
 
 # Ngrep Basics
 
-### <mark style="color:blue;">Using Ngrep for PCAP Data Analysis in an Investigation</mark>
+### Using Ngrep for PCAP Data Analysis in an Investigation
 
 **Ngrep** (Network Grep) is a versatile tool for searching network traffic within PCAP files, offering regex-based filtering and a human-readable output. Its simplicity and focus on payload data make it a valuable resource for quick and targeted forensic investigations.&#x20;
 
@@ -46,7 +46,7 @@ Below are some **`ngrep`** queries for network forensics investigations along wi
 
 ***
 
-### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**View All Packets in a PCAP**</mark>
+### 1. **View All Packets in a PCAP**
 
 ```bash
 ngrep -I sample.pcap
@@ -56,7 +56,7 @@ ngrep -I sample.pcap
 
 ***
 
-### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter by IP Address**</mark>
+### 2. **Filter by IP Address**
 
 ```bash
 ngrep -I sample.pcap host 192.168.1.10
@@ -66,7 +66,7 @@ ngrep -I sample.pcap host 192.168.1.10
 
 ***
 
-### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Search for Specific Strings**</mark>
+### 3. **Search for Specific Strings**
 
 *   **HTTP**:
 
@@ -82,7 +82,7 @@ ngrep -I sample.pcap host 192.168.1.10
 
 ***
 
-### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Inspect DNS Traffic**</mark>
+### 4. **Inspect DNS Traffic**
 
 ```bash
 ngrep -I sample.pcap -q "example.com" udp port 53
@@ -92,7 +92,7 @@ ngrep -I sample.pcap -q "example.com" udp port 53
 
 ***
 
-### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Capture HTTP Traffic**</mark>
+### 5. **Capture HTTP Traffic**
 
 ```bash
 ngrep -I sample.pcap -W byline tcp port 80
@@ -102,7 +102,7 @@ ngrep -I sample.pcap -W byline tcp port 80
 
 ***
 
-### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Monitor FTP Traffic**</mark>
+### 6. **Monitor FTP Traffic**
 
 ```bash
 ngrep -I sample.pcap "USER|PASS" tcp port 21
@@ -112,7 +112,7 @@ ngrep -I sample.pcap "USER|PASS" tcp port 21
 
 ***
 
-### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect ICMP Tunneling**</mark>
+### <mark style="color:blue;">7.</mark> **Detect ICMP Tunneling**
 
 ```bash
 ngrep -I sample.pcap "data" icmp
@@ -122,7 +122,7 @@ ngrep -I sample.pcap "data" icmp
 
 ***
 
-### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Search for Malicious Payloads**</mark>
+### 8. **Search for Malicious Payloads**
 
 ```bash
 ngrep -I sample.pcap -q "malicious_string" any
@@ -132,7 +132,7 @@ ngrep -I sample.pcap -q "malicious_string" any
 
 ***
 
-### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter HTTPS Traffic**</mark>
+### 9. **Filter HTTPS Traffic**
 
 ```bash
 ngrep -I sample.pcap "" tcp port 443
@@ -142,7 +142,7 @@ ngrep -I sample.pcap "" tcp port 443
 
 ***
 
-### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Inspect SMB Traffic**</mark>
+### 10. **Inspect SMB Traffic**
 
 ```bash
 ngrep -I sample.pcap -W byline tcp port 445
@@ -168,7 +168,7 @@ ngrep -I sample.pcap -W byline tcp port 445
 
 ***
 
-### <mark style="color:blue;">12.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter by Port**</mark>
+### 12. **Filter by Port**
 
 *   **HTTP**:
 
@@ -184,7 +184,7 @@ ngrep -I sample.pcap -W byline tcp port 445
 
 ***
 
-### <mark style="color:blue;">13.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Large File Transfers**</mark>
+### 13. **Detect Large File Transfers**
 
 ```bash
 ngrep -I sample.pcap "" tcp and greater 1500
@@ -194,7 +194,7 @@ ngrep -I sample.pcap "" tcp and greater 1500
 
 ***
 
-### <mark style="color:blue;">14.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Search for Base64-Encoded Payloads**</mark>
+### 14. **Search for Base64-Encoded Payloads**
 
 ```bash
 ngrep -I sample.pcap "[A-Za-z0-9+/=]{40,}" any
@@ -204,7 +204,7 @@ ngrep -I sample.pcap "[A-Za-z0-9+/=]{40,}" any
 
 ***
 
-### <mark style="color:blue;">15.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Track Ransomware Activity**</mark>
+### 15. **Track Ransomware Activity**
 
 *   **SMB-Based**:
 
@@ -220,7 +220,7 @@ ngrep -I sample.pcap "[A-Za-z0-9+/=]{40,}" any
 
 ***
 
-### <mark style="color:blue;">16.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Email Communication**</mark>
+### 16. **Extract Email Communication**
 
 ```bash
 ngrep -I sample.pcap -W byline tcp port 25
@@ -230,7 +230,7 @@ ngrep -I sample.pcap -W byline tcp port 25
 
 ***
 
-### <mark style="color:blue;">17.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Analsze Tor Traffic**</mark>
+### 17. **Analsze Tor Traffic**
 
 ```bash
 ngrep -I sample.pcap "" tcp port 9001
@@ -240,7 +240,7 @@ ngrep -I sample.pcap "" tcp port 9001
 
 ***
 
-### <mark style="color:blue;">18.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Export Specific Packets to a New PCAP**</mark>
+### <mark style="color:blue;">18.</mark> **Export Specific Packets to a New PCAP**
 
 ```bash
 ngrep -O filtered.pcap "example.com" udp port 53
@@ -250,7 +250,7 @@ ngrep -O filtered.pcap "example.com" udp port 53
 
 ***
 
-### <mark style="color:blue;">19.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Unusual Login Attempts**</mark>
+### 19. **Detect Unusual Login Attempts**
 
 ```bash
 ngrep -I sample.pcap "login|auth|failed" tcp port 22
@@ -260,7 +260,7 @@ ngrep -I sample.pcap "login|auth|failed" tcp port 22
 
 ***
 
-### <mark style="color:blue;">20.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Track Abnormal Traffic Patterns**</mark>
+### 20. **Track Abnormal Traffic Patterns**
 
 ```bash
 ngrep -I sample.pcap "" udp and portrange 1000-2000
@@ -270,7 +270,7 @@ ngrep -I sample.pcap "" udp and portrange 1000-2000
 
 ***
 
-#### <mark style="color:blue;">Notes:</mark>
+#### Notes:
 
 * Replace placeholders like `"example.com"` or `"malicious_string"` with investigation-specific keywords or IoCs.
 * Combine with regex for advanced pattern matching.

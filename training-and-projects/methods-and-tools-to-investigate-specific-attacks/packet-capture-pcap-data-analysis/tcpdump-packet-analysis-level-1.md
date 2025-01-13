@@ -19,7 +19,7 @@ layout:
 
 # Tcpdump Packet Analysis (Level 1)
 
-### <mark style="color:blue;">**Importance of Having Access to PCAP Data in an Investigation**</mark>
+### **Importance of Having Access to PCAP Data in an Investigation**
 
 PCAP (Packet Capture) data is a critical resource in cybersecurity investigations, providing a complete, raw record of network traffic at the packet level. Having access to PCAP data allows investigators to analyse both the content and behaviour of network communications, enabling the following key capabilities:
 
@@ -40,13 +40,13 @@ PCAP (Packet Capture) data is a critical resource in cybersecurity investigation
 
 In summary, PCAP data is essential for effective and accurate network forensic investigations, offering unparalleled detail and insight into the network-level activities underpinning modern cyberattacks.
 
-### <mark style="color:blue;">Basic Tcpdump Queries</mark>
+### Basic Tcpdump Queries
 
 The following are basic Tcpdump queries tailored for network forensics investigations involving a `.pcap` file. These queries are structured to extract critical information; however, they are basic queries intended for those with limited experience analysing pcap data.
 
 ***
 
-### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**View Basic Packet Information**</mark>
+### 1. **View Basic Packet Information**
 
 ```bash
 tcpdump -r sample.pcap
@@ -56,7 +56,7 @@ tcpdump -r sample.pcap
 
 ***
 
-### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter by IP Address**</mark>
+### 2. **Filter by IP Address**
 
 ```bash
 tcpdump -r sample.pcap host 192.168.1.10
@@ -66,7 +66,7 @@ tcpdump -r sample.pcap host 192.168.1.10
 
 ***
 
-### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Packets for a Specific Protocol**</mark>
+### 3. **Extract Packets for a Specific Protocol**
 
 *   **TCP**:
 
@@ -87,7 +87,7 @@ tcpdump -r sample.pcap host 192.168.1.10
 
 ***
 
-### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter by Port**</mark>
+### 4. **Filter by Port**
 
 *   **Example: HTTP (Port 80)**:
 
@@ -98,7 +98,7 @@ tcpdump -r sample.pcap host 192.168.1.10
 
 ***
 
-### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Suspicious DNS Queries**</mark>
+### 5. **Identify Suspicious DNS Queries**
 
 ```bash
 tcpdump -r sample.pcap port 53
@@ -108,7 +108,7 @@ tcpdump -r sample.pcap port 53
 
 ***
 
-### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter Traffic Between Two Specific IPs**</mark>
+### 6. **Filter Traffic Between Two Specific IPs**
 
 ```bash
 tcpdump -r sample.pcap src 192.168.1.10 and dst 8.8.8.8
@@ -118,7 +118,7 @@ tcpdump -r sample.pcap src 192.168.1.10 and dst 8.8.8.8
 
 ***
 
-### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Capture Only HTTP GET or POST Requests**</mark>
+### 7. **Capture Only HTTP GET or POST Requests**
 
 ```bash
 tcpdump -r sample.pcap -A -s 0 port 80 | grep "GET\|POST"
@@ -128,7 +128,7 @@ tcpdump -r sample.pcap -A -s 0 port 80 | grep "GET\|POST"
 
 ***
 
-### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Traffic by Time Range**</mark>
+### 8. **Extract Traffic by Time Range**
 
 ```bash
 tcpdump -r sample.pcap -ttt
@@ -138,7 +138,7 @@ tcpdump -r sample.pcap -ttt
 
 ***
 
-### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Extract Credentials or Sensitive Data**</mark>
+### 9. **Extract Credentials or Sensitive Data**
 
 ```bash
 tcpdump -r sample.pcap -A -s 0 port 21
@@ -148,7 +148,7 @@ tcpdump -r sample.pcap -A -s 0 port 21
 
 ***
 
-### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Export Specific Packets to a New PCAP**</mark>
+### 10. **Export Specific Packets to a New PCAP**
 
 ```bash
 tcpdump -r sample.pcap -w filtered.pcap host 192.168.1.10 and port 80
@@ -158,7 +158,7 @@ tcpdump -r sample.pcap -w filtered.pcap host 192.168.1.10 and port 80
 
 ***
 
-### <mark style="color:blue;">11.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Potential Malware Communication**</mark>
+### 11. **Detect Potential Malware Communication**
 
 ```bash
 tcpdump -r sample.pcap port 443 and dst net 185.0.0.0/8
@@ -168,7 +168,7 @@ tcpdump -r sample.pcap port 443 and dst net 185.0.0.0/8
 
 ***
 
-### <mark style="color:blue;">12.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Analyze Large Packet Flows (Possible Data Exfiltration)**</mark>
+### 12. **Analyse Large Packet Flows (Possible Data Exfiltration)**
 
 ```bash
 tcpdump -r sample.pcap greater 1000
@@ -178,7 +178,7 @@ tcpdump -r sample.pcap greater 1000
 
 ***
 
-### <mark style="color:blue;">13.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Filter for SYN or SYN-ACK Packets (Port Scanning)**</mark>
+### 13. **Filter for SYN or SYN-ACK Packets (Port Scanning)**
 
 ```bash
 tcpdump -r sample.pcap 'tcp[tcpflags] & (tcp-syn|tcp-ack) != 0'
@@ -188,7 +188,7 @@ tcpdump -r sample.pcap 'tcp[tcpflags] & (tcp-syn|tcp-ack) != 0'
 
 ***
 
-### <mark style="color:blue;">14.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Potential ARP Spoofing**</mark>
+### 14. **Detect Potential ARP Spoofing**
 
 ```bash
 tcpdump -r sample.pcap arp
@@ -198,7 +198,7 @@ tcpdump -r sample.pcap arp
 
 ***
 
-### <mark style="color:blue;">15.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Analyze Suspicious Command-and-Control (C2) Activity**</mark>
+### 15. **Analyze Suspicious Command-and-Control (C2) Activity**
 
 ```bash
 tcpdump -r sample.pcap dst port 443 or dst port 80

@@ -20,18 +20,18 @@ layout:
 
 # Triage Types and Processes
 
-## <mark style="color:blue;">**Introduction**</mark>
+## **Introduction**
 
 **Incident triage** is the process of evaluating and prioritising cybersecurity incidents based on their severity, impact, and urgency. It is a critical step in the **Incident Response (IR) process**, helping organisations focus resources on the most significant threats and ensure efficient incident handling.
 
-### <mark style="color:blue;">**Key Objectives of Incident Triage:**</mark>
+### **Key Objectives of Incident Triage**
 
 1. **Classification**: Determine whether an event is a true incident (malicious activity) or a benign issue (false positive).
 2. **Prioritisation**: Assign urgency levels based on potential business impact.
 3. **Scoping**: Identify the affected systems, users, and data to understand the scale of the incident.
 4. **Escalation**: Route the incident to the appropriate team or personnel for further analysis and response.
 
-### <mark style="color:blue;">**Steps in Incident Triage:**</mark>
+### **Steps in Incident Triage**
 
 1. **Initial Detection**:
    * Analyse alerts from detection systems (e.g., SIEM, IDS/IPS, EDR).
@@ -64,7 +64,7 @@ layout:
    * Escalate the incident to the appropriate response team.
    * Communicate relevant details and context to ensure an effective response.
 
-### <mark style="color:blue;">**Key Considerations for Effective Triage:**</mark>
+### **Key Considerations for Effective Triage**
 
 * **Use of Triage Frameworks**:
   * Implement structured triage processes such as SANS, NIST, or FIRST guidelines.
@@ -76,7 +76,7 @@ layout:
 * **Training**:
   * Ensure SOC analysts are trained to accurately recognise and classify different types of incidents.
 
-### <mark style="color:blue;">**Benefits of Effective Triage:**</mark>
+### **Benefits of Effective Triage**
 
 1. **Prioritised Response**:
    * Ensures critical incidents are addressed promptly.
@@ -87,11 +87,11 @@ layout:
 4. **Enhanced Visibility**:
    * Provides a clear understanding of incident trends and recognise
 
-## <mark style="color:blue;">**Define an Incident Triage Framework**</mark>
+## **Define an Incident Triage Framework**
 
 A well-structured framework ensures consistency in prioritising incidents. The following is a basic approach to incident triage:
 
-### <mark style="color:blue;">**Incident Classification Categories**</mark>
+### **Incident Classification Categories**
 
 1. **Type of Incident**:
    * Malware Infection
@@ -111,7 +111,7 @@ A well-structured framework ensures consistency in prioritising incidents. The f
    * **Data Sensitivity**: Does it involve regulated or highly confidential data?
    * **Scope**: How widespread is the issue (single endpoint, network, organisation-wide)?
 
-### <mark style="color:blue;">**Triage Workflow**</mark>
+### **Triage Workflow**
 
 1. **Detection**: Receive alerts from monitoring tools (SIEM, IDS/IPS, EDR, etc.).
 2. **Verification**: Confirm alert authenticity to reduce false positives.
@@ -132,7 +132,7 @@ Create a decision matrix to standardise triage decisions. The following is an ex
 
 ***
 
-### <mark style="color:blue;">**Automate Incident Triage**</mark>
+### **Automate Incident Triage**
 
 Use automation tools to speed up repetitive tasks where possible.&#x20;
 
@@ -165,7 +165,7 @@ Use automation tools to speed up repetitive tasks where possible.&#x20;
    * Auto-assign incidents to teams based on severity and type.
    * Notify relevant stakeholders through integrated communication tools (e.g., Slack, Teams).
 
-### <mark style="color:blue;">**Incident Triage Dashboard**</mark>
+### **Incident Triage Dashboard**
 
 Build a dashboard to monitor and manage triaged incidents effectively.
 
@@ -183,7 +183,7 @@ Build a dashboard to monitor and manage triaged incidents effectively.
 * **Elastic SIEM**: Leverage Kibana for visualization.
 * **Microsoft Sentinel**: Create analytic rules and dashboards.
 
-### <mark style="color:blue;">**Triage Playbook Template**</mark>
+### **Triage Playbook Template**
 
 Below is a generic template for structuring triage processes:
 
@@ -207,7 +207,9 @@ Below is a generic template for structuring triage processes:
 
 **Note:** Below are some generic sample **queries** for **Splunk**, **Microsoft Defender**, and **Microsoft Sentinel (KQL)** to detect and investigate common attack techniques. The respective sections will provide more specific and detailed queries and approaches to investigations.
 
-### <mark style="color:blue;">**Splunk Queries**</mark>
+Note: Use the provided incident triage sections for a more detailed guide on processes and tools
+
+### **Splunk Queries**
 
 **1. Phishing Email Detection**
 
@@ -338,7 +340,3 @@ DeviceFileEvents
 | project Timestamp, DeviceName, FileName, InitiatingProcessCommandLine
 ```
 {% endcode %}
-
-
-
-Note: Use the provided incident triage sections for a more detailed guide on processes and tools

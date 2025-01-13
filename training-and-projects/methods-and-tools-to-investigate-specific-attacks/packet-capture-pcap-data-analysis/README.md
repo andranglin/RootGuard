@@ -19,11 +19,11 @@ layout:
 
 # Packet Capture (pcap) Data Analysis
 
-### <mark style="color:blue;">What is Packet Capture (PCAP) Data Analysis?</mark>
+### What is Packet Capture (PCAP) Data Analysis?
 
 **Packet Capture (PCAP) data analysis** is the process of examining raw network traffic data captured in PCAP files to understand the behaviour of network communication. A PCAP file contains detailed records of all packets exchanged on a network during a specific timeframe, including their metadata and payload.
 
-### <mark style="color:blue;">Importance in Network Forensics:</mark>
+### Importance in Network Forensics
 
 PCAP data analysis is critical for:
 
@@ -36,14 +36,14 @@ PCAP data analysis is critical for:
 4. **Network Performance Monitoring**:
    * Diagnosing issues like latency, packet loss, or misconfigured devices.
 
-### <mark style="color:blue;">Key Components Analysed in PCAP:</mark>
+### Key Components Analysed in PCAP
 
 * **IP addresses**: Source and destination of packets.
 * **Ports**: Identify services or applications communicating (e.g., HTTP on port 80).
 * **Protocols**: Types of traffic (e.g., TCP, UDP, ICMP).
 * **Payloads**: Content of the communication, often revealing sensitive data or malicious activity.
 
-### <mark style="color:blue;">Tools for PCAP Analysis:</mark>
+### Tools for PCAP Analysis
 
 * **Wireshark**: Graphical tool for deep-dive analysis.
 * **TShark**: Command-line version of Wireshark for scriptable workflows.
