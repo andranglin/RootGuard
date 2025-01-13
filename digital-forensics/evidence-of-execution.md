@@ -19,7 +19,7 @@ layout:
 
 # Evidence of Execution
 
-## <mark style="color:blue;">Prefetch</mark>
+## Prefetch
 
 **Description:** Prefetch is a performance optimization mechanism to reduce boot and application loading times. The cache manager can use these prefetch files like a cheatsheet to speed up the loading process. It is not enabled by default on Windows servers.
 
@@ -136,7 +136,7 @@ FTK Imager
 4. The last time the application ran
 5. A list of DLLs used by the program
 
-## <mark style="color:blue;">Amcache.hve</mark>
+## Amcache.hve
 
 **Description:** The Amcache.hve is a registry hive file that stores information related to the execution of programs when a user performs certain actions, such as running host-based applications, installing new applications, or running portable applications from external devices. It tracks installed applications, programs executed (or present), drivers loaded, and more. Amcache also tracks the SHA1 hash for executables and drivers.
 
@@ -206,7 +206,7 @@ For live systems:
 3. The size of the binary and its version
 4. The executable hash (SHA1)
 
-## <mark style="color:blue;">ShimCache</mark>
+## ShimCache
 
 **Description:** Microsoft’s Application Compatibility Cache is designed to detect and remediate program compatibility challenges when a program launches. A program might have been built to work on a previous version of Windows. To avoid compatibility issues, Microsoft employs a subsystem allowing a program to invoke properties of different operating system versions. It Allows Windows to track executable files and scripts that may require special compatibility settings to run properly. It is maintained within kernel memory and serialized to the registry upon system shutdown or restart. **Investigator Note:** Windows uses this database to determine if a program needs shimming for compatibility. One of the more interesting and useful aspects of **AppCompatCache** is each executable is checked and added to the registry regardless of whether it needs to be shimmed. From a forensic perspective, we use information from the **AppCompatCache** to track application execution, including name, full path, and last modification time of the executable.
 
@@ -268,7 +268,7 @@ When reviewing the output from the **AppCompatCache**, note the following:
 3. The size of the binary
 4. Finally, whether the file ran on the system (just browsed through Explorer).
 
-## <mark style="color:blue;">Shell Bags</mark>
+## Shell Bags
 
 **Description:** Windows tracks and records user’s view settings and preferences while exploring folders. These view settings (size, view mode, position) of a folder window are stored in ShellBags registry keys. ShellBags keeps track of the view settings of a folder window once the folder has been viewed through Windows Explorer. ShellBags does not only track the view settings of a folder on the local machine but also on removable devices and network folders.s
 
@@ -313,7 +313,7 @@ SQLECmd.exe -d "C:\Temp\" --hunt --csv "c:\temp\out"
 5. Folders accessed from removable devices
 6. Folders accessed from network folders
 
-## <mark style="color:blue;">Jump Lists</mark>
+## Jump Lists
 
 **Description: Windows Jump Lists allow users to quickly access frequently or recently used items via the taskbar.** First introduced in Windows 7, they can identify applications in use and a wealth of metadata about items accessed via those applications.&#x20;
 
@@ -368,7 +368,7 @@ JLECmd.exe -d E:\Users\username\AppData\Microsoft\Windows\Recent\AutomaticDestin
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Recycle Bin</mark>
+## Recycle Bin
 
 **Description** When a user deletes a file, the file is moved into a temporary storage location for deleted files named Recycle Bin. Windows creates two files each time a file is placed in the Recycle Bin $I and $R with a string of six character identifiers generated for each file. $R file is a renamed copy of the “deleted” file. While the $I file replaces the usage INFO2 file as the source of accompanying metadata.&#x20;
 
@@ -413,7 +413,7 @@ RBCmd.exe -d C:\$Recycle.Bin\ -q --csv \Users\username\Desktop\ --csvf username-
 2. The deleted file size
 3. The date and time of deletion
 
-## <mark style="color:blue;">Master File Table ($MFT)</mark>
+## Master File Table ($MFT)
 
 **Description:** A master file table is a database in which information about every file and directory on an NT File System (NTFS) volume is kept. An MFT will have a minimum one record for every file and directory on the NTFS logical volume. Moreover, each record contains attributes that tell the operating system how to handle the file or directory associated with the record.
 
@@ -439,7 +439,7 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --csv "c:\temp\out"
 3. File Type, Size
 4. Date /Time when created, modified and accessed
 
-## <mark style="color:blue;">$J</mark>
+## $J
 
 **Description:** The $J data stream contains the contents of the change journal and includes information such as the date and time of the change, the reason for the change, the MFT entry, the MFT parent entry and others. This information can be useful for an investigation, for example, when the attacker deletes files and directories while he moves inside an organisation to hide his tracks.
 
@@ -467,7 +467,7 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --de 5-5
 2. File Activity Analysis (Open, Close and Update
 3. Evidence of renamed and deleted files
 
-## <mark style="color:blue;">$LogFile</mark>
+## $LogFile
 
 **Description**: This file is stored in the MFT entry number 2; every time there is a change in the NTFS Metadata, a transaction is recorded in the $ LogFile. These transactions are recorded to make it possible to redo or undo file system operations. Why would $LogFile be important for investigation? Because the $LogFile records all operations in the NTFS volume, such as file creation, deletion, renaming, and copy.
 
@@ -488,7 +488,7 @@ NTFS/root/$LogFile (Extracted from FTK)
 2. File Activity Analysis (Open, Close and Update
 3. Evidence of renamed and deleted files
 
-## <mark style="color:blue;">Alternate Data Streams (ADS)</mark>
+## Alternate Data Streams (ADS)
 
 **Destination: Alternate Data Streams (ADS) are file attributes only found on the NTFS file system to store different data streams.** The ability is to fork file data into existing files without affecting their functionality, size, or display to traditional file browsing utilities like dir or Windows Explorer. In addition to the default stream Zone. Identifier,” which is normally used for a file.
 
@@ -513,7 +513,7 @@ cmd.exe (dir / R)
 2. Find hidden hacking toolkit
 3. Find hidden files or information
 
-## <mark style="color:blue;">Link File - Shortcut (.ink)</mark>
+## Link File - Shortcut (.ink)
 
 **Description:** A shortcut file is a small file with information used to access or point to another file. Windows operating system automatically creates LNK files when users open a non-executable file or document. Windows creates these LNK files frequently and their creation is performed in the background without the user's explicit knowledge. Shortcut files are most often referred to as Link files by forensic analysts based on their .lnk file extension.
 
@@ -543,7 +543,7 @@ LECmd.exe -d "C:\Temp" --all
 5. Files opened from a specific removable USB device
 6. Identification of files which no longer exist on a local machine
 
-## <mark style="color:blue;">Shortcut (LNK) Files</mark>
+## Shortcut (LNK) Files
 
 **Description:** Windows uses the folder _C:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Recent_ to store LNK files associated with files a user has recently accessed, typically by double-clicking on it in a Windows Explorer window.
 
@@ -608,7 +608,7 @@ LECmd.exe -d "c:\users\%username%\AppData\Roaming\Microsoft\Windows\Recent" --al
 ```
 {% endcode %}
 
-## <mark style="color:blue;">UserAssist</mark>
+## UserAssist
 
 **Description:** UserAssist tracks every _GUI-based_ program launched are recorded in this registry key. This key contains two GUID subkeys (_CEBFF5CD_ Executable File Execution, _F4E57C4B_ Shortcut File Execution). Each subkey maintains a list of system objects such as program, shortcut, and control panel applets a user has accessed. Registry values under these subkeys are weakly encrypted using the ROT-13 algorithm, which substitutes a character with another character 13 positions away from it in the ASCII table.
 
@@ -663,7 +663,7 @@ RegistryExplorer.exe
 3. Last executed time
 4. Run count
 
-## <mark style="color:blue;">Last Visited Most Recently Used (MRU)</mark>
+## Last Visited Most Recently Used (MRU)
 
 **Description:** Tracks applications in use by the user and the directory location for the last file accessed by the application.&#x20;
 
@@ -704,7 +704,7 @@ NTUSER.DAT\ Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 
 * Regedit or other registry viewer application
 
-## <mark style="color:blue;">AutoStart Extension Points (ASEP)</mark>
+## AutoStart Extension Points (ASEP)
 
 **Description:** Windows has a lot of AutoStart Extension Points (ASEP), making it easier for the malware to persist so that it can continue doing its work in the background. What is Persistence? Persistence refers to the malware’s ability to remain active and running on a compromised system, even after the system reboots. This is the key feature of malware that allows it to continue to cause harm or exploit the system even after the initial infection.
 
@@ -784,7 +784,5 @@ Analyse output using Timeline Explorer:
 * Look for Windows services with suspicious image paths
 * Perform further data reduction by looking for service image paths, _not_ in the System32 folder
 * Sort by registry LastWrite times to focus on a specific period of attacker activity. Reference: [https://www.sans.org/blog/finding-registry-malware-persistence-with-recmd/](https://www.sans.org/blog/finding-registry-malware-persistence-with-recmd/)
-
-
 
 {% file src="../.gitbook/assets/SANS DFIR Windows Artifact Analysis Evidence Of Execution.pdf" %}

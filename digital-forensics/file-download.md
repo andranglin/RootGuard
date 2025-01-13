@@ -15,7 +15,7 @@ layout:
 
 # File Download
 
-## <mark style="color:blue;">Open/Save Most Recently Used (MRU)</mark>
+### Open/Save Most Recently Used (MRU)
 
 **Description:** The OpenSave MRU data is stored in a User’s NTUSER.DAT registry hive. It’s in two different locations depending on the version of Windows. They both have the same structure, though, which is sub-keys based on the file extension, such as “docx”, “txt”, or “zip”. This key tracks files opened or saved within a Windows shell dialog box. This big data set includes Microsoft Office applications, web browsers, chat clients, and the most commonly used applications.&#x20;
 
@@ -38,7 +38,7 @@ A “MRUListEx” value contains an ordered list of counters (i.e. 0 to 19) repr
 * The “\*” key – This subkey tracks the most recent files of any extension input in an OpenSave dialog
 * .??? (Three-letter extension) – This subkey stores file info from the OpenSave dialog by specific extension
 
-## <mark style="color:blue;">Recent Files</mark>
+### Recent Files
 
 **Description:** The Recents Folder artifact contains files and folders that were recently opened or saved. It is closely related to the Windows MRU and JumpList artifacts. The registry key tracks the last files and folders opened. How is a Windows Recents Folder Artifact Useful in DFIR? It is useful to a DFIR investigator because it can show what files the user was recently focused on. In an intrusion case with an account takeover, this list could show what files the attacker was interested in. These could be documents with intellectual property or configuration files for their attack tools.
 
@@ -62,7 +62,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\Op
 * .??? – These subkeys store the last 20 files opened by the user of each extension type. MRU list tracks the temporal order in which each file was opened. The most recently used (MRU) item is associated with the key's last write time, providing one timestamp of file opening for each file extension type.
 * Folder – This subkey stores the last 30 folders opened by the user. The most recently used (MRU) item in this key is associated with the key's last write time, providing the time of opening for that folder.
 
-## <mark style="color:blue;">Internet Explorer/Edge File</mark>
+### Internet Explorer/Edge File
 
 **Description: Internet Explorer History databases have long-held information on local and remote file access (via network shares), giving us an excellent means for determining files accessed on the system per user.** Information can be present even on Win11+ systems missing the Internet Explorer application.&#x20;
 
@@ -103,7 +103,7 @@ C:\Users\user_name\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat
 * Entries recorded as: \*file:C:/directory/filename.ext
 * This does not mean the file was opened in a browser
 
-## <mark style="color:blue;">History and Download History</mark>
+### History and Download History
 
 **Description:** History and Download History records websites visited by date and time. **Location** Firefox
 
@@ -126,7 +126,7 @@ Chrome/Edge
 * Most browsers also record the number of times visited (frequency)
 * Look for multiple profiles in Chromium browsers, including “Default",  “Profile1", etc.
 
-## <mark style="color:blue;">Browser Downloads</mark>
+### Browser Downloads
 
 **Description:** Modern browsers include built-in download manager applications capable of keeping a history of every file downloaded by the user. This browser artifact can provide excellent information about websites visited and corresponding items downloaded.&#x20;
 
@@ -162,7 +162,7 @@ Chrome/Edge
 * The file system saves the location
 * State information, including success and failure
 
-## <mark style="color:blue;">Email Attachments</mark>
+### Email Attachments
 
 **Description:** The e-mail industry estimates that 80% of e-mail data is stored via attachments. E-mail standards only allow text. Attachments must be encoded in MIME / base64 format.&#x20;
 

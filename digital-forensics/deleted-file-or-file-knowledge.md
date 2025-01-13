@@ -20,7 +20,7 @@ layout:
 
 # Deleted File or File Knowledge
 
-### <mark style="color:blue;">Thumbs.db</mark>
+### Thumbs.db
 
 **Description: Hidden file in the directory where images on the machine exist stored in smaller thumbnail graphics.** Thumbs.db catalogues pictures in a folder and stores a copy of the thumbnail even if the pictures were deleted.
 
@@ -37,7 +37,7 @@ Includes:
 * Original Filename (XP Only)
 * Most relevant for XP systems, but Thumbs.db files can be created on more modern OS versions in unusual circumstances, such as when folders are viewed via UNC paths.
 
-## <mark style="color:blue;">Thumbcache</mark>
+### Thumbcache
 
 **Description:** Thumbnails of pictures, documents, and folders exist in a set of databases called the thumbcache. It is maintained for each user based on the thumbnail sizes viewed (e.g., small, medium, large, and extra large). It can catalog the previous contents of a folder even upon file deletion. (Available in Windows Vista+)&#x20;
 
@@ -60,7 +60,7 @@ thumbcache_viewer.exe
 thumbs_viewer.exe
 ```
 
-## <mark style="color:blue;">Recycle Bin</mark>
+### Recycle Bin
 
 **Description:** When a user deletes a file, the file is moved into a temporary storage location for deleted files named Recycle Bin. Windows creates two files each time a file is placed in the Recycle Bin $I and $R with a string six-character identifier generated for each file. $R file is a renamed copy of the “deleted” file. While the $I file replaces the usage INFO2 file as the source of accompanying metadata.&#x20;
 
@@ -100,7 +100,7 @@ RBCmd.exe -d C:\$Recycle.Bin\ -q --csv \Users\angliad\Desktop\ --csvf username-r
 2. The deleted file size
 3. The date and time of deletion
 
-## <mark style="color:blue;">Internet Explorer File</mark>
+### Internet Explorer File
 
 **Description: Internet Explorer History databases have long-held information on local and remote (via network shares) file access, giving us an excellent means for determining files accessed on the system per user.** Information can be present even on Win11+ systems missing the Internet Explorer application.&#x20;
 
@@ -120,7 +120,7 @@ IE10-11 and Win10+: %USERPROFILE%\AppData\Local\Microsoft\Windows\WebCache\WebCa
 
 * It does not mean the file was opened in a browser
 
-## <mark style="color:blue;">WordWheelQuery</mark>
+### WordWheelQuery
 
 **Description:** WordWheelQuery is a registry key that stores keywords searched from the folder search menu bar. Keywords are added in Unicode and listed in the temporal order in an MRU list. It maintains an ordered list of terms in the File Explorer search dialog.&#x20;
 
@@ -158,7 +158,7 @@ RegistryExplorer.exe
 2. Last folder search conducted (Last Write Time
 3. Keywords searched
 
-## <mark style="color:blue;">Last Visited Most Recently Used (MRU)</mark>
+### Last Visited Most Recently Used (MRU)
 
 **Description:** Tracks applications in use by the user and the directory location for the last file accessed by the application.&#x20;
 
@@ -205,7 +205,7 @@ NTUSER.DAT\ Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 
 * Regedit or other registry viewer applications.
 
-## <mark style="color:blue;">Windows Search Database</mark>
+### Windows Search Database
 
 **Description:** Windows Search indexes more than 900 file types, including email and file metadata, allowing users to search based on keywords.&#x20;
 

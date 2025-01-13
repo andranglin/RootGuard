@@ -15,7 +15,7 @@ layout:
 
 # File and Folder Opening
 
-## <mark style="color:blue;">Open/Save Most Recently Used (MRU)</mark>
+## Open/Save Most Recently Used (MRU)
 
 **Description:** The OpenSave MRU data is stored in a User’s NTUSER.DAT registry hive. It’s in two different locations depending on the version of Windows. They both have the same structure, though, which is sub-keys based on the file extension, such as “docx”, “txt”, or “zip”. This key tracks files opened or saved within a Windows shell dialog box. This big data set includes Microsoft Office applications, web browsers, chat clients, and the most commonly used applications.&#x20;
 
@@ -38,7 +38,7 @@ A “MRUListEx” value contains an ordered list of counters (i.e. 0 to 19) repr
 * The “\*” key – This subkey tracks the most recent files of any extension input in an OpenSave dialog
 * .??? (Three-letter extension) – This subkey stores file info from the OpenSave dialog by specific extension
 
-## <mark style="color:blue;">Recent Files</mark>
+## Recent Files
 
 **Description:** The Recents Folder artifact contains files and folders that were recently opened or saved. It is closely related to the Windows MRU and JumpList artifacts. The registry key tracks the last files and folders opened. How is a Windows Recents Folder Artifact Useful in DFIR? It is useful to a DFIR investigator because it can show what files the user was recently focused on. In an intrusion case with an account takeover, this list could show what files the attacker was interested in. These could be documents with intellectual property or configuration files for their attack tools.
 
@@ -62,7 +62,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\Op
 * .??? – These subkeys store the last 20 files opened by the user of each extension type. MRU list tracks the temporal order in which each file was opened. The most recently used (MRU) item is associated with the last write time of the key, providing one timestamp of file opening for each file extension type.
 * Folder – This subkey stores the last 30 folders opened by the user. The most recently used (MRU) item in this key is associated with the last write time of the key, providing the time of opening for that folder.
 
-## <mark style="color:blue;">MS Word Reading Locations</mark>
+## MS Word Reading Locations
 
 **Description:** Beginning with Word 2013, the user's last known position within a Word document is recorded.&#x20;
 
@@ -73,14 +73,14 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\Op
 * The last closed time is also tracked along with the last position within the file.
 * The last session duration can be determined with the last opened date in the Office File MRU key.
 
-## <mark style="color:blue;">Last Visited Most Recently Used (MRU)</mark>
+## Last Visited Most Recently Used (MRU)
 
 **Description:** Tracks applications in use by the user and the directory location for the last file accessed by the application.&#x20;
 
 **Location:**
 
 {% code overflow="wrap" %}
-```cs
+```powershell
 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
 Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\
 ```
@@ -116,7 +116,7 @@ NTUSER.DAT\ Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 
 * Regedit or other registry viewer applications.
 
-## <mark style="color:blue;">Shortcut (LNK) Files</mark>
+## Shortcut (LNK) Files
 
 **Description:** Windows uses the folder _C:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Recent_ to store LNK files associated with files a user has recently accessed, typically by double-clicking on it in a Windows Explorer window.
 
@@ -179,7 +179,7 @@ LECmd.exe -d "c:\users\%username%\AppData\Roaming\Microsoft\Windows\Recent" --al
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Office Recent Files</mark>
+## Office Recent Files
 
 **Description: MS Office programs track their own recent file list to make it easier for users to access previously opened files.**&#x20;
 
@@ -195,7 +195,7 @@ LECmd.exe -d "c:\users\%username%\AppData\Roaming\Microsoft\Windows\Recent" --al
 * Similar to the Recent Files registry key, this tracks the last files opened by each MS Office application
 * Unlike the Recent Files registry key, full path information is recorded along with the last opened time for each entry
 
-## <mark style="color:blue;">Office Trust Records</mark>
+## Office Trust Records
 
 **Description:** Records trust relationships afforded to documents by a user when presented with a security warning. This is stored so the user is only required to grant permission the first time the document is opened.&#x20;
 
@@ -232,7 +232,7 @@ reg query "HKCU\Software\Microsoft\Office\16.0\Word\Security\Trusted Documents\T
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Office OAlerts</mark>
+## Office OAlerts
 
 **Description:** MS Office programs produce alerts for the user when they attempt actions such as closing a file without saving it first.&#x20;
 
@@ -257,7 +257,7 @@ EvtxECmd – Windows Event Log Parser
 
 Note: Use in combination with EventLogs2Process Script
 
-## <mark style="color:blue;">Internet Explorer/Edge file</mark>
+## Internet Explorer/Edge file
 
 **Description: Internet Explorer History databases have long-held information on local and remote file access (via network shares), giving us an excellent means for determining files accessed on the system per user.** Information can be present even on Win11+ systems missing the Internet Explorer application. **Location** The Edge cached files stored in the following directory:
 
@@ -294,7 +294,7 @@ C:\Users\user_name\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat
 * Entries recorded as: \*file:C:/directory/filename.ext
 * This does not mean the file was opened in a browser
 
-## <mark style="color:blue;">Deleted Items and File Existence</mark>
+## Deleted Items and File Existence
 
 ### **Thumbs.db**
 
@@ -307,7 +307,7 @@ C:\Users\user_name\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat
 * Original Filename (XP Only)
 * Most relevant for XP systems, but Thumbs.db files can be created on more modern OS versions in unusual circumstances, such as when folders are viewed via UNC paths.
 
-## <mark style="color:blue;">Windows Search Database</mark>
+## Windows Search Database
 
 **Description:** Windows Search indexes more than 900 file types, including email and file metadata, allowing users to search based on keywords. **Location**
 
@@ -322,7 +322,7 @@ C:\ProgramData\Microsoft\Search\Data\Applications\Windows\GatherLogs\SystemIndex
 * Gather logs contain a candidate list for files to be indexed over each 24 hours
 * Extensive file metadata and even partial content can be present
 
-## <mark style="color:blue;">Thumbcache</mark>
+## Thumbcache
 
 **Description:** Thumbnails of pictures, documents, and folders exist in a set of databases called the thumbcache. It is maintained for each user based on the thumbnail sizes viewed (e.g., small, medium, large, and extra large). It can catalogue the previous contents of a folder even upon file deletion. (Available in Windows Vista+)&#x20;
 
@@ -400,7 +400,7 @@ Entries are recorded as: file:///C:/<directory>/<filename>.<ext>
 
 * It does not mean the file was opened in a browser
 
-## <mark style="color:blue;">WordWheelQuery</mark>
+## WordWheelQuery
 
 **Description:** WordWheelQuery is a registry key that stores keywords searched from the folder search menu bar. Keywords are added in Unicode and listed in the temporal order in an MRU list. It maintains an ordered list of terms in the File Explorer search dialog.&#x20;
 

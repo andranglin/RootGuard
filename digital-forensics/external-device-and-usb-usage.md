@@ -42,7 +42,7 @@ SYSTEM\CurrentControlSet\Enum\HID
 * Some older data may be present in SYSTEM\Setup\Upgrade\PnP\CurrentControlSet\Control\DeviceMigration
 * HID key tracks peripherals connected to the system
 
-## <mark style="color:blue;">Drive Letter and Volume Name</mark>
+### Drive Letter and Volume Name
 
 **Description:** Discover a device's last drive letter and volume name when plugged into the system.&#x20;
 
@@ -60,7 +60,7 @@ SOFTWARE\Microsoft\Windows Search\VolumeInfoCache
 
 * Only the last USB device mapped to a specific drive letter can be identified. Historical records are not available.
 
-## <mark style="color:blue;">User Information</mark>
+### User Information
 
 **Description:** Identify user accounts tied to a unique USB Device.&#x20;
 
@@ -75,7 +75,7 @@ NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
 
 If a Volume GUID match is made within MountPoints2, we can conclude the associated user profile was logged in while that device was present.
 
-## <mark style="color:blue;">Connection Timestamps (First & Last Times)</mark>
+### Connection Timestamps (First & Last Times)
 
 **Description:** Connection timestamps determine the temporal usage of specific USB devices connected to a Windows Machine.&#x20;
 
@@ -119,7 +119,7 @@ Connection Times
 * Event ID 1006 is recorded for each device connect/disconnect
 * Log cleared during major OS updates
 
-## <mark style="color:blue;">Volume Serial Number (VSN)</mark>
+### Volume Serial Number (VSN)
 
 **Description:** Discover the VSN assigned to the file system partition on the USB. (NOTE: This is not the USB Unique Serial Number, which is hardcoded into the device firmware, nor the serial number on any external labels attached.)&#x20;
 
@@ -142,7 +142,7 @@ SOFTWARE\Microsoft\WindowsNT\CurrentVersion\EMDMgmt
 
 &#x20;The VSN and device Volume Name can help correlate devices to specific files via shell items in LNK files and registry locations.
 
-### <mark style="color:blue;">Operating System Version</mark>
+### Operating System Version
 
 **Description:** This determines the operating system type, version, build number and installation dates for the current installation and previous updates.&#x20;
 
@@ -170,7 +170,7 @@ Source OS keys are created for each historical OS update:
 * InstallTime = 64-bit FILETIME format (Win10+)
 * InstallDate = Unix 32-bit epoch format (both times should be equivalent)
 
-## <mark style="color:blue;">Computer Name</mark>
+### Computer Name
 
 **Description:** This stores the hostname of the system in the ComputerName value.&#x20;
 
@@ -184,7 +184,7 @@ SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName
 
 The hostname can facilitate the correlation of log data and other artefacts.
 
-## <mark style="color:blue;">System Boot & Autostart Programs</mark>
+### System Boot & Autostart Programs
 
 **Description**: System Boot and Autostart programs will run on system boot or at user login.&#x20;
 
@@ -206,7 +206,7 @@ If the Start value is set to 0x02, then the service application will start at bo
 * It is useful for finding malware and auditing installed software
 * This is not an exhaustive list of autorun locations
 
-## <mark style="color:blue;">System Last Shutdown Time</mark>
+### System Last Shutdown Time
 
 **Description:** It is the last time the system was shutdown. On Windows XP, the number of shutdowns is also recorded.&#x20;
 
@@ -222,7 +222,7 @@ SYSTEM\CurrentControlSet\Control\Watchdog\Display (Shutdown Count – WinXP only
 * Determining the last shutdown time can help detect user behaviour and system anomalies
 * Windows 64-bit FILETIME format
 
-## <mark style="color:blue;">Shortcut (LNK) Files</mark>
+### Shortcut (LNK) Files
 
 **Description:** Windows uses the folder _C:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Recent_ to store LNK files associated with files a user has recently accessed, typically by double-clicking on it in a Windows Explorer window.
 
@@ -296,7 +296,7 @@ LECmd.exe -d "c:\users\%username%\AppData\Roaming\Microsoft\Windows\Recent" --al
 5. Files opened from a specific removable USB device
 6. Identification of files which no longer exist on a local machine
 
-## <mark style="color:blue;">Event Logs</mark>
+### Event Logs
 
 **Description:** Removable device activity can be audited in multiple Windows event logs. **Location**
 
@@ -331,7 +331,7 @@ LECmd.exe -d "c:\users\%username%\AppData\Roaming\Microsoft\Windows\Recent" --al
 
 * Event ID 1006 is recorded for each device connect/disconnect
 
-## <mark style="color:blue;">OneDrive</mark>
+### OneDrive
 
 **Description:** OneDrive is installed by default on Windows 8+ systems, although it must be enabled by a user authenticating to their Microsoft Cloud account before use.&#x20;
 

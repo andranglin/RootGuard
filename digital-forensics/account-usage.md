@@ -15,7 +15,7 @@ layout:
 
 # Account Usage
 
-## <mark style="color:blue;">Authentication Events</mark>
+## Authentication Events
 
 **Description:** Authentication Events identify where authentication of credentials occurred. They can be particularly useful when tracking local vs. domain account usage.&#x20;
 
@@ -37,7 +37,7 @@ layout:
 * 4769: Service Ticket requested (access to server resource)
 * 4771: Pre-authentication failed (failed logon)
 
-## <mark style="color:blue;">Logon Event Types</mark>
+## Logon Event Types
 
 **Description:** Logon Events provide very specific information regarding the nature of account authorizations on a system. In addition to date, time, username, hostname, and success/failure status of a logon, Logon Events also enable us to determine by exactly what means a logon was attempted.&#x20;
 
@@ -49,7 +49,7 @@ layout:
 
 **Interpretation:** Event ID 4624 **Logon Type Explanation** 2 Logon via console 3 Network Logon 4 Batch Logon 5 Windows Service Logon 7 Credentials used to unlock screen; **RDP session reconnect** 8 Network logon sending credentials (cleartext) 9 Different credentials used than logged on user 10 Remote interactive logon (RDP) 11 Cached credentials used to logon 12 Cached remote interactive (similar to Type 10) 13 Cached unlock (similar to Type 7)
 
-## <mark style="color:blue;">User Accounts</mark>
+## User Accounts
 
 **Description:** Identify local and domain accounts with interactive logins to the system.&#x20;
 
@@ -64,7 +64,7 @@ SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList
 * Useful for mapping SID to user account name
 * Subkeys are named for user SIDs and contain a ProfileImagePath indicating the user’s profile path
 
-## <mark style="color:blue;">Remote Desktop Protocol (RDP) Usage</mark>
+## Remote Desktop Protocol (RDP) Usage
 
 **Description:** Track RDP logons and session reconnections to target machines.&#x20;
 
@@ -85,7 +85,7 @@ SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList
 * Event log provides the hostname and IP address of the remote machine making the connection.
 * Multiple dedicated RDP/Terminal Services logs are also available on modern Windows versions
 
-## <mark style="color:blue;">RDP Bitmap Cache (BMC)</mark>
+## RDP Bitmap Cache (BMC)
 
 **Description:** RDP is a known protocol developed by Microsoft that allows users to connect to other Windows operating systems with GUI. RDP Bitmap Cache was implemented to enhance the RDP user experience and reduce the data throughput on the network. It stores bitmap-sized images of RDP sessions into a file so that the session reuses these images and reduces the potential lag.
 
@@ -107,7 +107,7 @@ bmc-tools .py
 1. RDP session photos, screenshots, images, captures
 2. RDP activity evidence, in the case of the target system,  the artifact is collected from the client side
 
-## <mark style="color:blue;">Successful/Failed Logons</mark>
+## Successful/Failed Logons
 
 **Description:** Profile account creation, attempted logons, and account usage.&#x20;
 
@@ -126,7 +126,7 @@ bmc-tools .py
 * 4672 – Account logon with superuser rights (Administrator)
 * 4720 – An account was created
 
-## <mark style="color:blue;">Last Login and Password Change</mark>
+## Last Login and Password Change
 
 **Description:** The SAM registry hive maintains a list of local accounts and associated configuration information and it Lists the last time the password of a specific local user has been changed.&#x20;
 
@@ -143,7 +143,7 @@ SAM\Domains\Account\Users
 * Last login time, last password change, login counts, group membership, account creation time and more can be determined
 * Only the last logon and password change time will be stored in the registry key
 
-## <mark style="color:blue;">NTUSER.DAT</mark>
+## NTUSER.DAT
 
 **Description:** It’s a hidden file in every user profile and contains the settings and preferences for each user. Windows accomplishes this by first storing that information in the Registry in the _HKEY\_CURRENT\_USER_ hive. Then, when the user signs out or shuts down, Windows saves that information to the NTUSER.DAT file. The next time the user sign in, Windows will load _NTUSER.DAT_ to memory, and all preferences load to the Registry again.
 
@@ -169,7 +169,7 @@ RECmd.exe --f "D:\temp\UsrClass 1.dat" --RegEx --sv "(App|Display)Name"
 2. Forensic data user activity, setting via registry hive
 3. Forensic artifacts (Recent Docs, Typed URLs, UserAssist, Recent Apps, Run and Run Once, ComDig32 Subkey, Typed Paths Subkey, Microsoft Office applications and the MRU subkey, RunMRU, Windows search function and the WordWheelQuery
 
-## <mark style="color:blue;">Security Account Manager (SAM)</mark>
+## Security Account Manager (SAM)
 
 **Description** Security Account Manager (SAM) is a database file in Windows that stores users' passwords. It can be used to authenticate local and remote users. SAM uses cryptographic measures to prevent unauthenticated users from accessing the system. The user passwords are stored in a hashed format in a registry hive, either as an LM or NTLM hash.
 
@@ -191,7 +191,7 @@ RegRipper (rr. exe), samparser.py
 4. User’s security settings
 5. Login count
 
-## <mark style="color:blue;">User Access Logging (UAL)</mark>
+## User Access Logging (UAL)
 
 **Description:** UAL is a feature included by default in _Server editions of Microsoft Windows_ only, starting with Server 2012. Microsoft defines UAL as a feature that logs unique client access requests, in the form of IP addresses and usernames, of installed products and roles on the local server.
 
@@ -218,7 +218,7 @@ SumECmd.exe -d "C:\Temp\sum" --csv "C:\Temp\"
 5. Total Accesses
 6. Type of authentication access
 
-### <mark style="color:blue;">Cloud Account Details</mark>
+### Cloud Account Details
 
 **Description:** Microsoft Cloud Accounts stores account information in the SAM hive, including the email address associated with the account.&#x20;
 
@@ -233,7 +233,7 @@ SAM\Domains\Account\Users\<RID>\InternetUserName
 * InternetUserName value contains the email address tied to the account
 * The presence of this value identifies the account as a Microsoft cloud account
 
-## <mark style="color:blue;">Last Login and Password Change</mark>
+## Last Login and Password Change
 
 **Description:** The SAM registry hive maintains a list of local accounts and associated configuration information.&#x20;
 
@@ -243,7 +243,7 @@ SAM\Domains\Account\Users\<RID>\InternetUserName
 * Accounts listed by their relative identifiers (RID)
 * Last login time, last password change, login counts, group membership, account creation time and more can be determined.
 
-### <mark style="color:blue;">Service Events</mark>
+### Service Events
 
 **Description:** Analyse logs for suspicious Windows service creation, persistence, and services that started or stopped around the time of a suspected compromise. Service events also record account information.&#x20;
 

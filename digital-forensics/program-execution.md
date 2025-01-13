@@ -15,7 +15,7 @@ layout:
 
 # Program Execution
 
-## <mark style="color:blue;">Prefetch</mark>
+## Prefetch
 
 **Description** Prefetch is a performance optimization mechanism to reduce boot and application loading times. The cache manager can use these prefetch files like a cheatsheet to speed up the loading process. It is not enabled by default on Windows servers. Prefetch provides evidence of the execution of applications, embedded within each prefetch file is the total number of times an application has been executed, the original path of execution, and the last time of execution. It increases the performance of a system by pre-loading code pages of commonly used applications. The cache monitors "helper files", recording them in a .pf file.
 
@@ -162,7 +162,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Services\dam\UserSettings" /s /v *.exe
 3. The absolute path to the executable
 4. The last time the application ran
 
-## <mark style="color:blue;">ShimCache</mark>
+## ShimCache
 
 **Description** Microsoft’s Application Compatibility Cache is designed to detect and remediate program compatibility challenges when a program launches. A program might have been built to work on a previous version of Windows. To avoid compatibility issues, Microsoft employs a subsystem allowing a program to invoke properties of different operating system versions. It Allows Windows to track executable files and scripts that may require special compatibility settings to run properly. It is maintained within kernel memory and serialized to the registry upon system shutdown or restart. **Investigator**&#x20;
 
@@ -226,7 +226,7 @@ When reviewing the output from the **AppCompatCache**, note the following:
 3. The size of the binary
 4. Finally, whether the file ran on the system (just browsed through Explorer.
 
-## <mark style="color:blue;">Amcache.hve</mark>
+## Amcache.hve
 
 **Description** The Amcache.hve is a registry hive file that stores information related to the execution of programs when a user performs certain actions, such as running host-based applications, installing new applications, or running portable applications from external devices. It tracks installed applications, programs executed (or present), drivers loaded, and more. Amcache also tracks the SHA1 hash for executables and drivers.
 
@@ -298,7 +298,7 @@ For live systems:
 3. The size of the binary and its version
 4. The executable hash (SHA1)
 
-## <mark style="color:blue;">Jump Lists</mark>
+## Jump Lists
 
 **Description Jump Lists allow the user to quickly access frequently or recently used items via the taskbar.** In investigation, it can be used to identify applications in use and metadata about items accessed via those applications. It provides the user with a graphical interface associated with each installed application and lists files previously accessed by it.&#x20;
 
@@ -345,7 +345,7 @@ JLECmd.exe -d C:\Users\Donald\AppData\Microsoft\Windows\Recent\AutomaticDestinat
 3. History of attempted lateral movement by checking Remote Desktop jump lists, as they provide a list of recent connections
 4. Destination IPs and ports via RDP
 
-## <mark style="color:blue;">UserAssist</mark>
+## UserAssist
 
 **Description:** UserAssist tracks every _GUI-based_ program launched are recorded in this registry key. This key contains two GUID subkeys (_CEBFF5CD_ Executable File Execution, _F4E57C4B_ Shortcut File Execution). Each subkey maintains a list of system objects such as program, shortcut, and control panel applets a user has accessed. Registry values under these subkeys are weakly encrypted using the ROT-13 algorithm, which substitutes a character with another character 13 positions away from it in the ASCII table.
 
@@ -400,7 +400,7 @@ RegistryExplorer.exe
 3. Last executed time
 4. Run count
 
-## <mark style="color:blue;">Windows 10 Timeline</mark>
+## Windows 10 Timeline
 
 **Description:** Windows 10 Timeline info covering user activities is stored in the **ActivitiesCache. db** file with the following path. The **ActivitiesCache. db** ’file is an SQLite database. **StartTime** means the moment when an application was launched. **EndTime** means the moment when an application ceases to be used. **ExpirationTime** is when the storage duration for a record covering a user activity expires in the database. **LastModifiedTime** is when a record covering a PC user activity has been last modified (if such an activity has been repeated several times).
 
@@ -447,7 +447,7 @@ WxTCmd.exe -f C:\Users\sansdfir\AppData\Local\ConnectedDevicesPlatform\L.SANSDFI
 2. Information about an application and file
 3. Date /Time when started, created, modified and accessed
 
-## <mark style="color:blue;">System Resource Usage Monitor  (SRUM)</mark>
+## System Resource Usage Monitor  (SRUM)
 
 **Description:** SRUM is considered a gold mine of forensic information, as it contains all the activities on a system. SRUM tracks and records program executions, power consumption, network activities, and more information that can be retrieved even if the source has been deleted. The info enables the examiner to gain insights into a system's previous activities and events. SRUM records 30 to 60 days of historical system performance, including applications run, user accounts responsible, network connections, and bytes sent/received per application per hour.
 
@@ -486,7 +486,7 @@ SrumECmd.exe -d \Users\username\Desktop\sru --csv \Users\username\Desktop\Output
 3. Network activities
 4. Bytes Received & Sent
 
-## <mark style="color:blue;">Last Visited Most Recently Used (MRU)</mark>
+## Last Visited Most Recently Used (MRU)
 
 **Description:** Tracks applications in use by the user and the directory location for the last file accessed by the application.&#x20;
 
@@ -529,7 +529,7 @@ NTUSER.DAT\ Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 
 * Regedit or other registry viewer applications.
 
-## <mark style="color:blue;">Background Activity Moderator (BAM)/Desktop Activity Moderator (DAM)</mark>
+## Background Activity Moderator (BAM)/Desktop Activity Moderator (DAM)
 
 **Description:** BAM is a Windows service that controls activity of background applications. The BAM entries are updated when _Windows boots_. Also, there is dam\UserSettings Desktop Activity Monitor (DAM), which stores similar information to BAM.
 
@@ -568,7 +568,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Services\dam\UserSettings" /s /v *.exe
 3. The absolute path to the executable
 4. The last time the application ran
 
-## <mark style="color:blue;">Commands Executed in the Run Dialog</mark>
+## Commands Executed in the Run Dialog
 
 **Description: A history of commands typed into the Run dialogue box is stored for each user.**&#x20;
 
@@ -586,7 +586,7 @@ It is an MRU key with temporal order via the MRUList key.
 
 * Regedit or other registry viewer application
 
-## <mark style="color:blue;">**PowerShell**</mark>
+## **PowerShell**
 
 **Description** PowerShell is a cross-platform task automation solution comprising a command line shell, a scripting language, and a configuration management framework. PowerShell in Windows 10 saves the last 4096 commands stored in a plain text file located in each user's profile.
 
@@ -608,7 +608,7 @@ notepad.exe
 
 1. Evidence of PowerShell commands executed by the user
 
-## <mark style="color:blue;">Master File Table ($MFT)</mark>
+## Master File Table ($MFT)
 
 **Description:** A master file table is a database containing information about every file and directory on an NT File System (NTFS) volume. An MFT will have at least one record for every file and directory on the NTFS logical volume. Moreover, each record contains attributes that tell the operating system how to handle the file or directory associated with the record.
 
@@ -634,7 +634,7 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --csv "c:\temp\out"
 3. File Type, Size
 4. Date /Time when created, modified and accessed
 
-## <mark style="color:blue;">$J</mark>
+## $J
 
 **Description** The $J data stream contains the contents of the change journal and includes information such as the date and time of the change, the reason for the change, the MFT entry, the MFT parent entry and others. This information can be useful for an investigation, for example, in a scenario where the attacker is deleting files and directories while he moves inside an organization in order to hide his tracks.
 
@@ -662,7 +662,7 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --de 5-5
 2. File Activity Analysis (Open, Close and Update
 3. Evidence of renamed and deleted files
 
-## <mark style="color:blue;">$LogFile</mark>
+## $LogFile
 
 **Description:** This file is stored in the MFT entry number 2, and every time there is a change in the NTFS Metadata, a transaction is recorded in the $ LogFile. These transactions are recorded to make it possible to redo or undo file system operations. Why would $LogFile be important for investigation? Because the $LogFile records all operations in the NTFS volume, such as file creation, deletion, renaming, and copy.
 
@@ -682,7 +682,7 @@ NTFS\_Log\_Tracker.exe , LogFileParser .exe
 2. File Activity Analysis (Open, Close and Update
 3. Evidence of renamed and deleted files
 
-## <mark style="color:blue;">Alternate Data Streams (ADS)</mark>
+## Alternate Data Streams (ADS)
 
 **Destination: Alternate Data Streams (ADS) are file attributes only found on the NTFS file system to store different streams of data.** The ability is to fork file data into existing files without affecting their functionality, size, or display to traditional file browsing utilities like dir or Windows Explorer. In addition to the default stream Zone. Identifier, which is normally used for a file.
 

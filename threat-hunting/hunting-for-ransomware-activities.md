@@ -15,11 +15,11 @@ layout:
 
 # Hunting For Ransomware Activities
 
-## <mark style="color:blue;">Introduction</mark>
+## Introduction
 
 Ransomware remains one of the most pervasive and damaging cyber threats faced by organisations today. It involves malicious software designed to encrypt data and demand ransom payments for its release. Hunting for ransomware activities is a proactive approach to detect and mitigate ransomware before it can execute its payload. This process leverages threat intelligence, behavioural analytics, and advanced tools to uncover the early signs of ransomware infection, such as unusual file access patterns, lateral movement, and unauthorised data exfiltration. By adopting ransomware-hunting practices, organisations can significantly reduce their exposure to this growing threat and enhance their overall cybersecurity posture.
 
-### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identify Initial Compromise**</mark>
+### 1. **Identify Initial Compromise**
 
 Ransomware typically begins with an initial compromise, often through email phishing, malicious files, or vulnerable services. Using KQL, you can identify this stage by looking for suspicious login events, email attachments, or newly downloaded executables. **Example KQL Query to Detect Suspicious File Downloads:**
 
@@ -39,7 +39,7 @@ DeviceLogonEvents | where Timestamp > ago(1d) | where LogonType == "RemoteIntera
 
 This query highlights suspicious logins, focusing on potentially compromised accounts showing remote access patterns.
 
-### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Trace Lateral Movement and Privilege Escalation**</mark>
+### 2. **Trace Lateral Movement and Privilege Escalation**
 
 Once the ransomware gains a foothold, it often uses tools like `PsExec`, `WMIC`, or PowerShell for lateral movement and privilege escalation. **Advanced KQL for Detecting Lateral Movement via Remote Commands:**
 
@@ -57,7 +57,7 @@ DeviceProcessEvents | where InitiatingProcessFileName == "powershell.exe" | wher
 ```
 {% endcode %}
 
-### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Encryption Activity**</mark>
+### 3. **Detect Encryption Activity**
 
 Ransomware often renames or appends specific file extensions during encryption. Monitoring high-frequency file access events can help detect these activities early. **High-Frequency File Modification Query:**
 
@@ -69,7 +69,7 @@ DeviceFileEvents | where Timestamp > ago(1h) | where FileName endswith ".encrypt
 
 This query flags devices with high volumes of file changes, indicating potential encryption.
 
-### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Persistence Mechanisms and Cleanup**</mark>
+### 4. **Persistence Mechanisms and Cleanup**
 
 Ransomware often sets up persistence by modifying registry keys or scheduling tasks to maintain access or re-execute encryption. **Detecting Malicious Registry Modifications:**
 
@@ -89,7 +89,7 @@ DeviceProcessEvents | where ProcessCommandLine contains "schtasks" and ProcessCo
 
 This query identifies any creation of scheduled tasks, often used by ransomware for persistence.
 
-### 5. <mark style="color:blue;">**Analyse Network Traffic for C2 Communication**</mark>
+### 5. **Analyse Network Traffic for C2 Communication**
 
 After deployment, ransomware may communicate with a Command-and-Control (C2) server to report status or receive encryption keys. **Query for C2-like Network Activity:**
 
@@ -101,7 +101,7 @@ DeviceNetworkEvents | where RemoteIP != "trusted_IP_list" and RemoteUrl contains
 
 Replace `"trusted_IP_list"` and `"unknown_domain"` with internal baselines and known indicators of C2.
 
-### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Isolate Affected Devices**</mark>
+### 6. **Isolate Affected Devices**
 
 To contain the ransomware, isolate affected devices to prevent further spread. Microsoft Defender supports device isolation actions that can be managed from the portal.
 
@@ -115,7 +115,7 @@ union DeviceLogonEvents, DeviceFileEvents, DeviceProcessEvents, DeviceNetworkEve
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">Step 1: Detection and Triage</mark>
+#### Step 1: Detection and Triage
 
 Use KQL to identify initial indicators of compromise (IoCs) that suggest a ransomware attack.
 
@@ -137,7 +137,7 @@ DeviceFileEvents | where ActionType == "FileCreated" | where FileName endswith_a
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">Step 2: Analyse Initial Access and Execution</mark>
+#### Step 2: Analyse Initial Access and Execution
 
 Examine logs to identify the initial entry point and execution methods. Attackers commonly use phishing emails or exploit vulnerabilities to gain initial access.
 
@@ -161,7 +161,7 @@ DeviceNetworkEvents | where InitiatingProcessFileName in ("powershell.exe", "bit
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">Step 3: Contain and Isolate</mark>
+#### Step 3: Contain and Isolate
 
 At this stage, focus on isolating infected devices and identifying lateral movement attempts.
 
@@ -185,7 +185,7 @@ DeviceNetworkEvents | where ActionType in ("InboundConnectionAccepted", "RemoteD
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">Step 4: Eradication</mark>
+#### Step 4: Eradication
 
 Remove ransomware artifacts, persistence mechanisms, and any backdoors the attacker may have established.
 
@@ -199,7 +199,7 @@ DeviceProcessEvents | where FileName == "schtasks.exe" | where ProcessCommandLin
 ```
 {% endcode %}
 
-<mark style="color:blue;">**Identify Registry Modifications for Persistence**</mark>
+**Identify Registry Modifications for Persistence**
 
 Check for registry modifications in areas associated with persistence:
 
@@ -209,7 +209,7 @@ DeviceRegistryEvents | where ActionType == "RegistryValueSet" | where RegistryKe
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">Step 5: Recovery and Post-Incident Analysis</mark>
+#### Step 5: Recovery and Post-Incident Analysis
 
 defencesRestore affected systems, monitor for reinfection, and perform a post-mortem analysis to strengthen defences.
 
@@ -233,9 +233,9 @@ DeviceNetworkEvents | where ActionType == "ConnectionSuccess" | where RemoteIPTy
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Advanced Analysis Queries</mark>
+### Advanced Analysis Queries
 
-<mark style="color:blue;">**Detecting Living-Off-the-Land Techniques (LOLBins)**</mark>
+**Detecting Living-Off-the-Land Techniques (LOLBins)**
 
 Use KQL to find legitimate Windows binaries commonly used in attacks, such as `rundll32`, `regsvr32`, and `mshta`.
 
@@ -245,7 +245,7 @@ DeviceProcessEvents | where FileName in ("rundll32.exe", "regsvr32.exe", "mshta.
 ```
 {% endcode %}
 
-<mark style="color:blue;">**Searching for Known Ransomware Hashes (if available)**</mark>
+**Searching for Known Ransomware Hashes (if available)**
 
 Match file hashes to known ransomware signatures to confirm the presence of ransomware:
 
@@ -255,16 +255,16 @@ DeviceFileEvents | where SHA256 in ("<hash1>", "<hash2>", "<hash3>")  // Replace
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Summary</mark>
+### Summary
 
 These advanced KQL queries offer a thorough approach to detecting and responding to ransomware in a Windows environment with Microsoft Defender. Each step ensures effective discovery, containment, and eradication of ransomware artifacts. Adjust thresholds based on your environment's baseline and use the collected insights for further security hardening.
 
-### <mark style="color:blue;">**1. Initial Preparation**</mark>
+### **1. Initial Preparation**
 
 * **Log into Microsoft 365 Defender**: Access the **Advanced Hunting** console to begin the search.
 * **Identify Initial Indicators of Compromise (IOCs)**: Gather any preliminary information, like file hashes, known malicious IP addresses, or suspicious processes flagged by the security team.
 
-### <mark style="color:blue;">**2. Advanced KQL Queries for Ransomware Detection**</mark>
+### **2. Advanced KQL Queries for Ransomware Detection**
 
 **a. Step 1: Identify Suspicious Process Executions**
 
@@ -319,7 +319,7 @@ DeviceProcessEvents | where ActionType == "ServiceInstalled" or ActionType == "S
 Registry modifications related to persistence or disabling security features (such as tampering with antivirus settings) are typical in ransomware incidents.
 
 {% code overflow="wrap" %}
-```cs
+```kusto
 DeviceRegistryEvents | where ActionType in ("RegistryKeyValueCreated", "RegistryKeyValueModified") | where RegistryKey has_any ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies", "SYSTEM\\CurrentControlSet\\Services") | where RegistryValueData contains ("disable" "off" "false" "0x0") | project Timestamp, DeviceName, RegistryKey, RegistryValueName, RegistryValueData, InitiatingProcessFileName
 ```
 {% endcode %}

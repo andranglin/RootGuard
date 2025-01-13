@@ -15,7 +15,7 @@ layout:
 
 # KAPE
 
-### <mark style="color:blue;">1. Initial Access</mark>
+### 1. Initial Access
 
 **1.1. Phishing: Spearphishing Attachment (T1566.001)**
 
@@ -79,7 +79,7 @@ Paths:
 ```
 {% endcode %}
 
-### <mark style="color:blue;">2. Execution</mark>
+### 2. Execution
 
 **2.1. Command and Scripting Interpreter: PowerShell (T1059.001)**
 
@@ -139,7 +139,7 @@ LogNames:
 ```
 {% endcode %}
 
-### <mark style="color:blue;">3. Persistence</mark>
+### 3. Persistence
 
 **3.1. Registry Run Keys / Startup Folder (T1547.001)**
 
@@ -194,7 +194,7 @@ Keys:
 - 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit'
 ```
 
-### <mark style="color:blue;">4. Privilege Escalation</mark>
+### 4. Privilege Escalation
 
 **4.1. Scheduled Task/Job (T1053.005)**
 
@@ -248,7 +248,7 @@ Paths:
 ```
 {% endcode %}
 
-### <mark style="color:blue;">5. Defense Evasion</mark>
+### 5. Defense Evasion
 
 **5.1. Obfuscated Files or Information (T1027)**
 
@@ -300,7 +300,7 @@ Target: Files
 Paths:   - '%UserProfile%\AppData\Local\Temp\*.enc'
 ```
 
-### <mark style="color:blue;">6. Credential Access</mark>
+### 6. Credential Access
 
 **6.1. OS Credential Dumping: LSASS Memory (T1003.001)**
 
@@ -354,7 +354,7 @@ Target: Memory
 ProcessName: lsass.exe
 ```
 
-### <mark style="color:blue;">7. Discovery</mark>
+### 7. Discovery
 
 **7.1. System Information Discovery (T1082)**
 
@@ -407,7 +407,7 @@ Paths:
 ```
 {% endcode %}
 
-### <mark style="color:blue;">8. Collection</mark>
+### 8. Collection
 
 **8.1. Data from Local System (T1005)**
 
@@ -463,7 +463,7 @@ Target: EventLogs
 LogNames:   - 'Microsoft-Windows-PrintService/Operational'
 ```
 
-### <mark style="color:blue;">9. Exfiltration</mark>
+### 9. Exfiltration
 
 **9.1. Exfiltration Over C2 Channel (T1041)**
 
@@ -509,7 +509,7 @@ Target: Files
 Paths:   - '%SystemRoot%\System32\LogFiles\FTP\*'
 ```
 
-### <mark style="color:blue;">10. Impact</mark>
+### 10. Impact
 
 **10.1. Data Destruction (T1485)**
 
@@ -563,7 +563,7 @@ Files Paths:
 - '%UserProfile%\$Recycle.Bin\*'
 ```
 
-### <mark style="color:blue;">Additional Resources</mark>
+### Additional Resources
 
 Eric Zimmerman's Tools:  [https://ericzimmerman.github.io/#!index.md](https://ericzimmerman.github.io/#!index.md) A comprehensive set of DFIR tools accompanied by excellent user guides.&#x20;
 

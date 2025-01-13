@@ -15,7 +15,7 @@ layout:
 
 # Browser Usage
 
-## <mark style="color:blue;">History and Download History</mark>
+### History and Download History
 
 **Description:** History and Download History records websites visited by date and time.&#x20;
 
@@ -42,7 +42,7 @@ Chrome/Edge
 * Most browsers also record the number of times visited (frequency)
 * Look for multiple profiles in Chromium browsers, including “Default”, and “Profile1”, etc.
 
-## <mark style="color:blue;">Media History</mark>
+### Media History
 
 **Description:** Media History tracks media usage (audio and video played) on visited websites (Chromium browsers).&#x20;
 
@@ -61,7 +61,7 @@ Chrome/Edge
 * Includes URLs, last play time, watch time duration, and last video position
 * Not clear when other history data is cleared
 
-## <mark style="color:blue;">Auto-Complete Data</mark>
+### Auto-Complete Data
 
 **Description:** Many databases store data that a user has typed into the browser.&#x20;
 
@@ -116,7 +116,7 @@ Chrome/Edge
 * Includes typed-in data, as well as data types
 * Connects typed data and knowledge to a user account
 
-## <mark style="color:blue;">Browser Preferences</mark>
+### Browser Preferences
 
 **Description:** Configuration data associated with the browser application, including privacy settings and synchronization preferences.&#x20;
 
@@ -143,7 +143,7 @@ Chrome/Edge
 * Contains synchronization status, last sync time and artifacts selected to syn
 * Edge preferences include account\_info, clear\_data\_on\_exit, and sync settings
 
-## <mark style="color:blue;">Cache</mark>
+### Cache
 
 **Description:** The cache is where web page components can be stored locally to speed up subsequent visits.&#x20;
 
@@ -178,7 +178,7 @@ Chrome/Edge
 * Similar to all browser artifacts, cached files are tied to a specific local user account
 * Timestamps show when the site was first saved and last viewed
 
-## <mark style="color:blue;">Bookmarks</mark>
+### Bookmarks
 
 **Description:** Bookmarks include default items and those the user chose to save for future reference.&#x20;
 
@@ -210,7 +210,7 @@ Chrome/Edge
 
 **Note:** not all bookmarks are user-generated; it is possible to bookmark a site and never visit it
 
-### <mark style="color:blue;">Stored Credentials</mark>
+### Stored Credentials
 
 **Description:** Browser-based credential storage typically uses Windows DPAPI encryption. If the login account is a Microsoft Cloud account in Windows 10 or 11, DPAPI uses a 44-character randomly generated password in lieu of the account password.&#x20;
 
@@ -235,7 +235,7 @@ Chrome/Edge
 * Chromium-based browsers use an SQLite database, including the origin URL, action URL, username, date created, and date last used.
 * Credential metadata can be available even if actual credentials are encrypted. Actual credentials are easiest to retrieve on a live system with the user account logged in.
 
-## <mark style="color:blue;">Browser Downloads</mark>
+### Browser Downloads
 
 **Description:** Modern browsers include built-in download manager applications capable of keeping a history of every file downloaded by the user. This browser artifact can provide excellent information about websites visited and corresponding items downloaded.&#x20;
 
@@ -271,7 +271,7 @@ Chrome/Edge
 * The file system saves the location
 * State information, including success and failure
 
-## <mark style="color:blue;">Extensions</mark>
+### Extensions
 
 **Description:** Browser functionality can be extended through extensions or browser plugins.&#x20;
 
@@ -313,7 +313,7 @@ Chrome/Edge
 * A manifest.json file provides plugin details, including name, URL, permissions, and version.
 * The preferences file can also include additional extension data
 
-## <mark style="color:blue;">Session Restore</mark>
+### Session Restore
 
 **Description:** Automatic crash recovery features are built into the browser.&#x20;
 
@@ -362,7 +362,7 @@ Chrome/Edge (older versions)
 * HTML, JavaScript, XML, and form data from the page
 * Other artifacts, such as transition type, browser window size and pinned tabs
 
-## <mark style="color:blue;">Cookies</mark>
+### Cookies
 
 **Description:** Cookies provide insight into what websites have been visited and what activities might have occurred there.&#x20;
 

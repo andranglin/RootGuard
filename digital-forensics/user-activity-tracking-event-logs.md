@@ -15,7 +15,7 @@ layout:
 
 # User Activity Tracking (Event Logs)
 
-## <mark style="color:blue;">Event Log Analysis for Responder and Hunters</mark>
+## Event Log Analysis for IR Responders and Hunters
 
 **Description:** **Event Log Types of Interest**
 
@@ -33,7 +33,7 @@ C:\Windows\System32\winevt\Logs
 
 #### **Analysis Scenarios:**
 
-## <mark style="color:blue;">Profiling Account Usage</mark>
+## Profiling Account Usage
 
 #### Tracking Account Usage (1)
 
@@ -82,7 +82,7 @@ Collect a file from the Log directory:
 ```
 {% endcode %}
 
-### <mark style="color:blue;">**DeepBlueCLI**</mark>
+### **DeepBlueCLI**
 
 {% code overflow="wrap" %}
 ```cs
@@ -105,7 +105,7 @@ When an attacker gains access to a system through some exploits (remote code exe
 
 True remote exploits are quite rare, and in most situations administrative account usage is still typically required for lateral movement to the system and things like code installation, providing at least initial logging of the attack.
 
-#### <mark style="color:blue;">Tracking Account Usage (2)</mark>
+#### Tracking Account Usage (2)
 
 Tracking the events of a logged-on user
 
@@ -162,7 +162,7 @@ ANONYMOUS LOGON: Null session w/o credentials used to authenticate with the reso
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">Tracking Administrator Account Activity</mark>
+#### Tracking Administrator Account Activity
 
 Tracking superuser account activity helps to discover anomalous activity. During an intrusion, the adversary will need to achieve at least administrative privileges to gather credentials and effectively move through the network; auditing and managing these accounts is a critical choke point that can identify even the most advanced adversaries. When an account assigned privileges associated with an administrator logs on, an **event ID 4672** is recorded. Note that the account technically does not have to be a full administrator. For example, a successful logon event (ID 4624) is immediately followed by a “special logon” event ID 4672, indicating the user account has been assigned administrator-level privileges. Combining these two events is necessary to prove an admin-level account logged in to this system.
 
@@ -181,7 +181,7 @@ Complementary events may include:
 
 ```
 
-#### <mark style="color:blue;">Tracking Account Usage: Remote Desktop Protocol (1)</mark>
+#### Tracking Account Usage: Remote Desktop Protocol (1)
 
 **Scenario:**&#x20;
 
@@ -201,7 +201,7 @@ Not every **4778/4779** event will be due to RDP usage. Windows also uses this s
 
 * Understanding the source/destination is critical
 
-### <mark style="color:blue;">Account Logon Events</mark>
+### Account Logon Events
 
 * Different than **Logon Event** Category
 * Recorded on the system that authenticated credentials
@@ -253,7 +253,7 @@ The following is a selection of possible error codes:
 0xC0000234: Account locked
 ```
 
-### <mark style="color:blue;">Tracking Reconnaissance: Account and Group Enumeration (1)</mark>
+### Tracking Reconnaissance: Account and Group Enumeration (1)
 
 **Scenario:**
 
@@ -272,9 +272,9 @@ The following is a selection of possible error codes:
 
 A large amount of normal account enumeration occurs in Windows; hence, these events will need to be filtered to be useful. Investigators should focus on sensitive groups, accounts that should not be used for enumeration activities, and unusual processes being used for the enumeration (PowerShell, WMI, or net use commands via cmd.exe). Performing a tuning process and allowing common processes like mmc.exe, services.exe, taskhostw.exe, explorer.exe, and VSSSVC.exe can greatly reduce the volume of events.
 
-## <mark style="color:blue;">Tracking Lateral Movement</mark>
+## Tracking Lateral Movement
 
-### <mark style="color:blue;">Tracking Lateral Movement: Network Shares</mark>
+### Tracking Lateral Movement: Network Shares
 
 **Scenario:**
 
@@ -289,7 +289,7 @@ A large amount of normal account enumeration occurs in Windows; hence, these eve
 
 **Notes**: Auditing network shares can be useful for many investigations. Whether you are investigating internal access by employees or access from external threats, knowing what file shares were touched on can help understand data flows. Mounting file shares is a very common technique adversaries use to move laterally through an environment—both to distribute malware and collect data to steal. One limitation of Event ID **5140** is that it does not include references to files accessed on a given share.
 
-### <mark style="color:blue;">Tracking Lateral Movement: Explicit Credentials/Runas</mark>
+### Tracking Lateral Movement: Explicit Credentials/Runas
 
 Scenario:
 
@@ -345,7 +345,7 @@ Five events are used to record activity in the Security log:
 
 Alerts that should be hunted for are deleted tasks. It is common for attackers to schedule tasks on various systems and then clean up those tasks after execution. Deleted tasks are rare in most environments or are easy to filter for legitimate applications, leaving only the deleted evil tasks to be identified.
 
-### <mark style="color:blue;">Suspicious Service</mark>
+### Suspicious Service
 
 **Scenario:**
 
@@ -366,7 +366,7 @@ Alerts that should be hunted for are deleted tasks. It is common for attackers t
 * Services started on boot illustrate persistence (desirable in malware)
 * Services can crash due to attacks like process injection
 
-## <mark style="color:blue;">Event Log Clearing</mark>
+## Event Log Clearing
 
 #### Event Log Clearing (1)
 
@@ -391,7 +391,7 @@ Alerts that should be hunted for are deleted tasks. It is common for attackers t
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-10-01 133845 (1).png" alt=""><figcaption></figcaption></figure>
 
-## <mark style="color:blue;">Lateral Movement Adversary Tactics</mark>
+## Lateral Movement Adversary Tactics
 
 #### Remote Desktop Services: Source System Artifacts
 
@@ -633,9 +633,9 @@ If you are in an environment where Windows remote management is not used, you ar
 
 The biggest weapon we have to identify PowerShell usage is event logging. PS v5 improved logging for the source and destination systems of PowerShell remoting attacks. Expect to see **Type 3** (network) logon events, showing the account authentication necessary to run these tools. PowerShell v5 now includes detailed script block logging, including logging suspicious activity by default. This means that even in environments with weak audit policies, there can still be very useful PowerShell logging, often capturing the entire script contents of what was accomplished via PowerShell (scripts using blocklisted cmdlets are logged by default). This information is captured in the **Microsoft-Windows-PowerShell/Operational log** on the destination system. Process tracking and command line auditing events (not enabled by default) can capture every PowerShell command executed.
 
-## <mark style="color:blue;">Understanding and Investigating Lateral Movement Techniques</mark>
+## Understanding and Investigating Lateral Movement Techniques
 
-### <mark style="color:blue;">Tracking Persistence Techniques</mark>
+### Tracking Persistence Techniques
 
 **Understanding and investigating persistence techniques:** To achieve persistence, attackers can use multiple techniques, such as creating an account, adding a malware path to registry run keys, installing a service, creating a scheduled task, or developing a WMI consumer. Investigating specific persistence techniques using Windows event logs can help by focusing on the following activities:
 
@@ -669,7 +669,7 @@ Event names refer to an Object except **event ID 4657**, which refers to the reg
 
 Event consists of four sections. The first is the **Subject** section, which refers to information about the user who performed the action. The second is the **Object** section, which consists of the **Object Server** field and is always **Security**. The Object Type field refers to the type of the accessed object, which could be a file, key, or SAM;  focus on the **Key** value, which refers to registry keys, to investigate the registry run key persistence technique. The last interesting field is the **Object Name**, which refers to the name of the accessed object, including the registry key path. The third section is the **Process Information** section, which refers to the process that made the action, and the last section is **Access Request Information**, which refers to the permissions. Still, it’s not helpful to our investigations.
 
-### <mark style="color:blue;">Windows Scheduled Tasks</mark>
+### Windows Scheduled Tasks
 
 Scheduled tasks are recurring predefined actions automatically executed whenever a certain set of conditions are met. An attacker may achieve persistence by creating a scheduled task to execute malicious code.&#x20;
 
@@ -685,7 +685,7 @@ Event ID 4698 logs scheduled task activity creation in Security event log files
 
 <figure><img src="../.gitbook/assets/image 13 (1).png" alt=""><figcaption></figcaption></figure>
 
-### <mark style="color:blue;">Windows Services</mark>
+### Windows Services
 
 A service is a process that runs in the background without any interaction from a user or even starts before a user logs into a system. An attacker could achieve persistence by creating a new or modifying an existing service to execute malicious code. Example:
 
@@ -705,7 +705,7 @@ Focus on the **Service Information** section’s fields; the first field refers 
 
 The above shows **event ID 7045**, which records new service creation activity in the system event log file. All the details in this log field are the same as those in the **Service Information** section of e**vent ID 4697**. The above shows **event ID 7045**, which records new service creation activity in the system event log file. All the details in this log field are the same as those in the **Service Information** section of e**vent ID 4697**.
 
-### <mark style="color:blue;">WMI Event Subscription</mark>
+### WMI Event Subscription
 
 An attacker may keep persistence on an infected system by configuring the **Windows Management Instrumentation (WMI)** event subscription to execute malicious content through a script or the command line when specific conditions are met. To keep persistence on the victim's machine by using a **WMI event subscription**, an attacker needs to conduct the following three steps:
 
@@ -717,11 +717,11 @@ Windows event ID 5861 in the Microsoft-Windows-WMI-Activity/Operational log file
 
 To investigate suspicious consumer creation, define whether the consumer type is one of the two mentioned consumer types that can be used maliciously. Investigate rare WMI event filters and consumer names, and then investigate whether the consumer is designed to conduct any suspicious executions, such as executing binary from suspicious paths or using a living off-the-land executable.
 
-## <mark style="color:blue;">Privilege Escalation</mark>
+## Privilege Escalation
 
 #### Command Line, PowerShell, and WMI Analysis
 
-### <mark style="color:blue;">Evidence of Malware Execution</mark>
+### Evidence of Malware Execution
 
 **Scenario**
 
@@ -833,7 +833,7 @@ To audit for WMI event filter/consumer activity, review the WMI-Activity/Operati
 
 Beyond just looking at the event consumers, search the log for terms often present in suspicious activity. PowerShell, eval, .vbs, .ps1, and ActiveXObject frequently occur in malicious WMI events. Scrcons is the process responsible for ActiveScript consumers, and wbemcons.dll is loaded (EID 5857) when a command line event consumer is started. Looking at log entries in different ways may help identify missed malicious activity.
 
-### <mark style="color:blue;">PowerShell-Specific Logging</mark>
+### PowerShell-Specific Logging
 
 **Scenario**
 
