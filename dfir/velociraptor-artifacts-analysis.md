@@ -13,11 +13,11 @@ layout:
     visible: true
 ---
 
-# Threat Hunting Using Velociraptor Artifacts
+# Velociraptor Artifacts Analysis
 
 ### Hunting for Ransomware Activities
 
-Ransomware remains one of the most pervasive and damaging cyber threats organisations face today. It involves malicious software designed to encrypt data and demand ransom payments for its release. Hunting for ransomware activities is a proactive approach to detect and mitigate ransomware before it can execute its payload. This process leverages threat intelligence, behavioural analytics, and advanced tools like Velociraptor to uncover the early signs of ransomware infection. Velociraptor, an open-source endpoint monitoring and forensic platform, excels at detecting indicators such as unusual file access patterns, lateral movement, and unauthorised data exfiltration. By integrating Velociraptor into their ransomware-hunting practices, organisations can significantly reduce their exposure to this growing threat and enhance their overall cybersecurity posture.
+Malware remains one of the most pervasive and damaging cyber threats organisations face today. It involves software designed to disrupt, damage, or gain unauthorised access to computer systems. Hunting for malware activities is a proactive approach to detect and mitigate malware before it can execute its payload. With tools like Velociraptor to uncover the signs of malware infection and, ultimately, system compromise. Velociraptor, an open-source endpoint monitoring and forensic platform, is excellent at unearthing unusual file access patterns, lateral movement, and command execution. By integrating Velociraptor into your DFIR toolset.
 
 ### 1. **Detecting Malware Infection**
 
