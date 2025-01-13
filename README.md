@@ -55,7 +55,7 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 <summary>Sections</summary>
 
-[README (1).md](<README (1).md> "mention")
+[cyber-incident-response](cyber-incident-response/ "mention")
 
 [cybersecurity-operations-center-csoc](cybersecurity-operations-center-csoc/ "mention")
 

@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Incident Response - Linux
+# Linux
 
 ### Introduction
 
@@ -40,8 +40,8 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 
 ### Start Learning:&#x20;
 
-{% content-ref url="incident-response.md" %}
-[incident-response.md](incident-response.md)
+{% content-ref url="intrusion-analysis.md" %}
+[intrusion-analysis.md](intrusion-analysis.md)
 {% endcontent-ref %}
 
 {% content-ref url="command-line.md" %}

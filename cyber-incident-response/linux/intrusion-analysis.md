@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Incident Response
+# Intrusion Analysis
 
 ### Live Response Commands
 
@@ -318,7 +318,7 @@ sha1sum /[destination]/[binaryname]
 md5sum /[destination]/[binaryname]
 ```
 
-### <mark style="color:blue;">Recover a Deleted Process Binary.</mark>
+### Recover a Deleted Process Binary.
 
 This method attempts to recover the binary executable from the process’s memory by extracting a portion of the memory associated with the process.
 

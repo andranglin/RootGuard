@@ -1,6 +1,6 @@
 ---
 icon: laptop-code
-cover: .gitbook/assets/Screenshot 2025-01-04 150636.png
+cover: ../.gitbook/assets/Screenshot 2025-01-04 150636.png
 coverY: 0
 layout:
   cover:
@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Incident Response (IR)
+# Cyber Incident Response
 
 ## **What is Cybersecurity Incident Response?**
 
@@ -161,14 +161,14 @@ These resources provide an excellent foundation for individuals looking to devel
 
 ### Links to respective areas included in this section:
 
-{% content-ref url="incident-response-ir/response-strategies/" %}
-[response-strategies](incident-response-ir/response-strategies/)
+{% content-ref url="response-strategies/" %}
+[response-strategies](response-strategies/)
 {% endcontent-ref %}
 
-{% content-ref url="incident-response-ir/incident-response-windows/intrusion-analysis/" %}
-[intrusion-analysis](incident-response-ir/incident-response-windows/intrusion-analysis/)
+{% content-ref url="windows/intrusion-analysis/" %}
+[intrusion-analysis](windows/intrusion-analysis/)
 {% endcontent-ref %}
 
-{% content-ref url="incident-response-ir/incident-response-windows/incident-triage/" %}
-[incident-triage](incident-response-ir/incident-response-windows/incident-triage/)
+{% content-ref url="windows/system-triage/" %}
+[system-triage](windows/system-triage/)
 {% endcontent-ref %}
