@@ -65,7 +65,7 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 [malware-analysis.md](malware-analysis.md "mention")
 
-[azure-cloud-detection-and-analysis](azure-cloud-detection-and-analysis/ "mention")
+[cloud-detection-and-analysis-azure](cloud-detection-and-analysis-azure/ "mention")
 
 [Broken link](broken-reference "mention")
 
