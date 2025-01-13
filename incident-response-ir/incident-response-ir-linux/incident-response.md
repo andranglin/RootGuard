@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Incident Response Basics
+# Incident Response
 
 ### Live Response Commands
 

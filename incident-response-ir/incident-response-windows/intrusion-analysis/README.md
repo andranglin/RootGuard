@@ -1,6 +1,6 @@
 ---
 icon: laptop-code
-cover: ../../.gitbook/assets/Screenshot 2025-01-04 152101.png
+cover: ../../../.gitbook/assets/Screenshot 2025-01-04 152101.png
 coverY: 0
 layout:
   cover:
@@ -20,7 +20,7 @@ layout:
 
 # Intrusion Analysis
 
-## What is Cyber Incident Management?
+### What is Cyber Incident Management?
 
 Cyber Incident Management is the systematic process of preparing for, detecting, responding to, and recovering from cybersecurity incidents that threaten an organisation's digital assets, data, or operational continuity. These incidents can range from malware infections, phishing attacks, and ransomware outbreaks to more complex threats such as data breaches, advanced persistent threats (APTs), or insider attacks.
 
@@ -30,7 +30,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 
 ***
 
-## Types of Incidents
+### Types of Incidents
 
 **Malware Attacks:** Incidents involving viruses, ransomware, worms, or spyware that compromise systems or data.
 
@@ -48,7 +48,7 @@ Cybersecurity incidents vary in nature and severity, necessitating different typ
 
 ***
 
-## Management and Approaches to Incident Response&#x20;
+### Management and Approaches to Incident Response&#x20;
 
 ### Proactive Approaches
 
@@ -101,7 +101,7 @@ Objective: Recover from incidents and strengthen defences against future attacks
 
 ***
 
-## Examples of Combining Types and Approaches
+### Examples of Combining Types and Approaches
 
 ### Phishing Attack Response
 
@@ -121,7 +121,7 @@ Effective incident response and management require a combination of approaches t
 
 ***
 
-## Cyber Incident Response Process and Operations - Key Components&#x20;
+### Cyber Incident Response Process and Operations - Key Components&#x20;
 
 An **incident response (IR) process** is a structured approach to handling and mitigating cybersecurity incidents. The overall process typically consists of the following **phases**:
 
@@ -317,7 +317,7 @@ An **incident response (IR) process** is a structured approach to handling and m
 
 ***
 
-## <mark style="color:blue;">Importance of Cyber Incident Management</mark>&#x20;
+### Importance of Cyber Incident Management&#x20;
 
 Effective cybersecurity incident management relies on the integration of people, processes and technology to effectively address cyber threats. Well-defined processes provide a structured and repeatable approach for identifying, responding to, and recovering from incidents, ensuring that no critical step is overlooked. Skilled and well-trained personnel act as the frontline defenders, capable of analysing threats, making informed decisions, and coordinating responses under pressure. Advanced technology, including tools for detection, analysis, and automation, empowers teams to identify incidents faster, mitigate damage, and adapt to evolving threats.
 
@@ -335,8 +335,22 @@ Effective incident response is critical to an organisation's overall cybersecuri
 
 ***
 
-### Supplementary Resources:
+### References&#x20;
 
-Note: [SANS](https://www.sans.org/security-resources/?msc=main-nav) provide some good free resources in the area, including Posters and Cheatsheets:
+[MITRE ATT\&CK®](https://attack.mitre.org/)
 
-{% file src="../../.gitbook/assets/SANS DFIR Hunt Evil.pdf" %}
+[SANS](https://www.sans.org/posters/)
+
+[NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+
+[Microsoft Incident Response | Microsoft Security](https://www.microsoft.com/en-us/security/business/microsoft-incident-response)
+
+[Incident Response Steps: Potentially Compromised ...](https://itsupport.umd.edu/itsupport/?id=kb_article_view\&sysparm_article=KB0013906)
+
+LetsDefend [Incident Response on Windows](https://app.letsdefend.io/training/lessons/incident-response-windows)
+
+Bert Jan P [PowerShell Digital Forensics & Incident Response Scripts](https://github.com/Bert-JanP/Incident-Response-Powershell)
+
+Jai Minton [Digital Forensics and Incident Response](https://www.jaiminton.com/cheatsheet/DFIR/)
+
+{% file src="../../../.gitbook/assets/SANS DFIR Hunt Evil.pdf" %}

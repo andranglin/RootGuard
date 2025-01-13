@@ -165,10 +165,10 @@ These resources provide an excellent foundation for individuals looking to devel
 [response-strategies](incident-response-ir/response-strategies/)
 {% endcontent-ref %}
 
-{% content-ref url="incident-response-ir/intrusion-analysis/" %}
-[intrusion-analysis](incident-response-ir/intrusion-analysis/)
+{% content-ref url="incident-response-ir/incident-response-windows/intrusion-analysis/" %}
+[intrusion-analysis](incident-response-ir/incident-response-windows/intrusion-analysis/)
 {% endcontent-ref %}
 
-{% content-ref url="incident-response-ir/incident-triage/" %}
-[incident-triage](incident-response-ir/incident-triage/)
+{% content-ref url="incident-response-ir/incident-response-windows/incident-triage/" %}
+[incident-triage](incident-response-ir/incident-response-windows/incident-triage/)
 {% endcontent-ref %}

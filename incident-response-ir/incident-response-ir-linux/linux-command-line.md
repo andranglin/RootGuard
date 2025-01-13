@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Commandline Basics
+# Linux Command Line
 
 ### User Information
 

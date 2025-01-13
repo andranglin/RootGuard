@@ -40,10 +40,10 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 
 ### Start Learning:&#x20;
 
-{% content-ref url="incident-response-basics.md" %}
-[incident-response-basics.md](incident-response-basics.md)
+{% content-ref url="incident-response.md" %}
+[incident-response.md](incident-response.md)
 {% endcontent-ref %}
 
-{% content-ref url="commandline-basics.md" %}
-[commandline-basics.md](commandline-basics.md)
+{% content-ref url="linux-command-line.md" %}
+[linux-command-line.md](linux-command-line.md)
 {% endcontent-ref %}
