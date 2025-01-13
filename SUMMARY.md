@@ -58,6 +58,8 @@
     * [Impact (TA0040)](cybersecurity-operations-center-csoc/defender-and-sentinel-kql-use-cases/impact-ta0040.md)
   * [Splunk Query and Use Cases](cybersecurity-operations-center-csoc/splunk-query-and-use-cases.md)
   * [Cybersecurity Roadmap to Become A SOC Analyst](cybersecurity-operations-center-csoc/cybersecurity-roadmap-to-become-a-soc-analyst.md)
+  * [Investigating Specific Types of Attacks](cybersecurity-operations-center-csoc/investigating-specific-types-of-attacks/README.md)
+    * [Investigating a Suspected AD FS Distributed Key Management (DKM) Attack](cybersecurity-operations-center-csoc/investigating-specific-types-of-attacks/investigating-a-suspected-ad-fs-distributed-key-management-dkm-attack.md)
 * [Digital Forensics](digital-forensics/README.md)
   * [Evidence of Execution](digital-forensics/evidence-of-execution.md)
   * [Account Usage](digital-forensics/account-usage.md)
