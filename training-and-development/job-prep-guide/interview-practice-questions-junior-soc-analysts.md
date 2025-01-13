@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/Screenshot 2025-01-10 081536.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-10 081536.png
 coverY: 0
 layout:
   cover:
@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Practice Questions: Junior Cybersecurity Analysts Interview
+# Interview Practice Questions - Junior SOC Analysts
 
 ### **Technical Questions**
 

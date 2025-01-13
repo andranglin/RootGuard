@@ -245,3 +245,12 @@ EmailInformation
 | order by Timestamp desc // Sort by the most recent events
 ```
 {% endcode %}
+
+### Reference
+
+* Bert Jan P - [https://kqlquery.com/](https://kqlquery.com/)&#x20;
+* Michalis Michalos - [https://www.michalos.net/](https://www.michalos.net/)&#x20;
+* Matt Zorich - [https://learnsentinel.blog/](https://learnsentinel.blog/)&#x20;
+* Alex Verboon - [https://github.com/alexverboon](https://github.com/alexverboon/Hunting-Queries-Detection-Rules)[/](https://github.com/alexverboon)
+* Microsoft - [https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
+* [Microsoft Learn Blog](https://techcommunity.microsoft.com/blog/microsoftlearnblog/what%E2%80%99s-new-for-security-training-and-certification/3644507)

@@ -1,7 +1,7 @@
 ---
 icon: microscope
 description: 'Work in progress: Will be add content on a frequent basis.'
-cover: .gitbook/assets/Screenshot 2025-01-10 084315.png
+cover: ../.gitbook/assets/Screenshot 2025-01-10 084315.png
 coverY: 0
 layout:
   cover:
@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# Training and Projects
+# Training and Development
 
 Gaining and showcasing your experience in cybersecurity is essential for building a successful career in this dynamic field. Practical experience can be acquired through internships, volunteer opportunities, and participation in cybersecurity competitions like Capture the Flag (CTF) events. These hands-on experiences allow individuals to apply theoretical knowledge to real-world scenarios, enhancing their skills and understanding of cybersecurity principles.&#x20;
 
