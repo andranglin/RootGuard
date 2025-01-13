@@ -14,7 +14,7 @@ layout:
 
 # Defender For Identity
 
-### <mark style="color:blue;">Devices Accessed By Compromised Device</mark>
+### Devices Accessed By Compromised Device
 
 **Use Case:** Query helpful for identifying lateral movement and suspicious activities stemming from the compromised device. It enables SOC analysts to correlate activity and prioritise mitigation steps effectively.&#x20;
 
@@ -102,7 +102,7 @@ IdentityLogonEvents
 {% endtab %}
 {% endtabs %}
 
-### <mark style="color:blue;">Identify All Suspicious Activities From The Compromised Accounts</mark>
+### Identify All Suspicious Activities From The Compromised Accounts
 
 **Use Case:** This query is useful for investigating potential lateral movement, unauthorised access, or malicious actions originating from compromised accounts. It provides actionable insights to guide further analysis and remediation.
 
@@ -168,7 +168,7 @@ SecurityEvent
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Identify Failed Login Attempts From Users</mark>
+### Identify Failed Login Attempts From Users
 
 {% code overflow="wrap" %}
 ```kusto
@@ -303,7 +303,7 @@ IdentityLogonEvents
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Lateral Movement By Compromised Accounts</mark>
+### Lateral Movement By Compromised Accounts
 
 **Use Case:** This query is tailored for detecting lateral movement by compromised accounts in your environment. By monitoring logon activity across devices, it helps identify patterns that could indicate attempts to expand access within the network.
 
@@ -351,7 +351,7 @@ IdentityLogonEvents
 ```
 {% endcode %}
 
-### <mark style="color:blue;">User Added To Sensitive Group</mark>
+### User Added To Sensitive Group
 
 **Use Case:** This query provides a detailed audit of group membership changes involving sensitive groups, including the initiator of the change and the added user. It is particularly useful for identifying unauthorized or suspicious changes in group memberships. Let me know if further refinements are needed!
 
@@ -380,7 +380,7 @@ IdentityDirectoryEvents
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Anomalous Group Policy Discovery</mark>
+### Anomalous Group Policy Discovery
 
 **Use Case:** This query is ideal for detecting: Unauthorised enumeration of Group Policies. Suspicious activity from new or unexpected devices, accounts, or IP addresses. Potential reconnaissance or pre-attack activity.
 
@@ -422,7 +422,7 @@ IdentityQueryEvents
 ```
 {% endcode %}
 
-### <mark style="color:blue;">SMB File Copy</mark>
+### SMB File Copy
 
 **Use Case:** This query detects SMB file copy events that are initiated by suspect accounts. It helps identify unauthorised file transfers, providing relevant details for further investigation.
 
@@ -451,7 +451,7 @@ IdentityDirectoryEvents
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Identify Suspicious SMB Activity</mark>
+### Identify Suspicious SMB Activity
 
 {% code overflow="wrap" %}
 ```kusto

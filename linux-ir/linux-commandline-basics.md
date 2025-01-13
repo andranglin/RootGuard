@@ -12,9 +12,9 @@ layout:
     visible: true
 ---
 
-# Basic Commands
+# Linux Commandline Basics
 
-### <mark style="color:blue;">User Information</mark>
+### User Information
 
 1. **who**&#x20;
 
@@ -112,7 +112,7 @@ The `lastlog` command is used to find the details of a recent login of all users
 $ lastlog
 ```
 
-### <mark style="color:blue;">File and directory commands</mark>
+### File and directory commands
 
 1. **pwd:**&#x20;
 
@@ -326,7 +326,7 @@ cat file_name1.txt | less
 
 ***
 
-### <mark style="color:blue;">File permissions</mark>
+### File permissions
 
 Since Linux is a multi-user operating system, it is necessary to provide security to prevent people from accessing each other’s confidential files. So Linux divides authorization into two levels,
 
@@ -431,7 +431,7 @@ sudo chgrp Administrator test.txt
 
 ***
 
-## <mark style="color:blue;">Networking</mark>
+### Networking
 
 1. **Display network information:**&#x20;
 
@@ -481,7 +481,7 @@ whois google.com
 
 ***
 
-### <mark style="color:blue;">Installing packages</mark>
+### Installing packages
 
 1. **Install package:**
 
@@ -525,7 +525,7 @@ make install
 
 ***
 
-### <mark style="color:blue;">Disk usage</mark>
+### Disk usage
 
 1. **Synopsis:**&#x20;
 
@@ -593,7 +593,7 @@ du  --help
 
 ***
 
-### <mark style="color:blue;">System and Hardware information</mark>
+### System and Hardware information
 
 1. **Print all information**:&#x20;
 
@@ -629,7 +629,7 @@ $ uname -o
 
 ***
 
-### <mark style="color:blue;">Search Files</mark>
+### Search Files
 
 1. **Pattern search:**&#x20;
 
@@ -733,7 +733,7 @@ locate "*.txt" -n 10 // 10 file search results ending with .txt extension
 
 ***
 
-### <mark style="color:blue;">SSH</mark>
+### SSH
 
 SSH (Secure Shell) is a network protocol that enables secure remote connections between two systems.
 

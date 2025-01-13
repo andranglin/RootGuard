@@ -12,13 +12,13 @@ layout:
     visible: true
 ---
 
-# Incident Triage
+# Linux Incident Triage Basics
 
-### <mark style="color:blue;">Live Response Commands</mark>
+### Live Response Commands
 
 These commands can review anomalous behaviour and verify compromise in real-time action. Some of the commands, such as `cat /var/www/html/webshell.php`, can also be used to perform post-compromise disk analysis, where we only need to supply the full path of the mounted compromised disk, for example, `cat /media/compromised_disk/var/www/html/webshell.php`.
 
-### <mark style="color:blue;">General Information</mark>
+### General Information
 
 First, we will collect the required information regarding the system to be analysed.
 
@@ -49,7 +49,7 @@ cat /etc/hostname
 ```
 {% endcode %}
 
-### <mark style="color:blue;">System Information</mark> <a href="#system-information-1" id="system-information-1"></a>
+### System Information <a href="#system-information-1" id="system-information-1"></a>
 
 ```bash
 date
@@ -60,7 +60,7 @@ cat /proc/version
 lsmod
 ```
 
-### <mark style="color:blue;">Initialisation Files</mark> <a href="#initialisation-files" id="initialisation-files"></a>
+### Initialisation Files <a href="#initialisation-files" id="initialisation-files"></a>
 
 ```bash
 cat /etc/bash.bashrc
@@ -68,7 +68,7 @@ cat ~/.bash_profile
 cat ~/.bashrc 
 ```
 
-### <mark style="color:blue;">Environment and Startup Programs</mark> <a href="#environment-and-startup-programs" id="environment-and-startup-programs"></a>
+### Environment and Startup Programs <a href="#environment-and-startup-programs" id="environment-and-startup-programs"></a>
 
 ```bash
 env
@@ -77,14 +77,14 @@ ls /etc/profile.d/
 cat /etc/profile.d/*
 ```
 
-### <mark style="color:blue;">Configuration Information</mark> <a href="#configuration-information" id="configuration-information"></a>
+### Configuration Information <a href="#configuration-information" id="configuration-information"></a>
 
 ```bash
 ls /etc/*.d
 cat /etc/*.d/*
 ```
 
-### <mark style="color:blue;">Review Network</mark>
+### Review Network Connections
 
 Investigate any malicious connection and unexpected IP address
 
@@ -102,7 +102,7 @@ cat /etc/hosts
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Network Connections / Socket Stats</mark> <a href="#network-connections--socket-stats" id="network-connections--socket-stats"></a>
+### Network Connections / Socket Stats <a href="#network-connections--socket-stats" id="network-connections--socket-stats"></a>
 
 ```bash
 netstat
@@ -116,7 +116,7 @@ ss -ta
 ss -tp
 ```
 
-### <mark style="color:blue;">DNS Information for Domain</mark> <a href="#dns-information-for-domain" id="dns-information-for-domain"></a>
+### DNS Information for Domain <a href="#dns-information-for-domain" id="dns-information-for-domain"></a>
 
 ```bash
 dig www.jaiminton.com a
@@ -128,13 +128,13 @@ dig www.jaiminton.com txt
 dig +short www.jaiminton.com
 ```
 
-### <mark style="color:blue;">IPs Allowed to Perform Domain Transfer</mark> <a href="#ips-allowed-to-perform-domain-transfer" id="ips-allowed-to-perform-domain-transfer"></a>
+### IPs Allowed to Perform Domain Transfer <a href="#ips-allowed-to-perform-domain-transfer" id="ips-allowed-to-perform-domain-transfer"></a>
 
 ```bash
 cat /etc/bind/named.conf.local
 ```
 
-### <mark style="color:blue;">IP Table Information</mark> <a href="#ip-table-information" id="ip-table-information"></a>
+### IP Table Information <a href="#ip-table-information" id="ip-table-information"></a>
 
 ```bash
 ls /etc/iptables
@@ -143,7 +143,7 @@ cat /etc/iptables/*.v6
 iptables -L
 ```
 
-### <mark style="color:blue;">Account Information</mark> <a href="#account-information" id="account-information"></a>
+### Account Information <a href="#account-information" id="account-information"></a>
 
 ```bash
 cat /etc/passwd
@@ -155,14 +155,14 @@ getent passwd | cut -d: -f1
 compgen -u
 ```
 
-### <mark style="color:blue;">Current User</mark> <a href="#current-user" id="current-user"></a>
+### Current User <a href="#current-user" id="current-user"></a>
 
 ```bash
 whoami
 who
 ```
 
-### <mark style="color:blue;">Last Logged-on Users</mark> <a href="#last-logged-on-users" id="last-logged-on-users"></a>
+### Last Logged-on Users <a href="#last-logged-on-users" id="last-logged-on-users"></a>
 
 ```bash
 last
@@ -170,7 +170,7 @@ lastb
 cat /var/log/auth.log
 ```
 
-### <mark style="color:blue;">Logon activities</mark>
+### Logon activities
 
 Review the logon activities of the compromised host.
 
@@ -198,7 +198,7 @@ grep -v cron /var/log/auth.log* | grep -v sudo | grep i "login:session"
 cat /var/log/secure
 ```
 
-### <mark style="color:blue;">Scheduled Tasks</mark> <a href="#scheduled-tasks" id="scheduled-tasks"></a>
+### Scheduled Tasks <a href="#scheduled-tasks" id="scheduled-tasks"></a>
 
 ```bash
 ls /etc/cron.*
@@ -208,7 +208,7 @@ cat /etc/crontab
 crontab -l
 ```
 
-### <mark style="color:blue;">Process Information</mark> <a href="#process-information-2" id="process-information-2"></a>
+### Process Information <a href="#process-information-2" id="process-information-2"></a>
 
 ```bash
 ps -s
@@ -221,53 +221,53 @@ ps -ax
 top
 ```
 
-### <mark style="color:blue;">Process Tree</mark> <a href="#process-tree" id="process-tree"></a>
+### Process Tree <a href="#process-tree" id="process-tree"></a>
 
 ```bash
 ps -auxwf
 ```
 
-### <mark style="color:blue;">Process Command Line Information</mark> <a href="#process-command-line-information" id="process-command-line-information"></a>
+### Process Command Line Information <a href="#process-command-line-information" id="process-command-line-information"></a>
 
 ```bash
 cat /proc/[PID]/cmdline
 cat /proc/[PID]/comm
 ```
 
-### <mark style="color:blue;">Detailed Process Information</mark> <a href="#detailed-process-information" id="detailed-process-information"></a>
+### Detailed Process Information <a href="#detailed-process-information" id="detailed-process-information"></a>
 
 ```bash
 ls -al /proc/[PID]
 ```
 
-### <mark style="color:blue;">Process Environment Variables (incl user who ran binary)</mark> <a href="#process-environment-variables-incl-user-who-ran-binary" id="process-environment-variables-incl-user-who-ran-binary"></a>
+### Process Environment Variables (incl user who ran binary) <a href="#process-environment-variables-incl-user-who-ran-binary" id="process-environment-variables-incl-user-who-ran-binary"></a>
 
 ```bash
 strings /proc/[PID]/environ
 cat /proc/[PID]/environ
 ```
 
-### <mark style="color:blue;">Process File Descriptors/Maps (what the process is ‘accessing’ or using)</mark> <a href="#process-file-descriptorsmaps-what-the-process-is-accessing-or-using" id="process-file-descriptorsmaps-what-the-process-is-accessing-or-using"></a>
+### Process File Descriptors/Maps (what the process is ‘accessing’ or using) <a href="#process-file-descriptorsmaps-what-the-process-is-accessing-or-using" id="process-file-descriptorsmaps-what-the-process-is-accessing-or-using"></a>
 
 ```bash
 ls -al /proc/[PID]/fd
 cat /proc/[PID]/maps
 ```
 
-### <mark style="color:blue;">Process Stack/Status Information (may reveal useful elements)</mark> <a href="#process-stackstatus-information-may-reveal-useful-elements" id="process-stackstatus-information-may-reveal-useful-elements"></a>
+### Process Stack/Status Information (may reveal useful elements) <a href="#process-stackstatus-information-may-reveal-useful-elements" id="process-stackstatus-information-may-reveal-useful-elements"></a>
 
 ```bash
 cat /proc/[PID]/stack
 cat /proc/[PID]/status
 ```
 
-### <mark style="color:blue;">Deleted Binaries Which are Still Running</mark> <a href="#deleted-binaries-which-are-still-running" id="deleted-binaries-which-are-still-running"></a>
+### Deleted Binaries Which are Still Running <a href="#deleted-binaries-which-are-still-running" id="deleted-binaries-which-are-still-running"></a>
 
 ```bash
 ls -alr /proc/*/exe 2> /dev/null |  grep deleted
 ```
 
-### <mark style="color:blue;">Process Working Directories (including common targeted directories)</mark> <a href="#process-working-directories-including-common-targeted-directories" id="process-working-directories-including-common-targeted-directories"></a>
+### Process Working Directories (including common targeted directories) <a href="#process-working-directories-including-common-targeted-directories" id="process-working-directories-including-common-targeted-directories"></a>
 
 ```bash
 ls -alr /proc/*/cwd
@@ -277,7 +277,7 @@ ls -alr /proc/*/cwd 2> /dev/null | grep var
 ls -alr /proc/*/cwd 2> /dev/null | grep home
 ```
 
-### <mark style="color:blue;">Review Processes</mark>
+### Review Processes
 
 Review all running processes; the following command could identify potentially malicious processes
 
@@ -299,26 +299,26 @@ cat /proc/<PID>
 pstree -a
 ```
 
-### <mark style="color:blue;">Recover deleted binary, which is currently running</mark> <a href="#recover-deleted-binary-which-is-currently-running" id="recover-deleted-binary-which-is-currently-running"></a>
+### Recover deleted binary, which is currently running <a href="#recover-deleted-binary-which-is-currently-running" id="recover-deleted-binary-which-is-currently-running"></a>
 
 ```bash
 cp /proc/[PID]/exe /[destination]/[binaryname]
 ```
 
-### <mark style="color:blue;">Capture Binary Data for Review</mark> <a href="#capture-binary-data-for-review" id="capture-binary-data-for-review"></a>
+### Capture Binary Data for Review <a href="#capture-binary-data-for-review" id="capture-binary-data-for-review"></a>
 
 ```bash
 cp /proc/[PID]/ /[destination]/[PID]/
 ```
 
-### <mark style="color:blue;">Binary Hash Information</mark> <a href="#binary-hash-information" id="binary-hash-information"></a>
+### Binary Hash Information <a href="#binary-hash-information" id="binary-hash-information"></a>
 
 ```bash
 sha1sum /[destination]/[binaryname]
 md5sum /[destination]/[binaryname]
 ```
 
-### <mark style="color:blue;">Recover a Deleted Process Binary</mark>.
+### <mark style="color:blue;">Recover a Deleted Process Binary.</mark>
 
 This method attempts to recover the binary executable from the process’s memory by extracting a portion of the memory associated with the process.
 
@@ -334,7 +334,7 @@ dd if=mem bs=1 skip=ADDRESS count=1000 of=/tmp/recovered_proc_file
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Review Activities</mark>
+### Review Activities
 
 Investigating the executed commands of a user could give some context about an incident
 
@@ -384,81 +384,81 @@ grep -v cron /var/log/auth.log* | grep -i -e "command=" -e "su:" -e "groupadd" -
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Open Files and Space Usage</mark> <a href="#open-files-and-space-usage" id="open-files-and-space-usage"></a>
+### Open Files and Space Usage <a href="#open-files-and-space-usage" id="open-files-and-space-usage"></a>
 
 ```bash
 lsof
 du
 ```
 
-### <mark style="color:blue;">Disk / Partition Information</mark> <a href="#disk--partition-information" id="disk--partition-information"></a>
+### Disk / Partition Information <a href="#disk--partition-information" id="disk--partition-information"></a>
 
 ```bash
 fdisk -l
 ```
 
-### <mark style="color:blue;">Strings Present In File</mark> <a href="#strings-present-in-file" id="strings-present-in-file"></a>
+### Strings Present In File <a href="#strings-present-in-file" id="strings-present-in-file"></a>
 
 ```bash
 strings [filepath]
 strings -e b [filepath]
 ```
 
-### <mark style="color:blue;">Hidden Directories and Files</mark> <a href="#hidden-directories-and-files" id="hidden-directories-and-files"></a>
+### Hidden Directories and Files <a href="#hidden-directories-and-files" id="hidden-directories-and-files"></a>
 
 ```bash
 find / -type d -name ".*"
 ```
 
-### <mark style="color:blue;">Immutable Files and Directories (Often Suspicious)</mark> <a href="#immutable-files-and-directories-often-suspicious" id="immutable-files-and-directories-often-suspicious"></a>
+### Immutable Files and Directories (Often Suspicious) <a href="#immutable-files-and-directories-often-suspicious" id="immutable-files-and-directories-often-suspicious"></a>
 
 ```bash
 lsattr / -R 2> /dev/null | grep "\----i"
 ```
 
-### <mark style="color:blue;">SUID/SGID and Sticky Bit Special Permissions</mark> <a href="#suidsgid-and-sticky-bit-special-permissions" id="suidsgid-and-sticky-bit-special-permissions"></a>
+### SUID/SGID and Sticky Bit Special Permissions <a href="#suidsgid-and-sticky-bit-special-permissions" id="suidsgid-and-sticky-bit-special-permissions"></a>
 
 ```bash
 find / -type f \( -perm -04000 -o -perm -02000 \) -exec ls -lg {} \;
 ```
 
-### <mark style="color:blue;">File and Directories with no user/group name</mark> <a href="#file-and-directories-with-no-usergroup-name" id="file-and-directories-with-no-usergroup-name"></a>
+### File and Directories with no user/group name <a href="#file-and-directories-with-no-usergroup-name" id="file-and-directories-with-no-usergroup-name"></a>
 
 ```bash
 find / \( -nouser -o -nogroup \) -exec ls -lg  {} \;
 ```
 
-### <mark style="color:blue;">File Types in Current Directory</mark> <a href="#file-types-in-current-directory" id="file-types-in-current-directory"></a>
+### File Types in Current Directory <a href="#file-types-in-current-directory" id="file-types-in-current-directory"></a>
 
 ```bash
 file * -p
 ```
 
-### <mark style="color:blue;">Executables on File System</mark> <a href="#executables-on-file-system" id="executables-on-file-system"></a>
+### Executables on File System <a href="#executables-on-file-system" id="executables-on-file-system"></a>
 
 ```bash
 find / -type f -exec file -p '{}' \; |  grep ELF
 ```
 
-### <mark style="color:blue;">Hidden Executables on File System</mark> <a href="#hidden-executables-on-file-system" id="hidden-executables-on-file-system"></a>
+### Hidden Executables on File System <a href="#hidden-executables-on-file-system" id="hidden-executables-on-file-system"></a>
 
 ```bash
 find / -name ".*" -exec file -p '{}' \; | grep ELF
 ```
 
-### <mark style="color:blue;">Files Modified Within the Past Day</mark> <a href="#files-modified-within-the-past-day" id="files-modified-within-the-past-day"></a>
+### Files Modified Within the Past Day <a href="#files-modified-within-the-past-day" id="files-modified-within-the-past-day"></a>
 
 ```bash
 find / -mtime -1
 ```
 
-### <mark style="color:blue;">Find Files for a Particular User</mark> <a href="#find-files-for-a-particular-user" id="find-files-for-a-particular-user"></a>
+### Find Files for a Particular User <a href="#find-files-for-a-particular-user" id="find-files-for-a-particular-user"></a>
 
 ```bash
 find /home/ -user fred -type f
 ```
 
-### <mark style="color:blue;">Hunting Unusual Files</mark>
+### Hunting Unusual Files
 
 {% code overflow="wrap" %}
 ```bash
@@ -491,7 +491,7 @@ ls /dev
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Installed Programs</mark>
+### Installed Programs
 
 {% code overflow="wrap" %}
 ```bash
@@ -519,7 +519,7 @@ find / -type f \( -newermt "2020-12-01" -and ! -newermt "2020-12-02" \)
 ```
 {% endcode %}
 
-### <mark style="color:blue;">File Investigation</mark>
+### File Investigation
 
 {% code overflow="wrap" %}
 ```bash
@@ -537,7 +537,7 @@ md5sum <filename> # submit to VT
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Persistent Mechanisms</mark>
+### Persistent Mechanisms
 
 A persistent mechanism is a method used by attackers to maintain access to a compromised system across reboots or to ensure their malicious activities persist over time. Below is a potential list of the places attackers might add or modify to deploy their persistent access.&#x20;
 
@@ -581,7 +581,7 @@ cat /home/$USER/.recently-used.xbel
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Persistent Areas of Interest</mark> <a href="#persistent-areas-of-interest" id="persistent-areas-of-interest"></a>
+### Persistent Areas of Interest <a href="#persistent-areas-of-interest" id="persistent-areas-of-interest"></a>
 
 ```bash
 /etc/rc.local
@@ -594,7 +594,7 @@ cat /home/$USER/.recently-used.xbel
 /usr/lib/cron/tabs
 ```
 
-### <mark style="color:blue;">**Webshell**</mark>
+### **Webshell**
 
 Identifying potential webshell installations or modifications
 
@@ -611,7 +611,7 @@ tail -f /etc/nginx/*/*
 ```
 {% endcode %}
 
-### <mark style="color:blue;">**Cron Tasks**</mark>
+### **Cron Tasks**
 
 Identify any scheduled tasks or suspicious activities that may have been configured to execute at specific times
 
@@ -637,7 +637,7 @@ cat /var/spool/cron/atjobs
 ```
 {% endcode %}
 
-### <mark style="color:blue;">**Services and Systemd**</mark>
+### **Services and Systemd**
 
 Examine systemd configurations and unit files to identify any modifications or suspicious configurations that may have been made to services or startup processes.
 
@@ -675,7 +675,7 @@ ls /usr/lib/systemd/user-generators/*
 ```
 {% endcode %}
 
-### <mark style="color:blue;">**SSH Daemon**</mark>
+### **SSH Daemon**
 
 Examine the configuration of the SSH daemon and related resource files
 
@@ -695,7 +695,7 @@ ls /etc/ssh/sshrc
 ```
 {% endcode %}
 
-### <mark style="color:blue;">**Login Shell**</mark>
+### **Login Shell**
 
 Examine login shell configurations and scripts responsible for system initialization and startup processes.
 
@@ -728,7 +728,7 @@ cat /home/$USER/.bash_logout
 cat /etc/.bash_logout
 ```
 
-### <mark style="color:blue;">**rc scripts**</mark>
+### **rc scripts**
 
 RC scripts responsible for system initialization and startup processes.
 
@@ -737,7 +737,7 @@ RC scripts responsible for system initialization and startup processes.
 cat /etc/rc*
 ```
 
-### <mark style="color:blue;">**Infected Binaries**</mark>
+### **Infected Binaries**
 
 Uncover recently modified files that may indicate unauthorised activity or compromise.
 
@@ -749,7 +749,7 @@ find /lib /usr/bin /usr/sbin -type f -newermt "$(date -d '10 days ago' +'%Y-%m-%
 ls /usr/lib/python3*
 ```
 
-### <mark style="color:blue;">Pluggable Authentication Modules (PAM)</mark> <a href="#pluggable-authentication-modules-pam" id="pluggable-authentication-modules-pam"></a>
+### Pluggable Authentication Modules (PAM) <a href="#pluggable-authentication-modules-pam" id="pluggable-authentication-modules-pam"></a>
 
 ```bash
 # Display contents of the PAM configuration file
@@ -763,7 +763,7 @@ cat /etc/pam.conf
 ls /etc/pam.d/
 ```
 
-### <mark style="color:blue;">**MOTD**</mark>
+### **Message of the Day (MOTD)**
 
 “motd” stands for “message of the day”. These scripts may contain important system status updates, notifications, or potentially malicious content inserted by attackers.
 
@@ -774,7 +774,7 @@ cat /etc/update-motd.d/*
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Unusual System Resources</mark>
+### Unusual System Resources
 
 These commands provide information about system uptime, memory usage, and disk space usage, which can help identify abnormal behaviour such as high resource consumption, potential denial of service attacks, or disk space exhaustion.
 
@@ -791,11 +791,11 @@ df
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Compromised Assessment Scanning</mark>
+### Compromised Assessment Scanning
 
 Using a CA scanner with YARA and SIGMA detection capabilities significantly speeds up our hunt for malicious and suspicious files in compromised systems. Running this scanner can save a considerable amount of time and prove invaluable during DFIR investigations.
 
-### <mark style="color:blue;">THOR Lite</mark>
+### THOR Lite
 
 {% code overflow="wrap" %}
 ```bash
@@ -806,7 +806,7 @@ cd thorlite/
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Hunting Rootkit</mark>
+### Hunting Rootkit
 
 #### To hunt via 3rd party software
 
@@ -844,7 +844,7 @@ sha256sum /bin/* /sbin/* /usr/bin/* /usr/sbin/* /lib/* /lib64/* /etc/* | sort > 
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Investigate Loaded Kernel Modules</mark>
+### Investigate Loaded Kernel Modules
 
 ```bash
 user@training:~$ lsmod
@@ -891,11 +891,11 @@ Review configuration files that control module loading.
 tail -f /etc/modprobe.d/*
 ```
 
-## <mark style="color:blue;">Collect Evidence</mark>
+## Collect Evidence
 
 We have completed the collection of live response data and triage scripts, saving all results for further analysis alongside disk and memory analysis. At this stage, gathering disk and memory dumps is imperative to conduct a comprehensive and in-depth investigation. These disk and memory dumps will provide critical insights into the system's state, allowing us to identify any anomalies or malicious activity that may have occurred.
 
-### <mark style="color:blue;">Disk imaging using dd</mark>
+### Disk imaging using dd
 
 Collecting digital disk image of the Linux system is essential to perform disk analysis offline. This activity is required to find suspicious files and folders, recover files and extract artifacts (triage) from the disk.
 
@@ -916,11 +916,11 @@ dcfldd if=/dev/sdb of=/media/sf_tmp/linux_forensic.img hash=sha256 hashwindow=1M
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Memory Acquisition</mark>
+### Memory Acquisition
 
 Memory acquisition and memory analysis are rare in Linux forensics, as most analysts rely on live response actions and commands. To perform memory acquisition, we will use AVML or LIME.
 
-#### <mark style="color:blue;">AVML</mark>
+#### AVML
 
 ```bash
 # Go to https://github.com/microsoft/avml/releases
@@ -931,7 +931,7 @@ wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml
 ./avml memory.lime
 ```
 
-#### <mark style="color:blue;">LIME</mark>
+#### LIME
 
 {% code overflow="wrap" %}
 ```bash
@@ -949,15 +949,15 @@ sudo insmod lime-$(uname -r).ko "path=/media/sf_tmp/mem.lime format=lime"
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Investigation and Analysis</mark>
+## Investigation and Analysis
 
 After collecting all the crucial evidence, we can proceed with the investigation and analysis of the triage evidence.
 
-### <mark style="color:blue;">Live Response and Triage Script Analysis</mark>
+### Live Response and Triage Script Analysis
 
 Based on the scripts and live command results, proceed with the investigation using a text editor such as VS Code. If the data is in CSV format, consider using tools like Timeline Explorer for better visualization and analysis.
 
-### <mark style="color:blue;">Memory analysis with Volatility</mark>
+### Memory analysis with Volatility
 
 First, install volatility if not already installed.
 
@@ -1012,7 +1012,7 @@ python3 vol.py isfinfo
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Run the Analysis</mark>
+### Run the Analysis
 
 {% code overflow="wrap" %}
 ```bash
@@ -1052,7 +1052,7 @@ PID	Process	CommandTime	Command
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Disk Analysis</mark>
+### Disk Analysis
 
 Analysts can perform disk analysis using several tools, such as:
 
@@ -1068,13 +1068,13 @@ Note: If Autopsy or Sleauth-kit cannot open the disk partition, do convert the r
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Directories and Files Analysis</mark>
+### Directories and Files Analysis
 
 #### **Directory**
 
 All directories from `/` to `/tmp` are crucial as well. Reviewing all the files in the system must ensure we find all possible findings. But what should we look at mainly during DFIR?
 
-### <mark style="color:blue;">Audit Logs</mark> <a href="#audit-logs" id="audit-logs"></a>
+### Audit Logs <a href="#audit-logs" id="audit-logs"></a>
 
 ```bash
 ls -al /var/log/*
@@ -1084,49 +1084,49 @@ utmpdump /var/run/utmp
 utmpdump /var/log/wtmp
 ```
 
-### <mark style="color:blue;">Size Of File (Bytes)</mark> <a href="#size-of-file-bytes" id="size-of-file-bytes"></a>
+### Size Of File (Bytes) <a href="#size-of-file-bytes" id="size-of-file-bytes"></a>
 
 ```bash
 wc -c [file]
 ```
 
-### <mark style="color:blue;">IP Making Most Requests in Access Log</mark> <a href="#ip-making-most-requests-in-access-log" id="ip-making-most-requests-in-access-log"></a>
+### IP Making Most Requests in Access Log <a href="#ip-making-most-requests-in-access-log" id="ip-making-most-requests-in-access-log"></a>
 
 ```bash
 cut -d " " -f 1 access.log | sort | uniq -c | sort -n -k 1,1
 ```
 
-### <mark style="color:blue;">Count of Unique IPs in Access Log</mark> <a href="#count-of-unique-ips-in-access-log" id="count-of-unique-ips-in-access-log"></a>
+### Count of Unique IPs in Access Log <a href="#count-of-unique-ips-in-access-log" id="count-of-unique-ips-in-access-log"></a>
 
 ```bash
 cut -d " " -f 1 access.log | sort -u | wc -l
 ```
 
-### <mark style="color:blue;">Unique User Agents in Access Log</mark> <a href="#unique-user-agents-in-access-log" id="unique-user-agents-in-access-log"></a>
+### Unique User Agents in Access Log <a href="#unique-user-agents-in-access-log" id="unique-user-agents-in-access-log"></a>
 
 ```bash
 awk -F \" '{ print $6 }' access.log | sort -u
 ```
 
-### <mark style="color:blue;">Most Requested URLs For POST Request in Access Log</mark> <a href="#most-requested-urls-for-post-request-in-access-log" id="most-requested-urls-for-post-request-in-access-log"></a>
+### Most Requested URLs For POST Request in Access Log <a href="#most-requested-urls-for-post-request-in-access-log" id="most-requested-urls-for-post-request-in-access-log"></a>
 
 ```bash
 awk -F \" '{ print $2 }' access.log | grep "POST" | sort | uniq -c | sort -n -k 1,1
 ```
 
-### <mark style="color:blue;">Lines In File</mark> <a href="#lines-in-file" id="lines-in-file"></a>
+### Lines In File <a href="#lines-in-file" id="lines-in-file"></a>
 
 ```bash
 wc -l [file]
 ```
 
-### <mark style="color:blue;">Search Files Recursively in a Directory for Keyword</mark> <a href="#search-files-recursively-in-directory-for-keyword" id="search-files-recursively-in-directory-for-keyword"></a>
+### Search Files Recursively in a Directory for Keyword <a href="#search-files-recursively-in-directory-for-keyword" id="search-files-recursively-in-directory-for-keyword"></a>
 
 ```bash
 grep -H -i -r "password" /
 ```
 
-### <mark style="color:blue;">Log Analysis</mark>
+### Log Analysis
 
 Tools such as SIEM or CA scanners could speed up the analysis of the log analysis.
 
@@ -1146,7 +1146,7 @@ Tools such as SIEM or CA scanners could speed up the analysis of the log analysi
 | /var/log/mail\*                | Analyze mail server logs for email activity              |
 | /var/log/xferlog               | Investigate FTP server logs for file transfer activity   |
 
-### <mark style="color:blue;">**Access.log**</mark>
+### **Access.log**
 
 Examining access.log content:
 
@@ -1166,27 +1166,27 @@ Examining access.log content:
 
 We can use external tools such as `goaccess` to briefly analyze access.log.
 
-### <mark style="color:blue;">Strings Present In File</mark> <a href="#strings-present-in-file" id="strings-present-in-file"></a>
+### Strings Present In File <a href="#strings-present-in-file" id="strings-present-in-file"></a>
 
 ```bash
 strings [filepath]
 strings -e b [filepath]
 ```
 
-### <mark style="color:blue;">Decode base64 Encoded File</mark> <a href="#decode-base64-encoded-file" id="decode-base64-encoded-file"></a>
+### Decode base64 Encoded File <a href="#decode-base64-encoded-file" id="decode-base64-encoded-file"></a>
 
 ```bash
 base64 -d [filename]
 echo [b64stream] | base64 -d
 ```
 
-### <mark style="color:blue;">Difference Between 2 Files</mark> <a href="#difference-between-2-files" id="difference-between-2-files"></a>
+### Difference Between 2 Files <a href="#difference-between-2-files" id="difference-between-2-files"></a>
 
 ```bash
 diff [file1] [file2]
 ```
 
-### <mark style="color:blue;">Privilege Escalation Hunting Ideas</mark>
+### Privilege Escalation Hunting Ideas
 
 Execution of below commands/scripts in `~/*.history`:
 
@@ -1255,7 +1255,7 @@ Another Aspects:
 
 Get ideas from https://book.hacktricks.xyz/linux-hardening/privilege-escalation
 
-### <mark style="color:blue;">File Recovery</mark>
+### File Recovery
 
 #### **debugfs for targeted file**
 
@@ -1286,7 +1286,7 @@ dd if=/dev/sda2 of=data.txt bs=4096 count=1 skip=THE_VALUE
 ```
 {% endcode %}
 
-### <mark style="color:blue;">**Sleuth Kit**</mark>
+### **Sleuth Kit**
 
 #### Using tsk\_recover by SK
 
@@ -1319,7 +1319,7 @@ apt-get install testdisk
 photorec
 ```
 
-### <mark style="color:blue;">Generate Timeline Analysis</mark>
+### Generate Timeline Analysis
 
 {% code overflow="wrap" %}
 ```bash

@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Linux
+# Linux (IR)
 
 Linux is a crucial tool in Digital Forensics and Incident Response (DFIR) investigations due to its flexibility, open-source nature, and powerful commandline utilities. Its open-source nature allows investigators to customise and create tools tailored to specific needs, ensuring a more thorough and efficient investigation. Additionally, Linux's robust commandline interface provides a wide range of utilities for data analysis, file recovery, and network monitoring, making it an indispensable platform for DFIR professionals.
 
@@ -37,4 +37,4 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 ### Start Learning:&#x20;
 
 * [linux-commandline-basics.md](linux-commandline-basics.md "mention")
-* [linux-incident-triage.md](linux-incident-triage.md "mention")
+* [linux-incident-triage-basics.md](linux-incident-triage-basics.md "mention")
