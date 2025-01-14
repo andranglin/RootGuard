@@ -22,7 +22,7 @@ Example: pwd #displays the full path of the current directory
 echo "You are in $(pwd)" #Combining with Other Commands
 </code></pre>
 
-{% code title="LS" overflow="wrap" %}
+{% code title="List (LS)" overflow="wrap" %}
 ```bash
 Command: ls
 Description: Lists directory contents
@@ -34,7 +34,7 @@ Example:
 ```
 {% endcode %}
 
-{% code title="CD" %}
+{% code title="Change Directory (CD)" %}
 ```bash
 Command: cd
 Description: Changes the current directory.
@@ -71,7 +71,7 @@ Example:
 ```
 {% endcode %}
 
-{% code title="RM" %}
+{% code title="Remove (RM)" %}
 ```bash
 Command: rm
 Description: Removes files or directories
@@ -83,7 +83,7 @@ rm -rf directory_name #Combining Options
 ```
 {% endcode %}
 
-<pre class="language-bash" data-title="CP" data-overflow="wrap"><code class="lang-bash">Command: cp
+<pre class="language-bash" data-title="Copy (CP)" data-overflow="wrap"><code class="lang-bash">Command: cp
 Description: Copies files or directories.
 Example: 
 cp file1.txt file2.txt #copies file1.txt to file2.txt
@@ -93,7 +93,7 @@ cp file1.txt ./Desktop #copies the file named "file1.txt" from the current direc
 cp -r /home/user/Documents /home/user/Backup/ #Copying a Directory Recursively
 </code></pre>
 
-<pre class="language-bash" data-title="MV" data-overflow="wrap"><code class="lang-bash">Command: mv
+<pre class="language-bash" data-title="Move (MV)" data-overflow="wrap"><code class="lang-bash">Command: mv
 Description: used for moving and renaming files and directories
 Example: 
 mv oldname.txt newname.txt #renames oldname.txt to newname.txt in the current directory.
@@ -103,7 +103,7 @@ mv file.txt /home/user/Documents/ #Moving a File to a Different Directory
 </strong>mv /home/user/old_directory /home/user/new_directory #Moving a Directory
 </code></pre>
 
-{% code title="CAT" overflow="wrap" %}
+{% code title="Concatenate (CAT)" overflow="wrap" %}
 ```bash
 Command: cat
 Description: Concatenates and displays file content.
@@ -180,7 +180,7 @@ shred -z filename.txt #Overwriting a File with Zeros
 shred -n 5 -z -u filename.txt #Combining Options
 </code></pre>
 
-{% code title="MKDIR" %}
+{% code title="Make Directory (MKDIR)" %}
 ```bash
 Command: rmdir
 Description: Creates a new directory
@@ -191,7 +191,7 @@ mkdir -m 755 new_directory #Setting Permissions While Creating a Directory
 ```
 {% endcode %}
 
-{% code title="RMDIR" %}
+{% code title="Remove Directory (RMDIR)" %}
 ```bash
 Command: rmdir
 Description: Removes an empty directory
@@ -201,7 +201,7 @@ rmdir -p parent/child/grandchild #Removing Nested Directories
 ```
 {% endcode %}
 
-{% code title="LN" overflow="wrap" %}
+{% code title="Link (LN)" overflow="wrap" %}
 ```bash
 Command: ln
 Description: Creates hard and symbolic links
@@ -223,7 +223,7 @@ Using Ctrl + L:
 ```
 {% endcode %}
 
-{% code title="WHOAMI" %}
+{% code title="Who Am I (WHOAMI)" %}
 ```bash
 Command: whoami
 Description: Displays the current logged-in user
@@ -232,7 +232,7 @@ echo "You are logged in as $(whoami)" #Using whoami with Other Commands
 ```
 {% endcode %}
 
-{% code overflow="wrap" %}
+{% code title="User Add (USERADD)" overflow="wrap" %}
 ```bash
 Command: useradd
 Description: Adds a new user
@@ -244,7 +244,7 @@ sudo useradd -u 1001 newuser #Creating a New User with a Specific User ID (UID)
 ```
 {% endcode %}
 
-{% code title="SUDO" overflow="wrap" %}
+{% code title="Superuser do (SUDO)" overflow="wrap" %}
 ```bash
 Command: sudo
 Description: Executes a command as another user, typically the superuser
@@ -256,7 +256,7 @@ sudo -u john ls /home/john
 ```
 {% endcode %}
 
-{% code title="ADDUSER" overflow="wrap" %}
+{% code title="Add User (ADDUSER)" overflow="wrap" %}
 ```bash
 Command: adduser
 Description: Adds a new user with a more interactive interface
@@ -267,7 +267,7 @@ sudo adduser --shell /bin/bash newuser #Creating a New User with a Specific Shel
 ```
 {% endcode %}
 
-{% code title="SU" %}
+{% code title="Substitute User SU" %}
 ```bash
 Command: su
 Description: Switch to another user account
@@ -287,7 +287,7 @@ Example: exit # logs out of the current session
 ```
 {% endcode %}
 
-{% code title="PASSWD" %}
+{% code title="Password (PASSWD)" %}
 ```bash
 Command: passwd
 Description: Changes a user password
@@ -299,7 +299,7 @@ sudo passwd -u username #Unlocking a User Account
 ```
 {% endcode %}
 
-{% code title="APT" %}
+{% code title="Advanced Package Tool (APT)" %}
 ```bash
 Command: apt
 Description: Manages packages on Debian-based systems
@@ -316,7 +316,7 @@ Example:
 ```
 {% endcode %}
 
-{% code title="SSH" overflow="wrap" %}
+{% code title="Secure Shell (SSH)" overflow="wrap" %}
 ```bash
 Command: ssh
 Description: Connects to a remote machine via SSH
@@ -340,7 +340,7 @@ finger username@remotehost #Displaying Information About a Remote User
 ```
 {% endcode %}
 
-{% code title="MAN" %}
+{% code title="Manual (MAN)" %}
 ```bash
 Command: man
 Description: Displays the manual page for a command
@@ -363,7 +363,7 @@ whatis ls cp mv
 ```
 {% endcode %}
 
-{% code title="CURL" overflow="wrap" %}
+{% code title="Client URL (CURL)" overflow="wrap" %}
 ```bash
 Command: curl
 Description: Transfers data from or to a server
@@ -376,7 +376,7 @@ curl -x http://proxyserver:port http://example.com #Using a Proxy
 ```
 {% endcode %}
 
-{% code title="ZIP" overflow="wrap" %}
+{% code title="ZIP Archive (ZIP)" overflow="wrap" %}
 ```bash
 Command: zip
 Description: Compresses files into a zip archive
@@ -388,7 +388,7 @@ zip archive_name.zip file1.txt file2.txt -x file2.txt # Excluding Files from a Z
 ```
 {% endcode %}
 
-{% code title="UNZIP" overflow="wrap" %}
+{% code title="UNZIP Archive (UNZIP)" overflow="wrap" %}
 ```bash
 Command: unzip
 Description: Extracts files from a zip archive
@@ -438,7 +438,7 @@ tail -f filename.txt #Monitoring a File in Real-Time
 ```
 {% endcode %}
 
-{% code title="CMP" overflow="wrap" %}
+{% code title="Compare (CMP)" overflow="wrap" %}
 ```bash
 Command: cmp
 Description: Compare two files byte by byte
