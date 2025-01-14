@@ -16,7 +16,7 @@ layout:
 
 Knowing the Linux command line interface (CLI) can be a game-changer. It offers a powerful and efficient way to interact with the operating system, allowing users to perform tasks quickly and automate repetitive processes. Mastering the Linux CLI can enhance productivity, provide greater control over the system, and open up a world of possibilities for customisation and troubleshooting. Whether you're a system administrator, developer, or cybersecurity analyst, having a solid understanding of the Linux CLI can significantly boost your technical skills and career prospects.
 
-<pre class="language-bash" data-title="PWD" data-overflow="wrap"><code class="lang-bash"><strong>Command: pwd
+<pre class="language-bash" data-title="Print Working Directory (PWD)" data-overflow="wrap"><code class="lang-bash"><strong>Command: pwd
 </strong>Description: Prints the current working directory
 Example: pwd #displays the full path of the current directory
 echo "You are in $(pwd)" #Combining with Other Commands
