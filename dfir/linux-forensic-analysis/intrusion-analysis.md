@@ -14,11 +14,9 @@ layout:
 
 # Intrusion Analysis
 
-### Live Response Commands
-
 These commands can review anomalous behaviour and verify compromise in real-time action. Some of the commands, such as `cat /var/www/html/webshell.php`, can also be used to perform post-compromise disk analysis, where we only need to supply the full path of the mounted compromised disk, for example, `cat /media/compromised_disk/var/www/html/webshell.php`.
 
-### General Information
+### Collect General Information
 
 First, we will collect the required information regarding the system to be analysed.
 
@@ -340,8 +338,7 @@ Investigating the executed commands of a user could give some context about an i
 
 {% code overflow="wrap" %}
 ```bash
-# Check command history 
-history
+history # Check command history
 
 # Check all files with "history" in their name in the user's home directory
 cat /home/$USER/.*_history
