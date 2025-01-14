@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Cybersecurity Roadmap to Become A SOC Analyst
+# Cybersecurity Analysts Roadmap
 
 ## Introduction:&#x20;
 

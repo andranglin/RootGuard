@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -13,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Daily and Weekly Threat Hunting KQL Queries
+# KQL Use Cases
 
 ## **1. Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)**
 

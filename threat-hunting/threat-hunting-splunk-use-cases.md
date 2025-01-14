@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -13,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Threat Hunting Use Cases - Splunk Queries
+# Splunk Use Cases
 
 ### **Windows Audit Log Tampering**
 

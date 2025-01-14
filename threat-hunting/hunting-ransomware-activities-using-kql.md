@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -13,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Hunting Ransomware Activities Using KQL
+# KQL Use Cases for Hunting Ransomware Activities
 
 ## Introduction
 

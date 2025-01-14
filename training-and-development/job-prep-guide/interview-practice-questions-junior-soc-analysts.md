@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Interview Practice Questions - Junior SOC Analysts
+# SOC Analysts Interview Prep Questions
 
 ### **Technical Questions**
 

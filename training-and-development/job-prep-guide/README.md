@@ -1,5 +1,4 @@
 ---
-icon: microscope
 cover: ../../.gitbook/assets/Screenshot 2025-01-10 082032.png
 coverY: 0
 layout:
@@ -18,5 +17,5 @@ layout:
     visible: true
 ---
 
-# Job Prep Guide
+# Job Prep
 
