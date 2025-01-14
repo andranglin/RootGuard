@@ -947,3 +947,48 @@ Command: sha256sum
 Example: sha256sum /bin/* /sbin/* /usr/bin/* /usr/sbin/* /lib/* /lib64/* /etc/* | sort > current_checksums.txt
 ```
 {% endcode %}
+
+### Disk imaging using dd
+
+Collecting digital disk image of the Linux system is essential to perform disk analysis offline. This activity is required to find suspicious files and folders, recover files and extract artifacts (triage) from the disk.
+
+{% code overflow="wrap" %}
+```bash
+Description: List all devices to identify the disk device for disk imaging
+Command: lsblk
+Example: lsblk
+```
+{% endcode %}
+
+{% code overflow="wrap" %}
+```bash
+Description: List partition tables for disk devices
+Command: fdisk
+Example: fdisk -l
+```
+{% endcode %}
+
+{% code overflow="wrap" %}
+```bash
+Description: Perform disk imaging to an external disk or shared folder
+# Replace "sdb" with the appropriate disk device identifier
+Command: dd
+Example: dd if=/dev/sdb of=/media/sf_tmp/linux_forensic.img
+```
+{% endcode %}
+
+{% code overflow="wrap" %}
+```bash
+Description: Alternatively, use dcfldd to perform hashing while imaging
+Command: dcfldd
+Example: dcfldd if=/dev/sdb of=/media/sf_tmp/linux_forensic.img hash=sha256 hashwindow=1M hashlog=/media/sf_tmp/linux_forensic.hash
+```
+{% endcode %}
+
+### References&#x20;
+
+* [Linux Forensics Command Cheat Sheet | Ef’s log (fahmifj.github.io)](https://fahmifj.github.io/blog/linux-forensics-command-cheat-sheet/)
+* [Linux Incident Response — Using ss for Network Analysis | SANS](https://www.sans.org/blog/linux-incident-response-using-ss-for-network-analysis/)
+* [UFW Essentials: Common Firewall Rules and Commands | DigitalOcean](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands)
+* [Linux Incident Response Guide - DFIR - Halkyn Security Blog](https://www.halkynconsulting.co.uk/a/2020/11/linux-incident-response-guide/)
+* [LetsDefend](https://app.letsdefend.io/training/lessons/incident-response-linux)
