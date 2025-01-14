@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Defender For Office
+# Office
 
 ### Identify Email Attachments Send From Compromised Mailbox
 

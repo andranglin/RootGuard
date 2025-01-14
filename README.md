@@ -65,7 +65,7 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 [malware-analysis.md](malware-analysis.md "mention")
 
-[dfir-using-defender-and-sentinel](dfir-using-defender-and-sentinel/ "mention")
+[dfir-defender-and-sentinel](dfir-defender-and-sentinel/ "mention")
 
 [Broken link](broken-reference "mention")
 

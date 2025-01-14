@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Defender For Endpoint
+# Endpoint
 
 ### Detect Local User Account Creation on Endpoint
 

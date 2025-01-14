@@ -12,11 +12,11 @@ layout:
     visible: true
 ---
 
-# Cybersecurity Analyst - Junior Role
+# Cybersecurity Analyst - Role Prep
 
-### **What is a Junior Cybersecurity Analyst Role?**
+### **What is a Cybersecurity Analyst Role?**
 
-A Junior Cybersecurity Analyst is a crucial team member responsible for safeguarding an organisation’s digital infrastructure. Working primarily within a Security Operations Center (SOC) or similar environments, they specialise in identifying, analysing, and responding to potential cybersecurity threats.
+A Cybersecurity Analyst is a crucial team member responsible for safeguarding an organisation’s digital infrastructure. Working primarily within a Security Operations Center (SOC) or similar environments, they specialise in identifying, analysing, and responding to potential cybersecurity threats.
 
 ### Key Responsibilities:
 
@@ -27,11 +27,11 @@ A Junior Cybersecurity Analyst is a crucial team member responsible for safeguar
 
 ***
 
-### Step-by-Step Preparation for a Junior Cybersecurity Analyst Interview
+### Step-by-Step Preparation for a Cybersecurity Analyst Interview
 
 #### **1. Understand the Role and Expectations**
 
-* **Learn the Basics**: Familiarise yourself with the day-to-day responsibilities of a Junior Cybersecurity Analyst, including monitoring, analysis, and response.
+* **Learn the Basics**: Familiarise yourself with the day-to-day responsibilities of a Cybersecurity Analyst, including monitoring, analysis, and response.
 * **Common Tools**: Gain experience with industry-standard tools like Splunk, Wireshark, and Microsoft Defender for Endpoint. Explore their dashboards, common use cases, and how they integrate into an organisation's security framework.
 * **Focus Areas**: Prioritise foundational skills such as log analysis, threat detection, basic malware analysis, and incident reporting. Understand how these tasks contribute to the overall cybersecurity strategy.
 
@@ -157,4 +157,4 @@ Staying informed helps you remain competitive and prepared.
 * Rehearse answers to both technical and behavioural questions.
 * Review the company’s cybersecurity focus and align your responses to their priorities.
 
-With structured preparation, you’ll be well-equipped to excel in a Junior Cybersecurity Analyst interview and lay the groundwork for a successful career in the field.
+With structured preparation, you’ll be well-equipped to excel in a Cybersecurity Analyst interview and lay the groundwork for a successful career in the field.

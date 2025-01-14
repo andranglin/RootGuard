@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Defender For Identity
+# Identity
 
 ### Devices Accessed By Compromised Device
 
