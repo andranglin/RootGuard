@@ -19,6 +19,7 @@
   * [Linux Forensic Analysis](dfir/linux-forensic-analysis/README.md)
     * [Command Line](dfir/linux-forensic-analysis/command-line.md)
     * [Intrusion Analysis](dfir/linux-forensic-analysis/intrusion-analysis.md)
+    * [Linux Commands Cybersecurity Analysts Should Know](dfir/linux-forensic-analysis/linux-commands-cybersecurity-analysts-should-know.md)
   * [Windows Forensic Analysis](dfir/windows-forensic-analysis/README.md)
     * [Evidence of Execution](dfir/windows-forensic-analysis/evidence-of-execution.md)
     * [Window Artifact Analysis](dfir/windows-forensic-analysis/window-artifact-analysis/README.md)
