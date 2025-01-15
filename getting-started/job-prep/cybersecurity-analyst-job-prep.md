@@ -12,9 +12,9 @@ layout:
     visible: true
 ---
 
-# Cybersecurity Analyst - Role Prep
+# Cybersecurity Analyst - Job Prep
 
-### **What is a Cybersecurity Analyst Role?**
+### **What is the Role of a Cybersecurity Analyst?**
 
 A Cybersecurity Analyst is a crucial team member responsible for safeguarding an organisation’s digital infrastructure. Working primarily within a Security Operations Center (SOC) or similar environments, they specialise in identifying, analysing, and responding to potential cybersecurity threats.
 
@@ -27,7 +27,7 @@ A Cybersecurity Analyst is a crucial team member responsible for safeguarding an
 
 ***
 
-### Step-by-Step Preparation for a Cybersecurity Analyst Interview
+### Interview Preparation Steps
 
 #### **1. Understand the Role and Expectations**
 
@@ -35,7 +35,7 @@ A Cybersecurity Analyst is a crucial team member responsible for safeguarding an
 * **Common Tools**: Gain experience with industry-standard tools like Splunk, Wireshark, and Microsoft Defender for Endpoint. Explore their dashboards, common use cases, and how they integrate into an organisation's security framework.
 * **Focus Areas**: Prioritise foundational skills such as log analysis, threat detection, basic malware analysis, and incident reporting. Understand how these tasks contribute to the overall cybersecurity strategy.
 
-#### **2. Build a Strong Foundation in Cybersecurity**
+#### **2. Building a Strong Foundation**
 
 * **Core Concepts**:
   * **CIA Triad**: Confidentiality, Integrity, Availability. Understand how these principles guide security policies and solutions.
@@ -59,7 +59,7 @@ A strong grasp of networking is essential for effective threat analysis and unde
   * Use tools like Nmap for network scanning and vulnerability assessment.
   * Set up scenarios to understand how data travels across networks and how attackers may exploit weaknesses.
 
-#### **4. Understand Logs and Monitoring**
+#### **4. Understand Log formats and Important ID and Types to Monitor**
 
 Logs are the primary source of data for identifying security threats, and understanding them is essential for threat detection and response.
 
@@ -82,7 +82,7 @@ Practical experience is crucial to develop confidence and proficiency.
   * Use tools like Metasploit or Atomic Red Team to understand common attack techniques.
   * Monitor logs and network traffic for anomalies, documenting your findings to build a troubleshooting process.
 
-#### **6. Develop Analytical Skills**
+#### **6. Develop Good Analytical Skills**
 
 Analytical skills are critical for identifying and addressing threats effectively.
 
@@ -123,7 +123,7 @@ A well-organised portfolio sets you apart by showcasing your skills and dedicati
 * Document your approach to solving challenges, including screenshots and detailed explanations.
 * Use platforms like GitHub or create a personal website to present your work professionally.
 
-#### **10. Practice Mock Interviews**
+#### **10. Practice with Mock Interviews**
 
 Mock interviews help you refine your communication and problem-solving skills.
 
@@ -139,7 +139,7 @@ Understanding the organisation’s needs and priorities shows initiative and int
 * Research the tools and platforms they use, such as Splunk, CrowdStrike, or Palo Alto.
 * Stay informed on recent cybersecurity incidents or trends relevant to their industry to discuss during the interview.
 
-#### **12. Stay Updated**
+#### **12. Stay Updated on Current Events in Security**&#x20;
 
 Staying informed helps you remain competitive and prepared.
 
@@ -149,7 +149,7 @@ Staying informed helps you remain competitive and prepared.
 
 ***
 
-#### Checklist Before the Interview:
+#### Create a Checklist to Guide the Interview Preparation
 
 * Review core cybersecurity and networking concepts.
 * Practice using SIEM tools and analysing logs.

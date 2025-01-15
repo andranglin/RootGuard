@@ -69,6 +69,6 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 [Broken link](broken-reference "mention")
 
-[training-and-development](getting-started/training-and-development/ "mention")
+[Broken link](broken-reference "mention")
 
 </details>

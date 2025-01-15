@@ -8,11 +8,10 @@
 
 ## GETTING STARTED
 
-* [Training & Development](getting-started/training-and-development/README.md)
-  * [Job Prep](getting-started/training-and-development/job-prep/README.md)
-    * [SOC Analysts Interview Prep Questions](getting-started/training-and-development/job-prep/soc-analysts-interview-prep-questions.md)
-    * [Cybersecurity Analyst - Role Prep](getting-started/training-and-development/job-prep/cybersecurity-analyst-role-prep.md)
-  * [Cybersecurity Analysts Roadmap](getting-started/training-and-development/cybersecurity-analysts-roadmap.md)
+* [Job Prep](getting-started/job-prep/README.md)
+  * [SOC Analysts Interview Prep Questions](getting-started/job-prep/soc-analysts-interview-prep-questions.md)
+  * [Cybersecurity Analyst - Job Prep](getting-started/job-prep/cybersecurity-analyst-job-prep.md)
+* [Cybersecurity Analysts Roadmap](getting-started/cybersecurity-analysts-roadmap.md)
 
 ## LEARNING RESOURCES
 
