@@ -19,7 +19,7 @@ layout:
 
 # SOC Analysts Roadmap
 
-## Introduction:&#x20;
+## Introduction
 
 The demand for competent Security Operations Center (SOC) Analysts is high. This is partially driven by the rise in demand for Managed Detection and Response (MDR) services and organisations looking to improve and grow their in-house security teams. Whatever the source, competent SOC Analyst skills are in demand even with the growth of Artificial Intelligence (AI) capabilities.
 

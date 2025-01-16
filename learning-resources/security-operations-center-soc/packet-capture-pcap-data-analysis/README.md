@@ -54,19 +54,19 @@ PCAP data analysis is an indispensable process in cybersecurity. It provides vis
 
 Get started:
 
-{% content-ref url="tcpdump-packet-analysis-level-1.md" %}
-[tcpdump-packet-analysis-level-1.md](tcpdump-packet-analysis-level-1.md)
+{% content-ref url="tcpdump-packet-analysis.md" %}
+[tcpdump-packet-analysis.md](tcpdump-packet-analysis.md)
 {% endcontent-ref %}
 
-{% content-ref url="tcpdump-packet-analysis-level-2.md" %}
-[tcpdump-packet-analysis-level-2.md](tcpdump-packet-analysis-level-2.md)
+{% content-ref url="tcpdump-packet-analysis-intermediate.md" %}
+[tcpdump-packet-analysis-intermediate.md](tcpdump-packet-analysis-intermediate.md)
 {% endcontent-ref %}
 
-{% content-ref url="tshark-basics.md" %}
-[tshark-basics.md](tshark-basics.md)
+{% content-ref url="tshark-packet-analysis.md" %}
+[tshark-packet-analysis.md](tshark-packet-analysis.md)
 {% endcontent-ref %}
 
-{% content-ref url="ngrep-basics.md" %}
-[ngrep-basics.md](ngrep-basics.md)
+{% content-ref url="ngrep-packet-analysis.md" %}
+[ngrep-packet-analysis.md](ngrep-packet-analysis.md)
 {% endcontent-ref %}
 

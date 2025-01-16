@@ -18,7 +18,7 @@ layout:
 
 A Security Analyst is a crucial team member responsible for safeguarding an organisation’s digital infrastructure. Working primarily within a Security Operations Center (SOC) or similar environments, they specialise in identifying, analysing, and responding to potential security threats.
 
-### Key Responsibilities:
+### Key Responsibilities
 
 1. **Monitoring**: Continuously monitor threats using security tools like SIEM platforms (e.g., Splunk, Microsoft Sentinel) to detect suspicious activities. This involves analysing logs, network traffic, and alerts from various sources to identify anomalies and trends that may indicate malicious activity.
 2. **Analysis**: Investigate alerts to determine their legitimacy and assess potential risks. This includes triaging incidents, correlating data from multiple sources, and leveraging threat intelligence to understand the nature and severity of threats.
