@@ -8,10 +8,10 @@
 
 ## GETTING STARTED
 
-* [Job Prep](getting-started/job-prep/README.md)
-  * [SOC Analysts Interview Prep Questions](getting-started/job-prep/soc-analysts-interview-prep-questions.md)
-  * [Cybersecurity Analyst - Job Prep](getting-started/job-prep/cybersecurity-analyst-job-prep.md)
-* [Cybersecurity Analysts Roadmap](getting-started/cybersecurity-analysts-roadmap.md)
+* [SOC Analysts Roadmap](getting-started/soc-analysts-roadmap/README.md)
+  * [How To Become A SOC Analyst](getting-started/soc-analysts-roadmap/how-to-become-a-soc-analyst.md)
+  * [Interview Prep Questions for SOC Analysts](getting-started/soc-analysts-roadmap/interview-prep-questions-for-soc-analysts.md)
+  * [Job Prep](getting-started/soc-analysts-roadmap/job-prep.md)
 
 ## LEARNING RESOURCES
 

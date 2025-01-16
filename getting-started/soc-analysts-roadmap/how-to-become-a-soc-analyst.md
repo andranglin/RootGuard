@@ -12,17 +12,17 @@ layout:
     visible: true
 ---
 
-# Cybersecurity Analyst - Job Prep
+# How To Become A SOC Analyst
 
-### **What is the Role of a Cybersecurity Analyst?**
+### **What is the Role of a Security Analyst?**
 
-A Cybersecurity Analyst is a crucial team member responsible for safeguarding an organisation’s digital infrastructure. Working primarily within a Security Operations Center (SOC) or similar environments, they specialise in identifying, analysing, and responding to potential cybersecurity threats.
+A Security Analyst is a crucial team member responsible for safeguarding an organisation’s digital infrastructure. Working primarily within a Security Operations Center (SOC) or similar environments, they specialise in identifying, analysing, and responding to potential security threats.
 
 ### Key Responsibilities:
 
 1. **Monitoring**: Continuously monitor threats using security tools like SIEM platforms (e.g., Splunk, Microsoft Sentinel) to detect suspicious activities. This involves analysing logs, network traffic, and alerts from various sources to identify anomalies and trends that may indicate malicious activity.
 2. **Analysis**: Investigate alerts to determine their legitimacy and assess potential risks. This includes triaging incidents, correlating data from multiple sources, and leveraging threat intelligence to understand the nature and severity of threats.
-3. **Incident Response**: Support senior analysts in responding to and mitigating cybersecurity incidents. Tasks may involve containing threats, mitigating vulnerabilities, and restoring normal operations while minimising impact on the organisation.
+3. **Incident Response**: Support senior analysts in responding to and mitigating security incidents. Tasks may involve containing threats, mitigating vulnerabilities, and restoring normal operations while minimising impact on the organisation.
 4. **Reporting**: Document findings and generate reports on security events and trends to enhance organisational resilience. Reports may be used to inform management, refine security policies, or comply with regulatory requirements.
 
 ***
@@ -31,9 +31,9 @@ A Cybersecurity Analyst is a crucial team member responsible for safeguarding an
 
 #### **1. Understand the Role and Expectations**
 
-* **Learn the Basics**: Familiarise yourself with the day-to-day responsibilities of a Cybersecurity Analyst, including monitoring, analysis, and response.
+* **Learn the Basics**: Familiarise yourself with the day-to-day responsibilities of a Security Analyst, including monitoring, analysis, and response.
 * **Common Tools**: Gain experience with industry-standard tools like Splunk, Wireshark, and Microsoft Defender for Endpoint. Explore their dashboards, common use cases, and how they integrate into an organisation's security framework.
-* **Focus Areas**: Prioritise foundational skills such as log analysis, threat detection, basic malware analysis, and incident reporting. Understand how these tasks contribute to the overall cybersecurity strategy.
+* **Focus Areas**: Prioritise foundational skills such as log analysis, threat detection, basic malware analysis, and incident reporting. Understand how these tasks contribute to the overall security strategy.
 
 #### **2. Building a Strong Foundation**
 
@@ -42,9 +42,9 @@ A Cybersecurity Analyst is a crucial team member responsible for safeguarding an
   * **Types of Attacks**: Learn the mechanisms and indicators of malware, phishing, DDoS, insider threats, and other common attack vectors.
   * **Security Measures**: Study the functionality of firewalls, IDS/IPS, endpoint protection, and other essential defences.
 * **Recommended Resources**:
-  * **Free Courses**: Explore Cybrary for SOC-specific modules and TryHackMe for interactive cybersecurity labs.
+  * **Free Courses**: Explore Cybrary for SOC-specific modules and TryHackMe for interactive rsecurity labs.
   * **Books**: Read "Cybersecurity Essentials" and "Network Security Fundamentals" to strengthen your theoretical knowledge.
-  * **Blogs and Forums**: Follow cybersecurity blogs and participate in online forums to stay updated on trends and best practices.
+  * **Blogs and Forums**: Follow security blogs and participate in online forums to stay updated on trends and best practices.
 
 #### **3. Learn Basic Networking**
 
@@ -135,15 +135,15 @@ Mock interviews help you refine your communication and problem-solving skills.
 
 Understanding the organisation’s needs and priorities shows initiative and interest.
 
-* Learn about their industry focus (e.g., finance, healthcare) and any unique cybersecurity challenges they face.
+* Learn about their industry focus (e.g., finance, healthcare) and any unique security challenges they face.
 * Research the tools and platforms they use, such as Splunk, CrowdStrike, or Palo Alto.
-* Stay informed on recent cybersecurity incidents or trends relevant to their industry to discuss during the interview.
+* Stay informed on recent security incidents or trends relevant to their industry to discuss during the interview.
 
 #### **12. Stay Updated on Current Events in Security**&#x20;
 
 Staying informed helps you remain competitive and prepared.
 
-* Follow cybersecurity blogs, podcasts, and newsletters to stay abreast of emerging threats and technologies.
+* Follow security blogs, podcasts, and newsletters to stay abreast of emerging threats and technologies.
 * Use threat intelligence platforms like MITRE ATT\&CK, US-CERT, and AlienVault OTX to understand adversary tactics and techniques.
 * Engage in online communities like Reddit’s r/cybersecurity, LinkedIn groups, and Discord channels to network and learn from peers.
 
@@ -151,10 +151,10 @@ Staying informed helps you remain competitive and prepared.
 
 #### Create a Checklist to Guide the Interview Preparation
 
-* Review core cybersecurity and networking concepts.
+* Review core security and networking concepts.
 * Practice using SIEM tools and analysing logs.
 * Prepare examples of past projects and experiences.
 * Rehearse answers to both technical and behavioural questions.
-* Review the company’s cybersecurity focus and align your responses to their priorities.
+* Review the company’s security focus and align your responses to their priorities.
 
-With structured preparation, you’ll be well-equipped to excel in a Cybersecurity Analyst interview and lay the groundwork for a successful career in the field.
+With structured preparation, you’ll be well-equipped to excel in a Security Analyst interview and lay the groundwork for a successful career in the field.
