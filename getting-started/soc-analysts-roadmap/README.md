@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Cybersecurity Analysts Roadmap
+# SOC Analysts Roadmap
 
 ## Introduction:&#x20;
 
@@ -26,6 +26,8 @@ The demand for competent Security Operations Center (SOC) Analysts is high. This
 While several blogs and articles have been written on cybersecurity development roadmaps and how to prepare and eventually get into a role, it is a constantly moving target that requires frequent updating. One of the main objectives of this site is to support junior and entry-level analysts already in the field and those looking to enter. The hope is that this roadmap becomes helpful to individuals for whom the pathway is less clear and who are finding it challenging knowing how or where to start.
 
 Cybersecurity is an interesting and rewarding field, but like all other sectors, it has its challenges. Move forward and make your mark. All that's required to start is a positive attitude and the willingness to learn. There are plenty of freely available resources provided on this [site](https://rootguard.gitbook.io/cyberops/cybersecurity-operations-center-csoc) and other areas online, such as [YouTube](https://www.youtube.com/), to get you started.&#x20;
+
+**Note:** This section is not meant to be a doctoral thesis on everything required for a Security Analyst to prepare and ultimately land their dream job. Instead, it provides the baseline of information for the foundational requirement of the role. As a result, I will periodically reference other material or books that will allow you to dive deeper into particular topics to prevent the guide from becoming an overly long read.
 
 ### Step 1: Master the Basics of Cybersecurity
 

@@ -57,7 +57,7 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 [dfir](learning-resources/dfir/ "mention")
 
-[cybersecurity-operations-center-csoc](learning-resources/cybersecurity-operations-center-csoc/ "mention")
+[security-operations-center-soc](learning-resources/security-operations-center-soc/ "mention")
 
 [windows-forensic-analysis](learning-resources/dfir/windows-forensic-analysis/ "mention")
 

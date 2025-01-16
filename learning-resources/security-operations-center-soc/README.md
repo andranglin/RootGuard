@@ -18,11 +18,11 @@ layout:
     visible: true
 ---
 
-# Cybersecurity Operations Center (CSOC)
+# Security Operations Center (SOC)
 
-## What is a Cybersecurity Operations Center (CSOC)?
+## What is a Security Operations Center (SOC)?
 
-A Cybersecurity Operations Center (CSOC) is a centralised function that serves as the nerve center for an organisation’s cybersecurity operations. The CSOC is responsible for monitoring, detecting, analysing, and responding to cybersecurity incidents in realtime to protect the organisation’s data, systems, and networks. It is staffed with skilled cybersecurity professionals and equipped with advanced tools and technologies to proactively identify potential threats and mitigate risks.
+A Security Operations Center (SOC) is a centralised function that serves as the nerve center for an organisation’s security operations. The SOC is responsible for monitoring, detecting, analysing, and responding to ssecurity incidents in realtime to protect the organisation’s data, systems, and networks. It is staffed with skilled security professionals and equipped with advanced tools and technologies to proactively identify potential threats and mitigate risks.
 
 ### Key functions of a CSOC include:
 
@@ -33,13 +33,13 @@ A Cybersecurity Operations Center (CSOC) is a centralised function that serves a
 * Collaboration with other IT and security teams.
 * Reporting on security posture and incidents.
 
-CSOCs operate 24/7 in most cases to ensure round-the-clock protection against evolving cyber threats, making them an essential component of modern cybersecurity strategies.
+CSOCs operate 24/7 in most cases to ensure round-the-clock protection against evolving cyber threats, making them an essential component of modern security strategies.
 
 ***
 
 ### Skillset Required for a CSOC Analyst
 
-A CSOC Analyst plays a critical role in detecting cybersecurity threats. To excel in this role, individuals must possess a combination of technical expertise, analytical thinking, and communication skills.
+A CSOC Analyst plays a critical role in detecting security threats. To excel in this role, individuals must possess a combination of technical expertise, analytical thinking, and communication skills.
 
 #### Core Technical Skills:
 
@@ -96,7 +96,7 @@ CSOC Analysts are at the forefront of defending an organisation against cyber th
 
 ### Training and Certifications Required
 
-A solid foundation in cybersecurity principles, combined with industry-recognised certifications, can significantly enhance a candidate’s employability as a CSOC Analyst. Recommended certifications include:
+A solid foundation in security principles, combined with industry-recognised certifications, can significantly enhance a candidate’s employability as a CSOC Analyst. Recommended certifications include:
 
 1. **Entry-Level Certifications:**
    * CompTIA Security+
@@ -121,13 +121,13 @@ Training courses offered by organisations like SANS, Cybrary and online platform
 
 #### Step 1: Build Foundational Knowledge
 
-* Pursue a degree in Computer Science, Cybersecurity, or a related field; however, a degree is not required.
-* Gain a strong understanding of networking, operating systems, and cybersecurity principles.
+* Pursue a degree in Computer Science, security, or a related field; however, a degree is not required.
+* Gain a strong understanding of networking, operating systems, and security principles.
 
 #### Step 2: Gain Practical Experience
 
-* Intern with IT departments or cybersecurity teams to gain hands-on experience.
-* Participate in cybersecurity bootcamps or capture-the-flag (CTF) competitions.
+* Intern with IT departments or security teams to gain hands-on experience.
+* Participate in security bootcamps or capture-the-flag (CTF) competitions.
 * Create a home lab for dedicated practice
 
 #### Step 3: Obtain Relevant Certifications
@@ -137,7 +137,7 @@ Training courses offered by organisations like SANS, Cybrary and online platform
 #### Step 4: Apply for Entry-Level Roles
 
 * Look for roles such as SOC Analyst Tier 1, IT Support Specialist, or Network Administrator.
-* Focus on gaining experience in core cybersecurity skills, including log analysis, incident response, SIEM and EDR tools.
+* Focus on gaining experience in core security skills, including log analysis, incident response, SIEM and EDR tools.
 
 #### Step 5: Continue Professional Development
 
