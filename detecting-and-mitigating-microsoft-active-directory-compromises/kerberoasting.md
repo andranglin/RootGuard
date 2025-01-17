@@ -33,11 +33,11 @@ Events that detect Kerberoasting:
   * Source: Domain Controller&#x20;
   * Description: The event is generated when a TGS ticket is requested. When malicious actors execute Kerberoasting, event 4769 is generated for each TGS ticket requested for a user object.
 
-**Mitigation:**&#x20;
+### **Mitigation:**&#x20;
 
 To mitigate Kerberoasting attacks, organisations should enforce strong, complex passwords for service accounts and regularly rotate them. Additionally, using managed service accounts (MSAs) or group managed service accounts (gMSAs) can help reduce the risk, as these accounts automatically manage password changes. Limiting the number of accounts with SPNs and applying the principle of least privilege can also reduce the attack surface.
 
-**Tools:**&#x20;
+### **Tools:**&#x20;
 
 1. Security Information and Event Management (SIEM) Tools
 
@@ -100,14 +100,14 @@ These tools are used to simulate attacks, test defences, and detect Kerberoastin
 * AWS GuardDuty, Azure Security Center, GCP Security Command Center:
   * Detect Kerberoasting-like activity in cloud environments, especially if attackers target cloud-hosted Windows domains.
 
-Best Practices for Using These Tools:
+### Best Practices for Using These Tools:
 
 * Baseline Normal Behavior: Establish what "normal" Kerberos activity looks like in your environment.
 * Integrate Tools: Use SIEMs alongside EDR and network monitoring tools for comprehensive detection.
 * Regular Updates: Ensure detection rules are updated with the latest indicators of compromise (IOCs) and attack techniques.
 * Simulations: Regularly test detection capabilities using adversary simulation tools.
 
-#### KQL Detection Query
+### KQL Detection Query
 
 {% tabs %}
 {% tab title="Query 1" %}
@@ -198,7 +198,7 @@ Query performs the following steps:
 {% endtab %}
 {% endtabs %}
 
-#### Splunk Detection Query
+### Splunk Detection Query
 
 Note: Choose the appropriate Index and sourcetype; these are often different in organisations.
 

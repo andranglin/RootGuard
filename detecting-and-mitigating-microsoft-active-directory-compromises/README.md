@@ -30,11 +30,11 @@ Malicious actors can establish persistence within organisations by exploiting Ac
 
 For many organisations, Active Directory (AD) is a complex ecosystem comprising thousands of objects that interact through a web of permissions, configurations, and relationships. These objects include users, groups, computers, and other resources, each with specific permissions and roles within the network. Understanding these object permissions and relationships is crucial for securing an AD environment.
 
-#### Enumeration by Malicious Actors
+### Enumeration by Malicious Actors
 
 Once malicious actors gain initial access to an environment, they often enumerate Active Directory to gather information. Enumeration involves systematically identifying and cataloguing the objects, configurations, and relationships within AD. This process helps attackers understand the unique structure of the organisation's AD environment, including its strengths and weaknesses. By doing so, they can sometimes gain a better understanding of the environment than the organisation itself, enabling them to target AD with a higher likelihood of success.
 
-#### Exploiting Weaknesses and Misconfigurations
+### Exploiting Weaknesses and Misconfigurations
 
 Malicious actors use their knowledge of the AD environment to exploit weaknesses and misconfigurations.&#x20;
 
@@ -44,7 +44,7 @@ Common tactics include:
 * **Lateral Movement**: Once inside the network, attackers move laterally to access additional systems and data. This movement is often facilitated by exploiting trust relationships and permissions within AD.
 * **Domain Control**: Ultimately, attackers aim to gain full control of the AD domain, which grants them privileged access to all managed systems and users.
 
-#### Tools for Understanding and Securing Active Directory
+### Tools for Understanding and Securing Active Directory
 
 To improve AD security, organisations must thoroughly understand their unique configurations. Several commercial and open-source tools can aid in this understanding:
 
@@ -52,11 +52,11 @@ To improve AD security, organisations must thoroughly understand their unique co
 * **PingCastle**: This tool generates an AD security report, highlighting potential vulnerabilities and providing recommendations for remediation.
 * **Purple Knight**: This application offers insights into the security of an AD environment, identifying areas that may require attention to prevent exploitation.
 
-#### Persistence Techniques
+### Persistence Techniques
 
 Malicious actors often establish persistence within organisations by exploiting AD. Persistence techniques allow attackers to maintain access to the network over extended periods, even if initial access points are discovered and remediated. Some techniques enable remote login, bypassing multi-factor authentication (MFA) controls. These methods are often resistant to cybersecurity incident response efforts, making it challenging to evict determined adversaries.
 
-#### Responding to and Recovering from Compromises
+### Responding to and Recovering from Compromises
 
 Responding to and recovering from AD compromises is time-consuming, costly, and disruptive. Organisations may need to take drastic measures, such as resetting all user passwords or rebuilding AD entirely, to evict sophisticated attackers. Therefore, it is crucial for organisations to implement robust security measures and continuously monitor their AD environments to detect and mitigate potential threats.
 
@@ -91,6 +91,3 @@ Detecting and mitigating Active Directory compromises involves a multi-faceted a
 * [Securing Domain Controllers Against Attack](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 * [Top 25 Active Directory Security Best Practices](https://activedirectorypro.com/active-directory-security-best-practices/)
 * [Active Directory Security Best Practices](https://www.netwrix.com/active-directory-best-practices.html)
-
-
-

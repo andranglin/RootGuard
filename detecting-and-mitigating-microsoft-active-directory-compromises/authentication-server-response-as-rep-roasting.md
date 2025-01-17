@@ -14,7 +14,7 @@ layout:
 
 # Authentication Server Response (AS-REP) Roasting
 
-#### **Introduction to AS-REP Roasting**
+### **Introduction to AS-REP Roasting**
 
 AS-REP Roasting is a post-exploitation technique used by attackers to extract and crack password hashes for user accounts in a Kerberos authentication environment. It specifically targets user accounts that have **"Do not require Kerberos preauthentication"** enabled, exploiting a feature of the Kerberos protocol that allows attackers to obtain encrypted password hashes without direct interaction with the target user.
 
@@ -22,7 +22,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 
 ***
 
-#### **How AS-REP Roasting Works**
+### **How AS-REP Roasting Works**
 
 1. **Kerberos Overview:**
    * In a typical Kerberos authentication process, pre-authentication requires the client to prove its identity by encrypting a timestamp with the user's password hash and sending it to the Key Distribution Center (KDC). This mechanism prevents offline brute-force attacks against Kerberos accounts.
@@ -37,7 +37,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 
 ***
 
-#### **Why AS-REP Roasting is Effective**
+### **Why AS-REP Roasting is Effective**
 
 * **No Interaction with the Target User:** Unlike techniques like phishing, AS-REP Roasting does not require user interaction, making it stealthier.
 * **Offline Cracking:** Once the attacker retrieves the AS-REP hash, the cracking process is entirely offline, bypassing detection systems that monitor real-time activities.
@@ -45,7 +45,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 
 ***
 
-#### **Detection and Mitigation**
+### **Detection and Mitigation**
 
 **Detection:**
 
@@ -82,7 +82,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 
 ***
 
-#### **Common Tools for AS-REP Roasting**
+### **Common Tools for AS-REP Roasting**
 
 1. **Impacket (GetNPUsers.py):**
    * Enumerates accounts with pre-authentication disabled and extracts AS-REP hashes.
@@ -95,7 +95,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 
 AS-REP Roasting highlights how minor misconfigurations in Kerberos authentication can lead to significant security risks. By understanding how the attack works and implementing proactive detection and mitigation measures, organisations can better protect their Active Directory environments from credential theft and lateral movement threats.
 
-KQL Dection Queries:
+### KQL Dection Queries:
 
 {% tabs %}
 {% tab title="Query 1" %}
@@ -312,7 +312,7 @@ Query performs the following steps:
 {% endtab %}
 {% endtabs %}
 
-Splunk Detection Queries
+### Splunk Detection Queries
 
 {% tabs %}
 {% tab title="Windows" %}

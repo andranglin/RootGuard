@@ -14,7 +14,7 @@ layout:
 
 # MachineAccountQuota Compromise
 
-#### **Introduction to MachineAccountQuota Compromise**
+### **Introduction to MachineAccountQuota Compromise**
 
 **MachineAccountQuota** is an attribute in Active Directory that specifies how many machine accounts a user can create in the domain. By default, this value is set to **10**, meaning any authenticated domain user can create up to 10 machine accounts without administrative privileges. While this setting supports certain use cases, it also introduces a security risk if exploited by attackers.
 
@@ -24,7 +24,7 @@ This technique is categorised under the **Persistence** and **Credential Access*
 
 ***
 
-#### **How MachineAccountQuota Compromise Works**
+### **How MachineAccountQuota Compromise Works**
 
 1. **Discovery:**
    * Attackers first enumerate the domain to identify the current **MachineAccountQuota** setting.
@@ -42,7 +42,7 @@ This technique is categorised under the **Persistence** and **Credential Access*
 
 ***
 
-#### **Why MachineAccountQuota Compromise is Dangerous**
+### **Why MachineAccountQuota Compromise is Dangerous**
 
 1. **Default Configuration Risk:**
    * The default value of 10 allows any authenticated domain user to create machine accounts, significantly expanding the attack surface.
@@ -55,7 +55,7 @@ This technique is categorised under the **Persistence** and **Credential Access*
 
 ***
 
-#### **Indicators of MachineAccountQuota Compromise**
+### **Indicators of MachineAccountQuota Compromise**
 
 1. **Unusual Account Creation:**
    * Creation of multiple machine accounts (accounts ending with `$`) by non-administrative users.
@@ -68,7 +68,7 @@ This technique is categorised under the **Persistence** and **Credential Access*
 
 ***
 
-#### **Detection Strategies**
+### **Detection Strategies**
 
 1. **Monitor Account Creation Logs:**
    * Windows Event ID **4741**: Logs when a computer account is created.
@@ -86,7 +86,7 @@ This technique is categorised under the **Persistence** and **Credential Access*
 
 ***
 
-#### **Mitigation Strategies**
+### **Mitigation Strategies**
 
 1. **Reduce MachineAccountQuota:**
    *   Set `ms-DS-MachineAccountQuota` to **0** for most environments where non-administrative users do not need to create machine accounts:
@@ -109,7 +109,7 @@ The **MachineAccountQuota** feature, while useful in specific scenarios, poses a
 
 The **MachineAccountQuota** attribute in Active Directory defines the number of machine accounts a user can create in the domain. Attackers exploit this setting to register new machine accounts and abuse these accounts for lateral movement, persistence, or further exploitation. Detecting **MachineAccountQuota** abuse requires monitoring account creations and anomalous behaviours related to machine accounts.
 
-KQL Detection  Query
+### KQL Detection  Query
 
 To detect **MachineAccountQuota compromise** using **KQL** in Microsoft Sentinel or other platforms you can monitor for unusual creation of machine accounts (accounts ending with `$`) by non-administrative users. These activities are primarily logged under **Windows Security Event ID 4741** (A computer account was created).
 
@@ -222,7 +222,7 @@ SecurityEvent
 {% endtab %}
 {% endtabs %}
 
-Splunk Detection Query
+### Splunk Detection Query
 
 The **MachineAccountQuota** attribute in Active Directory defines the number of machine accounts a user can create in the domain. Attackers exploit this setting to register new machine accounts and abuse these accounts for lateral movement, persistence, or further exploitation. Detecting **MachineAccountQuota** abuse requires monitoring account creations and anomalous behaviours related to machine accounts.
 

@@ -22,7 +22,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 
 ***
 
-#### **How Password Spraying Works**
+### **How Password Spraying Works**
 
 1. **Account Discovery:**
    * Attackers compile a list of valid usernames or email addresses.
@@ -38,7 +38,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 
 ***
 
-#### **Why Password Spraying is Effective**
+### **Why Password Spraying is Effective**
 
 1. **Avoids Lockouts:**
    * By distributing authentication attempts across many accounts, attackers stay under account lockout thresholds.
@@ -51,7 +51,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 
 ***
 
-#### **Indicators of Password Spraying**
+### **Indicators of Password Spraying**
 
 1. **High Volume of Failed Logons:**
    * A significant number of failed authentication attempts distributed across multiple accounts within a short timeframe.
@@ -64,7 +64,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 
 ***
 
-#### **Mitigation Strategies**
+### **Mitigation Strategies**
 
 1. **Strong Password Policies:**
    * Enforce password complexity requirements (e.g., length, special characters, and no common passwords).
@@ -83,7 +83,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 
 ***
 
-#### **Detection Techniques**
+### **Detection Techniques**
 
 1. **Log Analysis:**
    * Event ID 4625: Monitor logs for failed login attempts.
@@ -104,7 +104,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 
 Password spraying remains a prevalent and effective attack method due to its simplicity and the prevalence of weak passwords in many organizations. By understanding how it works and proactively implementing strong defences and monitoring, organizations can significantly reduce their exposure to this attack vector.
 
-KQL Detection Queries
+### KQL Detection Queries
 
 {% tabs %}
 {% tab title="Query 1" %}
@@ -246,7 +246,7 @@ Query performs the following steps:
 {% endtab %}
 {% endtabs %}
 
-Splunk Detection Queries
+### Splunk Detection Queries
 
 {% tabs %}
 {% tab title="Basic Query" %}
@@ -282,7 +282,7 @@ index=windows (EventCode=4625 OR EventCode=4624)
    * `EventCode=4625`: Failed logons.
    * `EventCode=4624`: Successful logons.
 2. **Evaluates Logon Type:**
-   * Labels events as "Failed Logon" or "Successful Logon" for clarity.
+   * Label events as "Failed Logon" or "Successful Logon" for clarity.
 3. **Aggregates Data:**
    * `FailedAttempts`: Count of failed logons per source IP.
    * `SuccessfulAttempts`: Count of successful logons per source IP.
@@ -357,4 +357,3 @@ index=windows (EventCode=4625 OR EventCode=4624)
    * Visualize password spraying activity trends and affected accounts in a Splunk dashboard.
 {% endtab %}
 {% endtabs %}
-
