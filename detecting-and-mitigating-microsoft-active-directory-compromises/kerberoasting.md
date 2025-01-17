@@ -26,9 +26,12 @@ Detecting Kerberoasting can be challenging because this technique mimics legitim
 
 Events that detect Kerberoasting:
 
-* EventID: 4738, 5136;&#x20;
-* Source: Domain Controller (DC)
-* Description:  Events are generated when a user account is changed. Malicious actors can modify user objects and add a SPN so they can retrieve the Kerberos service ticket.
+* EventID: 4738, 5136
+  * Source: Domain Controller (DC)
+  * Description:  Events are generated when a user account is changed. Malicious actors can modify user objects and add a SPN to retrieve the Kerberos service ticket.
+* EventID: 4769
+  * Source: Domain Controller&#x20;
+  * Description: The event is generated when a TGS ticket is requested. When malicious actors execute Kerberoasting, event 4769 is generated for each TGS ticket requested for a user object.
 
 **Mitigation:**&#x20;
 
