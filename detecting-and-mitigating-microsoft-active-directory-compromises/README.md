@@ -62,6 +62,8 @@ Responding to and recovering from AD compromises is time-consuming, costly, and 
 
 ### Types of Attacks Targetting Active Directory
 
+Note: The following are the attack types that are in scope.
+
 * [Kerberoasting ](kerberoasting.md)
 * [Authentication Server Response (AS-REP) Roasting ](authentication-server-response-as-rep-roasting.md)
 * [Password Spraying ](../learning-resources/dfir-defender-and-sentinel/password-spraying.md)
@@ -71,13 +73,14 @@ Responding to and recovering from AD compromises is time-consuming, costly, and 
 * [Active Directory Certificate Services (AD CS) Compromise](active-directory-certificate-services-ad-cs-compromise.md)
 * [Golden Certificate](golden-certificate.md)
 * [DCSync ](dcsync.md)
-* Dumping ntds.dit
+* [Dumping ntds.dit](dumping-ntds.dit.md)
 * Golden Ticket
 * Silver Ticket
 * Golden Security Assertion
 * Markup Language (SAML)
 * Microsoft Entra Connect Compromise
-* One-way domain trust bypass Security Identifier (SID) History compromise&#x20;
+* One-way Domain Trust Bypass&#x20;
+* Security Identifier (SID) History Compromise&#x20;
 * Skeleton Key
 
 ### Detecting and Mitigating Active Directory Compromises
