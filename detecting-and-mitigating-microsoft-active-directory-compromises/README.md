@@ -62,13 +62,16 @@ Responding to and recovering from AD compromises is time-consuming, costly, and 
 
 ### Types of Attacks Targetting Active Directory
 
-* Kerberoasting&#x20;
-* Authentication Server Response (AS-REP) Roasting&#x20;
-* Password spraying MachineAccountQuota compromise
-* Unconstrained delegation Password in Group Policy Preferences (GPP) compromise
-* Active Directory Certificate Services (AD CS) compromise
-* Golden Certificate
-* DCSync Dumping ntds.dit
+* [Kerberoasting ](kerberoasting.md)
+* [Authentication Server Response (AS-REP) Roasting ](authentication-server-response-as-rep-roasting.md)
+* [Password Spraying ](../learning-resources/dfir-defender-and-sentinel/password-spraying.md)
+* [MachineAccountQuota Compromise](machineaccountquota-compromise.md)
+* [Unconstrained delegation](unconstrained-delegation.md)
+* [Password in Group Policy Preferences (GPP) Compromise](password-in-group-policy-preferences-gpp-compromise.md)
+* [Active Directory Certificate Services (AD CS) Compromise](active-directory-certificate-services-ad-cs-compromise.md)
+* [Golden Certificate](golden-certificate.md)
+* [DCSync ](dcsync.md)
+* Dumping ntds.dit
 * Golden Ticket
 * Silver Ticket
 * Golden Security Assertion
