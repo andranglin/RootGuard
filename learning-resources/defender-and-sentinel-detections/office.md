@@ -14,6 +14,16 @@ layout:
 
 # Office
 
+### Introduction
+
+Microsoft Defender for Office 365 is a cloud-based security solution designed to safeguard email and collaboration tools within Microsoft 365 against advanced threats like phishing, malware, ransomware, and business email compromise (BEC). It provides comprehensive protection by employing real-time threat intelligence, machine learning, and behavioural analysis to identify and neutralise emerging threats. Key features include Safe Links and Safe Attachments, which dynamically scan URLs and files for malicious content, along with anti-phishing capabilities that detect and block impersonation attempts and credential harvesting campaigns.
+
+In addition to protection, Defender for Office 365 offers advanced threat investigation and response capabilities. Security teams can use its Threat Explorer and real-time detection dashboards to gain visibility into attacks, analyse trends, and identify compromised accounts or affected mailboxes. The platform integrates seamlessly with other Microsoft security tools like Defender for Endpoint and Azure Sentinel, enabling unified threat management. By extending its protection to SharePoint, OneDrive, and Teams, Defender for Office 365 helps organisations secure their collaboration environments, enhance compliance, and reduce the risk of data breaches in today's increasingly sophisticated threat landscape.
+
+The following is a set of KQL queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note:** On some occasions, hopefully, at a minimum, the investigator will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
+
 ### Identify Email Attachments Send From Compromised Mailbox
 
 {% code overflow="wrap" %}

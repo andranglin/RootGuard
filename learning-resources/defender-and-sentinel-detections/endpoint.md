@@ -14,6 +14,16 @@ layout:
 
 # Endpoint
 
+### Introduction
+
+**Microsoft Defender for Endpoint** is an enterprise-grade security platform designed to protect, detect, investigate, and respond to advanced threats across endpoints in a corporate network. It leverages a combination of advanced threat intelligence, behavioural analysis, and cloud-powered machine learning to deliver comprehensive endpoint protection. Defender for Endpoint provides real-time monitoring and protection against malware, ransomware, phishing attacks, and advanced persistent threats (APTs). Its key features include endpoint detection and response (EDR), threat and vulnerability management, automated investigation and remediation, attack surface reduction, and integration with Microsoft security tools such as Azure Sentinel and Defender for Cloud.
+
+This platform supports proactive threat hunting by providing security analysts with detailed insights into suspicious activities, endpoint telemetry, and potential compromises through a user-friendly dashboard. Defender for Endpoint integrates with the MITRE ATT\&CK framework, offering a clear view of adversary tactics and techniques. The solution is cloud-native, ensuring scalability and seamless updates while also providing compatibility with Windows, macOS, Linux, iOS, and Android devices. Organisations can utilise its rich set of APIs to integrate with third-party security tools and extend its capabilities. With Microsoft Defender for Endpoint, businesses can strengthen their security posture, reduce response times, and minimise the risk of breaches in an ever-evolving threat landscape.
+
+The following is a set of KQL queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note**: On some occasions, hopefully, at a minimum, the investigator will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
+
 ### Detect Local User Account Creation on Endpoint
 
 {% code overflow="wrap" %}

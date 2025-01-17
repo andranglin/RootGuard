@@ -14,6 +14,16 @@ layout:
 
 # Identity
 
+### Introduction
+
+Microsoft Defender for Identity is a cloud-based security solution designed to protect on-premises and hybrid Active Directory environments from identity-based threats. It leverages behavioural analytics, machine learning, and advanced threat intelligence to detect suspicious activities, such as credential theft, lateral movement, and domain dominance. By analysing data collected from domain controllers, it identifies anomalies in user and entity behaviour, providing security teams with real-time alerts about potential compromises. Defender for Identity also helps organisations proactively secure their environments by identifying vulnerabilities, such as misconfigured accounts or exposed credentials.
+
+Integrated with Microsoft's extended detection and response (XDR) suite, including tools like Microsoft 365 Defender and Azure Sentinel, Defender for Identity provides a unified view of identity-related security risks. It offers features such as lateral movement path analysis, which visualises potential attack routes, and advanced threat investigation tools to aid in incident response. This integration ensures comprehensive visibility and faster remediation across the enterprise. By focusing on protecting the backbone of IT infrastructure—identities—Microsoft Defender for Identity plays a crucial role in enhancing an organisation's overall security posture in a rapidly evolving threat landscape.
+
+The following is a set of KQL queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note**: On some occasions, hopefully, at a minimum, the investigator will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
+
 ### Devices Accessed By Compromised Device
 
 **Use Case:** Query helpful for identifying lateral movement and suspicious activities stemming from the compromised device. It enables SOC analysts to correlate activity and prioritise mitigation steps effectively.&#x20;
