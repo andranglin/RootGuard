@@ -120,3 +120,4 @@
   * [Authentication Server Response (AS-REP) Roasting](detecting-and-mitigating-microsoft-active-directory-compromises/authentication-server-response-as-rep-roasting.md)
   * [Password Spraying](learning-resources/dfir-defender-and-sentinel/password-spraying.md)
   * [MachineAccountQuota Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
+  * [Unconstrained Delegation](detecting-and-mitigating-microsoft-active-directory-compromises/unconstrained-delegation.md)
