@@ -86,7 +86,12 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 #### **Detection Techniques**
 
 1. **Log Analysis:**
-   * Monitor logs for failed login attempts (e.g., Event ID **4625** in Windows).
+   * Event ID 4625: Monitor logs for failed login attempts.
+   * Event ID 4624:  Event is generated when an object logs on successfully, such as to a user
+   * Event ID 2889: Event is generated when a computer object tries to make an unsigned LDAP bind.
+   * Event ID 4648: Event is generated when a logon is attempted using explicit credentials.
+   * Event ID 4740: Event is generated when a user object is locked out.
+   * Event ID 4771: Event is generated when Kerberos pre-authentication fails.
    * Detect patterns of failures distributed across multiple accounts from the same IP.
 2. **Correlation Rules:**
    * Use SIEM solutions (e.g., Splunk, Sentinel) to detect suspicious patterns, such as failed logons from unusual IPs followed by a successful logon.

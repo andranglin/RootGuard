@@ -118,4 +118,5 @@
 * [Detecting and Mitigating Microsoft Active Directory Compromises](detecting-and-mitigating-microsoft-active-directory-compromises/README.md)
   * [Kerberoasting](detecting-and-mitigating-microsoft-active-directory-compromises/kerberoasting.md)
   * [Authentication Server Response (AS-REP) Roasting](detecting-and-mitigating-microsoft-active-directory-compromises/authentication-server-response-as-rep-roasting.md)
-  * [Password Spraying](detecting-and-mitigating-microsoft-active-directory-compromises/password-spraying.md)
+  * [Password Spraying](learning-resources/dfir-defender-and-sentinel/password-spraying.md)
+  * [MachineAccountQuota Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
