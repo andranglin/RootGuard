@@ -107,6 +107,7 @@
   * [Endpoint](learning-resources/dfir-defender-and-sentinel/endpoint.md)
   * [Office](learning-resources/dfir-defender-and-sentinel/office.md)
   * [Identity](learning-resources/dfir-defender-and-sentinel/identity.md)
+  * [Password Spraying](learning-resources/dfir-defender-and-sentinel/password-spraying.md)
 * [Threat Hunting](learning-resources/threat-hunting/README.md)
   * [Splunk Use Cases](learning-resources/threat-hunting/splunk-use-cases.md)
   * [KQL Use Cases](learning-resources/threat-hunting/kql-use-cases.md)
