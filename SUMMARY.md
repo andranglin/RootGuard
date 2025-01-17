@@ -117,3 +117,4 @@
 
 * [Detecting and Mitigating Microsoft Active Directory Compromises](detecting-and-mitigating-microsoft-active-directory-compromises/README.md)
   * [Kerberoasting](detecting-and-mitigating-microsoft-active-directory-compromises/kerberoasting.md)
+  * [Authentication Server Response (AS-REP) Roasting](detecting-and-mitigating-microsoft-active-directory-compromises/authentication-server-response-as-rep-roasting.md)
