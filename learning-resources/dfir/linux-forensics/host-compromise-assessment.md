@@ -14,6 +14,16 @@ layout:
 
 # Host Compromise Assessment
 
+### Introduction
+
+**Linux Host Compromise Assessment** involves systematically evaluating a Linux system to determine if it has been compromised and to identify the scope of any potential breach. This process typically includes analysing key system logs, such as `/var/log/auth.log` or `/var/log/secure`, to detect unauthorised access attempts, suspicious logins, or privilege escalation activities. Analysts also inspect running processes and services for unusual activity, such as unknown or malicious binaries, rogue processes, or unexpected network connections. File integrity checks are performed to detect changes to critical system files or configurations, while cron jobs and startup scripts are examined for persistence mechanisms.
+
+Advanced assessments incorporate memory forensics and network traffic analysis to identify malware, rootkits, or data exfiltration attempts. Tools like `chkrootkit`, `rkhunter`, and forensic utilities such as Volatility can be employed to detect signs of stealthy threats. Security frameworks like MITRE ATT\&CK provide a structured approach for mapping observed behaviours to adversarial tactics and techniques. The goal of a Linux Host Compromise Assessment is to identify indicators of compromise (IOCs), assess the extent of the intrusion, and develop remediation strategies to secure the host and prevent future incidents.
+
+The following is a set of commands that can be used to triage and help determine the state of a potentially compromised host. The commands are designed to quickly grab the relevant information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note**: Depending on the distro of the system being investigated, in certain situations, the commands present may not return the desired information; at that point, you will have to customise the queries to the distro being investigated.
+
 ### Collect General Information
 
 <pre class="language-bash"><code class="lang-bash">Description: Display the current date and time. Verify the timezone.

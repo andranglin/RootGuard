@@ -12,11 +12,17 @@ layout:
     visible: true
 ---
 
-# KQL Use Cases for Hunting Ransomware Activities
+# Hunting Ransomware Indicators
 
 ## Introduction
 
-Ransomware remains one of the most pervasive and damaging cyber threats faced by organisations today. It involves malicious software designed to encrypt data and demand ransom payments for its release. Hunting for ransomware activities is a proactive approach to detect and mitigate ransomware before it can execute its payload. This process leverages threat intelligence, behavioural analytics, and advanced tools to uncover the early signs of ransomware infection, such as unusual file access patterns, lateral movement, and unauthorised data exfiltration. By adopting ransomware-hunting practices, organisations can significantly reduce their exposure to this growing threat and enhance their overall cybersecurity posture.
+**Hunting for ransomware indicators** involves proactively identifying signs of ransomware activity within an environment to mitigate threats before they result in significant damage. Ransomware often exhibits a predictable lifecycle, including initial access, privilege escalation, lateral movement, and encryption of files. Key indicators include unusual process executions, such as suspicious PowerShell commands or unauthorised access to critical directories, as well as the presence of tools like Mimikatz or Cobalt Strike used for credential theft and persistence. Monitoring high volumes of file modifications, unexpected spikes in CPU usage, and unusual file extensions can help uncover encryption activities indicative of ransomware attacks.
+
+Effective ransomware hunting leverages threat intelligence, security frameworks like MITRE ATT\&CK, and tools capable of analysing endpoint, network, and identity data. By using platforms like Microsoft Sentinel, Splunk, or Defender for Endpoint, analysts can deploy custom queries to detect lateral movement, unauthorised access attempts, or anomalous traffic patterns to external IPs. Behavioural analysis, such as identifying accounts accessing large numbers of files or systems attempting unauthorised registry changes, is critical. Hunting for these ransomware indicators allows security teams to identify early warning signs, enabling swift remediation and minimising potential impact.
+
+The following is a set of KQL queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note**: On some occasions, hopefully, at a minimum, you will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
 
 ### 1. **Identify Initial Compromise**
 

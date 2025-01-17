@@ -12,7 +12,17 @@ layout:
     visible: true
 ---
 
-# Splunk Use Cases
+# OPSEC Hunting With Splunk
+
+### Introduction
+
+**Operational Security (OPSEC) hunting with Splunk** focuses on proactively detecting and mitigating security risks by analysing and correlating log data from various sources. Splunk's robust data ingestion and search capabilities enable security analysts to identify patterns indicative of OPSEC failures, such as the exposure of sensitive information, unauthorised access attempts, or adversarial activities targeting organisational assets. By leveraging Splunk's search processing language (SPL) and prebuilt dashboards, security teams can hunt for indicators like unusual user activity, suspicious process execution, lateral movement, and network anomalies that may signify operational security weaknesses.
+
+Splunk's integration with frameworks like MITRE ATT\&CK enhances OPSEC hunting by aligning detected behaviours with known adversarial tactics, techniques, and procedures (TTPs). Analysts can create custom queries and alerts to monitor high-risk areas such as credentials, endpoint configurations, and privileged access. The platform's real-time analytics and machine learning capabilities empower teams to stay ahead of threats by identifying vulnerabilities and potential attack vectors before they can be exploited. By enabling comprehensive threat detection and providing actionable insights, Splunk helps organisations strengthen their OPSEC measures, reduce the attack surface, and enhance overall security resilience.
+
+The following is a set of Splunk queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note**: On some occasions, hopefully, at a minimum, you will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
 
 ### **Windows Audit Log Tampering**
 

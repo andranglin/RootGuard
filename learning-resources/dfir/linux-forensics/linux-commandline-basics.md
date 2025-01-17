@@ -12,9 +12,15 @@ layout:
     visible: true
 ---
 
-# Linux Commands Cybersecurity Analysts Should Know
+# Linux Commandline Basics
 
-Knowing the Linux command line interface (CLI) can be a game-changer. It offers a powerful and efficient way to interact with the operating system, allowing users to perform tasks quickly and automate repetitive processes. Mastering the Linux CLI can enhance productivity, provide greater control over the system, and open up a world of possibilities for customisation and troubleshooting. Whether you're a system administrator, developer, or cybersecurity analyst, having a solid understanding of the Linux CLI can significantly boost your technical skills and career prospects.
+**Knowing the Linux command line** is essential for leveraging the full potential of Linux systems, particularly in technical fields such as cybersecurity, software development, and system administration. The command line offers unmatched control and flexibility, allowing users to perform tasks more efficiently than through graphical interfaces. With the command line, users can quickly manage files, configure systems, automate repetitive tasks using shell scripts, and troubleshoot issues. Its power and precision make it indispensable for professionals managing servers, networks, and cloud environments where remote and headless systems are common.
+
+The benefits of mastering the Linux command line extend beyond efficiency. It enhances problem-solving skills by providing access to powerful tools like `grep`, `awk`, `sed`, and `find` for data processing and analysis. Additionally, understanding command-line basics is critical for security professionals who need to investigate logs, monitor system activity, and respond to threats in realtime. Familiarity with the command line also fosters a deeper understanding of how Linux operates, enabling users to optimise system performance, enhance security, and customise environments to fit specific needs. In a world increasingly reliant on open-source technologies, command-line proficiency is a vital skill that opens doors to innovation and career advancement.
+
+The following is a set of commands that are useful to know as a security professional, as they can be used to triage and help determine the state of a host or environment. The commands are designed to quickly grab the relevant information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note**: Depending on the distro of the system being investigated, in certain situations, the commands present may not return the desired information; at that point, you will have to customise the queries to the distro being investigated.
 
 <pre class="language-bash" data-title="Print Working Directory (PWD)" data-overflow="wrap"><code class="lang-bash"><strong>Command: pwd
 </strong>Description: Prints the current working directory

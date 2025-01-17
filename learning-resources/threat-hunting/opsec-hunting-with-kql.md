@@ -12,9 +12,19 @@ layout:
     visible: true
 ---
 
-# KQL Use Cases
+# OPSEC Hunting With KQL
 
-## **1. Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)**
+## **Introduction**
+
+Operational Security (OPSEC) hunting with KQL (Kusto Query Language) involves leveraging KQL's powerful data querying and filtering capabilities to identify potential security gaps and detect adversarial activities in realtime. KQL is widely used in platforms like Microsoft Sentinel, where it enables security analysts to query massive datasets from logs, events, and telemetry. By crafting custom queries, analysts can proactively search for indicators of compromise (IOCs), such as unauthorised access attempts, lateral movement, privilege escalation, or data exfiltration. The language's flexibility allows for precise filtering of log data, making it easier to uncover hidden threats and anomalies indicative of OPSEC failures.
+
+KQL integrates seamlessly with security frameworks like MITRE ATT\&CK, enabling analysts to map detected behaviours to known adversarial tactics, techniques, and procedures (TTPs). Through features like joins, unions, and regex filtering, KQL supports complex threat-hunting workflows, such as correlating identity logs with network activity to detect suspicious patterns. Its time-series analysis capabilities help uncover trends in user behaviour, privilege usage, and system changes, which are critical for identifying vulnerabilities. With its efficiency and integration into tools like Microsoft Defender and Sentinel, KQL empowers security teams to strengthen their OPSEC posture, reduce response times, and mitigate the risk of advanced threats.
+
+The following is a set of KQL queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
+
+**Note**: On some occasions, hopefully, at a minimum, you will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
+
+### **1. Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)**
 
 #### **Overview:**
 
@@ -1643,7 +1653,7 @@ DeviceLogonEvents | where AccountName == "ANONYMOUS LOGON" | summarize count() b
 ```
 {% endcode %}
 
-## **Conclusion**
+### **Conclusion**
 
 This guide provides SOC analysts with a structured approach to threat hunting in a Windows enterprise environment, leveraging **Microsoft Defender XDR** and focusing on key areas of the **MITRE ATT\&CK Framework**. It covers:
 
