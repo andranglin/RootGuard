@@ -130,7 +130,7 @@ SecurityEvent
 2. **Focus on Preauthentication Disabled:**
    * Pre-authentication disabled is indicated by **FailureCode = 0x12**.
    * The query also considers **Success (0x0)** to identify successful AS-REP requests that might indicate compromised accounts.
-3. **Summarization:**
+3. **Summarisation:**
    * Groups data by the `AccountName` and `Domain`.
    * Tracks the total number of requests (`RequestCount`) and distinct client IPs (`UniqueIPs`).
    * Also lists all involved client IPs for further investigation.
@@ -359,7 +359,7 @@ index=windows (sourcetype="WinEventLog:Security" OR EventCode=4768)
 #### **Customisations**
 
 * **Threshold Tuning:**
-  * Adjust thresholds (`RequestCount > 10` and `UniqueIPs > 3`) based on your organization’s baseline activity.
+  * Adjust thresholds (`RequestCount > 10` and `UniqueIPs > 3`) based on your organisation’s baseline activity.
 *   **Whitelist Legitimate Accounts:**
 
     * Add a filter to exclude known legitimate accounts (e.g., a lookup of service accounts).

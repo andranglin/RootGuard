@@ -123,7 +123,7 @@ DCSync is a stealthy and highly effective technique for extracting sensitive cre
 
 ***
 
-DCSync is one of the most powerful and stealthy techniques attackers use to compromise Active Directory environments. By abusing legitimate replication mechanisms, it enables attackers to extract credentials for the entire domain without needing direct access to domain controllers. Effective detection and mitigation require a combination of logging, auditing, and restricting replication permissions. Let me know if you’d like help crafting detection queries or implementing specific defences!
+DCSync is one of the most powerful and stealthy techniques attackers use to compromise Active Directory environments. By abusing legitimate replication mechanisms, it enables attackers to extract credentials for the entire domain without needing direct access to domain controllers. Effective detection and mitigation require a combination of logging, auditing, and restricting replication permissions.
 
 ### KQL Detection Queries:
 

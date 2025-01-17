@@ -125,7 +125,7 @@ Golden Certificate attacks are particularly dangerous because they bypass tradit
 
 ***
 
-Golden Certificate attacks exploit the inherent trust and power of a compromised Certificate Authority to gain stealthy and persistent access to a domain. By protecting CA servers, securing private keys, and monitoring certificate activity, organisations can significantly reduce their exposure to this devastating attack vector. Let me know if you'd like help creating detection queries or implementing additional defences!
+Golden Certificate attacks exploit the inherent trust and power of a compromised Certificate Authority to gain stealthy and persistent access to a domain. By protecting CA servers, securing private keys, and monitoring certificate activity, organisations can significantly reduce their exposure to this devastating attack vector.&#x20;
 
 ### KQL Detection Queries
 

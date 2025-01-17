@@ -16,9 +16,9 @@ layout:
 
 ### **Introduction to Password Spraying**
 
-**Password spraying** is a technique used by attackers to gain unauthorized access to user accounts by exploiting weak or commonly used passwords. Unlike traditional brute-force attacks that repeatedly try many passwords on a single account (risking account lockout due to failed attempts), password spraying involves attempting a single password across multiple accounts. This method helps avoid triggering lockout policies, making it a stealthier and more effective attack technique.
+**Password spraying** is a technique used by attackers to gain unauthorised access to user accounts by exploiting weak or commonly used passwords. Unlike traditional brute-force attacks that repeatedly try many passwords on a single account (risking account lockout due to failed attempts), password spraying involves attempting a single password across multiple accounts. This method helps avoid triggering lockout policies, making it a stealthier and more effective attack technique.
 
-Password spraying is categorized under the **Credential Access** tactic in the MITRE ATT\&CK framework (ID: T1110.003) and is frequently used as a precursor to further attacks, such as lateral movement, privilege escalation, or data exfiltration.
+Password spraying is categorised under the **Credential Access** tactic in the MITRE ATT\&CK framework (ID: T1110.003) and is frequently used as a precursor to further attacks, such as lateral movement, privilege escalation, or data exfiltration.
 
 ***
 
@@ -33,7 +33,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
    * A single weak password is tested across multiple accounts.
    * If unsuccessful, another password is selected, avoiding consecutive failed attempts on any single account to evade lockout policies.
 4. **Successful Compromise:**
-   * Once a valid username-password pair is identified, the attacker gains unauthorized access to the account.
+   * Once a valid username-password pair is identified, the attacker gains unauthorised access to the account.
    * They can then escalate privileges or use the account to launch further attacks.
 
 ***
@@ -43,9 +43,9 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 1. **Avoids Lockouts:**
    * By distributing authentication attempts across many accounts, attackers stay under account lockout thresholds.
 2. **Exploits Weak Password Policies:**
-   * Organizations with poorly enforced password complexity policies are especially vulnerable.
+   * Organisations with poorly enforced password complexity policies are especially vulnerable.
 3. **Large Attack Surface:**
-   * Modern organizations with hundreds or thousands of user accounts provide attackers with ample opportunities.
+   * Modern organisations with hundreds or thousands of user accounts provide attackers with ample opportunities.
 4. **Low Detection Probability:**
    * Spraying attacks mimic normal authentication attempts, making them harder to detect.
 
@@ -56,7 +56,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 1. **High Volume of Failed Logons:**
    * A significant number of failed authentication attempts distributed across multiple accounts within a short timeframe.
 2. **Unusual Authentication Sources:**
-   * Logon attempts originating from unknown or suspicious IP addresses, especially from geographic locations where the organization has no presence.
+   * Logon attempts originating from unknown or suspicious IP addresses, especially from geographic locations where the organisation has no presence.
 3. **Targeting Multiple Accounts:**
    * Logon failures affecting many accounts, often with the same password.
 4. **Successful Logons Following Failures:**
@@ -74,12 +74,12 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 3. **Account Lockout Policies:**
    * Configure account lockout settings to limit the number of failed login attempts.
 4. **Monitor Authentication Logs:**
-   * Continuously analyze logs for patterns of failed and successful logons.
+   * Continuously analyse logs for patterns of failed and successful logons.
    * Set alerts for unusual logon activity.
 5. **Limit Exposure:**
    * Reduce publicly accessible account lists, such as employee directories or email address formats.
 6. **User Awareness Training:**
-   * Educate users on creating strong passwords and recognizing social engineering techniques.
+   * Educate users on creating strong passwords and recognising social engineering techniques.
 
 ***
 
@@ -102,7 +102,7 @@ Password spraying is categorized under the **Credential Access** tactic in the M
 
 ***
 
-Password spraying remains a prevalent and effective attack method due to its simplicity and the prevalence of weak passwords in many organizations. By understanding how it works and proactively implementing strong defences and monitoring, organizations can significantly reduce their exposure to this attack vector.
+Password spraying remains a prevalent and effective attack method due to its simplicity and the prevalence of weak passwords in many organisations. By understanding how it works and proactively implementing strong defences and monitoring, organisations can significantly reduce their exposure to this attack vector.
 
 ### KQL Detection Queries
 
@@ -291,7 +291,7 @@ index=windows (EventCode=4625 OR EventCode=4624)
 4. **Detects Suspicious Behavior:**
    * Flags source IPs with:
      * More than **10 failed attempts** across **5 or more accounts**.
-     * Assigns a "High" or "Medium" **SuspiciousScore** for prioritized analysis.
+     * Assigns a "High" or "Medium" **SuspiciousScore** for prioritised analysis.
 5. **Excludes Low-Risk Activity:**
    * Focuses only on high or medium risk patterns by filtering out low scores.
 {% endtab %}
