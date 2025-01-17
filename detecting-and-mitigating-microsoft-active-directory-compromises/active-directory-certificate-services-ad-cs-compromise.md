@@ -92,7 +92,7 @@ An **AD CS compromise** occurs when attackers exploit vulnerabilities, misconfig
      * **Event ID 4887:** Event generated when AD CS approves a certificate request and issues a certificate. This may be used to indicate when malicious actors successfully escalated privileges using AD CS.
      * **Event ID 4899:** Event generated when a certificate template is updated. This may occur when malicious actors attempt to modify a certificate template to introduce additional features that may make it vulnerable to privilege escalation.
      * **Event ID 4900:** Event generated when security settings on a Certificate Services template are updated. This may occur when the Access Control List on the template has been modified to potentially introduce vulnerable conditions, such as modification of enrolment rights to a certificate template.
-2. AD CS event auditing is not enabled by default. Follow these steps to configure audit logging for AD CS:
+2. **AD CS event auditing is not enabled by default.** Follow these steps to configure audit logging for AD CS:
    * Enable ‘Audit object access’ for Certificate Services in Group Policy for AD CS CAs. This can be found within the ‘Advanced Audit Policy Configuration’ within Security Settings.
    * Within the CA properties, the Auditing tab shows configurations of events to log. Enable all available options.
 3. **Detect Misconfigured Templates:**
