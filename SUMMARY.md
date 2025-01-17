@@ -108,9 +108,9 @@
   * [Office](learning-resources/dfir-defender-and-sentinel/office.md)
   * [Identity](learning-resources/dfir-defender-and-sentinel/identity.md)
 * [Threat Hunting](learning-resources/threat-hunting/README.md)
-  * [Splunk Use Cases](learning-resources/threat-hunting/splunk-use-cases.md)
-  * [KQL Use Cases](learning-resources/threat-hunting/kql-use-cases.md)
-  * [KQL Use Cases for Hunting Ransomware Activities](learning-resources/threat-hunting/kql-use-cases-for-hunting-ransomware-activities.md)
+  * [OPSEC Hunting With Splunk](learning-resources/threat-hunting/opsec-hunting-with-splunk.md)
+  * [OPSEC Hunting With KQL](learning-resources/threat-hunting/opsec-hunting-with-kql.md)
+  * [Hunting Ransomware Indicators](learning-resources/threat-hunting/hunting-ransomware-indicators.md)
 * [Malware Analysis](learning-resources/malware-analysis.md)
 
 ***
