@@ -59,7 +59,7 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 [security-operations-center-soc](learning-resources/security-operations-center-soc/ "mention")
 
-[windows-forensic-analysis](learning-resources/dfir/windows-forensic-analysis/ "mention")
+[windows-forensics](learning-resources/dfir/windows-forensics/ "mention")
 
 [threat-hunting](learning-resources/threat-hunting/ "mention")
 

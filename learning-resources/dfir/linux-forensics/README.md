@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Linux Forensic Analysis
+# Linux Forensics
 
 ### Introduction
 
@@ -40,10 +40,10 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 
 ### Start Learning:&#x20;
 
-{% content-ref url="intrusion-analysis.md" %}
-[intrusion-analysis.md](intrusion-analysis.md)
+{% content-ref url="host-compromise-assessment.md" %}
+[host-compromise-assessment.md](host-compromise-assessment.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="linux-commandline-basics.md" %}
+[linux-commandline-basics.md](linux-commandline-basics.md)
 {% endcontent-ref %}
