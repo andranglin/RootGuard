@@ -112,3 +112,7 @@
   * [KQL Use Cases](learning-resources/threat-hunting/kql-use-cases.md)
   * [KQL Use Cases for Hunting Ransomware Activities](learning-resources/threat-hunting/kql-use-cases-for-hunting-ransomware-activities.md)
 * [Malware Analysis](learning-resources/malware-analysis.md)
+
+***
+
+* [Detecting and Mitigating Microsoft Active Directory Compromises](detecting-and-mitigating-microsoft-active-directory-compromises.md)
