@@ -121,3 +121,4 @@
   * [Password Spraying](learning-resources/dfir-defender-and-sentinel/password-spraying.md)
   * [MachineAccountQuota Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
   * [Unconstrained Delegation](detecting-and-mitigating-microsoft-active-directory-compromises/unconstrained-delegation.md)
+  * [Password in Group Policy Preferences (GPP) compromise](detecting-and-mitigating-microsoft-active-directory-compromises/password-in-group-policy-preferences-gpp-compromise.md)

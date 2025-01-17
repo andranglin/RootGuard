@@ -321,7 +321,7 @@ index=windows (EventCode=4742 OR EventCode=5136)
    * Display key details for SOC analysts to investigate further.
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="Query 2" %}
 #### **Advanced Splunk Query for Enumerating Existing Unconstrained Delegation Configurations**
 
 To list all systems or accounts with unconstrained delegation enabled:
