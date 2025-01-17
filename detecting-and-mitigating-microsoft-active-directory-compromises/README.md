@@ -61,7 +61,7 @@ Malicious actors often establish persistence within organisations by exploiting 
 
 Responding to and recovering from AD compromises is time-consuming, costly, and disruptive. Organisations may need to take drastic measures, such as resetting all user passwords or rebuilding AD entirely, to evict sophisticated attackers. Therefore, it is crucial for organisations to implement robust security measures and continuously monitor their AD environments to detect and mitigate potential threats.
 
-Types of Attacks Targetting Active Directory
+### Types of Attacks Targetting Active Directory
 
 * Kerberoasting&#x20;
 * Authentication Server Response (AS-REP) Roasting&#x20;
@@ -78,5 +78,20 @@ Types of Attacks Targetting Active Directory
 * One-way domain trust bypass Security Identifier (SID) History compromise&#x20;
 * Skeleton Key
 
-The respective section will provide and overview of the attack, mitigations and KQL queries to detect the activities in an Active Directory environment.
+### Detecting and Mitigating Active Directory Compromises
+
+Detecting and mitigating Active Directory compromises involves a multi-faceted approach to ensure the security and integrity of the network. Organisations must continuously monitor their Active Directory environment for unusual activities and potential indicators of compromise. This includes tracking changes to critical objects, monitoring authentication logs, and using advanced threat detection tools to identify suspicious behaviour. Once a compromise is detected, immediate action is required to contain the threat and prevent further damage. Mitigation strategies include isolating affected systems, resetting compromised accounts, and addressing the vulnerabilities that allowed the breach. Implementing robust security measures, such as multi-factor authentication (MFA), regular security audits, and comprehensive incident response plans, is essential to prevent future compromises and maintain a secure Active Directory environment.
+
+**Note:** The respective sections aim to provide an overview of the attacks, options for mitigations, and some KQL queries to detect activities in an Active Directory environment. To develop a comprehensive understanding and tackle more complex challenges, further exploration and learning beyond the the information provided is encouraged.
+
+### Reference:
+
+* [Microsoft Identity and Access documentation](https://learn.microsoft.com/en-au/windows-server/identity/identity-and-access)
+* [Detecting and mitigating Active Directory compromises](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/detecting-and-mitigating-active-directory-compromises?ref=search)
+* [Best Practices for Securing Active Directory](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
+* [Securing Domain Controllers Against Attack](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
+* [Top 25 Active Directory Security Best Practices](https://activedirectorypro.com/active-directory-security-best-practices/)
+* [Active Directory Security Best Practices](https://www.netwrix.com/active-directory-best-practices.html)
+
+
 

@@ -115,4 +115,5 @@
 
 ***
 
-* [Detecting and Mitigating Microsoft Active Directory Compromises](detecting-and-mitigating-microsoft-active-directory-compromises.md)
+* [Detecting and Mitigating Microsoft Active Directory Compromises](detecting-and-mitigating-microsoft-active-directory-compromises/README.md)
+  * [Kerberoasting](detecting-and-mitigating-microsoft-active-directory-compromises/kerberoasting.md)
