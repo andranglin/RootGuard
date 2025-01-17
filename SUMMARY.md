@@ -122,3 +122,4 @@
   * [MachineAccountQuota Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
   * [Unconstrained Delegation](detecting-and-mitigating-microsoft-active-directory-compromises/unconstrained-delegation.md)
   * [Password in Group Policy Preferences (GPP) compromise](detecting-and-mitigating-microsoft-active-directory-compromises/password-in-group-policy-preferences-gpp-compromise.md)
+  * [Active Directory Certificate Services (AD CS) Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/active-directory-certificate-services-ad-cs-compromise.md)
