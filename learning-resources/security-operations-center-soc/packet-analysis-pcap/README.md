@@ -17,9 +17,9 @@ layout:
     visible: true
 ---
 
-# Packet Capture (pcap) Data Analysis
+# Packet Analysis (pcap)
 
-### What is Packet Capture (PCAP) Data Analysis?
+### What is Packet Capture (PCAP) Analysis?
 
 **Packet Capture (PCAP) data analysis** is the process of examining raw network traffic data captured in PCAP files to understand the behaviour of network communication. A PCAP file contains detailed records of all packets exchanged on a network during a specific timeframe, including their metadata and payload.
 
@@ -54,19 +54,19 @@ PCAP data analysis is an indispensable process in cybersecurity. It provides vis
 
 Get started:
 
-{% content-ref url="tcpdump-packet-analysis.md" %}
-[tcpdump-packet-analysis.md](tcpdump-packet-analysis.md)
+{% content-ref url="tcpdump.md" %}
+[tcpdump.md](tcpdump.md)
 {% endcontent-ref %}
 
-{% content-ref url="tcpdump-packet-analysis-intermediate.md" %}
-[tcpdump-packet-analysis-intermediate.md](tcpdump-packet-analysis-intermediate.md)
+{% content-ref url="tcpdump-intermediate.md" %}
+[tcpdump-intermediate.md](tcpdump-intermediate.md)
 {% endcontent-ref %}
 
-{% content-ref url="tshark-packet-analysis.md" %}
-[tshark-packet-analysis.md](tshark-packet-analysis.md)
+{% content-ref url="tshark.md" %}
+[tshark.md](tshark.md)
 {% endcontent-ref %}
 
-{% content-ref url="ngrep-packet-analysis.md" %}
-[ngrep-packet-analysis.md](ngrep-packet-analysis.md)
+{% content-ref url="ngrep.md" %}
+[ngrep.md](ngrep.md)
 {% endcontent-ref %}
 
