@@ -127,3 +127,4 @@
   * [DCSync](detecting-and-mitigating-microsoft-active-directory-compromises/dcsync.md)
   * [Dumping ntds.dit](detecting-and-mitigating-microsoft-active-directory-compromises/dumping-ntds.dit.md)
   * [Golden Ticket](detecting-and-mitigating-microsoft-active-directory-compromises/golden-ticket.md)
+  * [Silver Ticket](detecting-and-mitigating-microsoft-active-directory-compromises/silver-ticket.md)
