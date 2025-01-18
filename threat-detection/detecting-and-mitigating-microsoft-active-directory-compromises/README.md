@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/Screenshot 2025-01-10 074920.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-10 074920.png
 coverY: 0
 layout:
   cover:
@@ -71,7 +71,7 @@ Note: The following are the attack types that are in scope.
 
 * [Kerberoasting ](kerberoasting.md)
 * [Authentication Server Response (AS-REP) Roasting ](authentication-server-response-as-rep-roasting.md)
-* [Password Spraying ](../learning-resources/dfir-defender-and-sentinel/password-spraying.md)
+* [Password Spraying ](password-spraying.md)
 * [MachineAccountQuota Compromise](machineaccountquota-compromise.md)
 * [Unconstrained delegation](unconstrained-delegation.md)
 * [Password in Group Policy Preferences (GPP) Compromise](password-in-group-policy-preferences-gpp-compromise.md)

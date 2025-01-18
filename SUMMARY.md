@@ -113,22 +113,18 @@
   * [Hunting Ransomware Indicators](learning-resources/threat-hunting/hunting-ransomware-indicators.md)
 * [Malware Analysis](learning-resources/malware-analysis.md)
 
-***
+## Threat Detection
 
-* [Detecting and Mitigating Microsoft Active Directory Compromises](detecting-and-mitigating-microsoft-active-directory-compromises/README.md)
-  * [Kerberoasting](detecting-and-mitigating-microsoft-active-directory-compromises/kerberoasting.md)
-  * [Authentication Server Response (AS-REP) Roasting](detecting-and-mitigating-microsoft-active-directory-compromises/authentication-server-response-as-rep-roasting.md)
-  * [Password Spraying](learning-resources/dfir-defender-and-sentinel/password-spraying.md)
-  * [MachineAccountQuota Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
-  * [Unconstrained Delegation](detecting-and-mitigating-microsoft-active-directory-compromises/unconstrained-delegation.md)
-  * [Password in Group Policy Preferences (GPP) Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/password-in-group-policy-preferences-gpp-compromise.md)
-  * [Active Directory Certificate Services (AD CS) Compromise](detecting-and-mitigating-microsoft-active-directory-compromises/active-directory-certificate-services-ad-cs-compromise.md)
-  * [Golden Certificate](detecting-and-mitigating-microsoft-active-directory-compromises/golden-certificate.md)
-  * [DCSync](detecting-and-mitigating-microsoft-active-directory-compromises/dcsync.md)
-  * [Dumping ntds.dit](detecting-and-mitigating-microsoft-active-directory-compromises/dumping-ntds.dit.md)
-  * [Golden Ticket](detecting-and-mitigating-microsoft-active-directory-compromises/golden-ticket.md)
-  * [Silver Ticket](detecting-and-mitigating-microsoft-active-directory-compromises/silver-ticket.md)
-
-## Group 1
-
-* [Threat Detection](group-1/threat-detection.md)
+* [Detecting and Mitigating Microsoft Active Directory Compromises](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/README.md)
+  * [Kerberoasting](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/kerberoasting.md)
+  * [Authentication Server Response (AS-REP) Roasting](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/authentication-server-response-as-rep-roasting.md)
+  * [Password Spraying](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/password-spraying.md)
+  * [MachineAccountQuota Compromise](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
+  * [Unconstrained Delegation](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/unconstrained-delegation.md)
+  * [Password in Group Policy Preferences (GPP) Compromise](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/password-in-group-policy-preferences-gpp-compromise.md)
+  * [Active Directory Certificate Services (AD CS) Compromise](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/active-directory-certificate-services-ad-cs-compromise.md)
+  * [Golden Certificate](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/golden-certificate.md)
+  * [DCSync](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/dcsync.md)
+  * [Dumping ntds.dit](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/dumping-ntds.dit.md)
+  * [Golden Ticket](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/golden-ticket.md)
+  * [Silver Ticket](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/silver-ticket.md)
