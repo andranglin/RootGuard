@@ -128,3 +128,7 @@
   * [Dumping ntds.dit](detecting-and-mitigating-microsoft-active-directory-compromises/dumping-ntds.dit.md)
   * [Golden Ticket](detecting-and-mitigating-microsoft-active-directory-compromises/golden-ticket.md)
   * [Silver Ticket](detecting-and-mitigating-microsoft-active-directory-compromises/silver-ticket.md)
+
+## Group 1
+
+* [Threat Detection](group-1/threat-detection.md)

@@ -79,8 +79,8 @@ Note: The following are the attack types that are in scope.
 * [Golden Certificate](golden-certificate.md)
 * [DCSync ](dcsync.md)
 * [Dumping ntds.dit](dumping-ntds.dit.md)
-* Golden Ticket
-* Silver Ticket
+* [Golden Ticket](golden-ticket.md)
+* [Silver Ticket](silver-ticket.md)
 * Golden Security Assertion
 * Markup Language (SAML)
 * Microsoft Entra Connect Compromise
