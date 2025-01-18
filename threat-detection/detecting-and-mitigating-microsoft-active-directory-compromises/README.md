@@ -94,7 +94,7 @@ Detecting and mitigating Active Directory compromises involves a multi-faceted a
 
 **Note:** The respective sections aim to provide an overview of the attacks, options for mitigations, and some KQL queries to detect activities in an Active Directory environment. To develop a comprehensive understanding and tackle more complex challenges, further exploration and learning beyond the the information provided is encouraged.
 
-### Reference:
+### Reference
 
 * [Microsoft Identity and Access documentation](https://learn.microsoft.com/en-au/windows-server/identity/identity-and-access)
 * [Detecting and mitigating Active Directory compromises](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/detecting-and-mitigating-active-directory-compromises?ref=search)
