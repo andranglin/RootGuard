@@ -84,7 +84,7 @@ Note: The following are the attack types that are in scope.
 * [Golden Security Assertion Markup Language (SAML)](../detect-and-mitigate-active-directory-compromise/golden-security-assertion-markup-language-saml.md)
 * [Microsoft Entra Connect Compromise](../detect-and-mitigate-active-directory-compromise/microsoft-entra-connect-compromise.md)
 * [One-way Domain Trust Bypass ](../detect-and-mitigate-active-directory-compromise/one-way-domain-trust-bypass.md)
-* Security Identifier (SID) History Compromise&#x20;
+* [Security Identifier (SID) History Compromise ](../detect-and-mitigate-active-directory-compromise/security-identifier-sid-history-compromise.md)
 * Skeleton Key
 
 ### Detecting and Mitigating Active Directory Compromises
