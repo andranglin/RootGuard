@@ -23,7 +23,7 @@ layout:
 
 #### **Introduction to the MITRE ATT\&CK Framework**
 
-The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framework is a comprehensive and dynamic repository of adversarial behaviors, tactics, techniques, and procedures (TTPs) observed in real-world cyberattacks. Developed by MITRE Corporation, the framework serves as a valuable resource for security professionals, enabling them to understand and anticipate the methods attackers use to compromise systems, escalate privileges, and achieve their objectives. Organized into matrices such as **Enterprise**, **Mobile**, and **ICS**, ATT\&CK provides structured information about attack stages, adversary goals (tactics), and the specific methods employed (techniques and sub-techniques).
+The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framework is a comprehensive and dynamic repository of adversarial behaviours, tactics, techniques, and procedures (TTPs) observed in real-world cyberattacks. Developed by MITRE Corporation, the framework serves as a valuable resource for security professionals, enabling them to understand and anticipate the methods attackers use to compromise systems, escalate privileges, and achieve their objectives. Organised into matrices such as **Enterprise**, **Mobile**, and **ICS**, ATT\&CK provides structured information about attack stages, adversary goals (tactics), and the specific methods employed (techniques and sub-techniques).
 
 ***
 
@@ -63,7 +63,7 @@ The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framew
    * Understanding tactics provides a clear roadmap of an attacker’s objectives at each stage of an intrusion.
    * Techniques and sub-techniques help investigators trace specific actions, such as how initial access was achieved or how data was exfiltrated.
 2. **Focused Threat Hunting**:
-   * DFIR (Digital Forensics and Incident Response) teams can prioritize areas for analysis based on the techniques most commonly associated with detected adversarial behaviour.
+   * DFIR (Digital Forensics and Incident Response) teams can prioritise areas for analysis based on the techniques most commonly associated with detected adversarial behaviour.
    * For example, if suspicious lateral movement is identified, investigators can focus on techniques like `Remote Services` or `Pass-the-Ticket`.
 3. **Log and Artifact Analysis**:
    * Techniques guide investigators on what to search for in logs, memory dumps, or disk images. For instance:
@@ -74,12 +74,12 @@ The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framew
    * By mapping observed behaviors to the MITRE ATT\&CK matrix, DFIR teams can determine the attacker’s progression through the kill chain, allowing for effective scoping of the incident.
    * For example, detecting `C2 over HTTPS` enables teams to block communication and identify other compromised systems.
 5. **Proactive Defense and Gap Analysis**:
-   * Post-incident, organizations can use ATT\&CK to identify gaps in detection or prevention mechanisms. For instance, if an attack leveraged `PowerShell` for execution and wasn’t detected, this indicates a need for better monitoring of scripting activities.
+   * Post-incident, organisations can use ATT\&CK to identify gaps in detection or prevention mechanisms. For instance, if an attack leveraged `PowerShell` for execution and wasn’t detected, this indicates a need for better monitoring of scripting activities.
 6. **Communication and Reporting**:
-   * ATT\&CK provides a standardized language for documenting findings and communicating with stakeholders, enabling clear and actionable reporting.
+   * ATT\&CK provides a standardised language for documenting findings and communicating with stakeholders, enabling clear and actionable reporting.
 
 ***
 
-By integrating the MITRE ATT\&CK framework into DFIR workflows, organizations can improve their ability to detect, analyze, and respond to incidents with precision while also fortifying their defences against future attacks.
+By integrating the MITRE ATT\&CK framework into DFIR workflows, organisations can improve their ability to detect, analyse, and respond to incidents with precision while also fortifying their defences against future attacks.
 
 #### **Jump In**

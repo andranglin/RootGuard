@@ -13,9 +13,9 @@ layout:
     visible: true
 ---
 
-# PowerShell Mitre Based Investigation
+# PowerShell for SecOps
 
-## <mark style="color:blue;">**PowerShell MITRE-Based Investigations**</mark>
+### **PowerShell MITRE-Based Investigations**
 
 PowerShell is a powerful and versatile tool deeply integrated into the Windows operating system. It is a critical component in legitimate administrative tasks and malicious activities. For this reason, it plays a significant role in **MITRE ATT\&CK-based investigations**, where adversary tactics, techniques, and procedures (TTPs) are analysed to understand and combat cyber threats.
 
@@ -25,7 +25,7 @@ For DFIR analysts, PowerShell investigations aligned with the MITRE ATT\&CK fram
 
 PowerShell’s dual nature as both an operational necessity and a security risk emphasises the importance of a structured, framework-driven approach to its investigation. Leveraging MITRE-based methodologies, DFIR professionals can systematically detect malicious use of PowerShell, implement targeted defences, and enhance an organisation’s security posture against advanced threats.
 
-## <mark style="color:blue;">Powershell Remoting</mark>
+### Powershell Remoting
 
 {% code overflow="wrap" %}
 ```powershell
@@ -56,9 +56,9 @@ Enter-PSSession -ComputerName $ComputerName -Credential $Credential
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Initial Access Discovery</mark>
+### Initial Access Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Suspicious Process Execution**</mark>
+#### 1. **Suspicious Process Execution**
 
 **1.1. Detect Encoded PowerShell Commands**
 
@@ -87,7 +87,7 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object 
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**User Account Activity Monitoring**</mark>
+#### 2. **User Account Activity Monitoring**
 
 **2.1. Identify Unusual Logon Attempts**
 
@@ -109,7 +109,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4648} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**File and Directory Monitoring**</mark>
+#### 3. **File and Directory Monitoring**
 
 **3.1. Detect New Executable Files**
 
@@ -134,7 +134,7 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object 
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Network Activity Analysis**</mark>
+#### 4. **Network Activity Analysis**
 
 **4.1. Unusual Outbound Connections**
 
@@ -156,7 +156,7 @@ Get-WinEvent -LogName "Microsoft-Windows-DNS-Client/Operational" |  Where-Object
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Scheduled Tasks and Services**</mark>
+#### 5. **Scheduled Tasks and Services**
 
 **5.1. Newly Created Scheduled Tasks**
 
@@ -178,7 +178,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045} |  Where-Object {$_.P
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Registry Modifications**</mark>
+#### 6. **Registry Modifications**
 
 **6.1. Registry Run Key Changes**
 
@@ -200,7 +200,7 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windo
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Event Log Monitoring**</mark>
+#### 7. **Event Log Monitoring**
 
 **7.1. Detection of Cleared Event Logs**
 
@@ -218,7 +218,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=1102}
 Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4719}
 ```
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Email Security Monitoring**</mark>
+#### 8. **Email Security Monitoring**
 
 **8.1. Detect Phishing Emails**
 
@@ -240,7 +240,7 @@ Get-ItemProperty -Path "HKCU:\Software\Microsoft\Office\*\Outlook\Preferences" |
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Application Execution Monitoring**</mark>
+#### 9. **Application Execution Monitoring**
 
 **9.1. Detect Execution of Unsigned Binaries**
 
@@ -262,11 +262,11 @@ Get-ChildItem -Path "C:\Windows\Temp\*" -Recurse -Filter *.exe |  Where-Object {
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**System and Security Configuration**</mark>
+#### 10. **System and Security Configuration**
 
 **10.1. Group Policy Object Modifications**
 
-**Purpose**: Detect unauthorized changes to Group Policy Objects.
+**Purpose**: Detect unauthorised changes to Group Policy Objects.
 
 ```powershell
 Get-WinEvent -FilterHashtable @{LogName='Security'; ID=5136}
@@ -284,7 +284,7 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 
 #### Additional Discovery Techniques
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Phishing and Spear Phishing**</mark>
+#### 1. **Phishing and Spear Phishing**
 
 **1.1. Detecting Suspicious Email Attachments**
 
@@ -306,7 +306,7 @@ Get-WinEvent -LogName "Microsoft-Windows-EventLog/Email" |  Where-Object {($_.Me
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Exploiting Vulnerabilities**</mark>
+#### 2. **Exploiting Vulnerabilities**
 
 **2.1. Detecting Exploit Attempts in Web Servers**
 
@@ -328,7 +328,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4625} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Theft and Brute Force**</mark>
+#### 3. **Credential Theft and Brute Force**
 
 **3.1. Detecting Brute Force Attack Attempts**
 
@@ -350,7 +350,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {($_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious Code Execution**</mark>
+#### 4. **Malicious Code Execution**
 
 **4.1. Detecting Script Execution from Email Attachments**
 
@@ -372,7 +372,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Office-Alerts'; ID=300} | Whe
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious File and Malware Deployment**</mark>
+#### 5. **Malicious File and Malware Deployment**
 
 **5.1. Detecting Newly Created Executables**
 
@@ -394,7 +394,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Security-Auditing'; I
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Abuse of Valid Accounts**</mark>
+#### 6. **Abuse of Valid Accounts**
 
 **6.1. Detecting Account Creation and Privilege Escalation**
 
@@ -438,7 +438,7 @@ Get-WinEvent -LogName "Microsoft-Windows-IIS-Logging" | Where-Object {$_.Message
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Remote Services and Exploitation**</mark>
+#### 8. **Remote Services and Exploitation**
 
 **8.1. Detecting Remote Desktop Protocol (RDP) Access**
 
@@ -460,7 +460,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Abuse of Application Layer Protocols**</mark>
+#### 9. **Abuse of Application Layer Protocols**
 
 **9.1. Monitoring for Suspicious HTTP/S Traffic**
 
@@ -482,7 +482,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" | Where-Object {($_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious Use of Legitimate Tools**</mark>
+#### 10. **Malicious Use of Legitimate Tools**
 
 **10.1. Detecting Execution of PsExec**
 
@@ -504,9 +504,9 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-WMI-Activity/Operatio
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Reconnaissance Discovery</mark>
+### Reconnaissance Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Network Scanning and Enumeration**</mark>
+#### 1. **Network Scanning and Enumeration**
 
 **1.1. Detect Network Scanning Activities**
 
@@ -528,7 +528,7 @@ Get-NetNeighbor |  Where-Object {$_.State -eq 'Reachable' -and $_.AddressFamily 
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**System Information Gathering**</mark>
+#### 2. **System Information Gathering**
 
 **2.1. Enumeration of Installed Applications**
 
@@ -548,7 +548,7 @@ Get-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstal
 Get-Process | Select-Object Id, ProcessName, StartTime
 ```
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**User and Account Information Discovery**</mark>
+#### 3. **User and Account Information Discovery**
 
 **3.1. List Local User Accounts**
 
@@ -568,7 +568,7 @@ Get-ADUser -Filter * -Property DisplayName, Title, Department | Select-Object Di
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Group and Permission Enumeration**</mark>
+#### 4. **Group and Permission Enumeration**
 
 **4.1. List Local Groups and Memberships**
 
@@ -590,7 +590,7 @@ Get-ADGroup -Filter * -Property Members | Select-Object Name, @{n='Members';e={$
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;">**Network Configuration and Interface Enumeration**</mark>
+#### 5. **Network Configuration and Interface Enumeration**
 
 **5.1. List Network Interfaces**
 
@@ -608,7 +608,7 @@ Get-NetAdapter | Select-Object Name, InterfaceDescription, Status, MACAddress
 Get-NetIPAddress | Select-Object InterfaceAlias, IPAddress, PrefixLength
 ```
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Service and Port Enumeration**</mark>
+#### 6. **Service and Port Enumeration**
 
 **6.1. List Listening Ports**
 
@@ -626,7 +626,7 @@ Get-NetTCPConnection -State Listen | Select-Object LocalAddress, LocalPort
 Get-Service | Select-Object Name, DisplayName, Status, StartType
 ```
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**File and Directory Enumeration**</mark>
+#### 7. **File and Directory Enumeration**
 
 **7.1. List Files in Sensitive Directories**
 
@@ -648,7 +648,7 @@ Get-WmiObject -Query "SELECT * FROM Win32_Share WHERE Type=0" | Select-Object Na
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Logon Session and Security Group Enumeration**</mark>
+#### 8. **Logon Session and Security Group Enumeration**
 
 **8.1. List Active Logon Sessions**
 
@@ -670,7 +670,7 @@ Get-WmiObject -Class Win32_ComputerSystem | Select-Object DomainRole, Name, Part
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Registry and System Configuration Discovery**</mark>
+#### 9. **Registry and System Configuration Discovery**
 
 **9.1. List Auto-Start Programs**
 
@@ -692,7 +692,7 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services" | Select-Object
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Scheduled Task and Job Discovery**</mark>
+#### 10. **Scheduled Task and Job Discovery**
 
 **10.1. List Scheduled Tasks**
 
@@ -714,7 +714,7 @@ Get-WmiObject -Class Win32_ScheduledJob | Select-Object Name, JobId, JobStatus
 
 **Additional Discovery Techniques**
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;">**Network Scanning and Discovery**</mark>
+#### 1. **Network Scanning and Discovery**
 
 **1.1. Detecting Network Scanning Attempts**
 
@@ -736,7 +736,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=104} | Where-Object {$_.Mes
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**DNS and Directory Service Enumeration**</mark>
+#### 2. **DNS and Directory Service Enumeration**
 
 **2.1. Detecting DNS Zone Transfer Attempts**
 
@@ -758,7 +758,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4662} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**User and Account Enumeration**</mark>
+#### 3. **User and Account Enumeration**
 
 **3.1. Detecting User Enumeration via SMB**
 
@@ -780,7 +780,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4768} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Service and System Discovery**</mark>
+#### 4. **Service and System Discovery**
 
 **4.1. Detecting Windows Management Instrumentation (WMI) Queries**
 
@@ -802,7 +802,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**File and Directory Enumeration**</mark>
+#### 5. **File and Directory Enumeration**
 
 **5.1. Detecting Enumeration of File Shares**
 
@@ -824,7 +824,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Network and Firewall Configuration Enumeration**</mark>
+#### 6. **Network and Firewall Configuration Enumeration**
 
 **6.1. Detecting Attempts to Query Firewall Rules**
 
@@ -846,7 +846,7 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Operating System and Application Enumeration**</mark>
+#### 7. **Operating System and Application Enumeration**
 
 **7.1. Detecting OS Version and Installed Software Enumeration**
 
@@ -866,7 +866,7 @@ Get-WmiObject -Class Win32_OperatingSystem | Select-Object Version, BuildNumber 
 Get-HotFix | Select-Object Description, HotFixID, InstalledOn
 ```
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Cloud and Virtual Environment Discovery**</mark>
+#### 8. **Cloud and Virtual Environment Discovery**
 
 **8.1. Detecting Enumeration of Cloud Resources**
 
@@ -888,7 +888,7 @@ Get-WmiObject -Namespace "root\virtualization\v2" -Class Msvm_ComputerSystem |  
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Service and Process Enumeration**</mark>
+#### 9. **Service and Process Enumeration**
 
 **9.1. Detecting Enumeration of Running Processes**
 
@@ -906,7 +906,7 @@ Get-Process | Select-Object Id, ProcessName, StartTime
 Get-Service | Select-Object Name, DisplayName, Status
 ```
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Anomalous Network Behaviour**</mark>
+#### 10. **Anomalous Network Behaviour**
 
 **10.1. Detecting Network Traffic Anomalies**
 
@@ -928,9 +928,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Execution Discovery</mark>
+### Execution Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Monitoring Process Execution**</mark>
+#### 1. **Monitoring Process Execution**
 
 **1.1. Detecting New Executable Processes**
 
@@ -952,7 +952,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**PowerShell Script Execution Monitoring**</mark>
+#### 2. **PowerShell Script Execution Monitoring**
 
 **2.1. Detecting Encoded PowerShell Commands**
 
@@ -974,7 +974,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Identifying Execution of Scripting Languages**</mark>
+#### 3. **Identifying Execution of Scripting Languages**
 
 **3.1. Detecting VBScript Execution**
 
@@ -996,7 +996,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious Use of Built-in Tools**</mark>
+#### 4. **Malicious Use of Built-in Tools**
 
 **4.1. Monitoring Mshta Execution**
 
@@ -1018,7 +1018,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Macro Execution and Document Exploits**</mark>
+#### 5. **Macro Execution and Document Exploits**
 
 **5.1. Detecting Office Macro Execution**
 
@@ -1040,7 +1040,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Office-Alerts'; ID=300} | Whe
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Windows Management Instrumentation (WMI) Execution**</mark>
+#### 6. **Windows Management Instrumentation (WMI) Execution**
 
 **6.1. Detecting WMI Command Execution**
 
@@ -1062,7 +1062,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-WMI-Activity/Operatio
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;">**Execution via Services and Tasks**</mark>
+#### 7. **Execution via Services and Tasks**
 
 **7.1. Detecting Service Execution**
 
@@ -1084,7 +1084,7 @@ Get-ScheduledTask | Where-Object {$_.State -eq 'Ready' -or $_.State -eq 'Running
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Dumping and Usage**</mark>
+#### 8. **Credential Dumping and Usage**
 
 **8.1. Detecting LSASS Memory Access**
 
@@ -1106,7 +1106,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Execution of Exploit Tools**</mark>
+#### 9. **Execution of Exploit Tools**
 
 **9.1. Detecting Exploit Framework Usage**
 
@@ -1128,7 +1128,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Script and Binary Obfuscation**</mark>
+#### 10. **Script and Binary Obfuscation**
 
 **10.1. Detecting Obfuscated PowerShell Scripts**
 
@@ -1152,7 +1152,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 
 **Additional Discovery Techniques**
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;">**Monitoring Script Execution**</mark>
+#### 1. **Monitoring Script Execution**
 
 **1.1. Detecting PowerShell Script Execution**
 
@@ -1174,7 +1174,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious Use of Legitimate Tools**</mark>
+#### 2. **Malicious Use of Legitimate Tools**
 
 **2.1. Detecting the Use of Mshta**
 
@@ -1196,7 +1196,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Unauthorized Software and Tool Usage**</mark>
+#### 3. **Unauthorized Software and Tool Usage**
 
 **3.1. Detecting Unauthorized Software Installation**
 
@@ -1218,7 +1218,7 @@ Get-ChildItem -Path "C:\Users\*\Downloads" -Recurse -Include *.exe, *.com, *.scr
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Remote Command Execution**</mark>
+#### 4. **Remote Command Execution**
 
 **4.1. Monitoring for Remote PowerShell Execution**
 
@@ -1240,7 +1240,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-WMI-Activity/Operatio
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Execution of Scripting Languages**</mark>
+#### 5. **Execution of Scripting Languages**
 
 **5.1. Monitoring VBScript Execution**
 
@@ -1262,7 +1262,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Executable and DLL Injection**</mark>
+#### 6. **Executable and DLL Injection**
 
 **6.1. Detecting Code Injection Attempts**
 
@@ -1284,7 +1284,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;">**Malicious Use of System Tools**</mark>
+#### 7. **Malicious Use of System Tools**
 
 **7.1. Detecting Usage of CertUtil**
 
@@ -1306,7 +1306,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Application Whitelisting Bypass**</mark>
+#### 8. **Application Whitelisting Bypass**
 
 **8.1. Detecting Application Whitelisting Bypass via LOLBins**
 
@@ -1328,7 +1328,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Macro and Script Exploitation**</mark>
+#### 9. **Macro and Script Exploitation**
 
 **9.1. Monitoring for Malicious Office Macros**
 
@@ -1350,7 +1350,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Exploitation Tools and Post-Exploitation Frameworks**</mark>
+#### 10. **Exploitation Tools and Post-Exploitation Frameworks**
 
 **10.1. Detecting Cobalt Strike Beacon Execution**
 
@@ -1372,9 +1372,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Persistence Discovery</mark>
+### Persistence Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Registry-Based Persistence**</mark>
+#### 1. **Registry-Based Persistence**
 
 **1.1. Registry Run Key Modifications**
 
@@ -1402,7 +1402,7 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windo
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Scheduled Tasks and Services**</mark>
+#### 2. **Scheduled Tasks and Services**
 
 **2.1. Listing Suspicious Scheduled Tasks**
 
@@ -1424,7 +1424,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045} |  Where-Object {$_.P
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;">**WMI Persistence**</mark>
+#### 3. **WMI Persistence**
 
 **3.1. Detecting WMI Event Consumers**
 
@@ -1446,7 +1446,7 @@ Get-WmiObject -Namespace "root\subscription" -Class __EventFilter | Select-Objec
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Startup Folder Persistence**</mark>
+#### 4. **Startup Folder Persistence**
 
 **4.1. Listing Items in Startup Folders**
 
@@ -1464,7 +1464,7 @@ Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startu
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**GPO and Logon Scripts**</mark>
+#### 5. **GPO and Logon Scripts**
 
 **5.1. Detecting GPO Logon Scripts**
 
@@ -1486,7 +1486,7 @@ Get-ChildItem -Path "C:\Windows\System32\GroupPolicy\User\Scripts\Logon" | Selec
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Binary and Script-Based Persistence**</mark>
+#### 6. **Binary and Script-Based Persistence**
 
 **6.1. Monitoring Changes in Common System Directories**
 
@@ -1506,7 +1506,7 @@ Get-ChildItem -Path "C:\Windows\System32" -Filter "*.exe, *.dll" | Where-Object 
 Get-Content -Path $PROFILE
 ```
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious Use of Scripting Languages**</mark>
+#### 7. **Malicious Use of Scripting Languages**
 
 **7.1. Monitoring for Suspicious PowerShell Scripts**
 
@@ -1528,7 +1528,7 @@ Get-ChildItem -Path "C:\Windows\Temp" -Filter "*.js, *.vbs" | Where-Object {$_.L
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Registry Persistence**</mark>
+#### 8. **Registry Persistence**
 
 **8.1. Checking for Winlogon Shell Modifications**
 
@@ -1550,7 +1550,7 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlo
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Boot and Auto-Start Configuration**</mark>
+#### 9. **Boot and Auto-Start Configuration**
 
 **9.1. Checking for Boot Configuration Data (BCD) Changes**
 
@@ -1570,7 +1570,7 @@ Get-Service | Where-Object {$_.StartType -eq 'Automatic'} | Select-Object Name, 
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Persistence via Network and Remote Services**</mark>
+#### 10. **Persistence via Network and Remote Services**
 
 **10.1. Monitoring Remote Desktop Protocol (RDP) Changes**
 
@@ -1594,7 +1594,7 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WSMAN\Cl
 
 **Additional Discovery Techniques**
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Registry and Autoruns Monitoring**</mark>
+#### 1. **Registry and Autoruns Monitoring**
 
 **1.1. Detecting Autorun Entries in the Registry**
 
@@ -1616,7 +1616,7 @@ Get-ChildItem -Path "C:\Users\*\AppData\Roaming\Microsoft\Windows\Start Menu\Pro
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Service and Scheduled Task Persistence**</mark>
+#### 2. **Service and Scheduled Task Persistence**
 
 **2.1. Detecting Creation of New Services**
 
@@ -1638,7 +1638,7 @@ Get-ScheduledTask | Where-Object {$_.Principal.UserId -like "*"} | Select-Object
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**WMI and COM Object Persistence**</mark>
+#### 3. **WMI and COM Object Persistence**
 
 **3.1. Detecting WMI Event Subscription Persistence**
 
@@ -1660,7 +1660,7 @@ Get-ItemProperty -Path "HKLM:\Software\Classes\CLSID" -Recurse | Where-Object {$
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Startup Scripts and Logon Hooks**</mark>
+#### 4. **Startup Scripts and Logon Hooks**
 
 **4.1. Detecting Changes in Group Policy Logon Scripts**
 
@@ -1682,7 +1682,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4672} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious Use of Scheduled Jobs and Cron Jobs**</mark>
+#### 5. **Malicious Use of Scheduled Jobs and Cron Jobs**
 
 **5.1. Detecting Creation of New Scheduled Jobs**
 
@@ -1704,7 +1704,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4698} | Select-Object Tim
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Persistence via System Services**</mark>
+#### 6. **Persistence via System Service**<mark style="color:blue;">**s**</mark>
 
 **6.1. Detecting Changes to System Services**
 
@@ -1726,7 +1726,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7030} | Select-Object TimeC
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Browser Extensions and Plug-Ins**</mark>
+#### 7. **Browser Extensions and Plug-Ins**
 
 **7.1. Detecting Malicious Browser Extensions**
 
@@ -1748,7 +1748,7 @@ Get-ChildItem -Path "C:\Program Files (x86)\Mozilla Firefox\browser\extensions" 
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**DLL Hijacking and Injection**</mark>
+#### 8. **DLL Hijacking and Injection**
 
 **8.1. Detecting DLL Hijacking Attempts**
 
@@ -1770,7 +1770,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4656} | Where-Object {($_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Remote Access and Backdoors**</mark>
+#### 9. **Remote Access and Backdoors**
 
 **9.1. Detecting Remote Access Tools (RATs)**
 
@@ -1792,7 +1792,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7035} | Where-Object {$_.Pr
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Persistence via System and Network Configuration**</mark>
+#### 10. **Persistence via System and Network Configuration**
 
 **10.1. Detecting Changes in Network Configuration**
 
@@ -1812,9 +1812,9 @@ Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet
 bcdedit /enum all | Select-String "path"
 ```
 
-## <mark style="color:blue;">Privilege Escalation Discovery</mark>
+### Privilege Escalation Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Monitoring Process and Service Changes**</mark>
+#### 1. **Monitoring Process and Service Changes**
 
 **1.1. Detecting New Administrative Process Creation**
 
@@ -1836,7 +1836,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045} | Select-Object TimeC
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**User and Group Changes**</mark>
+#### 2. **User and Group Changes**
 
 **2.1. Detecting New User Account Creation**
 
@@ -1858,7 +1858,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4732,4746,4756} | Select-
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Registry and System Configuration**</mark>
+#### 3. **Registry and System Configuration**
 
 **3.1. Monitoring Registry Key Changes for Escalation Paths**
 
@@ -1880,7 +1880,7 @@ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Scheduled Tasks and Services**</mark>
+#### 4. **Scheduled Tasks and Services**
 
 **4.1. Detecting Changes to Scheduled Tasks**
 
@@ -1902,7 +1902,7 @@ Get-WmiObject -Class Win32_Service | Where-Object {$_.StartMode -eq "Auto" -and 
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Access Control and Permissions**</mark>
+#### 5. **Access Control and Permissions**
 
 **5.1. Monitoring Changes to ACLs on Sensitive Files**
 
@@ -1924,7 +1924,7 @@ Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\LanmanServer\Par
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Executable and Script Monitoring**</mark>
+#### 6. **Executable and Script Monitoring**
 
 **6.1. Detecting Unusual Executables in System Directories**
 
@@ -1946,7 +1946,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Application and Service Installation**</mark>
+#### 7. **Application and Service Installation**
 
 **7.1. Detecting Installation of Potentially Malicious Software**
 
@@ -1968,7 +1968,7 @@ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" | S
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Exploit Detection and Mitigation**</mark>
+#### 8. **Exploit Detection and Mitigation**
 
 **8.1. Monitoring for Known Exploit Attempts**
 
@@ -1990,7 +1990,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7040} |  Where-Object {$_.P
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Audit Policy and Event Log Monitoring**</mark>
+#### 9. **Audit Policy and Event Log Monitoring**
 
 **9.1. Monitoring Changes to Audit Policies**
 
@@ -2008,7 +2008,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4719}
 Get-WinEvent -FilterHashtable @{LogName='Security'; ID=1102}
 ```
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Domain and Network-Level Privilege Escalation**</mark>
+#### 10. **Domain and Network-Level Privilege Escalation**
 
 **10.1. Monitoring Changes to Domain Admin Group**
 
@@ -2032,7 +2032,7 @@ Get-GPO -All | Get-GPOReport -ReportType XML | Select-String -Pattern "Administr
 
 **Additional Discovery Techniques**
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;">**Monitoring Account Privilege Changes**</mark>
+#### 1. **Monitoring Account Privilege Changes**
 
 **1.1. Detecting Changes in User Group Membership**
 
@@ -2054,7 +2054,7 @@ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Service and Process Manipulation**</mark>
+#### 2. **Service and Process Manipulation**
 
 **2.1. Detecting Service Configuration Changes**
 
@@ -2076,7 +2076,7 @@ Get-CimInstance -ClassName Win32_Process |  Select-Object ProcessId, Name, Paren
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Scheduled Tasks and Cron Jobs**</mark>
+#### 3. **Scheduled Tasks and Cron Jobs**
 
 **3.1. Detecting Creation of High-Privilege Scheduled Tasks**
 
@@ -2098,7 +2098,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4698} | Select-Object Tim
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Exploitation of Vulnerabilities and Misconfigurations**</mark>
+#### 4. **Exploitation of Vulnerabilities and Misconfigurations**
 
 **4.1. Detecting Exploitation of Known Vulnerabilities**
 
@@ -2120,7 +2120,7 @@ Get-Acl -Path "C:\Windows\System32" | Select-Object -ExpandProperty Access |  Wh
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Theft and Reuse**</mark>
+#### 5. **Credential Theft and Reuse**
 
 **5.1. Detecting Use of Pass-the-Hash**
 
@@ -2142,7 +2142,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4673} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Exploit Local Privilege Escalation (LPE) Vulnerabilities**</mark>
+#### 6. **Exploit Local Privilege Escalation (LPE) Vulnerabilities**
 
 **6.1. Detecting Execution of Exploits**
 
@@ -2164,7 +2164,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Abuse of Built-in Windows Tools**</mark>
+#### 7. **Abuse of Built-in Windows Tools**
 
 **7.1. Detecting Use of WMI for Privilege Escalation**
 
@@ -2186,7 +2186,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Abuse of Service Control Manager**</mark>
+#### 8. **Abuse of Service Control Manager**
 
 **8.1. Detecting Service Installation by Non-Admins**
 
@@ -2208,7 +2208,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7040} | Where-Object {($_.P
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Manipulation of Security Policies and Settings**</mark>
+#### 9. **Manipulation of Security Policies and Settings**
 
 **9.1. Monitoring Changes to Local Security Policies**
 
@@ -2230,7 +2230,7 @@ secedit /export /cfg C:\securitypolicy.cfg Get-Content C:\securitypolicy.cfg | W
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Manipulation of Active Directory Objects**</mark>
+#### 10. **Manipulation of Active Directory Objects**
 
 **10.1. Detecting Unusual Changes to Group Policy Objects (GPOs)**
 
@@ -2252,9 +2252,9 @@ Get-ADUser -Filter {MemberOf -eq "Administrators"} -Property MemberOf | Select-O
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Defence Evasion Discovery</mark>
+### Defence Evasion Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Antivirus and Security Tools Interference**</mark>
+#### 1. **Antivirus and Security Tools Interference**
 
 **1.1. Detecting Disabling of Antivirus Software**
 
@@ -2276,7 +2276,7 @@ Get-MpPreference | Select-Object -Property DisableRealtimeMonitoring, DisableBeh
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Log Deletion and Tampering**</mark>
+#### 2. **Log Deletion and Tampering**
 
 **2.1. Detecting Clearing of Security Event Logs**
 
@@ -2296,7 +2296,7 @@ Get-ChildItem -Path "C:\Windows\System32\winevt\Logs\" -Filter "*.evtx" |  Where
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Obfuscation Techniques**</mark>
+#### 3. **Obfuscation Techniques**
 
 **3.1. Detecting Encoded PowerShell Commands**
 
@@ -2318,7 +2318,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Bypassing User Account Control (UAC)**</mark>
+#### 4. **Bypassing User Account Control (UAC)**
 
 **4.1. Detecting UAC Bypass Attempts**
 
@@ -2340,7 +2340,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4673} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Hiding Artifacts and File Manipulation**</mark>
+#### 5. **Hiding Artifacts and File Manipulation**
 
 **5.1. Detecting Hidden Files and Directories**
 
@@ -2360,7 +2360,7 @@ Get-ChildItem -Path "C:\*" -Force | Where-Object {($_.Attributes -match 'Hidden'
 Get-Item -Path "C:\*" -Stream *
 ```
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Code Injection and Process Manipulation**</mark>
+#### 6. **Code Injection and Process Manipulation**
 
 **6.1. Monitoring for Process Injection Attempts**
 
@@ -2382,7 +2382,7 @@ Get-CimInstance -ClassName Win32_Process |  Select-Object ProcessId, Name, Paren
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Modifying System Settings for Evasion**</mark>
+#### 7. **Modifying System Settings for Evasion**
 
 **7.1. Monitoring Changes to Host Firewall Settings**
 
@@ -2404,7 +2404,7 @@ Get-WmiObject -Query "SELECT * FROM Win32_NetworkAdapterConfiguration WHERE IPEn
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Application Whitelisting and Execution Control Bypass**</mark>
+#### 8. **Application Whitelisting and Execution Control Bypass**
 
 **8.1. Detecting AppLocker Policy Changes**
 
@@ -2426,7 +2426,7 @@ Get-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Safer\CodeIden
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Disabling Security Controls**</mark>
+#### 9. **Disabling Security Controls**
 
 **9.1. Detecting Changes to Windows Security Center**
 
@@ -2448,7 +2448,7 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name AuditB
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Manipulating System Logs and Auditing**</mark>
+#### 10. **Manipulating System Logs and Auditing**
 
 **10.1. Monitoring for Clearing of Application Logs**
 
@@ -2470,9 +2470,9 @@ Get-AuditPolicy | Where-Object {$_.Category -match 'Logon/Logoff'} | Select-Obje
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Credential Access Discovery</mark>
+### Credential Access Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detecting Credential Dumping Attempts**</mark>
+#### 1. **Detecting Credential Dumping Attempts**
 
 **1.1. Monitoring for LSASS Process Access**
 
@@ -2494,7 +2494,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Suspicious Account Activity Monitoring**</mark>
+#### 2. **Suspicious Account Activity Monitoring**
 
 **2.1. Tracking Account Logon Failures**
 
@@ -2516,7 +2516,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;">**Phishing and Email-based Attacks**</mark>
+#### 3. **Phishing and Email-based Attacks**
 
 **3.1. Detecting Phishing Email Characteristics**
 
@@ -2538,7 +2538,7 @@ Get-WinEvent -FilterHashtable @{LogName='Application'; ID=3005} | Where-Object {
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Caching and Storage**</mark>
+#### 4. **Credential Caching and Storage**
 
 **4.1. Detecting Stored Credentials in Browsers**
 
@@ -2560,7 +2560,7 @@ Get-ChildItem -Path "C:\Users\*\Documents\Default.rdp" -Force | Select-Object Fu
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Keylogging and User Input Capture**</mark>
+#### 5. **Keylogging and User Input Capture**
 
 **5.1. Detecting Keylogger Installation**
 
@@ -2582,7 +2582,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*logger*'} | Select-Object Pro
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Theft from API and Memory**</mark>
+#### 6. **Credential Theft from API and Memory**
 
 **6.1. Monitoring Access to Security Account Manager (SAM) Database**
 
@@ -2604,7 +2604,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Suspicious Network and Remote Access Activity**</mark>
+#### 7. **Suspicious Network and Remote Access Activity**
 
 **7.1. Detecting Suspicious VPN Connections**
 
@@ -2626,7 +2626,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*RAT*'} | Select-Object Proces
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Password and Credential Policy Changes**</mark>
+#### 8. **Password and Credential Policy Changes**
 
 **8.1. Monitoring Changes to Password Policies**
 
@@ -2648,7 +2648,7 @@ Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "Disab
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Browser and Web-based Credential Theft**</mark>
+#### 9. **Browser and Web-based Credential Theft**
 
 **9.1. Detecting Malicious Browser Extensions**
 
@@ -2670,7 +2670,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-DNS-Client/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Advanced Credential Stealing Techniques**</mark>
+#### 10. **Advanced Credential Stealing Techniques**
 
 **10.1. Monitoring for Kerberoasting Attempts**
 
@@ -2694,7 +2694,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 
 **Additional Discovery Techniques**
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;">**Credential Dumping**</mark>
+#### 1. **Credential Dumping**
 
 **1.1. Monitoring LSASS Memory Access**
 
@@ -2716,7 +2716,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;">**Keylogging and Input Capture**</mark>
+#### 2. **Keylogging and Input Capture**
 
 **2.1. Detecting Keylogger Installation**
 
@@ -2738,7 +2738,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*logger*'} | Select-Object Pro
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Brute Force and Password Guessing**</mark>
+#### 3. **Brute Force and Password Guessing**
 
 **3.1. Monitoring Account Lockout Events**
 
@@ -2760,7 +2760,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4625} | Group-Object -Pro
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Phishing and Spear Phishing**</mark>
+#### 4. **Phishing and Spear Phishing**
 
 **4.1. Identifying Phishing Email Characteristics**
 
@@ -2782,7 +2782,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Theft from Browsers**</mark>
+#### 5. **Credential Theft from Browsers**
 
 **5.1. Detecting Access to Stored Browser Credentials**
 
@@ -2804,7 +2804,7 @@ Get-ChildItem -Path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Ex
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Dumping from the Security Account Manager (SAM)**</mark>
+#### 6. **Credential Dumping from the Security Account Manager (SAM)**
 
 **6.1. Monitoring SAM Database Access**
 
@@ -2826,7 +2826,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Exploitation of Default Credentials**</mark>
+#### 7. **Exploitation of Default Credentials**
 
 **7.1. Detecting Use of Default or Weak Credentials**
 
@@ -2848,7 +2848,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {($_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Harvesting from Application Credentials**</mark>
+#### 8. **Credential Harvesting from Application Credentials**
 
 **8.1. Detecting Access to Application Credentials**
 
@@ -2870,7 +2870,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Pass-the-Hash and Pass-the-Ticket**</mark>
+#### 9. **Pass-the-Hash and Pass-the-Ticket**
 
 **9.1. Detecting Pass-the-Hash Attacks**
 
@@ -2892,7 +2892,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4769} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Access via Remote Services**</mark>
+#### 10. **Credential Access via Remote Service**<mark style="color:blue;">**s**</mark>
 
 **10.1. Detecting Unauthorized RDP Access**
 
@@ -2914,9 +2914,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Discovery</mark>
+### Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;">**Network Discovery**</mark>
+#### 1. **Network Discovery**
 
 **1.1. Detecting Network Scanning Activities**
 
@@ -2938,7 +2938,7 @@ Get-NetNeighbor | Where-Object {$_.State -eq 'Reachable'} | Select-Object Interf
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**User and Account Discovery**</mark>
+#### 2. **User and Account Discovery**
 
 **2.1. Enumerating Local User Accounts**
 
@@ -2958,7 +2958,7 @@ Get-ADUser -Filter * -Property DisplayName, Title, Department | Select-Object Di
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Group and Permission Discovery**</mark>
+#### 3. **Group and Permission Discovery**
 
 **3.1. Listing Local Group Memberships**
 
@@ -2980,7 +2980,7 @@ Get-ADGroup -Filter * -Property Members | Select-Object Name, @{n='Members';e={$
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**System and Application Discovery**</mark>
+#### 4. **System and Application Discovery**
 
 **4.1. Enumerating Installed Applications**
 
@@ -3002,7 +3002,7 @@ Get-Process | Select-Object Id, ProcessName, StartTime
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Network Configuration and Interface Enumeration**</mark>
+#### 5. **Network Configuration and Interface Enumeration**
 
 **5.1. Listing Network Interfaces**
 
@@ -3020,7 +3020,7 @@ Get-NetAdapter | Select-Object Name, InterfaceDescription, Status, MACAddress
 Get-NetIPAddress | Select-Object InterfaceAlias, IPAddress, PrefixLength
 ```
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Service and Port Discovery**</mark>
+#### 6. **Service and Port Discovery**
 
 **6.1. Listing Listening Ports**
 
@@ -3038,7 +3038,7 @@ Get-NetTCPConnection -State Listen | Select-Object LocalAddress, LocalPort
 Get-Service | Select-Object Name, DisplayName, Status, StartType
 ```
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**File and Directory Discovery**</mark>
+#### 7. **File and Directory Discovery**
 
 **7.1. Listing Files in Specific Directories**
 
@@ -3060,7 +3060,7 @@ Get-WmiObject -Query "SELECT * FROM Win32_Share WHERE Type=0" | Select-Object Na
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Security and Policy Discovery**</mark>
+#### 8. **Security and Policy Discovery**
 
 **8.1. Enumerating Local Security Policies**
 
@@ -3078,7 +3078,7 @@ secedit /export /cfg C:\securitypolicy.cfg Get-Content C:\securitypolicy.cfg
 Get-AuditPolicy | Select-Object Subcategory, Success, Failure
 ```
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;">**Scheduled Task and Job Discovery**</mark>
+#### 9. **Scheduled Task and Job Discovery**
 
 **9.1. Listing Scheduled Tasks**
 
@@ -3096,7 +3096,7 @@ Get-ScheduledTask | Select-Object TaskName, LastRunTime, TaskPath
 Get-WmiObject -Class Win32_ScheduledJob | Select-Object Name, JobId, JobStatus
 ```
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Remote System and Domain Discovery**</mark>
+#### 10. **Remote System and Domain Discovery**
 
 **10.1. Listing Domain Controllers**
 
@@ -3114,9 +3114,9 @@ Get-ADDomainController -Filter * | Select-Object Name, IPv4Address, Site
 Get-ADTrust -Filter * | Select-Object Name, TrustType, TrustDirection
 ```
 
-## <mark style="color:blue;">Lateral Movement Discovery</mark>
+### Lateral Movement Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Remote Execution and Access Tools**</mark>
+#### 1. **Remote Execution and Access Tools**
 
 **1.1. Detecting Remote Desktop Protocol (RDP) Usage**
 
@@ -3138,7 +3138,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Pass-the-Hash and Pass-the-Ticket**</mark>
+#### 2. **Pass-the-Hash and Pass-the-Ticket**
 
 **2.1. Detecting Pass-the-Hash Attacks**
 
@@ -3160,7 +3160,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4769} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Remote Services and Scheduled Tasks**</mark>
+#### 3. **Remote Services and Scheduled Tasks**
 
 **3.1. Detecting Remote Service Creation**
 
@@ -3182,7 +3182,7 @@ Get-ScheduledTask | Where-Object {$_.Principal.UserId -like "*"} | Select-Object
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**File Sharing and Remote File Copy**</mark>
+#### 4. **File Sharing and Remote File Copy**
 
 **4.1. Monitoring for Use of Admin Shares**
 
@@ -3204,7 +3204,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential Harvesting and Stealing**</mark>
+#### 5. **Credential Harvesting and Stealing**
 
 **5.1. Monitoring for Credential Dumping Tools**
 
@@ -3226,7 +3226,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4656} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Use of Legitimate Admin Tools**</mark>
+#### 6. **Use of Legitimate Admin Tools**
 
 **6.1. Detecting PsExec Usage**
 
@@ -3248,7 +3248,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-WMI-Activity/Operatio
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Domain Controller and Active Directory Access**</mark>
+#### 7. **Domain Controller and Active Directory Access**
 
 **7.1. Monitoring Access to Domain Controllers**
 
@@ -3270,7 +3270,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4662} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Application and Script Execution**</mark>
+#### 8. **Application and Script Execution**
 
 **8.1. Detecting Script Execution Across Network**
 
@@ -3292,7 +3292,7 @@ Get-ChildItem -Path "C:\Windows\Temp\" -Filter "*.bat" | Select-Object FullName,
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Use of Third-Party Remote Access Tools**</mark>
+#### 9. **Use of Third-Party Remote Access Tools**
 
 **9.1. Detecting Use of VNC**
 
@@ -3314,7 +3314,7 @@ Get-Process | Where-Object {$_.ProcessName -match 'TeamViewer'} | Select-Object 
 ```
 {% endcode %}
 
-#### 10. <mark style="color:blue;">**Command and Control (C2) and Beaconing**</mark>
+#### 10. **Command and Control (C2) and Beaconing**
 
 **10.1. Monitoring for Beaconing Activity**
 
@@ -3338,7 +3338,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-DNS-Client/Operationa
 
 **Additional Discovery Techniques**
 
-#### 1. <mark style="color:blue;">**Remote Desktop Protocol (RDP) Usage**</mark>
+#### 1. **Remote Desktop Protocol (RDP) Usage**
 
 **1.1. Detecting Unauthorized RDP Sessions**
 
@@ -3360,7 +3360,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Remote Services and Command Execution**</mark>
+#### 2. **Remote Services and Command Execution**
 
 **2.1. Detecting PsExec Usage**
 
@@ -3382,7 +3382,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Windows Management Instrumentation (WMI)**</mark>
+#### 3. **Windows Management Instrumentation (WMI)**
 
 **3.1. Detecting WMI Command Execution**
 
@@ -3404,7 +3404,7 @@ Get-WmiObject -Namespace "root\subscription" -Class __EventFilter | Select-Objec
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Service and Scheduled Task Creation**</mark>
+#### 4. **Service and Scheduled Task Creation**
 
 **4.1. Detecting Creation of New Services**
 
@@ -3426,7 +3426,7 @@ Get-ScheduledTask | Where-Object {$_.Principal.UserId -like "*"} | Select-Object
 ```
 {% endcode %}
 
-#### 5. <mark style="color:blue;">**File and Directory Discovery**</mark>
+#### 5. **File and Directory Discovery**
 
 **5.1. Monitoring Access to Shared Folders**
 
@@ -3448,7 +3448,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Account and Credential Manipulation**</mark>
+#### <mark style="color:blue;">6.</mark> **Account and Credential Manipulation**
 
 **6.1. Monitoring for Privilege Escalation Attempts**
 
@@ -3470,7 +3470,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4720} | Select-Object Tim
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;">**Pass-the-Hash and Pass-the-Ticket Attacks**</mark>
+#### 7. **Pass-the-Hash and Pass-the-Ticket Attacks**
 
 **7.1. Detecting NTLM Authentication Attempts**
 
@@ -3492,7 +3492,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4769} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 8. <mark style="color:blue;">**File Transfer and Data Staging**</mark>
+#### 8. **File Transfer and Data Staging**
 
 **8.1. Detecting File Transfers via SMB**
 
@@ -3514,7 +3514,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-TerminalServices-RDPC
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Network and Protocol Analysis**</mark>
+#### 9. **Network and Protocol Analysis**
 
 **9.1. Detecting Anomalous Network Traffic**
 
@@ -3536,7 +3536,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Anomalous Behavior and Activity Monitoring**</mark>
+#### 10. **Anomalous Behaviour and Activity Monitoring**
 
 **10.1. Detecting Anomalous Login Times**
 
@@ -3558,9 +3558,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {($_
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Collection Discovery</mark>
+### Collection Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;">**File and Data Collection**</mark>
+#### 1. **File and Data Collection**
 
 **1.1. Detecting Large File Searches**
 
@@ -3582,7 +3582,7 @@ Get-ChildItem -Path "C:\Users\*" -Recurse -Include *.docx, *.xlsx, *.pdf |  Sele
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Clipboard Data Collection**</mark>
+#### 2. **Clipboard Data Collection**
 
 **2.1. Monitoring Clipboard Access**
 
@@ -3602,7 +3602,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Keystroke Logging**</mark>
+#### 3. **Keystroke Logging**
 
 **3.1. Detecting Keylogger Installation**
 
@@ -3624,7 +3624,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*logger*'} | Select-Object Pro
 ```
 {% endcode %}
 
-#### 4. <mark style="color:blue;">**Screenshot and Video Capture**</mark>
+#### 4. **Screenshot and Video Capture**
 
 **4.1. Detecting Screenshot Capture Programs**
 
@@ -3646,7 +3646,7 @@ Get-Process | Where-Object {$_.ProcessName -match 'OBS|Camtasia|Debut'} | Select
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Audio Capture and Surveillance**</mark>
+#### 5. **Audio Capture and Surveillance**
 
 **5.1. Monitoring for Audio Recording Software**
 
@@ -3668,7 +3668,7 @@ Get-WmiObject -Class Win32_PnPEntity |  Where-Object {($_.Name -match "Microphon
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Credential and Authentication Data Collection**</mark>
+#### 6. **Credential and Authentication Data Collection**
 
 **6.1. Monitoring for Credential Dumping Tools**
 
@@ -3690,7 +3690,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Email and Messaging Data Collection**</mark>
+#### 7. **Email and Messaging Data Collection**
 
 **7.1. Monitoring for Email Client Activity**
 
@@ -3712,7 +3712,7 @@ Get-Process | Where-Object {$_.ProcessName -match 'Teams|Skype|Slack'} | Select-
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Browser Data Collection**</mark>
+#### 8. **Browser Data Collection**
 
 **8.1. Detecting Access to Browser Data**
 
@@ -3734,7 +3734,7 @@ Get-ChildItem -Path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Ex
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Data Staging and Compression**</mark>
+#### 9. **Data Staging and Compression**
 
 **9.1. Detecting Data Compression Tools**
 
@@ -3756,7 +3756,7 @@ Get-ChildItem -Path "C:\Users\*" -Recurse -Include *.zip, *.rar, *.7z | Select-O
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Cloud and Remote Storage Access**</mark>
+#### 10. **Cloud and Remote Storage Access**
 
 **10.1. Monitoring for Cloud Storage Access**
 
@@ -3778,9 +3778,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Command & Control (C2) Discovery</mark>
+### Command & Control (C2) Discovery
 
-#### 1. <mark style="color:blue;">**Network Connection Monitoring**</mark>
+#### 1. **Network Connection Monitoring**
 
 **1.1. Detecting Unusual Outbound Connections**
 
@@ -3802,7 +3802,7 @@ Get-WinEvent -LogName "Microsoft-Windows-DNS-Client/Operational" |  Where-Object
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**DNS-based C2 Detection**</mark>
+#### 2. **DNS-based C2 Detection**
 
 **2.1. Detecting DNS Tunneling**
 
@@ -3824,7 +3824,7 @@ Get-WinEvent -LogName "Microsoft-Windows-DNS-Client/Operational" |  Group-Object
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**HTTP/HTTPS C2 Detection**</mark>
+#### 3. **HTTP/HTTPS C2 Detection**
 
 **3.1. Detecting Suspicious User-Agent Strings**
 
@@ -3846,7 +3846,7 @@ Get-NetTCPConnection | Where-Object {$_.State -eq 'Established' -and $_.RemotePo
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Beaconing Behavior Detection**</mark>
+#### 4. **Beaconing Behavior Detection**
 
 **4.1. Detecting Regular Interval Connections**
 
@@ -3868,7 +3868,7 @@ Get-NetTCPConnection | Where-Object {$_.State -eq 'Established' -and $_.LocalAdd
 ```
 {% endcode %}
 
-#### 5. <mark style="color:blue;">**Email-based C2 Detection**</mark>
+#### 5. **Email-based C2 Detection**
 
 **5.1. Detecting Suspicious Email Attachments**
 
@@ -3890,7 +3890,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Domain Generation Algorithm (DGA) Detection**</mark>
+#### 6. **Domain Generation Algorithm (DGA) Detection**
 
 **6.1. Detecting DGA Domain Names**
 
@@ -3912,7 +3912,7 @@ Get-WinEvent -LogName "Microsoft-Windows-DNS-Client/Operational" |  Group-cObjec
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Peer-to-Peer (P2P) C2 Detection**</mark>
+#### 7. **Peer-to-Peer (P2P) C2 Detection**
 
 **7.1. Detecting P2P Protocol Traffic**
 
@@ -3934,7 +3934,7 @@ Get-NetTCPConnection | Where-Object {$_.RemotePort -notin (80, 443, 21, 22, 25)}
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Command Execution and Data Exfiltration**</mark>
+#### 8. **Command Execution and Data Exfiltration**
 
 **8.1. Monitoring Command Execution via C2 Channels**
 
@@ -3956,7 +3956,7 @@ Get-NetTCPConnection | Where-Object {$_.State -eq 'Established' -and $_.RemoteAd
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**TLS/SSL Certificate Anomalies**</mark>
+#### 9. **TLS/SSL Certificate Anomalies**
 
 **9.1. Detecting Self-Signed Certificates**
 
@@ -3978,7 +3978,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Anonymization Services and Tor Usage**</mark>
+#### 10. **Anonymisation Services and Tor Usage**
 
 **10.1. Detecting Tor Network Usage**
 
@@ -4002,7 +4002,7 @@ Get-NetTCPConnection | Where-Object {$_.RemoteAddress -in 'KnownVPNIPs'} | Selec
 
 **Additional Discovery Techniques**
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Network Traffic and Connection Monitoring**</mark>
+#### 1. **Network Traffic and Connection Monitoring**
 
 **1.1. Detecting Unusual Outbound Connections**
 
@@ -4024,7 +4024,7 @@ Get-NetTCPConnection | Where-Object {($_.RemoteAddress -match 'IP_Range_Country_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**DNS-based C2 Detection**</mark>
+#### 2. **DNS-based C2 Detection**
 
 **2.1. Identifying Frequent DNS Queries to Unusual Domains**
 
@@ -4046,7 +4046,7 @@ Get-WinEvent -LogName "Microsoft-Windows-DNS-Client/Operational" |  Where-Object
 ```
 {% endcode %}
 
-#### 3. <mark style="color:blue;">**HTTP/HTTPS-based C2 Detection**</mark>
+#### 3. **HTTP/HTTPS-based C2 Detection**
 
 **3.1. Detecting Suspicious User-Agent Strings**
 
@@ -4068,7 +4068,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {($_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Beaconing Behavior Detection**</mark>
+#### 4. **Beaconing Behavior Detection**
 
 **4.1. Identifying Regular Interval Network Connections**
 
@@ -4090,7 +4090,7 @@ Get-NetTCPConnection | Where-Object {($_.State -eq 'Established') -and ($_.Remot
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Malicious Code and Script Execution**</mark>
+#### 5. **Malicious Code and Script Execution**
 
 **5.1. Detecting PowerShell Command Execution**
 
@@ -4112,7 +4112,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {($_
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**TLS/SSL Certificate Anomalies**</mark>
+#### 6. **TLS/SSL Certificate Anomalies**
 
 **6.1. Identifying Self-Signed Certificates**
 
@@ -4134,7 +4134,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Email-based C2 Detection**</mark>
+#### 7. **Email-based C2 Detection**
 
 **7.1. Detecting Suspicious Email Communications**
 
@@ -4156,7 +4156,7 @@ Get-WinEvent -LogName "Microsoft-Windows-EventLog/Email" |  Where-Object {($_.Me
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Command Execution and Data Exfiltration**</mark>
+#### 8. **Command Execution and Data Exfiltration**
 
 **8.1. Monitoring for Command and Control via Web Shells**
 
@@ -4174,11 +4174,11 @@ Get-WinEvent -LogName "Microsoft-Windows-IIS-Logging" |  Where-Object {($_.Messa
 
 {% code overflow="wrap" %}
 ```powershell
-`Get-NetTCPConnection | Where-Object {($_.State -eq 'Established') -and ($_.RemoteAddress -notin 'KnownGoodIPs')} | Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort`
+Get-NetTCPConnection | Where-Object {($_.State -eq 'Established') -and ($_.RemoteAddress -notin 'KnownGoodIPs')} | Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Application Whitelisting and Execution Control Bypass**</mark>
+#### 9. **Application Whitelisting and Execution Control Bypass**
 
 **9.1. Detecting Execution of Non-Whitelisted Applications**
 
@@ -4186,7 +4186,7 @@ Get-WinEvent -LogName "Microsoft-Windows-IIS-Logging" |  Where-Object {($_.Messa
 
 {% code overflow="wrap" %}
 ```powershell
-`Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {($_.Properties[5].Value -notmatch 'whitelisted_app.exe|another_allowed_app.exe')} | Select-Object TimeCreated, @{n='CommandLine';e={$_.Properties[9].Value}}`
+Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {($_.Properties[5].Value -notmatch 'whitelisted_app.exe|another_allowed_app.exe')} | Select-Object TimeCreated, @{n='CommandLine';e={$_.Properties[9].Value}}
 ```
 {% endcode %}
 
@@ -4200,7 +4200,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Peer-to-Peer (P2P) C2 Detection**</mark>
+#### 10. **Peer-to-Peer (P2P) C2 Detection**
 
 **10.1. Identifying P2P Protocol Traffic**
 
@@ -4222,9 +4222,9 @@ Get-NetTCPConnection | Where-Object {$_.RemotePort -notin (80, 443, 21, 22, 25)}
 ```
 {% endcode %}
 
-## <mark style="color:blue;">Exfiltration Discovery</mark>
+### Exfiltration Discovery
 
-#### 1. <mark style="color:blue;">**Network Traffic and Connection Monitoring**</mark>
+#### 1. **Network Traffic and Connection Monitoring**
 
 **1.1. Detecting Large Data Transfers**
 
@@ -4246,7 +4246,7 @@ Get-NetTCPConnection | Where-Object {$_.State -eq 'Established' -and $_.RemoteAd
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Cloud Storage and Remote Access**</mark>
+#### 2. **Cloud Storage and Remote Access**
 
 **2.1. Detecting Access to Cloud Storage Services**
 
@@ -4268,7 +4268,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Email-Based Exfiltration**</mark>
+#### 3. **Email-Based Exfiltration**
 
 **3.1. Detecting Large Email Attachments**
 
@@ -4290,7 +4290,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" | Where-Object {($_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**USB and Removable Media**</mark>
+#### 4. **USB and Removable Media**
 
 **4.1. Detecting USB Device Insertions**
 
@@ -4312,7 +4312,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Compression and Encryption**</mark>
+#### 5. **Compression and Encryption**
 
 **5.1. Detecting Use of Compression Tools**
 
@@ -4334,7 +4334,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Steganography and Data Hiding**</mark>
+#### 6. **Steganography and Data Hiding**
 
 **6.1. Detecting Steganography Tools**
 
@@ -4356,7 +4356,7 @@ Get-ChildItem -Path "C:\SensitiveData\*" -Recurse -Include *.jpg, *.png | Select
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Network Protocol Abuse**</mark>
+#### 7. **Network Protocol Abuse**
 
 **7.1. Detecting ICMP Exfiltration**
 
@@ -4378,7 +4378,7 @@ Get-WinEvent -LogName "Microsoft-Windows-DNS-Client/Operational" |  Where-Object
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**SFTP and FTP Transfers**</mark>
+#### 8. **SFTP and FTP Transfers**
 
 **8.1. Detecting SFTP Transfers**
 
@@ -4400,7 +4400,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {($_
 ```
 {% endcode %}
 
-#### 9. <mark style="color:blue;">**Physical Media Exfiltration**</mark>
+#### 9. **Physical Media Exfiltration**
 
 **9.1. Monitoring CD/DVD Write Events**
 
@@ -4422,7 +4422,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**HTTP/S and Web-based Exfiltration**</mark>
+#### 10. **HTTP/S and Web-based Exfiltration**
 
 **10.1. Detecting HTTP POST Requests**
 
@@ -4444,9 +4444,9 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {($_
 ```
 {% endcode %}
 
-### <mark style="color:blue;">Impact Discovery</mark>
+### Impact Discovery
 
-#### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Data Destruction and Manipulation**</mark>
+#### 1. **Data Destruction and Manipulation**
 
 **1.1. Detecting Mass File Deletions**
 
@@ -4468,7 +4468,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">2.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**System and Service Disruption**</mark>
+#### 2. **System and Service Disruption**
 
 **2.1. Detecting Service Stoppages**
 
@@ -4490,7 +4490,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=1074} | Select-Object TimeC
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">3.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Ransomware and Encryption**</mark>
+#### 3. **Ransomware and Encryption**
 
 **3.1. Detecting File Encryption Activity**
 
@@ -4512,7 +4512,7 @@ Get-ChildItem -Path "C:\Users\*\Documents\*" -Recurse -Include *.txt | Where-Obj
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">4.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**System Integrity and Configuration Changes**</mark>
+#### 4. **System Integrity and Configuration Changes**
 
 **4.1. Monitoring for Unauthorized Changes to System Files**
 
@@ -4534,7 +4534,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=5136} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">5.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Security Tool Tampering**</mark>
+#### 5. **Security Tool Tampering**
 
 **5.1. Detecting Disabling of Security Software**
 
@@ -4556,7 +4556,7 @@ Get-NetFirewallRule -PolicyStore ActiveStore | Where-Object {($_.Action -eq 'All
 ```
 {% endcode %}
 
-#### 6. <mark style="color:blue;">**Data Integrity and Backup Manipulation**</mark>
+#### 6. **Data Integrity and Backup Manipulation**
 
 **6.1. Detecting Deletion of Backup Files**
 
@@ -4578,11 +4578,11 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=8224} | Where-Object {$_.Me
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">7.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Application and Software Integrity**</mark>
+#### 7. **Application and Software Integrity**
 
-**7.1. Detecting Unauthorized Software Installations**
+**7.1. Detecting Unauthorised Software Installations**
 
-**Purpose**: Identify the installation of unauthorized or malicious software.
+**Purpose**: Identify the installation of unauthorised or malicious software.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -4592,7 +4592,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=11707} | Select-Object Time
 
 **7.2. Monitoring Changes to Software Configurations**
 
-**Purpose**: Detect unauthorized changes to critical software configurations.
+**Purpose**: Detect unauthorised changes to critical software configurations.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -4600,7 +4600,7 @@ Get-WmiObject -Class Win32_Product |  Where-Object {$_.InstallDate -gt (Get-Date
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">8.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Log and Audit Manipulation**</mark>
+#### 8. **Log and Audit Manipulation**
 
 **8.1. Detecting Clearing of Event Logs**
 
@@ -4612,7 +4612,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=1102}
 
 **8.2. Monitoring Changes to Audit Policy**
 
-**Purpose**: Detect unauthorized changes to audit policy settings.
+**Purpose**: Detect unauthorised changes to audit policy settings.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -4620,11 +4620,11 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\EventLog\Securit
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">9.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**System Resource Abuse**</mark>
+#### 9. **System Resource Abuse**
 
 **9.1. Detecting Cryptocurrency Mining Activity**
 
-**Purpose**: Identify unauthorized use of system resources for cryptocurrency mining.
+**Purpose**: Identify unauthorised use of system resources for cryptocurrency mining.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -4642,11 +4642,11 @@ Get-Counter -Counter "\Processor(_Total)\% Processor Time" -SampleInterval 5 -Ma
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">10.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Website Defacement and System Messaging**</mark>
+#### 10. **Website Defacement and System Messaging**
 
 **10.1. Detecting Website Defacement**
 
-**Purpose**: Identify unauthorized changes to website content.
+**Purpose**: Identify unauthorised changes to website content.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -4656,7 +4656,7 @@ Get-Content -Path "C:\inetpub\wwwroot\index.html" | Where-Object {$_ -match 'Hac
 
 **10.2. Monitoring System Message Display**
 
-**Purpose**: Detect the display of unauthorized system messages or pop-ups.
+**Purpose**: Detect the display of unauthorised system messages or pop-ups.
 
 {% code overflow="wrap" %}
 ```powershell

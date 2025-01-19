@@ -117,3 +117,9 @@ Training and certifications validate a threat hunter’s expertise and ensure re
    * Contribute to threat intelligence sharing platforms or blogs.
 
 By embracing a continuous learning mindset, aspiring threat hunters can develop the skills to safeguard their organisation against sophisticated cyber threats. Proactive defence is a skill and a commitment to securing the digital landscape.
+
+### Start Learning:
+
+* [OPSEC Hunting With Splunk](opsec-hunting-with-splunk.md)
+* [OPSEC Hunting With KQL](opsec-hunting-with-kql.md)
+* [Hunting Ransomware Activities](hunting-ransomware-indicators.md)

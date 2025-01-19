@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Windows Forensic Analysis
+# Windows Forensics
 
 ## **What is Digital Forensics?**
 
@@ -120,6 +120,14 @@ Digital forensic analysts often pursue specialised training and certifications t
 Aspiring forensic analysts can build a successful and impactful career in digital forensics by following a structured path and continuously honing technical and analytical skills.
 
 ***
+
+### Start Learning:
+
+* [Evidence of Execution](evidence-of-execution.md)
+* [Windows Artifact Analysis](window-artifact-analysis/)
+* [Incident Triage](incident-triage/)
+* [KAPE Artifacts Analysis](../kape-artifacts-analysis.md)
+* [Velociraptor Artifacts Analysis](../velociraptor-artifacts-analysis.md)
 
 ### References&#x20;
 

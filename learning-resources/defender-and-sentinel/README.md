@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# DFIR Defender & Sentinel
+# Defender & Sentinel
 
 ### Introduction
 
@@ -26,3 +26,9 @@ Microsoft Defender for Endpoint (MDE) is an enterprise endpoint security platfor
 When conducting a forensic investigation, we want to take the approach of looking wide and then digging deeper into the data. This helps us avoid going down rabbit holes as much as possible and allows us to easily pivot to other data we have collected.&#x20;
 
 MDE gives us loads of capabilities and options for approaching the investigation.
+
+### Start Learning:
+
+* [Endpoint](endpoint.md)
+* [Office](office.md)
+* [Identity](identity.md)

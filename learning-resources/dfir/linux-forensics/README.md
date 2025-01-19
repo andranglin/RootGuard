@@ -40,10 +40,6 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 
 ### Start Learning:&#x20;
 
-{% content-ref url="host-compromise-assessment.md" %}
-[host-compromise-assessment.md](host-compromise-assessment.md)
-{% endcontent-ref %}
+[Host Compromise Assessment](host-compromise-assessment.md)
 
-{% content-ref url="linux-commandline-basics.md" %}
-[linux-commandline-basics.md](linux-commandline-basics.md)
-{% endcontent-ref %}
+[Linux Commandline Basics](linux-commandline-basics.md)
