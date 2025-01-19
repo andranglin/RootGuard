@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -17,7 +16,7 @@ layout:
 
 Resource Development techniques involve adversaries establishing, maintaining, or expanding resources used for future operations. These resources can include infrastructure, accounts, or tools that enable various stages of an attack.
 
-### <mark style="color:blue;">**1. T1583.001 - Acquire Infrastructure: Domains**</mark>
+### **1. T1583.001 - Acquire Infrastructure: Domains**
 
 **Objective**: Detect and investigate attempts to acquire or register domains that could be used for malicious purposes.&#x20;
 
@@ -81,7 +80,7 @@ DeviceNetworkEvents | where RemoteUrl contains "dns" and RequestMethod == "POST"
 
 _Purpose_: Monitor for DNS registration changes that might indicate the setup of malicious infrastructure.
 
-### <mark style="color:blue;">**2. T1583.002 - Acquire Infrastructure: Server**</mark>
+### **2. T1583.002 - Acquire Infrastructure: Server**
 
 **Objective**: Detect and investigate attempts to acquire or configure servers that could be used for malicious purposes.&#x20;
 
@@ -145,7 +144,7 @@ DeviceNetworkEvents | where RemoteUrl contains_any ("vpn", "proxy") and RemoteIP
 
 _Purpose_: Monitor for VPN or proxy usage that could be used to anonymously manage malicious servers.
 
-### <mark style="color:blue;">**3. T1584.001 - Compromise Infrastructure: Domains**</mark>
+### **3. T1584.001 - Compromise Infrastructure: Domains**
 
 **Objective**: Detect and investigate attempts to compromise or take control of existing domains, often used for phishing or C2 operations.&#x20;
 
@@ -209,7 +208,7 @@ DeviceNetworkEvents | where RemoteUrl contains "dns" and RequestMethod == "PATCH
 
 _Purpose_: Monitor for DNS changes that could be part of a DNS hijacking attempt.
 
-### <mark style="color:blue;">**4. T1588.002 - Obtain Capabilities: Tool**</mark>
+### **4. T1588.002 - Obtain Capabilities: Tool**
 
 **Objective**: Detect and investigate attempts to acquire or download tools that could be used for malicious purposes, such as malware, exploit kits, or hacking tools.&#x20;
 
@@ -273,7 +272,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("install.sh", "setup.exe
 
 _Purpose_: Monitor for the installation of toolkits or exploit packs that could be used in attacks.
 
-### <mark style="color:blue;">**5. T1584.002 - Compromise Infrastructure: Server**</mark>
+### **5. T1584.002 - Compromise Infrastructure: Server**
 
 **Objective**: Detect and investigate attempts to compromise existing servers, which can then be used to host malicious content or as part of a botnet.&#x20;
 
@@ -337,7 +336,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("backdoor", "nc -l", "re
 
 _Purpose_: Monitor for the installation of backdoors on compromised servers.
 
-### <mark style="color:blue;">**6. T1585.001 - Establish Accounts: Social Media Accounts**</mark>
+### **6. T1585.001 - Establish Accounts: Social Media Accounts**
 
 **Objective**: Detect and investigate the creation or use of social media accounts that could be used for spreading malicious content, phishing, or disinformation. **s**:
 

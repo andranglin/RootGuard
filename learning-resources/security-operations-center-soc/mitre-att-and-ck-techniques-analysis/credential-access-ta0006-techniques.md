@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -17,7 +16,7 @@ layout:
 
 Credential Access techniques involve adversaries attempting to steal account credentials such as usernames and passwords.
 
-### <mark style="color:blue;">**1. T1003 - OS Credential Dumping**</mark>
+### **1. T1003 - OS Credential Dumping**
 
 **Objective**: Detect attempts to extract credentials stored on the operating system, such as those in memory, registries, or files.&#x20;
 
@@ -121,7 +120,7 @@ DeviceProcessEvents | where ProcessCommandLine has "powershell" and ProcessComma
 
 _Purpose_: Identify PowerShell commands that attempt to extract or export credentials.
 
-### <mark style="color:blue;">**2. T1110 - Brute Force**</mark>
+### **2. T1110 - Brute Force**
 
 **Objective**: Detect attempts to gain unauthorized access to accounts by systematically guessing passwords.&#x20;
 
@@ -225,7 +224,7 @@ DeviceNetworkEvents | where RemotePort in (3389, 22, 443) and ActionType == "Net
 
 _Purpose_: Identify brute force attempts targeting remote access services such as RDP, SSH, or VPN.
 
-### <mark style="color:blue;">**3. T1555 - Credentials from Password Stores**</mark>
+### **3. T1555 - Credentials from Password Stores**
 
 **Objective**: Detect attempts to access or extract credentials stored in password stores or credential managers.&#x20;
 
@@ -329,7 +328,7 @@ DeviceFileEvents | where FolderPath has "C:\\Users\\%USERNAME%\\AppData\\Local\\
 
 _Purpose_: Identify access to credential files stored by Remote Desktop clients.
 
-### <mark style="color:blue;">**4. T1552 - Unsecured Credentials**</mark>
+### **4. T1552 - Unsecured Credentials**
 
 **Objective**: Detect attempts to locate or use unsecured credentials, such as plaintext passwords or keys, stored in files or environment variables.&#x20;
 
@@ -437,7 +436,7 @@ DeviceFileEvents | where FolderPath has_any ("Chrome\\Extensions", "Firefox\\Pro
 
 _Purpose_: Identify access to browser extensions that may store unencrypted passwords.
 
-### <mark style="color:blue;">**5. T1111 - Two-Factor Authentication Interception**</mark>
+### **5. T1111 - Two-Factor Authentication Interception**
 
 **Objective**: Detect attempts to intercept or bypass two-factor authentication (2FA) mechanisms.&#x20;
 
@@ -541,7 +540,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("clone_device", "reprovi
 
 _Purpose_: Identify attempts to clone or reprovision devices used for generating 2FA codes.
 
-### <mark style="color:blue;">**6. T1528 - Steal Application Access Token**</mark>
+### **6. T1528 - Steal Application Access Token**
 
 **Objective**: Detect attempts to steal or use application access tokens to gain unauthorized access to resources.&#x20;
 

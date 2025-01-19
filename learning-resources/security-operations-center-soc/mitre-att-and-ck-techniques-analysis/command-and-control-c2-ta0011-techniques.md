@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Command and Control (C2) (TA0011) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Forensically investigating Command and Control (C\&C) techniques on workstations and server systems involves identifying how an attacker communicates with compromised systems to control them remotely and potentially exfiltrate data. This process is critical for understanding the scope of an attack and mitigating further risks.
 
@@ -88,11 +87,11 @@ Forensically investigating Command and Control (C\&C) techniques on workstations
 
 C\&C investigation requires a multi-faceted approach, combining network analysis, endpoint inspection, and potentially malware analysis to fully understand the attacker's methods and impact. Tailoring the investigation to the specifics of the incident and the environment is crucial.
 
-### <mark style="color:blue;">Using KQL to Investigate Command and Control (C2) Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Command and Control (C2) Activities in an Environment Using Defender/Sentinel
 
 Command and Control (C2) techniques involve adversaries communicating with compromised systems to control them, exfiltrate data, or execute commands remotely.
 
-### <mark style="color:blue;">**1. T1071.001 - Application Layer Protocol: Web Protocols**</mark>
+### **1. T1071.001 - Application Layer Protocol: Web Protocols**
 
 **Objective**: Detect and investigate the use of web protocols (HTTP/HTTPS) for Command and Control communication.
 
@@ -156,7 +155,7 @@ DeviceNetworkEvents | where RemoteUrl contains_any ("malicious.com", "badactor.o
 
 _Purpose_: Monitor for HTTP/HTTPS traffic to domains associated with C2 infrastructure.
 
-### <mark style="color:blue;">**2. T1071.004 - Application Layer Protocol: DNS**</mark>
+### **2. T1071.004 - Application Layer Protocol: DNS**
 
 **Objective**: Detect and investigate the use of DNS for Command and Control communication.&#x20;
 
@@ -220,7 +219,7 @@ DeviceNetworkEvents | where RemoteUrl contains_any ("malicious-dns.com", "attack
 
 _Purpose_: Monitor for DNS queries to domains associated with C2 infrastructure.
 
-### <mark style="color:blue;">**3. T1095 - Non-Standard Port**</mark>
+### **3. T1095 - Non-Standard Port**
 
 **Objective**: Detect and investigate the use of non-standard ports for Command and Control communication.&#x20;
 
@@ -284,7 +283,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("ncat", "socat", "netcat
 
 _Purpose_: Monitor for the use of common network tools on non-standard ports.
 
-### <mark style="color:blue;">**4. T1219 - Remote Access Software**</mark>
+### **4. T1219 - Remote Access Software**
 
 **Objective**: Detect and investigate the use of remote access software that may be used for C2.&#x20;
 
@@ -348,7 +347,7 @@ DeviceRegistryEvents | where RegistryKey has_any ("HKLM\\Software\\Microsoft\\Wi
 
 _Purpose_: Monitor for persistence mechanisms used by remote access software.
 
-### <mark style="color:blue;">**5. T1105 - Ingress Tool Transfer**</mark>
+### **5. T1105 - Ingress Tool Transfer**
 
 **Objective**: Detect and investigate the transfer of tools or files into a compromised environment, often used to establish C2 channels.&#x20;
 
@@ -412,7 +411,7 @@ DeviceFileEvents | where FolderPath startswith "\\\\" and FileOperation == "Crea
 
 _Purpose_: Monitor for files transferred over SMB shares, which may be used to introduce C2 tools.
 
-### <mark style="color:blue;">**6. T1213.002 - Data from Information Repositories: Confluence**</mark>
+### **6. T1213.002 - Data from Information Repositories: Confluence**
 
 **Objective**: Detect and investigate the use of Confluence (or similar information repositories) for C2 communication or data exfiltration.&#x20;
 
@@ -476,7 +475,7 @@ DeviceNetworkEvents | where RemoteUrl contains "confluence" and NetworkProtocol 
 
 _Purpose_: Monitor for large data transfers from Confluence, which could indicate significant data exfiltration.
 
-### <mark style="color:blue;">**7. T1102.001 - Web Service: Dead Drop Resolver**</mark>
+### **7. T1102.001 - Web Service: Dead Drop Resolver**
 
 **Objective**: Detect and investigate the use of dead drop resolvers (e.g., pastebin or GitHub) for C2 communication.
 
@@ -540,7 +539,7 @@ DeviceNetworkEvents | where RemoteUrl contains_any ("pastebin.com/raw", "gist.gi
 
 _Purpose_: Monitor for downloads of C2 instructions from dead drop sites.
 
-### <mark style="color:blue;">**8. T1210 - Exploitation of Remote Services**</mark>
+### **8. T1210 - Exploitation of Remote Services**
 
 **Objective**: Detect and investigate the exploitation of remote services to establish C2 channels.&#x20;
 

@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Impact (TA0040) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Forensically investigating the impact of a compromise on workstations and server systems is an essential step in understanding the extent of damage, the data affected, and what steps are necessary for recovery and future prevention. This process involves a thorough examination of affected systems to identify the scope of the attack, assess the damage, and uncover the methods used by the attackers.
 
@@ -84,11 +83,11 @@ Forensically investigating the impact of a compromise on workstations and server
 
 Forensic investigations into the impact of a compromise require a multi-faceted approach, combining technical analysis with an understanding of business operations and data sensitivity. Tailoring the investigation to the specifics of the incident and the environment is essential for a comprehensive assessment.
 
-### <mark style="color:blue;">Using KQL to Investigate Impact Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Impact Activities in an Environment Using Defender/Sentinel
 
 Impact techniques are used by adversaries to disrupt availability or compromise the integrity of systems and data. These techniques often result in data destruction, system corruption, or operational disruption.
 
-### <mark style="color:blue;">**1. T1485 - Data Destruction**</mark>
+### **1. T1485 - Data Destruction**
 
 **Objective**: Detect and investigate attempts to destroy data on compromised systems.&#x20;
 
@@ -152,7 +151,7 @@ DeviceFileEvents | where FileOperation == "Delete" and FileName endswith_any (".
 
 _Purpose_: Monitor for the deletion of log files, which could indicate an attempt to cover tracks after data destruction.
 
-### <mark style="color:blue;">**2. T1490 - Inhibit System Recovery**</mark>
+### **2. T1490 - Inhibit System Recovery**
 
 **Objective**: Detect and investigate attempts to inhibit system recovery, such as disabling backups or deleting system restore points.&#x20;
 
@@ -216,7 +215,7 @@ DeviceProcessEvents | where ProcessCommandLine has "Disable-ComputerRestore" | p
 
 _Purpose_: Monitor for the deactivation of system protection features.
 
-### <mark style="color:blue;">**3. T1486 - Data Encrypted for Impact**</mark>
+### **3. T1486 - Data Encrypted for Impact**
 
 **Objective**: Detect and investigate attempts to encrypt data to prevent access, often as part of a ransomware attack.&#x20;
 
@@ -280,7 +279,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("aescrypt", "gpg", "open
 
 _Purpose_: Monitor for the execution of known encryption tools that could be used maliciously.
 
-### <mark style="color:blue;">**4. T1499 - Endpoint Denial of Service**</mark>
+### **4. T1499 - Endpoint Denial of Service**
 
 **Objective**: Detect and investigate attempts to deny service on a single host or device, rendering it unusable.&#x20;
 
@@ -344,7 +343,7 @@ DeviceNetworkEvents | where ActionType == "NetworkInterfaceDisabled" | project T
 
 _Purpose_: Monitor for network interfaces being disabled, which could render the device unreachable.
 
-### <mark style="color:blue;">**5. T1529 - System Shutdown/Reboot**</mark>
+### **5. T1529 - System Shutdown/Reboot**
 
 **Objective**: Detect and investigate unauthorized attempts to shut down or reboot a system, potentially causing disruption.
 
@@ -408,7 +407,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("net stop", "sc stop", "
 
 _Purpose_: Monitor for commands that attempt to stop critical services before shutting down or rebooting the system.
 
-### <mark style="color:blue;">**6. T1491.001 - Defacement: Internal Defacement**</mark>
+### **6. T1491.001 - Defacement: Internal Defacement**
 
 **Objective**: Detect and investigate attempts to deface or alter internal systems, such as web pages or internal documentation.
 

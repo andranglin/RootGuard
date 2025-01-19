@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -84,13 +83,13 @@ Investigating command execution on a network, particularly in Windows workstatio
 
 Investigating command execution requires a thorough analysis of various data sources, including system logs, memory, and network traffic. Each step, from data collection to detailed analysis and reporting, is crucial in understanding the scope and impact of the executed commands. Maintaining an updated knowledge of forensic tools and techniques is essential for effective investigation in the ever-evolving landscape of cybersecurity threats.
 
-### <mark style="color:blue;">Using KQL to Investigate Command Execution Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Command Execution Activities in an Environment Using Defender/Sentinel
 
 Note: While there are other methods and tools for investigating these kinds of attacks, the goal is to tackle them from a beginner's point of view without utilising intricate KQL queries that a Level 1 SOC analyst wouldn't find difficult to comprehend. Other areas on the site will demonstrate the same process using other tools, such as Splunk, Velociraptor, or Eric Zimmerman Tools.
 
 Execution techniques involve adversaries running malicious code on a target system. These techniques are crucial in the attack chain as they enable the adversary to execute their payloads, gain persistence, escalate privileges, and move laterally within the network.
 
-### <mark style="color:blue;">**1. T1059 - Command and Scripting Interpreter**</mark>
+### **1. T1059 - Command and Scripting Interpreter**
 
 **Objective**: Detect the use of command and scripting interpreters to execute malicious commands or scripts.
 
@@ -194,7 +193,7 @@ DeviceProcessEvents | where FileName == "mshta.exe" | project Timestamp, DeviceN
 
 _Purpose_: Detect the execution of JScript or VBScript using the MSHTA utility.
 
-### <mark style="color:blue;">**2. T1047 - Windows Management Instrumentation**</mark>
+### **2. T1047 - Windows Management Instrumentation**
 
 **Objective**: Detect the use of WMI to execute commands or scripts remotely on the target system.&#x20;
 
@@ -298,7 +297,7 @@ DeviceProcessEvents | where ProcessCommandLine has "wmic" and ProcessCommandLine
 
 _Purpose_: Identify the use of WMI to execute DLL files.
 
-### <mark style="color:blue;">**3. T1203 - Exploitation for Client Execution**</mark>
+### **3. T1203 - Exploitation for Client Execution**
 
 **Objective**: Detect exploitation attempts targeting client applications to execute malicious code.
 
@@ -402,7 +401,7 @@ DeviceProcessEvents | where FileName in ("WINWORD.EXE", "EXCEL.EXE", "POWERPNT.E
 
 _Purpose_: Detect the use of macros in document exploitation.
 
-### <mark style="color:blue;">**4. T1106 - Native API**</mark>
+### **4. T1106 - Native API**
 
 **Objective**: Detect the use of native Windows APIs to execute malicious code or commands.&#x20;
 
@@ -506,7 +505,7 @@ DeviceNetworkEvents | where ProcessCommandLine has_any ("send", "recv", "connect
 
 _Purpose_: Monitor for API calls initiating network communications.
 
-### <mark style="color:blue;">**5. T1202 - Indirect Command Execution**</mark>
+### **5. T1202 - Indirect Command Execution**
 
 **Objective**: Detect the use of indirect methods to execute commands, such as through application features, scripting, or automated tasks.
 
@@ -610,7 +609,7 @@ DeviceLogonEvents | where LogonType == "RemoteInteractive" | summarize count() b
 
 _Purpose_: Identify command execution through Remote Desktop Services.
 
-### <mark style="color:blue;">**6. T1072 - Software Deployment Tools**</mark>
+### **6. T1072 - Software Deployment Tools**
 
 **Objective**: Detect the use of software deployment tools to execute malicious code on multiple systems.&#x20;
 
@@ -714,7 +713,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any (".ps1", ".bat", ".sh") a
 
 _Purpose_: Detect custom deployment scripts used for executing commands on multiple systems.
 
-### <mark style="color:blue;">**7. T1117 - Regsvr32**</mark>
+### **7. T1117 - Regsvr32**
 
 **Objective**: Detect the use of regsvr32.exe to execute DLLs or scripts, potentially as part of a living-off-the-land attack.&#x20;
 
@@ -818,7 +817,7 @@ DeviceProcessEvents | where FileName == "regsvr32.exe" and ProcessCommandLine ha
 
 _Purpose_: Identify regsvr32 executions associated with UAC bypass techniques.
 
-### <mark style="color:blue;">**8. T1086 - PowerShell**</mark>
+### **8. T1086 - PowerShell**
 
 **Objective**: Detect the use of PowerShell for executing commands and scripts, which is often used in attacks.&#x20;
 

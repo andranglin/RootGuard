@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Lateral Movement (TA0008) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Forensically investigating lateral movement techniques on workstations and server systems is crucial to understanding how an attacker moves within a network after gaining initial access. Lateral movement involves techniques that enable an attacker to access and control remote systems within a network.
 
@@ -82,11 +81,11 @@ Forensically investigating lateral movement techniques on workstations and serve
 
 Lateral movement investigations require a detailed and methodical approach, as attackers often use sophisticated methods to avoid detection. Tailor the investigation to the specifics of the incident and the environment in which you are operating.
 
-### <mark style="color:blue;">Using KQL to Investigate Lateral Movement Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Lateral Movement Activities in an Environment Using Defender/Sentinel
 
 Lateral Movement techniques involve adversaries trying to move through the network to gain access to other systems and sensitive data.
 
-### <mark style="color:blue;">**1. T1021.001 - Remote Desktop Protocol (RDP)**</mark>
+### **1. T1021.001 - Remote Desktop Protocol (RDP)**
 
 **Objective**: Detect attempts to use RDP to move laterally across systems.&#x20;
 
@@ -150,7 +149,7 @@ IdentityLogonEvents | where LogonType == "RemoteInteractive" and LogonResult == 
 
 _Purpose_: Monitor for failed RDP logon attempts, which may indicate unauthorized access attempts.
 
-### <mark style="color:blue;">**2. T1021.002 - SMB/Windows Admin Shares**</mark>
+### **2. T1021.002 - SMB/Windows Admin Shares**
 
 **Objective**: Detect attempts to use SMB shares for lateral movement, such as administrative shares or file shares.&#x20;
 
@@ -214,7 +213,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("wmic", "process call cr
 
 _Purpose_: Monitor for WMI commands used to execute processes remotely over SMB.
 
-### <mark style="color:blue;">**3. T1075 - Pass the Hash**</mark>
+### **3. T1075 - Pass the Hash**
 
 **Objective**: Detect attempts to use stolen NTLM hashes to authenticate to other systems without needing the associated plaintext password.&#x20;
 
@@ -278,7 +277,7 @@ IdentityLogonEvents | where AuthenticationPackage == "NTLM" and AccountDomain !=
 
 _Purpose_: Monitor for NTLM logons originating from non-domain systems, which may indicate an attack.
 
-### <mark style="color:blue;">**4. T1021.004 - SSH**</mark>
+### **4. T1021.004 - SSH**
 
 **Objective**: Detect attempts to use SSH for lateral movement, particularly in environments that use SSH for remote management.&#x20;
 
@@ -342,7 +341,7 @@ DeviceProcessEvents | where ProcessCommandLine has "ssh" and FolderPath has "C:\
 
 _Purpose_: Monitor for SSH lateral movement attempts within Windows Subsystem for Linux (WSL).
 
-### <mark style="color:blue;">**5. T1563 - Remote Service Session Hijacking**</mark>
+### **5. T1563 - Remote Service Session Hijacking**
 
 **Objective**: Detect attempts to hijack existing remote sessions, such as RDP, VNC, or SSH sessions, to move laterally without establishing a new connection.&#x20;
 
@@ -406,7 +405,7 @@ DeviceProcessEvents | where ProcessCommandLine has "qwinsta" | project Timestamp
 
 _Purpose_: Monitor for the use of `qwinsta` to enumerate and hijack remote desktop sessions.
 
-### <mark style="color:blue;">**6. T1091 - Replication Through Removable Media**</mark>
+### **6. T1091 - Replication Through Removable Media**
 
 **Objective**: Detect attempts to spread malware or access credentials by replicating data through removable media.&#x20;
 
@@ -470,7 +469,7 @@ DeviceFileEvents | where FolderPath startswith "E:\\" and DeviceName has "Unknow
 
 _Purpose_: Monitor for data transfers to unrecognized or unusual removable media devices.
 
-### <mark style="color:blue;">**7. T1021.006 - Windows Remote Management (WinRM)**</mark>
+### **7. T1021.006 - Windows Remote Management (WinRM)**
 
 **Objective**: Detect attempts to use WinRM for lateral movement, particularly in environments where PowerShell Remoting is used for remote management.&#x20;
 

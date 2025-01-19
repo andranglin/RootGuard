@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Defence Evasion (TA0005) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Forensically investigating defence evasion involves understanding and identifying the methods used by attackers to avoid detection and bypass security measures on workstations and server systems. Defence evasion is a critical tactic in the MITRE ATT\&CK framework, and it includes techniques like disabling security software, deleting logs, obfuscation, rootkits, privilege escalation, and more.
 
@@ -93,11 +92,11 @@ Forensically investigating defence evasion involves understanding and identifyin
 
 Each case of defence evasion can be unique, requiring a tailored approach depending on the specifics of the incident and the environment.
 
-### <mark style="color:blue;">Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel
 
 Defence Evasion techniques allow adversaries to avoid detection throughout their compromise activities.
 
-### <mark style="color:blue;">**1. T1027 - Obfuscated Files or Information**</mark>
+### **1. T1027 - Obfuscated Files or Information**
 
 **Objective**: Detect the use of obfuscation techniques to hide malicious code or evade detection.
 
@@ -201,7 +200,7 @@ DeviceFileEvents | where FileExtension == ".exe" and FileName matches regex @"^[
 
 _Purpose_: Identify obfuscated malware executables with hexadecimal filenames.
 
-### <mark style="color:blue;">**2. T1070 - Indicator Removal on Host**</mark>
+### **2. T1070 - Indicator Removal on Host**
 
 **Objective**: Detect attempts to delete or alter artifacts to remove evidence of an intrusion.
 
@@ -305,7 +304,7 @@ DeviceRegistryEvents | where RegistryKey has "HKLM\\System\\CurrentControlSet\\S
 
 _Purpose_: Identify changes to log retention policies that may be aimed at reducing forensic visibility.
 
-### <mark style="color:blue;">**3. T1112 - Modify Registry**</mark>
+### **3. T1112 - Modify Registry**
 
 **Objective**: Detect unauthorized modifications to the Windows Registry that may be used to evade detection.&#x20;
 
@@ -409,7 +408,7 @@ DeviceRegistryEvents | where RegistryKey == "HKLM\\Software\\Microsoft\\Windows 
 
 _Purpose_: Monitor for changes to registry keys that affect the storage of cached credentials.
 
-### <mark style="color:blue;">**4. T1218 - System Binary Proxy Execution**</mark>
+### **4. T1218 - System Binary Proxy Execution**
 
 **Objective**: Detect the use of trusted system binaries to execute malicious code and evade detection.&#x20;
 
@@ -519,7 +518,7 @@ DeviceProcessEvents | where FileName == "msiexec.exe" and ProcessCommandLine has
 
 _Purpose_: Identify the use of msiexec.exe to execute malicious MSI files silently.
 
-### <mark style="color:blue;">**5. T1036 - Masquerading**</mark>
+### **5. T1036 - Masquerading**
 
 **Objective**: Detect attempts to rename files or use file names that mimic legitimate files to evade detection.&#x20;
 
@@ -605,9 +604,11 @@ _Purpose_: Detect DLLs that are masquerading as legitimate system files.
 
 9. **Identify Renaming of Malicious Scripts to Safe Extensions**
 
+{% code overflow="wrap" %}
 ```cs
 DeviceFileEvents | where FileExtension in (".txt", ".log") and FileName has_any (".ps1", ".vbs", ".js") | project Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName
 ```
+{% endcode %}
 
 _Purpose_: Monitor for the renaming of malicious scripts to file types that are generally considered safe.
 
@@ -621,7 +622,7 @@ DeviceFileEvents | where FileExtension == ".lnk" and FileName has_any ("notepad.
 
 _Purpose_: Identify the creation of shortcut files that are designed to mislead users into executing malicious content.
 
-### <mark style="color:blue;">**6. T1078 - Valid Accounts**</mark>
+### **6. T1078 - Valid Accounts**
 
 **Objective**: Detect the use of valid accounts to avoid detection or gain unauthorized access.&#x20;
 
@@ -725,7 +726,7 @@ DeviceProcessEvents | where InitiatingProcessAccountName has_any ("admin", "admi
 
 _Purpose_: Monitor for the use of valid accounts by processes that are not typically associated with administrative tasks.
 
-### <mark style="color:blue;">**7. T1202 - Indirect Command Execution**</mark>
+### **7. T1202 - Indirect Command Execution**
 
 **Objective**: Detect indirect methods of command execution, such as using legitimate tools or services, to evade detection.&#x20;
 
@@ -829,7 +830,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("ccmexec.exe", "msiexec.
 
 _Purpose_: Identify command execution using software deployment tools
 
-### <mark style="color:blue;">**8. T1497 - Virtualization/Sandbox Evasion**</mark>
+### **8. T1497 - Virtualization/Sandbox Evasion**
 
 **Objective**: Detect techniques used to evade detection in virtualized or sandboxed environments.&#x20;
 

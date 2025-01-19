@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Privilege Escalation (TA0004) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Investigating privilege escalation incidents forensically on workstations and server systems is critical in identifying how an attacker or malicious user gained elevated access. Privilege escalation can occur in various ways, such as exploiting system vulnerabilities, misconfigurations, or leveraging stolen credentials.
 
@@ -78,11 +77,11 @@ Investigating privilege escalation incidents forensically on workstations and se
 
 Each privilege escalation incident is unique and might require a customised approach. Tailor the investigation to the specifics of the case and the environment in which you are operating.
 
-### <mark style="color:blue;">Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Privilege Escalation Activities in an Environment Using Defender/Sentinel
 
 Privilege Escalation techniques allow adversaries to gain higher-level permissions on a system. These elevated privileges may be used to execute malicious actions, access sensitive data, or move laterally across the network.
 
-### <mark style="color:blue;">**1. T1055 - Process Injection**</mark>
+### **1. T1055 - Process Injection**
 
 **Objective**: Detect attempts to inject code into the address space of another process to gain elevated privileges or evade detection.&#x20;
 
@@ -186,7 +185,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("Image File Execution Op
 
 _Purpose_: Identify the use of Image File Execution Options (IFEO) to hijack process execution for privilege escalation.
 
-### <mark style="color:blue;">**2. T1543 - Create or Modify System Process**</mark>
+### **2. T1543 - Create or Modify System Process**
 
 **Objective**: Detect the creation or modification of system processes (e.g., services, daemons) to gain elevated privileges.&#x20;
 
@@ -290,7 +289,7 @@ DeviceServiceEvents | where ActionType == "ServiceInstalled" and InitiatingProce
 
 _Purpose_: Identify services installed with commands associated with common attack tools.
 
-### <mark style="color:blue;">**3. T1068 - Exploitation for Privilege Escalation**</mark>
+### **3. T1068 - Exploitation for Privilege Escalation**
 
 **Objective**: Detect the exploitation of vulnerabilities that allow an adversary to escalate privileges.&#x20;
 
@@ -394,7 +393,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any (".ps1", ".vbs", ".bat") 
 
 _Purpose_: Identify scripts attempting to exploit privilege escalation vulnerabilities.
 
-### <mark style="color:blue;">**4. T1548 - Abuse Elevation Control Mechanism**</mark>
+### **4. T1548 - Abuse Elevation Control Mechanism**
 
 **Objective**: Detect abuse of elevation control mechanisms (e.g., UAC bypass) to gain elevated privileges.
 
@@ -498,7 +497,7 @@ DeviceProcessEvents | where ProcessCommandLine has "schtasks" and ProcessCommand
 
 _Purpose_: Identify UAC bypass attempts using the Task Scheduler with elevated privileges.
 
-### <mark style="color:blue;">**5. T1134 - Access Token Manipulation**</mark>
+### **5. T1134 - Access Token Manipulation**
 
 **Objective**: Detect manipulation of access tokens to impersonate other users or escalate privileges.&#x20;
 
@@ -602,7 +601,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("incognito", "privilege 
 
 _Purpose_: Identify token manipulation attempts using third-party tools.
 
-### <mark style="color:blue;">**6. T1078 - Valid Accounts**</mark>
+### 6. T1078 - Valid Accounts
 
 **Objective**: Detect the use of valid accounts to gain elevated privileges.
 
@@ -706,7 +705,7 @@ DeviceProcessEvents | where InitiatingProcessAccountName has_any ("admin", "admi
 
 _Purpose_: Identify use of valid accounts by processes that are not typically associated with administrative tasks.
 
-### <mark style="color:blue;">**7. T1547 - Boot or Logon Autostart Execution**</mark>
+### **7. T1547 - Boot or Logon Autostart Execution**
 
 **Objective**: Detect mechanisms that automatically execute code with elevated privileges upon boot or user logon.&#x20;
 
@@ -810,7 +809,7 @@ DeviceProcessEvents | where ProcessCommandLine has "schtasks /create" and Proces
 
 _Purpose_: Identify the creation of hidden or system-level scheduled tasks that may be used to persist elevated privileges.
 
-### <mark style="color:blue;">**8. T1055.001 - Dynamic-link Library Injection**</mark>
+### **8. T1055.001 - Dynamic-link Library Injection**
 
 **Objective**: Detect DLL injection techniques used to execute code in the context of another process, potentially with elevated privileges.&#x20;
 

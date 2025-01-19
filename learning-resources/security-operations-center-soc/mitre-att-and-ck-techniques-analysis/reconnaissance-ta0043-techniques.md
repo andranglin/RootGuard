@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -17,7 +16,7 @@ layout:
 
 Reconnaissance is the tactic used by adversaries to gather information about a target network, system, or organisation before launching an attack.
 
-### <mark style="color:blue;">**1. T1595 - Active Scanning**</mark>
+### **1. T1595 - Active Scanning**
 
 **Objective**: Detect network scanning activities indicative of reconnaissance.&#x20;
 
@@ -119,7 +118,7 @@ DeviceNetworkEvents | where ActionType == "ConnectionFailed" | summarize count()
 
 **Purpose**: Identify repeated connection failures that may indicate scanning.
 
-### <mark style="color:blue;">**2. T1590 - Gather Victim Network Information**</mark>
+### **2. T1590 - Gather Victim Network Information**
 
 **Objective**: Detect activities aimed at collecting information about the target network, such as IP ranges, domain names, and network topology.&#x20;
 
@@ -223,7 +222,7 @@ DeviceNetworkEvents | where RemotePort == 161 and ActionType == "Query" | summar
 
 **Purpose**: Detect SNMP queries that may be used to gather network information.
 
-### <mark style="color:blue;">**3. T1592 - Gather Victim Host Information**</mark>
+### **3. T1592 - Gather Victim Host Information**
 
 **Objective**: Detect attempts to collect information about victim hosts, including operating system details, hardware configuration, and installed software.&#x20;
 
@@ -327,7 +326,7 @@ DeviceProcessEvents | where ProcessCommandLine has "net user" | project Timestam
 
 _Purpose_: Detect enumeration of user accounts on the host.
 
-### <mark style="color:blue;">**4. T1591 - Gather Victim Identity Information**</mark>
+### **4. T1591 - Gather Victim Identity Information**
 
 **Objective**: Detect activities aimed at collecting information about user identities, such as account credentials, email addresses, and group memberships.&#x20;
 
@@ -431,7 +430,7 @@ DeviceProcessEvents | where ProcessCommandLine has "gpresult /R" | project Times
 
 _Purpose_: Identify attempts to query group policy information.
 
-### <mark style="color:blue;">**5. T1596 - Search Open Websites/Domains**</mark>
+### **5. T1596 - Search Open Websites/Domains**
 
 **Objective**: Detect attempts to gather information about the target organization from public websites, domains, and other online resources.&#x20;
 
@@ -535,7 +534,7 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where URL ha
 
 _Purpose_: Identify access to industry-specific websites that may be used for reconnaissance.
 
-### <mark style="color:blue;">**6. T1593 - Search Open Technical Databases**</mark>
+### **6. T1593 - Search Open Technical Databases**
 
 **Objective**: Detect attempts to gather information about the target organization from public technical databases, such as vulnerability databases, code repositories, or security forums.&#x20;
 
@@ -639,7 +638,7 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where URL ha
 
 _Purpose_: Identify access to open-source vulnerability scanners.
 
-### <mark style="color:blue;">**7. T1594 - Search Open Source Code Repositories**</mark>
+### **7. T1594 - Search Open Source Code Repositories**
 
 **Objective**: Detect attempts to gather information about the target organization from public source code repositories, such as GitHub, GitLab, or Bitbucket.&#x20;
 
@@ -743,7 +742,7 @@ DeviceNetworkEvents | where RemotePort == 80 or RemotePort == 443 | where URL ha
 
 _Purpose_: Identify access to deprecated repositories that may still contain valuable information.
 
-### <mark style="color:blue;">**8. T1597 - Search Closed Sources**</mark>
+### **8. T1597 - Search Closed Sources**
 
 **Objective**: Detect attempts to gather information from closed sources, such as internal documentation, proprietary software, or private forums.&#x20;
 
@@ -847,7 +846,7 @@ _Purpose_: Detect unauthorized access to HR systems.
 
 _Purpose_: Identify access to internal email systems.
 
-### <mark style="color:blue;">**9. T1598 - Phishing for Information**</mark>
+### **9. T1598 - Phishing for Information**
 
 **Objective**: Detect phishing attempts aimed at gathering information from users, such as credentials, financial information, or sensitive documents.&#x20;
 
@@ -951,7 +950,7 @@ IdentityLogonEvents | where LogonResult == "Failed" | summarize count() by Targe
 
 _Purpose_: Identify suspicious login activity following a phishing attempt.
 
-### <mark style="color:blue;">**10. T1599 - Social Engineering**</mark>
+### **10. T1599 - Social Engineering**
 
 **Objective**: Detect attempts to manipulate or deceive users to gain information or access, such as through phone calls, messages, or in-person interactions.&#x20;
 

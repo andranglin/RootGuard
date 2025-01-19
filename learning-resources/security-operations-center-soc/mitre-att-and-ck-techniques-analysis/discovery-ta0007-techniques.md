@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Discovery (TA0007) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Forensically investigating discovery techniques on workstations and server systems involves identifying how an attacker or malicious entity gathered information about your systems and network. Discovery is a tactic in the MITRE ATT\&CK framework that encompasses various techniques used by adversaries to gain knowledge about the system, network, and environment they have compromised.
 
@@ -83,11 +82,11 @@ Forensically investigating discovery techniques on workstations and server syste
 
 Each case of discovery by an attacker can be unique, requiring a tailored approach based on the specifics of the incident and the environment.
 
-### <mark style="color:blue;">Using KQL to Investigate Discovery Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Discovery Activities in an Environment Using Defender/Sentinel
 
 Discovery techniques involve adversaries trying to gather information about the system and network they have compromised. This information is often used to facilitate further attacks or lateral movement.
 
-### <mark style="color:blue;">**1. T1012 - Query Registry**</mark>
+### **1. T1012 - Query Registry**
 
 **Objective**: Detect attempts to query the Windows Registry to gather information about the system, users, and software.&#x20;
 
@@ -151,7 +150,7 @@ DeviceRegistryEvents | where RegistryKey has "HKLM\\Software\\Microsoft\\Windows
 
 _Purpose_: Monitor for registry queries related to installed patches and updates.
 
-### <mark style="color:blue;">**2. T1082 - System Information Discovery**</mark>
+### **2. T1082 - System Information Discovery**
 
 **Objective**: Detect attempts to gather detailed information about the system, including OS version, hardware, and configuration.&#x20;
 
@@ -215,7 +214,7 @@ DeviceProcessEvents | where ProcessCommandLine has "msinfo32" | project Timestam
 
 _Purpose_: Monitor for the use of `msinfo32` to gather system information.
 
-### <mark style="color:blue;">**3. T1016 - System Network Configuration Discovery**</mark>
+### **3. T1016 - System Network Configuration Discovery**
 
 **Objective**: Detect attempts to gather information about network configuration, including interfaces, routing, and DNS settings.&#x20;
 
@@ -347,7 +346,7 @@ DeviceProcessEvents | where ProcessCommandLine has "arp" | project Timestamp, De
 
 _Purpose_: Monitor for the use of the `arp` command to view or manipulate the ARP table.
 
-### <mark style="color:blue;">**5. T1083 - File and Directory Discovery**</mark>
+### 5. T1083 - File and Directory Discovery
 
 **Objective**: Detect attempts to discover files and directories on the system, especially those containing sensitive information.&#x20;
 
@@ -411,7 +410,7 @@ DeviceProcessEvents | where ProcessCommandLine has "find" | project Timestamp, D
 
 _Purpose_: Monitor for the use of the `find` command to search for files and directories.
 
-### <mark style="color:blue;">**6. T1033 - System Owner/User Discovery**</mark>
+### **6. T1033 - System Owner/User Discovery**
 
 **Objective**: Detect attempts to gather information about the system owner or users, including usernames and account details.&#x20;
 
@@ -475,7 +474,7 @@ DeviceProcessEvents | where ProcessCommandLine has "id" | project Timestamp, Dev
 
 _Purpose_: Monitor for the use of the `id` command to display user ID and group information.
 
-### <mark style="color:blue;">**7. T1018 - Remote System Discovery**</mark>
+### **7. T1018 - Remote System Discovery**
 
 **Objective**: Detect attempts to discover remote systems within the network, often as a precursor to lateral movement.&#x20;
 
@@ -539,7 +538,7 @@ DeviceProcessEvents | where ProcessCommandLine has "powershell" and ProcessComma
 
 _Purpose_: Monitor for the use of `Get-ADComputer` to list computers in Active Directory.
 
-### <mark style="color:blue;">**8. T1057 - Process Discovery**</mark>
+### **8. T1057 - Process Discovery**
 
 **Objective**: Detect attempts to enumerate running processes on the system to identify security software, active applications, or potential targets for privilege escalation.&#x20;
 

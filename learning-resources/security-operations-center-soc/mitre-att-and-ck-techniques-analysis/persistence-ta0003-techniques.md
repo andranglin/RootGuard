@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Persistence (TA0003) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Investigating persistence mechanisms in a network, Windows workstations, and server systems is crucial in understanding how attackers maintain access to compromised environments. Persistence allows attackers to regain entry even after initial entry points are closed, making it a critical aspect of forensic analysis.
 
@@ -82,11 +81,11 @@ Investigating persistence mechanisms in a network, Windows workstations, and ser
 
 Persistence investigation requires a comprehensive approach, leveraging various tools and techniques to uncover how attackers maintain access. Tailor your investigation to the specifics of the incident and the environment you are dealing with.
 
-### <mark style="color:blue;">Using KQL to Investigate Persistence Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Persistence Activities in an Environment Using Defender/Sentinel
 
 Persistence techniques allow adversaries to maintain access to a compromised system even after reboots or other interruptions.
 
-### <mark style="color:blue;">**1. T1547 - Boot or Logon Autostart Execution**</mark>
+### **1. T1547 - Boot or Logon Autostart Execution**
 
 **Objective**: Detect mechanisms that automatically execute code upon boot or user logon.&#x20;
 
@@ -190,7 +189,7 @@ DeviceFileEvents | where FolderPath has "Scripts\\Logon" and FileOperation == "C
 
 _Purpose_: Detect new logon scripts that can be used for persistence.
 
-### <mark style="color:blue;">**2. T1053 - Scheduled Task/Job**</mark>
+### **2. T1053 - Scheduled Task/Job**
 
 **Objective**: Detect the creation or modification of scheduled tasks or jobs that persistently execute malicious code.&#x20;
 
@@ -294,7 +293,7 @@ DeviceProcessEvents | where ProcessCommandLine has "schtasks /create" and Proces
 
 _Purpose_: Identify the creation of hidden or system-level scheduled tasks.
 
-### <mark style="color:blue;">**3. T1060 - Registry Run Keys / Startup Folder**</mark>
+### **3. T1060 - Registry Run Keys / Startup Folder**
 
 **Objective**: Detect the use of registry run keys or startup folders to maintain persistence on a system.&#x20;
 
@@ -398,7 +397,7 @@ DeviceFileEvents | where FolderPath has_any ("C:\\ProgramData\\Microsoft\\Window
 
 _Purpose_: Detect unusual activity in common startup locations.
 
-### <mark style="color:blue;">**4. T1543 - Create or Modify System Process**</mark>
+### **4. T1543 - Create or Modify System Process**
 
 **Objective**: Detect the creation or modification of system processes for persistence.&#x20;
 
@@ -502,7 +501,7 @@ DeviceServiceEvents | where ActionType == "ServiceInstalled" and InitiatingProce
 
 _Purpose_: Identify services configured to execute non-executable files.
 
-### <mark style="color:blue;">**5. T1176 - Browser Extensions**</mark>
+### **5. T1176 - Browser Extensions**
 
 **Objective**: Detect the installation or modification of browser extensions that can be used for persistence.&#x20;
 
@@ -606,7 +605,7 @@ DeviceProcessEvents | where ProcessCommandLine has_any ("chrome.exe", "firefox.e
 
 _Purpose_: Identify browser extensions operating with elevated privileges.
 
-### <mark style="color:blue;">**6. T1546 - Event Triggered Execution**</mark>
+### **6. T1546 - Event Triggered Execution**
 
 **Objective**: Detect the creation or modification of event triggers that persistently execute malicious code in response to specific events.&#x20;
 

@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true
@@ -15,7 +14,7 @@ layout:
 
 # Exfiltration (TA0010) Techniques
 
-### <mark style="color:blue;">Introduction</mark>
+### Introduction
 
 Investigating data exfiltration forensically on workstations and server systems involves identifying and analysing how sensitive data was transferred from the network. This process is critical in understanding the scope of a security breach. Exfiltration can occur in various ways, including unauthorised email transmissions, external storage devices, cloud storage uploads, and covert channels.
 
@@ -86,11 +85,11 @@ Investigating data exfiltration forensically on workstations and server systems 
 
 Forensic investigations of data exfiltration require careful analysis of various data sources and the application of appropriate forensic techniques. Tailoring the investigation to the specifics of the incident and the nature of the data involved is crucial.
 
-### <mark style="color:blue;">Using KQL to Investigate Data Exfiltration Activities in an Environment Using Defender/Sentinel</mark>
+### Using KQL to Investigate Data Exfiltration Activities in an Environment Using Defender/Sentinel
 
 Exfiltration techniques involve adversaries stealing data from a compromised network or system and transferring it to an external location under their control.
 
-### <mark style="color:blue;">**1. T1048.003 - Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol**</mark>
+### **1. T1048.003 - Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol**
 
 **Objective**: Detect attempts to exfiltrate data using unencrypted or obfuscated protocols that are not typically used for Command and Control.&#x20;
 
@@ -154,7 +153,7 @@ DeviceNetworkEvents | where NetworkProtocol == "ICMP" and TotalBytes > 1000 | pr
 
 _Purpose_: Monitor for large ICMP packets, which may be used to exfiltrate data.
 
-### <mark style="color:blue;">**2. T1052.001 - Exfiltration Over Physical Medium: USB Drive**</mark>
+### **2. T1052.001 - Exfiltration Over Physical Medium: USB Drive**
 
 **Objective**: Detect attempts to exfiltrate data via physical media, such as USB drives.
 
@@ -218,7 +217,7 @@ DeviceEvents | where ActionType == "RemovableMediaInserted" and InitiatingProces
 
 _Purpose_: Monitor for USB drive usage by non-admin users, which may be unusual in a secured environment.
 
-### <mark style="color:blue;">**3. T1041 - Exfiltration Over C2 Channel**</mark>
+### **3. T1041 - Exfiltration Over C2 Channel**
 
 **Objective**: Detect attempts to exfiltrate data over established Command and Control (C2) channels.&#x20;
 
@@ -282,7 +281,7 @@ DeviceNetworkEvents | where DNSQueryType not in ("A", "AAAA", "CNAME") and Total
 
 _Purpose_: Monitor for DNS tunneling activity that could be used for data exfiltration.
 
-### <mark style="color:blue;">**4. T1020 - Automated Exfiltration**</mark>
+### **4. T1020 - Automated Exfiltration**
 
 **Objective**: Detect and investigate automated processes that continuously exfiltrate data from the environment.&#x20;
 
@@ -346,7 +345,7 @@ DeviceNetworkEvents | where RemoteIP not in ("192.168.1.0/24", "10.0.0.0/8") // 
 
 _Purpose_: Monitor for repeated exfiltration attempts to external IPs.
 
-### <mark style="color:blue;">**5. T1030 - Data Transfer Size Limits**</mark>
+### **5. T1030 - Data Transfer Size Limits**
 
 **Objective**: Detect and investigate attempts to exfiltrate data while staying under network or data transfer size limits to avoid detection.&#x20;
 

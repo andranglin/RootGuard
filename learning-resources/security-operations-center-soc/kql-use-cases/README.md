@@ -41,7 +41,7 @@ The following are the subsections of the KQL Use Cases and investigative workflo
 
 [Discovery (TA0007) ](discovery-ta0007.md)
 
-[Lateral Movement (TA0008) ](lateral-movement-ta0008.md)
+[Lateral Movement (TA0008) ](9.-lateral-movement-ta0008.md)
 
 [Collection (TA0009)](collection-ta0009.md)
 
