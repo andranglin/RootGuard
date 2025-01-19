@@ -133,5 +133,5 @@
   * [One-way Domain Trust Bypass](threat-detection/detect-and-mitigate-active-directory-compromise/one-way-domain-trust-bypass.md)
   * [Security Identifier (SID) History Compromise](threat-detection/detect-and-mitigate-active-directory-compromise/security-identifier-sid-history-compromise.md)
   * [Skeleton Key](threat-detection/detect-and-mitigate-active-directory-compromise/skeleton-key.md)
-  * [Active Directory security controls](threat-detection/detect-and-mitigate-active-directory-compromise/active-directory-security-controls.md)
+  * [Active Directory Security Controls](threat-detection/detect-and-mitigate-active-directory-compromise/active-directory-security-controls.md)
   * [Active Directory Events](threat-detection/detect-and-mitigate-active-directory-compromise/active-directory-events.md)
