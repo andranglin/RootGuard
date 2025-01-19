@@ -14,7 +14,7 @@ layout:
 
 # Dumping ntds.dit
 
-### **Introduction to Dumping NTDS.dit**
+### **Introduction**
 
 The **NTDS.dit** file is the Active Directory (AD) database that stores all directory information, including user account data, group memberships, and most critically, password hashes. Dumping the **NTDS.dit** file is a technique used by attackers to extract this sensitive information and gain unauthorised access to an organisation's domain.
 

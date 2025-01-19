@@ -14,7 +14,7 @@ layout:
 
 # Active Directory Certificate Services (AD CS) Compromise
 
-### **Introduction to Active Directory Certificate Services (AD CS) Compromise**
+### **Introduction**
 
 **Active Directory Certificate Services (AD CS)** is a Microsoft role that enables organisations to build and manage a Public Key Infrastructure (PKI). AD CS is often used to issue and manage certificates for secure communication, authentication, and encryption within a Windows environment. While AD CS is a powerful tool for securing an enterprise, misconfigurations or improper implementation can make it a prime target for attackers.
 

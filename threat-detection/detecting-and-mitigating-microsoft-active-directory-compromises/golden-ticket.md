@@ -14,7 +14,7 @@ layout:
 
 # Golden Ticket
 
-### Introduction to the Golden Ticket Attack
+### Introduction
 
 The **Golden Ticket** is a highly advanced and dangerous attack technique leveraged by threat actors to gain persistent and virtually unlimited access to an organisation's network. It targets **Active Directory (AD)**, which is the cornerstone of identity and access management in most enterprise environments. The attack exploits the core functionality of Kerberos, a network authentication protocol, allowing attackers to impersonate any user or service in the domain.
 
@@ -22,7 +22,7 @@ Named after the concept of a "golden ticket" that provides unlimited access, thi
 
 ***
 
-### Description of the Golden Ticket Attack
+### Attack Description
 
 In a **Golden Ticket** attack, the adversary generates a forged Kerberos ticket-granting ticket (**TGT**) using the Kerberos protocol. This allows them to authenticate as any user, including privileged accounts like Domain Admins, for an indefinite period. The attack hinges on compromising the **KRBTGT account**, a highly sensitive account used to encrypt and sign all TGTs in the domain.
 

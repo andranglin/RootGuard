@@ -14,7 +14,7 @@ layout:
 
 # Authentication Server Response (AS-REP) Roasting
 
-### **Introduction to AS-REP Roasting**
+### **Introduction**
 
 AS-REP Roasting is a post-exploitation technique used by attackers to extract and crack password hashes for user accounts in a Kerberos authentication environment. It specifically targets user accounts that have **"Do not require Kerberos preauthentication"** enabled, exploiting a feature of the Kerberos protocol that allows attackers to obtain encrypted password hashes without direct interaction with the target user.
 

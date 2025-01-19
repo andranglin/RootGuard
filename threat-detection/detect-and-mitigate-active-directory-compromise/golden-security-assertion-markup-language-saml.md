@@ -20,7 +20,7 @@ The **Golden SAML** attack is a sophisticated technique targeting federated iden
 
 ***
 
-### **Description of Golden SAML**
+### Attack Description
 
 SAML is a widely adopted standard for enabling SSO, allowing users to authenticate once and access multiple services. The IdP generates and signs SAML assertions, which the SPs trust to grant access. In a Golden SAML attack, an attacker obtains the IdP’s private key or gains access to its signing mechanisms. With this, they can forge SAML tokens without interacting with the IdP or triggering authentication processes. These forged tokens allow attackers to impersonate any user and access any resource that trusts the IdP.
 

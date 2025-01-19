@@ -14,7 +14,7 @@ layout:
 
 # DCSync
 
-### **Introduction to DCSync**
+### **Introduction**
 
 **DCSync** is a technique used by attackers to replicate credentials from an Active Directory (AD) domain controller by impersonating a Domain Controller using the **Directory Replication Service (DRS) Remote Protocol**. This attack does not require code execution on the domain controller itself but instead abuses the replication permissions within AD.
 

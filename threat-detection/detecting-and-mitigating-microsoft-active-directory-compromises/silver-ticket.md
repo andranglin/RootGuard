@@ -14,13 +14,13 @@ layout:
 
 # Silver Ticket
 
-### **Introduction to Silver Ticket**
+### **Introduction**
 
 The **Silver Ticket** is a sophisticated attack method within the Kerberos authentication framework that allows attackers to forge **service tickets** (Ticket Granting Service or TGS tickets) for specific services in a Windows domain environment. Unlike the **Golden Ticket**, which targets the entire Key Distribution Center (KDC) and domain, the Silver Ticket attack is more targeted, focusing on a single service. This makes it a stealthier approach for lateral movement and persistence in the environment, as it bypasses the initial Ticket Granting Ticket (TGT) process and avoids logging events in the domain controller.
 
 ***
 
-### **Description of Silver Ticket**
+### Attack Description
 
 The attack relies on the attacker obtaining the **NTLM hash** or **Kerberos password hash** of a service account, often through credential dumping tools like Mimikatz. With this information, the attacker can forge a valid TGS ticket for the targeted service. This ticket allows them to impersonate users and interact with the service as if they were authenticated, without involving the domain controller for validation. Common targets include services such as SQL Server, SharePoint, and file servers, where attackers can exfiltrate data, escalate privileges, or maintain persistence.
 

@@ -14,7 +14,7 @@ layout:
 
 # Password Spraying
 
-### **Introduction to Password Spraying**
+### **Introduction**
 
 **Password spraying** is a technique used by attackers to gain unauthorised access to user accounts by exploiting weak or commonly used passwords. Unlike traditional brute-force attacks that repeatedly try many passwords on a single account (risking account lockout due to failed attempts), password spraying involves attempting a single password across multiple accounts. This method helps avoid triggering lockout policies, making it a stealthier and more effective attack technique.
 
