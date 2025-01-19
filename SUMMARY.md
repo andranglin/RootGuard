@@ -117,7 +117,8 @@
 
 * [Detect and Mitigate Active Directory Compromise](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/README.md)
   * [Kerberoasting](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/kerberoasting.md)
-  * [Authentication Server Response (AS-REP) Roasting](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/authentication-server-response-as-rep-roasting.md)
+  * [Authentication Server Response (AS-REP) Roasting](threat-detection/detect-and-mitigate-active-directory-compromise/authentication-server-response-as-rep-roasting/README.md)
+    * [Active Directory Events](threat-detection/detect-and-mitigate-active-directory-compromise/authentication-server-response-as-rep-roasting/active-directory-events.md)
   * [Password Spraying](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/password-spraying.md)
   * [MachineAccountQuota Compromise](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
   * [Unconstrained Delegation](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/unconstrained-delegation.md)
@@ -131,3 +132,6 @@
   * [Golden Security Assertion Markup Language (SAML)](threat-detection/detect-and-mitigate-active-directory-compromise/golden-security-assertion-markup-language-saml.md)
   * [Microsoft Entra Connect Compromise](threat-detection/detect-and-mitigate-active-directory-compromise/microsoft-entra-connect-compromise.md)
   * [One-way Domain Trust Bypass](threat-detection/detect-and-mitigate-active-directory-compromise/one-way-domain-trust-bypass.md)
+  * [Security Identifier (SID) History Compromise](threat-detection/detect-and-mitigate-active-directory-compromise/security-identifier-sid-history-compromise.md)
+  * [Skeleton Key](threat-detection/detect-and-mitigate-active-directory-compromise/skeleton-key.md)
+  * [Active Directory security controls](threat-detection/detect-and-mitigate-active-directory-compromise/active-directory-security-controls.md)

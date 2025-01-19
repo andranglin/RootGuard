@@ -70,7 +70,7 @@ Responding to and recovering from AD compromises is time-consuming, costly, and 
 Note: The following are the attack types that are in scope.
 
 * [Kerberoasting ](kerberoasting.md)
-* [Authentication Server Response (AS-REP) Roasting ](authentication-server-response-as-rep-roasting.md)
+* [Authentication Server Response (AS-REP) Roasting ](../detect-and-mitigate-active-directory-compromise/authentication-server-response-as-rep-roasting/)
 * [Password Spraying ](password-spraying.md)
 * [MachineAccountQuota Compromise](machineaccountquota-compromise.md)
 * [Unconstrained delegation](unconstrained-delegation.md)
@@ -83,7 +83,7 @@ Note: The following are the attack types that are in scope.
 * [Silver Ticket](silver-ticket.md)
 * [Golden Security Assertion Markup Language (SAML)](../detect-and-mitigate-active-directory-compromise/golden-security-assertion-markup-language-saml.md)
 * [Microsoft Entra Connect Compromise](../detect-and-mitigate-active-directory-compromise/microsoft-entra-connect-compromise.md)
-* One-way Domain Trust Bypass&#x20;
+* [One-way Domain Trust Bypass ](../detect-and-mitigate-active-directory-compromise/one-way-domain-trust-bypass.md)
 * Security Identifier (SID) History Compromise&#x20;
 * Skeleton Key
 
