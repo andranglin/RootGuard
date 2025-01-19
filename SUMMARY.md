@@ -134,4 +134,4 @@
   * [Security Identifier (SID) History Compromise](threat-detection/detect-and-mitigate-active-directory-compromise/security-identifier-sid-history-compromise.md)
   * [Skeleton Key](threat-detection/detect-and-mitigate-active-directory-compromise/skeleton-key.md)
   * [Active Directory Security Controls](threat-detection/detect-and-mitigate-active-directory-compromise/active-directory-security-controls.md)
-  * [Active Directory Events](threat-detection/detect-and-mitigate-active-directory-compromise/active-directory-events.md)
+  * [Active Directory Events for Detecting Compromise](threat-detection/detect-and-mitigate-active-directory-compromise/active-directory-events-for-detecting-compromise.md)
