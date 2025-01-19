@@ -70,10 +70,12 @@ Once compromised, attackers can:
 * Enable Azure AD audit and sign-in logs for comprehensive visibility.
 * Enable and monitor directory synchronisation logs to detect unauthorised changes.
 
-1. **Monitor Unusual Activities**:
-   * Track changes in synchronised objects, such as new privileged accounts or altered group memberships.
-   * Identify suspicious synchronisation activities, including unexpected schema changes or frequent sync cycles.
-2. **Log Analysis**:
+5. **Monitor Unusual Activities**:
+
+* Track changes in synchronised objects, such as new privileged accounts or altered group memberships.
+* Identify suspicious synchronisation activities, including unexpected schema changes or frequent sync cycles.
+
+6. **Log Analysis**:
 
 * Analyse Entra Connect server logs for anomalous events, such as:
   * Unauthorised access attempts.
@@ -81,11 +83,11 @@ Once compromised, attackers can:
   * Updates to the synchronisation schedule.
 * Use Azure AD logs to detect unusual admin activities, such as privilege escalation or MFA disabling.
 
-6. **Network Traffic Analysis**:
+7. **Network Traffic Analysis**:
 
 * Monitor for unexpected communication from the Entra Connect server, such as connections to unauthorised external IPs.
 
-7. **Behavioural Analysis**:
+8. **Behavioural Analysis**:
 
 * Use User and Entity Behavior Analytics (UEBA) to detect deviations from normal behaviour of Entra Connect-related accounts or services.
 
