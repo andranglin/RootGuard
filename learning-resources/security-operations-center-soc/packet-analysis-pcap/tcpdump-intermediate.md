@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Tcpdump Packet Analysis (Level 2)
+# Tcpdump (Intermediate)
 
 ### The Importance of Having Access to PCAP Data in an Investigation
 
@@ -44,7 +44,7 @@ The following Tcpdump queries are designed to identify malicious activities. The
 
 ***
 
-### <mark style="color:blue;">1.</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**Detect Suspicious SMB Traffic**</mark>
+### 1. **Detect Suspicious SMB Traffic**
 
 ```bash
 tcpdump -r sample.pcap port 445

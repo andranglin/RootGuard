@@ -23,7 +23,7 @@ In addition to its technical capabilities, Splunk is highly customisable and sup
 
 Throughout the following sections, various examples and use cases will demonstrate the flexibility and capabilities of the SPL query language and how it can be integrated into standard operating procedures.
 
-### **Windows Audit Log Tampering**
+### **Detecting Windows Audit Log Tampering**
 
 Check for any tampering done to Windows audit logs.
 
@@ -33,22 +33,22 @@ index=sysmon (sourcetype=wineventlog AND (EventCode=1102 OR EventCode=1100)) OR 
 ```
 {% endcode %}
 
-### **Finding Large Web Uploads**
+### **Detecting Finding Large Web Uploads**
 
 Find large file uploads that could point to data exfiltration in your network.
 
 {% code overflow="wrap" %}
-```csharp
+```splunk-spl
 index=proxy | where bytes_out > 35000000 | table _time src_ip bytes* uri
 ```
 {% endcode %}
 
-### **Detecting Recurring Malware on Host**
+### **Detecting Recurring Malware on a Host**
 
 Anti-virus logs are used to detect if malware is recurring on a host after being removed.
 
 {% code overflow="wrap" %}
-```csharp
+```splunk-spl
 index=av_index | stats count range(_time) as TimeRange by Risk_Name, Computer_Name | where TimeRange>1800 | eval TimeRange_In_Hours = round(TimeRange/3600,2), TimeRange_In_Days = round(TimeRange/3600/24,2)
 ```
 {% endcode %}
@@ -58,7 +58,7 @@ index=av_index | stats count range(_time) as TimeRange by Risk_Name, Computer_Na
 A brute-force attack consists of a multiple login attempts using many passwords by an unauthorised user/attacker with the hope of eventually guessing the correct password.
 
 {% code overflow="wrap" %}
-```csharp
+```splunk-spl
 index=sysmon user=* user!"" | stats count(eval(action="success")) as successes count(eval(action="failure")) as failures by user, ComputerName | where successes>0 AND failures>100
 
 Windows
@@ -81,10 +81,10 @@ index=sysmon dest_port!=443 app=workday* | table _time user app bytes* src_ip de
 
 ### **Identifying Web Users By Country**
 
-Use IPs in your data to report and visualize user locations.
+Use IPs in your data to report and visualise user locations.
 
 {% code overflow="wrap" %}
-```csharp
+```splunk-spl
 index=proxy | iplocation src_ip | geostats dc(src_ip) by Country
 ```
 {% endcode %}
@@ -94,7 +94,7 @@ index=proxy | iplocation src_ip | geostats dc(src_ip) by Country
 A slow loading web site can not only frustrate users, but can also hurt search rankings.
 
 {% code overflow="wrap" %}
-```csharp
+```splunk-spl
 index=proxy | stats avg(response_time) as art by uri_path | eval "Average Response Time" = round(art,2) | sort -"Average Response Time" | table uri_path, "Average Response Time"
 ```
 {% endcode %}
@@ -149,7 +149,7 @@ index=main sourcetype=iostat | timechart avg(latency) by host
 ```
 {% endcode %}
 
-### **Rogue DNS detection**
+### **Detecting Rogue DNS Activities**
 
 Look for DNS requests that are not destined for the dedicated DNS server.
 
@@ -159,7 +159,7 @@ index=dns src_ip!=192.168.14.10 dest_ip!=192.168.14.10 protocol=53 action!=Drop 
 ```
 {% endcode %}
 
-### **Suspicious PowerShell Commands**
+### **Detecting Suspicious PowerShell Commands**
 
 Look for logs with commands that try to download external scripts/content or bypass PowerShell.
 
@@ -169,7 +169,7 @@ index=windows source="WinEventLog:Microsoft-Windows-PowerShell/Operational" Even
 ```
 {% endcode %}
 
-### **Windows audit log cleared**
+### **Detecting Windows audit log cleared**
 
 Look for security logs filtered with EventCode 1102.
 
@@ -191,7 +191,7 @@ index=*sysmon sourcetype=firewall* | stats dc(dest_port) as num_dest_port dc(des
 ```
 {% endcode %}
 
-### **Unusual Access**
+### **Detecting Unusual Access**
 
 Look for count of multiple failed login attempts where successful login is true.
 
@@ -201,7 +201,7 @@ Look for count of multiple failed login attempts where successful login is true.
 ```
 {% endcode %}
 
-### **Malware Attack**
+### **Detecting Malware Attack**
 
 Look for infection count of malware attack.
 
@@ -211,7 +211,7 @@ Look for infection count of malware attack.
 ```
 {% endcode %}
 
-### **Attempt To Add Certificate To Untrusted Store**
+### **Detecting Attempt To Add Certificate To Untrusted Store**
 
 Adversaries may add their own root certificate to the certificate store, to cause the web browser to trust that certificate and not display a security warning when it encounters the previously unseen certificate. This action may be the precursor to malicious activity.
 
@@ -221,7 +221,7 @@ Adversaries may add their own root certificate to the certificate store, to caus
 ```
 {% endcode %}
 
-### **Batch File Write to System32**
+### **Detecting Batch File Write to System32**
 
 While batch files are not inherently malicious, it is uncommon to see them created after OS installation, especially in the Windows directory. This analytic looks for the suspicious activity of a batch file being created within the C:\Windows\System32 directory tree. There will be only occasional false positives due to administrator actions.
 
@@ -231,7 +231,7 @@ While batch files are not inherently malicious, it is uncommon to see them creat
 ```
 {% endcode %}
 
-#### **BCDEdit Failure Recovery Modification**
+### **Detecting BCDEdit Failure Recovery Modification**
 
 This search looks for flags passed to bcdedit.exe modifications to the built-in Windows error recovery boot configurations. This is typically used by ransomware to prevent recovery.
 
@@ -251,11 +251,11 @@ The following query identifies Microsoft Background Intelligent Transfer Service
 ```
 {% endcode %}
 
-### **BITSAdmin Download File**
+### **Detecting BITSAdmin Download File**
 
-The following query identifies Microsoft Background Intelligent Transfer Service utility **bitsadmin.exe** using the **transfer** parameter to download a remote object. In addition, look for **download** or **upload** on the command-line, the switches are not required to perform a transfer. Capture any files downloaded. Review the reputation of the IP or domain used. Typically, once executed, a follow-on command will be used to execute the dropped file.&#x20;
+The following query identifies Microsoft Background Intelligent Transfer Service utility **bitsadmin.exe** using the **transfer** parameter to download a remote object. In addition, look for **download** or **upload** on the commandline, the switches are not required to perform a transfer. Capture any files downloaded. Review the reputation of the IP or domain used. Typically, once executed, a follow-on command will be used to execute the dropped file.&#x20;
 
-Note that the network connection or file modification events related will not spawn or create from **bitsadmin.exe**, but the artifacts will appear in a parallel process of **svchost.exe** with a command-line similar to **svchost.exe -k netsvcs -s BITS**. It’s important to review all parallel and child processes to capture any behaviours and artefacts. In some suspicious and malicious instances, BITS jobs will be created. You can use bitsadmin /list /verbose to list out the jobs during investigation.
+Note that the network connection or file modification events related will not spawn or create from **bitsadmin.exe**, but the artifacts will appear in a parallel process of **svchost.exe** with a commandline similar to **svchost.exe -k netsvcs -s BITS**. It’s important to review all parallel and child processes to capture any behaviours and artefacts. In some suspicious and malicious instances, BITS jobs will be created. You can use bitsadmin /list /verbose to list out the jobs during investigation.
 
 {% code overflow="wrap" %}
 ```splunk-spl
@@ -263,9 +263,9 @@ Note that the network connection or file modification events related will not sp
 ```
 {% endcode %}
 
-### **CertUtil Download With URLCache and Split Arguments**
+### **Detecting CertUtil Download With URLCache and Split Arguments**
 
-Certutil.exe may download a file from a remote destination using **urlcache**. This behavior does require a URL to be passed on the command-line. In addition,\*\* f\*\* (force) and **split** (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for **certutil.exe** to contact public IP space. However, it is uncommon for **certutil.exe** to write files to world writeable paths.\ During triage, capture any files on disk and review. Review the reputation of the remote IP or domain in question.
+Certutil.exe may download a file from a remote destination using **urlcache**. This behavior does require a URL to be passed on the commandline. In addition,\*\* f\*\* (force) and **split** (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for **certutil.exe** to contact public IP space. However, it is uncommon for **certutil.exe** to write files to world writeable paths.\ During triage, capture any files on disk and review. Review the reputation of the remote IP or domain in question.
 
 {% code overflow="wrap" %}
 ```splunk-spl
@@ -273,7 +273,7 @@ Certutil.exe may download a file from a remote destination using **urlcache**. T
 ```
 {% endcode %}
 
-### **CertUtil Download With VerifyCtl and Split Arguments**
+### **Detecting CertUtil Download With VerifyCtl and Split Arguments**
 
 Certutil.exe may download a file from a remote destination using **VerifyCtl**. This behavior does require a URL to be passed on the command-line. In addition, **f** (force) and **split** (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for **certutil.exe** to contact public IP space. \ During triage, capture any files on disk and review. Review the reputation of the remote IP or domain in question. Using **VerifyCtl**, the file will either be written to the current working directory or **%APPDATA%..\LocalLow\Microsoft\CryptnetUrlCache\Content\<hash>.**
 
@@ -283,7 +283,7 @@ Certutil.exe may download a file from a remote destination using **VerifyCtl**. 
 ```
 {% endcode %}
 
-### **Certutil exe certificate extraction**
+### **Detecting Certutil exe certificate extraction**
 
 This search looks for arguments to certutil.exe indicating the manipulation or extraction of Certificate. This certificate can then be used to sign new authentication tokens specially inside Federated environments such as Windows ADFS.
 
@@ -293,7 +293,7 @@ This search looks for arguments to certutil.exe indicating the manipulation or e
 ```
 {% endcode %}
 
-### **CertUtil With Decode Argument**
+### **Detecting CertUtil With Decode Argument**
 
 CertUtil.exe may be used to encode and decode a file, including PE and script code. Encoding will convert a file to base64 with **----BEGIN CERTIFICATE-----** and **----END CERTIFICATE-----** tags. Malicious usage will include decoding an encoded file that was downloaded. Once decoded, it will be loaded by a parallel process. Note that there are two additional command switches that may be used - encode hex and decode hex. Similarly, the file will be encoded in HEX and later decoded for further execution. During triage, identify the source of the file being decoded. Review its contents or execution behaviour for further analysis.
 
@@ -303,7 +303,7 @@ CertUtil.exe may be used to encode and decode a file, including PE and script co
 ```
 {% endcode %}
 
-### **Create local admin accounts using net exe**
+### **Detecting Create local admin accounts using net exe**
 
 This search looks for the creation of local administrator accounts using net.exe.
 
@@ -313,7 +313,7 @@ This search looks for the creation of local administrator accounts using net.exe
 ```
 {% endcode %}
 
-### Create Remote Thread into LSASS
+### **Detecting** Create Remote Thread into LSASS
 
 Actors may create a remote thread into the LSASS service as part of a workflow to dump credentials.
 
@@ -323,7 +323,7 @@ index=sysmon EventID=8 TargetImage=\*lsass.exe | stats count min(\_time) as firs
 ```
 {% endcode %}
 
-#### Create Service In Suspicious File Path
+### **Detecting** Create Service In Suspicious File Path
 
 This detection is to identify a creation of “user mode service” where the service file path is located in non-common service folder in windows.
 
@@ -333,7 +333,7 @@ index=windows EventCode=7045  Service_File_Name = "*.exe" NOT (Service_File_Nam
 ```
 {% endcode %}
 
-### **Common Windows Process Masquerading**
+### **Detecting Common Windows Process Masquerading**
 
 “Masquerading occurs when the name or location of an object, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation. This may include manipulating file metadata, tricking users into misidentifying the file type, and giving legitimate task or service names.” Malware authors often use this technique to hide malicious executables behind legitimate Windows executable names (e.g. lsass.exe, svchost.exe, etc).
 
@@ -343,7 +343,7 @@ index=sysmon ((process_name=svchost.exe AND NOT (process_path="C:\\Windows\\Syst
 ```
 {% endcode %}
 
-### **Unusual Child Process spawned using DDE exploit**
+### **Detecting Unusual Child Process Spawned Using DDE Exploit**
 
 Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary commands. DDE is a client-server protocol for one-time and/or continuous inter-process communication (IPC) between applications. Once a link is established, applications can autonomously exchange transactions consisting of strings, warm data links (notifications when a data item changes), hot data links (duplications of changes to a data item), and requests for command execution.
 
@@ -363,7 +363,7 @@ index=sysmon EventCode=1 Image = "C:\\Windows\\System32\\sc.exe"  | regex Comma
 ```
 {% endcode %}
 
-### **Disable UAC**
+### **Detecting Disable UAC**
 
 Threat actors often, after compromising a machine, try to disable User Access Control (UAC) to escalate privileges. This is often done by changing the registry key for system policies using “reg.exe”, a legitimate tool provided by Microsoft for modifying the registry via command prompt or scripts. This action interferes with UAC and may enable a threat actor to escalate privileges on the compromised system, thereby allowing further exploitation of the system.
 
@@ -373,7 +373,7 @@ index=sysmon ParentImage = "C:\\Windows\\System32\\cmd.exe" | where like(Command
 ```
 {% endcode %}
 
-### **Unusually Long Command Line Strings**
+### **Detecting Unusually Long Commandline Strings**
 
 Often, after a threat actor gains access to a system, they will attempt to run some kind of malware to further infect the victim machine. These malware often have long command line strings, which could be a possible indicator of attack. Here, we use sysmon and Splunk to first find the average command string length and search for command strings that stretch over multiple lines, thus identifying anomalies and possibly malicious commands.
 
@@ -383,7 +383,7 @@ index=sysmon EventCode=4688  |eval cmd_len=len(CommandLine) | eventstats avg(cm
 ```
 {% endcode %}
 
-### **Clearing Windows Logs with Wevtutil**
+### **Detecting Clearing Windows Logs with Wevtutil**
 
 In an attempt to clear traces after compromising a machine, threat actors often try to clear Windows Event logs. This is often done using “wevtutil”, a legitimate tool provided by Microsoft. This action interferes with event collection and notification, and may lead to a security event going undetected, thereby potentially leading to further compromise of the network.
 
@@ -393,7 +393,7 @@ index=sysmon EventCode=1 Image=*wevtutil* CommandLine=*cl* (CommandLine=*System*
 ```
 {% endcode %}
 
-### **Unusual Child Process for Spoolsv.Exe or Connhost.Exe**
+### **Detecting Unusual Child Process for Spoolsv.Exe or Connhost.Exe**
 
 After gaining initial access to a system, threat actors attempt to escalate privileges as they may be operating within a lower privileged process which does not allow them to access protected information or carry out tasks which require higher permissions. A common way of escalating privileges in a system is by externally invoking and exploiting spoolsv or connhost executables, both of which are legitimate Windows applications. This query searches for a user's invocation of either of these executables, thus alerting us of any potentially malicious activity.
 
@@ -413,7 +413,7 @@ index=sysmon EventType=4688 CommandLine:"delete" OriginalFileName:"VSSADMIN.EXE"
 ```
 {% endcode %}
 
-### **Webshell-Indicative Process Tree**
+### **Detecting Webshell-Indicative Process Tree**
 
 A web shell is a web script placed on an openly accessible web server to allow an adversary to use the server as a gateway in a network. As the shell operates, commands will be issued from within the web application into the broader server operating system. This analytic looks for host enumeration executables initiated by any web service that would not normally be executed within that environment.
 
@@ -423,7 +423,7 @@ index=sysmon (ParentImage="C:\\Windows\\System32\\services.exe" Image="C:\\Windo
 ```
 {% endcode %}
 
-### **Get System Elevation**
+### **Detecting Get System Elevation**
 
 Cyber actors frequently escalate to the SYSTEM account after gaining entry to a Windows host, to enable them to carry out various attacks more effectively. Tools such as Meterpreter, Cobalt Strike, and Empire carry out automated steps to “Get System”, which is the same as switching over to the System user account. Most of these tools utilize multiple techniques to try and attain SYSTEM: in the first technique, they create a named pipe and connect an instance of cmd.exe to it, which allows them to impersonate the security context of cmd.exe, which is SYSTEM. In the second technique, a malicious DLL is injected into a process that is running as SYSTEM; the injected DLL steals the SYSTEM token and applies it where necessary to escalate privileges. This analytic looks for both of these techniques.
 
@@ -435,7 +435,7 @@ index=sysmon (Image="C:\\Windows\\System32\\cmd.exe" OR CommandLine="*%COMSPEC%*
 ```
 {% endcode %}
 
-### **Boot or Logon Initialisation Scripts**
+### **Detecting Boot or Logon Initialisation Scripts**
 
 Adversaries may schedule software to run whenever a user logs into the system; this is done to establish persistence and sometimes for lateral movement. This trigger is established through the registry key HKEY\_CURRENT\_USER\EnvironmentUserInitMprLogonScript. This signature looks for edits to existing keys or the creation of new keys in that path. Users purposefully adding benign scripts to this path will result in false positives; that case is rare, however. There are other ways of running a script at startup or login that are not covered in this signature. Note that this signature overlaps with the Windows Sysinternals Autoruns tool, which would also show changes to this registry path.
 
@@ -445,7 +445,7 @@ Adversaries may schedule software to run whenever a user logs into the system; t
 ```
 {% endcode %}
 
-### **Local Network Sniffing**
+### **Detecting Local Network Sniffing**
 
 Adversaries may use a variety of tools to gain visibility on the current status of things on the network: which processes are listening on which ports, which services are running on other hosts, etc. This analytic looks for the names of the most common network sniffing tools. While this may be noisy on networks where sysadmins are using any of these tools on a regular basis, in most networks their use is noteworthy.
 
@@ -455,7 +455,7 @@ Adversaries may use a variety of tools to gain visibility on the current status 
 ```
 {% endcode %}
 
-### **DLL Injection with Mavinject**
+### **Detecting DLL Injection with Mavinject**
 
 Injecting a malicious DLL into a process is a common adversary TTP. Although the ways of doing this are numerous, mavinject.exe is a commonly used tool for doing so because it roles up many of the necessary steps into one, and is available within Windows. Attackers may rename the executable, so we also use the common argument “INJECTRUNNING” as a related signature here. Whitelisting certain applications may be necessary to reduce noise for this analytic.
 
@@ -465,7 +465,7 @@ Injecting a malicious DLL into a process is a common adversary TTP. Although the
 ```
 {% endcode %}
 
-### Processes Started From Irregular Parent
+### **Detecting** Processes Started From Irregular Parent
 
 Adversaries may start legitimate processes and then use their memory space to run malicious code. This analytic looks for common Windows processes that have been abused this way in the past; when the processes are started for this purpose, they may not have the standard parent that we would expect. This list is not exhaustive, and it is possible for cyber actors to avoid this discrepancy. These signatures only work if Sysmon reports the parent process, which may not always be the case if the parent dies before sysmon processes the event.
 
@@ -475,7 +475,7 @@ Adversaries may start legitimate processes and then use their memory space to ru
 ```
 {% endcode %}
 
-### **Clear Powershell Console Command History**
+### **Detecting Clear Powershell Console Command History**
 
 Adversaries may attempt to conceal their tracks by deleting the history of commands run within the Powershell console or turning off history saving to begin with. This analytic looks for several commands that would do this. This does not capture the event if it is done within the console itself; only commandline-based commands are detected. Note that the command to remove the history file directly may vary a bit if the history file is not saved in the default path on a particular system.
 
@@ -485,7 +485,7 @@ index=sysmon EventCode=1) (CommandLine="*rm (Get-PSReadlineOption).HistorySavePa
 ```
 {% endcode %}
 
-### **Local Permission Group Discovery**
+### **Detecting Local Permission Group Discovery**
 
 Cyber actors frequently enumerate local or domain permissions groups. The net utility is usually used for this purpose. This analytic look for any instances of net.exe, which is not normally used for benign purposes, although system administrator actions may trigger false positives.
 
@@ -495,7 +495,7 @@ Cyber actors frequently enumerate local or domain permissions groups. The net ut
 ```
 {% endcode %}
 
-### **Network Share Connection Removal**
+### **Detecting Network Share Connection Removal**
 
 Adversaries may use network shares to exfiltrate data; they will then remove the shares to cover their tracks. This analytic look for the removal of network shares via commandline, which is otherwise a rare event.
 
@@ -505,7 +505,7 @@ Adversaries may use network shares to exfiltrate data; they will then remove the
 ```
 {% endcode %}
 
-### **MSBuild and msxsl**
+### **Detecting MSBuild and msxsl**
 
 Trusted developer utilities such as MSBuild may be leveraged to run malicious code with elevated privileges. This analysis looks for instances of msbuild.exe, which will execute any C# code placed within a given XML document, and msxsl.exe, which processes XSL transformation specifications for XML files and will execute a variety of scripting languages contained within the XSL file. Both of these executables are rarely used outside of Visual Studio.
 
@@ -515,7 +515,7 @@ Trusted developer utilities such as MSBuild may be leveraged to run malicious co
 ```
 {% endcode %}
 
-### **Compiled HTML Access**
+### **Detecting Compiled HTML Access**
 
 Adversaries may hide malicious code in .chm compiled HTML files. When these files are read, Windows uses the HTML help executable named hh.exe, which is the signature for this analytic.
 
@@ -525,7 +525,7 @@ Adversaries may hide malicious code in .chm compiled HTML files. When these file
 ```
 {% endcode %}
 
-### **CMSTP**
+### **Detecting CMSTP**
 
 CMSTP.exe is the Microsoft Connection Manager Profile Installer, which can be leveraged to setup listeners that will receive and install malware from remote sources in trusted fashion. When CMSTP.exe is seen in combination with an external connection, it is a good indication of this TTP.
 
@@ -535,7 +535,7 @@ CMSTP.exe is the Microsoft Connection Manager Profile Installer, which can be le
 ```
 {% endcode %}
 
-### **Registry Edit from Screensaver**
+### **Detecting Registry Edit from Screensaver**
 
 Adversaries may use screensaver files to run malicious code. This analytic triggers on suspicious edits to the screensaver registry keys, which dictate which .scr file the screensaver runs.
 
@@ -545,7 +545,7 @@ index=sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) TargetObject="*\\Sof
 ```
 {% endcode %}
 
-### **Scheduled Task - File Access**
+### **Detecting Scheduled Task - File Access**
 
 An adversary may use the Windows Task Scheduler to schedule a command to be run at a specified time, date, and even host to gain persistence, privilege escalation, or remote execution. The Task Scheduler stores tasks as files in two locations: C: WindowsTasks (legacy) or C: WindowsSystem32Tasks. Accordingly, this analysis looks for the creation of task files in these two locations.
 
@@ -555,7 +555,7 @@ index=sysmon EventCode=11 Image!="C:\\WINDOWS\\system32\\svchost.exe" (TargetFil
 ```
 {% endcode %}
 
-### **Component Object Model Hijacking**
+### **Detecting Component Object Model Hijacking**
 
 Adversaries may establish persistence or escalate privileges by executing malicious content triggered by hijacked references to Component Object Model (COM) objects. This is typically done by replacing COM object registry entries under the HKEY\_CURRENT\_USER\Software\Classes\CLSID or HKEY\_LOCAL\_MACHINE\SOFTWARE\Classes\CLSID keys. Accordingly, this analytic looks for any changes under these keys.
 
@@ -565,7 +565,7 @@ index=sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) TargetObject="*\\Sof
 ```
 {% endcode %}
 
-### **Indicator Blocking - Driver Unloaded**
+### **Detecting Indicator Blocking - Driver Unloaded**
 
 Adversaries may attempt to evade system defenses by unloading minifilter drivers used by host-based sensors such as Sysmon through the use of the fltmc command-line utility. Accordingly, this analytic looks for command-line invocations of this utility when used to unload minifilter drivers.
 
@@ -575,7 +575,7 @@ index=sysmon EventCode=1 CommandLine="*unload*" (Image="C:\\Windows\\SysWOW64\\f
 ```
 {% endcode %}
 
-### Credentials in Files & Registry
+### **Detecting** Credentials in Files & Registry
 
 Adversaries may search the Windows Registry on compromised systems for insecurely stored credentials for credential access. This can be accomplished using the query functionality of the reg.exe system utility, by looking for keys and values that contain strings such as “password”. In addition, adversaries may use toolkits such as PowerSploit in order to dump credentials from various applications such as IIS.Accordingly, this analytic looks for invocations of reg.exe in this capacity as well as that of several powersploit modules with similar functionality.
 
@@ -585,7 +585,7 @@ Adversaries may search the Windows Registry on compromised systems for insecurel
 ```
 {% endcode %}
 
-### **AppInit DLLs**
+### **Detecting AppInit DLLs**
 
 Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppInit DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the AppInit\_DLLs value in the Registry keys HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows or HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows are loaded by user32.dll into every process that loads user32.dll. These values can be abused to obtain elevated privileges by causing a malicious DLL to be loaded and run in the context of separate processes. Accordingly, this analytic looks for modifications to these registry keys that may be indicative of this type of abuse.
 
@@ -595,7 +595,7 @@ index=sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) (TargetObject="*\\SO
 ```
 {% endcode %}
 
-### **NTFS Alternate Data Stream Execution - System Utilities**
+### **Detecting NTFS Alternate Data Stream Execution - System Utilities**
 
 NTFS Alternate Data Streams (ADSs) may be used by adversaries as a means of evading security tools by storing malicious data or binaries in file attribute metadata. ADSs are also powerful because they can be directly executed by various Windows tools; accordingly, this analytic looks at common ways of executing ADSs using system utilities such as powershell.
 
@@ -615,7 +615,7 @@ index=sysmon EventCode=1 (Image=C:\\Windows\\*\\wscript.exe OR Image=C:\\Windows
 ```
 {% endcode %}
 
-### **NTFS Alternate Data Stream Execution - LOLBAS**
+### **Detecting NTFS Alternate Data Stream Execution - LOLBAS**
 
 NTFS Alternate Data Streams (ADSs) may be used by adversaries as a means of evading security tools by storing malicious data or binaries in file attribute metadata. ADSs are also powerful because their contents can be directly executed by various Windows tools; accordingly, this analytic looks at common ways of executing ADSs using Living off the Land Binaries and Scripts (LOLBAS).
 
@@ -644,7 +644,7 @@ index=sysmon EventCode=1 (Image=C:\\Windows\\System32\\bitsadmin.exe OR C:\\Wind
 ```
 {% endcode %}
 
-### **Execution with AT**
+### **Detecting Execution with AT**
 
 In order to gain persistence, privilege escalation, or remote execution, an adversary may use the Windows built-in command AT (at.exe) to schedule a command to be run at a specified time, date, and even host. This method has been used by adversaries and administrators alike. Its use may lead to detection of compromised hosts and compromised users if it is used to move laterally. The built-in Windows tool schtasks.exe (CAR-2013-08-001) offers greater flexibility when creating, modifying, and enumerating tasks. For these reasons, schtasks.exe is more commonly used by administrators, tools/scripts, and power users.
 
@@ -654,7 +654,7 @@ index=sysmon Image="C:\\Windows\\*\\at.exe"|stats values(CommandLine) as "Comman
 ```
 {% endcode %}
 
-### **Running executables with the same hash and different names**
+### **Detecting Running Executables With the Same Hash and Different Names**
 
 Executables are generally not renamed, thus a given hash of an executable should only have ever one name. Identifying instances where multiple process names share the same hash may find cases where tools are copied by attackers to different folders or hosts to avoid detection.
 
@@ -666,7 +666,7 @@ index=sysmon EventCode=1|stats dc(Hashes) as Num_Hashes values(Hashes) as "Hashe
 ```
 {% endcode %}
 
-### **Suspicious Arguments**
+### **Detecting Suspicious Arguments**
 
 Malicious actors may rename built-in commands or external tools, such as those provided by SysInternals, to better blend in with the environment. In those cases, the file path name is arbitrary and may blend in well with the background. If the arguments are closely inspected, it may be possible to infer what tools are running and understand what an adversary is doing. When any legitimate software shares the same command lines, it must be whitelisted according to the expected parameters.
 
@@ -676,7 +676,7 @@ index=sysmon EventCode=1 (CommandLine="* -R * -pw*" OR CommandLine="* -pw * *@*"
 ```
 {% endcode %}
 
-### **User Login Activity Monitoring**
+### **Detecting User Login Activity Monitoring**
 
 Monitoring logon and logoff events for hosts on the network is very important for situational awareness. This information can be used as an indicator of unusual activity as well as to corroborate activity seen elsewhere.
 
@@ -688,7 +688,7 @@ index=windows EventCode=4624|search NOT [search index=wine* EventCode=4624|top 3
 ```
 {% endcode %}
 
-### **PowerShell Execution**
+### **Detecting PowerShell Execution**
 
 PowerShell is a scripting environment included with Windows that is used by both attackers and administrators. Execution of PowerShell scripts in most Windows versions is opaque and not typically secured by antivirus, which makes using PowerShell an easy way to circumvent security measures. This analytic detects the execution of PowerShell scripts.
 
@@ -703,7 +703,7 @@ index=sysmon EventCode=1 Image="C:\\Windows\\*\\powershell.exe" ParentImage!="C:
 ```
 {% endcode %}
 
-### Services launching Cmd
+### **Detecting** Services launching Cmd
 
 Windows runs the Service Control Manager (SCM) within the process services.exe. Windows launches services as independent processes or DLL loads within a svchost.exe group. To be a legitimate service, a process (or DLL) must have the appropriate service entry point SvcMain. If an application does not have the entry point, then it will timeout (default is 30 seconds), and the process will be killed. To survive the timeout, adversaries and red teams can create services that direct to cmd.exe with the flag /c, followed by the desired command. The /c flag causes the command shell to run a command and immediately exit. As a result, the desired program will remain running and it will report an error starting the service. This analytic will catch that command prompt instance that is used to launch the actual malicious executable. Additionally, the children and descendants of services.exe will run as a SYSTEM user by default. Thus, services are a convenient way for an adversary to gain Persistence and Privilege Escalation.
 
@@ -713,7 +713,7 @@ index=sysmon EventCode=1 Image="C:\\Windows\\*\\cmd.exe" ParentImage="C:\\Window
 ```
 {% endcode %}
 
-### **Command Launched from WinLogon**
+### **Detecting Command Launched from WinLogon**
 
 An adversary can use accessibility features (Ease of Access), such as StickyKeys or Utilman, to launch a command shell from the logon screen and gain SYSTEM access. Since an adversary does not have physical access to the machine, this technique must be run within Remote Desktop. To prevent an adversary from getting to the login screen without first authenticating, Network-Level Authentication (NLA) must be enabled. If a debugger is set up for one of the accessibility features, then it will intercept the process launch of the feature and instead execute a new command line. This analytic looks for instances of cmd.exe or powershell.exe launched directly from the logon process, winlogon.exe. It should be used in tandem with CAR-2014-11-003, which detects the accessibility programs in the command line.
 
@@ -723,7 +723,7 @@ index=sysmon EventCode=1 ParentImage="C:\\Windows\\*\\winlogon.exe" Image="C:\\W
 ```
 {% endcode %}
 
-### Host Discovery Commands
+### **Detecting** Host Discovery Commands
 
 When entering on a host for the first time, an adversary may try to discover information about the host. There are several built-in Windows commands that can be used to learn about the software configurations, active users, administrators, and networking configuration. These commands should be monitored to identify when an adversary is learning information about the system and environment. The information returned may impact choices an adversary can make when establishing persistence, escalating privileges, or moving laterally.
 
@@ -735,7 +735,7 @@ index=sysmon EventCode=1 (Image="C:\\Windows\\*\\hostname.exe" OR Image="C:\\Win
 ```
 {% endcode %}
 
-### **Create Remote Process via WMIC**
+### **Detecting Create Remote Process via WMIC**
 
 Adversaries may use Windows Management Instrumentation (WMI) to move laterally, by launching executables remotely.The analytic CAR-2014-12-001 describes how to detect these processes with network traffic monitoring and process monitoring on the target host. However, if the command line utility wmic.exe is used on the source host, then it can additionally be detected on an analytic. The command line on the source host is constructed into something like wmic.exe /node:"\<hostname>" process call create "\<command line>". It is possible to also connect via IP address, in which case the string "\<hostname>" would instead look like IP Address.
 
@@ -747,7 +747,7 @@ index=sysmon EventCode=1 Image="C:\\Windows\\*\\wmic.exe" CommandLine="* process
 ```
 {% endcode %}
 
-### UAC Bypass
+### **Detecting** UAC Bypass
 
 Bypassing user account control (UAC Bypass) is generally done by piggybacking on a system process that has auto-escalate privileges. This analytic looks to detect those cases as described by the open-source UACME tool.
 
@@ -757,7 +757,7 @@ index=sysmon EventCode=1 IntegrityLevel=High|search (ParentCommandLine="\"c:\\wi
 ```
 {% endcode %}
 
-### **Generic Regsvr32**
+### **Detecting Generic Regsvr32**
 
 Regsvr32 can be used to execute arbitrary code in the context of a Windows signed binary, which can be used to bypass application whitelisting. This analytic looks for suspicious usage of the tool. It’s not likely that you’ll get millions of hits, but it does occur during normal activity so some form of baselining would be necessary for this to be an alerting analytic. Alternatively, it can be used for hunt by looking for new or anomalous DLLs manually.
 
@@ -767,7 +767,7 @@ index=sysmon EventCode=1 regsvr32.exe | search ParentImage="*regsvr32.exe" AND I
 ```
 {% endcode %}
 
-### **Credential Dumping via Mimikatz**
+### **Detecting Credential Dumping via Mimikatz**
 
 Credential dumpers like Mimikatz can be loaded into memory and from there read data from another processes. This analytic looks for instances where processes are requesting specific permissions to read parts of the LSASS process in order to detect when credential dumping is occurring. One weakness is that all current implementations are “overtuned” to look for common access patterns used by Mimikatz.
 
@@ -777,7 +777,7 @@ index=sysmon EventCode=10 TargetImage="C:\\WINDOWS\\system32\\lsass.exe"
 
 (GrantedAccess=0x1410 OR GrantedAccess=0x1010 OR GrantedAccess=0x1438 OR GrantedAccess=0x143a OR GrantedAccess=0x1418) CallTrace="C:\windows\SYSTEM32\ntdll.dll+\* |C:\windows\System32\KERNELBASE.dll+20edd|UNKNOWN(\*)"  | table \_time hostname user SourceImage GrantedAccess
 
-### Access Permission Modification
+### **Detecting** Access Permission Modification
 
 Adversaries sometimes modify object access rights at the operating system level. There are varying motivations behind this action - they may not want some files/objects to be changed on systems for persistence reasons and therefore provide admin only rights; also, they may want files to be accessible with lower levels of permissions.
 
@@ -787,7 +787,7 @@ index=windows EventCode=4670 Object_Type="File" Security_ID!="NT AUTHORITY\\SYST
 ```
 {% endcode %}
 
-### **Lsass Process Dump via Procdump**
+### **Detecting Lsass Process Dump via Procdump**
 
 ProcDump is a sysinternal command-line utility whose primary purpose is monitoring an application for CPU spikes and generating crash dumps during a spike that an administrator or developer can use to determine the cause of the spike. ProcDump may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching procdump.exe as a privileged user with command line options indicating that lsass.exe should be dumped to a file with an arbitrary name.
 
@@ -797,7 +797,7 @@ index=sysmon EventCode=1 Image="*\\procdump*.exe" CommandLine="*lsass*"
 ```
 {% endcode %}
 
-### **Credential Dumping via Windows Task Manager**
+### **Detecting Credential Dumping via Windows Task Manager**
 
 The Windows Task Manager may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching Task Manager as a privileged user, selecting lsass.exe, and clicking “Create dump file”. This saves a dump file to disk with a deterministic name that includes the name of the process being dumped.
 
@@ -807,7 +807,7 @@ index=sysmon EventCode=11 TargetFilename="*lsass*.dmp" Image="C:\\Windows\\*\\ta
 ```
 {% endcode %}
 
-### **Active Directory Dumping via NTDSUtil**
+### **Detecting Active Directory Dumping via NTDSUtil**
 
 The NTDSUtil tool may be used to dump a Microsoft Active Directory database to disk for processing with a credential access tool such as Mimikatz. This is performed by launching ntdsutil.exe as a privileged user with command line arguments indicating that media should be created for offline Active Directory installation and specifying a folder path. This process will create a copy of the Active Directory database, ntds.dit, to the specified folder path.
 
@@ -817,7 +817,7 @@ index=sysmon EventCode=11 TargetFilename="*ntds.dit" Image="*ntdsutil.exe"
 ```
 {% endcode %}
 
-### **Shadow Copy Deletion**
+### **Detecting Shadow Copy Deletion**
 
 The Windows Volume Shadow Copy Service is a built-in OS feature that can be used to create backup copies of files and volumes.
 
@@ -829,7 +829,7 @@ index=sysmon EventCode=1 Image="C:\\Windows\\System32\\vssadmin.exe" CommandLine
 ```
 {% endcode %}
 
-### **WMIC shadowcopy delete**
+### **Detecting WMIC shadowcopy delete**
 
 {% code overflow="wrap" %}
 ```splunk-spl
@@ -837,7 +837,7 @@ index=sysmon EventCode=1 Image="C:\\Windows\\*\\wmic.exe" CommandLine="*shadowco
 ```
 {% endcode %}
 
-### **MiniDump of LSASS**
+### **Detecting MiniDump of LSASS**
 
 This analytic detects the minidump variant of credential dumping where a process opens lsass.exe in order to extract credentials using the Win32 API call MiniDumpWriteDump. Tools like SafetyKatz, SafetyDump, and Outflank-Dumpert default to this variant and may be detected by this analytic, though keep in mind that not all options for using those tools will result in this specific behavior.
 
@@ -849,7 +849,7 @@ index=sysmon EventCode=10 TargetImage="C:\\windows\\system32\\lsass.exe" (CallTr
 ```
 {% endcode %}
 
-### **Rare LolBAS Command Lines**
+### **Detecting Rare LolBAS Commandlines**
 
 LoLBAS are binaries and scripts that are built in to Windows, frequently are signed by Microsoft, and may be used by an attacker. Some LoLBAS are used very rarely and it might be possible to alert every time they’re used (this would depend on your environment), but many others are very common and can’t be simply alerted on.
 

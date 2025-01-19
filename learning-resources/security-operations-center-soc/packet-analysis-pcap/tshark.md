@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Tshark Basics
+# Tshark
 
 ### Using TShark for PCAP Data Analysis in an Investigation
 
@@ -29,7 +29,7 @@ Key benefits of using TShark include:
    * TShark can process large PCAP files quickly and efficiently, making it ideal for investigating high-volume network traffic without requiring a graphical interface.
 2. **Granular Filtering and Queries**:
    * With its robust filtering options, TShark allows analysts to isolate specific traffic types, such as HTTP, DNS, or SMB, or focus on particular indicators like IP addresses, ports, or protocol flags.
-3. **Customizable Output**:
+3. **Customisable Output**:
    * Analysts can extract specific fields (e.g., timestamps, source/destination IPs, packet lengths) and export the data in formats like JSON, CSV, or plain text for further analysis or reporting.
 4. **Protocol-Specific Insights**:
    * TShark decodes and interprets hundreds of protocols, making it easier to analyse the contents of application-layer protocols like HTTP, FTP, DNS, and TLS.
@@ -46,7 +46,7 @@ Below is a set of **TShark** queries designed for forensic analysis of`.pcap` fi
 
 ***
 
-### <mark style="color:blue;">1.</mark> **View Basic Packet Information**
+### 1. Read **Basic Packet Information**
 
 ```bash
 tshark -r sample.pcap
@@ -68,7 +68,7 @@ tshark -r sample.pcap -Y "http.request" -T fields -e http.host -e http.request.m
 
 ***
 
-### <mark style="color:blue;">3.</mark> **Filter Traffic by IP Address**
+### 3. **Filter Traffic by IP Address**
 
 ```bash
 tshark -r sample.pcap -Y "ip.addr == 192.168.1.10"

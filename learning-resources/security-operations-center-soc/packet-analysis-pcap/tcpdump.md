@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Tcpdump Packet Analysis (Level 1)
+# Tcpdump
 
 ### **Importance of Having Access to PCAP Data in an Investigation**
 
@@ -30,7 +30,7 @@ PCAP (Packet Capture) data is a critical resource in cybersecurity investigation
 3. **Payload Inspection:**
    * Unlike log files, PCAP captures the full content of network packets. This allows for deep payload inspection, helping detect malware delivery, ransomware encryption protocols, or exfiltrated sensitive data.
 4. **Detection of Anomalies and IoCs:**
-   * By analyzing PCAP data, investigators can identify Indicators of Compromise (IoCs), such as suspicious IPs, domains, or unusual traffic patterns and correlate these with known attack vectors.
+   * By analysing PCAP data, investigators can identify Indicators of Compromise (IoCs), such as suspicious IPs, domains, or unusual traffic patterns and correlate these with known attack vectors.
 5. **Validation and Proof:**
    * PCAP data is a reliable and detailed record that validates findings, supports forensic conclusions, and provides evidence in legal or compliance investigations.
 6. **Threat Intelligence Correlation:**
@@ -46,7 +46,7 @@ The following are basic Tcpdump queries tailored for network forensics investiga
 
 ***
 
-### 1. **View Basic Packet Information**
+### 1. Read **Basic Packet Information**
 
 ```bash
 tcpdump -r sample.pcap
@@ -198,7 +198,7 @@ tcpdump -r sample.pcap arp
 
 ***
 
-### 15. **Analyze Suspicious Command-and-Control (C2) Activity**
+### 15. **Analyse Suspicious Command-and-Control (C2) Activity**
 
 ```bash
 tcpdump -r sample.pcap dst port 443 or dst port 80

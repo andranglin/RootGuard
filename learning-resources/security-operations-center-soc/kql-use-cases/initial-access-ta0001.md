@@ -16,7 +16,7 @@ layout:
 
 ### **Sub-technique: T1078.001 - Default Accounts**
 
-**Objective**: Detect unauthorized access using default accounts.&#x20;
+**Objective**: Detect unauthorised access using default accounts.&#x20;
 
 1. **Default Account Logins**
 

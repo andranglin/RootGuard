@@ -22,9 +22,9 @@ layout:
 
 ## What is a Security Operations Center (SOC)?
 
-A Security Operations Center (SOC) is a centralised function that serves as the nerve center for an organisation’s security operations. The SOC is responsible for monitoring, detecting, analysing, and responding to ssecurity incidents in realtime to protect the organisation’s data, systems, and networks. It is staffed with skilled security professionals and equipped with advanced tools and technologies to proactively identify potential threats and mitigate risks.
+A Security Operations Center (SOC) is a centralised function that serves as the nerve centre for an organisation’s security operations. The SOC is responsible for monitoring, detecting, analysing, and responding to ssecurity incidents in realtime to protect the organisation’s data, systems, and networks. It is staffed with skilled security professionals and equipped with advanced tools and technologies to proactively identify potential threats and mitigate risks.
 
-### Key functions of a CSOC include:
+### Key SOC Functions:
 
 * Continuous monitoring of network traffic and system logs.
 * Incident detection and response.
@@ -33,13 +33,13 @@ A Security Operations Center (SOC) is a centralised function that serves as the 
 * Collaboration with other IT and security teams.
 * Reporting on security posture and incidents.
 
-CSOCs operate 24/7 in most cases to ensure round-the-clock protection against evolving cyber threats, making them an essential component of modern security strategies.
+SOCs operate 24/7 in most cases to ensure round-the-clock protection against evolving cyber threats, making them an essential component of modern security strategies.
 
 ***
 
-### Skillset Required for a CSOC Analyst
+### Required Skillset of a SOC Analyst
 
-A CSOC Analyst plays a critical role in detecting security threats. To excel in this role, individuals must possess a combination of technical expertise, analytical thinking, and communication skills.
+A SOC Analyst plays a critical role in detecting security threats. To excel in this role, individuals must possess a combination of technical expertise, analytical thinking, and communication skills.
 
 #### Core Technical Skills:
 
@@ -69,9 +69,9 @@ A CSOC Analyst plays a critical role in detecting security threats. To excel in 
 
 ***
 
-### Daily Task of a CSOC Analyst
+### SOC Analyst Daily Tasks&#x20;
 
-CSOC Analysts are at the forefront of defending an organisation against cyber threats. Their day-to-day responsibilities include:
+SOC Analysts are at the forefront of defending an organisation against cyber threats. Their day-to-day responsibilities include:
 
 1. **Monitoring and Alert Management:**
    * Continuously monitoring security dashboards and alerts.
@@ -94,9 +94,9 @@ CSOC Analysts are at the forefront of defending an organisation against cyber th
 
 ***
 
-### Training and Certifications Required
+### Training and Certifications
 
-A solid foundation in security principles, combined with industry-recognised certifications, can significantly enhance a candidate’s employability as a CSOC Analyst. Recommended certifications include:
+A solid foundation in security principles, combined with industry-recognised certifications, can significantly enhance a candidate’s employability as a SOC Analyst. Recommended certifications include:
 
 1. **Entry-Level Certifications:**
    * CompTIA Security+
@@ -117,7 +117,7 @@ Training courses offered by organisations like SANS, Cybrary and online platform
 
 ***
 
-### Path to Becoming a CSOC Analyst
+### Path to Becoming a SOC Analyst
 
 #### Step 1: Build Foundational Knowledge
 
@@ -144,4 +144,4 @@ Training courses offered by organisations like SANS, Cybrary and online platform
 * Stay updated on emerging cyber threats and technologies.
 * Pursue higher-level certifications and specialise in areas like incident response, threat hunting or digital forensics.
 
-While the above recommendation is unlikely to be a fit for everyone, in general, by following the path, aspiring professionals can successfully embark on a rewarding career as a CSOC Analyst, playing a pivotal role in safeguarding organisations against cyber threats.
+While the above recommendation is unlikely to be a fit for everyone, in general, by following the path, aspiring professionals can successfully embark on a rewarding career as a SOC Analyst, playing a pivotal role in safeguarding organisations against cyber threats.

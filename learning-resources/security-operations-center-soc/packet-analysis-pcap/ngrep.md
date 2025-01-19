@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Ngrep Basics
+# Ngrep
 
 ### Using Ngrep for PCAP Data Analysis in an Investigation
 
@@ -98,7 +98,7 @@ ngrep -I sample.pcap -q "example.com" udp port 53
 ngrep -I sample.pcap -W byline tcp port 80
 ```
 
-* **Explanation**: Captures HTTP traffic and formats the output line-by-line. Useful for analyzing web requests and responses.
+* **Explanation**: Captures HTTP traffic and formats the output line-by-line. Useful for analysing web requests and responses.
 
 ***
 
@@ -230,7 +230,7 @@ ngrep -I sample.pcap -W byline tcp port 25
 
 ***
 
-### 17. **Analsze Tor Traffic**
+### 17. **Analyse Tor Traffic**
 
 ```bash
 ngrep -I sample.pcap "" tcp port 9001
