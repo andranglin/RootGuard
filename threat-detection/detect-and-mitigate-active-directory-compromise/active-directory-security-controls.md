@@ -15,7 +15,7 @@ layout:
 
 # Active Directory Security Controls
 
-#### **Organisations with Effective Mitigation Controls: A Stronger Security Posture**
+### **Introduction**
 
 Organisations with effective mitigation controls are better equipped to prevent, detect, and respond to cybersecurity threats. These controls include a mix of preventive measures, such as firewalls, endpoint protection, and intrusion prevention systems, as well as detective mechanisms like security information and event management (SIEM) systems and anomaly detection tools. By layering these defences, organisations create a robust security framework that minimises the likelihood of breaches while maintaining continuous visibility into their network. Regular vulnerability assessments, penetration testing, and timely patch management ensure that known vulnerabilities are promptly addressed, reducing exposure to attacks.
 
@@ -23,9 +23,9 @@ In addition to technical measures, effective mitigation controls rely on well-de
 
 Organisations that prioritise mitigation controls also invest in compliance with regulatory and industry standards, such as GDPR, ISO 27001, and NIST frameworks. This ensures legal compliance and demonstrates a commitment to protecting customer and partner data, fostering trust and credibility. Continuous monitoring and auditing of controls provide real-time insights into the organisation’s security posture, enabling proactive adjustments as threats evolve. In today’s dynamic threat landscape, effective mitigation controls are not just protective measures but enablers of business continuity, resilience, and stakeholder confidence.
 
-The following is a checklist representing the mitigations for each Active Directory compromise detailed in the Detect and Mitigate Active Directory Compromise section subsections.
+**Note:** The following checklist presents the mitigations for each Active Directory compromise detailed on the [Detect and Mitigate Active Directory Compromise](../detecting-and-mitigating-microsoft-active-directory-compromises/) page.
 
-### Mitigating Kerberoasting&#x20;
+### [Mitigating Kerberoasting](active-directory-security-controls.md#mitigating-kerberoasting)&#x20;
 
 * [ ] Minimise the number of user objects configured with SPNs.
 * [ ] Create user objects with SPNs as gMSAs. However, if this is not feasible, set a minimum 30-character password that is unique, unpredictable, and managed.&#x20;
