@@ -27,7 +27,7 @@ A Security Analyst is a crucial team member responsible for safeguarding an orga
 
 ***
 
-### Interview Preparation Steps
+### Interview Preparation
 
 #### **1. Understand the Role and Expectations**
 
@@ -149,7 +149,7 @@ Staying informed helps you remain competitive and prepared.
 
 ***
 
-#### Create a Checklist to Guide the Interview Preparation
+### Create a Checklist to Guide the Interview Preparation
 
 * Review core security and networking concepts.
 * Practice using SIEM tools and analysing logs.

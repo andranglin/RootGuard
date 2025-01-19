@@ -1,5 +1,5 @@
 ---
-cover: ../../../.gitbook/assets/Screenshot 2025-01-10 081536.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-10 081536.png
 coverY: 0
 layout:
   cover:
@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# SOC Analysts Interview Prep Questions
+# Prep Interview Questions for SOC Analysts
 
 ### **Technical Questions**
 
@@ -527,7 +527,7 @@ layout:
   2. Analyse the malware using a sandbox.
   3. Scan connected systems for signs of infection.
 
-## <mark style="color:blue;">**Behavioural Questions**</mark>
+### **Behavioural Questions**
 
 1. **How do you manage multiple tasks and alerts in a high-pressure SOC environment?**
 

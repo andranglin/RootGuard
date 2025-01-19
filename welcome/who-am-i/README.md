@@ -1,6 +1,6 @@
 ---
 icon: user
-cover: ../../../.gitbook/assets/Screenshot 2025-01-10 082509.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-10 082509.png
 coverY: 0
 layout:
   cover:
@@ -48,9 +48,9 @@ I use many daily, and any mention of a particular tool, product, or service is o
 
 Most definitely, provided you give attribution.
 
-### **You can also visit**
+### **You can also visit my:**
 
 [**LinkedIn**](https://www.linkedin.com/in/adrian-anglin-76b29972)
 
-**X/Twitter:** @adriananglin
+**X:** @adriananglin
 
