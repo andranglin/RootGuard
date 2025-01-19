@@ -70,7 +70,7 @@ Responding to and recovering from AD compromises is time-consuming, costly, and 
 Note: The following are the attack types that are in scope.
 
 * [Kerberoasting ](kerberoasting.md)
-* [Authentication Server Response (AS-REP) Roasting ](../detect-and-mitigate-active-directory-compromise/authentication-server-response-as-rep-roasting/)
+* [Authentication Server Response (AS-REP) Roasting ](../detect-and-mitigate-active-directory-compromise/authentication-server-response-as-rep-roasting.md)
 * [Password Spraying ](password-spraying.md)
 * [MachineAccountQuota Compromise](machineaccountquota-compromise.md)
 * [Unconstrained delegation](unconstrained-delegation.md)
