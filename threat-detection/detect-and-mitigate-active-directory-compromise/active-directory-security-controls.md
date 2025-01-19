@@ -24,17 +24,17 @@ Organisations that prioritise mitigation controls also invest in compliance with
 
 **Note:** The following checklist presents the mitigations for each Active Directory compromise detailed on the [Detect and Mitigate Active Directory Compromise](../detecting-and-mitigating-microsoft-active-directory-compromises/) page.
 
-### [Mitigating Kerberoasting](active-directory-security-controls.md#mitigating-kerberoasting)&#x20;
+### [Mitigating Kerberoasting ](../detecting-and-mitigating-microsoft-active-directory-compromises/kerberoasting.md)
 
 * [ ] Minimise the number of user objects configured with SPNs.
 * [ ] Create user objects with SPNs as gMSAs. However, if this is not feasible, set a minimum 30-character password that is unique, unpredictable, and managed.&#x20;
 * [ ] Assign user objects with SPNs the minimum privileges necessary to perform their functions and ensure they are not members of highly privileged security groups, such as the Domain Admins security group.
 
-### Mitigating AS-REP Roasting&#x20;
+### [Mitigating AS-REP Roasting ](authentication-server-response-as-rep-roasting.md)
 
 * [ ] Ensure user objects require Kerberos pre-authentication. However, if user objects must be configured to bypass Kerberos pre-authentication, then these user objects should be granted the minimum set of privileges required for them to perform their functions. They should not be members of highly privileged security groups like Domain Admins. Additionally, set a minimum 30-character password that is unique, unpredictable and managed.
 
-### Mitigating Password Spraying&#x20;
+### [Mitigating Password Spraying ](../detecting-and-mitigating-microsoft-active-directory-compromises/password-spraying.md)
 
 * [ ] Create passwords for local administrator accounts, service accounts, and break glass accounts that are long (30-character minimum), unique, unpredictable and managed.
 * [ ] Create passwords used for single-factor authentication that consist of at least four random words with a total minimum length of 15-characters.
@@ -44,26 +44,26 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Scan networks at least monthly to identify any credentials that are being stored in the clear.&#x20;
 * [ ] Disable the NTLM protocol.
 
-### Mitigating a MachineAccountQuota Compromise&#x20;
+### [Mitigating a MachineAccountQuota Compromise ](../detecting-and-mitigating-microsoft-active-directory-compromises/machineaccountquota-compromise.md)
 
 * [ ] Configure unprivileged user objects so they cannot add computer objects to the domain.
 * [ ] Ensure the Domain Computers security group is not a member of privileged security groups.&#x20;
 * [ ] Ensure the Domain Computers security group does not have write privileges to any objects in Active Directory.
 * [ ] Enable LDAP signing for Domain Controllers.
 
-### Mitigating an Unconstrained Delegation Compromise&#x20;
+### [Mitigating an Unconstrained Delegation Compromise ](../detecting-and-mitigating-microsoft-active-directory-compromises/unconstrained-delegation.md)
 
 * [ ] Ensure computer objects are not configured for unconstrained delegation.&#x20;
 * [ ] Ensure privileged user objects are configured as ‘sensitive and cannot be delegated’.
 * [ ] Ensure privileged user objects are members of the Protected Users security group.&#x20;
 * [ ] Disable the Print Spooler service on Domain Controllers.
 
-### Mitigating a Password in GPP Compromise&#x20;
+### [Mitigating a Password in GPP Compromise](../detecting-and-mitigating-microsoft-active-directory-compromises/password-in-group-policy-preferences-gpp-compromise.md)&#x20;
 
 * [ ] Remove all GPP passwords.
 * [ ] Apply Microsoft’s security patch 2962486 to remove the functionality to create cpasswords.
 
-### Mitigating an AD CS Compromise&#x20;
+### [Mitigating an AD CS Compromise ](../detecting-and-mitigating-microsoft-active-directory-compromises/active-directory-certificate-services-ad-cs-compromise.md)
 
 * [ ] Remove the ‘Enrollee Supplies Subject’ flag.
 * [ ] Restrict standard user object permissions on certificate templates.
@@ -76,7 +76,7 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Encrypt and securely store backups of AD CS CA servers and limit access to only Backup Administrators.
 * [ ] Centrally log and analyse AD CS CA server logs in a timely manner to identify malicious activity.
 
-### Mitigating a Golden Certificate&#x20;
+### [Mitigating a Golden Certificate ](../detecting-and-mitigating-microsoft-active-directory-compromises/golden-certificate.md)
 
 * [ ] Use MFA to authenticate privileged users of systems.
 * [ ] Implement application control on AD CS CAs.
@@ -87,7 +87,7 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Encrypt and securely store backups of AD CS CA servers and limit access to only Backup Administrators.
 * [ ] Centrally log and analyse AD CS CA logs in a timely manner to identify malicious activity.
 
-### Mitigating DCSync&#x20;
+### [Mitigating DCSync](../detecting-and-mitigating-microsoft-active-directory-compromises/dcsync.md)&#x20;
 
 * [ ] Minimise the number of user objects with DCSync permissions.
 * [ ] Ensure user objects that are configured with a SPN do not have DCSync permissions.
@@ -96,7 +96,7 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Disable the NTLMv1 protocol.
 * [ ] Ensure LM password hashes are not used.
 
-### Mitigating Dumping ntds.dit&#x20;
+### [Mitigating Dumping ntds.dit ](../detecting-and-mitigating-microsoft-active-directory-compromises/dumping-ntds.dit.md)
 
 * [ ] Limit access to Domain Controllers to only privileged users that require access.
 * [ ] Restrict privileged access pathways to Domain Controllers to jump servers and secure admin workstations using only the ports and services that are required for administration.
@@ -106,18 +106,18 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Disable the Print Spooler service on Domain Controllers.
 * [ ] Disable the SMB version 1 protocol on Domain Controllers.
 
-### Mitigating a Golden Ticket&#x20;
+### [Mitigating a Golden Ticket ](../detecting-and-mitigating-microsoft-active-directory-compromises/golden-ticket.md)
 
 * [ ] Change the KRBTGT password every 12 months, or when the domain has been compromised or suspected to have been compromised.
 
-### Mitigating a Silver Ticket&#x20;
+### [Mitigating a Silver Ticket ](../detecting-and-mitigating-microsoft-active-directory-compromises/silver-ticket.md)
 
 * [ ] Create User objects with SPNs as group Managed Service Accounts (gMSAs).
 * [ ] Change all computer object (including Domain Controller) passwords every 30 days.
 * [ ] Ensure computer objects are not members of privileged security groups, such as the Domain Admins security group.
 * [ ] Ensure the Domain Computers security group does not have write or modify permissions to access any objects in the Active Directory.
 
-### Mitigating a Golden SAML&#x20;
+### [Mitigating a Golden SAML ](golden-security-assertion-markup-language-saml.md)
 
 * [ ] Ensure the AD FS service account is a gMSA.
 * [ ] Ensure the AD FS service account is used only for AD FS and no other purpose.
@@ -129,7 +129,7 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Encrypt and securely store backups of AD FS servers and limit access to only Backup Administrators.
 * [ ] Rotate AD FS token-signing and encryption certificates every 12 months, or sooner if an AD FS server has been compromised or suspected to have been compromised.
 
-### Mitigating a Microsoft Entra Connect Compromise&#x20;
+### [Mitigating a Microsoft Entra Connect Compromise ](microsoft-entra-connect-compromise.md)
 
 * [ ] Disable hard match takeover.
 * [ ] Disable soft matching.
@@ -142,7 +142,7 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Encrypt and securely store backups of Microsoft Entra Connect and limit access to only Backup Administrators.
 * [ ] Centrally log and analyse Microsoft Entra Connect server logs in a timely manner to identify malicious activity.
 
-### Mitigating a One-Way Domain Trust Bypass&#x20;
+### [Mitigating a One-Way Domain Trust Bypass ](one-way-domain-trust-bypass.md)
 
 * [ ] Limit access to Domain Controllers to only privileged users that require access.
 * [ ] Restrict privileged access pathways to Domain Controllers to jump servers and secure admin workstations using only the ports and services that are required for administration.
@@ -151,13 +151,13 @@ Organisations that prioritise mitigation controls also invest in compliance with
 * [ ] Centrally log and analyse Domain Controller logs in a timely manner to identify malicious activity.&#x20;
 * [ ] Disable the Print Spooler service on Domain Controllers.
 
-### Mitigating a SID History Compromise&#x20;
+### [Mitigating a SID History Compromise ](security-identifier-sid-history-compromise.md)
 
 * [ ] Ensure the ‘sIDHistory’ attribute is not used.
 * [ ] Ensure the ‘sIDHistory’ attribute is checked weekly.
 * [ ] Enable SID Filtering for domain and forest trusts.
 
-### Mitigating Skeleton Key
+### [Mitigating Skeleton Key](skeleton-key.md)
 
 * [ ] Limit access to Domain Controllers to only privileged users that require access.
 * [ ] Restrict privileged access pathways to Domain Controllers to jump servers and secure admin workstations using only the ports and services that are required for administration.
