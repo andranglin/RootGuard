@@ -67,7 +67,7 @@ Responding to and recovering from AD compromises is time-consuming, costly, and 
 
 ### Types of Attacks Targetting Active Directory
 
-Note: The following are the attack types that are in scope.
+The following are the attack types that are in scope of this investigative workflow:
 
 * [Kerberoasting ](kerberoasting.md)
 * [Authentication Server Response (AS-REP) Roasting ](../detect-and-mitigate-active-directory-compromise/authentication-server-response-as-rep-roasting.md)
@@ -87,7 +87,7 @@ Note: The following are the attack types that are in scope.
 * [Security Identifier (SID) History Compromise ](../detect-and-mitigate-active-directory-compromise/security-identifier-sid-history-compromise.md)
 * [Skeleton Key](../detect-and-mitigate-active-directory-compromise/skeleton-key.md)
 * [Active Directory Security Controls](../detect-and-mitigate-active-directory-compromise/active-directory-security-controls.md)
-* Active Directory Events for Detecting Compromise
+* [Active Directory Events for Detecting Compromise](../detect-and-mitigate-active-directory-compromise/active-directory-events-for-detecting-compromise.md)
 
 ### Detecting and Mitigating Active Directory Compromises
 
