@@ -81,7 +81,7 @@ Note: The following are the attack types that are in scope.
 * [Dumping ntds.dit](dumping-ntds.dit.md)
 * [Golden Ticket](golden-ticket.md)
 * [Silver Ticket](silver-ticket.md)
-* Golden Security Assertion Markup Language (SAML)
+* [Golden Security Assertion Markup Language (SAML)](../detect-and-mitigate-active-directory-compromise/golden-security-assertion-markup-language-saml.md)
 * Microsoft Entra Connect Compromise
 * One-way Domain Trust Bypass&#x20;
 * Security Identifier (SID) History Compromise&#x20;
