@@ -32,7 +32,7 @@ Golden SAML attacks are highly stealthy since they bypass standard authenticatio
 
 Detecting a Golden SAML can be challenging, especially after threat actors have compromised the environment and are using forged SAML responses to access service providers. The first opportunity to detect a Golden SAML is the generation of event 70, resulting from the compromise of an AD FS server and the export of the private key. Event 70 can be analysed to determine whether the export was authorised. If attackers successfully execute a Golden SAML and forge SAML responses to authenticate to service providers, then the AD FS and service provider's authentication events can be correlated to identify inconsistencies that may indicate the use of forged SAML responses.
 
-1. Events that detect a Golden SAML
+1. **Events that detect a Golden SAML**
    * **Event ID 70:** Event generated when a certificate’s private key is exported. Extracting the private key is the first step in a Golden SAML.
    * **Event ID 307:** Event generated when there is a change to the AD FS configuration. Malicious actors may add a new trusted AD FS server they can control instead of extracting the certificate and other information from an existing AD FS server.
    * **Event ID 510:** The event provides additional information and can be correlated with event 307 with the same instance ID. Any events generated for changes to AD FS should be investigated to confirm if the changes were authorised or not.

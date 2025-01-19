@@ -130,3 +130,4 @@
   * [Silver Ticket](threat-detection/detecting-and-mitigating-microsoft-active-directory-compromises/silver-ticket.md)
   * [Golden Security Assertion Markup Language (SAML)](threat-detection/detect-and-mitigate-active-directory-compromise/golden-security-assertion-markup-language-saml.md)
   * [Microsoft Entra Connect Compromise](threat-detection/detect-and-mitigate-active-directory-compromise/microsoft-entra-connect-compromise.md)
+  * [One-way Domain Trust Bypass](threat-detection/detect-and-mitigate-active-directory-compromise/one-way-domain-trust-bypass.md)

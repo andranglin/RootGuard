@@ -42,64 +42,96 @@ Once compromised, attackers can:
 
 ### **Detection Techniques**
 
-1. **The following security controls should be implemented to mitigate a Microsoft Entra Connect compromise:**
-   * Disable hard match takeover. This prevents the source of authority for objects in Microsoft Entra ID from changing to Active Directory. If the source of authority for a Microsoft Entra ID object is changed to Active Directory, then changes made to the Active Directory object overwrite the object’s properties in Microsoft Entra ID, including the password hash. If this setting is not disabled, and PHS is enabled, malicious actors can use this feature to take control of Microsoft Entra ID objects and gain privileged access to cloud-based resources and services.
-   * Disable soft matching. After initial synchronisation between Active Directory and Microsoft Entra ID, there is no requirement to keep soft matching enabled. If soft matching is enabled, it attempts to match new Active Directory objects with existing Microsoft Entra ID objects. If no match is found, then a new Microsoft Entra ID object is provisioned. Malicious actors can use this feature to provision a new user object they control in Microsoft Entra ID and gain privileged access to cloud-based resources and services.
-   * Do not synchronise privileged user objects from AD DS to Microsoft Entra ID. Use separate privileged accounts for AD DS and Microsoft Entra ID. If malicious actors compromise an AD DS domain and gain access to a privileged user object that synchronises with Microsoft Entra ID, then this gives them access to Microsoft Entra ID, and they can quickly expand the compromise from AD DS systems to cloud-based services and resources.
-   * Enable MFA for all privileged users in Microsoft Entra ID. This makes it harder for malicious actors to take control of a privileged user object in Microsoft Entra ID as they need the additional authentication factor required by MFA.
-   * Limit access to Microsoft Entra Connect servers to only privileged users that require access. This may be a smaller subset of privileged users than the Domain Admins security group, which reduces the number of user objects malicious actors can target to gain access to Microsoft Entra Connect servers.
-   * Restrict privileged access pathways to Microsoft Entra Connect servers to jump servers and secure admin workstations using only the ports and services that are required for administration. Microsoft Entra Connect servers are classified as ‘Tier 0’ assets within Microsoft’s ‘Enterprise Access Model’.
-   * Ensure passwords for Microsoft Entra Connect server local administrator accounts are long (30-character minimum), unique, unpredictable and managed. Microsoft’s Local Administrator Password Solution (LAPS) can be used to achieve this for local administrator accounts. Local administrator accounts can be targeted by malicious actors to gain access to Microsoft Entra Connect servers. For this reason, these accounts need to be protected from compromise.
-   * Only use Microsoft Entra Connect servers for Microsoft Entra Connect and ensure no other non-security-related services or applications are installed. This reduces the attack surface of Microsoft Entra Connect servers as there are fewer services, ports and applications that may be vulnerable and used to compromise a Microsoft Entra Connect server.
-   * Encrypt and securely store backups of Microsoft Entra Connect and limit access to only Backup Administrators. Backups of Microsoft Entra Connect servers need to be afforded the same security as the actual Microsoft Entra Connect servers. Malicious actors may target backup systems to gain access to critical and sensitive computer objects, such as Microsoft Entra Connect servers.
-   * Centrally log and analyse Microsoft Entra Connect server logs in a timely manner to identify malicious activity. If malicious actors gain privileged access to Microsoft Entra Connect servers, this activity should be identified as soon as possible, increasing response time and limiting impact.
-2. **Monitor Unusual Activities**:
+1. **Events that Detect a Microsoft Entra Connect Compromise:**
+
+**Source of Events:** Microsoft Entra Connect Servers
+
+* **Event ID 611:** Event generated when the PHS has failed. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 650:** Events generated when password synchronisation starts retrieving updated passwords from Active Directory. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 651:** Events generated when password synchronisation finishes retrieving updated passwords from Active Directory. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 656:** Events generated when password synchronisation indicates that a password change occurred and there was an attempt to sync this password to Microsoft Entra ID. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 657:** Events generated when a password change request is successfully sent to Microsoft Entra ID. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* Event ID 1102: Events generated when the ‘Security’ audit log is cleared. To avoid detection, malicious actors may clear this audit log to remove any evidence of their activities. Analysing this event can assist in identifying if a Microsoft Entra Connect server has been compromised.
+* **Event ID 4103:** Events generated when PowerShell executes and logs pipeline execution details. AADInternals, a popular toolkit used for exploiting Microsoft Entra Connect, uses PowerShell for its execution. This event can indicate the use of PowerShell-based malicious tools, which may assist in identifying if a malicious actor attempted to exploit Microsoft Entra Connect.
+* **Event ID 4104:** Events generated when PowerShell executes code to capture scripts and commands. AADInternals, a popular toolkit used for exploiting Microsoft Entra Connect, uses PowerShell for its execution. This event can indicate the use of PowerShell-based malicious tools, which may assist in identifying if a malicious actor attempted to exploit Microsoft Entra Connect.
+
+2. **Secure Entra Connect Server**:
+
+* Restrict access to the server to only necessary administrators and enforce multi-factor authentication (MFA).
+* Apply the principle of least privilege to all service accounts and ensure they are used solely for their intended purpose.
+
+3. **Update and Patch Regularly**:
+
+* Keep Microsoft Entra Connect software up to date to address vulnerabilities.
+* Apply security patches for both the operating system and associated components.
+
+4. **Enable Advanced Logging**:
+
+* Enable Azure AD audit and sign-in logs for comprehensive visibility.
+* Enable and monitor directory synchronisation logs to detect unauthorised changes.
+
+1. **Monitor Unusual Activities**:
    * Track changes in synchronised objects, such as new privileged accounts or altered group memberships.
    * Identify suspicious synchronisation activities, including unexpected schema changes or frequent sync cycles.
-3. **Log Analysis**:
-   * Analyse Entra Connect server logs for anomalous events, such as:
-     * Unauthorised access attempts.
-     * Changes to synchronisation configurations.
-     * Updates to the synchronisation schedule.
-   * Use Azure AD logs to detect unusual admin activities, such as privilege escalation or MFA disabling.
-4. **Network Traffic Analysis**:
-   * Monitor for unexpected communication from the Entra Connect server, such as connections to unauthorised external IPs.
-5. **Behavioural Analysis**:
-   * Use User and Entity Behavior Analytics (UEBA) to detect deviations from normal behaviour of Entra Connect-related accounts or services.
+2. **Log Analysis**:
+
+* Analyse Entra Connect server logs for anomalous events, such as:
+  * Unauthorised access attempts.
+  * Changes to synchronisation configurations.
+  * Updates to the synchronisation schedule.
+* Use Azure AD logs to detect unusual admin activities, such as privilege escalation or MFA disabling.
+
+6. **Network Traffic Analysis**:
+
+* Monitor for unexpected communication from the Entra Connect server, such as connections to unauthorised external IPs.
+
+7. **Behavioural Analysis**:
+
+* Use User and Entity Behavior Analytics (UEBA) to detect deviations from normal behaviour of Entra Connect-related accounts or services.
 
 ***
 
 ### **Mitigation Techniques**
 
-1.  **Events that Detect a Microsoft Entra Connect Compromise:**
+1. Events that Detect a Microsoft Entra Connect Compromise: Source of Events:&#x20;
 
-    **Source of Events:** Microsoft Entra Connect Servers
+* **Event ID 611:** Event generated when the PHS has failed. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 650:** Events generated when password synchronisation starts retrieving updated passwords from Active Directory. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 651:** Events generated when password synchronisation finishes retrieving updated passwords from Active Directory. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 656:** Events generated when password synchronisation indicates that a password change occurred and there was an attempt to sync this password to Microsoft Entra ID. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* **Event ID 657:** Events generated when a password change request is successfully sent to Microsoft Entra ID. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
+* Event ID 1102: Events generated when the ‘Security’ audit log is cleared. To avoid detection, malicious actors may clear this audit log to remove any evidence of their activities. Analysing this event can assist in identifying if a Microsoft Entra Connect server has been compromised.
+* **Event ID 4103:** Events generated when PowerShell executes and logs pipeline execution details. AADInternals, a popular toolkit used for exploiting Microsoft Entra Connect, uses PowerShell for its execution. This event can indicate the use of PowerShell-based malicious tools, which may assist in identifying if a malicious actor attempted to exploit Microsoft Entra Connect.
+* **Event ID 4104:** Events generated when PowerShell executes code to capture scripts and commands. AADInternals, a popular toolkit used for exploiting Microsoft Entra Connect, uses PowerShell for its execution. This event can indicate the use of PowerShell-based malicious tools, which may assist in identifying if a malicious actor attempted to exploit Microsoft Entra Connect.
 
-    * **Event ID 611:** Event generated when the PHS has failed. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
-    * **Event ID 650:** Events generated when password synchronisation starts retrieving updated passwords from Active Directory. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
-    * **Event ID 651:** Events generated when password synchronisation finishes retrieving updated passwords from Active Directory. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
-    * **Event ID 656:** Events generated when password synchronisation indicates that a password change occurred and there was an attempt to sync this password to Microsoft Entra ID. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
-    * **Event ID 657:** Events generated when a password change request is successfully sent to Microsoft Entra ID. This event can be analysed to identify unusual password synchronisation activity that could indicate a compromise against Microsoft Entra Connect.
-    * Event ID 1102: Events generated when the ‘Security’ audit log is cleared. To avoid detection, malicious actors may clear this audit log to remove any evidence of their activities. Analysing this event can assist in identifying if a Microsoft Entra Connect server has been compromised.
-    * **Event ID 4103:** Events generated when PowerShell executes and logs pipeline execution details. AADInternals, a popular toolkit used for exploiting Microsoft Entra Connect, uses PowerShell for its execution. This event can indicate the use of PowerShell-based malicious tools, which may assist in identifying if a malicious actor attempted to exploit Microsoft Entra Connect.
-    * **Event ID 4104:** Events generated when PowerShell executes code to capture scripts and commands. AADInternals, a popular toolkit used for exploiting Microsoft Entra Connect, uses PowerShell for its execution. This event can indicate the use of PowerShell-based malicious tools, which may assist in identifying if a malicious actor attempted to exploit Microsoft Entra Connect.
 2. **Secure Entra Connect Server**:
-   * Restrict access to the server to only necessary administrators and enforce multi-factor authentication (MFA).
-   * Apply the principle of least privilege to all service accounts and ensure they are used solely for their intended purpose.
+
+* Restrict access to the server to only necessary administrators and enforce multi-factor authentication (MFA).
+* Apply the principle of least privilege to all service accounts and ensure they are used solely for their intended purpose.
+
 3. **Update and Patch Regularly**:
-   * Keep Microsoft Entra Connect software up to date to address vulnerabilities.
-   * Apply security patches for both the operating system and associated components.
+
+* Keep Microsoft Entra Connect software up to date to address vulnerabilities.
+* Apply security patches for both the operating system and associated components.
+
 4. **Enable Advanced Logging**:
-   * Enable Azure AD audit and sign-in logs for comprehensive visibility.
-   * Enable and monitor directory synchronisation logs to detect unauthorised changes.
+
+* Enable Azure AD audit and sign-in logs for comprehensive visibility.
+* Enable and monitor directory synchronisation logs to detect unauthorised changes.
+
 5. **Harden Configurations**:
-   * Encrypt credentials stored on the Entra Connect server using secure mechanisms.
-   * Regularly review and harden synchronisation rules and configurations.
+
+* Encrypt credentials stored on the Entra Connect server using secure mechanisms.
+* Regularly review and harden synchronisation rules and configurations.
+
 6. **Implement Conditional Access and MFA**:
-   * Use conditional access policies to limit access to the Entra Connect server.
-   * Enforce MFA for all privileged accounts.
+
+* Use conditional access policies to limit access to the Entra Connect server.
+* Enforce MFA for all privileged accounts.
+
 7. **Conduct Regular Security Assessments**:
-   * Periodically audit the Entra Connect environment to identify misconfigurations, weak credentials, and potential vulnerabilities.
+
+* Periodically audit the Entra Connect environment to identify misconfigurations, weak credentials, and potential vulnerabilities.
 
 ***
 

@@ -82,7 +82,7 @@ Note: The following are the attack types that are in scope.
 * [Golden Ticket](golden-ticket.md)
 * [Silver Ticket](silver-ticket.md)
 * [Golden Security Assertion Markup Language (SAML)](../detect-and-mitigate-active-directory-compromise/golden-security-assertion-markup-language-saml.md)
-* Microsoft Entra Connect Compromise
+* [Microsoft Entra Connect Compromise](../detect-and-mitigate-active-directory-compromise/microsoft-entra-connect-compromise.md)
 * One-way Domain Trust Bypass&#x20;
 * Security Identifier (SID) History Compromise&#x20;
 * Skeleton Key

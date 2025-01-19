@@ -86,7 +86,7 @@ Tools such as Volume Shadow Copy Service and Ntdsutil are commonly used by malic
      * `ntdsutil "ac i ntds" "ifm"`
 3. **Registry Monitoring:**
    * Track access to `HKLM\SYSTEM` hive for potential key extraction.
-4. **Events that detect dumping ntds.dit:**
+4. **Events that Detect Dumping ntds.dit:**
    * **Event ID 1102:** Event generated when the ‘Security’ audit log is cleared. To avoid detection, malicious actors may clear this audit log to remove any evidence of their activities. Analysing this event can assist in identifying if a Domain Controller has been compromised.
    * **Event ID 4103:** Event generated when PowerShell executes and logs pipeline execution details. Malicious actors commonly leverage PowerShell in their compromises. Analysing this event for PowerShell execution relating to the ntds.dit file may indicate dumping of the ntds.dit file.
    * **Event ID 4104:** Event generated when PowerShell executes code to capture scripts and commands. Malicious actors commonly leverage PowerShell in their compromises. Analysing this event for PowerShell execution relating to the ntds.dit file may indicate dumping of the ntds.dit file.
@@ -107,7 +107,7 @@ Tools such as Volume Shadow Copy Service and Ntdsutil are commonly used by malic
 
 Mitigating techniques targeting the ntds.dit file begins with hardening Domain Controllers by restricting privileged access pathways, disabling unused services and ports, not installing additional features or applications, using antivirus and endpoint detection and response solutions, and monitoring for signs of compromise. These mitigations reduce the attack surface of Domain Controllers and increase the likelihood of detecting malicious activity.
 
-The following security controls should be implemented to mitigate dumping ntds.dit:
+**The following security controls should be implemented to mitigate dumping ntds.dit:**
 
 * Limit access to Domain Controllers to only privileged users that require access. This reduces the number of opportunities for malicious actors to gain access to Domain Controllers.
 * Restrict privileged access pathways to Domain Controllers to jump servers and secure admin workstations using only the ports and services that are required for administration. Domain Controllers are classified as ‘Tier 0’ assets within Microsoft’s ‘Enterprise Access Model’.
