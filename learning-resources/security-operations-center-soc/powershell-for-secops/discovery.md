@@ -14,9 +14,60 @@ layout:
 
 # Discovery
 
-### Discovery
+### **Introduction**
 
-#### 1. **Network Discovery**
+PowerShell is an essential tool for security operations (SecOps), offering a powerful platform for managing systems, automating tasks, and conducting threat investigations. Its deep integration with Windows and robust scripting capabilities make it invaluable for **Digital Forensics and Incident Response (DFIR)** investigations, particularly in uncovering **Discovery activities**. Discovery activities are actions taken by attackers to gain information about the environment, such as network configurations, user accounts, and active processes, to facilitate their attack objectives. PowerShell provides a comprehensive and efficient means to detect and analyse these activities, empowering SecOps teams to identify threats, mitigate risks, and safeguard enterprise networks.
+
+***
+
+### **Capabilities of PowerShell for Discovery Activities in DFIR**
+
+**1. Detecting Host Reconnaissance:**
+
+PowerShell enables analysts to monitor and analyse commands related to host discovery, such as the enumeration of running processes, services, and system information. This includes detecting queries that reveal system architecture, operating system versions, or installed software, which are commonly used by attackers during initial reconnaissance.
+
+**2. Monitoring for Network Discovery:**
+
+PowerShell provides the ability to detect attempts at network scanning and enumeration. This includes commands used to identify live hosts, open ports, and network shares, as well as activities aimed at mapping network topologies and configurations.
+
+**3. Investigating Account and Credential Enumeration:**
+
+Attackers often attempt to enumerate user accounts, groups, and Active Directory (AD) objects to identify privileged accounts or potential targets. PowerShell can track these activities by analysing queries related to AD, group memberships, and credential storage locations.
+
+**4. Detecting File and Directory Enumeration:**
+
+PowerShell can monitor activities involving the enumeration of files, directories, or shares, which attackers may use to locate sensitive information or valuable data. This includes identifying abnormal access patterns to critical directories or shared resources.
+
+**5. Identifying Command-Line Discovery Techniques:**
+
+PowerShell can capture and analyse suspicious or encoded command-line arguments indicative of discovery activities. This includes detecting the use of obfuscated commands or scripts aimed at bypassing security tools during reconnaissance.
+
+**6. Event Log Analysis for Discovery Patterns:**
+
+PowerShell facilitates querying event logs for patterns indicative of discovery activities. This includes looking for specific event IDs related to process creation, access attempts, or network activity that align with known discovery techniques.
+
+**7. Hunting for Discovery Tools:**
+
+Attackers may use third-party tools for discovery purposes, such as port scanners or AD enumeration tools. PowerShell can identify the execution of these tools and track their usage across the network.
+
+***
+
+### **Efficiency Provided by PowerShell in Discovery Activities**
+
+1. **Comprehensive Visibility**: PowerShell provides detailed access to system logs, processes, and configurations, enabling analysts to uncover discovery activities across endpoints and networks.
+2. **Real-Time Detection**: PowerShell’s dynamic querying capabilities allow SecOps teams to monitor system activities in real-time, providing immediate insights into discovery attempts.
+3. **Scalability**: With **PowerShell Remoting**, analysts can execute detection scripts across multiple systems simultaneously, ensuring efficient coverage in enterprise environments.
+4. **Automation of Analysis**: PowerShell scripts can automate the detection of specific discovery activities, such as tracking commands that query system information or network configurations, ensuring consistent and repeatable workflows.
+5. **Tailored Detection**: PowerShell’s flexibility allows for customising detection rules to align with organisational baselines and threat models, including the **MITRE ATT\&CK framework**.
+6. **Integration with Security Tools**: PowerShell integrates seamlessly with tools like Microsoft Sentinel, Defender for Endpoint, and SIEM platforms, enabling automated responses and enriched threat analysis.
+
+***
+
+By leveraging PowerShell’s extensive capabilities, SecOps teams can effectively uncover and analyse discovery activities during DFIR investigations, allowing for rapid containment and mitigation of threats while enhancing the organisation’s security posture.
+
+### Discovery Actions
+
+### 1. **Network Discovery**
 
 **1.1. Detecting Network Scanning Activities**
 
@@ -38,7 +89,7 @@ Get-NetNeighbor | Where-Object {$_.State -eq 'Reachable'} | Select-Object Interf
 ```
 {% endcode %}
 
-#### 2. **User and Account Discovery**
+### 2. **User and Account Discovery**
 
 **2.1. Enumerating Local User Accounts**
 
@@ -58,7 +109,7 @@ Get-ADUser -Filter * -Property DisplayName, Title, Department | Select-Object Di
 ```
 {% endcode %}
 
-#### 3. **Group and Permission Discovery**
+### 3. **Group and Permission Discovery**
 
 **3.1. Listing Local Group Memberships**
 
@@ -80,7 +131,7 @@ Get-ADGroup -Filter * -Property Members | Select-Object Name, @{n='Members';e={$
 ```
 {% endcode %}
 
-#### 4. **System and Application Discovery**
+### 4. **System and Application Discovery**
 
 **4.1. Enumerating Installed Applications**
 
@@ -102,7 +153,7 @@ Get-Process | Select-Object Id, ProcessName, StartTime
 ```
 {% endcode %}
 
-#### 5. **Network Configuration and Interface Enumeration**
+### 5. **Network Configuration and Interface Enumeration**
 
 **5.1. Listing Network Interfaces**
 
@@ -120,7 +171,7 @@ Get-NetAdapter | Select-Object Name, InterfaceDescription, Status, MACAddress
 Get-NetIPAddress | Select-Object InterfaceAlias, IPAddress, PrefixLength
 ```
 
-#### 6. **Service and Port Discovery**
+### 6. **Service and Port Discovery**
 
 **6.1. Listing Listening Ports**
 
@@ -138,7 +189,7 @@ Get-NetTCPConnection -State Listen | Select-Object LocalAddress, LocalPort
 Get-Service | Select-Object Name, DisplayName, Status, StartType
 ```
 
-#### 7. **File and Directory Discovery**
+### 7. **File and Directory Discovery**
 
 **7.1. Listing Files in Specific Directories**
 
@@ -160,7 +211,7 @@ Get-WmiObject -Query "SELECT * FROM Win32_Share WHERE Type=0" | Select-Object Na
 ```
 {% endcode %}
 
-#### 8. **Security and Policy Discovery**
+### 8. **Security and Policy Discovery**
 
 **8.1. Enumerating Local Security Policies**
 
@@ -178,7 +229,7 @@ secedit /export /cfg C:\securitypolicy.cfg Get-Content C:\securitypolicy.cfg
 Get-AuditPolicy | Select-Object Subcategory, Success, Failure
 ```
 
-#### 9. **Scheduled Task and Job Discovery**
+### 9. **Scheduled Task and Job Discovery**
 
 **9.1. Listing Scheduled Tasks**
 
@@ -196,7 +247,7 @@ Get-ScheduledTask | Select-Object TaskName, LastRunTime, TaskPath
 Get-WmiObject -Class Win32_ScheduledJob | Select-Object Name, JobId, JobStatus
 ```
 
-#### 10. **Remote System and Domain Discovery**
+### 10. **Remote System and Domain Discovery**
 
 **10.1. Listing Domain Controllers**
 

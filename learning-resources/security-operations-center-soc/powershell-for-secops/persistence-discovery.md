@@ -1,5 +1,4 @@
 ---
-hidden: true
 layout:
   title:
     visible: true
@@ -15,9 +14,62 @@ layout:
 
 # Persistence Discovery
 
+### **Introduction**
+
+PowerShell is an essential tool for SecOps teams, offering a powerful and versatile platform for managing systems, automating tasks, and investigating security incidents. Its integration with Windows, extensive library of cmdlets, and scripting capabilities make it particularly effective for uncovering **Persistence Discovery** activities during digital forensics and incident response (DFIR) investigations. Persistence techniques are used by attackers to maintain long-term access to compromised systems, enabling them to return even after detection or remediation. PowerShell empowers SecOps teams to identify these techniques efficiently, facilitating swift containment and strengthening the organisation’s security posture.
+
+***
+
+### **Capabilities of PowerShell for Persistence Discovery in DFIR**
+
+**1. Startup and Autorun Location Analysis:**
+
+PowerShell enables analysts to investigate startup items, registry keys, and scheduled tasks that attackers might abuse to establish persistence. This includes inspecting common persistence points such as `Run` registry keys, startup folders, and `HKLM\Software\Microsoft\Windows\CurrentVersion\Run`.
+
+**2. Scheduled Task Inspection:**
+
+Attackers often create or modify scheduled tasks to execute malicious payloads persistently. PowerShell can enumerate all scheduled tasks, analyse their configurations, and identify suspicious or unauthorised entries that deviate from normal operations.
+
+**3. Service Configuration and Abuse Detection:**
+
+Malicious actors may create or modify Windows services to run their code persistently. PowerShell allows for detailed inspection of service configurations, including service types, startup modes, and associated binaries, helping to uncover evidence of misuse.
+
+**4. Registry and WMI Persistence Monitoring:**
+
+Windows Management Instrumentation (WMI) and registry keys are common avenues for persistence. PowerShell provides the ability to query and analyse WMI event subscriptions and registry entries, helping to detect malicious alterations designed to maintain attacker footholds.
+
+**5. User Account and Credential Persistence:**
+
+PowerShell can monitor for the creation of rogue user accounts, unauthorised changes to user privileges, or misuse of credentials that attackers may leverage for persistent access. It can also help detect changes to Active Directory objects or policies related to persistence.
+
+**6. File and Binary Inspection:**
+
+Attackers may deploy or modify binaries, scripts, or libraries to ensure persistence. PowerShell allows for searching, analysing, and verifying the integrity of these files, including identifying anomalous or unsigned executables.
+
+**7. Event Log Analysis:**
+
+Persistence activities often leave traces in Windows event logs. PowerShell enables querying of security, application, and system logs for events indicative of persistence techniques, such as service creation, task scheduling, or registry modifications.
+
+***
+
+### **Efficiency Provided by PowerShell in Persistence Discovery**
+
+1. **Comprehensive Visibility**: PowerShell provides detailed insights into critical system components like registry keys, services, tasks, and user accounts, ensuring thorough persistence detection.
+2. **Scalability**: With PowerShell Remoting, analysts can perform persistence discovery across multiple systems simultaneously, making it ideal for large-scale investigations.
+3. **Real-Time Analysis**: PowerShell supports real-time querying of persistence mechanisms, enabling teams to identify and respond to ongoing threats more quickly.
+4. **Automation**: PowerShell scripts can automate routine discovery tasks, such as scanning for scheduled tasks or analysing registry changes, ensuring efficiency and consistency.
+5. **Custom Detection Rules**: PowerShell can be tailored to focus on specific persistence techniques outlined in the **MITRE ATT\&CK framework**, enabling precise detection aligned with known adversarial tactics.
+6. **Integration with Security Tools**: Seamless integration with security platforms like Microsoft Defender for Endpoint, Azure Sentinel, and SIEMs allows for enhanced detection and automated responses to persistence activities.
+
+***
+
+By leveraging PowerShell's capabilities, SecOps teams can efficiently uncover and analyse persistence techniques, minimising the attacker’s ability to maintain access and improving the enterprise network's overall resilience.
+
+4o
+
 ### Persistence Discovery
 
-#### 1. **Registry-Based Persistence**
+### 1. **Registry-Based Persistence**
 
 **1.1. Registry Run Key Modifications**
 
@@ -45,7 +97,7 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windo
 ```
 {% endcode %}
 
-#### 2. **Scheduled Tasks and Services**
+### 2. **Scheduled Tasks and Services**
 
 **2.1. Listing Suspicious Scheduled Tasks**
 
@@ -67,7 +119,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045} |  Where-Object {$_.P
 ```
 {% endcode %}
 
-#### 3. **WMI Persistence**
+### 3. **WMI Persistence**
 
 **3.1. Detecting WMI Event Consumers**
 
@@ -89,7 +141,7 @@ Get-WmiObject -Namespace "root\subscription" -Class __EventFilter | Select-Objec
 ```
 {% endcode %}
 
-#### 4. **Startup Folder Persistence**
+### 4. **Startup Folder Persistence**
 
 **4.1. Listing Items in Startup Folders**
 
@@ -107,7 +159,7 @@ Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startu
 ```
 {% endcode %}
 
-#### 5. **GPO and Logon Scripts**
+### 5. **GPO and Logon Scripts**
 
 **5.1. Detecting GPO Logon Scripts**
 
@@ -129,7 +181,7 @@ Get-ChildItem -Path "C:\Windows\System32\GroupPolicy\User\Scripts\Logon" | Selec
 ```
 {% endcode %}
 
-#### 6. **Binary and Script-Based Persistence**
+### 6. **Binary and Script-Based Persistence**
 
 **6.1. Monitoring Changes in Common System Directories**
 
@@ -149,7 +201,7 @@ Get-ChildItem -Path "C:\Windows\System32" -Filter "*.exe, *.dll" | Where-Object 
 Get-Content -Path $PROFILE
 ```
 
-#### 7. **Malicious Use of Scripting Languages**
+### 7. **Malicious Use of Scripting Languages**
 
 **7.1. Monitoring for Suspicious PowerShell Scripts**
 
@@ -171,7 +223,7 @@ Get-ChildItem -Path "C:\Windows\Temp" -Filter "*.js, *.vbs" | Where-Object {$_.L
 ```
 {% endcode %}
 
-#### 8. **Registry Persistence**
+### 8. **Registry Persistence**
 
 **8.1. Checking for Winlogon Shell Modifications**
 
@@ -193,7 +245,7 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlo
 ```
 {% endcode %}
 
-#### 9. **Boot and Auto-Start Configuration**
+### 9. **Boot and Auto-Start Configuration**
 
 **9.1. Checking for Boot Configuration Data (BCD) Changes**
 
@@ -213,7 +265,7 @@ Get-Service | Where-Object {$_.StartType -eq 'Automatic'} | Select-Object Name, 
 ```
 {% endcode %}
 
-#### 10. **Persistence via Network and Remote Services**
+### 10. **Persistence via Network and Remote Services**
 
 **10.1. Monitoring Remote Desktop Protocol (RDP) Changes**
 
@@ -235,9 +287,9 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WSMAN\Cl
 ```
 {% endcode %}
 
-**Additional Discovery Techniques**
+### **Additional Discovery Techniques**
 
-#### 1. **Registry and Autoruns Monitoring**
+### 1. **Registry and Autoruns Monitoring**
 
 **1.1. Detecting Autorun Entries in the Registry**
 
@@ -259,7 +311,7 @@ Get-ChildItem -Path "C:\Users\*\AppData\Roaming\Microsoft\Windows\Start Menu\Pro
 ```
 {% endcode %}
 
-#### 2. **Service and Scheduled Task Persistence**
+### 2. **Service and Scheduled Task Persistence**
 
 **2.1. Detecting Creation of New Services**
 
@@ -281,7 +333,7 @@ Get-ScheduledTask | Where-Object {$_.Principal.UserId -like "*"} | Select-Object
 ```
 {% endcode %}
 
-#### 3. **WMI and COM Object Persistence**
+### 3. **WMI and COM Object Persistence**
 
 **3.1. Detecting WMI Event Subscription Persistence**
 
@@ -303,7 +355,7 @@ Get-ItemProperty -Path "HKLM:\Software\Classes\CLSID" -Recurse | Where-Object {$
 ```
 {% endcode %}
 
-#### 4. **Startup Scripts and Logon Hooks**
+### 4. **Startup Scripts and Logon Hooks**
 
 **4.1. Detecting Changes in Group Policy Logon Scripts**
 
@@ -325,7 +377,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4672} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 5. **Malicious Use of Scheduled Jobs and Cron Jobs**
+### 5. **Malicious Use of Scheduled Jobs and Cron Jobs**
 
 **5.1. Detecting Creation of New Scheduled Jobs**
 
@@ -347,7 +399,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4698} | Select-Object Tim
 ```
 {% endcode %}
 
-#### 6. **Persistence via System Service**<mark style="color:blue;">**s**</mark>
+### 6. **Persistence via System Service**<mark style="color:blue;">**s**</mark>
 
 **6.1. Detecting Changes to System Services**
 
@@ -369,7 +421,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7030} | Select-Object TimeC
 ```
 {% endcode %}
 
-#### 7. **Browser Extensions and Plug-Ins**
+### 7. **Browser Extensions and Plug-Ins**
 
 **7.1. Detecting Malicious Browser Extensions**
 
@@ -391,7 +443,7 @@ Get-ChildItem -Path "C:\Program Files (x86)\Mozilla Firefox\browser\extensions" 
 ```
 {% endcode %}
 
-#### 8. **DLL Hijacking and Injection**
+### 8. **DLL Hijacking and Injection**
 
 **8.1. Detecting DLL Hijacking Attempts**
 
@@ -413,7 +465,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4656} | Where-Object {($_
 ```
 {% endcode %}
 
-#### 9. **Remote Access and Backdoors**
+### 9. **Remote Access and Backdoors**
 
 **9.1. Detecting Remote Access Tools (RATs)**
 
@@ -435,7 +487,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7035} | Where-Object {$_.Pr
 ```
 {% endcode %}
 
-#### 10. **Persistence via System and Network Configuration**
+### 10. **Persistence via System and Network Configuration**
 
 **10.1. Detecting Changes in Network Configuration**
 

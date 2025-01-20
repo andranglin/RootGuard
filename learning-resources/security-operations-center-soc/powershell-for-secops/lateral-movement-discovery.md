@@ -1,5 +1,4 @@
 ---
-hidden: true
 layout:
   title:
     visible: true
@@ -15,9 +14,60 @@ layout:
 
 # Lateral Movement Discovery
 
+### **Introduction**
+
+PowerShell is a vital tool for security operations (SecOps), offering powerful capabilities to manage systems, automate processes, and investigate security incidents. Its deep integration with Windows, flexibility, and robust scripting capabilities make it a go-to tool for **Digital Forensics and Incident Response (DFIR)**. One of its critical applications in DFIR is uncovering **Lateral Movement Discovery** activities. Lateral movement involves attackers navigating through a network to escalate privileges, access sensitive resources, or maintain persistence. PowerShell allows SecOps teams to efficiently detect and investigate these activities, providing actionable insights to mitigate threats and protect enterprise networks.
+
+***
+
+### **Capabilities of PowerShell for Lateral Movement Discovery in DFIR**
+
+**1. Detecting Unauthorised Credential Use:**
+
+PowerShell enables analysts to identify the use of compromised credentials during lateral movement. This includes tracking unusual logins, remote session creations, or suspicious account activities across endpoints.
+
+**2. Monitoring Remote Execution Attempts:**
+
+Attackers often leverage remote execution tools and protocols like PowerShell Remoting, WMI, or PsExec to move laterally. PowerShell can detect these activities by querying logs, inspecting process creations, and analysing command-line arguments.
+
+**3. Investigating File and Payload Transfers:**
+
+PowerShell can help uncover unauthorised file transfers, such as malicious payloads being moved between systems. This includes monitoring shared directories, network drives, and suspicious use of file copy tools like `robocopy` or custom scripts.
+
+**4. Identifying Service and Scheduled Task Abuses:**
+
+Attackers frequently create or manipulate services and scheduled tasks on remote systems to execute malicious code. PowerShell allows for the enumeration and analysis of these configurations to detect anomalies or unauthorised changes.
+
+**5. Analysing Network Connections:**
+
+PowerShell provides insights into active and historical network connections, enabling analysts to identify unusual connections between systems that may indicate lateral movement attempts.
+
+**6. Detecting Lateral Movement Tools:**
+
+Common tools used for lateral movement, such as Mimikatz, Cobalt Strike, or Impacket, leave traces in logs and processes. PowerShell can identify evidence of these tools, as well as their artifacts, across systems.
+
+**7. Event Log Analysis for Lateral Movement Patterns:**
+
+PowerShell facilitates querying security logs for specific events indicative of lateral movement. This includes analysing Event IDs related to remote logins (e.g., 4624, 4648) or the use of administrative tools like WMI or SMB.
+
+***
+
+### **Efficiency Provided by PowerShell in Lateral Movement Discovery**
+
+1. **Comprehensive Endpoint Visibility**: PowerShell provides access to critical data, such as logs, processes, and network configurations, enabling thorough investigation of lateral movement activities.
+2. **Real-Time Detection**: PowerShell enables real-time querying and analysis of suspicious activities, allowing security teams to quickly identify and respond to lateral movement attempts.
+3. **Scalability**: Using **PowerShell Remoting**, SecOps teams can monitor and investigate lateral movement activities across multiple systems in parallel, making it ideal for enterprise-scale networks.
+4. **Automation and Consistency**: PowerShell scripts can automate routine discovery tasks, such as log analysis or process enumeration, ensuring consistent detection and reducing manual effort.
+5. **Customisable Detection**: PowerShell’s scripting flexibility allows analysts to tailor detection mechanisms for specific lateral movement techniques, aligning with frameworks like **MITRE ATT\&CK**.
+6. **Integration with Security Tools**: PowerShell integrates seamlessly with tools such as Microsoft Sentinel, Defender for Endpoint, and SIEM platforms, enabling enriched detection workflows and automated remediation.
+
+***
+
+By leveraging PowerShell’s capabilities, SecOps teams can efficiently uncover and analyse lateral movement activities in enterprise networks, enabling rapid containment and strengthening the organisation’s overall security posture.
+
 ### Lateral Movement Discovery
 
-#### 1. **Remote Execution and Access Tools**
+### 1. **Remote Execution and Access Tools**
 
 **1.1. Detecting Remote Desktop Protocol (RDP) Usage**
 
@@ -39,7 +89,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 2. **Pass-the-Hash and Pass-the-Ticket**
+### 2. **Pass-the-Hash and Pass-the-Ticket**
 
 **2.1. Detecting Pass-the-Hash Attacks**
 
@@ -61,7 +111,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4769} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 3. **Remote Services and Scheduled Tasks**
+### 3. **Remote Services and Scheduled Tasks**
 
 **3.1. Detecting Remote Service Creation**
 
@@ -83,7 +133,7 @@ Get-ScheduledTask | Where-Object {$_.Principal.UserId -like "*"} | Select-Object
 ```
 {% endcode %}
 
-#### 4. **File Sharing and Remote File Copy**
+### 4. **File Sharing and Remote File Copy**
 
 **4.1. Monitoring for Use of Admin Shares**
 
@@ -105,7 +155,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 5. **Credential Harvesting and Stealing**
+### 5. **Credential Harvesting and Stealing**
 
 **5.1. Monitoring for Credential Dumping Tools**
 
@@ -127,7 +177,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4656} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 6. **Use of Legitimate Admin Tools**
+### 6. **Use of Legitimate Admin Tools**
 
 **6.1. Detecting PsExec Usage**
 
@@ -149,7 +199,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-WMI-Activity/Operatio
 ```
 {% endcode %}
 
-#### 7. **Domain Controller and Active Directory Access**
+### 7. **Domain Controller and Active Directory Access**
 
 **7.1. Monitoring Access to Domain Controllers**
 
@@ -171,7 +221,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4662} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 8. **Application and Script Execution**
+### 8. **Application and Script Execution**
 
 **8.1. Detecting Script Execution Across Network**
 
@@ -193,7 +243,7 @@ Get-ChildItem -Path "C:\Windows\Temp\" -Filter "*.bat" | Select-Object FullName,
 ```
 {% endcode %}
 
-#### 9. **Use of Third-Party Remote Access Tools**
+### 9. **Use of Third-Party Remote Access Tools**
 
 **9.1. Detecting Use of VNC**
 
@@ -215,7 +265,7 @@ Get-Process | Where-Object {$_.ProcessName -match 'TeamViewer'} | Select-Object 
 ```
 {% endcode %}
 
-#### 10. **Command and Control (C2) and Beaconing**
+### 10. **Command and Control (C2) and Beaconing**
 
 **10.1. Monitoring for Beaconing Activity**
 
@@ -237,9 +287,9 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-DNS-Client/Operationa
 ```
 {% endcode %}
 
-**Additional Discovery Techniques**
+### **Additional Discovery Techniques**
 
-#### 1. **Remote Desktop Protocol (RDP) Usage**
+### 1. **Remote Desktop Protocol (RDP) Usage**
 
 **1.1. Detecting Unauthorized RDP Sessions**
 
@@ -261,7 +311,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 2. **Remote Services and Command Execution**
+### 2. **Remote Services and Command Execution**
 
 **2.1. Detecting PsExec Usage**
 
@@ -283,7 +333,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 3. **Windows Management Instrumentation (WMI)**
+### 3. **Windows Management Instrumentation (WMI)**
 
 **3.1. Detecting WMI Command Execution**
 
@@ -305,7 +355,7 @@ Get-WmiObject -Namespace "root\subscription" -Class __EventFilter | Select-Objec
 ```
 {% endcode %}
 
-#### 4. **Service and Scheduled Task Creation**
+### 4. **Service and Scheduled Task Creation**
 
 **4.1. Detecting Creation of New Services**
 
@@ -327,7 +377,7 @@ Get-ScheduledTask | Where-Object {$_.Principal.UserId -like "*"} | Select-Object
 ```
 {% endcode %}
 
-#### 5. **File and Directory Discovery**
+### 5. **File and Directory Discovery**
 
 **5.1. Monitoring Access to Shared Folders**
 
@@ -349,7 +399,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### <mark style="color:blue;">6.</mark> **Account and Credential Manipulation**
+### 6. **Account and Credential Manipulation**
 
 **6.1. Monitoring for Privilege Escalation Attempts**
 
@@ -371,7 +421,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4720} | Select-Object Tim
 ```
 {% endcode %}
 
-#### 7. **Pass-the-Hash and Pass-the-Ticket Attacks**
+### 7. **Pass-the-Hash and Pass-the-Ticket Attacks**
 
 **7.1. Detecting NTLM Authentication Attempts**
 
@@ -393,7 +443,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4769} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 8. **File Transfer and Data Staging**
+### 8. **File Transfer and Data Staging**
 
 **8.1. Detecting File Transfers via SMB**
 
@@ -415,7 +465,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-TerminalServices-RDPC
 ```
 {% endcode %}
 
-#### 9. **Network and Protocol Analysis**
+### 9. **Network and Protocol Analysis**
 
 **9.1. Detecting Anomalous Network Traffic**
 
@@ -437,7 +487,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 10. **Anomalous Behaviour and Activity Monitoring**
+### 10. **Anomalous Behaviour and Activity Monitoring**
 
 **10.1. Detecting Anomalous Login Times**
 

@@ -1,5 +1,4 @@
 ---
-hidden: true
 layout:
   title:
     visible: true
@@ -15,9 +14,60 @@ layout:
 
 # Privilege Escalation Discovery
 
+### **Introduction**
+
+PowerShell is an indispensable tool for security operations (SecOps), offering extensive capabilities for managing and securing enterprise networks. Its deep integration with Windows systems, robust scripting functionality, and comprehensive library of cmdlets make it a critical asset for conducting **Privilege Escalation Discovery** activities in digital forensics and incident response (DFIR) investigations. Privilege escalation is a tactic commonly used by attackers to gain elevated access within a network, enabling them to execute unauthorised actions and evade security measures. PowerShell empowers SecOps teams to efficiently detect and analyse privilege escalation techniques, providing actionable insights to mitigate threats and protect enterprise systems.
+
+***
+
+### **Capabilities of PowerShell for Privilege Escalation Discovery in DFIR**
+
+**1. Enumerating Local and Domain Users:**
+
+PowerShell enables analysts to query user accounts and groups on local systems and Active Directory (AD). This helps detect newly created accounts, unauthorised privilege assignments, or abnormal group memberships that could indicate privilege escalation attempts.
+
+**2. Analysing Privilege Changes:**
+
+With PowerShell, analysts can monitor privilege escalation events, such as changes to user rights, group policies, or role assignments. This includes tracking modifications to critical groups like Administrators, Domain Admins, or Enterprise Admins.
+
+**3. Detecting Misconfigurations and Exploitable Settings:**
+
+Attackers often exploit misconfigurations to elevate privileges. PowerShell allows for the inspection of file and folder permissions, service configurations, and registry keys to identify weaknesses, such as improperly set `SeTakeOwnershipPrivilege` or `SeDebugPrivilege`.
+
+**4. Identifying Credential Exposure:**
+
+Privilege escalation often involves harvesting credentials from compromised systems. PowerShell facilitates the detection of exposed credentials, such as plaintext passwords in scripts, memory, or configuration files, which attackers might use to gain elevated access.
+
+**5. Monitoring Process and Service Escalation:**
+
+PowerShell provides detailed insights into running processes and services, helping analysts identify processes with elevated privileges or services that have been modified to execute malicious binaries.
+
+**6. Event Log Analysis:**
+
+Privilege escalation activities often leave traces in Windows event logs. PowerShell enables querying of security logs for specific events, such as changes to user rights, process creation with elevated privileges, or attempts to exploit privileged accounts.
+
+**7. Hunting for Privilege Escalation Tools:**
+
+Attackers commonly use tools like Mimikatz or PsExec for privilege escalation. PowerShell allows analysts to search for the presence of these tools, as well as their execution traces in system logs or memory.
+
+***
+
+### **Efficiency Provided by PowerShell in Privilege Escalation Discovery**
+
+1. **Comprehensive Visibility**: PowerShell offers access to critical system components and logs, allowing security teams to detect privilege escalation attempts across both local systems and domain environments.
+2. **Real-Time Analysis**: PowerShell’s dynamic querying capabilities provide real-time insights into privilege-related activities, enabling rapid detection and response to escalation attempts.
+3. **Scalability**: Using **PowerShell Remoting**, analysts can perform privilege escalation discovery across multiple endpoints simultaneously, ensuring coverage in large enterprise networks.
+4. **Automation and Consistency**: PowerShell scripts automate repetitive tasks, such as querying group memberships or analysing user rights, ensuring consistent and efficient investigation workflows.
+5. **Customisable Detection**: PowerShell can be tailored to detect specific privilege escalation techniques outlined in the **MITRE ATT\&CK framework**, ensuring alignment with known adversarial tactics.
+6. **Integration with Security Tools**: PowerShell integrates seamlessly with platforms like Microsoft Sentinel, Defender for Endpoint, and other SIEMs, enabling enriched detection and automated remediation workflows.
+
+***
+
+By leveraging PowerShell’s capabilities, SecOps teams can efficiently identify and mitigate privilege escalation activities, enhancing their ability to protect enterprise networks and maintain a robust security posture.
+
 ### Privilege Escalation Discovery
 
-#### 1. **Monitoring Process and Service Changes**
+### 1. **Monitoring Process and Service Changes**
 
 **1.1. Detecting New Administrative Process Creation**
 
@@ -39,7 +89,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045} | Select-Object TimeC
 ```
 {% endcode %}
 
-#### 2. **User and Group Changes**
+### 2. **User and Group Changes**
 
 **2.1. Detecting New User Account Creation**
 
@@ -61,7 +111,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4732,4746,4756} | Select-
 ```
 {% endcode %}
 
-#### 3. **Registry and System Configuration**
+### 3. **Registry and System Configuration**
 
 **3.1. Monitoring Registry Key Changes for Escalation Paths**
 
@@ -83,7 +133,7 @@ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies
 ```
 {% endcode %}
 
-#### 4. **Scheduled Tasks and Services**
+### 4. **Scheduled Tasks and Services**
 
 **4.1. Detecting Changes to Scheduled Tasks**
 
@@ -105,7 +155,7 @@ Get-WmiObject -Class Win32_Service | Where-Object {$_.StartMode -eq "Auto" -and 
 ```
 {% endcode %}
 
-#### 5. **Access Control and Permissions**
+### 5. **Access Control and Permissions**
 
 **5.1. Monitoring Changes to ACLs on Sensitive Files**
 
@@ -127,7 +177,7 @@ Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\LanmanServer\Par
 ```
 {% endcode %}
 
-#### 6. **Executable and Script Monitoring**
+### 6. **Executable and Script Monitoring**
 
 **6.1. Detecting Unusual Executables in System Directories**
 
@@ -149,7 +199,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 7. **Application and Service Installation**
+### 7. **Application and Service Installation**
 
 **7.1. Detecting Installation of Potentially Malicious Software**
 
@@ -171,7 +221,7 @@ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" | S
 ```
 {% endcode %}
 
-#### 8. **Exploit Detection and Mitigation**
+### 8. **Exploit Detection and Mitigation**
 
 **8.1. Monitoring for Known Exploit Attempts**
 
@@ -193,7 +243,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7040} |  Where-Object {$_.P
 ```
 {% endcode %}
 
-#### 9. **Audit Policy and Event Log Monitoring**
+### 9. **Audit Policy and Event Log Monitoring**
 
 **9.1. Monitoring Changes to Audit Policies**
 
@@ -211,7 +261,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4719}
 Get-WinEvent -FilterHashtable @{LogName='Security'; ID=1102}
 ```
 
-#### 10. **Domain and Network-Level Privilege Escalation**
+### 10. **Domain and Network-Level Privilege Escalation**
 
 **10.1. Monitoring Changes to Domain Admin Group**
 
@@ -233,9 +283,9 @@ Get-GPO -All | Get-GPOReport -ReportType XML | Select-String -Pattern "Administr
 ```
 {% endcode %}
 
-**Additional Discovery Techniques**
+### **Additional Discovery Techniques**
 
-#### 1. **Monitoring Account Privilege Changes**
+### 1. **Monitoring Account Privilege Changes**
 
 **1.1. Detecting Changes in User Group Membership**
 
@@ -257,7 +307,7 @@ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies
 ```
 {% endcode %}
 
-#### 2. **Service and Process Manipulation**
+### 2. **Service and Process Manipulation**
 
 **2.1. Detecting Service Configuration Changes**
 
@@ -279,7 +329,7 @@ Get-CimInstance -ClassName Win32_Process |  Select-Object ProcessId, Name, Paren
 ```
 {% endcode %}
 
-#### 3. **Scheduled Tasks and Cron Jobs**
+### 3. **Scheduled Tasks and Cron Jobs**
 
 **3.1. Detecting Creation of High-Privilege Scheduled Tasks**
 
@@ -301,7 +351,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4698} | Select-Object Tim
 ```
 {% endcode %}
 
-#### 4. **Exploitation of Vulnerabilities and Misconfigurations**
+### 4. **Exploitation of Vulnerabilities and Misconfigurations**
 
 **4.1. Detecting Exploitation of Known Vulnerabilities**
 
@@ -323,7 +373,7 @@ Get-Acl -Path "C:\Windows\System32" | Select-Object -ExpandProperty Access |  Wh
 ```
 {% endcode %}
 
-#### 5. **Credential Theft and Reuse**
+### 5. **Credential Theft and Reuse**
 
 **5.1. Detecting Use of Pass-the-Hash**
 
@@ -345,7 +395,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4673} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 6. **Exploit Local Privilege Escalation (LPE) Vulnerabilities**
+### 6. **Exploit Local Privilege Escalation (LPE) Vulnerabilities**
 
 **6.1. Detecting Execution of Exploits**
 
@@ -367,7 +417,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 7. **Abuse of Built-in Windows Tools**
+### 7. **Abuse of Built-in Windows Tools**
 
 **7.1. Detecting Use of WMI for Privilege Escalation**
 
@@ -389,7 +439,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 8. **Abuse of Service Control Manager**
+### 8. **Abuse of Service Control Manager**
 
 **8.1. Detecting Service Installation by Non-Admins**
 
@@ -411,7 +461,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7040} | Where-Object {($_.P
 ```
 {% endcode %}
 
-#### 9. **Manipulation of Security Policies and Settings**
+### 9. **Manipulation of Security Policies and Settings**
 
 **9.1. Monitoring Changes to Local Security Policies**
 
@@ -433,7 +483,7 @@ secedit /export /cfg C:\securitypolicy.cfg Get-Content C:\securitypolicy.cfg | W
 ```
 {% endcode %}
 
-#### 10. **Manipulation of Active Directory Objects**
+### 10. **Manipulation of Active Directory Objects**
 
 **10.1. Detecting Unusual Changes to Group Policy Objects (GPOs)**
 

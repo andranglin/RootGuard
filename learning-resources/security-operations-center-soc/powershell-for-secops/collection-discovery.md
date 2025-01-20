@@ -1,5 +1,4 @@
 ---
-hidden: true
 layout:
   title:
     visible: true
@@ -15,9 +14,60 @@ layout:
 
 # Collection Discovery
 
+### **Introduction**
+
+PowerShell is a powerful and versatile tool widely used by security operations (SecOps) teams to manage systems, automate tasks, and conduct detailed investigations. Its robust scripting capabilities and deep integration with Windows make it indispensable for **Digital Forensics and Incident Response (DFIR)**. One of its critical applications in DFIR is uncovering **Collection Discovery** activities. Collection Discovery involves identifying and investigating attackers' unauthorised gathering of sensitive data or intellectual property within an enterprise network. PowerShell empowers SecOps teams to efficiently detect and analyse these activities, enabling swift containment and mitigation of data-related threats.
+
+***
+
+### **Capabilities of PowerShell for Collection Discovery in DFIR**
+
+**1. Detecting File and Directory Enumeration:**
+
+PowerShell can monitor and analyse commands used to enumerate files and directories, which is often an initial step in data collection. This includes detecting suspicious access to shared drives, sensitive directories, or files with specific extensions, such as `.docx`, `.xlsx`, or `.pdf`.
+
+**2. Investigating Unauthorised Data Access:**
+
+Attackers may attempt to access or exfiltrate confidential data. PowerShell provides the ability to query audit logs, monitor file system activity, and detect unauthorised access to critical resources.
+
+**3. Monitoring Data Aggregation Tools:**
+
+PowerShell can identify the use of tools or scripts designed for aggregating data, such as`robocopy`, custom PowerShell scripts or third-party utilities. It can also monitor for unusual compression or archiving activities, such as the creation of `.zip` or `.rar` files.
+
+**4. Analysing Network File Transfers:**
+
+PowerShell enables analysts to detect suspicious file transfers over the network, such as uploads to cloud storage services, transfers via SMB shares, or unusual HTTP/FTP activity.
+
+**5. Detecting Credential Collection:**
+
+Collection Discovery often includes harvesting credentials stored on systems. PowerShell can identify attempts to access the Windows Credential Manager, SAM database, or tools like Mimikatz, which are used to collect credentials.
+
+**6. Inspecting Registry and Configuration Changes:**
+
+Attackers may modify registry settings or system configurations to enable easier data collection. PowerShell can query and analyse registry keys and configuration files for unauthorised changes.
+
+**7. Querying Event Logs for Data Collection Patterns:**
+
+PowerShell can analyse event logs to identify patterns indicative of data collection, such as abnormal read/write operations, access to large volumes of data, or failed access attempts.
+
+***
+
+### **Efficiency Provided by PowerShell in Collection Discovery**
+
+1. **Comprehensive Visibility**: PowerShell offers access to critical data sources, such as file systems, logs, and network configurations, enabling analysts to thoroughly investigate collection activities.
+2. **Real-Time Monitoring**: PowerShell supports real-time detection and analysis, allowing SecOps teams to identify collection attempts as they occur and take immediate action.
+3. **Scalability**: Using **PowerShell Remoting**, analysts can simultaneously investigate collection activities across multiple systems, ensuring comprehensive coverage in enterprise environments.
+4. **Automation and Efficiency**: Repetitive tasks, such as scanning directories for sensitive file access or monitoring audit logs, can be automated using PowerShell scripts, saving time and ensuring consistency.
+5. **Tailored Detection Rules**: PowerShell scripts can be customised to detect specific collection techniques aligned with the **MITRE ATT\&CK framework**, enhancing the precision of investigations.
+6. **Integration with Security Tools**: PowerShell integrates seamlessly with platforms like Microsoft Sentinel, Defender for Endpoint, and SIEM solutions, enabling enriched data analysis and automated threat response.
+
+***
+
+By leveraging PowerShell’s capabilities, SecOps teams can efficiently uncover and analyse Collection Discovery activities in enterprise networks. This enables proactive defence against data theft and ensures the organisation’s sensitive information remains secure.
+
 ### Collection Discovery
 
-#### 1. **File and Data Collection**
+### 1. **File and Data Collection**
 
 **1.1. Detecting Large File Searches**
 
@@ -39,7 +89,7 @@ Get-ChildItem -Path "C:\Users\*" -Recurse -Include *.docx, *.xlsx, *.pdf |  Sele
 ```
 {% endcode %}
 
-#### 2. **Clipboard Data Collection**
+### 2. **Clipboard Data Collection**
 
 **2.1. Monitoring Clipboard Access**
 
@@ -59,7 +109,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 3. **Keystroke Logging**
+### 3. **Keystroke Logging**
 
 **3.1. Detecting Keylogger Installation**
 
@@ -81,7 +131,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*logger*'} | Select-Object Pro
 ```
 {% endcode %}
 
-#### 4. **Screenshot and Video Capture**
+### 4. **Screenshot and Video Capture**
 
 **4.1. Detecting Screenshot Capture Programs**
 
@@ -103,7 +153,7 @@ Get-Process | Where-Object {$_.ProcessName -match 'OBS|Camtasia|Debut'} | Select
 ```
 {% endcode %}
 
-#### 5. **Audio Capture and Surveillance**
+### 5. **Audio Capture and Surveillance**
 
 **5.1. Monitoring for Audio Recording Software**
 
@@ -125,7 +175,7 @@ Get-WmiObject -Class Win32_PnPEntity |  Where-Object {($_.Name -match "Microphon
 ```
 {% endcode %}
 
-#### 6. **Credential and Authentication Data Collection**
+### 6. **Credential and Authentication Data Collection**
 
 **6.1. Monitoring for Credential Dumping Tools**
 
@@ -147,7 +197,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 7. **Email and Messaging Data Collection**
+### 7. **Email and Messaging Data Collection**
 
 **7.1. Monitoring for Email Client Activity**
 
@@ -169,7 +219,7 @@ Get-Process | Where-Object {$_.ProcessName -match 'Teams|Skype|Slack'} | Select-
 ```
 {% endcode %}
 
-#### 8. **Browser Data Collection**
+### 8. **Browser Data Collection**
 
 **8.1. Detecting Access to Browser Data**
 
@@ -191,7 +241,7 @@ Get-ChildItem -Path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Ex
 ```
 {% endcode %}
 
-#### 9. **Data Staging and Compression**
+### 9. **Data Staging and Compression**
 
 **9.1. Detecting Data Compression Tools**
 
@@ -213,7 +263,7 @@ Get-ChildItem -Path "C:\Users\*" -Recurse -Include *.zip, *.rar, *.7z | Select-O
 ```
 {% endcode %}
 
-#### 10. **Cloud and Remote Storage Access**
+### 10. **Cloud and Remote Storage Access**
 
 **10.1. Monitoring for Cloud Storage Access**
 

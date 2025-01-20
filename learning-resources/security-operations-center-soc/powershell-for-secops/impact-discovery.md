@@ -1,5 +1,4 @@
 ---
-hidden: true
 layout:
   title:
     visible: true
@@ -15,9 +14,64 @@ layout:
 
 # Impact Discovery
 
+### **Introduction**
+
+PowerShell is a powerful tool for security operations (SecOps), providing extensive capabilities for managing systems, automating tasks, and conducting detailed investigations in enterprise environments. Its deep integration with Windows and robust scripting capabilities make it essential for **Digital Forensics and Incident Response (DFIR)** investigations. One of its critical applications is in uncovering **Impact Discovery** activities, where attackers seek to disrupt, degrade, or destroy systems, data, and operations. PowerShell enables SecOps teams to efficiently detect, analyse, and respond to these activities, minimising damage and ensuring the swift recovery of enterprise operations.
+
+***
+
+### **Capabilities of PowerShell for Impact Discovery in DFIR**
+
+**1. Detecting File Deletion or Encryption Attempts:**
+
+PowerShell allows analysts to monitor file system activities, such as mass file deletions, unauthorised modifications, or the use of encryption tools, which are often indicative of ransomware or destructive attacks.
+
+**2. Monitoring Process Execution:**
+
+PowerShell can identify suspicious processes that indicate impact activities, such as ransomware binaries, wipers, or destructive scripts. It can also detect abnormal parent-child process relationships often used in such attacks.
+
+**3. Analysing System Configuration Changes:**
+
+Attackers may alter system configurations to cause disruptions, such as disabling critical services or modifying startup parameters. PowerShell can query and audit these changes to identify malicious activity.
+
+**4. Investigating Disk and Volume Modifications:**
+
+PowerShell enables the monitoring of disk and volume changes, such as the deletion of partitions, formatting of drives, or disabling of shadow copies, which attackers often leverage to maximise the impact of their activities.
+
+**5. Identifying Account Lockouts and Privilege Abuse:**
+
+Attackers may attempt to lock out accounts or escalate privileges to increase their impact. PowerShell provides the ability to track account activity, detect unauthorised privilege changes, and monitor account lockout events.
+
+**6. Examining Service and Task Modifications:**
+
+PowerShell can analyse modifications to scheduled tasks, services, or system jobs that may be used to execute impact activities, such as deploying destructive payloads or disabling key functionalities.
+
+**7. Detecting Network Disruptions:**
+
+PowerShell can monitor for network-related disruptions, such as modifying firewall rules, DNS settings, or routing tables, which may indicate an attempt to impact connectivity or isolate systems.
+
+**8. Event Log Analysis for Impact Indicators:**
+
+PowerShell allows analysts to query and analyse event logs for evidence of impact activities, such as critical service failures, mass access attempts, or patterns of malicious execution.
+
+***
+
+### **Efficiency Provided by PowerShell in Impact Discovery**
+
+1. **Comprehensive System Visibility**: PowerShell provides detailed access to system configurations, processes, file systems, and logs, enabling analysts to uncover impact activities across various components of the enterprise.
+2. **Real-Time Detection**: PowerShell’s ability to monitor and query system activities in real-time allows security teams to identify and respond to impact-related threats as they unfold.
+3. **Scalability**: With **PowerShell Remoting**, SecOps teams can simultaneously perform impact discovery across multiple endpoints, ensuring efficiency in large-scale enterprise environments.
+4. **Automation of Investigation Tasks**: PowerShell scripts can automate repetitive discovery tasks, such as scanning for unauthorised modifications or querying event logs, ensuring consistent and efficient workflows.
+5. **Customisation for Threat Models**: PowerShell allows for the creation of tailored scripts to detect specific impact techniques aligned with frameworks like the **MITRE ATT\&CK**, enabling targeted detection.
+6. **Integration with Security Tools**: PowerShell integrates seamlessly with platforms like Microsoft Sentinel, Defender for Endpoint, and SIEM solutions, enabling enriched detection, automated alerts, and effective incident response workflows.
+
+***
+
+By leveraging PowerShell’s capabilities, SecOps teams can efficiently detect and mitigate Impact Discovery activities during DFIR investigations, minimising the potential damage and ensuring the swift restoration of enterprise operations.
+
 ### Impact Discovery
 
-#### 1. **Data Destruction and Manipulation**
+### 1. **Data Destruction and Manipulation**
 
 **1.1. Detecting Mass File Deletions**
 
@@ -31,7 +85,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 
 **1.2. Monitoring File Modifications**
 
-**Purpose**: Detect unauthorized modifications to critical files.
+**Purpose**: Detect unauthorised modifications to critical files.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -39,7 +93,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 2. **System and Service Disruption**
+### 2. **System and Service Disruption**
 
 **2.1. Detecting Service Stoppages**
 
@@ -61,7 +115,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=1074} | Select-Object TimeC
 ```
 {% endcode %}
 
-#### 3. **Ransomware and Encryption**
+### 3. **Ransomware and Encryption**
 
 **3.1. Detecting File Encryption Activity**
 
@@ -83,11 +137,11 @@ Get-ChildItem -Path "C:\Users\*\Documents\*" -Recurse -Include *.txt | Where-Obj
 ```
 {% endcode %}
 
-#### 4. **System Integrity and Configuration Changes**
+### 4. **System Integrity and Configuration Changes**
 
-**4.1. Monitoring for Unauthorized Changes to System Files**
+**4.1. Monitoring for Unauthorised Changes to System Files**
 
-**Purpose**: Detect unauthorized changes to important system files.
+**Purpose**: Detect unauthorised changes to important system files.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -97,7 +151,7 @@ Get-ChildItem -Path "C:\Windows\System32" -Recurse -Include *.exe, *.dll | Where
 
 **4.2. Detecting Group Policy Object Modifications**
 
-**Purpose**: Identify unauthorized modifications to Group Policy Objects (GPOs).
+**Purpose**: Identify unauthorised modifications to Group Policy Objects (GPOs).
 
 {% code overflow="wrap" %}
 ```powershell
@@ -105,7 +159,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=5136} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 5. **Security Tool Tampering**
+### 5. **Security Tool Tampering**
 
 **5.1. Detecting Disabling of Security Software**
 
@@ -119,7 +173,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045} | Where-Object {$_.Pr
 
 **5.2. Monitoring Changes to Firewall Settings**
 
-**Purpose**: Detect unauthorized changes to firewall rules that may expose systems to attacks.
+**Purpose**: Detect unauthorised changes to firewall rules that may expose systems to attacks.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -127,7 +181,7 @@ Get-NetFirewallRule -PolicyStore ActiveStore | Where-Object {($_.Action -eq 'All
 ```
 {% endcode %}
 
-#### 6. **Data Integrity and Backup Manipulation**
+### 6. **Data Integrity and Backup Manipulation**
 
 **6.1. Detecting Deletion of Backup Files**
 
@@ -149,7 +203,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=8224} | Where-Object {$_.Me
 ```
 {% endcode %}
 
-#### 7. **Application and Software Integrity**
+### 7. **Application and Software Integrity**
 
 **7.1. Detecting Unauthorised Software Installations**
 
@@ -171,7 +225,7 @@ Get-WmiObject -Class Win32_Product |  Where-Object {$_.InstallDate -gt (Get-Date
 ```
 {% endcode %}
 
-#### 8. **Log and Audit Manipulation**
+### 8. **Log and Audit Manipulation**
 
 **8.1. Detecting Clearing of Event Logs**
 
@@ -191,7 +245,7 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\EventLog\Securit
 ```
 {% endcode %}
 
-#### 9. **System Resource Abuse**
+### 9. **System Resource Abuse**
 
 **9.1. Detecting Cryptocurrency Mining Activity**
 
@@ -213,7 +267,7 @@ Get-Counter -Counter "\Processor(_Total)\% Processor Time" -SampleInterval 5 -Ma
 ```
 {% endcode %}
 
-#### 10. **Website Defacement and System Messaging**
+### 10. **Website Defacement and System Messaging**
 
 **10.1. Detecting Website Defacement**
 
