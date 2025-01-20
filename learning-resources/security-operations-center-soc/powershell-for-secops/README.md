@@ -26,7 +26,7 @@ For DFIR analysts, PowerShell investigations aligned with the MITRE ATT\&CK fram
 
 PowerShell’s dual nature as both an operational necessity and a security risk emphasises the importance of a structured, framework-driven approach to its investigation. Leveraging MITRE-based methodologies, DFIR professionals can systematically detect malicious use of PowerShell, implement targeted defences, and enhance an organisation’s security posture against advanced threats.
 
-This section will cover the following areas with their dedicated subsections:&#x20;
+#### This section will cover the following areas with their dedicated subsections:&#x20;
 
 [Powershell Remoting ](powershell-remoting.md)
 
