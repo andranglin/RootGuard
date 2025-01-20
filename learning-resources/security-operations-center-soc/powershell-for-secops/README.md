@@ -1,6 +1,5 @@
 ---
 icon: laptop-code
-hidden: true
 layout:
   title:
     visible: true
