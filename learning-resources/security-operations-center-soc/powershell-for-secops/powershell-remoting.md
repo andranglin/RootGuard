@@ -40,7 +40,6 @@ Invoke-Command -Session $Session {Get-Service -Name W32time}
 !
 Get-PSSession | Remove-PSSession
 
-
 $UserName = "bob01"
 $ComputerName = "PC01"
 $Credential = Get-Credential -UserName $UserName
