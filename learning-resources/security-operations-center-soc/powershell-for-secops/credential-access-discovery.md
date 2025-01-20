@@ -14,9 +14,52 @@ layout:
 
 # Credential Access Discovery
 
+### **Introduction**
+
+PowerShell is a powerful and flexible tool that plays a critical role in security operations (SecOps), particularly in the detection, investigation, and remediation of threats within enterprise networks. Its deep integration with Windows systems, robust scripting capabilities, and extensive library of cmdlets make it an essential asset for digital forensics and incident response (DFIR). Specifically, PowerShell is highly effective in uncovering **Credential Access Discovery** activities, which are often part of an attacker’s effort to gain unauthorised access to sensitive accounts or escalate privileges. By leveraging PowerShell, SecOps teams can efficiently identify and mitigate credential theft or misuse, a critical step in protecting enterprise environments.
+
+***
+
+### **Capabilities of PowerShell for Credential Access Discovery in DFIR**
+
+**1. Detecting Credential Dumping Activities:**
+
+PowerShell enables the identification of suspicious activities like memory dumping or unauthorised access to critical processes such as`lsass.exe`, often targeted for credential extraction. It can also detect tools and techniques used to dump password hashes or plaintext credentials, providing insights into attacker behaviour.
+
+**2. Investigating Credential Storage Locations:**
+
+PowerShell can analyse system components like the Security Account Manager (SAM), Active Directory database files, and registry entries to detect unauthorised access attempts or modifications. It is also capable of monitoring sensitive storage areas, such as the Windows Credential Manager, to uncover malicious activities aimed at harvesting credentials.
+
+**3. Monitoring for Credential Harvesting:**
+
+PowerShell can be used to identify abnormal patterns in account usage, such as unusual logins, privilege escalations, or anomalous network activity. This enables security teams to track the misuse of compromised credentials across the network and detect lateral movement or unauthorised access attempts.
+
+**4. Hunting for Tools and Techniques:**
+
+PowerShell can effectively detect malicious tools, obfuscated scripts, or encoded commands used in credential theft attacks. It also supports monitoring for Kerberos ticket abuse, such as Golden or Silver Ticket attacks, which adversaries often employ to maintain persistent access.
+
+**5. Artifact Collection for Forensic Analysis:**
+
+PowerShell automates the collection of critical forensic artifacts, such as security logs, memory dumps, and process details. These artifacts provide valuable evidence for identifying the scope of credential access activities and understanding the attacker’s methods.
+
+***
+
+### **Efficiency Provided by PowerShell in Credential Access Discovery**
+
+1. **Comprehensive Visibility**: PowerShell provides unparalleled access to logs, processes, and system configurations, offering a complete view of credential access attempts and associated behaviours.
+2. **Scalability**: The ability to execute scripts across multiple endpoints through PowerShell Remoting makes it ideal for investigations in large enterprise environments.
+3. **Real-Time Insights**: PowerShell’s dynamic querying capabilities enable security teams to detect and analyse credential-related threats in real-time, reducing response times.
+4. **Automation and Consistency**: By automating repetitive tasks, PowerShell ensures consistency in detection and analysis workflows while freeing up analysts for more complex investigations.
+5. **Customisable Detection**: PowerShell scripts can be tailored to align with the **MITRE ATT\&CK framework**, ensuring the detection of specific adversarial tactics and techniques.
+6. **Integration with Security Tools**: Seamless integration with platforms like Microsoft Sentinel, Defender for Endpoint, and SIEM tools enhances the efficiency and effectiveness of credential access discovery and incident response efforts.
+
+***
+
+By utilising PowerShell’s extensive capabilities, SecOps teams can effectively detect and investigate credential access activities, enabling timely mitigation and strengthening the overall security posture of the enterprise.
+
 ### Credential Access Discovery
 
-#### 1. **Detecting Credential Dumping Attempts**
+### 1. **Detecting Credential Dumping Attempts**
 
 **1.1. Monitoring for LSASS Process Access**
 
@@ -38,7 +81,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 2. **Suspicious Account Activity Monitoring**
+### 2. **Suspicious Account Activity Monitoring**
 
 **2.1. Tracking Account Logon Failures**
 
@@ -60,7 +103,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 3. **Phishing and Email-based Attacks**
+### 3. **Phishing and Email-based Attacks**
 
 **3.1. Detecting Phishing Email Characteristics**
 
@@ -82,7 +125,7 @@ Get-WinEvent -FilterHashtable @{LogName='Application'; ID=3005} | Where-Object {
 ```
 {% endcode %}
 
-#### 4. **Credential Caching and Storage**
+### 4. **Credential Caching and Storage**
 
 **4.1. Detecting Stored Credentials in Browsers**
 
@@ -104,7 +147,7 @@ Get-ChildItem -Path "C:\Users\*\Documents\Default.rdp" -Force | Select-Object Fu
 ```
 {% endcode %}
 
-#### 5. **Keylogging and User Input Capture**
+### 5. **Keylogging and User Input Capture**
 
 **5.1. Detecting Keylogger Installation**
 
@@ -126,7 +169,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*logger*'} | Select-Object Pro
 ```
 {% endcode %}
 
-#### 6. **Credential Theft from API and Memory**
+### 6. **Credential Theft from API and Memory**
 
 **6.1. Monitoring Access to Security Account Manager (SAM) Database**
 
@@ -148,7 +191,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4663} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 7. **Suspicious Network and Remote Access Activity**
+### 7. **Suspicious Network and Remote Access Activity**
 
 **7.1. Detecting Suspicious VPN Connections**
 
@@ -170,7 +213,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*RAT*'} | Select-Object Proces
 ```
 {% endcode %}
 
-#### 8. **Password and Credential Policy Changes**
+### 8. **Password and Credential Policy Changes**
 
 **8.1. Monitoring Changes to Password Policies**
 
@@ -192,7 +235,7 @@ Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "Disab
 ```
 {% endcode %}
 
-#### 9. **Browser and Web-based Credential Theft**
+### 9. **Browser and Web-based Credential Theft**
 
 **9.1. Detecting Malicious Browser Extensions**
 
@@ -214,7 +257,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-DNS-Client/Operationa
 ```
 {% endcode %}
 
-#### 10. **Advanced Credential Stealing Techniques**
+### 10. **Advanced Credential Stealing Techniques**
 
 **10.1. Monitoring for Kerberoasting Attempts**
 
@@ -236,9 +279,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {$_.
 ```
 {% endcode %}
 
-**Additional Discovery Techniques**
+### **Additional Discovery Techniques**
 
-#### 1. **Credential Dumping**
+### 1. **Credential Dumping**
 
 **1.1. Monitoring LSASS Memory Access**
 
@@ -260,7 +303,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 2. **Keylogging and Input Capture**
+### 2. **Keylogging and Input Capture**
 
 **2.1. Detecting Keylogger Installation**
 
@@ -282,7 +325,7 @@ Get-Process | Where-Object {$_.ProcessName -like '*logger*'} | Select-Object Pro
 ```
 {% endcode %}
 
-#### 3. **Brute Force and Password Guessing**
+### 3. **Brute Force and Password Guessing**
 
 **3.1. Monitoring Account Lockout Events**
 
@@ -304,7 +347,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4625} | Group-Object -Pro
 ```
 {% endcode %}
 
-#### 4. **Phishing and Spear Phishing**
+### 4. **Phishing and Spear Phishing**
 
 **4.1. Identifying Phishing Email Characteristics**
 
@@ -326,7 +369,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" |  Where-Object {$_.
 ```
 {% endcode %}
 
-#### 5. **Credential Theft from Browsers**
+### 5. **Credential Theft from Browsers**
 
 **5.1. Detecting Access to Stored Browser Credentials**
 
@@ -348,7 +391,7 @@ Get-ChildItem -Path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Ex
 ```
 {% endcode %}
 
-#### 6. **Credential Dumping from the Security Account Manager (SAM)**
+### 6. **Credential Dumping from the Security Account Manager (SAM)**
 
 **6.1. Monitoring SAM Database Access**
 
@@ -370,7 +413,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 7. **Exploitation of Default Credentials**
+### 7. **Exploitation of Default Credentials**
 
 **7.1. Detecting Use of Default or Weak Credentials**
 
@@ -392,7 +435,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {($_
 ```
 {% endcode %}
 
-#### 8. **Credential Harvesting from Application Credentials**
+### 8. **Credential Harvesting from Application Credentials**
 
 **8.1. Detecting Access to Application Credentials**
 
@@ -414,7 +457,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 9. **Pass-the-Hash and Pass-the-Ticket**
+### 9. **Pass-the-Hash and Pass-the-Ticket**
 
 **9.1. Detecting Pass-the-Hash Attacks**
 
@@ -436,7 +479,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4769} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 10. **Credential Access via Remote Service**<mark style="color:blue;">**s**</mark>
+### 10. **Credential Access via Remote Services**
 
 **10.1. Detecting Unauthorized RDP Access**
 

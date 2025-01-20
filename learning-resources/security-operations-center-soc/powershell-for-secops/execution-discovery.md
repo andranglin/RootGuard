@@ -1,5 +1,4 @@
 ---
-hidden: true
 layout:
   title:
     visible: true
@@ -15,9 +14,56 @@ layout:
 
 # Execution Discovery
 
+### **Introduction**
+
+PowerShell is a powerful and versatile tool for security operations (SecOps) teams, offering robust capabilities for investigating and responding to threats in enterprise networks. Its seamless integration with the Windows operating system and comprehensive library of cmdlets make it particularly effective for conducting **Execution Discovery** activities during digital forensics and incident response (DFIR) investigations. Execution Discovery focuses on uncovering evidence of malicious or unauthorized code execution, a common tactic used by attackers to deliver payloads, execute scripts, or run exploit tools. PowerShell enables SecOps teams to efficiently detect and analyze these activities, facilitating swift and precise incident response.
+
+***
+
+### **Capabilities of PowerShell for Execution Discovery in DFIR**
+
+**1. Process and Command-Line Monitoring:**
+
+PowerShell provides deep visibility into running processes and their associated command-line arguments. This allows analysts to detect suspicious or unauthorised execution, such as malicious scripts, encoded commands, or exploit tools. It is particularly effective in identifying processes spawned by unusual parent-child relationships, which often indicate attacker activity.
+
+**2. Analysis of PowerShell Script Execution:**
+
+Since attackers frequently abuse PowerShell to execute scripts or payloads, PowerShell's built-in logging and query capabilities are invaluable for analysing script block logs and event data. This helps security teams uncover evidence of malicious PowerShell usage, including obfuscated or encoded commands designed to evade detection.
+
+**3. Scheduled Task and Service Analysis:**
+
+Attackers often use scheduled tasks or services to execute malicious payloads. PowerShell enables analysts to investigate existing tasks, startup items, and service configurations to identify unauthorised or anomalous entries linked to execution discovery activities.
+
+**4. Binary and DLL Execution Detection:**
+
+PowerShell can be used to inspect binaries and dynamic link libraries (DLLs) executed on a system. This includes monitoring for unsigned or unusual executables and DLLs loaded by processes, providing evidence of potentially malicious activity.
+
+**5. Memory and File Analysis:**
+
+PowerShell facilitates memory analysis by enabling the extraction of process memory for forensic examination. Additionally, it can identify files dropped by attackers for execution, such as staged payloads or tools, and extract metadata for further analysis.
+
+**6. Event Log and Telemetry Analysis:**
+
+PowerShell’s ability to query event logs allows analysts to investigate execution-related events, such as process creation logs, PowerShell operation logs, and security logs. This aids in correlating events to identify patterns indicative of malicious execution activities.
+
+***
+
+### **Efficiency Provided by PowerShell in Execution Discovery**
+
+1. **Granular Visibility**: PowerShell offers fine-grained visibility into processes, logs, and system events, enabling precise detection and investigation of execution discovery activities.
+2. **Scalability**: With PowerShell Remoting, SecOps teams can scale investigations across hundreds or thousands of endpoints, ensuring comprehensive coverage in large enterprise environments.
+3. **Real-Time Detection**: PowerShell enables real-time querying and monitoring of execution-related data, reducing the time required to identify and respond to threats.
+4. **Automation and Repeatability**: By automating routine tasks, such as process analysis or log queries, PowerShell ensures consistent and efficient investigation workflows.
+5. **Customisable Detection**: PowerShell scripts can be tailored to align with organisational baselines and the **MITRE ATT\&CK framework**, focusing on specific execution techniques or adversarial behaviours.
+6. **Integration with Security Tools**: PowerShell integrates seamlessly with tools like Microsoft Sentinel, Defender for Endpoint, and other SIEM platforms, enabling enriched detection and streamlined incident response workflows.
+
+***
+
+By leveraging the capabilities of PowerShell, SecOps teams can effectively identify and investigate execution discovery activities, facilitating rapid containment and mitigation while strengthening the organisation’s overall security posture.
+
 ### Execution Discovery
 
-#### 1. **Monitoring Process Execution**
+### 1. **Monitoring Process Execution**
 
 **1.1. Detecting New Executable Processes**
 
@@ -39,7 +85,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 2. **PowerShell Script Execution Monitoring**
+### 2. **PowerShell Script Execution Monitoring**
 
 **2.1. Detecting Encoded PowerShell Commands**
 
@@ -61,7 +107,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 3. **Identifying Execution of Scripting Languages**
+### 3. **Identifying Execution of Scripting Languages**
 
 **3.1. Detecting VBScript Execution**
 
@@ -83,7 +129,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 4. **Malicious Use of Built-in Tools**
+### 4. **Malicious Use of Built-in Tools**
 
 **4.1. Monitoring Mshta Execution**
 
@@ -105,7 +151,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 5. **Macro Execution and Document Exploits**
+### 5. **Macro Execution and Document Exploits**
 
 **5.1. Detecting Office Macro Execution**
 
@@ -127,7 +173,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Office-Alerts'; ID=300} | Whe
 ```
 {% endcode %}
 
-#### 6. **Windows Management Instrumentation (WMI) Execution**
+### 6. **Windows Management Instrumentation (WMI) Execution**
 
 **6.1. Detecting WMI Command Execution**
 
@@ -149,7 +195,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-WMI-Activity/Operatio
 ```
 {% endcode %}
 
-#### 7. **Execution via Services and Tasks**
+### 7. **Execution via Services and Tasks**
 
 **7.1. Detecting Service Execution**
 
@@ -171,7 +217,7 @@ Get-ScheduledTask | Where-Object {$_.State -eq 'Ready' -or $_.State -eq 'Running
 ```
 {% endcode %}
 
-#### 8. **Credential Dumping and Usage**
+### 8. **Credential Dumping and Usage**
 
 **8.1. Detecting LSASS Memory Access**
 
@@ -193,7 +239,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 9. **Execution of Exploit Tools**
+### 9. **Execution of Exploit Tools**
 
 **9.1. Detecting Exploit Framework Usage**
 
@@ -215,7 +261,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 10. **Script and Binary Obfuscation**
+### 10. **Script and Binary Obfuscation**
 
 **10.1. Detecting Obfuscated PowerShell Scripts**
 
@@ -237,9 +283,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} |  Where-Object {$_
 ```
 {% endcode %}
 
-**Additional Discovery Techniques**
+### **Additional Discovery Techniques**
 
-#### 1. **Monitoring Script Execution**
+### 1. **Monitoring Script Execution**
 
 **1.1. Detecting PowerShell Script Execution**
 
@@ -261,7 +307,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 2. **Malicious Use of Legitimate Tools**
+### 2. **Malicious Use of Legitimate Tools**
 
 **2.1. Detecting the Use of Mshta**
 
@@ -283,7 +329,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 3. **Unauthorized Software and Tool Usage**
+### 3. **Unauthorised Software and Tool Usage**
 
 **3.1. Detecting Unauthorized Software Installation**
 
@@ -305,7 +351,7 @@ Get-ChildItem -Path "C:\Users\*\Downloads" -Recurse -Include *.exe, *.com, *.scr
 ```
 {% endcode %}
 
-#### 4. **Remote Command Execution**
+### 4. **Remote Command Execution**
 
 **4.1. Monitoring for Remote PowerShell Execution**
 
@@ -327,7 +373,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-WMI-Activity/Operatio
 ```
 {% endcode %}
 
-#### 5. **Execution of Scripting Languages**
+### 5. **Execution of Scripting Languages**
 
 **5.1. Monitoring VBScript Execution**
 
@@ -349,7 +395,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 6. **Executable and DLL Injection**
+### 6. **Executable and DLL Injection**
 
 **6.1. Detecting Code Injection Attempts**
 
@@ -371,7 +417,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 7. **Malicious Use of System Tools**
+### 7. **Malicious Use of System Tools**
 
 **7.1. Detecting Usage of CertUtil**
 
@@ -393,7 +439,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4688} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 8. **Application Whitelisting Bypass**
+### 8. **Application Whitelisting Bypass**
 
 **8.1. Detecting Application Whitelisting Bypass via LOLBins**
 
@@ -415,7 +461,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 9. **Macro and Script Exploitation**
+### 9. **Macro and Script Exploitation**
 
 **9.1. Monitoring for Malicious Office Macros**
 
@@ -437,7 +483,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 10. **Exploitation Tools and Post-Exploitation Frameworks**
+### 10. **Exploitation Tools and Post-Exploitation Frameworks**
 
 **10.1. Detecting Cobalt Strike Beacon Execution**
 
