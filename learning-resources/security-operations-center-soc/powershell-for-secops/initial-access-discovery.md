@@ -15,9 +15,76 @@ layout:
 
 # Initial Access Discovery
 
+### **Introduction**
+
+PowerShell is an indispensable tool for security operations (SecOps) teams in enterprise networks, offering robust capabilities for managing systems, analyzing logs, and automating security tasks. Its deep integration with Windows and extensive library of cmdlets make it a critical asset for digital forensics and incident response (DFIR) investigations. Specifically, PowerShell excels in uncovering **Initial Access Discovery** activities, helping security analysts identify how attackers gained entry into the network and what reconnaissance they conducted post-compromise. By providing granular visibility into system events and enabling automated data collection and analysis, PowerShell empowers SecOps teams to detect, investigate, and mitigate threats effectively.
+
+***
+
+### **Capabilities of PowerShell for Initial Access Discovery in DFIR**
+
+**1. Identifying Suspicious Logins and Account Activity:**
+
+* **Failed and Successful Login Events**:
+  * Use `Get-WinEvent` or `Get-EventLog` to extract authentication events (e.g., `EventID 4624` for successful logins and `4625` for failed attempts) and correlate them with potential brute force or credential stuffing attacks.
+  * Example: `Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object { $_.Properties[5].Value -notlike "NT AUTHORITY" }`.
+* **Account Usage Anomalies**:
+  * Query Active Directory (AD) logs with cmdlets like `Get-ADUser` to detect anomalous account activity, such as login times outside regular working hours.
+
+**2. Detecting Malicious Execution:**
+
+* **PowerShell Execution Monitoring**:
+  * Analyse script block logs (e.g., `EventID 4104`) to detect suspicious PowerShell commands indicative of initial compromise.
+  * Example: Search for encoded or obfuscated PowerShell commands:\
+    `Get-WinEvent -LogName 'Microsoft-Windows-PowerShell/Operational' | Where-Object {$_.Message -like '*EncodedCommand*'}`.
+* **Process Analysis**:
+  * Use `Get-Process` or `Get-CimInstance -ClassName Win32_Process` to detect malicious processes initiated by attackers, such as those tied to tools like Mimikatz or Cobalt Strike.
+
+**3. Investigating Email-Based Initial Access:**
+
+* **Phishing Analysis**:
+  * Query logs related to mail flows using Exchange cmdlets like `Get-MessageTrackingLog` to identify suspicious emails containing malicious attachments or links.
+* **Attachment Scanning**:
+  * Use PowerShell to analyse downloaded files for malware signatures or anomalous behaviour.
+
+**4. Detecting Exploitation of Public-Facing Services:**
+
+* **Network Connection Analysis**:
+  * Use cmdlets like `Get-NetTCPConnection` to identify suspicious inbound connections to services that attackers might exploit, such as RDP or IIS.
+* **Service Enumeration**:
+  * Query running services (`Get-Service`) to identify unauthorised changes or unusual activity.
+
+**5. Artifact Collection for Initial Access Investigation:**
+
+* **Log and Artifact Collection**:
+  * Automate the gathering of critical artifacts such as system logs, registry hives, and memory dumps using `Export-Csv` and `Copy-Item`.
+* **Registry Inspection**:
+  * Inspect registry keys using `Get-ItemProperty` to detect malicious persistence techniques or exploitation artifacts.
+
+***
+
+### **Efficiency Provided by PowerShell in Initial Access Discovery**
+
+1. **Centralised Investigation**:
+   * PowerShell allows SecOps teams to investigate multiple endpoints from a central console, enabling rapid data collection and analysis across the network.
+2. **Real-Time Detection**:
+   * PowerShell provides near-instantaneous insights into system activity, allowing analysts to uncover signs of initial access, such as suspicious logins or unusual process executions, in real-time.
+3. **Scalability**:
+   * With **PowerShell Remoting** and scripting, analysts can scale their investigations to thousands of endpoints, dramatically reducing time-to-detection in large environments.
+4. **Automation and Repeatability**:
+   * PowerShell scripts automate routine discovery tasks, such as parsing logs or inspecting artifacts, ensuring consistency and reducing the likelihood of human error.
+5. **Custom Detection Rules**:
+   * PowerShell’s scripting flexibility allows SecOps teams to create tailored detection rules aligned with **MITRE ATT\&CK techniques** for specific initial access vectors.
+6. **Integration with Security Tools**:
+   * Seamlessly integrates with tools like Microsoft Sentinel, Defender for Endpoint, and SIEM solutions, enabling enriched detection workflows and automated responses.
+
+***
+
+By leveraging PowerShell's capabilities, SecOps teams can efficiently identify initial access vectors during a DFIR investigation, gaining a clear understanding of how adversaries infiltrated the network and empowering organisations to respond with precision and speed.
+
 ### Initial Access Discovery
 
-#### 1. **Suspicious Process Execution**
+### 1. **Suspicious Process Execution**
 
 **1.1. Detect Encoded PowerShell Commands**
 
@@ -46,7 +113,7 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object 
 ```
 {% endcode %}
 
-#### 2. **User Account Activity Monitoring**
+### 2. **User Account Activity Monitoring**
 
 **2.1. Identify Unusual Logon Attempts**
 
@@ -68,7 +135,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4648} |  Where-Object {$_
 ```
 {% endcode %}
 
-#### 3. **File and Directory Monitoring**
+### 3. **File and Directory Monitoring**
 
 **3.1. Detect New Executable Files**
 
@@ -93,7 +160,7 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object 
 ```
 {% endcode %}
 
-#### 4. **Network Activity Analysis**
+### 4. **Network Activity Analysis**
 
 **4.1. Unusual Outbound Connections**
 
@@ -115,7 +182,7 @@ Get-WinEvent -LogName "Microsoft-Windows-DNS-Client/Operational" |  Where-Object
 ```
 {% endcode %}
 
-#### 5. **Scheduled Tasks and Services**
+### 5. **Scheduled Tasks and Services**
 
 **5.1. Newly Created Scheduled Tasks**
 
@@ -137,7 +204,7 @@ Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045} |  Where-Object {$_.P
 ```
 {% endcode %}
 
-#### 6. **Registry Modifications**
+### 6. **Registry Modifications**
 
 **6.1. Registry Run Key Changes**
 
@@ -159,7 +226,7 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windo
 ```
 {% endcode %}
 
-#### 7. **Event Log Monitoring**
+### 7. **Event Log Monitoring**
 
 **7.1. Detection of Cleared Event Logs**
 
@@ -177,7 +244,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=1102}
 Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4719}
 ```
 
-#### 8. **Email Security Monitoring**
+### 8. **Email Security Monitoring**
 
 **8.1. Detect Phishing Emails**
 
@@ -199,7 +266,7 @@ Get-ItemProperty -Path "HKCU:\Software\Microsoft\Office\*\Outlook\Preferences" |
 ```
 {% endcode %}
 
-#### 9. **Application Execution Monitoring**
+### 9. **Application Execution Monitoring**
 
 **9.1. Detect Execution of Unsigned Binaries**
 
@@ -221,7 +288,7 @@ Get-ChildItem -Path "C:\Windows\Temp\*" -Recurse -Filter *.exe |  Where-Object {
 ```
 {% endcode %}
 
-#### 10. **System and Security Configuration**
+### 10. **System and Security Configuration**
 
 **10.1. Group Policy Object Modifications**
 
@@ -241,9 +308,9 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 ```
 {% endcode %}
 
-#### Additional Discovery Techniques
+### Additional Discovery Techniques
 
-#### 1. **Phishing and Spear Phishing**
+### 1. **Phishing and Spear Phishing**
 
 **1.1. Detecting Suspicious Email Attachments**
 
@@ -265,7 +332,7 @@ Get-WinEvent -LogName "Microsoft-Windows-EventLog/Email" |  Where-Object {($_.Me
 ```
 {% endcode %}
 
-#### 2. **Exploiting Vulnerabilities**
+### 2. **Exploiting Vulnerabilities**
 
 **2.1. Detecting Exploit Attempts in Web Servers**
 
@@ -287,7 +354,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4625} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 3. **Credential Theft and Brute Force**
+### 3. **Credential Theft and Brute Force**
 
 **3.1. Detecting Brute Force Attack Attempts**
 
@@ -309,7 +376,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4624} | Where-Object {($_
 ```
 {% endcode %}
 
-#### 4. **Malicious Code Execution**
+### 4. **Malicious Code Execution**
 
 **4.1. Detecting Script Execution from Email Attachments**
 
@@ -331,7 +398,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Office-Alerts'; ID=300} | Whe
 ```
 {% endcode %}
 
-#### 5. **Malicious File and Malware Deployment**
+### 5. **Malicious File and Malware Deployment**
 
 **5.1. Detecting Newly Created Executables**
 
@@ -353,7 +420,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Security-Auditing'; I
 ```
 {% endcode %}
 
-#### 6. **Abuse of Valid Accounts**
+### 6. **Abuse of Valid Accounts**
 
 **6.1. Detecting Account Creation and Privilege Escalation**
 
@@ -375,7 +442,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4672} | Where-Object {$_.
 ```
 {% endcode %}
 
-#### 7. **Phishing Landing Pages and Fake Websites**
+### 7. **Phishing Landing Pages and Fake Websites**
 
 **7.1. Detecting Redirection to Phishing Sites**
 
@@ -397,7 +464,7 @@ Get-WinEvent -LogName "Microsoft-Windows-IIS-Logging" | Where-Object {$_.Message
 ```
 {% endcode %}
 
-#### 8. **Remote Services and Exploitation**
+### 8. **Remote Services and Exploitation**
 
 **8.1. Detecting Remote Desktop Protocol (RDP) Access**
 
@@ -419,7 +486,7 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 {% endcode %}
 
-#### 9. **Abuse of Application Layer Protocols**
+### 9. **Abuse of Application Layer Protocols**
 
 **9.1. Monitoring for Suspicious HTTP/S Traffic**
 
@@ -441,7 +508,7 @@ Get-WinEvent -LogName "Microsoft-Windows-Security-Auditing" | Where-Object {($_.
 ```
 {% endcode %}
 
-#### 10. **Malicious Use of Legitimate Tools**
+### 10. **Malicious Use of Legitimate Tools**
 
 **10.1. Detecting Execution of PsExec**
 
