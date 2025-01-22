@@ -12,6 +12,7 @@
   * [How To Become A SOC Analyst](getting-started/soc-analysts-roadmap/how-to-become-a-soc-analyst.md)
   * [Prep Interview Questions for SOC Analysts](getting-started/soc-analysts-roadmap/prep-interview-questions-for-soc-analysts.md)
   * [Preparing to Land that Job](getting-started/soc-analysts-roadmap/preparing-to-land-that-job.md)
+  * [Comprehensive Plan for Starting a Career in Cybersecurity](getting-started/soc-analysts-roadmap/comprehensive-plan-for-starting-a-career-in-cybersecurity.md)
 
 ## LEARNING RESOURCES
 
