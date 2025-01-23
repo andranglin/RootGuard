@@ -12,17 +12,17 @@ layout:
     visible: true
 ---
 
-# OPSEC Hunting With KQL
+# OPSEC Threat Hunting With KQL
 
 ## **Introduction**
 
-Operational Security (OPSEC) hunting with KQL (Kusto Query Language) involves leveraging KQL's powerful data querying and filtering capabilities to identify potential security gaps and detect adversarial activities in realtime. KQL is widely used in platforms like Microsoft Sentinel, where it enables security analysts to query massive datasets from logs, events, and telemetry. By crafting custom queries, analysts can proactively search for indicators of compromise (IOCs), such as unauthorised access attempts, lateral movement, privilege escalation, or data exfiltration. The language's flexibility allows for precise filtering of log data, making it easier to uncover hidden threats and anomalies indicative of OPSEC failures.
+Operational Security (OPSEC) threat hunting with KQL (Kusto Query Language) involves leveraging KQL's powerful data querying and filtering capabilities to identify potential security gaps and detect adversarial activities. KQL is widely used in platforms like Microsoft Sentinel, where it enables security analysts to query massive datasets from logs, events, and telemetry. By crafting custom queries, analysts can proactively search for indicators of compromise (IOCs), such as unauthorised access attempts, lateral movement, privilege escalation, or data exfiltration. The language's flexibility allows for precise filtering of log data, making it easier to uncover hidden threats and anomalies indicative of system violations.
 
-KQL integrates seamlessly with security frameworks like MITRE ATT\&CK, enabling analysts to map detected behaviours to known adversarial tactics, techniques, and procedures (TTPs). Through features like joins, unions, and regex filtering, KQL supports complex threat-hunting workflows, such as correlating identity logs with network activity to detect suspicious patterns. Its time-series analysis capabilities help uncover trends in user behaviour, privilege usage, and system changes, which are critical for identifying vulnerabilities. With its efficiency and integration into tools like Microsoft Defender and Sentinel, KQL empowers security teams to strengthen their OPSEC posture, reduce response times, and mitigate the risk of advanced threats.
+KQL integrates seamlessly with security frameworks like MITRE ATT\&CK, enabling analysts to map detected behaviours to known adversarial tactics, techniques, and procedures (TTPs). Through features like joins, unions, and regex filtering, KQL supports complex threat-hunting workflows, such as correlating identity logs with network activity to detect suspicious patterns. Its time-series analysis capabilities help uncover trends in user behaviour, privilege usage, and system changes, which are critical for identifying adversary activities. With its efficiency and integration into tools like Microsoft Defender and Sentinel, KQL empowers security teams to strengthen their OPSEC posture, reduce response times, and mitigate the risk of advanced threats.
 
 The following is a set of KQL queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
 
-**Note**: On some occasions, hopefully, at a minimum, you will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
+**Note: On some occasions, hopefully, at a minimum, you will have to customise the queries for your environment. Also, queries will only work if the data is available.**
 
 ### **1. Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)**
 
@@ -30,14 +30,54 @@ The following is a set of KQL queries that can be used to detect and analyse mal
 
 Malware infection often involves scripts, executables, and payloads designed to compromise systems, execute commands, or maintain persistence. These infections can lead to lateral movement, data theft, or further compromises within the network.
 
-**Below 25 Example Queries for Malware Infection Detection:**
+**Below are 25 Example Queries for Malware Infection Detection:**
 
 1. **Detect Suspicious PowerShell Commands (Encoded Commands)**\
    &#xNAN;_&#x50;owerShell encoded commands often indicate obfuscation used in malware payloads._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "encodedCommand" | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system"| summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "encodedCommand" | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system"| summarize count() by TimeGenerated, DeviceName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
+```
+{% endcode %}
+
+**Note: The following is an example of how to decode PowerShell-encoded commands:**
+
+{% code overflow="wrap" %}
+```powershell
+# Example encoded string
+$EncodedCommand = "enter encoded string"
+
+# Convert from Base64 to bytes
+$Bytes = [System.Convert]::FromBase64String($EncodedCommand)
+
+# Convert bytes to string (UTF-16 LE)
+$DecodedCommand = [System.Text.Encoding]::Unicode.GetString($Bytes)
+
+# Output the decoded command
+Write-Output $DecodedCommand
+```
+{% endcode %}
+
+#### **Method 2: Decode Using Python**
+
+Here’s how you can decode it using Python:
+
+{% code overflow="wrap" %}
+```python
+import base64
+
+# Encoded command string
+encoded_command = "Enter encoded string"
+
+# Decode the Base64 string
+decoded_bytes = base64.b64decode(encoded_command)
+
+# Convert bytes to string (UTF-16 LE)
+decoded_command = decoded_bytes.decode("utf-16-le")
+
+# Print the decoded command
+print(decoded_command)
 ```
 {% endcode %}
 
@@ -46,7 +86,7 @@ DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine 
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where FileName endswith ".exe" and FolderPath contains "Temp" | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" | summarize count() by DeviceName, InitiatingProcessAccountName, FileName
+DeviceProcessEvents | where FileName endswith ".exe" and FolderPath contains "Temp" | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" | where  FileName !in~ ("DismHost.exe", "Update.exe") and FolderPath startswith "C:\\Windows\\Temp\\" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -54,8 +94,8 @@ DeviceProcessEvents | where FileName endswith ".exe" and FolderPath contains "Te
    &#xNAN;_&#x4D;SHTA is frequently abused to execute malicious scripts._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "mshta.exe" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "mshta.exe"  | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -63,8 +103,8 @@ DeviceProcessEvents | where FileName == "mshta.exe" | summarize count() by Devic
    &#xNAN;_&#x52;undll32 is often used to execute malicious DLLs, a common malware technique._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "rundll32.exe" and ProcessCommandLine has ".dll" | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" and InitiatingProcessAccountName !="local service" and InitiatingProcessAccountName !="lokaler dienst" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "rundll32.exe" and ProcessCommandLine has ".dll" | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" and InitiatingProcessAccountName !="local service" and InitiatingProcessAccountName !="lokaler dienst"  | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -72,8 +112,8 @@ DeviceProcessEvents | where FileName == "rundll32.exe" and ProcessCommandLine ha
    &#xNAN;_&#x4D;alicious scripts may be executed via WScript or CScript._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName in ("wscript.exe", "cscript.exe") | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" and InitiatingProcessAccountName !="local service" and InitiatingProcessAccountName !="lokaler dienst" and InitiatingProcessAccountName !startswith "sys"  | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName in ("wscript.exe", "cscript.exe") | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" and InitiatingProcessAccountName !="local service" and InitiatingProcessAccountName !="lokaler dienst" and InitiatingProcessAccountName !startswith "sys" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -81,17 +121,17 @@ DeviceProcessEvents | where FileName in ("wscript.exe", "cscript.exe") | where I
    &#xNAN;_&#x43;ertUtil is often abused to download malware payloads._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "certutil.exe" and ProcessCommandLine has "URL" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "certutil.exe" and ProcessCommandLine has "URL" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
-7. **Identify Use of LOLBins (Living Off the Land Binaries)**\
-   &#xNAN;_&#x43;ommon system binaries like bitsadmin and msiexec are often used in attacks._
+7. **Identify the Use of LOLBins (Living Off the Land Binaries)**\
+   &#xNAN;_&#x53;tandard system binaries like bitsadmin and msiexec are often used in attacks._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName in ("bitsadmin.exe", "msiexec.exe") | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" and InitiatingProcessAccountName !="local service" and InitiatingProcessAccountName !="lokaler dienst" and InitiatingProcessAccountName !startswith "sys" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName in ("bitsadmin.exe", "msiexec.exe") | where InitiatingProcessAccountName !="network service" and InitiatingProcessAccountName !="system" and InitiatingProcessAccountName !="local service" and InitiatingProcessAccountName !="lokaler dienst" and InitiatingProcessAccountName !startswith "sys" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -99,8 +139,8 @@ DeviceProcessEvents | where FileName in ("bitsadmin.exe", "msiexec.exe") | where
    &#xNAN;_&#x4D;alware often uses scheduled tasks for persistence._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "schtasks.exe" and ProcessCommandLine has "create" | where InitiatingProcessAccountName !="system" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "schtasks.exe" and ProcessCommandLine has "create" | where InitiatingProcessAccountName !="system" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -108,8 +148,8 @@ DeviceProcessEvents | where FileName == "schtasks.exe" and ProcessCommandLine ha
    &#xNAN;_&#x49;nvoke-WebRequest is used to download malicious scripts from the internet._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "Invoke-WebRequest" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "Invoke-WebRequest" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -117,8 +157,8 @@ DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine 
     &#xNAN;_&#x42;itsadmin is sometimes leveraged to download or upload malicious files._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "bitsadmin.exe" and ProcessCommandLine has "transfer" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "bitsadmin.exe" and ProcessCommandLine has "transfer" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine
 ```
 {% endcode %}
 
@@ -126,8 +166,8 @@ DeviceProcessEvents | where FileName == "bitsadmin.exe" and ProcessCommandLine h
     &#xNAN;_&#x4E;ew EXE files appearing in user directories may indicate malware delivery._
 
 {% code overflow="wrap" %}
-```cs
-DeviceFileEvents | where FileName endswith ".exe" and FolderPath contains "Users" | where InitiatingProcessAccountName != "system" | summarize count() by DeviceName, InitiatingProcessAccountName, FileName, FolderPath
+```kusto
+DeviceFileEvents | where FileName endswith ".exe" and FolderPath contains "Users" | where InitiatingProcessAccountName != "system"| summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -135,8 +175,8 @@ DeviceFileEvents | where FileName endswith ".exe" and FolderPath contains "Users
     &#xNAN;_&#x4D;alicious macros in Office documents may spawn child processes._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where InitiatingProcessFileName in ("winword.exe", "excel.exe", "powerpnt.exe") | summarize count() by DeviceName, InitiatingProcessAccountName, FileName, FolderPath
+```kusto
+DeviceProcessEvents | where InitiatingProcessFileName in ("winword.exe", "excel.exe", "powerpnt.exe")| summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -145,7 +185,7 @@ DeviceProcessEvents | where InitiatingProcessFileName in ("winword.exe", "excel.
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where FileName == "schtasks.exe" and ProcessCommandLine has_any ("create", "add") | where InitiatingProcessAccountName != "system" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+DeviceProcessEvents | where FileName == "schtasks.exe" and ProcessCommandLine has_any ("create", "add") | where InitiatingProcessAccountName != "system"| summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -153,8 +193,8 @@ DeviceProcessEvents | where FileName == "schtasks.exe" and ProcessCommandLine ha
     &#xNAN;_&#x43;MD can be used to execute batch scripts in malware infections._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "cmd.exe" and ProcessCommandLine has_any (".bat", "start") | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName !startswith "svc-wc" and InitiatingProcessAccountName !startswith "sys_" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "cmd.exe" and ProcessCommandLine has_any (".bat", "start") | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName !startswith "svc-wc" and InitiatingProcessAccountName !startswith "sys_"| summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -163,7 +203,7 @@ DeviceProcessEvents | where FileName == "cmd.exe" and ProcessCommandLine has_any
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "-ExecutionPolicy Bypass" | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName !startswith "sys_" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine, FolderPath
+DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "-ExecutionPolicy Bypass" | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName !startswith "sys_" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 

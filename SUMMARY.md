@@ -124,9 +124,9 @@
   * [Office](learning-resources/defender-and-sentinel/office.md)
   * [Identity](learning-resources/defender-and-sentinel/identity.md)
 * [Threat Hunting](learning-resources/threat-hunting/README.md)
-  * [OPSEC Hunting With Splunk](learning-resources/threat-hunting/opsec-hunting-with-splunk.md)
-  * [OPSEC Hunting With KQL](learning-resources/threat-hunting/opsec-hunting-with-kql.md)
-  * [Hunting Ransomware Indicators](learning-resources/threat-hunting/hunting-ransomware-indicators.md)
+  * [OPSEC Threat Hunting With Splunk](learning-resources/threat-hunting/opsec-threat-hunting-with-splunk.md)
+  * [OPSEC Threat Hunting With KQL](learning-resources/threat-hunting/opsec-threat-hunting-with-kql.md)
+  * [Threat Hunting Ransomware Indicators](learning-resources/threat-hunting/threat-hunting-ransomware-indicators.md)
 * [Malware Analysis](learning-resources/malware-analysis.md)
 
 ## Threat Detection
