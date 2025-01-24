@@ -125,7 +125,8 @@
   * [Identity](learning-resources/defender-and-sentinel/identity.md)
 * [Threat Hunting](learning-resources/threat-hunting/README.md)
   * [Threat Hunting With Splunk](learning-resources/threat-hunting/threat-hunting-with-splunk.md)
-  * [Threat Hunting With KQL](learning-resources/threat-hunting/threat-hunting-with-kql.md)
+  * [Threat Hunting With KQL](learning-resources/threat-hunting/threat-hunting-with-kql/README.md)
+    * [Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)](learning-resources/threat-hunting/threat-hunting-with-kql/detecting-malware-infection-mitre-att-and-ck-t1566-t1059.md)
   * [Threat Hunting Ransomware Indicators](learning-resources/threat-hunting/threat-hunting-ransomware-indicators.md)
 * [Malware Analysis](learning-resources/malware-analysis.md)
 

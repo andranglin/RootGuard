@@ -121,5 +121,5 @@ By embracing a continuous learning mindset, aspiring threat hunters can develop 
 ### Start Learning:
 
 * [OPSEC Hunting With Splunk](threat-hunting-with-splunk.md)
-* [OPSEC Hunting With KQL](threat-hunting-with-kql.md)
+* [OPSEC Hunting With KQL](threat-hunting-with-kql/)
 * [Hunting Ransomware Activities](threat-hunting-ransomware-indicators.md)
