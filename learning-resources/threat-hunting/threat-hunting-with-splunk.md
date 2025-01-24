@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# OPSEC Hunting With Splunk
+# Threat Hunting With Splunk
 
 ### Introduction
 
@@ -22,7 +22,7 @@ Splunk's integration with frameworks like MITRE ATT\&CK enhances OPSEC hunting b
 
 The following is a set of Splunk queries that can be used to detect and analyse malicious or suspicious activities in your environment. The queries are designed to quickly grab the necessary information that will allow the investigator to determine whether the activity warrants deeper analysis or escalation.
 
-**Note**: On some occasions, hopefully, at a minimum, you will have to customise the queries for the environment where they are being used. Queries will only work if the data is available.
+**Note: Sometimes, you may have to customise the queries to your environment. Also, queries will only work if the data is available.**
 
 ### **Windows Audit Log Tampering**
 
@@ -30,7 +30,7 @@ Check for any tampering done to Windows audit logs.
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon (sourcetype=wineventlog AND (EventCode=1102 OR EventCode=1100)) OR (sourcetype=wineventlog AND EventCode=104) | stats count by _time EventCode Message sourcetype host
+index=sysmon (sourcetype=wineventlog AND (EventCode=1102 OR EventCode=1100)) OR (sourcetype=wineventlog AND EventCode=104) | stats count by _time EventCode Message sourcetype host
 ```
 {% endcode %}
 
@@ -50,7 +50,7 @@ Using anti-virus logs to detect if malware is recurring on a host after being re
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=Sophos | stats count range(_time) as TimeRange by Risk_Name, Computer_Name | where TimeRange>1800 | eval TimeRange_In_Hours = round(TimeRange/3600,2), TimeRange_In_Days = round(TimeRange/3600/24,2)
+index=av_index | stats count range(_time) as TimeRange by Risk_Name, Computer_Name | where TimeRange>1800 | eval TimeRange_In_Hours = round(TimeRange/3600,2), TimeRange_In_Days = round(TimeRange/3600/24,2)
 ```
 {% endcode %}
 
@@ -60,10 +60,10 @@ A brute-force attack consists of a multiple login attempts using many passwords 
 
 {% code overflow="wrap" %}
 ```splunk-spl
-Index=*Sysmon user=* user!"" | stats count(eval(action="success")) as successes count(eval(action="failure")) as failures by user, ComputerName | where successes>0 AND failures>100
+Index=sysmon user=* user!"" | stats count(eval(action="success")) as successes count(eval(action="failure")) as failures by user, ComputerName | where successes>0 AND failures>100
 
 Windows
-index=wine* source="WinEventLog:Security" EventCode=4625 | bin _time span=5m | stats count by _time,user,host,src,action | where count >= 5
+index=windows source="WinEventLog:Security" EventCode=4625 | bin _time span=5m | stats count by _time,user,host,src,action | where count >= 5
 
 Linux
 index=linux source="/var/log/auth.log" "Failed password" | bin _time span=5m | stats count by _time,user,host,src,action | where count >= 5
@@ -76,7 +76,7 @@ Find unencrypted web communications that could lead to a data breach.
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon dest_port!=443 app=workday* | table _time user app bytes* src_ip dest_ip dest_port
+index=sysmon dest_port!=443 app=workday* | table _time user app bytes* src_ip dest_ip dest_port
 ```
 {% endcode %}
 
@@ -85,7 +85,7 @@ index=*sysmon dest_port!=443 app=workday* | table _time user app bytes* src_ip d
 Use IPs in your data to report and visualize user locations.
 
 ```splunk-spl
-index=proxy | iplocation src_ip | geostats dc(src_ip) by Country
+index=web_proxy | iplocation src_ip | geostats dc(src_ip) by Country
 ```
 
 ### **Identifying Slow Web Content**
@@ -94,7 +94,7 @@ A slow loading web site can not only frustrate users, but can also hurt search r
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=proxy | stats avg(response_time) as art by uri_path | eval "Average Response Time" = round(art,2) | sort -"Average Response Time" | table uri_path, "Average Response Time"
+index=web_proxy | stats avg(response_time) as art by uri_path | eval "Average Response Time" = round(art,2) | sort -"Average Response Time" | table uri_path, "Average Response Time"
 ```
 {% endcode %}
 
@@ -104,7 +104,7 @@ Often an attack will include the creation of a new user, followed by permissions
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=wine* EventCode=4720 OR (EventCode=4732 Administrators) | transaction Security_ID maxspan=180m | search EventCode=4720 EventCode=4732 | table _time, EventCode, Recurity_ID, SamAccountName
+index=windows EventCode=4720 OR (EventCode=4732 Administrators) | transaction Security_ID maxspan=180m | search EventCode=4720 EventCode=4732 | table _time, EventCode, Recurity_ID, SamAccountName
 ```
 {% endcode %}
 
@@ -114,7 +114,7 @@ Most service accounts should never interactively log into servers.
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=systems sourcetype=audit_logs user=svc_* | stats earliest(_time) as earliest latest(_time) as latest by user, dest | eval isOutlier=if(earliest >= relative_time(now(), "-1d@d"), 1, 0) | convert ctime(earliest) ctime(Latest)
+index=windows sourcetype=audit_logs user=svc_* | stats earliest(_time) as earliest latest(_time) as latest by user, dest | eval isOutlier=if(earliest >= relative_time(now(), "-1d@d"), 1, 0) | convert ctime(earliest) ctime(Latest)
 ```
 {% endcode %}
 
@@ -154,7 +154,7 @@ Look for DNS requests that are not destined for the dedicated DNS server.
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*dns src_ip!=192.168.14.10 dest_ip!=192.168.14.10 protocol=53 action!=Drop | where dest_ip="153.113.208.0/23" AND src_ip="153.113.208.0/23" | stats count, values(dest_ip) by src_ip
+index=dns src_ip!=192.168.14.10 dest_ip!=192.168.14.10 protocol=53 action!=Drop | where dest_ip="153.113.208.0/23" AND src_ip="153.113.208.0/23" | stats count, values(dest_ip) by src_ip
 ```
 {% endcode %}
 
@@ -164,7 +164,7 @@ Look for logs with commands that try to download external scripts/content or byp
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=wine* source="WinEventLog:Microsoft-Windows-PowerShell/Operational" EventCode=4104 AND ((ScriptBlockText=*-noni* *iex* *New-Object*) OR (ScriptBlockText=*-ep* *bypass* *-Enc*) OR (ScriptBlockText=*powershell* *reg* *add* *HKCU\\software\\microsoft\\windows\\currentversion\un*) OR (ScriptBlockText=*bypass* *- noprofile* *-windowstyle* *hidden* *new-object* *system.net.webclient* *.download*) OR (ScriptBlockText=*iex* *New-Object* *Net.WebClient* *.Download*)) | table Computer, ScriptBlockText, UserID
+index=windows source="WinEventLog:Microsoft-Windows-PowerShell/Operational" EventCode=4104 AND ((ScriptBlockText=*-noni* *iex* *New-Object*) OR (ScriptBlockText=*-ep* *bypass* *-Enc*) OR (ScriptBlockText=*powershell* *reg* *add* *HKCU\\software\\microsoft\\windows\\currentversion\un*) OR (ScriptBlockText=*bypass* *- noprofile* *-windowstyle* *hidden* *new-object* *system.net.webclient* *.download*) OR (ScriptBlockText=*iex* *New-Object* *Net.WebClient* *.Download*)) | table Computer, ScriptBlockText, UserID
 ```
 {% endcode %}
 
@@ -174,7 +174,7 @@ Look for security logs filtered with EventCode 1102.
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=wine* source="WinEventLog:Security" EventCode=1102 | table _time, host, signature, user
+index=windows source="WinEventLog:Security" EventCode=1102 | table _time, host, signature, user
 ```
 {% endcode %}
 
@@ -316,7 +316,7 @@ Actors may create a remote thread into the LSASS service as part of a workflow t
 
 {% code overflow="wrap" %}
 ```splunk-spl
-\`\`\`sysmon\`\` EventID=8 TargetImage=\*lsass.exe | stats count min(\_time) as firstTime max(\_time) as lastTime by Computer, EventCode, TargetImage, TargetProcessId | rename Computer as dest\`
+index=sysmon EventID=8 TargetImage=\*lsass.exe | stats count min(\_time) as firstTime max(\_time) as lastTime by Computer, EventCode, TargetImage, TargetProcessId | rename Computer as dest
 ```
 {% endcode %}
 
@@ -326,7 +326,7 @@ This detection is to identify the creation of a “user mode service” whose se
 
 {% code overflow="wrap" %}
 ```splunk-spl
-\`\`\`wineventlog_system\`\` EventCode=7045  Service_File_Name = "*.exe" NOT (Service_File_Name IN ("C:\\Windows\\*", "C:\\Program File\*", "C:\\Programdata\\*", "%systemroot%\\*")) Service_Type = "user mode service" | stats count min(\_time) as firstTime max(\_time) as lastTime by EventCode Service_File_Name Service_Name Service_Start_Type Service_Type\`
+index=windows EventCode=7045  Service_File_Name = "*.exe" NOT (Service_File_Name IN ("C:\\Windows\\*", "C:\\Program File\*", "C:\\Programdata\\*", "%systemroot%\\*")) Service_Type = "user mode service" | stats count min(\_time) as firstTime max(\_time) as lastTime by EventCode Service_File_Name Service_Name Service_Start_Type Service_Type
 ```
 {% endcode %}
 
@@ -336,7 +336,7 @@ This detection is to identify the creation of a “user mode service” whose se
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon ((process_name=svchost.exe AND NOT (process_path="C:\\Windows\\System32\\svchost.exe" OR process_path="C:\\Windows\\SysWow64\\svchost.exe")) OR (process_name=smss.exe AND NOT process_path="C:\\Windows\\System32\\smss.exe") OR (process_name=wininit.exe AND NOT process_path="C:\\Windows\\System32\\wininit.exe") OR (process_name=taskhost.exe AND NOT process_path="C:\\Windows\\System32\\taskhost.exe") OR (process_name=lasass.exe AND NOT process_path="C:\\Windows\\System32\\lsass.exe") OR (process_name=winlogon.exe AND NOT process_path="C:\\Windows\\System32\\winlogon.exe") OR (process_name=csrss.exe AND NOT process_path="C:\\Windows\\System32\\csrss.exe") OR (process_name=services.exe AND NOT process_path="C:\\Windows\\System32\\services.exe") OR (process_name=lsm.exe AND NOT process_path="C:\\Windows\\System32\\lsm.exe") OR (process_name=explorer.exe AND NOT process_path="C:\\Windows\\explorer.exe"))
+index=sysmon ((process_name=svchost.exe AND NOT (process_path="C:\\Windows\\System32\\svchost.exe" OR process_path="C:\\Windows\\SysWow64\\svchost.exe")) OR (process_name=smss.exe AND NOT process_path="C:\\Windows\\System32\\smss.exe") OR (process_name=wininit.exe AND NOT process_path="C:\\Windows\\System32\\wininit.exe") OR (process_name=taskhost.exe AND NOT process_path="C:\\Windows\\System32\\taskhost.exe") OR (process_name=lasass.exe AND NOT process_path="C:\\Windows\\System32\\lsass.exe") OR (process_name=winlogon.exe AND NOT process_path="C:\\Windows\\System32\\winlogon.exe") OR (process_name=csrss.exe AND NOT process_path="C:\\Windows\\System32\\csrss.exe") OR (process_name=services.exe AND NOT process_path="C:\\Windows\\System32\\services.exe") OR (process_name=lsm.exe AND NOT process_path="C:\\Windows\\System32\\lsm.exe") OR (process_name=explorer.exe AND NOT process_path="C:\\Windows\\explorer.exe"))
 ```
 {% endcode %}
 
@@ -346,7 +346,7 @@ Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary com
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index =*sysmon (ParentImage="*excel.exe" OR ParentImage="*word.exe" OR ParentImage="*outlook.exe") Image="*.exe"
+index =sysmon (ParentImage="*excel.exe" OR ParentImage="*word.exe" OR ParentImage="*outlook.exe") Image="*.exe"
 ```
 {% endcode %}
 
@@ -356,7 +356,7 @@ Threat actors often try to disable Windows Defender after compromising a machine
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*Sysmon EventCode=1 Image = "C:\\Windows\\System32\\sc.exe"  | regex CommandLine="^sc\s*(config|stop|query)\sWinDefend$"
+index=sysmon EventCode=1 Image = "C:\\Windows\\System32\\sc.exe"  | regex CommandLine="^sc\s*(config|stop|query)\sWinDefend$"
 ```
 {% endcode %}
 
@@ -366,7 +366,7 @@ Threat actors often try to disable User Access Control (UAC) to escalate privile
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon ParentImage = "C:\\Windows\\System32\\cmd.exe" | where like(CommandLine,"reg.exe%HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System%REG_DWORD /d 0%")
+index=sysmon ParentImage = "C:\\Windows\\System32\\cmd.exe" | where like(CommandLine,"reg.exe%HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System%REG_DWORD /d 0%")
 ```
 {% endcode %}
 
@@ -376,7 +376,7 @@ Often, after a threat actor gains access to a system, they will attempt to run s
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*Sysmon EventCode=4688  |eval cmd_len=len(CommandLine) | eventstats avg(cmd_len) as avg by host| stats max(cmd_len) as maxlen, values(avg) as avgperhost by host, CommandLine | where maxlen > 10*avgperhost
+index=sysmon EventCode=4688  |eval cmd_len=len(CommandLine) | eventstats avg(cmd_len) as avg by host| stats max(cmd_len) as maxlen, values(avg) as avgperhost by host, CommandLine | where maxlen > 10*avgperhost
 ```
 {% endcode %}
 
@@ -386,7 +386,7 @@ Threat actors often try to clear Windows Event logs after compromising a machine
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*Sysmon EventCode=1 Image=*wevtutil* CommandLine=*cl* (CommandLine=*System* OR CommandLine=*Security* OR CommandLine=*Setup* OR CommandLine=*Application*)
+index=sysmon EventCode=1 Image=*wevtutil* CommandLine=*cl* (CommandLine=*System* OR CommandLine=*Security* OR CommandLine=*Setup* OR CommandLine=*Application*)
 ```
 {% endcode %}
 
@@ -396,7 +396,7 @@ After gaining initial access to a system, threat actors attempt to escalate priv
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) (Image=C:\\Windows\\System32\\spoolsv.exe* OR Image=C:\\Windows\\System32\\conhost.exe) ParentImage = "C:\\Windows\\System32\\cmd.exe"
+(index=sysmon EventCode=1) (Image=C:\\Windows\\System32\\spoolsv.exe* OR Image=C:\\Windows\\System32\\conhost.exe) ParentImage = "C:\\Windows\\System32\\cmd.exe"
 ```
 {% endcode %}
 
@@ -405,7 +405,7 @@ After gaining initial access to a system, threat actors attempt to escalate priv
 After compromising a network of systems, threat actors often try to delete Shadow Copy to prevent administrators from restoring the systems to versions present before the attack. This is often done via vssadmin, a legitimate Windows tool for interacting with shadow copies. This non-detection of this technique, often employed by ransomware strains such as “Olympic Destroyer,” may lead to a failure in recovering systems after an attack.
 
 ```splunk-spl
-index=*sysmon EventType=4688 CommandLine:"delete" OriginalFileName:"VSSADMIN.EXE"
+index=sysmon EventType=4688 CommandLine:"delete" OriginalFileName:"VSSADMIN.EXE"
 ```
 
 ### **Webshell-Indicative Process Tree**
@@ -414,7 +414,7 @@ A web shell is a web script placed on an openly accessible web server to allow a
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon (ParentImage="C:\\Windows\\System32\\services.exe" Image="C:\\Windows\\System32\\cmd.exe" (CommandLine="*echo*" AND CommandLine="*\\pipe\\*")) OR (Image="C:\\Windows\\System32\undll32.exe" CommandLine="*,a /p:*")
+index=sysmon (ParentImage="C:\\Windows\\System32\\services.exe" Image="C:\\Windows\\System32\\cmd.exe" (CommandLine="*echo*" AND CommandLine="*\\pipe\\*")) OR (Image="C:\\Windows\\System32\undll32.exe" CommandLine="*,a /p:*")
 ```
 {% endcode %}
 
@@ -424,9 +424,9 @@ Cyber actors frequently escalate to the SYSTEM account after gaining entry to a 
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon (ParentImage="C:\\Windows\\System32\\services.exe" Image="C:\\Windows\\System32\\cmd.exe" (CommandLine="*echo*" AND CommandLine="*\\pipe\\*")) OR (Image="C:\\Windows\\System32\undll32.exe" CommandLine="*,a /p:*")
+index=sysmon (ParentImage="C:\\Windows\\System32\\services.exe" Image="C:\\Windows\\System32\\cmd.exe" (CommandLine="*echo*" AND CommandLine="*\\pipe\\*")) OR (Image="C:\\Windows\\System32\undll32.exe" CommandLine="*,a /p:*")
 
-index=*sysmon (Image="C:\\Windows\\System32\\cmd.exe" OR CommandLine="*%COMSPEC%*") (CommandLine="*echo*" AND CommandLine="*\pipe\*")
+index=sysmon (Image="C:\\Windows\\System32\\cmd.exe" OR CommandLine="*%COMSPEC%*") (CommandLine="*echo*" AND CommandLine="*\pipe\*")
 ```
 {% endcode %}
 
@@ -436,7 +436,7 @@ Adversaries may schedule software to run whenever a user logs into the system; t
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1 Image="C:\\Windows\\System32\eg.exe" CommandLine="*add*\\Environment*UserInitMprLogonScript") OR (index=*sysmon (EventCode=12 OR EventCode=14 OR EventCode=13) TargetObject="*\\Environment*UserInitMprLogonScript")
+(index=sysmon EventCode=1 Image="C:\\Windows\\System32\eg.exe" CommandLine="*add*\\Environment*UserInitMprLogonScript") OR (index=*sysmon (EventCode=12 OR EventCode=14 OR EventCode=13) TargetObject="*\\Environment*UserInitMprLogonScript")
 ```
 {% endcode %}
 
@@ -446,7 +446,7 @@ Adversaries may use various tools to gain visibility into the network's current 
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) (Image="*tshark.exe" OR Image="*windump.exe" OR (Image="*logman.exe" AND ParentImage!="?" AND ParentImage!="C:\\Program Files\\Windows Event Reporting\\Core\\EventReporting.AgentService.exe") OR Image="*tcpdump.exe" OR Image="*wprui.exe" OR Image="*wpr.exe")
+(index=sysmon EventCode=1) (Image="*tshark.exe" OR Image="*windump.exe" OR (Image="*logman.exe" AND ParentImage!="?" AND ParentImage!="C:\\Program Files\\Windows Event Reporting\\Core\\EventReporting.AgentService.exe") OR Image="*tcpdump.exe" OR Image="*wprui.exe" OR Image="*wpr.exe")
 ```
 {% endcode %}
 
@@ -456,7 +456,7 @@ Injecting a malicious DLL into a process is a common adversary TTP. Although the
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) (Image="C:\\Windows\\SysWOW64\\mavinject.exe" OR Image="C:\\Windows\\System32\\mavinject.exe" OR CommandLine="*\INJECTRUNNING*")
+(index=sysmon EventCode=1) (Image="C:\\Windows\\SysWOW64\\mavinject.exe" OR Image="C:\\Windows\\System32\\mavinject.exe" OR CommandLine="*\INJECTRUNNING*")
 ```
 {% endcode %}
 
@@ -466,7 +466,7 @@ Adversaries may start legitimate processes and then use their memory space to ru
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) AND ParentImage!="?" AND ParentImage!="C:\\Program Files\\SplunkUniversalForwarder\\bin\\splunk-regmon.exe" AND ParentImage!="C:\\Program Files\\SplunkUniversalForwarder\\bin\\splunk-powershell.exe" AND ((Image="C:\\Windows\System32\\smss.exe" AND  ParentImage!="C:\\Windows\\System32\\smss.exe" AND ParentImage!="System")) OR (Image="C:\\Windows\\System32\\csrss.exe" AND (ParentImage!="C:\\Windows\\System32\\smss.exe" AND ParentImage!="C:\\Windows\\System32\\svchost.exe")) OR (Image="C:\\Windows\\System32\\wininit.exe" AND ParentImage!="C:\\Windows\\System32\\smss.exe") OR (Image="C:\\Windows\\System32\\winlogon.exe" AND  ParentImage!="C:\\Windows\\System32\\smss.exe") OR (Image="C:\\Windows\\System32\\lsass.exe" and ParentImage!="C:\\Windows\\System32\\wininit.exe") OR (Image="C:\\Windows\\System32\\LogonUI.exe" AND (ParentImage!="C:\\Windows\\System32\\winlogon.exe" AND ParentImage!="C:\\Windows\\System32\\wininit.exe")) OR (Image="C:\\Windows\\System32\\services.exe" AND ParentImage!="C:\\Windows\\System32\\wininit.exe") OR (Image="C:\\Windows\\System32\\spoolsv.exe" AND ParentImage!="C:\\Windows\\System32\\services.exe") OR (Image="C:\\Windows\\System32\\taskhost.exe" AND (ParentImage!="C:\\Windows\\System32\\services.exe" AND  ParentImage!="C:\\Windows\\System32\\svchost.exe")) OR (Image="C:\\Windows\\System32\\taskhostw.exe" AND (ParentImage!="C:\\Windows\\System32\\services.exe" AND ParentImage!="C:\\Windows\\System32\\svchost.exe")) OR (Image="C:\\Windows\System32\\userinit.exe" AND (ParentImage!="C:\\Windows\\System32\\dwm.exe" AND ParentImage!="C:\\Windows\\System32\\winlogon.exe")))
+(index=sysmon EventCode=1) AND ParentImage!="?" AND ParentImage!="C:\\Program Files\\SplunkUniversalForwarder\\bin\\splunk-regmon.exe" AND ParentImage!="C:\\Program Files\\SplunkUniversalForwarder\\bin\\splunk-powershell.exe" AND ((Image="C:\\Windows\System32\\smss.exe" AND  ParentImage!="C:\\Windows\\System32\\smss.exe" AND ParentImage!="System")) OR (Image="C:\\Windows\\System32\\csrss.exe" AND (ParentImage!="C:\\Windows\\System32\\smss.exe" AND ParentImage!="C:\\Windows\\System32\\svchost.exe")) OR (Image="C:\\Windows\\System32\\wininit.exe" AND ParentImage!="C:\\Windows\\System32\\smss.exe") OR (Image="C:\\Windows\\System32\\winlogon.exe" AND  ParentImage!="C:\\Windows\\System32\\smss.exe") OR (Image="C:\\Windows\\System32\\lsass.exe" and ParentImage!="C:\\Windows\\System32\\wininit.exe") OR (Image="C:\\Windows\\System32\\LogonUI.exe" AND (ParentImage!="C:\\Windows\\System32\\winlogon.exe" AND ParentImage!="C:\\Windows\\System32\\wininit.exe")) OR (Image="C:\\Windows\\System32\\services.exe" AND ParentImage!="C:\\Windows\\System32\\wininit.exe") OR (Image="C:\\Windows\\System32\\spoolsv.exe" AND ParentImage!="C:\\Windows\\System32\\services.exe") OR (Image="C:\\Windows\\System32\\taskhost.exe" AND (ParentImage!="C:\\Windows\\System32\\services.exe" AND  ParentImage!="C:\\Windows\\System32\\svchost.exe")) OR (Image="C:\\Windows\\System32\\taskhostw.exe" AND (ParentImage!="C:\\Windows\\System32\\services.exe" AND ParentImage!="C:\\Windows\\System32\\svchost.exe")) OR (Image="C:\\Windows\System32\\userinit.exe" AND (ParentImage!="C:\\Windows\\System32\\dwm.exe" AND ParentImage!="C:\\Windows\\System32\\winlogon.exe")))
 ```
 {% endcode %}
 
@@ -476,7 +476,7 @@ Adversaries may attempt to conceal their tracks by deleting the history of comma
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) (CommandLine="*rm (Get-PSReadlineOption).HistorySavePath*" OR CommandLine="*del (Get-PSReadlineOption).HistorySavePath*" OR CommandLine="*Set-PSReadlineOption –HistorySaveStyle SaveNothing*" OR CommandLine="*Remove-Item (Get-PSReadlineOption).HistorySavePath*" OR CommandLine="del*Microsoft\\Windows\\Powershell\\PSReadline\\ConsoleHost_history.txt")
+(index=sysmon EventCode=1) (CommandLine="*rm (Get-PSReadlineOption).HistorySavePath*" OR CommandLine="*del (Get-PSReadlineOption).HistorySavePath*" OR CommandLine="*Set-PSReadlineOption –HistorySaveStyle SaveNothing*" OR CommandLine="*Remove-Item (Get-PSReadlineOption).HistorySavePath*" OR CommandLine="del*Microsoft\\Windows\\Powershell\\PSReadline\\ConsoleHost_history.txt")
 ```
 {% endcode %}
 
@@ -486,7 +486,7 @@ Cyber actors frequently enumerate local or domain permissions groups. The net ut
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) Image="C:\\Windows\\System32\\net.exe" AND (CommandLine="* user*" OR CommandLine="* group*" OR CommandLine="* localgroup*" OR CommandLine="*get-localgroup*" OR CommandLine="*get-ADPrincipalGroupMembership*")
+(index=sysmon EventCode=1) Image="C:\\Windows\\System32\\net.exe" AND (CommandLine="* user*" OR CommandLine="* group*" OR CommandLine="* localgroup*" OR CommandLine="*get-localgroup*" OR CommandLine="*get-ADPrincipalGroupMembership*")
 ```
 {% endcode %}
 
@@ -496,7 +496,7 @@ Adversaries may use network shares to exfiltrate data; they will then remove the
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) ((Image="C:\\Windows\\System32\\net.exe" AND CommandLine="*delete*") OR CommandLine="*Remove-SmbShare*" OR CommandLine="*Remove-FileShare*")
+(index=sysmon EventCode=1) ((Image="C:\\Windows\\System32\\net.exe" AND CommandLine="*delete*") OR CommandLine="*Remove-SmbShare*" OR CommandLine="*Remove-FileShare*")
 ```
 {% endcode %}
 
@@ -506,7 +506,7 @@ Trusted developer utilities such as MSBuild may be leveraged to run malicious co
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) (Image="C:\\Program Files (x86)\\Microsoft Visual Studio\\*\\bin\\MSBuild.exe" OR Image="C:\\Windows\\Microsoft.NET\\Framework*\\msbuild.exe" OR Image="C:\\users\\*\\appdata\oaming\\microsoft\\msxsl.exe") ParentImage!="*\\Microsoft Visual Studio*")
+(index=sysmon EventCode=1) (Image="C:\\Program Files (x86)\\Microsoft Visual Studio\\*\\bin\\MSBuild.exe" OR Image="C:\\Windows\\Microsoft.NET\\Framework*\\msbuild.exe" OR Image="C:\\users\\*\\appdata\oaming\\microsoft\\msxsl.exe") ParentImage!="*\\Microsoft Visual Studio*")
 ```
 {% endcode %}
 
@@ -516,7 +516,7 @@ Adversaries may hide malicious code in .chm compiled HTML files. When these file
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=1) (Image="C:\\Windows\\syswow64\\hh.exe" OR Image="C:\\Windows\\system32\\hh.exe")
+(index=sysmon EventCode=1) (Image="C:\\Windows\\syswow64\\hh.exe" OR Image="C:\\Windows\\system32\\hh.exe")
 ```
 {% endcode %}
 
@@ -526,7 +526,7 @@ CMSTP.exe is the Microsoft Connection Manager Profile Installer, which can be le
 
 {% code overflow="wrap" %}
 ```splunk-spl
-(index=*sysmon EventCode=3) Image="C:\\Windows\\System32\\CMSTP.exe" | where ((!cidrmatch("10.0.0.0/8", SourceIp) AND !cidrmatch("192.168.0.0/16", SourceIp) AND !cidrmatch("172.16.0.0/12", SourceIp))
+(index=sysmon EventCode=3) Image="C:\\Windows\\System32\\CMSTP.exe" | where ((!cidrmatch("10.0.0.0/8", SourceIp) AND !cidrmatch("192.168.0.0/16", SourceIp) AND !cidrmatch("172.16.0.0/12", SourceIp))
 ```
 {% endcode %}
 
@@ -536,7 +536,7 @@ Adversaries may use screensaver files to run malicious code. This query triggers
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) TargetObject="*\\Software\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\SCRNSAVE.EXE"
+index=sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) TargetObject="*\\Software\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\SCRNSAVE.EXE"
 ```
 {% endcode %}
 
@@ -546,7 +546,7 @@ An adversary may use the Windows Task Scheduler to schedule a command to be run 
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=11 Image!="C:\\WINDOWS\\system32\\svchost.exe" (TargetFilename="C:\\Windows\\System32\\Tasks\\*" OR TargetFilename="C:\\Windows\\Tasks\\*")
+index=sysmon EventCode=11 Image!="C:\\WINDOWS\\system32\\svchost.exe" (TargetFilename="C:\\Windows\\System32\\Tasks\\*" OR TargetFilename="C:\\Windows\\Tasks\\*")
 ```
 {% endcode %}
 
@@ -556,7 +556,7 @@ Adversaries may establish persistence or escalate privileges by executing malici
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) TargetObject="*\\Software\\Classes\\CLSID\\*"
+index=sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) TargetObject="*\\Software\\Classes\\CLSID\\*"
 ```
 {% endcode %}
 
@@ -566,7 +566,7 @@ Adversaries may attempt to evade system defences by unloading minifilter drivers
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 CommandLine="*unload*" (Image="C:\\Windows\\SysWOW64\\fltMC.exe" OR  Image="C:\\Windows\\System32\\fltMC.exe")
+index=sysmon EventCode=1 CommandLine="*unload*" (Image="C:\\Windows\\SysWOW64\\fltMC.exe" OR  Image="C:\\Windows\\System32\\fltMC.exe")
 ```
 {% endcode %}
 
@@ -576,7 +576,7 @@ Adversaries may search the Windows Registry on compromised systems for insecurel
 
 {% code overflow="wrap" %}
 ```splunk-spl
-((index=*sysmon EventCode=1) OR (index=wine* EventCode=4688)) (CommandLine="*reg* query HKLM /f password /t REG_SZ /s*" OR CommandLine="reg* query HKCU /f password /t REG_SZ /s" OR CommandLine="*Get-UnattendedInstallFile*" OR CommandLine="*Get-Webconfig*" OR CommandLine="*Get-ApplicationHost*" OR CommandLine="*Get-SiteListPassword*" OR CommandLine="*Get-CachedGPPPassword*" OR CommandLine="*Get-RegistryAutoLogon*")
+((index=sysmon EventCode=1) OR (index=wine* EventCode=4688)) (CommandLine="*reg* query HKLM /f password /t REG_SZ /s*" OR CommandLine="reg* query HKCU /f password /t REG_SZ /s" OR CommandLine="*Get-UnattendedInstallFile*" OR CommandLine="*Get-Webconfig*" OR CommandLine="*Get-ApplicationHost*" OR CommandLine="*Get-SiteListPassword*" OR CommandLine="*Get-CachedGPPPassword*" OR CommandLine="*Get-RegistryAutoLogon*")
 ```
 {% endcode %}
 
@@ -586,7 +586,7 @@ Adversaries may establish persistence and/or elevate privileges by executing mal
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) (TargetObject="*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Appinit_Dlls\\*" OR TargetObject="*\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Appinit_Dlls\\*")
+index=sysmon (EventCode=12 OR EventCode=13 OR EventCode=14) (TargetObject="*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Appinit_Dlls\\*" OR TargetObject="*\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Appinit_Dlls\\*")
 ```
 {% endcode %}
 
@@ -597,16 +597,16 @@ Adversaries may use NTFS Alternate Data Streams (ADSs) to evade security tools b
 {% code overflow="wrap" %}
 ```splunk-spl
 NTFS ADS – PowerShell
-index=*sysmon EventCode=1 Image=C:\\Windows\\*\\powershell.exe|regex CommandLine="Invoke-CimMethod\s+-ClassName\s+Win32_Process\s+-MethodName\s+Create.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)|-ep bypass\s+-\s+<.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)|-command.*Get-Content.*-Stream.*Set-Content.*start-process .*(\w+(\.\w+)?)"NTFS ADS – wmic
+index=sysmon EventCode=1 Image=C:\\Windows\\*\\powershell.exe|regex CommandLine="Invoke-CimMethod\s+-ClassName\s+Win32_Process\s+-MethodName\s+Create.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)|-ep bypass\s+-\s+<.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)|-command.*Get-Content.*-Stream.*Set-Content.*start-process .*(\w+(\.\w+)?)"NTFS ADS – wmic
 
 NTFS ADS – wmic
-index=*sysmon EventCode=1 Image=C:\\Windows\\*\\wmic.exe | regex CommandLine="process call create.*\"(\w+(\.\w+)?):(\w+(\.\w+)?)"
+index=sysmon EventCode=1 Image=C:\\Windows\\*\\wmic.exe | regex CommandLine="process call create.*\"(\w+(\.\w+)?):(\w+(\.\w+)?)"
 
 NTFS ADS - rundll32
-index=*sysmon  EventCode=1 Image=C:\\Windows\\*\undll32.exe | regex CommandLine="\"?(\w+(\.\w+)?):(\w+(\.\w+)?)?\"?,\w+\|(advpack\.dll\|ieadvpack\.dll),RegisterOCX\s+(\w+\.\w+):(\w+(\.\w+)?)\|(shdocvw\.dll\|ieframe\.dll),OpenURL.*(\w+\.\w+):(\w+(\.\w+)?)"
+index=sysmon  EventCode=1 Image=C:\\Windows\\*\undll32.exe | regex CommandLine="\"?(\w+(\.\w+)?):(\w+(\.\w+)?)?\"?,\w+\|(advpack\.dll\|ieadvpack\.dll),RegisterOCX\s+(\w+\.\w+):(\w+(\.\w+)?)\|(shdocvw\.dll\|ieframe\.dll),OpenURL.*(\w+\.\w+):(\w+(\.\w+)?)"
 
 NTFS ADS - wscript/cscript
-index=*sysmon EventCode=1 (Image=C:\\Windows\\*\\wscript.exe OR Image=C:\\Windows\\*\\cscript.exe) | regex CommandLine="(?<!\/)\b\w+(\.\w+)?:\w+(\.\w+)?$"
+index=sysmon EventCode=1 (Image=C:\\Windows\\*\\wscript.exe OR Image=C:\\Windows\\*\\cscript.exe) | regex CommandLine="(?<!\/)\b\w+(\.\w+)?:\w+(\.\w+)?$"
 ```
 {% endcode %}
 
@@ -617,25 +617,25 @@ Adversaries may use NTFS Alternate Data Streams (ADSs) to evade security tools b
 {% code overflow="wrap" %}
 ```splunk-spl
 NTFS ADS – control
-index=*sysmon EventCode=1 (Image=C:\\Windows\System32\\control.exe OR Image=C:\\Windows\SysWOW64\\control.exe) | regex CommandLine="(\w+(\.\w+)?):(\w+\.dll)"
+index=sysmon EventCode=1 (Image=C:\\Windows\System32\\control.exe OR Image=C:\\Windows\SysWOW64\\control.exe) | regex CommandLine="(\w+(\.\w+)?):(\w+\.dll)"
 
 NTFS ADS – appvlp
-index=*sysmon EventCode=1 (Image="C:\\Program Files\\Microsoft Office\oot\\Client\\AppVLP.exe" OR Image="C:\\Program Files (x86)\\Microsoft Office\oot\\Client\\AppVLP.exe") | regex CommandLine="(\w+(\.\w+)?):(\w+(\.\w+)?)"
+index=sysmon EventCode=1 (Image="C:\\Program Files\\Microsoft Office\oot\\Client\\AppVLP.exe" OR Image="C:\\Program Files (x86)\\Microsoft Office\oot\\Client\\AppVLP.exe") | regex CommandLine="(\w+(\.\w+)?):(\w+(\.\w+)?)"
 
 NTFS ADS – cmd
-index=*sysmon EventCode=1 (Image=C:\\Windows\\System32\\cmd.exe OR Image=C:\\Windows\\SysWOW64\\cmd.exe) | regex CommandLine="-\s+<.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)"
+index=sysmon EventCode=1 (Image=C:\\Windows\\System32\\cmd.exe OR Image=C:\\Windows\\SysWOW64\\cmd.exe) | regex CommandLine="-\s+<.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)"
 
 NTFS ADS – ftp
-index=*sysmon EventCode=1 (Image=C:\\Windows\\System32\\ftp.exe OR Image=C:\\Windows\\SysWOW64\\ftp.exe) | regex CommandLine="-s:(\w+(\.\w+)?):(\w+(\.\w+)?)"
+index=sysmon EventCode=1 (Image=C:\\Windows\\System32\\ftp.exe OR Image=C:\\Windows\\SysWOW64\\ftp.exe) | regex CommandLine="-s:(\w+(\.\w+)?):(\w+(\.\w+)?)"
 
 NTFS ADS – bash
-index=*sysmon EventCode=1 (Image=C:\\Windows\\System32\\bash.exe OR C:\\Windows\\SysWOW64\\bash.exe) | regex CommandLine="-c.*(\w+(\.\w+)?):(\w+(\.\w+)?)"
+index=sysmon EventCode=1 (Image=C:\\Windows\\System32\\bash.exe OR C:\\Windows\\SysWOW64\\bash.exe) | regex CommandLine="-c.*(\w+(\.\w+)?):(\w+(\.\w+)?)"
 
 NTFS ADS – mavinject
-index=*sysmon EventCode=1 (Image=C:\\Windows\\System32\\mavinject.exe OR C:\\Windows\\SysWOW64\\mavinject.exe) | regex CommandLine="\d+\s+\/INJECTRUNNING.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)"
+index=sysmon EventCode=1 (Image=C:\\Windows\\System32\\mavinject.exe OR C:\\Windows\\SysWOW64\\mavinject.exe) | regex CommandLine="\d+\s+\/INJECTRUNNING.*\b(\w+(\.\w+)?):(\w+(\.\w+)?)"
 
 NTFS ADS – bitsadmin
-index=*sysmon EventCode=1 (Image=C:\\Windows\\System32\\bitsadmin.exe OR C:\\Windows\\SysWOW64\\bitsadmin.exe) | regex CommandLine="\/create.*\/addfile.*\/SetNotifyCmdLine.*\b(\w+\.\w+):(\w+(\.\w+)?)"
+index=sysmon EventCode=1 (Image=C:\\Windows\\System32\\bitsadmin.exe OR C:\\Windows\\SysWOW64\\bitsadmin.exe) | regex CommandLine="\/create.*\/addfile.*\/SetNotifyCmdLine.*\b(\w+\.\w+):(\w+(\.\w+)?)"
 ```
 {% endcode %}
 
@@ -645,7 +645,7 @@ In order to gain persistence, privilege escalation, or remote execution, an adve
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon Image="C:\\Windows\\*\\at.exe"|stats values(CommandLine) as "Command Lines" by ComputerName
+index=sysmon Image="C:\\Windows\\*\\at.exe"|stats values(CommandLine) as "Command Lines" by ComputerName
 ```
 {% endcode %}
 
@@ -657,7 +657,7 @@ Although this query was initially based on MD5 hashes, it is equally applicable 
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1|stats dc(Hashes) as Num_Hashes values(Hashes) as "Hashes" by Image|where Num_Hashes > 1
+index=sysmon EventCode=1|stats dc(Hashes) as Num_Hashes values(Hashes) as "Hashes" by Image|where Num_Hashes > 1
 ```
 {% endcode %}
 
@@ -667,7 +667,7 @@ Malicious actors may rename built-in commands or external tools, such as those p
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 (CommandLine="* -R * -pw*" OR CommandLine="* -pw * *@*" OR CommandLine="*sekurlsa*" OR CommandLine="* -hp *" OR CommandLine="* a *")
+index=sysmon EventCode=1 (CommandLine="* -R * -pw*" OR CommandLine="* -pw * *@*" OR CommandLine="*sekurlsa*" OR CommandLine="* -hp *" OR CommandLine="* a *")
 ```
 {% endcode %}
 
@@ -679,7 +679,7 @@ It could be applied to a number of different types of monitoring, depending on w
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=wine* EventCode=4624|search NOT [search index=wine* EventCode=4624|top 30 Account_Name|table Account_Name]
+index=windows EventCode=4624|search NOT [search index=wine* EventCode=4624|top 30 Account_Name|table Account_Name]
 ```
 {% endcode %}
 
@@ -694,7 +694,7 @@ Powershell can be used to hide monitored command line executions such as:
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 Image="C:\\Windows\\*\\powershell.exe" ParentImage!="C:\\Windows\\explorer.exe" |stats values(CommandLine) as "Command Lines" values(ParentImage) as "Parent Images" by ComputerName
+index=sysmon EventCode=1 Image="C:\\Windows\\*\\powershell.exe" ParentImage!="C:\\Windows\\explorer.exe" |stats values(CommandLine) as "Command Lines" values(ParentImage) as "Parent Images" by ComputerName
 ```
 {% endcode %}
 
@@ -704,7 +704,7 @@ Windows runs the Service Control Manager (SCM) within the process services.exe. 
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 Image="C:\\Windows\\*\\cmd.exe" ParentImage="C:\\Windows\\*\\services.exe"
+index=sysmon EventCode=1 Image="C:\\Windows\\*\\cmd.exe" ParentImage="C:\\Windows\\*\\services.exe"
 ```
 {% endcode %}
 
@@ -714,7 +714,7 @@ An adversary can use accessibility features (Ease of Access), such as StickyKeys
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 ParentImage="C:\\Windows\\*\\winlogon.exe" Image="C:\\Windows\\*\\cmd.exe"
+index=sysmon EventCode=1 ParentImage="C:\\Windows\\*\\winlogon.exe" Image="C:\\Windows\\*\\cmd.exe"
 ```
 {% endcode %}
 
@@ -726,7 +726,7 @@ Because these commands are built in, they may run frequently by power users or e
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 (Image="C:\\Windows\\*\\hostname.exe" OR Image="C:\\Windows\\*\\ipconfig.exe" OR Image="C:\\Windows\\*\\net.exe" OR Image="C:\\Windows\\*\\quser.exe" OR Image="C:\\Windows\\*\\qwinsta.exe" OR (Image="C:\\Windows\\*\\sc.exe" AND (CommandLine="* query *" OR CommandLine="* qc *")) OR Image="C:\\Windows\\*\\systeminfo.exe" OR Image="C:\\Windows\\*\\tasklist.exe" OR Image="C:\\Windows\\*\\whoami.exe")|stats values(Image) as "Images" values(CommandLine) as "Command Lines" by ComputerName
+index=sysmon EventCode=1 (Image="C:\\Windows\\*\\hostname.exe" OR Image="C:\\Windows\\*\\ipconfig.exe" OR Image="C:\\Windows\\*\\net.exe" OR Image="C:\\Windows\\*\\quser.exe" OR Image="C:\\Windows\\*\\qwinsta.exe" OR (Image="C:\\Windows\\*\\sc.exe" AND (CommandLine="* query *" OR CommandLine="* qc *")) OR Image="C:\\Windows\\*\\systeminfo.exe" OR Image="C:\\Windows\\*\\tasklist.exe" OR Image="C:\\Windows\\*\\whoami.exe")|stats values(Image) as "Images" values(CommandLine) as "Command Lines" by ComputerName
 ```
 {% endcode %}
 
@@ -738,7 +738,7 @@ Although this query was created after CAR-2014-12-001, it is a much simpler (alt
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 Image="C:\\Windows\\*\\wmic.exe" CommandLine="* process call create *" |search CommandLine="* /node:*"
+index=sysmon EventCode=1 Image="C:\\Windows\\*\\wmic.exe" CommandLine="* process call create *" |search CommandLine="* /node:*"
 ```
 {% endcode %}
 
@@ -748,7 +748,7 @@ Bypassing user account control (UAC Bypass) is generally done by piggybacking on
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 IntegrityLevel=High|search (ParentCommandLine="\"c:\\windows\\system32\\dism.exe\"*""*.xml" AND Image!="c:\\users\\*\\appdata\\local\\temp\\*\\dismhost.exe") OR ParentImage=c:\\windows\\system32\\fodhelper.exe OR (CommandLine="\"c:\\windows\\system32\\wusa.exe\"*/quiet*" AND User!=NOT_TRANSLATED AND CurrentDirectory=c:\\windows\\system32\\ AND ParentImage!=c:\\windows\\explorer.exe) OR CommandLine="*.exe\"*cleanmgr.exe /autoclean*" OR (ParentImage="c:\\windows\\*dccw.exe" AND Image!="c:\\windows\\system32\\cttune.exe") OR Image="c:\\program files\\windows media player\\osk.exe" OR ParentImage="c:\\windows\\system32\\slui.exe" |eval PossibleTechniques=case(like(lower(ParentCommandLine),"%c:\\windows\\system32\\dism.exe%"), "UACME #23", like(lower(Image),"c:\\program files\\windows media player\\osk.exe"), "UACME #32", like(lower(ParentImage),"c:\\windows\\system32\\fodhelper.exe"),  "UACME #33", like(lower(CommandLine),"%.exe\"%cleanmgr.exe /autoclean%"), "UACME #34", like(lower(Image),"c:\\windows\\system32\\wusa.exe"), "UACME #36", like(lower(ParentImage),"c:\\windows\\%dccw.exe"), "UACME #37", like(lower(ParentImage),"c:\\windows\\system32\\slui.exe"), "UACME #45")
+index=sysmon EventCode=1 IntegrityLevel=High|search (ParentCommandLine="\"c:\\windows\\system32\\dism.exe\"*""*.xml" AND Image!="c:\\users\\*\\appdata\\local\\temp\\*\\dismhost.exe") OR ParentImage=c:\\windows\\system32\\fodhelper.exe OR (CommandLine="\"c:\\windows\\system32\\wusa.exe\"*/quiet*" AND User!=NOT_TRANSLATED AND CurrentDirectory=c:\\windows\\system32\\ AND ParentImage!=c:\\windows\\explorer.exe) OR CommandLine="*.exe\"*cleanmgr.exe /autoclean*" OR (ParentImage="c:\\windows\\*dccw.exe" AND Image!="c:\\windows\\system32\\cttune.exe") OR Image="c:\\program files\\windows media player\\osk.exe" OR ParentImage="c:\\windows\\system32\\slui.exe" |eval PossibleTechniques=case(like(lower(ParentCommandLine),"%c:\\windows\\system32\\dism.exe%"), "UACME #23", like(lower(Image),"c:\\program files\\windows media player\\osk.exe"), "UACME #32", like(lower(ParentImage),"c:\\windows\\system32\\fodhelper.exe"),  "UACME #33", like(lower(CommandLine),"%.exe\"%cleanmgr.exe /autoclean%"), "UACME #34", like(lower(Image),"c:\\windows\\system32\\wusa.exe"), "UACME #36", like(lower(ParentImage),"c:\\windows\\%dccw.exe"), "UACME #37", like(lower(ParentImage),"c:\\windows\\system32\\slui.exe"), "UACME #45")
 ```
 {% endcode %}
 
@@ -758,7 +758,7 @@ Regsvr32 can be used to execute arbitrary code in the context of a Windows signe
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 regsvr32.exe | search ParentImage="*regsvr32.exe" AND Image!="*regsvr32.exe*"
+index=sysmon EventCode=1 regsvr32.exe | search ParentImage="*regsvr32.exe" AND Image!="*regsvr32.exe*"
 ```
 {% endcode %}
 
@@ -768,7 +768,7 @@ Credential dumpers like Mimikatz can be loaded into memory and read data from ot
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=10 TargetImage="C:\\WINDOWS\\system32\\lsass.exe"
+index=sysmon EventCode=10 TargetImage="C:\\WINDOWS\\system32\\lsass.exe"
 ```
 {% endcode %}
 
@@ -780,7 +780,7 @@ Adversaries sometimes modify object access rights at the operating system level.
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=wine* EventCode=4670 Object_Type="File" Security_ID!="NT AUTHORITY\\SYSTEM"
+index=windows EventCode=4670 Object_Type="File" Security_ID!="NT AUTHORITY\\SYSTEM"
 ```
 {% endcode %}
 
@@ -790,7 +790,7 @@ ProcDump is a sysinternal command-line utility whose primary purpose is monitori
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*Sysmon* EventCode=1 Image="*\\procdump*.exe" CommandLine="*lsass*"
+index=sysmon EventCode=1 Image="*\\procdump*.exe" CommandLine="*lsass*"
 ```
 {% endcode %}
 
@@ -800,7 +800,7 @@ The Windows Task Manager may be used to dump the memory space of lsass.exe to di
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=11 TargetFilename="*lsass*.dmp" Image="C:\\Windows\\*\\taskmgr.exe"
+index=sysmon EventCode=11 TargetFilename="*lsass*.dmp" Image="C:\\Windows\\*\\taskmgr.exe"
 ```
 {% endcode %}
 
@@ -810,7 +810,7 @@ The NTDSUtil tool may be used to dump a Microsoft Active Directory database to d
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=11 TargetFilename="*ntds.dit" Image="*ntdsutil.exe"
+index=sysmon EventCode=11 TargetFilename="*ntds.dit" Image="*ntdsutil.exe"
 ```
 {% endcode %}
 
@@ -822,15 +822,15 @@ Adversaries may delete these shadow copies, typically through the usage of syste
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 Image="C:\\Windows\\System32\\vssadmin.exe" CommandLine="*delete shadows*"
+index=sysmon EventCode=1 Image="C:\\Windows\\System32\\vssadmin.exe" CommandLine="*delete shadows*"
 ```
 {% endcode %}
 
 ### **WMIC shadowcopy delete**
 
 {% code overflow="wrap" %}
-```
-index=*sysmon EventCode=1 Image="C:\\Windows\\*\\wmic.exe" CommandLine="*shadowcopy delete*"
+```splunk-spl
+index=sysmon EventCode=1 Image="C:\\Windows\\*\\wmic.exe" CommandLine="*shadowcopy delete*"
 ```
 {% endcode %}
 
@@ -842,7 +842,7 @@ The query is based on a Sigma query contributed by Samir Bousseaden and written 
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=10 TargetImage="C:\\windows\\system32\\lsass.exe" (CallTrace="*dbghelp.dll*" OR CallTrace="*dbgcore.dll*") | table _time host SourceProcessId SourceImage
+index=sysmon EventCode=10 TargetImage="C:\\windows\\system32\\lsass.exe" (CallTrace="*dbghelp.dll*" OR CallTrace="*dbgcore.dll*") | table _time host SourceProcessId SourceImage
 ```
 {% endcode %}
 
@@ -856,6 +856,6 @@ queryThe query needs to be tuned. The 1.5 in the query is the number of standard
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=*sysmon EventCode=1 (OriginalFileName = At.exe OR OriginalFileName = Atbroker.exe OR OriginalFileName = Bash.exe OR OriginalFileName = Bitsadmin.exe OR OriginalFileName = Certutil.exe OR OriginalFileName = Cmd.exe OR OriginalFileName = Cmdkey.exe OR OriginalFileName = Cmstp.exe OR OriginalFileName = Control.exe OR OriginalFileName = Csc.exe OR OriginalFileName = Cscript.exe OR OriginalFileName = Dfsvc.exe OR OriginalFileName = Diskshadow.exe OR OriginalFileName = Dnscmd.exe OR OriginalFileName = Esentutl.exe OR OriginalFileName = Eventvwr.exe OR OriginalFileName = Expand.exe OR OriginalFileName = Extexport.exe OR OriginalFileName = Extrac32.exe OR OriginalFileName = Findstr.exe OR OriginalFileName = Forfiles.exe OR OriginalFileName = Ftp.exe OR OriginalFileName = Gpscript.exe OR OriginalFileName = Hh.exe OR OriginalFileName = Ie4uinit.exe OR OriginalFileName = Ieexec.exe OR OriginalFileName = Infdefaultinstall.exe OR OriginalFileName = Installutil.exe OR OriginalFileName = Jsc.exe OR OriginalFileName = Makecab.exe OR OriginalFileName = Mavinject.exe OR OriginalFileName = Microsoft.Workflow.r.exe OR OriginalFileName = Mmc.exe OR OriginalFileName = Msbuild.exe OR OriginalFileName = Msconfig.exe OR OriginalFileName = Msdt.exe OR OriginalFileName = Mshta.exe OR OriginalFileName = Msiexec.exe OR OriginalFileName = Odbcconf.exe OR OriginalFileName = Pcalua.exe OR OriginalFileName = Pcwrun.exe OR OriginalFileName = Presentationhost.exe OR OriginalFileName = Print.exe OR OriginalFileName = Reg.exe OR OriginalFileName = Regasm.exe OR OriginalFileName = Regedit.exe OR OriginalFileName = Register-cimprovider.exe OR OriginalFileName = Regsvcs.exe OR OriginalFileName = Regsvr32.exe OR OriginalFileName = Replace.exe OR OriginalFileName = Rpcping.exe OR OriginalFileName = Rundll32.exe OR OriginalFileName = Runonce.exe OR OriginalFileName = Runscripthelper.exe OR OriginalFileName = Sc.exe OR OriginalFileName = Schtasks.exe OR OriginalFileName = Scriptrunner.exe OR OriginalFileName = SyncAppvPublishingServer.exe OR OriginalFileName = Tttracer.exe OR OriginalFileName = Verclsid.exe OR OriginalFileName = Wab.exe OR OriginalFileName = Wmic.exe OR OriginalFileName = Wscript.exe OR OriginalFileName = Wsreset.exe OR OriginalFileName = Xwizard.exe OR OriginalFileName = Advpack.dll OR OriginalFileName = Comsvcs.dll OR OriginalFileName = Ieadvpack.dll OR OriginalFileName = Ieaframe.dll OR OriginalFileName = Mshtml.dll OR OriginalFileName = Pcwutl.dll OR OriginalFileName = Setupapi.dll OR OriginalFileName = Shdocvw.dll OR OriginalFileName = Shell32.dll OR OriginalFileName = Syssetup.dll OR OriginalFileName = Url.dll OR OriginalFileName = Zipfldr.dll OR OriginalFileName = Appvlp.exe OR OriginalFileName = Bginfo.exe OR OriginalFileName = Cdb.exe OR OriginalFileName = csi.exe OR OriginalFileName = Devtoolslauncher.exe OR OriginalFileName = dnx.exe OR OriginalFileName = Dxcap.exe OR OriginalFileName = Excel.exe OR OriginalFileName = Mftrace.exe OR OriginalFileName = Msdeploy.exe OR OriginalFileName = msxsl.exe OR OriginalFileName = Powerpnt.exe OR OriginalFileName = rcsi.exe OR OriginalFileName = Sqler.exe OR OriginalFileName = Sqlps.exe OR OriginalFileName = SQLToolsPS.exe OR OriginalFileName = Squirrel.exe OR OriginalFileName = te.exe OR OriginalFileName = Tracker.exe OR OriginalFileName = Update.exe OR OriginalFileName = vsjitdebugger.exe OR OriginalFileName = Winword.exe OR OriginalFileName = Wsl.exe OR OriginalFileName = CL_Mutexverifiers.ps1 OR OriginalFileName = CL_Invocation.ps1 OR OriginalFileName = Manage-bde.wsf OR OriginalFileName = Pubprn.vbs OR OriginalFileName = Slmgr.vbs OR OriginalFileName = Syncappvpublishingserver.vbs OR OriginalFileName = winrm.vbs OR OriginalFileName = Pester.bat)|eval CommandLine=lower(CommandLine)|eventstats count(process) as procCount by process|eventstats avg(procCount) as avg stdev(procCount) as stdev|eval lowerBound=(avg-stdev*1.5)|eval isOutlier=if((procCount < lowerBound),1,0)|where isOutlier=1|table host, Image, ParentImage, CommandLine, ParentCommandLine, procCount
+index=sysmon EventCode=1 (OriginalFileName = At.exe OR OriginalFileName = Atbroker.exe OR OriginalFileName = Bash.exe OR OriginalFileName = Bitsadmin.exe OR OriginalFileName = Certutil.exe OR OriginalFileName = Cmd.exe OR OriginalFileName = Cmdkey.exe OR OriginalFileName = Cmstp.exe OR OriginalFileName = Control.exe OR OriginalFileName = Csc.exe OR OriginalFileName = Cscript.exe OR OriginalFileName = Dfsvc.exe OR OriginalFileName = Diskshadow.exe OR OriginalFileName = Dnscmd.exe OR OriginalFileName = Esentutl.exe OR OriginalFileName = Eventvwr.exe OR OriginalFileName = Expand.exe OR OriginalFileName = Extexport.exe OR OriginalFileName = Extrac32.exe OR OriginalFileName = Findstr.exe OR OriginalFileName = Forfiles.exe OR OriginalFileName = Ftp.exe OR OriginalFileName = Gpscript.exe OR OriginalFileName = Hh.exe OR OriginalFileName = Ie4uinit.exe OR OriginalFileName = Ieexec.exe OR OriginalFileName = Infdefaultinstall.exe OR OriginalFileName = Installutil.exe OR OriginalFileName = Jsc.exe OR OriginalFileName = Makecab.exe OR OriginalFileName = Mavinject.exe OR OriginalFileName = Microsoft.Workflow.r.exe OR OriginalFileName = Mmc.exe OR OriginalFileName = Msbuild.exe OR OriginalFileName = Msconfig.exe OR OriginalFileName = Msdt.exe OR OriginalFileName = Mshta.exe OR OriginalFileName = Msiexec.exe OR OriginalFileName = Odbcconf.exe OR OriginalFileName = Pcalua.exe OR OriginalFileName = Pcwrun.exe OR OriginalFileName = Presentationhost.exe OR OriginalFileName = Print.exe OR OriginalFileName = Reg.exe OR OriginalFileName = Regasm.exe OR OriginalFileName = Regedit.exe OR OriginalFileName = Register-cimprovider.exe OR OriginalFileName = Regsvcs.exe OR OriginalFileName = Regsvr32.exe OR OriginalFileName = Replace.exe OR OriginalFileName = Rpcping.exe OR OriginalFileName = Rundll32.exe OR OriginalFileName = Runonce.exe OR OriginalFileName = Runscripthelper.exe OR OriginalFileName = Sc.exe OR OriginalFileName = Schtasks.exe OR OriginalFileName = Scriptrunner.exe OR OriginalFileName = SyncAppvPublishingServer.exe OR OriginalFileName = Tttracer.exe OR OriginalFileName = Verclsid.exe OR OriginalFileName = Wab.exe OR OriginalFileName = Wmic.exe OR OriginalFileName = Wscript.exe OR OriginalFileName = Wsreset.exe OR OriginalFileName = Xwizard.exe OR OriginalFileName = Advpack.dll OR OriginalFileName = Comsvcs.dll OR OriginalFileName = Ieadvpack.dll OR OriginalFileName = Ieaframe.dll OR OriginalFileName = Mshtml.dll OR OriginalFileName = Pcwutl.dll OR OriginalFileName = Setupapi.dll OR OriginalFileName = Shdocvw.dll OR OriginalFileName = Shell32.dll OR OriginalFileName = Syssetup.dll OR OriginalFileName = Url.dll OR OriginalFileName = Zipfldr.dll OR OriginalFileName = Appvlp.exe OR OriginalFileName = Bginfo.exe OR OriginalFileName = Cdb.exe OR OriginalFileName = csi.exe OR OriginalFileName = Devtoolslauncher.exe OR OriginalFileName = dnx.exe OR OriginalFileName = Dxcap.exe OR OriginalFileName = Excel.exe OR OriginalFileName = Mftrace.exe OR OriginalFileName = Msdeploy.exe OR OriginalFileName = msxsl.exe OR OriginalFileName = Powerpnt.exe OR OriginalFileName = rcsi.exe OR OriginalFileName = Sqler.exe OR OriginalFileName = Sqlps.exe OR OriginalFileName = SQLToolsPS.exe OR OriginalFileName = Squirrel.exe OR OriginalFileName = te.exe OR OriginalFileName = Tracker.exe OR OriginalFileName = Update.exe OR OriginalFileName = vsjitdebugger.exe OR OriginalFileName = Winword.exe OR OriginalFileName = Wsl.exe OR OriginalFileName = CL_Mutexverifiers.ps1 OR OriginalFileName = CL_Invocation.ps1 OR OriginalFileName = Manage-bde.wsf OR OriginalFileName = Pubprn.vbs OR OriginalFileName = Slmgr.vbs OR OriginalFileName = Syncappvpublishingserver.vbs OR OriginalFileName = winrm.vbs OR OriginalFileName = Pester.bat)|eval CommandLine=lower(CommandLine)|eventstats count(process) as procCount by process|eventstats avg(procCount) as avg stdev(procCount) as stdev|eval lowerBound=(avg-stdev*1.5)|eval isOutlier=if((procCount < lowerBound),1,0)|where isOutlier=1|table host, Image, ParentImage, CommandLine, ParentCommandLine, procCount
 ```
 {% endcode %}
