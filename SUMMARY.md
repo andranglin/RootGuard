@@ -127,6 +127,12 @@
   * [Threat Hunting With Splunk](learning-resources/threat-hunting/threat-hunting-with-splunk.md)
   * [Threat Hunting With KQL](learning-resources/threat-hunting/threat-hunting-with-kql/README.md)
     * [Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)](learning-resources/threat-hunting/threat-hunting-with-kql/detecting-malware-infection-mitre-att-and-ck-t1566-t1059.md)
+    * [Discovery Activities (MITRE ATT\&CK: T1016, T1083, T1046)](learning-resources/threat-hunting/threat-hunting-with-kql/discovery-activities-mitre-att-and-ck-t1016-t1083-t1046.md)
+    * [Credential Theft (MITRE ATT\&CK: T1003, T1078)](learning-resources/threat-hunting/threat-hunting-with-kql/credential-theft-mitre-att-and-ck-t1003-t1078.md)
+    * [Lateral Movement (MITRE ATT\&CK: T1076, T1021)](learning-resources/threat-hunting/threat-hunting-with-kql/lateral-movement-mitre-att-and-ck-t1076-t1021.md)
+    * [Data Theft (MITRE ATT\&CK: T1041, T1071)](learning-resources/threat-hunting/threat-hunting-with-kql/data-theft-mitre-att-and-ck-t1041-t1071.md)
+    * [Detecting CommandLine Executions (MITRE ATT\&CK: T1059)](learning-resources/threat-hunting/threat-hunting-with-kql/detecting-commandline-executions-mitre-att-and-ck-t1059.md)
+    * [Windows Security Logs (Identity and Logon Activities)](learning-resources/threat-hunting/threat-hunting-with-kql/windows-security-logs-identity-and-logon-activities.md)
   * [Threat Hunting Ransomware Indicators](learning-resources/threat-hunting/threat-hunting-ransomware-indicators.md)
 * [Malware Analysis](learning-resources/malware-analysis.md)
 
