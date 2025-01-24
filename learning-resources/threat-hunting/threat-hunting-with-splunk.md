@@ -40,7 +40,7 @@ Find large file uploads that could point to data exfiltration in your network.
 
 {% code overflow="wrap" %}
 ```splunk-spl
-index=proxy | where bytes_out > 35000000 | table _time src_ip bytes* uri
+index=web_proxy | where bytes_out > 35000000 | table _time src_ip bytes* uri
 ```
 {% endcode %}
 
