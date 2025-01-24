@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# OPSEC Threat Hunting With KQL
+# Threat Hunting With KQL
 
 ## **Introduction**
 
@@ -211,8 +211,8 @@ DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine 
     &#xNAN;_&#x44;LL injection or side-loading is used to execute malicious code within trusted processes._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "rundll32.exe" and ProcessCommandLine has ".dll" | where InitiatingProcessAccountName !="system" and InitiatingProcessAccountName != "lokaler dienst" and InitiatingProcessAccountName != "local service" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "rundll32.exe" and ProcessCommandLine has ".dll" | where InitiatingProcessAccountName !="system" and InitiatingProcessAccountName != "lokaler dienst" and InitiatingProcessAccountName != "local service" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -220,8 +220,8 @@ DeviceProcessEvents | where FileName == "rundll32.exe" and ProcessCommandLine ha
     &#xNAN;_&#x4D;SBuild is sometimes leveraged to execute code or load malware._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "MSBuild.exe" | where InitiatingProcessAccountName !startswith "sys_" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "MSBuild.exe" | where InitiatingProcessAccountName !startswith "sys_" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -230,7 +230,7 @@ DeviceProcessEvents | where FileName == "MSBuild.exe" | where InitiatingProcessA
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where FileName == "explorer.exe" and ProcessCommandLine has "hidden" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+DeviceProcessEvents | where FileName == "explorer.exe" and ProcessCommandLine has "hidden" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -239,7 +239,7 @@ DeviceProcessEvents | where FileName == "explorer.exe" and ProcessCommandLine ha
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where FileName == "cmd.exe" and ProcessCommandLine has "del" | where InitiatingProcessAccountName != "system"| summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+DeviceProcessEvents | where FileName == "cmd.exe" and ProcessCommandLine has "del" | where InitiatingProcessAccountName != "system" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -247,8 +247,8 @@ DeviceProcessEvents | where FileName == "cmd.exe" and ProcessCommandLine has "de
     &#xNAN;_&#x52;DP is often used to access compromised systems remotely._
 
 {% code overflow="wrap" %}
-```cs
-DeviceLogonEvents | where LogonType == "RemoteInteractive" and ActionType == "LogonSuccess" | where AccountName !startswith "sys_" | summarize count() by AccountName, DeviceName, RemoteIP
+```kusto
+DeviceLogonEvents | where LogonType == "RemoteInteractive" and ActionType == "LogonSuccess" | where AccountName !startswith "sys_" | summarize count() by AccountName, DeviceName, RemoteIP, IsLocalAdmin, LogonType, ActionType, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName, InitiatingProcessFolderPath
 ```
 {% endcode %}
 
@@ -256,8 +256,8 @@ DeviceLogonEvents | where LogonType == "RemoteInteractive" and ActionType == "Lo
     &#xNAN;_&#x4D;alicious scripts may use uncommon flags to bypass detection (e.g., -windowstyle hidden)._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "-windowstyle hidden" | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName != "network service" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine has "-windowstyle hidden" | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName != "network service"| summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -266,7 +266,7 @@ DeviceProcessEvents | where FileName == "powershell.exe" and ProcessCommandLine 
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where FileName == "vssadmin.exe" and ProcessCommandLine has "delete shadows" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+DeviceProcessEvents | where FileName == "vssadmin.exe" and ProcessCommandLine has "delete shadows" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath
 ```
 {% endcode %}
 
@@ -274,8 +274,8 @@ DeviceProcessEvents | where FileName == "vssadmin.exe" and ProcessCommandLine ha
     &#xNAN;_&#x4D;alware often communicates with external C2 servers after execution._
 
 {% code overflow="wrap" %}
-```cs
-DeviceNetworkEvents | where InitiatingProcessFileName endswith ".exe" and RemoteUrl != "" | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName != "network service" and InitiatingProcessAccountName != "lokaler dienst" and InitiatingProcessAccountName != "netzwerkdienst" | summarize count() by DeviceName, InitiatingProcessAccountName, RemoteUrl
+```kusto
+DeviceNetworkEvents | where InitiatingProcessFileName endswith ".exe" and RemoteUrl != "" | where InitiatingProcessAccountName != "system" and InitiatingProcessAccountName != "network service" and InitiatingProcessAccountName != "lokaler dienst" and InitiatingProcessAccountName != "netzwerkdienst" | summarize count() by DeviceName, ActionType, RemoteIP, LocalIP, RemotePort, RemoteUrl, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessCommandLine, InitiatingProcessFolderPath, InitiatingProcessParentFileName
 ```
 {% endcode %}
 
@@ -284,7 +284,7 @@ DeviceNetworkEvents | where InitiatingProcessFileName endswith ".exe" and Remote
 
 {% code overflow="wrap" %}
 ```cs
-DeviceProcessEvents | where FileName in ("regsvr32.exe", "msiexec.exe") | where InitiatingProcessAccountName != "system"| summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+DeviceProcessEvents | where FileName in ("regsvr32.exe", "msiexec.exe") | where InitiatingProcessAccountName != "system" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath, InitiatingProcessFolderPath
 ```
 {% endcode %}
 
@@ -292,8 +292,8 @@ DeviceProcessEvents | where FileName in ("regsvr32.exe", "msiexec.exe") | where 
     &#xNAN;_&#x43;ertutil can be used to decode base64-encoded malicious payloads._
 
 {% code overflow="wrap" %}
-```cs
-DeviceProcessEvents | where FileName == "certutil.exe" and ProcessCommandLine has "decode" | summarize count() by DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+```kusto
+DeviceProcessEvents | where FileName == "certutil.exe" and ProcessCommandLine has "decode" | summarize count() by TimeGenerated, DeviceName, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, FolderPath, InitiatingProcessFolderPath
 ```
 {% endcode %}
 
