@@ -14,9 +14,9 @@ layout:
 
 # Establishing a Foothold
 
-### Investigating – Establishing a Foothold Using the Unified Kill Chain Model
+### Introduction
 
-In the **Unified Kill Chain (UKC)** model, Establishing a Foothold is crucial for adversaries to secure persistent access to a target environment in the first phase of an attack. During this phase, attackers deploy various techniques to gain control of systems while remaining undetected. By leveraging the UKC model, defenders can systematically investigate these techniques, identify signs of compromise, and implement effective mitigation strategies. This phase often involves sophisticated methods to bypass security controls and embed malicious activity into the system, enabling further propagation across the environment. Below are some of the most prevalent techniques attackers use when it comes to establishing a foothold:
+Establishing a Foothold is crucial for adversaries to secure persistent access to a target environment in the first phase of an attack. During this phase, attackers deploy various techniques to gain control of systems while remaining undetected. By leveraging the Unified Kill Chain (UKC) model, defenders can systematically investigate these techniques, identify signs of compromise, and implement effective mitigation strategies. This phase often involves sophisticated methods to bypass security controls and embed malicious activity into the system, enabling further propagation across the environment. Below are some of the most prevalent techniques attackers use when it comes to establishing a foothold:
 
 * **External Remote Services (T1133):** Attackers exploit poorly secured remote access mechanisms like RDP, VPNs, or SSH to infiltrate systems.
 * **Create Account (T1136):** Adversaries may create new local or domain accounts to ensure persistent access and blend in with legitimate users.

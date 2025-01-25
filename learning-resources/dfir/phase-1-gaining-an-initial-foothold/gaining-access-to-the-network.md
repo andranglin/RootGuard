@@ -12,11 +12,11 @@ layout:
     visible: true
 ---
 
-# Gaining an Initial Foothold
+# Gaining Access to the Network
 
-### Investigating – Gaining an Initial Foothold Using the Unified Kill Chain Model
+### Introduction
 
-The first phase of the Unified Kill Chain model, **Gaining an Initial Foothold**, focuses on how adversaries infiltrate a target environment to establish unauthorised access. This phase is critical, as it lays the foundation for subsequent stages of an attack, such as lateral movement and data exfiltration. Understanding the tactics and techniques attackers use during this phase is essential for effective threat detection, investigation, and response. The following techniques are commonly employed by attackers to achieve initial access in, for example, a Windows environment:
+The first phase of the Unified Kill Chain model is **Gaining an Initial Foothold.** The first stage within this phase is the **Gaining Access to the Network**. This stage focuses on how the adversaries infiltrate a target environment to establish unauthorised access. This phase is critical, as it lays the foundation for subsequent stages of an attack, such as lateral movement and data exfiltration. Understanding the tactics and techniques attackers use during this phase is essential for effective threat detection, investigation, and response. The following techniques are commonly employed by attackers to achieve initial access in, for example, a Windows environment:
 
 * **Exploiting Public-Facing Applications**: Attackers often target vulnerabilities in web applications or services exposed to the internet, such as web servers or APIs, to inject malicious code or gain unauthorised access.
 * **Phishing**: Malicious emails designed to trick users into clicking on links or opening attachments containing malware remain one of the most prevalent methods for gaining initial access.
@@ -29,13 +29,13 @@ The first phase of the Unified Kill Chain model, **Gaining an Initial Foothold**
 
 By applying the **Unified Kill Chain model**, investigators can systematically analyse the techniques used during this phase, identify relevant indicators of compromise (IOCs), and map the attacker’s behaviour to defensive strategies. This structured approach enhances detection and response efforts, enabling defenders to disrupt adversaries early in the attack lifecycle.
 
-### The following are basic KQL, Velociraptor and Splunk queries to investigate these techniques
+### The following are basic KQL, Velociraptor, and Splunk queries used to investigate these techniques.
 
 KQL (Microsoft Sentinel), Velociraptor VQL, and Splunk SPL to investigate each of the techniques in **Phase 1 – Gaining an Initial Foothold**, along with descriptions of what each query does and multiple query examples for each technique.
 
 ### **1. Exploiting Public-Facing Applications**
 
-Attackers often exploit vulnerabilities in public-facing applications, such as web servers or APIs, to gain unauthorized access.
+Attackers often exploit vulnerabilities in public-facing applications, such as web servers or APIs, to gain unauthorised access.
 
 #### **KQL Queries**
 
