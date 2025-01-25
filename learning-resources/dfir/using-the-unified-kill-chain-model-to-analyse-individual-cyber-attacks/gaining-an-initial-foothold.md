@@ -12,9 +12,9 @@ layout:
     visible: true
 ---
 
-# Phase 1 – Gaining an Initial Foothold
+# Gaining an Initial Foothold
 
-### Investigating Phase 1 – Gaining an Initial Foothold Using the Unified Kill Chain Model
+### Investigating – Gaining an Initial Foothold Using the Unified Kill Chain Model
 
 The first phase of the Unified Kill Chain model, **Gaining an Initial Foothold**, focuses on how adversaries infiltrate a target environment to establish unauthorised access. This phase is critical, as it lays the foundation for subsequent stages of an attack, such as lateral movement and data exfiltration. Understanding the tactics and techniques attackers use during this phase is essential for effective threat detection, investigation, and response. The following techniques are commonly employed by attackers to achieve initial access in, for example, a Windows environment:
 

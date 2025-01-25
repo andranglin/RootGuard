@@ -28,7 +28,7 @@ The **Unified Kill Chain (UKC)** is an evolution of traditional attack kill chai
 
 The UKC is organised into three overarching categories that encompass the complete lifecycle of a cyberattack:
 
-1. **Initial Foothold**: These steps focus on how attackers gain access to a system or network. Techniques include social engineering, phishing, exploiting vulnerabilities, or supply chain attacks.
+1. [**Initial Foothold**](gaining-an-initial-foothold.md): These steps focus on how attackers gain access to a system or network. Techniques include social engineering, phishing, exploiting vulnerabilities, or supply chain attacks.
 2. **Network Propagation**: Once inside, attackers aim to expand their reach within the network. This includes lateral movement, privilege escalation, credential harvesting, and reconnaissance to locate high-value targets.
 3. **Actions on Objectives**: In this phase, attackers execute their end goal, such as exfiltrating sensitive data, deploying ransomware, or disrupting services.
 
@@ -44,7 +44,7 @@ The Unified Kill Chain 18 phases or tactics are the steps a cyberattack may prog
 4. Social Engineering: manipulate people to perform unsafe actions
 5. Exploitation: take advantage of a vulnerability on target’s systems (possibly to execute code)
 6. Persistence: maintain access to systems
-7. Defense Evasion: avoiding detection and defenses
+7. Defense Evasion: avoiding detection and defences
 8. Command and Control: communicate with compromised systems to control them
 9. Pivoting: use a controlled system to gain access to others
 10. Discovery: gain knowledge about system and network
@@ -59,7 +59,7 @@ The Unified Kill Chain 18 phases or tactics are the steps a cyberattack may prog
 
 ### Attack Phase Combinations <a href="#id-0d71" id="id-0d71"></a>
 
-### **1. Initial Foothold**
+### [**1. Initial Foothold**](gaining-an-initial-foothold.md)
 
 This phase covers the attacker’s efforts to infiltrate the target network or system and establish an initial presence. It mirrors the early stages of traditional attack models like reconnaissance and exploitation. The attacker seeks to avoid detection while planting the seeds for further exploitation.
 
@@ -102,3 +102,4 @@ By leveraging the UKC, organisations can better align their detection, preventio
 
 The **Initial Foothold** phase focuses on getting access to the target. The **Network Propagation** phase emphasises gaining more profound control and access across the environment. Finally, the **Actions on Objectives** phase centres on achieving the attacker's ultimate goals, ranging from data theft to operational disruption. By breaking down these phases into 18 steps, the UKC provides a granular, actionable roadmap for defenders to identify, mitigate, and disrupt attacks at every stage. It enables a proactive defence by offering insights into attackers' tactics, techniques, and procedures (TTPs).
 
+#### [Jump In](gaining-an-initial-foothold.md)
