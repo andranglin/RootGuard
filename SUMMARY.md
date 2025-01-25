@@ -119,6 +119,8 @@
       * [External Device & USB Usage](learning-resources/dfir/windows-forensics/window-artifact-analysis/external-device-and-usb-usage.md)
   * [KAPE Artifacts Analysis](learning-resources/dfir/kape-artifacts-analysis.md)
   * [Velociraptor Artifacts Analysis](learning-resources/dfir/velociraptor-artifacts-analysis.md)
+  * [Understanding the Attack Life Cycle](learning-resources/dfir/understanding-the-attack-life-cycle/README.md)
+    * [Phase 1 – Gaining an Initial Foothold](learning-resources/dfir/understanding-the-attack-life-cycle/phase-1-gaining-an-initial-foothold.md)
 * [Defender & Sentinel](learning-resources/defender-and-sentinel/README.md)
   * [Endpoint](learning-resources/defender-and-sentinel/endpoint.md)
   * [Office](learning-resources/defender-and-sentinel/office.md)
