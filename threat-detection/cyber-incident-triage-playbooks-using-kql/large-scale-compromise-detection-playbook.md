@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Large-Scale Compromise Using KQL
+# Large-Scale Compromise Detection Playbook
+
+### Introduction: The Need for Effective Large-Scale Compromise Detection Capabilities
+
+In today’s interconnected digital landscape, organisations face an increasing risk of large-scale cyber compromises, ranging from nation-state attacks and ransomware campaigns to supply chain breaches and widespread credential theft. Threat actors employ advanced techniques such as coordinated lateral movement, fileless malware, and privilege escalation to infiltrate and persist within enterprise environments undetected. Given the complexity and scale of modern IT ecosystems—including cloud, hybrid, and on-premises infrastructures—detecting such compromises requires a proactive and multilayered approach.
+
+Effective detection capabilities and processes for large-scale compromises are essential to identifying, analysing, and mitigating security threats before they result in catastrophic data breaches or operational disruptions. A comprehensive detection strategy must incorporate real-time network monitoring, behavioural analytics, anomaly detection, threat intelligence integration, and automation-driven response mechanisms. Security Information and Event Management (SIEM), Extended Detection and Response (XDR), and threat-hunting frameworks play a crucial role in correlating signals across endpoints, networks, and identities to uncover signs of compromise at scale.
+
+To minimise dwell time and reduce the impact of widespread attacks, organisations must implement continuous monitoring, forensic analysis, and adaptive detection methodologies. By leveraging machine learning, automation, and human-driven threat-hunting, security teams can enhance their ability to detect and respond to large-scale compromises effectively, strengthening their overall cyber resilience in an evolving threat landscape.
 
 ### Table of Contents
 

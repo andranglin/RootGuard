@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Scam Detection Using KQL
+# Scam Detection Playbook
+
+### Introduction: The Need for Effective Scam Email Detection Capabilities
+
+Scam emails remain a significant cybersecurity threat, targeting individuals and organisations with fraudulent schemes designed to steal sensitive information, financial assets, or login credentials. Cybercriminals use tactics such as impersonation, fake invoices, lottery scams, tech support fraud, and investment scams to deceive recipients into taking malicious actions. As scam emails become more sophisticated—often bypassing traditional spam filters and leveraging social engineering—organisations need advanced detection capabilities to prevent financial losses, data breaches, and reputational damage.
+
+Effective scam email detection capabilities and processes are essential for identifying and mitigating fraudulent communications before they compromise users or systems. A comprehensive detection strategy should incorporate advanced email filtering, machine learning-based anomaly detection, domain reputation analysis, and integration with threat intelligence feeds to recognise scam indicators in real-time. Security solutions such as Security Email Gateways (SEGs), Security Information and Event Management (SIEM), and behavioural analytics enhance the ability to detect unusual email patterns, sender spoofing, and embedded phishing links.
+
+To effectively combat scam email threats, organisations must implement continuous monitoring, automated alerts, and user education programs to improve awareness of scam tactics. By strengthening detection and response mechanisms, security teams can proactively identify fraudulent emails, reduce the risk of financial and operational impact, and enhance overall cybersecurity resilience.
 
 ### Table of Contents
 

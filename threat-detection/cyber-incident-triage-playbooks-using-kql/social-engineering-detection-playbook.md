@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Social Engineering Detection Using KQL
+# Social Engineering Detection Playbook
+
+### Introduction: The Need for Effective Social Engineering Detection Capabilities
+
+Social engineering attacks exploit human psychology rather than technical vulnerabilities, making them one of the most effective and persistent threats to organisations. Cybercriminals use tactics such as phishing, pretexting, baiting, and impersonation to manipulate employees, executives, and even customers into divulging sensitive information, granting unauthorised access, or executing fraudulent transactions. As attackers leverage increasingly sophisticated methods—often enhanced by artificial intelligence and deepfake technology—organisations must adopt proactive detection and prevention strategies to mitigate these threats.
+
+Effective social engineering detection capabilities and processes are essential to identifying and mitigating manipulation-based attacks before they result in security breaches. A robust detection strategy should integrate advanced email security, anomaly-based behaviour detection, real-time identity verification, and Security Information and Event Management (SIEM) solutions to monitor for suspicious communication patterns and access anomalies. User and Entity Behavior Analytics (UEBA) and Endpoint Detection and Response (EDR) can further enhance visibility into potential social engineering threats by detecting deviations from normal user activity.
+
+To counter social engineering risks effectively, organisations must implement continuous monitoring, automated alerts, and adaptive security controls. Security awareness training, multi-factor authentication (MFA), and well-defined incident response protocols play a crucial role in reducing the likelihood of successful attacks. By strengthening detection capabilities and response processes, businesses can better protect their employees, customers, and sensitive data from the evolving threats posed by social engineering tactics.
 
 ### Table of Contents
 

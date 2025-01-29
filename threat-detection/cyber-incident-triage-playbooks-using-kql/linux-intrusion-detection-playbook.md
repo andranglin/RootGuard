@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Linux Intrusions Detection Using KQL
+# Linux Intrusion Detection Playbook
+
+### Introduction: The Need for Effective Linux Intrusion Detection Capabilities
+
+Linux systems are a fundamental part of enterprise infrastructure, powering cloud environments, servers, and critical applications. As their adoption increases, so do the threats targeting them, ranging from privilege escalation and unauthorised access to rootkits, fileless malware, and advanced persistent threats (APTs). Attackers often leverage stealthy techniques such as living-off-the-land (LotL) tactics, kernel-level exploits, and misconfiguration abuse to evade detection, making traditional security approaches insufficient for Linux environments.
+
+Effective Linux intrusion detection capabilities and processes are essential for identifying, analysing, and mitigating security threats before they escalate into full-scale incidents. A robust detection strategy should combine real-time system monitoring, anomaly-based detection, log analysis, behavioural analytics, and integration with Security Information and Event Management (SIEM) solutions. Additionally, leveraging Endpoint Detection and Response (EDR), host-based intrusion detection systems (HIDS), and proactive threat-hunting methodologies enhances visibility into suspicious activities.
+
+To stay ahead of adversaries, security teams must implement continuous monitoring, automated alerting, and forensic investigation processes tailored to Linux environments. By establishing a well-defined intrusion detection framework, organisations can improve their security resilience, minimise attack dwell time, and protect critical assets from evolving cyber threats.
 
 ### Table of Contents
 

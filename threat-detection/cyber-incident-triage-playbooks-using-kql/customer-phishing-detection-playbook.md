@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Customer Phishing Detection Using KQL Queries
+# Customer Phishing Detection Playbook
+
+### Introduction: The Need for Effective Customer Phishing Detection Capabilities
+
+Customer phishing attacks pose a significant threat to businesses, targeting customers with fraudulent emails, fake websites, and impersonation schemes designed to steal credentials, financial information, or sensitive personal data. Cybercriminals exploit trust in well-known brands by creating convincing phishing campaigns that mimic legitimate communications, leading to account takeovers, financial fraud, and reputational damage for organisations. As phishing tactics grow more sophisticated—leveraging AI-generated emails, brand spoofing, and advanced social engineering techniques—businesses must implement proactive detection capabilities to protect their customers and brand integrity.
+
+Effective customer phishing detection capabilities and processes are essential for identifying and mitigating phishing campaigns before they cause widespread harm. A robust detection strategy should include brand monitoring, domain spoofing detection, real-time threat intelligence, and machine learning-based anomaly detection to identify fraudulent emails, websites, and social media scams. Security solutions such as DMARC (Domain-based Message Authentication, Reporting & Conformance), AI-driven email filtering, and Security Information and Event Management (SIEM) platforms help enhance visibility into phishing threats targeting customers.
+
+To combat customer phishing effectively, organisations must implement continuous monitoring, automated alerting, and rapid response mechanisms, including takedown services for fraudulent domains. Additionally, proactive customer education and awareness initiatives can help mitigate the risks of phishing scams. By strengthening detection capabilities and response processes, businesses can protect their customers, reduce fraud-related losses, and maintain trust in their brand.
 
 ### Table of Contents
 

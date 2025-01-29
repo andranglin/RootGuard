@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Ransomware Detection Using KQL
+# Ransomware Detection Playbook
+
+### Introduction: The Need for Effective Ransomware Detection Capabilities
+
+Ransomware remains one of the most disruptive and financially damaging cyber threats facing organisations today. Modern ransomware attacks have evolved beyond simple file encryption, incorporating double and triple extortion tactics, data exfiltration, and persistent lateral movement to maximise impact. Adversaries exploit vulnerabilities, compromised credentials, and social engineering tactics to gain initial access, then deploy stealthy techniques to evade detection before executing their attack. Given the increasing sophistication of ransomware groups and the expanding attack surface across cloud, hybrid, and on-premises environments, organisations must adopt a proactive and multi-layered detection approach.
+
+Effective ransomware detection capabilities and processes are critical to identifying and mitigating attacks before they escalate into full-scale incidents. A robust detection strategy should integrate real-time endpoint and network monitoring, behavioural analytics, anomaly detection, and threat intelligence. Security tools such as Endpoint Detection and Response (EDR), Extended Detection and Response (XDR), and Security Information and Event Management (SIEM) solutions play a crucial role in detecting ransomware indicators, including unauthorised file encryption, unusual privilege escalation, and rapid file modifications.
+
+To stay ahead of ransomware threats, organisations must implement continuous threat-hunting, automated alerting, and incident response playbooks designed for rapid containment and recovery. By enhancing visibility, leveraging advanced analytics, and strengthening security controls, organisations can improve their ability to detect and prevent ransomware attacks, minimising financial and operational damage while ensuring business continuity.
 
 ### Table of Contents
 

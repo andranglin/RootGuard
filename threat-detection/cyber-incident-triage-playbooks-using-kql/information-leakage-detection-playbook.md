@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Information Leakage Detection Using KQL
+# Information Leakage Detection Playbook
+
+### Introduction: The Need for Effective Information Leakage Detection Capabilities
+
+Information leakage—whether intentional or accidental—poses a significant risk to organisations, potentially exposing sensitive data such as intellectual property, customer records, financial information, or proprietary business strategies. Cybercriminals, malicious insiders, and negligent employees can all contribute to data leaks, leading to regulatory violations, financial losses, and reputational damage. With the growing adoption of cloud services, remote work, and third-party integrations, the attack surface for data exposure continues to expand, making proactive detection more critical than ever.
+
+Effective information leakage detection capabilities and processes are essential to identifying and mitigating data exposure before it results in security incidents. A robust detection strategy should integrate Data Loss Prevention (DLP) solutions, User and Entity Behavior Analytics (UEBA), anomaly detection, and real-time log monitoring through Security Information and Event Management (SIEM) systems. Additionally, endpoint and network monitoring tools, along with content inspection technologies, can help detect unauthorised data transfers, email exfiltration, or file-sharing anomalies.
+
+To prevent and mitigate information leakage risks, organisations must implement continuous monitoring, risk-based access controls, and automated alerting mechanisms. Security awareness training, data classification policies, and strict access management can further reduce the likelihood of accidental leaks. By strengthening detection capabilities and response processes, businesses can protect sensitive information, ensure regulatory compliance, and safeguard their competitive advantage.
 
 ### Table of Contents
 

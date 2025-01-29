@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Phishing Compromise Using KQL
+# Phishing Email Compromise Detection Playbook
+
+### Introduction: The Need for Effective Phishing Email Compromise Detection Capabilities
+
+Phishing remains one of the most prevalent and effective attack vectors used by cybercriminals to gain unauthorised access to enterprise environments. Attackers continuously refine their tactics, leveraging social engineering, credential harvesting, business email compromise (BEC), and malicious attachments or links to bypass traditional security controls. As email remains the primary communication tool for businesses, detecting phishing-based compromises is critical to preventing account takeovers, financial fraud, and data breaches.
+
+Effective phishing email compromise detection capabilities and processes are essential to identifying and mitigating threats before they lead to widespread organisational impact. A robust detection strategy should include advanced email filtering, anomaly detection, behavioural analysis, and integration with threat intelligence feeds to recognise phishing indicators in real-time. Security solutions such as Security Email Gateways (SEGs), Endpoint Detection and Response (EDR), and Security Information and Event Management (SIEM) platforms enhance visibility into suspicious email activities, including unauthorised logins, unusual email forwarding rules, and abnormal communication patterns.
+
+To combat phishing threats effectively, organisations must adopt a multi-layered defence approach that includes continuous monitoring, automated alerting, and user awareness training. By strengthening detection capabilities and response processes, security teams can proactively identify and neutralise phishing attacks before they escalate into full-scale security incidents, ensuring better protection for users, credentials, and sensitive business assets.
 
 ### Table of Contents
 
@@ -29,7 +37,7 @@ layout:
    * Detect Command Execution from Email Clients
    * Advanced Process Analysis
 4. Threat Persistence
-   * Unauthorized OAuth Application Approvals
+   * Unauthorised OAuth Application Approvals
    * Persistent Email Rules
    * Advanced Token Abuse Indicators
 5. Incident Response and Containment
@@ -40,7 +48,7 @@ layout:
 
 ***
 
-This playbook provides advanced KQL queries and techniques to assist in detecting and analyzing phishing compromises across an enterprise. Each section includes multiple query options with detailed descriptions and expected results.
+This playbook provides advanced KQL queries and techniques to assist in detecting and analysing phishing compromises across an enterprise. Each section includes multiple query options with detailed descriptions and expected results.
 
 ### 1. **Initial Detection of Phishing Activity**
 

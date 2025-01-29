@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Malicious Network Behaviour Using KQL
+# Malicious Network Behaviour Detection Playbook
+
+### Introduction: The Need for Effective Malicious Network Behavior Detection Capabilities
+
+As cyber threats continue to evolve, malicious network behaviour remains one of the most critical indicators of potential security breaches. Threat actors, whether external attackers or malicious insiders, often exploit network infrastructure to conduct reconnaissance, establish persistence, exfiltrate data, or deploy malware. Advanced tactics such as command-and-control (C2) communications, lateral movement, DNS tunneling, and encrypted traffic abuse make it increasingly difficult to detect malicious activities using traditional security measures. Given the complexity of modern enterprise networks—including cloud, hybrid, and on-premises environments—organisations require proactive and scalable detection capabilities.
+
+Effective malicious network behaviour detection capabilities and processes are essential to identifying and mitigating security threats before they escalate. A comprehensive detection strategy should incorporate real-time network traffic analysis, anomaly detection, intrusion detection systems (IDS), and threat intelligence integration. Security tools such as Network Detection and Response (NDR), Security Information and Event Management (SIEM), and Extended Detection and Response (XDR) enhance visibility into suspicious activities by correlating data across endpoints, networks, and identities.
+
+To stay ahead of emerging threats, organisations must implement continuous monitoring, automated alerting, and forensic investigation capabilities for network traffic. Leveraging machine learning-driven anomaly detection, behavioural analytics, and proactive threat-hunting techniques further strengthens an organisation's ability to detect and respond to malicious network behaviour. By enhancing visibility and response processes, businesses can protect their critical assets, prevent data breaches, and maintain a resilient cybersecurity posture.
 
 ### Table of Contents
 

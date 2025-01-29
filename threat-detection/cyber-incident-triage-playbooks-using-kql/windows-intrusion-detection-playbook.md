@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Windows Intrusion Using KQL
+# Windows Intrusion Detection Playbook
+
+### Introduction: The Need for Effective Windows Intrusion Detection Capabilities
+
+Windows-based environments remain a primary target for cyber threats due to their widespread use in enterprise networks, making effective intrusion detection a critical component of any security strategy. Attackers frequently exploit misconfigurations, unpatched vulnerabilities, and credential-based attacks to gain unauthorised access, establish persistence, and move laterally within Windows infrastructures. Advanced threats, including fileless malware, PowerShell abuse, and living-off-the-land (LotL) techniques, make it increasingly difficult to detect malicious activities using traditional security measures alone.
+
+Effective Windows intrusion detection capabilities and processes are essential to identifying and mitigating security threats before they escalate into full-scale breaches. A robust detection strategy should integrate Security Information and Event Management (SIEM) solutions, Endpoint Detection and Response (EDR), User and Entity Behavior Analytics (UEBA), and advanced log analysis to monitor Windows Security Event Logs, process execution, authentication attempts, and privilege escalation activities. Additionally, leveraging threat intelligence, anomaly detection, and automated correlation techniques enhances the ability to detect stealthy adversary behaviours.
+
+To stay ahead of attackers, organisations must implement continuous monitoring, proactive threat-hunting, and rapid incident response processes tailored for Windows environments. By strengthening detection capabilities and response mechanisms, security teams can effectively identify and neutralise Windows-based intrusions, protecting critical systems, sensitive data, and overall enterprise security.
 
 ### Table of Contents
 

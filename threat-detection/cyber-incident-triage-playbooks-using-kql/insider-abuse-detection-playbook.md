@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Insider Abuse Detection Using KQL
+# Insider Abuse Detection Playbook
+
+### Introduction: The Need for Effective Insider Abuse Detection Capabilities
+
+Insider threats pose a unique and complex challenge to organisations, as they originate from individuals with legitimate access to systems, data, and critical assets. Insider abuse—whether intentional or unintentional—can lead to data leaks, intellectual property theft, financial fraud, and operational sabotage. Malicious insiders may exploit their access to bypass security controls, while negligent employees may inadvertently expose sensitive information through misconfigurations or weak security practices. Given the growing reliance on cloud environments, remote work, and third-party collaborations, detecting and mitigating insider threats has become more critical than ever.
+
+Effective insider abuse detection capabilities and processes are essential to identifying suspicious activities before they escalate into security incidents. A comprehensive detection strategy should integrate user and entity behaviour analytics (UEBA), identity and access monitoring, anomaly detection, and real-time log correlation through Security Information and Event Management (SIEM) solutions. Endpoint Detection and Response (EDR) and Data Loss Prevention (DLP) tools further enhance visibility into unauthorised data access, privilege misuse, and anomalous file transfers.
+
+To stay ahead of insider threats, organisations must implement continuous monitoring, risk-based access controls, and automated alerts tailored to insider activity. Additionally, a strong security culture with employee training, periodic access reviews, and well-defined response protocols can help mitigate risks. By strengthening detection capabilities and response processes, organisations can proactively address insider abuse, protect sensitive data, and maintain trust and operational security.
 
 ### Table of Contents
 

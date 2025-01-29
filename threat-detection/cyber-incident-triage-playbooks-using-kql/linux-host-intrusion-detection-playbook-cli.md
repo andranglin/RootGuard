@@ -12,7 +12,15 @@ layout:
     visible: true
 ---
 
-# Playbook: Investigating Linux Host Intrusions Detection Using CLI
+# Linux Host Intrusion Detection Playbook (CLI)
+
+### Introduction: The Need for Effective Linux Host Detection Capabilities
+
+Linux-based systems are a cornerstone of modern enterprise IT infrastructure, powering critical applications, cloud environments, and high-performance computing. However, as their adoption grows, so does their attractiveness to threat actors seeking to exploit misconfigurations, unpatched vulnerabilities, and weak access controls. Unlike traditional Windows-based threats, Linux-specific attack techniques often involve fileless malware, rootkits, privilege escalation exploits, and living-off-the-land (LotL) techniques that can evade conventional security controls.
+
+Effective Linux host detection capabilities and processes are essential for identifying and mitigating threats before they lead to unauthorised access, data exfiltration, or system compromise. A robust detection strategy should include real-time monitoring of system logs, process execution tracking, anomaly-based behaviour detection, and integration with Security Information and Event Management (SIEM) platforms. Additionally, leveraging Extended Detection and Response (XDR) and proactive threat-hunting techniques tailored for Linux environments enhances an organisation’s ability to detect sophisticated attacks.
+
+To stay ahead of adversaries, security teams must implement continuous visibility, forensic capabilities, and automated response mechanisms for Linux hosts. By developing a well-structured detection framework, organisations can strengthen their overall security posture, minimise downtime, and effectively counter advanced threats targeting Linux infrastructure.
 
 ### Table of Contents
 

@@ -12,15 +12,31 @@ layout:
     visible: true
 ---
 
-# Cyber Security Playbooks
+# Cyber Incident Triage Playbooks (Using KQL)
 
 ### Introduction
 
 Cybersecurity playbooks are essential for incident investigations, providing a structured, repeatable, and efficient framework to address security threats within an organisation. They outline predefined steps, detection techniques, and response strategies, enabling security teams to effectively identify, analyse, and mitigate incidents. By leveraging advanced query languages like KQL in tools such as Microsoft Defender and Sentinel, playbooks enhance the ability to uncover malicious activities, correlate threat intelligence, and streamline investigations. Their use fosters consistency in handling incidents, reduces response times, and minimises the impact of breaches. It also serves as a valuable resource for training and preparedness in an evolving threat landscape.
 
-The following are some playbooks that can assist as a starting point for your KQL-based investigations:
+**Note:** The playbooks are focused on incident detection and analysis, NOT the entire incident response lifecycle. The idea is to help you confirm a true positive as early as possible using KQL queries. Beyond that point, the appropriate resources can be allocated to the response effort.
 
+The following are some playbooks that can assist as a starting point for your KQL-based incident triage and analysis:
 
+1. [Windows Malware Detection Playbook](windows-malware-detection-playbook.md)&#x20;
+2. [Linux Host Intrusion Detection Playbook (CLI) ](linux-host-intrusion-detection-playbook-cli.md)
+3. [Linux Intrusions Detection Playbook ](linux-intrusion-detection-playbook.md)
+4. [Large-Scale Compromise Detection Playbook](large-scale-compromise-detection-playbook.md)&#x20;
+5. [Ransomware Detection Playbook](ransomware-detection-playbook.md)&#x20;
+6. [Phishing Compromise Detection Playbook ](phishing-email-compromise-detection-playbook.md)
+7. [Scam Detection Playbook](scam-detection-playbook.md)
+8. [Customer Phishing Detection Playbook](customer-phishing-detection-playbook.md)&#x20;
+9. [Insider Abuse Detection Playbook ](insider-abuse-detection-playbook.md)
+10. [Information Leakage Detection Playbook ](information-leakage-detection-playbook.md)
+11. [Social Engineering Detection Playbook](social-engineering-detection-playbook.md)&#x20;
+12. [Malicious Network Behaviour Detection Playbook ](malicious-network-behaviour-detection-playbook.md)
+13. [Windows Intrusion Detection Playbook](windows-intrusion-detection-playbook.md)
+14. [Vulnerability Detection Playbook](vulnerability-detection-playbook.md)
+15. [Business Email Compromise Detection Playbook](business-email-compromise-detection-playbook.md)
 
 ### Triage & Investigation <a href="#id-1-triage-investigation" id="id-1-triage-investigation"></a>
 
@@ -46,6 +62,6 @@ Playbooks are invaluable tools in the threat hunting process, providing predefin
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-The vulnerability response process is a critical element of an organisation’s cybersecurity strategy. It is focused on identifying, assessing, prioritising, and remediating vulnerabilities across systems, applications, and networks. It aims to reduce the attack surface by addressing security weaknesses before adversaries can exploit them. The process includes activities such as vulnerability scanning, risk assessment, patch management, and validation to ensure an organisation maintains a strong security posture.
+The vulnerability response process is critical to an organisation’s cybersecurity strategy. It is focused on identifying, assessing, prioritising, and remediating vulnerabilities across systems, applications, and networks. By addressing security weaknesses before adversaries can exploit them, the process aims to reduce the attack surface. It includes vulnerability scanning, risk assessment, patch management, and validation to ensure an organisation maintains a strong security posture.
 
 Playbooks significantly enhance the vulnerability response process by providing structured and repeatable workflows for handling vulnerabilities. They define clear steps for assessing the criticality of vulnerabilities, prioritising remediation efforts based on risk, and effectively implementing patches or mitigation strategies. Playbooks also include predefined queries and automated tasks for identifying vulnerable assets, tracking remediation progress, and verifying fixes. By standardising the process, playbooks improve efficiency, consistently apply best practices, and reduce human error. Additionally, they enable better collaboration between teams, faster response times, and compliance with regulatory requirements while supporting continuous improvement in vulnerability management practices.
