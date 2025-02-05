@@ -24,30 +24,29 @@ The query identifies events where users download multiple files from OneDrive or
 
 {% code overflow="wrap" %}
 ```kusto
-// Detect Large Number of Files Downloaded From OneDrive or SharePoint
-OfficeActivity
-| where TimeGenerated > ago(1d) // Limit results to the last 24 hours
-| where Operation == "FileDownloaded" // Focus on file download events
-| where SourceSystem in ("OneDrive", "SharePoint") // Filter for OneDrive or SharePoint activity
-| extend User = tostring(split(UserId, "@")[0]) // Extract the username for context
-| summarize
-    TotalDownloads = count(),
-    UniqueFilesDownloaded = dcount(OfficeObjectId),
-    FirstDownloadTime = min(TimeGenerated),
-    LastDownloadTime = max(TimeGenerated)
-    by User, ClientIP
-| where TotalDownloads > 100 or UniqueFilesDownloaded > 50 // Thresholds for suspicious activity
-| extend IsHighVolume = iff(TotalDownloads > 100, true, false) // Flag high-volume downloads
-| project
-    TimeGenerated = LastDownloadTime,
-    User,
-    ClientIP,
-    TotalDownloads,
-    UniqueFilesDownloaded,
-    FirstDownloadTime,
-    LastDownloadTime,
-    IsHighVolume
-| sort by TotalDownloads desc
+let start_time = ago(1d);
+let threshold = 50; // Adjust this threshold based on your environment's normal activity
+let highVolumeDownloads = 
+    OfficeActivity
+    | where TimeGenerated >= start_time
+    | where Operation in ("FileDownloaded", "FileSyncDownloadedFull", "FileSyncDownloadedPartial")
+    | where UserType == "Regular"
+    | summarize 
+        FileCount = count(), 
+        UniqueFiles = dcount(OfficeId) 
+    by UserId, UserAgent, SourceFileName, 
+       bin(TimeGenerated, 1h), 
+       SourceRelativeUrl
+    | extend Site_ = iff(isnotempty(SourceRelativeUrl), 
+                          case(
+                              SourceRelativeUrl contains "/personal/", "OneDrive",
+                              SourceRelativeUrl contains "/sites/", "SharePoint",
+                              "Unknown"
+                          ), 
+                          "Unknown")
+    | where FileCount > threshold
+    | project TimeGenerated, UserId, UserAgent, Site_, SourceFileName, FileCount, UniqueFiles;
+highVolumeDownloads
 ```
 {% endcode %}
 
