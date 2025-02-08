@@ -43,11 +43,13 @@ Investigating suspicious process execution using **Windows Security Logs**, **Mi
 4. **Basic KQL Queries**:
    * Example: Query all process creation events from Security Logs:
 
+{% code overflow="wrap" %}
 ```kusto
 SecurityEvent
 | where EventID == 4688
-| project TimeGenerated, Account, ProcessName, CommandLine
+| project TimeGenerated, Account, NewProcessName, ParentProcessName, Process, SubjectAccount, Activity, CommandLine
 ```
+{% endcode %}
 
 Example: Query Defender XDR process creation events:
 
@@ -136,10 +138,6 @@ SecurityEvent
 {% code overflow="wrap" %}
 ```kusto
 SecurityEvent
-| where EventID == 4624
-| extend LogonType = tostring(parse_json(EventData).LogonType)
-| where LogonType == "10"
-| project TimeGenerated, Account, IpAddress, LogonTypeSecurityEvent
 | where EventID == 4624
 | extend LogonType = tostring(parse_json(EventData).LogonType)
 | where LogonType == "10"
@@ -260,7 +258,7 @@ SecurityEvent
 DeviceProcessEvents
 | where FileName == "lsass.exe"
 | where InitiatingProcessFileName contains "procdump.exe" or InitiatingProcessFileName contains "mimikatz.exe"
-| project Timestamp, DeviceName, FileName, InitiatingProcessFileName, CommandLine
+| project Timestamp, DeviceName, FileName, InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 {% endcode %}
 
@@ -288,13 +286,15 @@ SecurityEvent
 * Use Azure Logic Apps to automate responses:
   * Example: Isolate a device when suspicious PowerShell activity is detected:
 
+{% code overflow="wrap" %}
 ```kusto
 DeviceEvents
 | where ActionType == "ProcessCreated"
-| where FileName contains "powershell.exe" and CommandLine contains "-EncodedCommand"
+| where FileName contains "powershell.exe" and InitiatingProcessCommandLine contains "-EncodedCommand"
 | extend Action = "IsolateDevice"
 | project DeviceName, Action
 ```
+{% endcode %}
 
 **Leverage Threat Intelligence**:
 
