@@ -93,6 +93,7 @@
     * [Identify and Investigate Phishing Attacks with KQL](learning-resources/security-operations-center-soc/common-attacks-and-artifact-detections/identify-and-investigate-phishing-attacks-with-kql.md)
   * [Critical Windows Event ID’s to Monitor](learning-resources/security-operations-center-soc/critical-windows-event-ids-to-monitor.md)
   * [Learning to Investigate Suspicious Process Execution Using Windows Event Logs and KQL Queries](learning-resources/security-operations-center-soc/learning-to-investigate-suspicious-process-execution-using-windows-event-logs-and-kql-queries.md)
+  * [Investigating Suspicious Emails Activities Using KQL](learning-resources/security-operations-center-soc/investigating-suspicious-emails-activities-using-kql.md)
 * [DFIR](learning-resources/dfir/README.md)
   * [Response Strategies](learning-resources/dfir/response-strategies/README.md)
     * [Privilege Escalation Assessment](learning-resources/dfir/response-strategies/privilege-escalation-assessment.md)
