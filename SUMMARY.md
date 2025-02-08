@@ -136,6 +136,7 @@
       * [Gaining Access to the Network](learning-resources/dfir/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/gaining-access-to-the-network.md)
       * [Establishing a Foothold](learning-resources/dfir/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/establishing-a-foothold.md)
       * [Network Discovery](learning-resources/dfir/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/network-discovery.md)
+  * [Moving from Intermediate to Expert Incident Responder](learning-resources/dfir/moving-from-intermediate-to-expert-incident-responder.md)
 * [Defender & Sentinel](learning-resources/defender-and-sentinel/README.md)
   * [Endpoint](learning-resources/defender-and-sentinel/endpoint.md)
   * [Office](learning-resources/defender-and-sentinel/office.md)
