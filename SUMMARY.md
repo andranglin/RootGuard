@@ -92,6 +92,7 @@
     * [Detect When Large Number of Files Downloaded From OneDrive or SharePoint](learning-resources/security-operations-center-soc/common-attacks-and-artifact-detections/detect-when-large-number-of-files-downloaded-from-onedrive-or-sharepoint.md)
     * [Identify and Investigate Phishing Attacks with KQL](learning-resources/security-operations-center-soc/common-attacks-and-artifact-detections/identify-and-investigate-phishing-attacks-with-kql.md)
   * [Critical Windows Event ID’s to Monitor](learning-resources/security-operations-center-soc/critical-windows-event-ids-to-monitor.md)
+  * [Learning to Investigate Suspicious Process Execution Using Windows Event Logs and KQL Queries](learning-resources/security-operations-center-soc/learning-to-investigate-suspicious-process-execution-using-windows-event-logs-and-kql-queries.md)
 * [DFIR](learning-resources/dfir/README.md)
   * [Response Strategies](learning-resources/dfir/response-strategies/README.md)
     * [Privilege Escalation Assessment](learning-resources/dfir/response-strategies/privilege-escalation-assessment.md)
