@@ -14,7 +14,9 @@ layout:
 
 # Moving from Intermediate to Expert Incident Responder
 
-Disclaimer: The plan is not for everyone; our journeys are often unique, though sometimes similar. So ignore if you are on a different path. The plan is based on acquiring expertise highlighted by the MITRE ATTA\&CK Framework. However, it is primarily used for structure and guidance.
+Disclaimer: The plan is not for everyone; our journeys are often unique, though sometimes similar. So ignore if you are on a different path.
+
+That being said, the plan is based on acquiring expertise highlighted by the MITRE ATT\&CK Framework. However, it is primarily used for structure and guidance. Similarly, the tools mentioned are more for reference than a must-have.
 
 The **MITRE ATT\&CK framework** is a comprehensive knowledge base of adversary tactics and techniques based on real-world observations. It provides a structured way to understand and defend against cyber threats. The plan is designed to help progress from an intermediate level to becoming an expert in cybersecurity incident response, with a focus on current threats and advanced use cases.
 
