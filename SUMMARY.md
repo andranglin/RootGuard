@@ -128,13 +128,6 @@
     * [Establishing a Foothold](incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/establishing-a-foothold.md)
     * [Network Discovery](incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/network-discovery.md)
 
-## LINUX FORENSICS
-
-* [Intro](linux-forensics/intro.md)
-* [Linux Commandline Basics](linux-forensics/linux-commandline-basics.md)
-* [Host Compromise Assessment](linux-forensics/host-compromise-assessment.md)
-* [Intrusion Analysis](linux-forensics/intrusion-analysis.md)
-
 ## WINDOWS FORENSICS
 
 * [Intro](windows-forensics/intro.md)
@@ -148,6 +141,20 @@
   * [Deleted File or File Knowledge](windows-forensics/window-artifact-analysis/deleted-file-or-file-knowledge.md)
   * [External Device & USB Usage](windows-forensics/window-artifact-analysis/external-device-and-usb-usage.md)
 * [Evidence of Execution](windows-forensics/evidence-of-execution.md)
+
+## LINUX FORENSICS
+
+* [Intro](linux-forensics/intro.md)
+* [Linux Commandline Basics](linux-forensics/linux-commandline-basics.md)
+* [Host Compromise Assessment](linux-forensics/host-compromise-assessment.md)
+* [Intrusion Analysis](linux-forensics/intrusion-analysis.md)
+
+## SENTINEL & DEFENDER KQL
+
+* [Intro](sentinel-and-defender-kql/intro.md)
+* [Office](sentinel-and-defender-kql/office.md)
+* [Identity](sentinel-and-defender-kql/identity.md)
+* [Endpoint](sentinel-and-defender-kql/endpoint.md)
 
 ## MEMORY FORENSICS
 
@@ -170,17 +177,6 @@
 ## MALWARE ANALYSIS
 
 * [Malware Analysis](malware-analysis/malware-analysis.md)
-
-## SENTINEL & DEFENDER KQL
-
-* [Intro](sentinel-and-defender-kql/intro.md)
-* [Office](sentinel-and-defender-kql/office.md)
-* [Identity](sentinel-and-defender-kql/identity.md)
-* [Endpoint](sentinel-and-defender-kql/endpoint.md)
-
-## VULNERABILITY MANAGEMENT
-
-* [Intro](vulnerability-management/intro.md)
 
 ## Threat Detection
 
@@ -220,3 +216,7 @@
   * [Windows Intrusion Detection Playbook](threat-detection/cyber-incident-triage-playbooks-using-kql/windows-intrusion-detection-playbook.md)
   * [Vulnerability Detection Playbook](threat-detection/cyber-incident-triage-playbooks-using-kql/vulnerability-detection-playbook.md)
   * [Business Email Compromise Detection Playbook](threat-detection/cyber-incident-triage-playbooks-using-kql/business-email-compromise-detection-playbook.md)
+
+## VULNERABILITY MANAGEMENT
+
+* [Intro](vulnerability-management/intro.md)
