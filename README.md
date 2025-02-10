@@ -38,7 +38,7 @@ To overcome these challenges, individuals can take several proactive steps. Seek
 
 Our objective is to help other professionals develop their skills by sharing insights that may be helpful in their mission to safeguard their organisations. The threat landscape is constantly evolving; therefore, we must continuously upgrade our awareness and skills of attacker techniques and tactics. There is a constant demand for people with competent cybersecurity skills. However, it takes many years to reach a decent level of competence, a path with many challenges, such as access to resources, opportunities to gain hands-on experience, and the cost of certification. Nonetheless, compared to a decade ago, today, training resources are more freely available (YouTube), but even with the abundance of resources, there is still a shortage in the cybersecurity workforce and a challenge to land that first job.
 
-While we will provide material useful at various levels, a considerable portion of our effort is focused on helping junior and entry-level analysts develop their careers or get into the field. We intend to do this by sharing our expertise and insights and providing actionable resources that can be utilised with a little effort. Explore the resources, test the tools mentioned, and if suitable, integrate them into your operational workflows and share them with other professionals.&#x20;
+While we will provide material useful at various levels, a considerable portion of our effort is focused on helping junior and entry-level analysts develop their careers or get into the field. We intend to do this by sharing our expertise and insights and providing actionable resources that can be utilised with a little effort. Explore the resources, test the tools mentioned, and if suitable, integrate them into your operational workflows and share them with other professionals.
 
 There is no silver bullet solution other than putting in the work; **push yourself because no one else is going to do it for you**. Cybersecurity, in whatever discipline or path you take, is a challenging but worthwhile career choice. There are a lot of good people who will help you get there, and I will introduce you to other professionals' incredible work and ask you to check out and support their work.
 
@@ -50,25 +50,3 @@ There is no silver bullet solution other than putting in the work; **push yourse
 * **Helping Junior and Entry-Level Security Analysts:** Provide actionable insights to help aid development.
 
 ### **Jump Right In**
-
-<details>
-
-<summary>Sections</summary>
-
-[intro.md](incident-response/intro.md "mention")
-
-[intro.md](soc-operations/intro.md "mention")
-
-[intro.md](windows-forensics/intro.md "mention")
-
-[intro.md](threat-hunting/intro.md "mention")
-
-[malware-analysis.md](malware-analysis/malware-analysis.md "mention")
-
-[intro.md](sentinel-and-defender-kql/intro.md "mention")
-
-[Broken link](broken-reference "mention")
-
-[Broken link](broken-reference "mention")
-
-</details>
