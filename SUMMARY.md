@@ -8,23 +8,23 @@
 
 ## GENERAL NOTES
 
-* [Prep Interview Questions for SOC Analysts](general-notes/prep-interview-questions-for-soc-analysts.md)
-* [Preparing to Land that Job](general-notes/preparing-to-land-that-job.md)
+* [Becoming A SOC Analyst](general-notes/becoming-a-soc-analyst.md)
+* [SOC Analysts Prep Interview Questions](general-notes/soc-analysts-prep-interview-questions.md)
+* [Landing that Job](general-notes/landing-that-job.md)
 * [SOC Analysts Roadmap](general-notes/soc-analysts-roadmap.md)
-* [Comprehensive Plan for Starting a Career in Cybersecurity](general-notes/comprehensive-plan-for-starting-a-career-in-cybersecurity.md)
-* [How To Become A SOC Analyst](general-notes/how-to-become-a-soc-analyst.md)
+* [Starting a Career in Cybersecurity](general-notes/starting-a-career-in-cybersecurity.md)
 
 ## SOC OPERATIONS
 
 * [Intro](soc-operations/intro.md)
+* [Critical Windows Event ID’s to Monitor](soc-operations/critical-windows-event-ids-to-monitor.md)
 * [Packet Analysis (pcap)](soc-operations/packet-analysis-pcap/README.md)
   * [Tcpdump](soc-operations/packet-analysis-pcap/tcpdump.md)
   * [Tcpdump (Intermediate)](soc-operations/packet-analysis-pcap/tcpdump-intermediate.md)
   * [Tshark](soc-operations/packet-analysis-pcap/tshark.md)
   * [Ngrep](soc-operations/packet-analysis-pcap/ngrep.md)
-* [Investigating Suspicious Emails Activities Using KQL](soc-operations/investigating-suspicious-emails-activities-using-kql.md)
-* [Learning to Investigate Suspicious Process Execution Using Windows Event Logs and KQL Queries](soc-operations/learning-to-investigate-suspicious-process-execution-using-windows-event-logs-and-kql-queries.md)
-* [Critical Windows Event ID’s to Monitor](soc-operations/critical-windows-event-ids-to-monitor.md)
+* [Investigating Suspicious Emails Using KQL](soc-operations/investigating-suspicious-emails-using-kql.md)
+* [Using Windows Event Logs and KQL to Investigate Process Execution](soc-operations/using-windows-event-logs-and-kql-to-investigate-process-execution.md)
 * [Common Attacks & Artifact Detections](soc-operations/common-attacks-and-artifact-detections/README.md)
   * [Domain Dominance Attacks - Detection & Analysis](soc-operations/common-attacks-and-artifact-detections/domain-dominance-attacks-detection-and-analysis.md)
   * [Investigating a Suspected AD FS Distributed Key Management (DKM) Attack](soc-operations/common-attacks-and-artifact-detections/investigating-a-suspected-ad-fs-distributed-key-management-dkm-attack.md)
@@ -98,6 +98,7 @@
 ## INCIDENT RESPONSE
 
 * [Intro](incident-response/intro.md)
+* [Moving from Intermediate to Expert Incident Responder](incident-response/moving-from-intermediate-to-expert-incident-responder.md)
 * [Response Strategies](incident-response/response-strategies/README.md)
   * [Privilege Escalation Assessment](incident-response/response-strategies/privilege-escalation-assessment.md)
   * [Command and Control Assessment](incident-response/response-strategies/command-and-control-assessment.md)
@@ -110,11 +111,9 @@
   * [Initial Impact Assessment Techniques](incident-response/response-strategies/initial-impact-assessment-techniques.md)
   * [Lateral Movement Assessment](incident-response/response-strategies/lateral-movement-assessment.md)
   * [Persistence Assessment](incident-response/response-strategies/persistence-assessment.md)
-* [Moving from Intermediate to Expert Incident Responder](incident-response/moving-from-intermediate-to-expert-incident-responder.md)
 * [Incident Triage](incident-response/incident-triage/README.md)
   * [Triage Types and Processes](incident-response/incident-triage/triage-types-and-processes.md)
   * [PowerShell for Detection and Analysis](incident-response/incident-triage/powershell-for-detection-and-analysis.md)
-  * [Memory Forensics (Volatility 3)](incident-response/incident-triage/memory-forensics-volatility-3.md)
   * [Registry Analysis](incident-response/incident-triage/registry-analysis.md)
   * [Sysinternals Intrusion Analysis](incident-response/incident-triage/sysinternals-intrusion-analysis.md)
   * [PowerShell Intrusion Analysis](incident-response/incident-triage/powershell-intrusion-analysis.md)
@@ -158,7 +157,7 @@
 
 ## MEMORY FORENSICS
 
-* [RootGuard](memory-forensics/rootguard.md)
+* [Memory Forensics (Volatility 3)](memory-forensics/memory-forensics-volatility-3.md)
 
 ## THREAT HUNTING
 
