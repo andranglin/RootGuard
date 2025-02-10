@@ -1,5 +1,5 @@
 ---
-cover: ../../../.gitbook/assets/Screenshot 2025-01-04 152247 (1).png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 152247 (1).png
 coverY: 0
 layout:
   cover:
@@ -31,9 +31,9 @@ The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framew
 
 **Tactics (Adversary Goals)**
 
-1. [**Reconnaissance**:](../../dfir/response-strategies/) Gathering information about the target.
+1. [**Reconnaissance**:](../../incident-response/response-strategies/) Gathering information about the target.
 2. [**Resource Development**:](reconnaissance-ta0043-techniques.md) Establishing resources like infrastructure, accounts, or tools.
-3. [**Initial Access**:](../../dfir/response-strategies/initial-impact-assessment-techniques.md) Gaining entry to the target environment (e.g., phishing, exploiting vulnerabilities).
+3. [**Initial Access**:](../../incident-response/response-strategies/initial-impact-assessment-techniques.md) Gaining entry to the target environment (e.g., phishing, exploiting vulnerabilities).
 4. [**Execution**: ](command-execution-ta0002-techniques.md)Running malicious code on the system.
 5. [**Persistence**:](persistence-ta0003-techniques.md) Maintaining access to the system over time.
 6. [**Privilege Escalation**: ](../kql-use-cases/privilege-escalation-ta0004.md)Gaining higher-level permissions on the system.
@@ -41,7 +41,7 @@ The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framew
 8. [**Credential Access**:](credential-access-ta0006-techniques.md) Stealing account credentials.
 9. [**Discovery**:](discovery-ta0007-techniques.md) Gaining knowledge about the environment.
 10. [**Lateral Movement**:](lateral-movement-ta0008-techniques.md) Moving across systems within the network.
-11. [**Collection**:](../mitre-att-and-ck-driven-investigation-and-analysis/collection-ta0009-techniques.md) Gathering data from the target.
+11. [**Collection**:](collection-ta0009-techniques.md) Gathering data from the target.
 12. [**Command and Control (C2)**:](command-and-control-c2-ta0011-techniques.md) Communicating with the compromised system.
 13. [**Exfiltration**: ](exfiltration-ta0010-techniques.md)Transferring stolen data out of the network.
 14. [**Impact**:](impact-ta0040-techniques.md) Disrupting operations or destroying data.

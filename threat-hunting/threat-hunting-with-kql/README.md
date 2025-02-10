@@ -1,5 +1,5 @@
 ---
-cover: ../../../.gitbook/assets/Screenshot 2025-01-10 080534.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-10 080534.png
 coverY: 0
 layout:
   cover:
@@ -34,7 +34,7 @@ The following is a set of KQL queries that can be used to detect and analyse mal
 Explore the respective sections to learn more about the KQL queries that can assist in your investigations. The guides provide a structured approach to threat hunting in a Windows enterprise environment, leveraging **Microsoft Defender XDR** and focusing on key areas of the **MITRE ATT\&CK Framework**. It covers:
 
 * [**Detecting Malware Infection**](detecting-malware-infection-mitre-att-and-ck-t1566-t1059.md)
-* [**Discovery Activities**](../../security-operations-center-soc/mitre-att-and-ck-driven-investigation-and-analysis/discovery-ta0007-techniques.md)
+* [**Discovery Activities**](../../soc-operations/mitre-att-and-ck-driven-investigation-and-analysis/discovery-ta0007-techniques.md)
 * [**Credential Theft**](credential-theft-mitre-att-and-ck-t1003-t1078.md)
 * [**Lateral Movement**](lateral-movement-mitre-att-and-ck-t1076-t1021.md)
 * [**Data Theft**](data-theft-mitre-att-and-ck-t1041-t1071.md)

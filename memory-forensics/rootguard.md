@@ -1,6 +1,5 @@
 ---
-icon: hand-wave
-cover: .gitbook/assets/Screenshot 2025-01-10 083130.png
+cover: ../.gitbook/assets/Screenshot 2025-01-10 083130.png
 coverY: 0
 layout:
   cover:
@@ -55,17 +54,17 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 <summary>Sections</summary>
 
-[intro.md](incident-response/intro.md "mention")
+[intro.md](../incident-response/intro.md "mention")
 
-[intro.md](soc-operations/intro.md "mention")
+[intro.md](../soc-operations/intro.md "mention")
 
-[intro.md](windows-forensics/intro.md "mention")
+[intro.md](../windows-forensics/intro.md "mention")
 
-[intro.md](threat-hunting/intro.md "mention")
+[intro.md](../threat-hunting/intro.md "mention")
 
-[malware-analysis.md](malware-analysis/malware-analysis.md "mention")
+[malware-analysis.md](../malware-analysis/malware-analysis.md "mention")
 
-[intro.md](sentinel-and-defender-kql/intro.md "mention")
+[intro.md](../sentinel-and-defender-kql/intro.md "mention")
 
 [Broken link](broken-reference "mention")
 

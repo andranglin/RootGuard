@@ -1,6 +1,6 @@
 ---
 icon: laptop-code
-cover: ../../../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
+cover: ../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
 coverY: 0
 layout:
   cover:
@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Windows Forensics
+# Intro
 
 ## **What is Digital Forensics?**
 
@@ -125,9 +125,9 @@ Aspiring forensic analysts can build a successful and impactful career in digita
 
 * [Evidence of Execution](evidence-of-execution.md)
 * [Windows Artifact Analysis](window-artifact-analysis/)
-* [Incident Triage](../incident-triage/)
-* [KAPE Artifacts Analysis](../kape-artifacts-analysis.md)
-* [Velociraptor Artifacts Analysis](../velociraptor-artifacts-analysis.md)
+* [Incident Triage](../incident-response/incident-triage/)
+* [KAPE Artifacts Analysis](../incident-response/kape-artifacts-analysis.md)
+* [Velociraptor Artifacts Analysis](../incident-response/velociraptor-artifacts-analysis.md)
 
 ### References&#x20;
 
@@ -149,6 +149,6 @@ Jai Minton [Digital Forensics and Incident Response](https://www.jaiminton.com/c
 
 Note: Resources like Posters and Cheatsheets are helpful when used as guides
 
-{% file src="../../../.gitbook/assets/SANS DFIR Fundaments.pdf" %}
+{% file src="../.gitbook/assets/SANS DFIR Fundaments.pdf" %}
 
-{% file src="../../../.gitbook/assets/SANS DFIR Windows Forensic Analysis.pdf" %}
+{% file src="../.gitbook/assets/SANS DFIR Windows Forensic Analysis.pdf" %}
