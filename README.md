@@ -55,17 +55,17 @@ There is no silver bullet solution other than putting in the work; **push yourse
 
 <summary>Sections</summary>
 
-[dfir](learning-resources/dfir/ "mention")
+[dfir](soc-operations/dfir/ "mention")
 
-[security-operations-center-soc](learning-resources/security-operations-center-soc/ "mention")
+[security-operations-center-soc](soc-operations/security-operations-center-soc/ "mention")
 
-[windows-forensics](learning-resources/dfir/windows-forensics/ "mention")
+[windows-forensics](soc-operations/dfir/windows-forensics/ "mention")
 
-[threat-hunting](learning-resources/threat-hunting/ "mention")
+[threat-hunting](soc-operations/threat-hunting/ "mention")
 
-[malware-analysis.md](learning-resources/malware-analysis.md "mention")
+[malware-analysis.md](soc-operations/malware-analysis.md "mention")
 
-[defender-and-sentinel](learning-resources/defender-and-sentinel/ "mention")
+[defender-and-sentinel](soc-operations/defender-and-sentinel/ "mention")
 
 [Broken link](broken-reference "mention")
 
