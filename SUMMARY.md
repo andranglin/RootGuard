@@ -16,7 +16,7 @@
 
 ## SOC OPERATIONS
 
-* [Intro](soc-operations/intro.md)
+* [Introduction to SOC](soc-operations/introduction-to-soc.md)
 * [Critical Windows Event ID’s to Monitor](soc-operations/critical-windows-event-ids-to-monitor.md)
 * [Packet Analysis (pcap)](soc-operations/packet-analysis-pcap/README.md)
   * [Tcpdump](soc-operations/packet-analysis-pcap/tcpdump.md)
@@ -97,7 +97,7 @@
 
 ## INCIDENT RESPONSE
 
-* [Intro](incident-response/intro.md)
+* [Introduction to Incident Response (IR)](incident-response/introduction-to-incident-response-ir.md)
 * [Moving from Intermediate to Expert Incident Responder](incident-response/moving-from-intermediate-to-expert-incident-responder.md)
 * [Response Strategies](incident-response/response-strategies/README.md)
   * [Privilege Escalation Assessment](incident-response/response-strategies/privilege-escalation-assessment.md)
@@ -129,7 +129,7 @@
 
 ## WINDOWS FORENSICS
 
-* [Intro](windows-forensics/intro.md)
+* [Introduction to Windows Forensics](windows-forensics/introduction-to-windows-forensics.md)
 * [Window Artifact Analysis](windows-forensics/window-artifact-analysis/README.md)
   * [Account Usage](windows-forensics/window-artifact-analysis/account-usage.md)
   * [User Activity Tracking (Event Logs)](windows-forensics/window-artifact-analysis/user-activity-tracking-event-logs.md)
@@ -143,14 +143,14 @@
 
 ## LINUX FORENSICS
 
-* [Intro](linux-forensics/intro.md)
+* [Introduction to Linux Forensics](linux-forensics/introduction-to-linux-forensics.md)
 * [Linux Commandline Basics](linux-forensics/linux-commandline-basics.md)
 * [Host Compromise Assessment](linux-forensics/host-compromise-assessment.md)
 * [Intrusion Analysis](linux-forensics/intrusion-analysis.md)
 
 ## SENTINEL & DEFENDER KQL
 
-* [Intro](sentinel-and-defender-kql/intro.md)
+* [Introduction to KQL for Defender & Sentinel](sentinel-and-defender-kql/introduction-to-kql-for-defender-and-sentinel.md)
 * [Office](sentinel-and-defender-kql/office.md)
 * [Identity](sentinel-and-defender-kql/identity.md)
 * [Endpoint](sentinel-and-defender-kql/endpoint.md)
@@ -161,7 +161,7 @@
 
 ## THREAT HUNTING
 
-* [Intro](threat-hunting/intro.md)
+* [Introduction to Threat Hunting](threat-hunting/introduction-to-threat-hunting.md)
 * [Threat Hunting Ransomware Indicators](threat-hunting/threat-hunting-ransomware-indicators.md)
 * [Threat Hunting With KQL](threat-hunting/threat-hunting-with-kql/README.md)
   * [Detecting Malware Infection (MITRE ATT\&CK: T1566, T1059)](threat-hunting/threat-hunting-with-kql/detecting-malware-infection-mitre-att-and-ck-t1566-t1059.md)
@@ -218,4 +218,4 @@
 
 ## VULNERABILITY MANAGEMENT
 
-* [Intro](vulnerability-management/intro.md)
+* [Introduction to Vulnerability Management](vulnerability-management/introduction-to-vulnerability-management.md)
