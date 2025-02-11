@@ -157,6 +157,7 @@
 
 ## MEMORY FORENSICS
 
+* [Introduction to Memory Forensics](memory-forensics/introduction-to-memory-forensics.md)
 * [Memory Forensics (Volatility 3)](memory-forensics/memory-forensics-volatility-3.md)
 
 ## THREAT HUNTING
@@ -175,7 +176,7 @@
 
 ## MALWARE ANALYSIS
 
-* [Malware Analysis](malware-analysis/malware-analysis.md)
+* [Introduction to Malware Analysis](malware-analysis/introduction-to-malware-analysis.md)
 
 ## Threat Detection
 
