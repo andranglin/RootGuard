@@ -1,5 +1,10 @@
 ---
+cover: ../.gitbook/assets/Screenshot 2025-01-04 145556.png
+coverY: 0
 layout:
+  cover:
+    visible: true
+    size: hero
   title:
     visible: true
   description:
@@ -12,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Comprehensive Plan for Starting a Career in Cybersecurity
+# Starting a Career in Cybersecurity
 
 ### Introduction to Cybersecurity
 

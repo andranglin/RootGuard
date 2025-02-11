@@ -1,5 +1,10 @@
 ---
+cover: ../.gitbook/assets/Screenshot 2025-01-04 152539.png
+coverY: 0
 layout:
+  cover:
+    visible: true
+    size: hero
   title:
     visible: true
   description:
@@ -12,7 +17,7 @@ layout:
     visible: true
 ---
 
-# How To Become A SOC Analyst
+# Becoming A SOC Analyst
 
 ### **What is the Role of a Security Analyst?**
 
