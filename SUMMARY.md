@@ -13,6 +13,7 @@
 * [Landing that Job](general-notes/landing-that-job.md)
 * [SOC Analysts Roadmap](general-notes/soc-analysts-roadmap.md)
 * [Starting a Career in Cybersecurity](general-notes/starting-a-career-in-cybersecurity.md)
+* [Strategic Roadmap to Becoming a Cybersecurity Specialist](general-notes/strategic-roadmap-to-becoming-a-cybersecurity-specialist.md)
 
 ## SOC OPERATIONS
 
