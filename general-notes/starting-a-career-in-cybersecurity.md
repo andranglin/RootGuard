@@ -21,9 +21,11 @@ layout:
 
 ### Introduction to Cybersecurity
 
-Cybersecurity is the practice of protecting systems, networks, and data from cyber threats, including unauthorised access, data breaches, and malicious attacks. It is an essential field in today’s digital landscape, ensuring the confidentiality, integrity, and availability of critical information. Cybersecurity professionals play a vital role in securing the digital infrastructure of organisations and individuals, working to anticipate, detect, and mitigate evolving threats.
+Cybersecurity protects systems, networks, and data from cyber threats, including unauthorised access, data breaches, and malicious attacks. It is an essential field in today’s digital landscape, ensuring the confidentiality, integrity, and availability of critical information. Cybersecurity professionals play a vital role in securing the digital infrastructure of organisations and individuals, working to anticipate, detect, and mitigate evolving threats.
 
-Becoming a cybersecurity professional requires significant effort and commitment. It demands not only technical expertise but also critical thinking, problem-solving, and ethical responsibility. With the field constantly evolving, professionals must commit to lifelong learning and adaptability. While challenging, a career in cybersecurity is highly rewarding, offering diverse opportunities, job security, and the chance to make a meaningful impact in protecting valuable assets.
+Becoming a cybersecurity professional requires significant effort and commitment. It demands technical expertise, critical thinking, problem-solving, and ethical responsibility. Professionals must commit to lifelong learning and adaptability with the field constantly evolving. While challenging, a career in cybersecurity is highly rewarding, offering diverse opportunities, job security, and the chance to make a meaningful impact in protecting valuable assets.
+
+**Note:** Customise the plan to include certification and courses of your choice; those mentioned will provide the relevant knowledge, but they may not suit your personal preferences.
 
 ### 6-Month Cybersecurity Career Plan
 
@@ -33,11 +35,11 @@ Start by understanding the basics of IT and cybersecurity. Focus on networking c
 
 Action Plan:
 
-* Enroll in beginner courses such as _“Introduction to Cybersecurity”_ (Cisco Networking Academy) or _CompTIA IT Fundamentals (F+)_.
+* Enrol in beginner courses such as _“Introduction to Cybersecurity”_ (Cisco Networking Academy) or _CompTIA IT Fundamentals (F+)_.
 * Use tools like Wireshark to analyse network traffic and practice basic troubleshooting.
 * Allocate time daily for structured learning to build a solid foundation.
 
-Goal: Gain a clear understanding of networking, operating systems, and the fundamentals of cybersecurity.
+Goal: Understand networking, operating systems, and cybersecurity fundamentals clearly.
 
 ### Month 2: Obtain an Entry-Level Certification
 
@@ -53,7 +55,7 @@ Goal: Earn your first cybersecurity certification to demonstrate your foundation
 
 ### Month 3: Develop Practical Skills
 
-Hands-on experience is crucial in cybersecurity. Set up a virtual home lab using tools like VirtualBox or VMware to practice real-world scenarios. Learn how to configure firewalls, analyse logs, and conduct vulnerability scans. Platforms like TryHackMe and Hack The Box offer interactive, scenario-based challenges to enhance your practical skills.
+Hands-on experience is crucial in cybersecurity. Set up a virtual home lab using tools like VirtualBox or VMware to practice real-world scenarios. Learn how to configure firewalls, analyse logs, and conduct vulnerability scans. Platforms like TryHackMe and Hack The Box offer interactive, scenario-based challenges to enhance practical skills.
 
 Action Plan:
 
@@ -89,13 +91,13 @@ Goal: Gain real-world experience in a professional environment while expanding y
 
 ### Month 6: Apply for Jobs and Continue Learning
 
-With a solid foundation, certification, and practical experience, focus on actively applying for entry-level cybersecurity roles. Prepare for technical interviews by practising explaining key concepts, tools, and scenarios. Simultaneously, start studying for advanced certifications like Certified Ethical Hacker (CEH) or Cisco CyberOps Associate.
+With a solid foundation, certification, and practical experience, focus on actively applying for entry-level cybersecurity roles. Prepare for technical interviews by practising explaining key concepts, tools, and scenarios. Simultaneously, start studying for certifications like Certified Ethical Hacker (CEH), Cisco CyberOps Associate or the more advanced CompTIA Cybersecurity Analyst (CySA+)
 
 Action Plan:
 
 * Apply to at least 10 roles per week, focusing on SOC or analyst positions.
 * Practice mock interviews and technical questions, such as explaining firewalls or identifying threats.
-* Enroll in a course or training program to deepen your expertise in a specialised area.
+* Enrol in a course or training program to deepen your expertise in a specialised area.
 
 ### Goal: Secure your first cybersecurity job and continue advancing your knowledge.
 
@@ -108,4 +110,4 @@ Summary Timeline
 1. Commitment to Lifelong Learning: Cybersecurity evolves rapidly. Stay updated with emerging threats, tools, and techniques through continuous learning.
 2. Networking and Mentorship: Connect with industry professionals through LinkedIn, forums, and events.
 3. Hands-On Practice: Practical skills are as important as theoretical knowledge. Regularly test and refine your abilities in simulated environments.
-4. Resilience and Curiosity: The field demands critical thinking and problem-solving. Approach challenges with curiosity and persistence.&#x20;
+4. Resilience and Curiosity: The field demands critical thinking and problem-solving. Approach challenges with curiosity and persistence.
