@@ -10,7 +10,7 @@
 
 * [Becoming A SOC Analyst](general-notes/becoming-a-soc-analyst.md)
 * [SOC Analysts Prep Interview Questions](general-notes/soc-analysts-prep-interview-questions.md)
-* [Landing that Job](general-notes/landing-that-job.md)
+* [A Guide to Landing Your First Cybersecurity Analyst Role](general-notes/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
 * [SOC Analysts Roadmap](general-notes/soc-analysts-roadmap.md)
 * [Starting a Career in Cybersecurity](general-notes/starting-a-career-in-cybersecurity.md)
 * [Strategic Roadmap to Becoming a Cybersecurity Specialist](general-notes/strategic-roadmap-to-becoming-a-cybersecurity-specialist.md)

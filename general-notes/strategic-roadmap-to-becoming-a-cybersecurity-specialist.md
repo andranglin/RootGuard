@@ -29,12 +29,12 @@ Note: The plan is not for everyone; as you will see shortly, it's designed prima
 
 ### **Phase 1: Strengthen Core Knowledge & Skills (3-6 Months)**
 
-Before diving deep, ensure you have a strong grasp of foundational security concepts, particularly those relevant to **cloud security, incident response, and forensics**.
+Before diving deep, ensure you have a strong grasp of foundational security concepts, particularly those relevant to **cloud security, digital forensics, and incident response**.
 
 #### **A. Microsoft Cloud Security**
 
 * Deepen your understanding of **Microsoft Defender XDR (formerly M365 Defender)**, Sentinel, Defender for Cloud, and Entra ID (Azure AD).
-* Study **Zero Trust Security** models and how Microsoft implements them.
+* Study **Zero Trust Security** models and how they could or should be implemented.
 * Learn about **Azure security architecture**, **Azure RBAC**, **conditional access, and** **KQL (Kusto Query Language)** for log analysis.
 * **Action Items:**
   * Complete **Microsoft Learn** modules for Defender XDR, Sentinel, and Azure security.
@@ -48,7 +48,7 @@ Before diving deep, ensure you have a strong grasp of foundational security conc
 * Learn **Microsoft Incident Response Playbooks** and **Security Operations Playbook**.
 * **Action Items:**
   * Review **NIST 800-61 (Incident Response Guide)** and Microsoft’s **Security Operations Guide**.
-  * Study **Microsoft Defender XDR Incident Response processes**.
+  * Study **Microsoft Defender XDR incident response processes**.
   * Use **KQL** to write hunting queries in Microsoft Sentinel.
 
 #### **C. Digital Forensics**
@@ -57,7 +57,7 @@ Before diving deep, ensure you have a strong grasp of foundational security conc
 * Understand **Windows Event Logs**, **Sysmon**, **KQL-based log analysis**, and **Live Response in Defender XDR**.
 * Gain expertise in **Velociraptor for endpoint forensics**.
 * **Action Items:**
-  * Study **Windows Forensics Artifacts** (registry, logs, prefetch, etc.).
+  * Study **Windows Forensics Artifacts** (registry, logs, ShimCache, Prefetch, AmCache, ShellBags, Jumplists, LNK Files, etc.).
   * Learn **Microsoft Defender for Endpoint’s forensic capabilities**.
   * Set up a **Velociraptor lab** and analyse forensic artifacts.
 
@@ -92,7 +92,7 @@ Certifications validate your expertise and enhance your credibility.
 #### **B. Incident Response & Digital Forensics Certifications**
 
 ✅ **GIAC Certified Incident Handler (GCIH)** – For Incident Response\
-✅ **GIAC Certified Forensic Analyst (GCFA) / GCFE** – For Digital Forensics\
+✅ **GIAC Certified Forensic Analyst (GCFA) / GCFE—**&#x46;or Digital Forensics\
 ✅ **Microsoft Cybersecurity Architect (SC-100)** – For Security Architecture
 
 **Action Items:**
@@ -153,7 +153,7 @@ To solidify knowledge, actively engage in **real-world scenarios**.
 ### **Phase 5: Career Growth & Community Engagement (18+ Months)**
 
 * Seek **Senior SOC, Incident Response, or Cloud Security Architect roles**.
-* Speak at **cybersecurity conferences (BSides, Defcon, Microsoft Ignite)**.
+* Speak at **cybersecurity conferences (BSides, Defcon, etc.).**
 * Engage in s**ecurity tech communities & professional groups**.
 
 **Action Items:**
@@ -173,10 +173,10 @@ To solidify knowledge, actively engage in **real-world scenarios**.
 
 ### **Next Steps**
 
-1. **Start with Microsoft Learn** – Complete SC-900 and AZ-500 training.
+1. **Start with Microsoft Learn**—Complete SC-900 and AZ-500 training.
 2. **Set Up a Lab—**&#x44;eploy **Microsoft Sentinel** and **Defender XDR** for hands-on practice.
 3. **Join Cybersecurity Communities—**&#x45;ngage with the **Security Tech Community, LinkedIn, and cybersecurity forums**.
 4. **Develop Practical Skills—**&#x49;nvestigate **real-world attacks**, **threat hunt with KQL**, and **analyse digital forensics artifacts**.
 5. **Certify & Apply Knowledge—**&#x57;ork towards s**ecurity certifications** and contribute to **open-source projects**.
 
-By following the roadmap, you will be well on your way to becoming a **specialist in Microsoft Cloud Security, Cybersecurity Incident Response, Digital Forensics, and broader Information Security**
+Following the roadmap, you will be well on your way to becoming a **specialist in Microsoft Cloud Security, Cybersecurity Incident Response, Digital Forensics, and broader Information Security.**

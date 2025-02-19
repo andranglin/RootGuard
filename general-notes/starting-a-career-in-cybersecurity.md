@@ -91,7 +91,7 @@ Goal: Gain real-world experience in a professional environment while expanding y
 
 ### Month 6: Apply for Jobs and Continue Learning
 
-With a solid foundation, certification, and practical experience, focus on actively applying for entry-level cybersecurity roles. Prepare for technical interviews by practising explaining key concepts, tools, and scenarios. Simultaneously, start studying for certifications like Certified Ethical Hacker (CEH), Cisco CyberOps Associate or the more advanced CompTIA Cybersecurity Analyst (CySA+)
+With a solid foundation, certification, and practical experience, focus on actively applying for entry-level cybersecurity roles. Prepare for technical interviews by practising explaining key concepts, tools, and scenarios. Simultaneously, start studying for certifications like Certified Ethical Hacker (CEH), Cisco CyberOps Associate or the more advanced CompTIA Cybersecurity Analyst (CySA+).
 
 Action Plan:
 
