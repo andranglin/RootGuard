@@ -19,30 +19,30 @@ layout:
 
 # A Guide to Landing Your First Cybersecurity Analyst Role
 
-### Introduction
+### 1. Introduction
 
-Congratulations on embarking on your journey as a cybersecurity analyst. Cybersecurity is growing rapidly, and organisations are seeking skilled professionals to strengthen their teams and operations. However, breaking into the industry can be challenging if you don’t approach it strategically. This guide will walk you through actionable steps to help you land your first cybersecurity analyst role with 6 to 12 months of experience under your belt. Whether it's an in-house cybersecurity team, a managed detection and response service, or any other operations, the guide will provide helpful tips to support you on your path to getting the desired role.
+Congratulations on embarking on your journey as a cybersecurity analyst. Cybersecurity is growing rapidly, and organisations are seeking skilled professionals to strengthen their teams and operations. However, breaking into the industry can be challenging if you don’t approach it strategically. This guide will walk you through actionable steps to help you land your first cybersecurity analyst role with 6 to 12 months of experience under your belt. Whether it's an in-house cybersecurity team, a managed detection and response service, or any other operations, the guide will provide helpful tips to support you on your journey to getting the desired role.
 
 ***
 
-### **1. Understand the Role and Its Expectations**
+### **2. Understand the Role and Its Expectations**
 
-Before applying for jobs, ensure you have a clear understanding of what a cybersecurity analyst does. While responsibilities vary by organisation, common tasks include:
+Before applying for jobs, ensure you have a clear understanding of the requirements for the role, in this case, a cybersecurity analyst. While responsibilities vary by organisation, common tasks include:
 
 * Monitoring networks for security breaches.
 * Investigating incidents and responding to threats.
 * Conducting vulnerability assessments and penetration testing.
-* Implementing security measures such as firewalls, IDS/IPS, and endpoint protection tools.
+* Implement security measures like firewalls, IDS/IPS, and endpoint protection tools.
 * Collaborating with IT teams to enhance security protocols.
 * Generating reports for management and stakeholders.
 
-As a junior analyst, you may not handle all these tasks independently, but familiarity with them will demonstrate your readiness to contribute.
+While you won't handle all these tasks independently as a junior analyst, familiarity with them will demonstrate your readiness and preparation for the role.
 
 ***
 
-### **2. Build a Strong Foundation of Technical Skills**
+### **3. Build a Strong Foundation of Technical Skills**
 
-Cybersecurity is a technical field, so having the right skills is critical. Focus on mastering foundational areas that employers look for:
+Cybersecurity is a technical field, so having the right skills is critical. Focus on grasping the foundational areas required by the role and what employers look for in an ideal candidate.
 
 #### **Core Skills:**
 
@@ -50,6 +50,7 @@ Cybersecurity is a technical field, so having the right skills is critical. Focu
 * **Operating Systems: Gain proficiency in Windows, Linux, and, to a lesser extent, macOS, as it is now more commonly used in organisations.** Many attacks target specific OS weaknesses, so knowing how they work is crucial. Only basic understanding is required, considering you are new to the field.
 * **Security Tools:** Familiarise yourself with tools like Wireshark (packet analysis), Nessus (vulnerability scanning), Metasploit (penetration testing), and SIEM platforms like Sentinel or Splunk. Splunk has a free version, so install and practice it to improve your skill set. There are open-source versions, or use something like SecurityOnion with all the required tools already installed as part of the solution.
 * **Scripting and Automation: Learning basic scripting knowledge in Python, Bash, or PowerShell can set you apart as it allows the automation of repetitive tasks and improves efficiency.**
+* **Cloud Computing: Azure and AWS are the primary cloud providers; the recommendation at this stage is to focus on core cloud principles and services and know what they are.**
 
 #### **Certifications:**
 
@@ -64,13 +65,13 @@ Certifications validate your expertise and make your resume stand out. Consider 
 
 These credentials show potential employers that you take your career seriously and have practical knowledge.
 
-This, in most cases, will require some upfront investment on your part; certification can be expensive, so choose wisely. Professional certification is a safe option unless you have a cyber/information security degree. However, with the right set of skills, a degree or certification might not be required as long as you can demonstrate your skillset.
+This, in most cases, will require some upfront investment on your part; certifications can be expensive, so choose wisely. Professional certification is a safe option unless you have a cyber/information security degree. However, with the proper set of skills, a degree or certification might not be required as long as you can demonstrate your skillset.
 
 ***
 
-### **3. Gain Hands-On Experience**
+### **4. Gain Hands-On Experience**
 
-Employers value hands-on experience over theoretical knowledge. Here’s how to build practical skills:
+Employers value hands-on experience over theoretical knowledge. The following are some options on how to build practical skills:
 
 #### **Labs and Simulations:**
 
@@ -78,21 +79,21 @@ Employers value hands-on experience over theoretical knowledge. Here’s how to 
 * Participate in Capture the Flag (CTF) competitions to sharpen problem-solving skills.
 * Built a home lab if the resources are available; a home lab can sometimes be more versatile and allow you to practice unique challenges.
 
-Gaining and showcasing your experience is essential for building a successful career in this dynamic field. Practical experience can be acquired through internships, volunteer opportunities, and participation in cybersecurity competitions like Capture the Flag (CTF) events. These hands-on experiences allow individuals to apply theoretical knowledge to real-world scenarios, enhancing their skills and understanding of cybersecurity principles.
+Gaining and showcasing your experience is essential for building a successful career in this dynamic field. Practical experience can be acquired through internships, volunteer opportunities, and participation in online cyber events. These hands-on experiences will allow you to apply theoretical knowledge to real-world scenarios, enhancing your skills and understanding of cybersecurity principles.
 
 #### **Open Source Contributions:**
 
-* Contribute to open-source cybersecurity projects on GitHub or other platforms. This will allow you to demonstrate initiative and give tangible examples of your work.
+* Contribute to open-source cybersecurity projects on GitHub or other platforms. This will allow you to demonstrate initiative and give tangible examples of your work. However, since you are at the beginning of your career, you might not yet have the skillset; nevertheless, where opportunities arise, capitalise on them.
 
 #### **Internships and Volunteering:**
 
 If possible, secure internships or volunteer opportunities with local businesses or nonprofits. Even unpaid roles can provide valuable experience and networking opportunities. This can sometimes be challenging based on the nature of cybersecurity more broadly.
 
-To effectively showcase this experience, you should maintain an up-to-date portfolio highlighting your projects, certifications, and relevant work. Additionally, engaging with the security community through forums, blogs, and social media can help demonstrate expertise and commitment to the field. You can build a strong reputation and advance your career by actively seeking opportunities to learn and share knowledge.
+To effectively showcase your experience, you should maintain an up-to-date portfolio highlighting your projects, certifications, and relevant work. Additionally, engaging with the security community through forums, blogs, and social media can help demonstrate expertise and commitment to the field. You can build a strong reputation and advance your career by actively seeking opportunities to learn and share knowledge.
 
 ***
 
-### **4. Develop Soft Skills**
+### **5. Develop Soft Skills**
 
 Technical prowess alone won’t guarantee success. Employers also seek candidates who can communicate effectively and collaborate well with others.
 
@@ -109,7 +110,7 @@ At this stage, you need to demonstrate your ability as you haven't yet gained en
 
 ***
 
-### **5. Tailor Your Resume and LinkedIn Profile**
+### **6. Tailor Your Resume and LinkedIn Profile**
 
 Your resume and online presence should highlight your qualifications and achievements effectively.
 
@@ -130,7 +131,7 @@ LinkedIn gets a lot of flack, but it's still a helpful networking tool; use it t
 
 ***
 
-### **6. Network Strategically**
+### **7. Network Strategically**
 
 Networking plays a significant role in landing cybersecurity roles. While it may be a challenge, try to attend industry events, webinars, and meetups to connect with professionals. Some tips:
 
@@ -144,7 +145,7 @@ Networking opportunities happen online almost on a daily basis; a basic online s
 
 ***
 
-### **7. Prepare for Interviews**
+### **8. Prepare for Interviews**
 
 Interview preparation is crucial. Anticipate both technical and behavioural questions.
 
@@ -171,7 +172,7 @@ Training & Development
 
 ***
 
-### **8. Stay Updated on Industry Trends**
+### **9. Stay Updated on Industry Trends**
 
 Cybersecurity evolves constantly, so staying informed is vital. Follow reputable sources like:
 
@@ -186,18 +187,18 @@ Subscribe to newsletters and podcasts to keep abreast of new threats, technologi
 
 ***
 
-### **9. Be Persistent and Patient**
+### **10. Be Persistent and Patient**
 
 Breaking into cybersecurity takes time, especially without prior full-time experience. Don’t get discouraged by rejections; instead, view each application and interview as a learning opportunity. Seek feedback whenever possible to refine your approach.
 
 ***
 
-### **10. Negotiate Confidently**
+### **11. Negotiate Confidently**
 
 Once you receive an offer, negotiate terms that reflect your worth. Research salary benchmarks for entry-level cybersecurity analysts in your region and factor in benefits like training budgets or remote work options.
 
 ***
 
-### Final Thoughts
+### 12. Final Thoughts
 
 Landing your first cybersecurity analyst role requires dedication, continuous learning, and strategic planning. By building strong technical and soft skills, gaining hands-on experience, and networking effectively, you’ll position yourself as a competitive candidate. Remember, every step forward—even small ones—brings you closer to achieving your goal. Stay resilient, embrace challenges, and trust the process. Good luck!

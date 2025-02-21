@@ -6,9 +6,9 @@
 * [Who Am I?](welcome/who-am-i/README.md)
   * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
-## POSTS
+## Fortifying Your Digital Defences
 
-* [RootGuard: Fortifying Your Digital Defences](posts/rootguard-fortifying-your-digital-defences.md)
+* [Articles & Posts](fortifying-your-digital-defences/articles-and-posts.md)
 
 ## GENERAL NOTES
 
