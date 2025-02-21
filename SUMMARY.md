@@ -15,10 +15,10 @@
   * [Becoming A SOC Analyst](blog/articles-and-posts/becoming-a-soc-analyst.md)
   * [Roadmap to Becoming a Cybersecurity Specialist](blog/articles-and-posts/roadmap-to-becoming-a-cybersecurity-specialist.md)
 
-## GENERAL NOTES
+## Resources
 
-* [SOC Analysts Prep Interview Questions](general-notes/soc-analysts-prep-interview-questions.md)
-* [SOC Analysts Roadmap](general-notes/soc-analysts-roadmap.md)
+* [SOC Analysts Prep Interview Questions](resources/soc-analysts-prep-interview-questions.md)
+* [SOC Analysts Roadmap](resources/soc-analysts-roadmap.md)
 
 ## SOC OPERATIONS
 
