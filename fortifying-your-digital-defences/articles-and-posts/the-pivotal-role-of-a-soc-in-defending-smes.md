@@ -13,7 +13,7 @@ layout:
     visible: true
 ---
 
-# Fortifying Cyber Resilience: The Pivotal Role of SOC and DFIR Against Ransomware and Malware
+# The Pivotal Role of a SOC in Defending SMEs
 
 By Adrian Anglin\
 &#xNAN;_&#x50;ublished: February 25, 2025_\

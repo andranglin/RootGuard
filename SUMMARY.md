@@ -8,8 +8,8 @@
 
 ## Blog
 
-* [Articles & Posts](blog/articles-and-posts/README.md)
-  * [The Pivotal Role of a SOC in Defending SMEs](blog/articles-and-posts/the-pivotal-role-of-a-soc-in-defending-smes.md)
+* [Articles & Posts](fortifying-your-digital-defences/articles-and-posts/README.md)
+  * [The Pivotal Role of a SOC in Defending SMEs](fortifying-your-digital-defences/articles-and-posts/the-pivotal-role-of-a-soc-in-defending-smes.md)
 
 ## GENERAL NOTES
 
