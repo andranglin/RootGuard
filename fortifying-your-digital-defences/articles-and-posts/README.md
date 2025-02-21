@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/Screenshot 2025-01-08 172820.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-08 172820.png
 coverY: 0
 layout:
   cover:
@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# RootGuard: Fortifying Your Digital Defences
+# Articles & Posts
 
 Welcome to Fortifying Your Digital Defences, a section on my site dedicated to hosting my written articles. On a frequent basis, I’ll publish pieces focused on defensive areas of cybersecurity—primarily SOC and DFIR, alongside other critical topics in cyber and information protection. The intention is to provide a space that delivers quality, actionable insights through professionally crafted articles, guides, and updates. Whether you’re a cybersecurity professional sharpening your skills or an enthusiast eager to understand today’s digital threats, this space is here to serve as your trusted resource.&#x20;
 
