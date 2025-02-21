@@ -9,7 +9,7 @@
 ## Fortifying Your Digital Defences
 
 * [Articles & Posts](fortifying-your-digital-defences/articles-and-posts/README.md)
-  * [Fortifying Cyber Resilience: The Pivotal Role of SOC and DFIR Against Ransomware and Malware](fortifying-your-digital-defences/articles-and-posts/fortifying-cyber-resilience-the-pivotal-role-of-soc-and-dfir-against-ransomware-and-malware.md)
+  * [The Pivotal Role of a SOC in Defending SMEs](fortifying-your-digital-defences/articles-and-posts/the-pivotal-role-of-a-soc-in-defending-smes.md)
 
 ## GENERAL NOTES
 
