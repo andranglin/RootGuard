@@ -10,15 +10,15 @@
 
 * [Articles & Posts](fortifying-your-digital-defences/articles-and-posts/README.md)
   * [The Pivotal Role of a SOC in Defending SMEs](fortifying-your-digital-defences/articles-and-posts/the-pivotal-role-of-a-soc-in-defending-smes.md)
+  * [Starting a Career in Cybersecurity](blog/articles-and-posts/starting-a-career-in-cybersecurity.md)
+  * [A Guide to Landing Your First Cybersecurity Analyst Role](blog/articles-and-posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
+  * [Becoming A SOC Analyst](blog/articles-and-posts/becoming-a-soc-analyst.md)
+  * [Roadmap to Becoming a Cybersecurity Specialist](blog/articles-and-posts/roadmap-to-becoming-a-cybersecurity-specialist.md)
 
 ## GENERAL NOTES
 
-* [Becoming A SOC Analyst](general-notes/becoming-a-soc-analyst.md)
 * [SOC Analysts Prep Interview Questions](general-notes/soc-analysts-prep-interview-questions.md)
-* [A Guide to Landing Your First Cybersecurity Analyst Role](general-notes/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
 * [SOC Analysts Roadmap](general-notes/soc-analysts-roadmap.md)
-* [Starting a Career in Cybersecurity](general-notes/starting-a-career-in-cybersecurity.md)
-* [Strategic Roadmap to Becoming a Cybersecurity Specialist](general-notes/strategic-roadmap-to-becoming-a-cybersecurity-specialist.md)
 
 ## SOC OPERATIONS
 
