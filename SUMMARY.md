@@ -6,6 +6,10 @@
 * [Who Am I?](welcome/who-am-i/README.md)
   * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
+## POSTS
+
+* [RootGuard: Fortifying Your Digital Defences](posts/rootguard-fortifying-your-digital-defences.md)
+
 ## GENERAL NOTES
 
 * [Becoming A SOC Analyst](general-notes/becoming-a-soc-analyst.md)
