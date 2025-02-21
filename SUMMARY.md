@@ -10,19 +10,19 @@
 
 * [Articles & Posts](fortifying-your-digital-defences/articles-and-posts/README.md)
   * [The Pivotal Role of a SOC in Defending SMEs](fortifying-your-digital-defences/articles-and-posts/the-pivotal-role-of-a-soc-in-defending-smes.md)
-  * [Starting a Career in Cybersecurity](blog/articles-and-posts/starting-a-career-in-cybersecurity.md)
   * [A Guide to Landing Your First Cybersecurity Analyst Role](blog/articles-and-posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
-  * [Becoming A SOC Analyst](blog/articles-and-posts/becoming-a-soc-analyst.md)
-  * [Roadmap to Becoming a Cybersecurity Specialist](blog/articles-and-posts/roadmap-to-becoming-a-cybersecurity-specialist.md)
 
 ## Resources
 
-* [SOC Analysts Prep Interview Questions](resources/soc-analysts-prep-interview-questions.md)
-* [SOC Analysts Roadmap](resources/soc-analysts-roadmap.md)
+* [Roadmap to Becoming a Cybersecurity Specialist](resources/roadmap-to-becoming-a-cybersecurity-specialist.md)
+* [Starting a Career in Cybersecurity](resources/starting-a-career-in-cybersecurity.md)
 
 ## SOC OPERATIONS
 
-* [Introduction to SOC](soc-operations/introduction-to-soc.md)
+* [Introduction to SOC](soc-operations/introduction-to-soc/README.md)
+  * [SOC Analysts Prep Interview Questions](soc-operations/introduction-to-soc/soc-analysts-prep-interview-questions.md)
+  * [Becoming A SOC Analyst](soc-operations/introduction-to-soc/becoming-a-soc-analyst.md)
+  * [SOC Analysts Roadmap](soc-operations/introduction-to-soc/soc-analysts-roadmap.md)
 * [Critical Windows Event ID’s to Monitor](soc-operations/critical-windows-event-ids-to-monitor.md)
 * [Packet Analysis (pcap)](soc-operations/packet-analysis-pcap/README.md)
   * [Tcpdump](soc-operations/packet-analysis-pcap/tcpdump.md)
