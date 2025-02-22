@@ -40,3 +40,11 @@ SOC personnel need a versatile skill set to excel in their roles. Technical mast
 The SOC offers a vibrant career ladder for cybersecurity enthusiasts. Starting roles, such as SOC Analyst (Tier 1), center on monitoring alerts and initial incident sorting, laying the groundwork for advancement. With time, professionals can rise to Tier 2 Analysts, diving into detailed investigations and proactive threat hunting, or pivot to SOC Engineers, focusing on building and refining security tools. Leadership positions, like SOC Manager or Incident Response Lead, involve shaping strategy, guiding teams, and liaising with executives. For those eyeing bigger horizons, SOC experience can lead to roles like Chief Information Security Officer (CISO) or cybersecurity consultant. Lifelong learning—via certifications (e.g., CISSP, CISM) or keeping pace with emerging threats—propels growth, positioning SOC personnel as prime talent in a booming industry.
 
 By fostering skilled SOC personnel, organisations not only strengthen their defences but also develop professionals equipped to tackle the fast-evolving world of cybersecurity.
+
+_**Jump into the sections to learn more:**_
+
+[SOC Analysts Roadmap](soc-analysts-roadmap.md)
+
+[Becoming a SOC Analyst](becoming-a-soc-analyst.md)
+
+[SOC Analysts Prep Interview Questions](soc-analysts-prep-interview-questions.md)

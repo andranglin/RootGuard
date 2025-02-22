@@ -42,3 +42,9 @@ layout:
 **Incident Response Knowledge:** Their incident response knowledge is extensive, covering advanced persistent threats (APTs), zero-day exploits, and insider threats, with the ability to lead end-to-end responses—prioritising containment, coordinating teams, and analysing forensic artifacts (e.g., memory dumps, disk images). They excel at root cause analysis and post-incident reviews to prevent recurrence.&#x20;
 
 **Additional Competencies:** Leadership skills are critical for mentoring junior analysts, briefing executives, and shaping security policies, while strategic thinking and crisis management ensure success in high-stakes scenarios. A commitment to continuous learning—via certifications like CISSP, GCIH, GCFA, or OSCP—and vendor management (e.g., with MSSPs for SMEs) rounds out their profile, enabling them to balance tactical and long-term security goals under pressure.
+
+_**Jump into the sections to learn more:**_
+
+[Investigate Using MITRE ATT\&CK Methodology](investigate-using-mitre-att-and-ck-methodology/)
+
+[Investigate Process Execution Using KQL](investigate-process-execution-using-kql.md)

@@ -25,7 +25,7 @@ Over the years, I have studied various areas of information and cybersecurity an
 
 My passion and interest in information technology and security go beyond my own employment, and therefore, I wanted to:
 
-* A place to publish some of my learning outcomes to help others improve their skills, knowledge, and processes relating to information and cyber security.
+* A place to publish some of my learning outcomes to help others improve their skills, knowledge, and processes relating to information and cybersecurity.
 * Lower the barrier of entry for upcoming security professionals who are interested in entering the field but lack the knowledge and skills.
 * And finally, a place to consolidate and publish some of my achievements and the thought process that led to them.
 
@@ -33,7 +33,7 @@ The aim is to provide some theoretical and practical approaches to help others d
 
 ### Why should anyone listen to me?
 
-My area of knowledge isn't focused on a single area within the technology space, nor am I an expert; what I am is a continuous learner and someone who has invested time into my development and has gained a considerable amount of experience working in multiple areas with information technology. In my professional career and spare time, I have undertaken multiple successful technology implementations, achieving the goals based on agreed objectives. As part of the day job, managed day-to-day information and cyber security operations and implemented organisational cyber initiatives.
+My area of knowledge isn't focused on a single area within the technology space, nor am I an expert; what I am is a continuous learner and someone who has invested time into my development and has gained a considerable amount of experience working in multiple areas with information technology. In my professional career and spare time, I have undertaken multiple successful technology implementations, achieving the goals based on agreed objectives. As part of the day job, managed day-to-day information and cybersecurity operations and implemented organisational cyber initiatives.
 
 ### Disclaimer
 
@@ -41,7 +41,7 @@ Unless I am explicitly quoting someone, the thoughts and opinions expressed are 
 
 ### Tools and product mentions <a href="#product-mentions" id="product-mentions"></a>
 
-I use many daily, and any mention of a particular tool, product, or service is of my own accord and is not sponsored unless otherwise stated.&#x20;
+I use many daily, and any mention of a particular tool, product, or service is of my own accord and is not sponsored unless otherwise stated.
 
 ### Can the site content be shared?
 
@@ -51,5 +51,6 @@ Most definitely, provided you give attribution.
 
 [**LinkedIn**](https://www.linkedin.com/in/adrian-anglin-76b29972)
 
-**X:** @adriananglin
+**X:** [@adriananglin](https://x.com/adriananglin)
 
+Bluesky: [@andranglin.bsky.social](https://bsky.app/)

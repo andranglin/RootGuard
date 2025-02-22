@@ -30,3 +30,17 @@ layout:
 **Incident Response Knowledge:** Their incident response knowledge is introductory, focusing on recognising common indicators of compromise (IOCs) like unusual login attempts, high network traffic, or known malicious IP addresses. They need to understand the steps to escalate incidents to Tier 2 when they exceed basic troubleshooting (e.g., quarantining a device or resetting a password), ensuring timely handoff without delving into complex analysis.&#x20;
 
 **Additional Competencies:** Strong attention to detail is critical for spotting anomalies in logs or alerts, while basic communication skills—written for incident tickets and verbal for team handoffs—are essential for collaboration. They must work well in a structured, often shift-based environment, displaying a willingness to learn and adapt as they encounter new threats, with an openness to guidance from senior team members.
+
+_**Jump into the sections to learn more:**_
+
+[Splunk Use Cases](splunk-use-cases.md)
+
+[KQL Use Cases](kql-use-cases/)
+
+[Investigating Common Attacks](investigating-common-attacks/)
+
+[PowerShell For SecOps](powershell-for-secops/)
+
+[Packet Analysis (Pcap)](packet-analysis-pcap/)
+
+[Investigating Suspicious Emails Using KQL](investigating-suspicious-emails-using-kql.md)

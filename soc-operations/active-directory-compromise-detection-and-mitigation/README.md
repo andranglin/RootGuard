@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Detect and Mitigate Active Directory Compromise
+# Active Directory Compromise—Detection and Mitigation
 
 ### **Introduction**
 
@@ -70,7 +70,7 @@ Responding to and recovering from AD compromises is time-consuming, costly, and 
 The following are the attack types that are in scope of this investigative workflow:
 
 * [Kerberoasting ](kerberoasting.md)
-* [Authentication Server Response (AS-REP) Roasting ](../detect-and-mitigate-active-directory-compromise/authentication-server-response-as-rep-roasting.md)
+* [Authentication Server Response (AS-REP) Roasting ](authentication-server-response-as-rep-roasting.md)
 * [Password Spraying ](password-spraying.md)
 * [MachineAccountQuota Compromise](machineaccountquota-compromise.md)
 * [Unconstrained delegation](unconstrained-delegation.md)
@@ -81,13 +81,13 @@ The following are the attack types that are in scope of this investigative workf
 * [Dumping ntds.dit](dumping-ntds.dit.md)
 * [Golden Ticket](golden-ticket.md)
 * [Silver Ticket](silver-ticket.md)
-* [Golden Security Assertion Markup Language (SAML)](../detect-and-mitigate-active-directory-compromise/golden-security-assertion-markup-language-saml.md)
-* [Microsoft Entra Connect Compromise](../detect-and-mitigate-active-directory-compromise/microsoft-entra-connect-compromise.md)
-* [One-way Domain Trust Bypass ](../detect-and-mitigate-active-directory-compromise/one-way-domain-trust-bypass.md)
-* [Security Identifier (SID) History Compromise ](../detect-and-mitigate-active-directory-compromise/security-identifier-sid-history-compromise.md)
-* [Skeleton Key](../detect-and-mitigate-active-directory-compromise/skeleton-key.md)
-* [Active Directory Security Controls](../detect-and-mitigate-active-directory-compromise/active-directory-security-controls.md)
-* [Active Directory Events for Detecting Compromise](../detect-and-mitigate-active-directory-compromise/active-directory-events-for-detecting-compromise.md)
+* [Golden Security Assertion Markup Language (SAML)](golden-security-assertion-markup-language-saml.md)
+* [Microsoft Entra Connect Compromise](microsoft-entra-connect-compromise.md)
+* [One-way Domain Trust Bypass ](one-way-domain-trust-bypass.md)
+* [Security Identifier (SID) History Compromise ](security-identifier-sid-history-compromise.md)
+* [Skeleton Key](skeleton-key.md)
+* [Active Directory Security Controls](active-directory-security-controls.md)
+* [Active Directory Events for Detecting Compromise](active-directory-events-for-detecting-compromise.md)
 
 ### Detecting and Mitigating Active Directory Compromises
 
