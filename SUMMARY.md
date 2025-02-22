@@ -3,21 +3,21 @@
 ## Welcome
 
 * [RootGuard](README.md)
-* [Who Am I?](welcome/who-am-i/README.md)
-  * [Professional Profile](welcome/who-am-i/professional-profile.md)
-
-## Blog
-
-* [Articles & Posts](fortifying-your-digital-defences/articles-and-posts/README.md)
-  * [The Pivotal Role of a SOC in Defending SMEs](fortifying-your-digital-defences/articles-and-posts/the-pivotal-role-of-a-soc-in-defending-smes.md)
-  * [A Guide to Landing Your First Cybersecurity Analyst Role](blog/articles-and-posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
+  * [Who Am I?](welcome/rootguard/who-am-i/README.md)
+    * [Professional Profile](welcome/rootguard/who-am-i/professional-profile.md)
 
 ## Resources
 
-* [Roadmap to Becoming a Cybersecurity Specialist](resources/roadmap-to-becoming-a-cybersecurity-specialist.md)
-* [Starting a Career in Cybersecurity](resources/starting-a-career-in-cybersecurity.md)
+* [Blogs](resources/blogs/README.md)
+  * [Articles](resources/blogs/articles/README.md)
+    * [The Pivotal Role of a SOC in Defending SMEs](resources/blogs/articles/the-pivotal-role-of-a-soc-in-defending-smes.md)
+  * [Posts](resources/blogs/posts/README.md)
+    * [Roadmap to Becoming a Cybersecurity Specialist](resources/blogs/posts/roadmap-to-becoming-a-cybersecurity-specialist.md)
+    * [Starting a Career in Cybersecurity](resources/blogs/posts/starting-a-career-in-cybersecurity.md)
+    * [A Guide to Landing Your First Cybersecurity Analyst Role](resources/blogs/posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
+    * [Moving from Intermediate to Expert Incident Responder](resources/blogs/posts/moving-from-intermediate-to-expert-incident-responder.md)
 
-## SOC OPERATIONS
+## SOC Operations
 
 * [Introduction to SOC](soc-operations/introduction-to-soc/README.md)
   * [SOC Analysts Prep Interview Questions](soc-operations/introduction-to-soc/soc-analysts-prep-interview-questions.md)
@@ -101,70 +101,57 @@
   * [Exfiltration (TA0010)](soc-operations/kql-use-cases/exfiltration-ta0010.md)
   * [Impact (TA0040)](soc-operations/kql-use-cases/impact-ta0040.md)
 
-## INCIDENT RESPONSE
+## DFIR
 
-* [Introduction to Incident Response (IR)](incident-response/introduction-to-incident-response-ir.md)
-* [Moving from Intermediate to Expert Incident Responder](incident-response/moving-from-intermediate-to-expert-incident-responder.md)
-* [Response Strategies](incident-response/response-strategies/README.md)
-  * [Privilege Escalation Assessment](incident-response/response-strategies/privilege-escalation-assessment.md)
-  * [Command and Control Assessment](incident-response/response-strategies/command-and-control-assessment.md)
-  * [Command Execution Assessment](incident-response/response-strategies/command-execution-assessment.md)
-  * [Defence Evasion Assessment](incident-response/response-strategies/defence-evasion-assessment.md)
-  * [Detection Assessment](incident-response/response-strategies/detection-assessment.md)
-  * [Discovery Assessment](incident-response/response-strategies/discovery-assessment.md)
-  * [Exfiltration Assessment](incident-response/response-strategies/exfiltration-assessment.md)
-  * [Initial Access Assessment](incident-response/response-strategies/initial-access-assessment.md)
-  * [Initial Impact Assessment Techniques](incident-response/response-strategies/initial-impact-assessment-techniques.md)
-  * [Lateral Movement Assessment](incident-response/response-strategies/lateral-movement-assessment.md)
-  * [Persistence Assessment](incident-response/response-strategies/persistence-assessment.md)
-* [Incident Triage](incident-response/incident-triage/README.md)
-  * [Triage Types and Processes](incident-response/incident-triage/triage-types-and-processes.md)
-  * [PowerShell for Detection and Analysis](incident-response/incident-triage/powershell-for-detection-and-analysis.md)
-  * [Registry Analysis](incident-response/incident-triage/registry-analysis.md)
-  * [Sysinternals Intrusion Analysis](incident-response/incident-triage/sysinternals-intrusion-analysis.md)
-  * [PowerShell Intrusion Analysis](incident-response/incident-triage/powershell-intrusion-analysis.md)
-  * [Velociraptor Intrusion Analysis](incident-response/incident-triage/velociraptor-intrusion-analysis.md)
-  * [Zimmerman Tools Intrusion Analysis](incident-response/incident-triage/zimmerman-tools-intrusion-analysis.md)
-* [Velociraptor Artifacts Analysis](incident-response/velociraptor-artifacts-analysis.md)
-* [KAPE Artifacts Analysis](incident-response/kape-artifacts-analysis.md)
-* [Using The Unified Kill Chain Model to Analyse  Individual Cyber Attacks](incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/README.md)
-  * [Phase 1 - Gaining an Initial Foothold](incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/README.md)
-    * [Gaining Access to the Network](incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/gaining-access-to-the-network.md)
-    * [Establishing a Foothold](incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/establishing-a-foothold.md)
-    * [Network Discovery](incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/network-discovery.md)
-
-## WINDOWS FORENSICS
-
-* [Introduction to Windows Forensics](windows-forensics/introduction-to-windows-forensics.md)
-* [Window Artifact Analysis](windows-forensics/window-artifact-analysis/README.md)
-  * [Account Usage](windows-forensics/window-artifact-analysis/account-usage.md)
-  * [User Activity Tracking (Event Logs)](windows-forensics/window-artifact-analysis/user-activity-tracking-event-logs.md)
-  * [Program Execution](windows-forensics/window-artifact-analysis/program-execution.md)
-  * [File and Folder Opening](windows-forensics/window-artifact-analysis/file-and-folder-opening.md)
-  * [File Download](windows-forensics/window-artifact-analysis/file-download.md)
-  * [Browser Usage](windows-forensics/window-artifact-analysis/browser-usage.md)
-  * [Deleted File or File Knowledge](windows-forensics/window-artifact-analysis/deleted-file-or-file-knowledge.md)
-  * [External Device & USB Usage](windows-forensics/window-artifact-analysis/external-device-and-usb-usage.md)
-* [Evidence of Execution](windows-forensics/evidence-of-execution.md)
-
-## LINUX FORENSICS
-
-* [Introduction to Linux Forensics](linux-forensics/introduction-to-linux-forensics.md)
-* [Linux Commandline Basics](linux-forensics/linux-commandline-basics.md)
-* [Host Compromise Assessment](linux-forensics/host-compromise-assessment.md)
-* [Intrusion Analysis](linux-forensics/intrusion-analysis.md)
-
-## SENTINEL & DEFENDER KQL
-
-* [Introduction to KQL for Defender & Sentinel](sentinel-and-defender-kql/introduction-to-kql-for-defender-and-sentinel.md)
-* [Office](sentinel-and-defender-kql/office.md)
-* [Identity](sentinel-and-defender-kql/identity.md)
-* [Endpoint](sentinel-and-defender-kql/endpoint.md)
-
-## MEMORY FORENSICS
-
-* [Introduction to Memory Forensics](memory-forensics/introduction-to-memory-forensics.md)
-* [Memory Forensics (Volatility 3)](memory-forensics/memory-forensics-volatility-3.md)
+* [Incident Response](dfir/incident-response/README.md)
+  * [Incident Triage](dfir/incident-response/incident-triage/README.md)
+    * [Triage Types and Processes](dfir/incident-response/incident-triage/triage-types-and-processes.md)
+    * [PowerShell for Detection and Analysis](dfir/incident-response/incident-triage/powershell-for-detection-and-analysis.md)
+    * [Registry Analysis](dfir/incident-response/incident-triage/registry-analysis.md)
+    * [Sysinternals Intrusion Analysis](dfir/incident-response/incident-triage/sysinternals-intrusion-analysis.md)
+    * [PowerShell Intrusion Analysis](dfir/incident-response/incident-triage/powershell-intrusion-analysis.md)
+    * [Velociraptor Intrusion Analysis](dfir/incident-response/incident-triage/velociraptor-intrusion-analysis.md)
+    * [Zimmerman Tools Intrusion Analysis](dfir/incident-response/incident-triage/zimmerman-tools-intrusion-analysis.md)
+  * [KAPE Artifacts Analysis](dfir/incident-response/kape-artifacts-analysis.md)
+  * [Velociraptor Artifacts Analysis](dfir/incident-response/velociraptor-artifacts-analysis.md)
+  * [Using The Unified Kill Chain Model to Analyse  Individual Cyber Attacks](dfir/incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/README.md)
+    * [Phase 1 - Gaining an Initial Foothold](dfir/incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/README.md)
+      * [Gaining Access to the Network](dfir/incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/gaining-access-to-the-network.md)
+      * [Establishing a Foothold](dfir/incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/establishing-a-foothold.md)
+      * [Network Discovery](dfir/incident-response/using-the-unified-kill-chain-model-to-analyse-individual-cyber-attacks/phase-1-gaining-an-initial-foothold/network-discovery.md)
+  * [Response Strategies](dfir/incident-response/response-strategies/README.md)
+    * [Privilege Escalation Assessment](dfir/incident-response/response-strategies/privilege-escalation-assessment.md)
+    * [Command and Control Assessment](dfir/incident-response/response-strategies/command-and-control-assessment.md)
+    * [Command Execution Assessment](dfir/incident-response/response-strategies/command-execution-assessment.md)
+    * [Defence Evasion Assessment](dfir/incident-response/response-strategies/defence-evasion-assessment.md)
+    * [Detection Assessment](dfir/incident-response/response-strategies/detection-assessment.md)
+    * [Discovery Assessment](dfir/incident-response/response-strategies/discovery-assessment.md)
+    * [Exfiltration Assessment](dfir/incident-response/response-strategies/exfiltration-assessment.md)
+    * [Initial Access Assessment](dfir/incident-response/response-strategies/initial-access-assessment.md)
+    * [Initial Impact Assessment Techniques](dfir/incident-response/response-strategies/initial-impact-assessment-techniques.md)
+    * [Lateral Movement Assessment](dfir/incident-response/response-strategies/lateral-movement-assessment.md)
+    * [Persistence Assessment](dfir/incident-response/response-strategies/persistence-assessment.md)
+* [Windows Forensics](dfir/windows-forensics/README.md)
+  * [Evidence of Execution](dfir/windows-forensics/evidence-of-execution.md)
+  * [Window Artifact Analysis](dfir/windows-forensics/window-artifact-analysis/README.md)
+    * [Account Usage](dfir/windows-forensics/window-artifact-analysis/account-usage.md)
+    * [User Activity Tracking (Event Logs)](dfir/windows-forensics/window-artifact-analysis/user-activity-tracking-event-logs.md)
+    * [Program Execution](dfir/windows-forensics/window-artifact-analysis/program-execution.md)
+    * [File and Folder Opening](dfir/windows-forensics/window-artifact-analysis/file-and-folder-opening.md)
+    * [File Download](dfir/windows-forensics/window-artifact-analysis/file-download.md)
+    * [Browser Usage](dfir/windows-forensics/window-artifact-analysis/browser-usage.md)
+    * [Deleted File or File Knowledge](dfir/windows-forensics/window-artifact-analysis/deleted-file-or-file-knowledge.md)
+    * [External Device & USB Usage](dfir/windows-forensics/window-artifact-analysis/external-device-and-usb-usage.md)
+* [Linux Forensics](dfir/linux-forensics/README.md)
+  * [Linux Commandline Basics](dfir/linux-forensics/linux-commandline-basics.md)
+  * [Host Compromise Assessment](dfir/linux-forensics/host-compromise-assessment.md)
+  * [Intrusion Analysis](dfir/linux-forensics/intrusion-analysis.md)
+* [KQL for Defender & Sentinel](dfir/kql-for-defender-and-sentinel/README.md)
+  * [MDO (Office)](dfir/kql-for-defender-and-sentinel/mdo-office.md)
+  * [MDI (Identity)](dfir/kql-for-defender-and-sentinel/mdi-identity.md)
+  * [MDE (Endpoint)](dfir/kql-for-defender-and-sentinel/mde-endpoint.md)
+* [Memory Forensics](dfir/memory-forensics/README.md)
+  * [Memory Forensics (Volatility 3)](dfir/memory-forensics/memory-forensics-volatility-3.md)
 
 ## THREAT HUNTING
 

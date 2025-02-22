@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
 coverY: 0
 layout:
   cover:
@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Introduction to Memory Forensics
+# Memory Forensics
 
 ### Introduction
 

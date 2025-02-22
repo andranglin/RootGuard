@@ -1,6 +1,6 @@
 ---
 icon: laptop-code
-cover: ../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 151057 (1).png
 coverY: 0
 layout:
   cover:
@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Intro
+# Windows Forensics
 
 ## **What is Digital Forensics?**
 
@@ -149,6 +149,6 @@ Jai Minton [Digital Forensics and Incident Response](https://www.jaiminton.com/c
 
 Note: Resources like Posters and Cheatsheets are helpful when used as guides
 
-{% file src="../.gitbook/assets/SANS DFIR Fundaments.pdf" %}
+{% file src="../../.gitbook/assets/SANS DFIR Fundaments.pdf" %}
 
-{% file src="../.gitbook/assets/SANS DFIR Windows Forensic Analysis.pdf" %}
+{% file src="../../.gitbook/assets/SANS DFIR Windows Forensic Analysis.pdf" %}

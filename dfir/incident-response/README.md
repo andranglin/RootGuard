@@ -1,6 +1,5 @@
 ---
-icon: laptop-code
-cover: ../../.gitbook/assets/Screenshot 2025-01-04 150636.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 145751 (1).png
 coverY: 0
 layout:
   cover:
@@ -18,7 +17,7 @@ layout:
     visible: true
 ---
 
-# DFIR
+# Incident Response
 
 ## **What is Cybersecurity Incident Response?**
 
@@ -156,5 +155,3 @@ By following a structured and well-defined pathway and maintaining a commitment 
 * &#x20;[The DFIR Report: ](https://thedfirreport.com/)Detailed breakdowns of real-world attacks and defensive strategies.
 
 These resources provide an excellent foundation for individuals looking to develop or enhance their Blue Team skills with a mix of theoretical knowledge and hands-on practice. Let me know if you'd like guidance on any specific area!
-
-***

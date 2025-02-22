@@ -31,9 +31,9 @@ The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framew
 
 **Tactics (Adversary Goals)**
 
-1. [**Reconnaissance**:](../../incident-response/response-strategies/) Gathering information about the target.
+1. [**Reconnaissance**:](../../dfir/incident-response/response-strategies/) Gathering information about the target.
 2. [**Resource Development**:](reconnaissance-ta0043-techniques.md) Establishing resources like infrastructure, accounts, or tools.
-3. [**Initial Access**:](../../incident-response/response-strategies/initial-impact-assessment-techniques.md) Gaining entry to the target environment (e.g., phishing, exploiting vulnerabilities).
+3. [**Initial Access**:](../../dfir/incident-response/response-strategies/initial-impact-assessment-techniques.md) Gaining entry to the target environment (e.g., phishing, exploiting vulnerabilities).
 4. [**Execution**: ](command-execution-ta0002-techniques.md)Running malicious code on the system.
 5. [**Persistence**:](persistence-ta0003-techniques.md) Maintaining access to the system over time.
 6. [**Privilege Escalation**: ](../kql-use-cases/privilege-escalation-ta0004.md)Gaining higher-level permissions on the system.
