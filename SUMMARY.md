@@ -10,7 +10,7 @@
 
 * [Blogs](resources-hub/blogs/README.md)
   * [Articles](resources-hub/blogs/articles/README.md)
-    * [The Pivotal Role of a SOC in Defending SMEs](resources-hub/blogs/articles/the-pivotal-role-of-a-soc-in-defending-smes.md)
+    * [Safeguarding SMEs: The Strategic Importance of a Security Operations Center (SOC)](resources-hub/blogs/articles/safeguarding-smes-the-strategic-importance-of-a-security-operations-center-soc.md)
   * [Posts](resources-hub/blogs/posts/README.md)
     * [Roadmap to Becoming a Cybersecurity Specialist](resources-hub/blogs/posts/roadmap-to-becoming-a-cybersecurity-specialist.md)
     * [Starting a Career in Cybersecurity](resources-hub/blogs/posts/starting-a-career-in-cybersecurity.md)
