@@ -6,16 +6,16 @@
   * [Who Am I?](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
-## Resources
+## Resources Hub
 
-* [Blogs](resources/blogs/README.md)
-  * [Articles](resources/blogs/articles/README.md)
-    * [The Pivotal Role of a SOC in Defending SMEs](fortifying-your-digital-defences/articles-and-posts/the-pivotal-role-of-a-soc-in-defending-smes.md)
-  * [Posts](resources/blogs/posts/README.md)
-    * [Roadmap to Becoming a Cybersecurity Specialist](resources/roadmap-to-becoming-a-cybersecurity-specialist.md)
-    * [Starting a Career in Cybersecurity](resources/starting-a-career-in-cybersecurity.md)
-    * [A Guide to Landing Your First Cybersecurity Analyst Role](blog/articles-and-posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
-    * [Moving from Intermediate to Expert Incident Responder](incident-response/moving-from-intermediate-to-expert-incident-responder.md)
+* [Blogs](resources-hub/blogs/README.md)
+  * [Articles](resources-hub/blogs/articles/README.md)
+    * [The Pivotal Role of a SOC in Defending SMEs](resources-hub/blogs/articles/the-pivotal-role-of-a-soc-in-defending-smes.md)
+  * [Posts](resources-hub/blogs/posts/README.md)
+    * [Roadmap to Becoming a Cybersecurity Specialist](resources-hub/blogs/posts/roadmap-to-becoming-a-cybersecurity-specialist.md)
+    * [Starting a Career in Cybersecurity](resources-hub/blogs/posts/starting-a-career-in-cybersecurity.md)
+    * [A Guide to Landing Your First Cybersecurity Analyst Role](resources-hub/blogs/posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
+    * [Moving from Intermediate to Expert Incident Responder](resources-hub/blogs/posts/moving-from-intermediate-to-expert-incident-responder.md)
 
 ## SOC Operations
 

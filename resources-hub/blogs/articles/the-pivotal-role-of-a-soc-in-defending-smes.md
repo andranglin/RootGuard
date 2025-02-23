@@ -1,5 +1,5 @@
 ---
-cover: ../../.gitbook/assets/SOC-1.png
+cover: ../../../.gitbook/assets/SOC-1.png
 coverY: 0
 layout:
   cover:
@@ -20,9 +20,7 @@ layout:
 # The Pivotal Role of a SOC in Defending SMEs
 
 By Adrian Anglin\
-&#xNAN;_&#x50;ublished: February 25, 2025_\
-&#xNAN;_&#x57;ord Count: 2,697 words_\
-&#xNAN;_&#x43;ontact: andranglin@yahoo.com_
+&#xNAN;_&#x50;ublished: February 25, 2025_
 
 ***
 
@@ -46,7 +44,7 @@ Detection turns this imbalance on its head. It’s the early alarm that catches 
 
 ***
 
-### The Role of SOC Monitoring in Cyber Detection
+### The Role of SOC Monitoring and Detection
 
 In the unpredictable expanse of 2025’s cyber battlefield, the Security Operations Center (SOC) stands as a vigilant outpost, guarding networks with unwavering focus. Equipped with Security Information and Event Management (SIEM) systems like Splunk, Sentinel or QRadar, SOCs scrutinise every byte of network activity—logs, traffic patterns, user behaviours—around the clock. As IoT devices became prime targets in 2024, this ceaseless watchfulness proved its mettle. Properly equipped, the SOC will detect stealthy phishing attacks, user anomalies and other malicious activities. The SOC offers a range of protection mechanisms, such as endpoint detection and response tools, the ability to quickly isolate suspicious systems and avert breaches that could have shuttered operations.
 
@@ -97,7 +95,6 @@ The choice is yours: deploy SIEM with SOAR to sharpen your SOC, run IR drills to
 ### References
 
 * Bridewell. (2024). _2024 Cybersecurity Report_. [https://www.bridewell.com/insights/cybersecurity-report-2024](https://www.bridewell.com/insights/cybersecurity-report-2024)
-* Cybersecurity Ventures. (2025). _Cybersecurity Jobs Report 2025_. [https://cybersecurityventures.com/jobs-report-2025](https://cybersecurityventures.com/jobs-report-2025)
 * EMBROKER. (2025, February 21). Cyberattack statistics 2025.  https://www.embroker.com/blog/cyber-attack-statistics/
 * IBM. (2024). _Cost of a Data Breach Report 2024_. [https://www.ibm.com/reports/data-breach](https://www.ibm.com/reports/data-breach)
 * Sophos. (2024). _State of Ransomware 2024_. [https://www.sophos.com/en-us/content/state-of-ransomware](https://www.sophos.com/en-us/content/state-of-ransomware)
