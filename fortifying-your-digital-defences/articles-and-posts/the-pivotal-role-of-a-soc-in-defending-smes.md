@@ -1,5 +1,4 @@
 ---
-hidden: true
 cover: ../../.gitbook/assets/SOC-1.png
 coverY: 0
 layout:
