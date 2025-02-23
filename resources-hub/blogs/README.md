@@ -1,10 +1,10 @@
 ---
-cover: ../../.gitbook/assets/Screenshot 2025-01-05 133354 (2).png
+cover: ../../.gitbook/assets/soc-4.png
 coverY: 0
 layout:
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
