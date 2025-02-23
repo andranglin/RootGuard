@@ -1,6 +1,11 @@
 ---
 hidden: true
+cover: ../../.gitbook/assets/SOC-1.png
+coverY: 0
 layout:
+  cover:
+    visible: true
+    size: full
   title:
     visible: true
   description:
