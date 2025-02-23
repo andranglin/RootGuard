@@ -17,10 +17,10 @@ layout:
     visible: true
 ---
 
-# The Pivotal Role of a SOC in Defending SMEs
+# Safeguarding SMEs: The Strategic Importance of a Security Operations Center (SOC)
 
 By Adrian Anglin\
-&#xNAN;_&#x50;ublished: February 25, 2025_
+&#xNAN;_&#x50;ublished: February 23, 2025_
 
 ***
 
