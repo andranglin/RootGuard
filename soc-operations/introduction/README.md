@@ -1,11 +1,11 @@
 ---
 icon: laptop-code
-cover: ../../.gitbook/assets/Screenshot 2025-01-04 145751.png
+cover: ../../.gitbook/assets/SOC-1 (1).png
 coverY: 0
 layout:
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Security Operations Center (SOC)
+# Introduction
 
 ## What is a Security Operations Center (SOC)?
 
