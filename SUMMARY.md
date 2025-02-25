@@ -205,3 +205,5 @@
   * [MDE (Endpoint)](sentinel-and-defender-kql/endpoint.md)
 * [Memory Forensics](memory-forensics/introduction-to-memory-forensics.md)
   * [Memory Forensics (Volatility 3)](memory-forensics/memory-forensics-volatility-3.md)
+* [Playbooks](dfir/playbooks/README.md)
+  * [First Responder Cyber Incident Response Playbook](dfir/playbooks/first-responder-cyber-incident-response-playbook.md)
