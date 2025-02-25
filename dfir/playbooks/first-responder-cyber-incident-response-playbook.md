@@ -34,17 +34,84 @@ As a first responder, your mission is to:
 
 1.1 Environment Familiarisation
 
-* Asset Management: Get-CMDevice | Select-Object Name, IPAddress, OperatingSystem | Export-Csv C:\Inventory\devices.csv
-* Network Mapping: Get-NetIPConfiguration | Export-Csv C:\Inventory\network\_config.csv
-* Baseline Monitoring: Sentinel KQL: DeviceProcessEvents | summarize AvgCPU = avg(CPUUsage) by DeviceName | where TimeGenerated > ago(30d)
+{% tabs %}
+{% tab title="Asset Management" %}
+{% code overflow="wrap" %}
+```powershell
+Get-CimInstance Win32_OperatingSystem | Select-Object @{N='Name';E={$_.CSName}},@{N='OS';E={$_.Caption}},@{N='Version';E={$_.Version}},@{N='Build';E={$_.BuildNumber}},@{N='InstallDate';E={$_.InstallDate}},@{N='LastBoot';E={$_.LastBootUpTime}},@{N='FreeMemoryMB';E={[math]::Round($_.FreePhysicalMemory/1024,2)}} | Export-Csv "C:\Inventory\device_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv" -NoTypeInformation
+```
+{% endcode %}
+
+This includes:
+
+* Name (Computer Name)
+* OS (Operating System name)
+* Version (OS version)
+* Build (Build number)
+* InstallDate (OS installation date)
+* LastBoot (Last boot time)
+* FreeMemoryMB (Free physical memory in MB)
+{% endtab %}
+
+{% tab title="Network IP Details" %}
+{% code overflow="wrap" %}
+```powershell
+Get-CimInstance Win32_NetworkAdapterConfiguration -Filter "IPEnabled = TRUE" | Select-Object @{N='Adapter';E={$_.Description}},@{N='IPAddress';E={($_.IPAddress -join ', ')}},@{N='Subnet';E={($_.IPSubnet -join ', ')}},@{N='Gateway';E={($_.DefaultIPGateway -join ', ')}},@{N='MAC';E={$_.MACAddress}},@{N='DHCP';E={$_.DHCPEnabled}},@{N='DNSServers';E={($_.DNSServerSearchOrder -join ', ')}} | Export-Csv "C:\Inventory\ip_details_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv" -NoTypeInformation
+```
+{% endcode %}
+
+This one-liner:
+
+* Queries Win32\_NetworkAdapterConfiguration
+* Filters for active adapters (IPEnabled = TRUE)
+* Collects:
+  * Adapter (Network adapter description)
+  * IPAddress (All assigned IPs)
+  * Subnet (Subnet masks)
+  * Gateway (Default gateways)
+  * MAC (MAC address)
+  * DHCP (DHCP enabled status)
+  * DNSServers (DNS server addresses)
+* Joins array values with commas for cleaner output
+* Exports to CSV with timestamp
+{% endtab %}
+
+{% tab title="Baseline Monitoring KQL" %}
+{% code overflow="wrap" %}
+```kusto
+DeviceNetworkEvents
+| where TimeGenerated > ago(30d)
+| summarize ConnectedIPs = make_set(RemoteIP), Protocols = make_set(Protocol), EventCount = count() by DeviceName, LocalIP
+| project DeviceName, LocalIP, ConnectedIPs, Protocols, EventCount
+```
+{% endcode %}
+
+
+
+{% code overflow="wrap" %}
+```kusto
+DeviceNetworkEvents
+| where TimeGenerated > ago(30d)
+| summarize ConnectedIPs = make_set(RemoteIP), Protocols = make_set(Protocol), ConnectionCount = count() by DeviceName, LocalIP
+| project DeviceName, LocalIP, ConnectedIPs, Protocols, ConnectionCount
+```
+{% endcode %}
+
+This query:
+
+* Filters for events from the last 30 days
+* Summarizes:
+  * ConnectedIPs: Unique remote IP addresses (using make\_set)
+  * Protocols: Unique protocols used
+  * ConnectionCount: Total number of network events (replacing bytes since that data seems unavailable)
+* Groups by DeviceName and LocalIP
+* Projects the results for clarity
+{% endtab %}
+{% endtabs %}
 
 1.2 Incident Response Toolkit
 
 * Tools: MDE, Sentinel, Splunk, PowerShell, Velociraptor, KAPE, Eric Zimmerman’s Tools, Magnet Axiom Cyber, Cyber Triage, Sysinternals, Wireshark, FTK Imager.
-
-1.3 Policies and Procedures
-
-* IR Plan: Get-Credential | Export-Clixml C:\IR\contacts.xml
 
 ***
 
