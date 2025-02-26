@@ -209,6 +209,7 @@
   * [First Responder Cyber Incident Response Playbook](dfir/playbooks/first-responder-cyber-incident-response-playbook/README.md)
     * [Device Isolation](dfir/playbooks/first-responder-cyber-incident-response-playbook/device-isolation.md)
     * [Evidence Collection](dfir/playbooks/first-responder-cyber-incident-response-playbook/evidence-collection.md)
-    * [Windows Forensic Artefacts](dfir/playbooks/first-responder-cyber-incident-response-playbook/windows-forensic-artefacts.md)
+    * [Windows Forensic Artefacts](dfir/playbooks/first-responder-cyber-incident-response-playbook/windows-forensic-artefacts/README.md)
+      * [Application Execution](dfir/playbooks/first-responder-cyber-incident-response-playbook/windows-forensic-artefacts/application-execution.md)
     * [Initial Analysis](dfir/playbooks/first-responder-cyber-incident-response-playbook/initial-analysis.md)
     * [Escalation and Reporting](dfir/playbooks/first-responder-cyber-incident-response-playbook/escalation-and-reporting.md)
