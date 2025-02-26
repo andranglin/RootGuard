@@ -104,5 +104,3 @@ Option B: Direct Collection (Live System with Server)
 * Scope Control: Limit file sizes (e.g., --args MaxSize=50000000) or filter event logs by date.
 * Multi-System Triage: Deploy collectors via PsExec, SCCM, or an EDR for networked endpoints.
 * Speed: Triage collections are fast (minutes vs. hours for full imaging), ideal for rapid response.
-
-\

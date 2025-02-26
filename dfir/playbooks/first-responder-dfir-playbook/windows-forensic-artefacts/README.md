@@ -1,5 +1,5 @@
 ---
-cover: ../../../.gitbook/assets/SOC-1.png
+cover: ../../../../.gitbook/assets/SOC-1.png
 coverY: 0
 layout:
   cover:
@@ -27,14 +27,14 @@ In the realm of incident response, Windows Forensic Artefacts are equally crucia
 
 The following page of this playbook provides some guidance for conducting DFIR in a Windows environment.
 
-[Application Execution](windows-forensic-artefacts/application-execution.md)
+[Application Execution](application-execution.md)
 
-[File & Folder Knowledge](windows-forensic-artefacts/file-and-folder-knowledge.md)
+[File & Folder Knowledge](file-and-folder-knowledge.md)
 
-[External Device Usage](windows-forensic-artefacts/external-device-usage.md)
+[External Device Usage](external-device-usage.md)
 
-[Network Activity](windows-forensic-artefacts/network-activity.md)
+[Network Activity](network-activity.md)
 
-[Windows Event Logs](windows-forensic-artefacts/windows-event-logs.md)
+[Windows Event Logs](windows-event-logs.md)
 
 ***

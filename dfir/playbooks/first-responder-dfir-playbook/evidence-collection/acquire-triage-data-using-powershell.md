@@ -140,7 +140,7 @@ Write-Host "Triage data collection complete. Output saved to D:\TriageData_$Time
 * Alternative: Copy-paste commands into an admin PowerShell session or run individually.
 * Duration: Takes 5-20 minutes depending on system size, event log volume, and filesystem recursion depth.
 
-5\. Verify and Analyze
+5\. Verify and Analyse
 
 * Output Check: Inspect $OutputPath for:
   * CSV files (e.g., Processes\_20250226\_123456.csv)
@@ -151,7 +151,7 @@ Write-Host "Triage data collection complete. Output saved to D:\TriageData_$Time
   * CSVs: Open in Excel or import with Import-Csv for filtering.
   * Prefetch: Use PEcmd or forensic suites (Autopsy, FTK).
   * Event Logs: Parse with Event Log Explorer or custom scripts.
-  * Registry: Import .reg files or analyze CSVs in RegRipper.
+  * Registry: Import .reg files or analyse CSVs in RegRipper.
 
 6\. Advanced Enhancements
 
@@ -182,7 +182,5 @@ Write-Host "Triage data collection complete. Output saved to D:\TriageData_$Time
 * Scope Control: Adjust -MaxEvents (e.g., 5000 to 1000) or file search depth to speed up collection.
 * Error Handling: ErrorAction SilentlyContinue skips inaccessible areas (e.g., locked files).
 * Live Only: For forensic images, mount them first (e.g., via Arsenal Image Mounter) and adjust paths.
-* Stealth: Use a USB or remote session to minimize footprint; avoid writing to C: if possible.
+* Stealth: Use a USB or remote session to minimise footprint; avoid writing to C: if possible.
 * Permissions: Admin rights are required for most cmdlets (e.g., Get-WinEvent, Get-ScheduledTask).
-
-\

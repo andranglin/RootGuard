@@ -58,20 +58,6 @@ DeviceNetworkEvents
 {% endtab %}
 {% endtabs %}
 
-Incident Response Toolkit
-
-* Defender XDR
-* Sentinel
-* Splunk
-* PowerShell
-* Velociraptor
-* KAPE/Eric Zimmerman’s Tools
-* Magnet Axiom Cyber
-* Cyber Triage
-* Sysinternals
-* Wireshark
-* FTK Imager.
-
 ***
 
 ### Incident Detection and Initial Assessment
@@ -123,10 +109,6 @@ index=edr process_name="svch0st.exe"
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-Documentation Kickoff
-
-* Timeline: Add-Content -Path E:\Evidence\timeline.txt -Value "$(Get-Date -Format "MM/dd/yyyy HH:mm EST") - Detection"
 
 ***
 
@@ -349,7 +331,7 @@ System-Level Containment
 {% tab title="PowerShell for Manual System-Level Containment" %}
 This method assumes remote or local execution capability.
 
-Script: Comprehensive Containmentpowershell
+Script: Comprehensive Containment
 
 {% code overflow="wrap" %}
 ```powershell
@@ -392,7 +374,7 @@ Usage:
 * Run locally: Save as Contain-System.ps1 and execute in an elevated PowerShell session.
 * Run remotely: Use Invoke-Command -ComputerName "TargetDevice" -ScriptBlock { \<script above> } if remoting is still available.
 
-Reversal: PowerShell
+Reversal:
 
 {% code overflow="wrap" %}
 ```powershell
@@ -411,7 +393,7 @@ Start-Service -Name "Workstation"
 
 3\. Windows Firewall for Network ContainmentIf physical adapter control isn’t desired, you can use the Windows Firewall to block all network traffic at the system level.
 
-Steps (via PowerShell): PowerShell
+Steps (via PowerShell):
 
 {% code overflow="wrap" %}
 ```powershell
@@ -426,7 +408,7 @@ Why This Works:
 * Firewall rules apply system-wide, preventing all network communication regardless of adapter state.
 * Easier to reverse than disabling adapters, as it doesn’t require physical access if remoting is lost.
 
-Reversal: PowerShell
+Reversal:
 
 ```powershell
 Remove-NetFirewallRule -DisplayName "Containment Outbound"
