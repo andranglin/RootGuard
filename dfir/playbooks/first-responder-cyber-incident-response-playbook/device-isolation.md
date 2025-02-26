@@ -14,9 +14,9 @@ layout:
 
 # Device Isolation
 
-### Section 1: Pre-Incident Preparation
+### Pre-Incident Preparation
 
-1.1 Environment Familiarisation
+Environment Familiarisation
 
 {% tabs %}
 {% tab title="Asset Management" %}
@@ -58,15 +58,25 @@ DeviceNetworkEvents
 {% endtab %}
 {% endtabs %}
 
-1.2 Incident Response Toolkit
+Incident Response Toolkit
 
-* Tools: MDE, Sentinel, Splunk, PowerShell, Velociraptor, KAPE, Eric Zimmerman’s Tools, Magnet Axiom Cyber, Cyber Triage, Sysinternals, Wireshark, FTK Imager.
+* Defender XDR
+* Sentinel
+* Splunk
+* PowerShell
+* Velociraptor
+* KAPE/Eric Zimmerman’s Tools
+* Magnet Axiom Cyber
+* Cyber Triage
+* Sysinternals
+* Wireshark
+* FTK Imager.
 
 ***
 
-### Section 2: Incident Detection and Initial Assessment
+### Incident Detection and Initial Assessment
 
-2.1 Detection Triggers
+Detection Triggers
 
 {% tabs %}
 {% tab title="Security Event (KQL)" %}
@@ -91,7 +101,7 @@ index=windows sourcetype="WinEventLog:Security" EventCode IN (4624, 4625, 4672, 
 {% endtab %}
 {% endtabs %}
 
-2.2 Scope Assessment
+Scope Assessment
 
 {% tabs %}
 {% tab title="Sentinel" %}
@@ -114,15 +124,15 @@ index=edr process_name="svch0st.exe"
 {% endtab %}
 {% endtabs %}
 
-2.3 Documentation Kickoff
+Documentation Kickoff
 
 * Timeline: Add-Content -Path E:\Evidence\timeline.txt -Value "$(Get-Date -Format "MM/dd/yyyy HH:mm EST") - Detection"
 
 ***
 
-### Section 3: Containment (Short-Term)
+### Containment (Short-Term)
 
-3.1 Network-Level Containment
+Network-Level Containment
 
 {% tabs %}
 {% tab title="Defender (Live Response)" %}
@@ -333,7 +343,7 @@ How to Use the Script
 {% endtab %}
 {% endtabs %}
 
-3.2 System-Level Containment
+System-Level Containment
 
 {% tabs %}
 {% tab title="PowerShell for Manual System-Level Containment" %}
@@ -503,7 +513,7 @@ Stop-Service -Name TermService -Force
 {% endtab %}
 {% endtabs %}
 
-3.3 Enterprise-Wide Checks
+Enterprise-Wide Checks
 
 {% tabs %}
 {% tab title="Defender (KQL)" %}

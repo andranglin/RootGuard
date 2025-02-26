@@ -14,25 +14,33 @@ layout:
 
 # Application Execution
 
+## Objectives
+
+**Which** executables have been run?
+
+**When** were the executables run?&#x20;
+
+**Who** ran the executables?
+
 ## Prefetch
 
 **Description** Prefetch files (.pf) store file and directory information referenced by an application within 10 seconds of when the application is first run in order to improve system performance.
 
-#### **Caveats:**&#x20;
+#### **Caveats**
 
 * Prefetch must be enabled on the host in order to generate prefetch files. This is not enabled by default on most instances of Windows Server.
 * Workstation operating systems (not servers) have prefetching on by default to improve performance.&#x20;
 * It lists up to 1024 files on Win8+.&#x20;
 * Prefetch files on win10 and 11 are compressed, with each having up to eight execution times available inside the Prefetch file.
 
-#### What Prefetch Provides:
+#### Forensic Value
 
 * Applications known to have run on the host
 * Date & time of last application execution
 * Date & time of previous application executions
 * Files and device handles referenced by the application
 
-**Location:**
+**Location**
 
 ```cs
 C:\Windows\Prefetch
@@ -76,7 +84,7 @@ Some exceptions to this rule are Windows “hosting” applications, such as **s
 
 Running live response tools on a target system will cause new prefetch files to be created for those live response executables. Plus, each system has a limited number of prefetch files, so this can result in the deletion of the oldest prefetch files. Therefore, prioritise the collection of the prefetch directory to ensure important evidence isn't lost.&#x20;
 
-#### Data Capture:
+#### Data Capture
 
 Use KAPE to capture a triage image:
 
@@ -86,11 +94,11 @@ kape.exe --tsource C: --tdest E:\KAPE_Output --tflush --target !BasicCollection
 ```
 {% endcode %}
 
-#### **Forensic Analysis Tools:**&#x20;
+#### **Forensic Analysis Tools**
 
 PECmd (Zimmerman tool), WinPrefetchView (NirSoft)
 
-Single file analysis:
+Single file analysis
 
 {% code overflow="wrap" %}
 ```cs
@@ -99,7 +107,7 @@ Single file analysis:
 ```
 {% endcode %}
 
-Directory analysis:
+Directory analysis
 
 ```cs
 .\PECmd.exe –d "C:\Windows\Prefetch"
@@ -128,9 +136,9 @@ PECmd can extract and process files from Volume Shadow Copies by using the “--
 .\PECmd.exe -d C:\Windows\Prefetch\ -q --csv G:\Prefetch --csvf prefetch.csv --vss
 ```
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2025-02-26 112212.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-02-26 141350.png" alt=""><figcaption></figcaption></figure>
 
-#### Other Options:
+#### Other Options
 
 FTK Imager
 
@@ -170,7 +178,7 @@ Browse to "C:\Windows\Prefetch" **Available Metadata** The metadata that can be 
 4. The last time the application ran
 5. A list of DLLs used by the program Background Activity Moderator (BAM)/Desktop Activity Moderator (DAM)\*\* **Description** BAM is a Windows service that controls the activity of background applications. The BAM entries are updated when _Windows boots_. Also, there is dam\UserSettings Desktop Activity Monitor (DAM), which stores similar information to BAM.
 
-**Location:**
+**Location**
 
 In the Windows registry, the following locations contain information related to **BAM** and **DAM**. This location contains information about last run programs, their full paths, and last execution time.
 
@@ -181,13 +189,13 @@ SYSTEM\CurrentControlSet\Services\dam\State\UserSettings\{SID}
 HKEY_LOCAL_MACHINE\SYSTEM\ControlSet*\Services\bam\State\UserSettings\<SID>
 ```
 
-**Interpretation:**
+**Interpretation**
 
 * Provides full path of file executed and last execution date/time
 * Typically, up to one week of data is available
 * “State” key used in Win10 1809+
 
-**Tools for investigation:**
+**Tools for investigation**
 
 RegistryExplorer.exe, BamParser .py
 
@@ -198,7 +206,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Services\bam\UserSettings" /s /v *.exe
 reg query "HKLM\SYSTEM\CurrentControlSet\Services\dam\UserSettings" /s /v *.exe
 ```
 
-**Forensic Value:**
+**Forensic Value**
 
 1. Evidence of execution
 2. The executable's name
@@ -219,7 +227,7 @@ Windows uses this database to determine if a program needs shimming for compatib
 
 Information available from the Shimcache will differ between versions of Windows, i.e., the execution flag is not available on Windows XP and below. ShimCache in Win10 and later is not a reliable source of application execution; it does not pro**ve execution but can be used to prove the existence or presence of a file on the system.**
 
-**Location:**
+**Location**
 
 ```powershell
 C:\Windows\System32\config\SYSTEM
@@ -233,7 +241,7 @@ HKLM\SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatCache\AppCompatCac
 
 **Note:** To determine the most recent controlset in use, in the SYSTEM folder, click Select > Current and review the value of the control
 
-**Forensic Analysis Tools:**
+**Forensic Analysis Tools**
 
 AppCompatCacheParser (Zimmerman Tools)
 
@@ -252,7 +260,7 @@ Shimcache Parser for a captured image:
 ```
 {% endcode %}
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2025-02-26 120242.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-02-26 141455.png" alt=""><figcaption></figcaption></figure>
 
 **Forensic Value**
 
@@ -264,7 +272,7 @@ Shimcache Parser for a captured image:
 6. _The size of the binary_
 7. _Finally, whether the file ran on the system (just browsed through Explorer._
 
-#### **Analysis and Interpretation:**
+#### **Analysis and Interpretation**
 
 When reviewing the output from the **AppCompatCache**, note the following:
 
@@ -288,13 +296,13 @@ Amcache provides full path information, file size, publisher metadata for execut
 
 Amcache should not be used as evidence of application execution without additional findings from other artefacts. Instead, it should be used as evidence of application existence. Associated .LOG and .tmp.LOG files should be recovered for parsing
 
-**Location:**
+**Location**
 
 ```cs
 C:\Windows\AppCompat\Programs\Amcache.hve
 ```
 
-**Forensic Value:**
+**Forensic Value**
 
 * _Track installed applications_
 * _Full file paths, file sizes, and compilation metadata_
@@ -332,7 +340,7 @@ AmcacheParser (Zimmerman Tools)
 ```
 {% endcode %}
 
-For live systems:
+For live systems
 
 {% code overflow="wrap" %}
 ```cs
@@ -349,7 +357,7 @@ For live systems:
 
 Jump Lists record information about frequently used and recently accessed files and application&#x73;**.** It allows the user to quickly access frequently or recently used items via the taskba&#x72;**.** In investigation, it can be used to identify applications in use and metadata about items accessed via those applications. It provides the user with a graphical interface associated with each installed application and lists files previously accessed by it.&#x20;
 
-**Location:**
+**Location**
 
 {% code overflow="wrap" %}
 ```cs
@@ -364,7 +372,7 @@ Jump Lists record information about frequently used and recently accessed files 
 
 CustomDestinations are created when the user ‘pins’ a file or application.
 
-#### **Interpretation:**
+#### **Interpretation**
 
 Each jump list file is named according to an application identifier (AppID). List of Jump List IDs -> https://dfi r.to/EZJumpList
 
@@ -393,7 +401,7 @@ JLECmd.exe -d C:\Users\Donald\AppData\Microsoft\Windows\Recent\AutomaticDestinat
 ```
 {% endcode %}
 
-**Forensic Value:**
+**Forensic Value**
 
 1. User activity for who have interactively on the system
 2. Recover user’s traces of recently accessed directories from the Windows Explorer jump list
