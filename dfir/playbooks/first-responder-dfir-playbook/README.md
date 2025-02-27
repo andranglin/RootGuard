@@ -42,6 +42,6 @@ Finally, the importance of a First Responder Cyber Incident Response Playbook li
 
 [Windows Forensic Artefacts](windows-forensic-artefacts/)
 
-[Initial Analysis](initial-analysis.md)
+[Initial Analysis](initial-analysis/)
 
 [Escalation and Reporting](escalation-and-reporting.md)

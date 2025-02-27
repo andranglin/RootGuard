@@ -164,4 +164,4 @@ Get-ComputerInfo | Export-Csv "$OutputPath\SystemInfo_$Timestamp.csv" -NoTypeInf
 * Size: Plan for RAM size (e.g., 16 GB system = 16+ GB dump with pagefile).
 * Impact: Minimal, but tools load drivers—use on responsive systems only.
 * Stealth: Run from a USB to avoid writing to C:\\.
-* Legal: Ensure authorization; memory may contain sensitive data.
+* Legal: Ensure authorisation; memory may contain sensitive data.

@@ -220,5 +220,6 @@
       * [External Device Usage](dfir/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/external-device-usage.md)
       * [Network Activity](dfir/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/network-activity.md)
       * [Windows Event Logs](dfir/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/windows-event-logs.md)
-    * [Initial Analysis](dfir/playbooks/first-responder-dfir-playbook/initial-analysis.md)
+    * [Initial Analysis](dfir/playbooks/first-responder-dfir-playbook/initial-analysis/README.md)
+      * [Memory Analysis  (Vol 3)](dfir/playbooks/first-responder-dfir-playbook/initial-analysis/memory-analysis-vol-3.md)
     * [Escalation and Reporting](dfir/playbooks/first-responder-dfir-playbook/escalation-and-reporting.md)
