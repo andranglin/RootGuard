@@ -223,4 +223,5 @@
       * [Windows Event Logs](dfir/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/windows-event-logs.md)
     * [Initial Analysis](dfir/playbooks/first-responder-dfir-playbook/initial-analysis/README.md)
       * [Memory Analysis  (Vol 3)](dfir/playbooks/first-responder-dfir-playbook/initial-analysis/memory-analysis-vol-3.md)
+      * [Axiom Cyber Examiner](dfir/playbooks/first-responder-dfir-playbook/initial-analysis/axiom-cyber-examiner.md)
     * [Escalation and Reporting](dfir/playbooks/first-responder-dfir-playbook/escalation-and-reporting.md)
