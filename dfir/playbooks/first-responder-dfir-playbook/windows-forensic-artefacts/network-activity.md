@@ -28,7 +28,7 @@ Tracks the networks that the local host has connected to&#x20;
 
 #### Location
 
-```powershell
+```powerquery
 C:\Windows\System32\config\SOFTWARE 
 C:\Windows\System32\config\SYSTEM 
 ```
