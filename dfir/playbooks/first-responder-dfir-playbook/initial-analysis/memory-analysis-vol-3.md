@@ -73,170 +73,17 @@ layout:
 
 ## Volatility Process Analysis
 
-#### **OS Information**
+#### OS Information
+
+**Desc:  Vol3 This plugin gives OS information**
 
 ```python
 ./vol.py -f file.dmp windows.info.Info
 ```
 
-#### **Image info**
+#### Hashes/Passwords
 
-```python
-./vol.py -f "/path/to/file" windows.info
-```
-
-#### **Process Info**
-
-```python
-vol.py -f "/path/to/file" windows.pslist
-vol.py -f "/path/to/file" windows.psscan
-vol.py -f "/path/to/file" windows.pstree
-```
-
-```python
-python3 vol.py -f file.dmp windows.pstree.PsTree
-python3 vol.py -f file.dmp windows.pslist.PsList
-python3 vol.py -f file.dmp windows.psscan.PsScan
-```
-
-#### **DLL List**
-
-```python
-./vol.py -f "/path/to/file" windows.dlllist ‑‑pid <PID>
-```
-
-#### **Handles**
-
-```python
-./vol.py -f "/path/to/file" windows.handles ‑‑pid <PID>
-```
-
-#### **LDR Modules**
-
-```python
-python3 vol.py -f /path/to/file/ windows.ldrmodules –pid <PID>
-```
-
-#### **Malfind**
-
-```python
-python3 vol.py -f /path/to/file/ windows.malfind –pid <PID>
-```
-
-#### **Dumpfiles**
-
-{% code overflow="wrap" %}
-```python
-python3 vol.py -f /path/to/file/ -o /output/file/path/PID1640Dump/ windows.dumpfiles --pid 1640
-```
-{% endcode %}
-
-#### **Strings per processes**
-
-{% code overflow="wrap" %}
-```python
-strings file.dmp > /tmp/strings.txt
-./vol.py -f /tmp/file.dmp windows.strings.Strings --string-file /tmp/strings.txt
-```
-{% endcode %}
-
-#### **ProcDump**
-
-{% code overflow="wrap" %}
-```python
-./vol.py -f "/path/to/file" -o "/path/to/dir" windows.dumpfiles ‑‑pid <PID>
-```
-{% endcode %}
-
-#### **MemDump**
-
-{% code overflow="wrap" %}
-```python
-python3 vol.py -f "/path/to/file" -o "/path/to/dir" windows.memmap ‑‑dump ‑‑pid <PID>
-```
-{% endcode %}
-
-#### **CMDLINE**
-
-{% code overflow="wrap" %}
-```python
-python3 vol.py -f "/path/to/file" windows.cmdline
-```
-{% endcode %}
-
-#### **Token privileges**
-
-Get enabled privileges of some processes
-
-{% code overflow="wrap" %}
-```python
-python3 vol.py -f file.dmp windows.privileges.Privs [--pid <pid>]
-```
-{% endcode %}
-
-Get all processes with interesting privileges
-
-{% code overflow="wrap" %}
-```python
-python3 vol.py -f file.dmp windows.privileges.Privs | grep "SeImpersonatePrivilege\|SeAssignPrimaryPrivilege\|SeTcbPrivilege\|SeBackupPrivilege\|SeRestorePrivilege\|SeCreateTokenPrivilege\|SeLoadDriverPrivilege\|SeTakeOwnershipPrivilege\|SeDebugPrivilege"
-```
-{% endcode %}
-
-#### **UserAssist**
-
-```
-./vol.py -f file.dmp windows.registry.userassist.UserAssist
-```
-
-#### **Services**
-
-{% code overflow="wrap" %}
-```python
-./vol.py -f file.dmp windows.svcscan.SvcScan #List services
-./vol.py -f file.dmp windows.getservicesids.GetServiceSIDs #Get the SID of services
-```
-{% endcode %}
-
-#### **SSL Keys/Certs**
-
-vol3 allows to search for certificates inside the registry
-
-```python
-./vol.py -f file.dmp windows.registry.certificates.Certificates
-```
-
-#### **Malware**
-
-{% code overflow="wrap" %}
-```python
-./vol.py -f file.dmp windows.malfind.Malfind --dump
-```
-{% endcode %}
-
-#### Malfind will search for suspicious structures related to malware
-
-{% code overflow="wrap" %}
-```python
-./vol.py -f file.dmp windows.driverirp.DriverIrp #Driver IRP hook detection
-./vol.py -f file.dmp windows.ssdt.SSDT #Check system call address from unexpected addresses
-./vol.py -f file.dmp linux.check_afinfo.Check_afinfo #Verifies the operation function pointers of network protocols
-./vol.py -f file.dmp linux.check_creds.Check_creds #Checks if any processes are sharing credential structures
-./vol.py -f file.dmp linux.check_idt.Check_idt #Checks if the IDT has been altered
-./vol.py -f file.dmp linux.check_syscall.Check_syscall #Check system call table for hooks
-./vol.py -f file.dmp linux.check_modules.Check_modules #Compares module list to sysfs info, if available
-./vol.py -f file.dmp linux.tty_check.tty_check #Checks tty devices for hooks
-```
-{% endcode %}
-
-#### **Drivers**
-
-{% code overflow="wrap" %}
-```python
-./vol.py -f file.dmp windows.driverscan.DriverScan
-```
-{% endcode %}
-
-#### **Hashes/Passwords**
+**Desc: Extract SAM hashes, domain cached credentials, and LSA secrets.**
 
 {% code overflow="wrap" %}
 ```python
@@ -246,70 +93,155 @@ vol3 allows to search for certificates inside the registry
 ```
 {% endcode %}
 
-### Network Information
+## Processes
 
-#### **Netscan**
+**List processes**
 
 {% code overflow="wrap" %}
 ```python
-./vol.py -f "/path/to/file" windows.netscan
-./vol.py -f "/path/to/file" windows.netstat
+python3 vol.py -f file.dmp windows.pstree.PsTree # Get processes tree (not hidden)
+python3 vol.py -f file.dmp windows.pslist.PsList # Get process list (EPROCESS)
+python3 vol.py -f file.dmp windows.psscan.PsScan # Get hidden process list(malware)
+```
+{% endcode %}
+
+**Dump proc**
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp windows.dumpfiles.DumpFiles --pid <pid> #Dump the .exe and dlls of the process in the current directory
+```
+{% endcode %}
+
+### Command line
+
+Desc: Anything suspicious was executed?
+
+{% code overflow="wrap" %}
+```python
+python3 vol.py -f file.dmp windows.cmdline.CmdLine #Display process command-line arguments
+```
+{% endcode %}
+
+## Services
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp windows.svcscan.SvcScan #List services
+./vol.py -f file.dmp windows.getservicesids.GetServiceSIDs #Get the SID of services
+```
+{% endcode %}
+
+### Strings Per Processes
+
+**Volatility allows us to check which process a string belongs to.**
+
+{% code overflow="wrap" %}
+```python
+strings file.dmp > /tmp/strings.txt
+./vol.py -f /tmp/file.dmp windows.strings.Strings --strings-file /tmp/strings.txt
+```
+{% endcode %}
+
+**Desc: It also allows to search for strings inside a process using the yarascan module:**
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp windows.vadyarascan.VadYaraScan --yara-rules "https://" --pid 3692 3840 3976 3312 3084 2784
+./vol.py -f file.dmp yarascan.YaraScan --yara-rules "https://"
+```
+{% endcode %}
+
+## Environment
+
+**Get the environment variables of each running process. There could be some interesting values.**
+
+{% code overflow="wrap" %}
+```python
+python3 vol.py -f file.dmp windows.envars.Envars [--pid <pid>] #Display process environment variables
+```
+{% endcode %}
+
+### Token privileges
+
+**Check for privilege tokens in unexpected services. It could be interesting to list the processes using some privileged token.** **Desc: Get enabled privileges of some processes**
+
+```python
+python3 vol.py -f file.dmp windows.privileges.Privs [--pid <pid>]
+```
+
+**Desc: Get all processes with interesting privileges**
+
+{% code overflow="wrap" %}
+```python
+python3 vol.py -f file.dmp windows.privileges.Privs | grep "SeImpersonatePrivilege\|SeAssignPrimaryPrivilege\|SeTcbPrivilege\|SeBackupPrivilege\|SeRestorePrivilege\|SeCreateTokenPrivilege\|SeLoadDriverPrivilege\|SeTakeOwnershipPrivilege\|SeDebugPrivilege"
+```
+{% endcode %}
+
+### SIDs
+
+**Check each SSID owned by a process, it could be interesting to list the processes using a privileges SID (and the processes using some service SID).**
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp windows.getsids.GetSIDs [--pid <pid>] #Get SIDs of processes
+./vol.py -f file.dmp windows.getservicesids.GetServiceSIDs #Get the SID of services
+```
+{% endcode %}
+
+### Handles
+
+**Useful to know to which other files, keys, threads, processes... a process has a handle for (has opened)**
+
+```python
+vol.py -f file.dmp windows.handles.Handles [--pid <pid>]
+```
+
+### DLLs
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp windows.dlllist.DllList [--pid <pid>] #List dlls used by each
+./vol.py -f file.dmp windows.dumpfiles.DumpFiles --pid <pid> #Dump the .exe and dlls of the process in the current directory process
+```
+{% endcode %}
+
+### UserAssist
+
+**Windows systems maintain a set of keys in the registry database (UserAssist keys) to keep track of programs that are executed. The number of executions and the last execution date and time are available in these keys.**
+
+```python
+./vol.py -f file.dmp windows.registry.userassist.UserAssist
+```
+
+### Network
+
+```python
 ./vol.py -f file.dmp windows.netscan.NetScan
 ```
-{% endcode %}
 
-For network info of linux use volatility2
+### Registry hive
 
-### Registry
-
-#### **Hivelist**
+**Print available hives**
 
 {% code overflow="wrap" %}
 ```python
-./vol.py -f "/path/to/file" windows.registry.hivescan
-./vol.py -f "/path/to/file" windows.registry.hivelist
-```
-{% endcode %}
-
-#### **Printkey**
-
-{% code overflow="wrap" %}
-```python
-./vol.py -f "/path/to/file" windows.registry.printkey
-./vol.py -f "/path/to/file" windows.registry.printkey ‑‑key "Software\Microsoft\Windows\CurrentVersion"
 ./vol.py -f file.dmp windows.registry.hivelist.HiveList #List roots
 ./vol.py -f file.dmp windows.registry.printkey.PrintKey #List roots and get initial subkeys
 ```
 {% endcode %}
 
-#### **HiveDump**
+#### Get a value
 
 {% code overflow="wrap" %}
 ```python
-./[vol.py](http://vol.py/) -f "/path/to/file" ‑‑profile <profile> printkey`
+./vol.py -f file.dmp windows.registry.printkey.PrintKey --key "Software\Microsoft\Windows NT\CurrentVersion"
 ```
 {% endcode %}
 
-### Files
+## Filesystem
 
-**Filescan**
-
-```python
-./vol.py -f "/path/to/file" ‑‑profile <profile> printkey
-```
-
-#### **FileDump**
-
-{% code overflow="wrap" %}
-```python
-./vol.py -f "/path/to/file" -o "/path/to/dir" windows.dumpfiles
-./vol.py -f "/path/to/file" -o "/path/to/dir" windows.dumpfiles ‑‑virtaddr <offset>
-./vol.py -f "/path/to/file" -o "/path/to/dir" windows.dumpfiles ‑‑physaddr <offset>
-./ vol.py -f "/path/to/file" -o "/path/to/dir" windows.dumpfiles ‑‑physaddr <offset>
-```
-{% endcode %}
-
-#### **Scan/dump**
+**Scan/dump**
 
 {% code overflow="wrap" %}
 ```python
@@ -318,20 +250,88 @@ For network info of linux use volatility2
 ```
 {% endcode %}
 
-### Miscellaneous
+**SSL Keys/Certs**
 
-#### **Malfind**
+Desc: search for certificates inside the registry
 
 ```python
-./vol.py -f "/path/to/file" windows.malfind
+./vol.py -f file.dmp windows.registry.certificates.Certificates
 ```
 
-#### **Yarascan**
+### Malware
 
 {% code overflow="wrap" %}
 ```python
-./vol.py -f "/path/to/file" windows.vadyarascan ‑‑yara-rules <string>
-./vol.py -f "/path/to/file" windows.vadyarascan ‑‑yara-file "/path/to/file.yar"
-./vol.py -f "/path/to/file" yarascan.yarascan ‑‑yara-file "/path/to/file.yar"
+./vol.py -f file.dmp windows.malfind.Malfind [--dump] #Find hidden and injected code, [dump each suspicious section]
 ```
 {% endcode %}
+
+Malfind will search for suspicious structures related to malware
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp windows.driverirp.DriverIrp #Driver IRP hook detection
+./vol.py -f file.dmp windows.ssdt.SSDT #Check system call address from unexpected addresses
+```
+{% endcode %}
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp linux.check_afinfo.Check_afinfo #Verifies the operation function pointers of network protocols
+./vol.py -f file.dmp linux.check_creds.Check_creds #Checks if any processes are sharing credential structures
+./vol.py -f file.dmp linux.check_idt.Check_idt #Checks if the IDT has been altered
+./vol.py -f file.dmp linux.check_syscall.Check_syscall #Check system call table for hooks
+./vol.py -f file.dmp linux.check_modules.Check_modules #Compares module list to sysfs info, if available
+./vol.py -f file.dmp linux.tty_check.tty_check #Checks tty devices for hooks
+```
+{% endcode %}
+
+### Scanning with yara
+
+Use this script to download and merge all the yara malware rules from github: https://gist.github.com/andreafortuna/29c6ea48adf3d45a979a78763cdc7ce9 Create the rules directory and execute it. This will create a file called malware\_rules.yar which contains all the yara rules for malware.
+
+{% code overflow="wrap" %}
+```python
+wget https://gist.githubusercontent.com/andreafortuna/29c6ea48adf3d45a979a78763cdc7ce9/raw/4ec711d37f1b428b63bed1f786b26a0654aa2f31/malware_yara_rules.py
+mkdir rules
+python malware_yara_rules.py
+```
+{% endcode %}
+
+**Only Windows**
+
+{% code overflow="wrap" %}
+```python
+./vol.py -f file.dmp windows.vadyarascan.VadYaraScan --yara-file /tmp/malware_rules.yar
+```
+{% endcode %}
+
+**All**
+
+```python
+./vol.py -f file.dmp yarascan.YaraScan --yara-file /tmp/malware_rules.yar
+```
+
+### Mutexes
+
+```python
+./vol.py -f file.dmp windows.mutantscan.MutantScan
+```
+
+### Symlinks
+
+```python
+./vol.py -f file.dmp windows.symlinkscan.SymlinkScan
+```
+
+### TimeLine
+
+```python
+./vol.py -f file.dmp timeLiner.TimeLiner
+```
+
+### Drivers
+
+```python
+./vol.py -f file.dmp windows.driverscan.DriverScan
+```
