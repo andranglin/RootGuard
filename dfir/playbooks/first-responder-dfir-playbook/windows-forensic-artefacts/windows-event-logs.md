@@ -64,11 +64,37 @@ EvtxECmd.exe -d E:\evtx\logs --csv G:\evtx\out --csvf evtxecmd_out.csv --exc 465
 
 #### &#x20;Key Data Returned
 
-Events without maps are still processed, but output format will vary. The normalized Event Log output makes it possible to analyze many different types of Event Logs in a single view. Timeline Explorer is perfect for this analysis
+Events without maps are still processed, but output format will vary. The normalized Event Log output makes it possible to analyze many different types of Event Logs in a single view. Timeline Explorer is perfect for this analysis.
 
 #### Output Fields
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2025-02-26 135508.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Interesting Log Sources <a href="#interesting-log-sources" id="interesting-log-sources"></a>
+
+| Log sources                                                                  | Context                                        |
+| ---------------------------------------------------------------------------- | ---------------------------------------------- |
+| Security.evtx                                                                | Security-related events                        |
+| System.evtx                                                                  | Tracks system component events                 |
+| Application.evtx                                                             | Logs application-specific events               |
+| Microsoft-Windows-Sysmon/Operational.evtx                                    | Enhanced process, network, and file monitoring |
+| Microsoft-Windows-PowerShell/4Operational.evtx                               | Records PowerShell activity                    |
+| Microsoft-Windows-Windows Defender/Operational.evtx                          | Logs Windows Defender events                   |
+| Microsoft-Windows-WMI-Activity/4Operational.evtx                             | Logs WMI events                                |
+| Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx | Logs RDP session events                        |
+| Microsoft-Windows-TerminalServices-LocalSessionManager/Operational.evtx      | Logs RDP session events                        |
+| Microsoft-Windows-TaskScheduler/Operational.evtx                             | Logs Task Scheduler events                     |
+| Microsoft-Windows-DNS-Server%4Operational.evtx                               | Active Directory Server Logs                   |
+| Directory Service.evtx                                                       | Active Directory Server Logs                   |
+| File Replication Service.evtx                                                | Active Directory Server Logs                   |
+| %SystemDrive%\inetpub\logs\LogFiles                                          | IIS log                                        |
+| %SystemRoot%\System32\LogFiles\HTTPERR                                       | IIS log                                        |
+| %ProgramFiles%\Microsoft\Exchange Server\V15\Logging                         | Exchange log                                   |
+| Panther\*.log                                                                | Windows setup details                          |
+| RPC Client Access\*.log                                                      | Exchange Server, if applicable                 |
+| Third party antivirus log                                                    | AV logs                                        |
 
 ***
 
