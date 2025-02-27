@@ -214,6 +214,7 @@
       * [Acquire Triage Data Using Powershell](dfir/playbooks/first-responder-dfir-playbook/evidence-collection/acquire-triage-data-using-powershell.md)
       * [Acquire Triage Memory Image](dfir/playbooks/first-responder-dfir-playbook/evidence-collection/acquire-triage-memory-image.md)
       * [Acquire Image Using FTK](dfir/playbooks/first-responder-dfir-playbook/evidence-collection/acquire-image-using-ftk.md)
+      * [AXIOM Cyber Data Collection](dfir/playbooks/first-responder-dfir-playbook/evidence-collection/axiom-cyber-data-collection.md)
     * [Windows Forensic Artefacts](dfir/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/README.md)
       * [Application Execution](dfir/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/application-execution.md)
       * [File & Folder Knowledge](dfir/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/file-and-folder-knowledge.md)
