@@ -99,7 +99,7 @@ Malware remains one of the most pervasive and damaging cyber threats organisatio
 30. **Artifact Name:** `Windows.Kerberos.TicketGrants`&#x20;
     * **Description:** Monitors for unusual Kerberos ticket-granting-ticket (TGT) requests, which could indicate credential theft.
 
-### <mark style="color:blue;">4.</mark> **Lateral Movement Evidence**
+### 4. **Lateral Movement Evidence**
 
 **Description:** Lateral movement allows attackers to expand access across a network, using tools and techniques like remote services, file sharing, and administrative accounts. These artifacts help detect such activities.
 

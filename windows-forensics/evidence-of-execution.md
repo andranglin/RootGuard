@@ -135,6 +135,8 @@ FTK Imager
 4. The last time the application ran
 5. A list of DLLs used by the program
 
+***
+
 ## Amcache.hve
 
 **Description:** The Amcache.hve is a registry hive file that stores information related to the execution of programs when a user performs certain actions, such as running host-based applications, installing new applications, or running portable applications from external devices. It tracks installed applications, programs executed (or present), drivers loaded, and more. Amcache also tracks the SHA1 hash for executables and drivers.
@@ -205,6 +207,8 @@ For live systems:
 3. The size of the binary and its version
 4. The executable hash (SHA1)
 
+***
+
 ## ShimCache
 
 **Description:** Microsoft’s Application Compatibility Cache is designed to detect and remediate program compatibility challenges when a program launches. A program might have been built to work on a previous version of Windows. To avoid compatibility issues, Microsoft employs a subsystem allowing a program to invoke properties of different operating system versions. It Allows Windows to track executable files and scripts that may require special compatibility settings to run properly. It is maintained within kernel memory and serialized to the registry upon system shutdown or restart. **Investigator Note:** Windows uses this database to determine if a program needs shimming for compatibility. One of the more interesting and useful aspects of **AppCompatCache** is each executable is checked and added to the registry regardless of whether it needs to be shimmed. From a forensic perspective, we use information from the **AppCompatCache** to track application execution, including name, full path, and last modification time of the executable.
@@ -265,7 +269,9 @@ When reviewing the output from the **AppCompatCache**, note the following:
 1. The executable or script file names and full paths
 2. The standard information's last modified date
 3. The size of the binary
-4. Finally, whether the file ran on the system (just browsed through Explorer).
+4. Finally, whether the file ran on the system (just browsed through Explorer)
+
+***
 
 ## Shell Bags
 
@@ -311,6 +317,8 @@ SQLECmd.exe -d "C:\Temp\" --hunt --csv "c:\temp\out"
 4. Folders accessed within the local machine
 5. Folders accessed from removable devices
 6. Folders accessed from network folders
+
+***
 
 ## Jump Lists
 
@@ -367,6 +375,8 @@ JLECmd.exe -d E:\Users\username\AppData\Microsoft\Windows\Recent\AutomaticDestin
 ```
 {% endcode %}
 
+***
+
 ## Recycle Bin
 
 **Description** When a user deletes a file, the file is moved into a temporary storage location for deleted files named Recycle Bin. Windows creates two files each time a file is placed in the Recycle Bin $I and $R with a string of six character identifiers generated for each file. $R file is a renamed copy of the “deleted” file. While the $I file replaces the usage INFO2 file as the source of accompanying metadata.&#x20;
@@ -412,6 +422,8 @@ RBCmd.exe -d C:\$Recycle.Bin\ -q --csv \Users\username\Desktop\ --csvf username-
 2. The deleted file size
 3. The date and time of deletion
 
+***
+
 ## Master File Table ($MFT)
 
 **Description:** A master file table is a database in which information about every file and directory on an NT File System (NTFS) volume is kept. An MFT will have a minimum one record for every file and directory on the NTFS logical volume. Moreover, each record contains attributes that tell the operating system how to handle the file or directory associated with the record.
@@ -437,6 +449,8 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --csv "c:\temp\out"
 2. Information about a file or directory
 3. File Type, Size
 4. Date /Time when created, modified and accessed
+
+***
 
 ## $J
 
@@ -466,6 +480,8 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --de 5-5
 2. File Activity Analysis (Open, Close and Update
 3. Evidence of renamed and deleted files
 
+***
+
 ## $LogFile
 
 **Description**: This file is stored in the MFT entry number 2; every time there is a change in the NTFS Metadata, a transaction is recorded in the $ LogFile. These transactions are recorded to make it possible to redo or undo file system operations. Why would $LogFile be important for investigation? Because the $LogFile records all operations in the NTFS volume, such as file creation, deletion, renaming, and copy.
@@ -486,6 +502,8 @@ NTFS/root/$LogFile (Extracted from FTK)
 1. Timeline Analysis
 2. File Activity Analysis (Open, Close and Update
 3. Evidence of renamed and deleted files
+
+***
 
 ## Alternate Data Streams (ADS)
 
@@ -511,6 +529,8 @@ cmd.exe (dir / R)
 1. Find the presence of a secret or malicious file inside the file record of an innocent file
 2. Find hidden hacking toolkit
 3. Find hidden files or information
+
+***
 
 ## Link File - Shortcut (.ink)
 
@@ -541,6 +561,8 @@ LECmd.exe -d "C:\Temp" --all
 4. The system name, volume name, volume serial number, and sometimes the MAC address of the system where the target is stored
 5. Files opened from a specific removable USB device
 6. Identification of files which no longer exist on a local machine
+
+***
 
 ## Shortcut (LNK) Files
 
@@ -607,6 +629,8 @@ LECmd.exe -d "c:\users\%username%\AppData\Roaming\Microsoft\Windows\Recent" --al
 ```
 {% endcode %}
 
+***
+
 ## UserAssist
 
 **Description:** UserAssist tracks every _GUI-based_ program launched are recorded in this registry key. This key contains two GUID subkeys (_CEBFF5CD_ Executable File Execution, _F4E57C4B_ Shortcut File Execution). Each subkey maintains a list of system objects such as program, shortcut, and control panel applets a user has accessed. Registry values under these subkeys are weakly encrypted using the ROT-13 algorithm, which substitutes a character with another character 13 positions away from it in the ASCII table.
@@ -662,6 +686,8 @@ RegistryExplorer.exe
 3. Last executed time
 4. Run count
 
+***
+
 ## Last Visited Most Recently Used (MRU)
 
 **Description:** Tracks applications in use by the user and the directory location for the last file accessed by the application.&#x20;
@@ -702,6 +728,8 @@ NTUSER.DAT\ Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 **Tools for investigation:**
 
 * Regedit or other registry viewer application
+
+***
 
 ## AutoStart Extension Points (ASEP)
 
