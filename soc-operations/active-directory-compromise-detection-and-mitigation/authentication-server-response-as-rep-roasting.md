@@ -338,7 +338,7 @@ index=windows (sourcetype="WinEventLog:Security" OR EventCode=4768)
 
 1. **Filter for Event ID 4768:**
    * Searches for Kerberos authentication ticket requests in Windows Security logs.
-   * Focuses on instances where `FailureCode="0x12"` (preauthentication is not required).
+   * Focuses on instances where `FailureCode="0x12"` (pre-authentication is not required).
 2. **Extract Relevant Fields:**
    * `TargetUserName`: The account being requested.
    * `IpAddress`: The source IP making the request.
@@ -347,8 +347,8 @@ index=windows (sourcetype="WinEventLog:Security" OR EventCode=4768)
    * Identifies distinct source IPs (`UniqueIPs`).
    * Captures the time range of activity (`FirstSeen`, `LastSeen`).
 4. **Calculate Suspicious Score:**
-   * Assigns a **"High"** score if both `RequestCount > 10` and `UniqueIPs > 3`.
-   * Assigns a **"Medium"** score if either condition is true.
+   * Assign a **"High"** score if both `RequestCount > 10` and `UniqueIPs > 3`.
+   * Assign a **"Medium"** score if either condition is true.
    * Assigns a **"Low"** score for benign activity.
 5. **Filter and Display:**
    * Excludes low-risk activity by keeping only `High` and `Medium` scores.
