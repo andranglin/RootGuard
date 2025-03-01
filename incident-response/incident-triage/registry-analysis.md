@@ -16,7 +16,7 @@ layout:
 
 The Windows registry contains information that is helpful during a forensic analysis. It is an excellent source for evidential data, and knowing the type of information that could possibly exist in the registry and its location is critical during the forensic analysis process.
 
-## <mark style="color:blue;">Recent opened Programs/Files/URLs</mark>
+### Recent opened Programs/Files/URLs
 
 {% code overflow="wrap" %}
 ```atom
@@ -42,7 +42,7 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
 
 This key corresponds to **%USERPROFILE%Recent** (_My Recent Documents_) and contains local or network files that are recently opened and only the filename in binary form is stored.
 
-## <mark style="color:blue;">Start>Run</mark>
+### Start>Run
 
 The list of entries executed using the **Start>Run** command is maintained in this key:
 
@@ -60,7 +60,7 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedMRU
 ```
 
-## <mark style="color:blue;">UserAssist</mark>
+### UserAssist
 
 ```cs
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
@@ -68,7 +68,7 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
 
 This key contains two **GUID** subkeys: each subkey maintains a list of system objects such as program, shortcut, and control panel applets a user has accessed. Registry values under these subkeys are weakly encrypted using the ROT-13 algorithm, which basically substitutes a character with another character 13 positions away from it in the ASCII table.
 
-### <mark style="color:blue;">Recent URLs</mark>
+### Recent URLs
 
 ```cs
 HKCU\Software\Microsoft\Internet Explorer\TypedURLs
@@ -76,7 +76,7 @@ HKCU\Software\Microsoft\Internet Explorer\TypedURLs
 
 This key contains a listing of 25 recent URLs (or file path) that is typed in the **Internet Explorer** (IE) or **Windows Explorer** address bar: the key will only show links that are fully typed, automatically completed while typing, or links that are selected from the list of stored URLs in IE address bar. _Websites that are accessed via IE Favourites are not recorded, and if the user clears the URL history using Clear History via IE Internet Options menu, this key will be completely removed._
 
-### <mark style="color:blue;">Pagefile</mark>
+### Pagefile
 
 ```cs
 HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management
@@ -86,7 +86,7 @@ This key maintains the configuration of Windows virtual memory: the paging file 
 
 This key contains a registry value called **ClearPagefileAtShutdown**, which specifies whether Windows should clear the paging file when the computer shuts down (by default, Windows does not clear the paging file). During a forensic analysis, _you should check this value before shutting down a suspect computer!_
 
-### <mark style="color:blue;">Windows Search</mark>
+### Windows Search
 
 ```cs
 HKCU\Software\Microsoft\Search Assistant\ACMru
@@ -99,20 +99,20 @@ This key contains recent search terms using Windows default search. There may be
 * **5604**: Contains a list of terms used in the “word or phrase in a file” search
 * **5647**: Contains a list of terms used in the “for computers or people” search
 
-### <mark style="color:blue;">Installed programs</mark>
+### Installed Programs
 
 All programs listed in **Control Panel**>**Add/Remove Programs** correspond to one subkey into this key:
 
-```cs
+```powershell
 HKLM\SOFTWARE\Microsoft\Windows\Current\Version\Uninstall
 ```
 
 Subkeys usually contain these two common registry values:
 
 * **DisplayName** — program name
-* **UninstallString** — application Uninstall component’s file path, which indirectly refers to application installation path Other possible useful registry values may exist, which include information on install date, install source and application version.
+* **UninstallString** — application Uninstall the component’s file path, which indirectly refers to the application installation path. Other useful registry values may exist, including information on the install date, install source, and application version.
 
-### <mark style="color:blue;">Mounted drives</mark>
+### Mounted Drives
 
 The list of mounted devices, with associated persistent volume names and unique internal identifiers for respective devices, is contained into
 
@@ -126,7 +126,7 @@ This key lists any mounted volume and assigns a drive letter, including **USB** 
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2\CPCVolume
 ```
 
-which is located under the respective device **GUID** subkey and in the binary registry value named Data. This key is a point of interest during a forensic analysis: the key records shares on remote systems such **C$**, **Temp$**, etc. _The existence of_ _**ProcDump**_ _indicates the dumping of credentials within lsass.exe address space. Sc.exe indicates the addition of persistence, such as Run keys or services. The presence of .rar files may indicate data exfiltration._
+Which is located under the respective device **GUID** subkey and in the binary registry value named Data. This key is a point of interest during a forensic analysis: the key records shared on remote systems such as C$, Temp$, etc. _The existence of_ _**ProcDump**_ _indicates the dumping of credentials within lsass.exe address space. Sc.exe indicates the addition of persistence, such as Run keys or services. The presence of .rar files may indicate data exfiltration._
 
 The history of recently mapped network drives is stored into
 
@@ -142,7 +142,7 @@ HKCU\Software\Microsoft\Windows\Current\VersionExplorer\MountPoints2
 
 and the subkey is named in the form of **##servername#sharedfolder**.
 
-### <mark style="color:blue;">USB Storage</mark>
+### USB Storage
 
 The key:
 
@@ -150,9 +150,9 @@ The key:
 HKLM\SYSTEM\CurrentControlSet\Enum\USBSTOR
 ```
 
-Contains additional information about the list of mounted USB storage devices, including external memory cards. _When used in conjunction with two previous keys will provide evidential information._
+Contains additional information about the list of mounted USB storage devices, including external memory cards. _When used in conjunction with two previous keys, it will provide evidential information._
 
-### <mark style="color:blue;">Autorun</mark>
+### Autorun
 
 There are different keys related to the automatic running of programs.
 
@@ -162,11 +162,11 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
 This first key usually contains programs or component paths that are automatically run during system startup without requiring user interaction: malware usually leaves a trace in this key to be persistent whenever the system reboots.
 
-### <mark style="color:blue;">RunServices and RunServicesOnce</mark>
+### RunServices and RunServicesOnce
 
 Can control automatic startup of services. They can be assigned to a specific user account or to a computer:
 
-```cs
+```powershell
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Services
 HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Services
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ServicesOnce
@@ -184,7 +184,7 @@ HKCU\Software\Microsoft\Command Processor
 
 Modification to this key requires administrative privilege. _Usually, malware exploits this feature to load itself without the user’s knowledge._
 
-### <mark style="color:blue;">Winlogon</mark>
+### Winlogon
 
 This key has a registry value named Shell with default data Explorer.exe.
 
@@ -194,7 +194,7 @@ HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
 
 Malware appends the malware executable file to the default value’s data to stay persistence across system reboots and logins (_modification to this key requires administrative privilege_).
 
-### <mark style="color:blue;">Services</mark>
+### Services
 
 This key contains a list of Windows services:
 
@@ -204,7 +204,7 @@ HKLM\SYSTEM\CurrentControlSet\Services
 
 Each subkey represents a service and contains the service’s information, such as startup configuration and executable image path.
 
-### <mark style="color:blue;">Debugging</mark>
+### Debugging
 
 This key allows an administrator to map an executable filename to a different debugger source, allowing the user to debug a program using a different program:
 
@@ -214,7 +214,7 @@ HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options
 
 _Modification to this key requires administrative privilege._ This feature could be exploited to launch a completely different program under the cover of the initial program.
 
-### <mark style="color:blue;">File extensions</mark>
+### File Extensions
 
 This key contains instructions to execute any .exe extension file:
 
@@ -229,7 +229,7 @@ HKEY_CLASSES_ROOT\batfile\shell\open\command
 HKEY_CLASSES_ROOT\comfile\shell\open\command
 ```
 
-### <mark style="color:blue;">Windows Protect Storage</mark>
+### Windows Protect Storage
 
 **Protected Storage** is a service used by **Microsoft** products to provide a secure area to store private information. Information that could be stored in Protected Storage includes, for example, Internet Explorer AutoComplete strings and passwords, Microsoft Outlook and Outlook Express accounts’ passwords. **Windows Protected Storage** is maintained under this key:
 
@@ -239,39 +239,39 @@ HKCU\Software\Microsoft\Protected Storage System Provider
 
 _Registry Editor hides these registry keys from users viewing, including administrators._
 
-## <mark style="color:blue;">Windows Registry Enumeration</mark>
+### <mark style="color:blue;">Windows Registry Enumeration</mark>
 
-### Operating System Information
+Operating System Information
 
 ```cs
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion"
 ```
 
-### Product Name
+Product Name
 
 ```cs
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName
 ```
 
-### Installation Date
+Installation Date
 
 ```cs
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v InstallDate
 ```
 
-### Registered Name
+Registered Name
 
 ```cs
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v RegisteredOwner
 ```
 
-### System Boot Information
+System Boot Information
 
 ```cs
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v SystemRoot
 ```
 
-### Timezone Information (in minutes from UTC)
+Timezone Information (in minutes from UTC)
 
 {% code overflow="wrap" %}
 ```cs
@@ -279,7 +279,7 @@ reg query "HKLM\System\CurrentControlSet\Control\TimeZoneinformation" /v ActiveT
 ```
 {% endcode %}
 
-### Map of Network Drivers
+Map of Network Drivers
 
 {% code overflow="wrap" %}
 ```cs
@@ -288,19 +288,19 @@ MRU
 ```
 {% endcode %}
 
-### Mounted Devices
+Mounted Devices
 
 ```cs
 reg query "HKLM\System\MountedDevices"
 ```
 
-### USB Devices
+USB Devices
 
 ```cs
 reg query "HKLM\System\CurrentControlSet\Enum\USBStor"
 ```
 
-### Password keys LSA secret cat certain vpn, autologon, other passwords
+Password keys LSA secret cat certain VPN, autologon, other passwords
 
 ```cs
 reg query "HKEY LOCAL MACHINE\Security\Policy\Secrets"
@@ -308,7 +308,7 @@ reg query "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"
 reg query "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\autoadminlogon"
 ```
 
-### Capture Startup Applications
+#### Capture Startup Applications
 
 {% code overflow="wrap" %}
 ```cs
@@ -321,31 +321,31 @@ reg query "hkcu\software\wow6432node\microsoft\windows\currentversion\runonce
 ```
 {% endcode %}
 
-### Kernel and User Services
+#### Kernel and User Services
 
 ```cs
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion"
 ```
 
-### Software Installed in the System
+#### Software Installed in the System
 
 ```cs
 reg query "HKLM\Software"
 ```
 
-### Installed Software for the User
+#### Installed Software for the User
 
 ```cs
 reg query "HKCU\Software"
 ```
 
-### Latest Documents
+#### Latest Documents
 
 ```cs
 reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs"
 ```
 
-### The Last Positions of the User
+#### The Last Positions of the User
 
 {% code overflow="wrap" %}
 ```cs
@@ -353,25 +353,25 @@ reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\Last
 ```
 {% endcode %}
 
-### URLs Typed
+#### URLs Typed
 
 ```cs
 reg query "HKCU\Software\Microsoft\Internet Explorer\TypedURLs"
 ```
 
-### MRU Lists
+#### MRU Lists
 
 ```cs
 reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU"
 ```
 
-### The Last Registry Key Used
+#### The Last Registry Key Used
 
 ```cs
 reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\RegEdit" /v LastKeY
 ```
 
-### <mark style="color:blue;">Launch Paths</mark>
+### Launch Paths
 
 ```cs
 reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" & \Runonce
@@ -380,7 +380,7 @@ reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" & \Runonce
 reg query "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows\Load" & \Run
 ```
 
-### <mark style="color:blue;">Activation of Remote Desktop</mark>
+### Activation of Remote Desktop
 
 {% code overflow="wrap" %}
 ```cs
