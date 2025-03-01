@@ -14,9 +14,9 @@ layout:
 
 # Zimmerman Tools Intrusion Analysis
 
-## <mark style="color:blue;">1. Initial Access</mark>
+#### 1. Initial Access
 
-### 1.1. Phishing: Spearphishing Attachment (T1566.001)
+#### 1.1. Phishing: Spearphishing Attachment (T1566.001)
 
 **Objective:** Detect and collect evidence of malicious email attachments that might have been used to gain initial access.
 
@@ -72,9 +72,9 @@ EvtxECmd.exe -f C:\Windows\System32\winevt\Logs\Security.evtx -csv C:\Output\Sec
 
 **Analysis:** Focus on Event IDs 4688 (Process Creation) and 4656 (Handle Operation) to detect the execution of suspicious files.
 
-## <mark style="color:blue;">2. Execution</mark>
+### 2. Execution
 
-### 2.1. Command and Scripting Interpreter: PowerShell (T1059.001)
+#### 2.1. Command and Scripting Interpreter: PowerShell (T1059.001)
 
 **Objective:** Detect and analyze PowerShell usage, which may indicate the execution of malicious scripts.
 
@@ -128,9 +128,9 @@ RECmd.exe -r C:\Windows\System32\config\SOFTWARE -b C:\Output\ -csv C:\Output\Po
 
 **Analysis:** Focus on `Run` and `RunOnce` registry keys for references to PowerShell scripts or commands.
 
-## <mark style="color:blue;">3. Persistence</mark>
+### 3. Persistence
 
-### 3.1. Registry Run Keys / Startup Folder (T1547.001)
+#### 3.1. Registry Run Keys / Startup Folder (T1547.001)
 
 **Objective:** Detect and collect evidence of persistence mechanisms established through registry run keys and startup folders.
 
@@ -186,9 +186,9 @@ LECmd.exe -d C:\Users\ -csv C:\Output\LNK_Persistence.csv
 
 **Analysis:** Look for any entries pointing to unusual executables or scripts, especially those stored in non-standard directories.
 
-## <mark style="color:blue;">4. Privilege Escalation</mark>
+### 4. Privilege Escalation
 
-### 4.1. Scheduled Task/Job (T1053.005)
+#### 4.1. Scheduled Task/Job (T1053.005)
 
 **Objective:** Detect and analyze scheduled tasks that may have been created to escalate privileges.
 
@@ -246,15 +246,15 @@ MFTECmd.exe -d C:\ -o C:\Output\Scheduled_Task_MFT.csv
 
 **Analysis:** Look for traces of deleted or altered scheduled tasks that may have been used for privilege escalation.
 
-## <mark style="color:blue;">5. Defence Evasion</mark>
+### 5. Defence Evasion
 
-### 5.1. Obfuscated Files or Information (T1027)
+#### 5.1. Obfuscated Files or Information (T1027)
 
 **Objective:** Detect and analyse obfuscated files and scripts used to evade detection.
 
 **Tool: RECmd (Registry Explorer Command Line)**
 
-**Instruction:** Search the registry for encoded or obfuscated scripts and commands that may indicate defense evasion. **Command:**
+**Instruction:** Search the registry for encoded or obfuscated scripts and commands that may indicate defence evasion. **Command:**
 
 {% code overflow="wrap" %}
 ```cs
@@ -306,9 +306,9 @@ MFTECmd.exe -d C:\ -o C:\Output\Obfuscated_Files_MFT.csv
 
 **Analysis:** Look for encoded or obfuscated files that may have been used to hide malicious activity.
 
-## <mark style="color:blue;">6. Credential Access</mark>
+### 6. Credential Access
 
-### 6.1. OS Credential Dumping: LSASS Memory (T1003.001)
+#### 6.1. OS Credential Dumping: LSASS Memory (T1003.001)
 
 **Objective:** Detect and analyze attempts to dump credentials from the LSASS process.
 
@@ -366,9 +366,9 @@ RECmd.exe -r C:\Windows\System32\config\SYSTEM -b C:\Output\ -csv C:\Output\Regi
 
 **Analysis:** Check for suspicious entries in `Run` keys or other autorun locations referencing credential dumping tools.
 
-## <mark style="color:blue;">7. Discovery</mark>
+### 7. Discovery
 
-### 7.1. System Information Discovery (T1082)
+#### 7.1. System Information Discovery (T1082)
 
 **Objective:** Detect and collect evidence of system information discovery commands executed by an attacker.
 
@@ -424,11 +424,11 @@ JLECmd.exe -d C:\Users\ -csv C:\Output\JumpLists_System_Info.csv
 
 **Analysis:** Review the output for Jump List entries related to system information discovery tools or commands.
 
-## <mark style="color:blue;">8. Collection</mark>
+### 8. Collection
 
-### 8.1. Data from Local System (T1005)
+#### 8.1. Data from Local System (T1005)
 
-**Objective:** Detect and collect artifacts related to data collection from the local system.
+**Objective:** Detect and collect artefacts related to data collection from the local system.
 
 **Tool: MFTECmd (Master File Table Parser)**
 
@@ -484,11 +484,11 @@ LECmd.exe -d C:\Users\ -csv C:\Output\LNK_Data_Collection.csv
 
 **Analysis:** Focus on LNK files pointing to sensitive or recently accessed files.
 
-## <mark style="color:blue;">9. Exfiltration</mark>
+### 9. Exfiltration
 
-### 9.1. Exfiltration Over C2 Channel (T1041)
+#### 9.1. Exfiltration Over C2 Channel (T1041)
 
-**Objective:** Detect and collect artifacts related to data exfiltration over command-and-control (C2) channels.
+**Objective:** Detect and collect artefacts related to data exfiltration over command-and-control (C2) channels.
 
 **Tool: EvtxECmd (Windows Event Log Parser)**
 

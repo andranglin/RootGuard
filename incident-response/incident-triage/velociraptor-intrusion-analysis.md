@@ -14,9 +14,9 @@ layout:
 
 # Velociraptor Intrusion Analysis
 
-## <mark style="color:blue;">1. Initial Access</mark>
+### 1. Initial Access
 
-**1.1. Phishing: Spearphishing Attachment (T1566.001)**
+#### **1.1. Phishing: Spearphishing Attachment (T1566.001)**
 
 **Hunt Name:** Detect\_Malicious\_Email\_Attachments **Query 1: Identify Malicious Executables in INetCache**
 
@@ -58,9 +58,9 @@ SELECT FullPath, CreationTime, Size FROM FileSystem  WHERE FullPath LIKE 'C:\\Us
 ```
 {% endcode %}
 
-## <mark style="color:blue;">2. Execution</mark>
+### 2. Execution
 
-**2.1. Command and Scripting Interpreter: PowerShell (T1059.001)**
+#### **2.1. Command and Scripting Interpreter: PowerShell (T1059.001)**
 
 **Hunt Name:** Detect\_PowerShell\_Execution **Query 6: Identify PowerShell Executions**
 
@@ -98,9 +98,9 @@ SELECT * FROM pslist()  WHERE name = 'powershell.exe' AND CreationTime > now() -
 ```
 {% endcode %}
 
-## <mark style="color:blue;">3. Persistence</mark>
+### 3. Persistence
 
-**3.1. Registry Run Keys / Startup Folder (T1547.001)**
+#### **3.1. Registry Run Keys / Startup Folder (T1547.001)**
 
 **Hunt Name:** Enumerate\_Registry\_Run\_Keys **Query 11: Enumerate Run Keys in Registry**
 
@@ -142,9 +142,9 @@ SELECT FullPath FROM FileSystem  WHERE FullPath LIKE 'C:\\ProgramData\\Microsoft
 ```
 {% endcode %}
 
-## <mark style="color:blue;">4. Privilege Escalation</mark>
+### 4. Privilege Escalation
 
-**4.1. Process Injection (T1055)**
+#### **4.1. Process Injection (T1055)**
 
 **Hunt Name:** Detect\_Remote\_Thread\_Creation **Query 16: Detect Remote Thread Creation**
 
@@ -180,9 +180,9 @@ SELECT * FROM Windows.Processes()  WHERE DllInjected = true
 ```
 {% endcode %}
 
-## <mark style="color:blue;">5. Defence Evasion</mark>
+### 5. Defence Evasion
 
-**5.1. Obfuscated Files or Information (T1027)**
+#### **5.1. Obfuscated Files or Information (T1027)**
 
 **Hunt Name:** Detect\_Base64\_Encoded\_PowerShell **Query 21: Detect Base64 Encoded PowerShell Commands**
 
@@ -220,9 +220,9 @@ SELECT FullPath, Size, CreationTime FROM FileSystem  WHERE FullPath LIKE 'C:\\Us
 SELECT FullPath FROM FileSystem  WHERE FullPath LIKE 'C:\\Users\\%\\Documents\\%.xor'
 ```
 
-## <mark style="color:blue;">6. Credential Access</mark>
+### 6. Credential Access
 
-**6.1. Credential Dumping: LSASS Memory (T1003.001)**
+#### **6.1. Credential Dumping: LSASS Memory (T1003.001)**
 
 **Hunt Name:** Search\_For\_LSASS\_Memory\_Dumps **Query 26: Search for LSASS Memory Dumps**
 
@@ -262,9 +262,9 @@ SELECT * FROM pslist()  WHERE name LIKE 'procdump%' OR name LIKE 'taskmanager%'
 ```
 {% endcode %}
 
-## <mark style="color:blue;">7. Discovery</mark>
+### 7. Discovery
 
-**7.1. System Information Discovery (T1082)**
+#### **7.1. System Information Discovery (T1082)**
 
 **Hunt Name:** Identify\_System\_Info\_Commands **Query 31: Search for System Information Enumeration**
 
@@ -300,9 +300,9 @@ SELECT * FROM pslist()  WHERE name = 'wmic.exe' AND command_line LIKE '%computer
 ```
 {% endcode %}
 
-## <mark style="color:blue;">8. Lateral Movement</mark>
+### 8. Lateral Movement
 
-**8.1. Remote Services: Remote Desktop Protocol (RDP) (T1021.001)**
+#### **8.1. Remote Services: Remote Desktop Protocol (RDP) (T1021.001)**
 
 **Hunt Name:** Monitor\_RDP\_Logons **Query 36: Monitor RDP Logons**
 
@@ -338,9 +338,9 @@ SELECT * FROM pslist()  WHERE name = 'mstsc.exe'
 SELECT * FROM FileSystem  WHERE FullPath LIKE 'C:\\Users\\%\\Documents\\RDP\\%'
 ```
 
-## <mark style="color:blue;">9. Collection</mark>
+### 9. Collection
 
-**9.1. Data from Local System (T1005)**
+#### **9.1. Data from Local System (T1005)**
 
 **Hunt Name:** Identify\_Access\_To\_Sensitive\_Files **Query 41: Identify Access to Sensitive Files**
 
@@ -380,9 +380,9 @@ SELECT FullPath FROM FileSystem  WHERE FullPath LIKE 'C:\\Users\\%\\Documents\\%
 ```
 {% endcode %}
 
-## <mark style="color:blue;">10. Command and Control</mark>
+### 10. Command and Control
 
-**10.1. Command and Control: Web Protocols (T1071.001)**
+#### **10.1. Command and Control: Web Protocols (T1071.001)**
 
 **Hunt Name:** Monitor\_DNS\_Queries\_For\_C2\_Domains **Query 46: Monitor DNS Queries for Known Malicious Domains**
 
@@ -420,9 +420,9 @@ SELECT * FROM Windows.Network.Connection  WHERE RemotePort = 80 AND Method NOT I
 SELECT QueryName, QueryType FROM Windows.DNS.Queries  WHERE QueryName LIKE '%cnc%'
 ```
 
-## <mark style="color:blue;">11. Exfiltration</mark>
+### 11. Exfiltration
 
-**11.1. Exfiltration Over C2 Channel (T1041)**
+#### **11.1. Exfiltration Over C2 Channel (T1041)**
 
 **Hunt Name:** Monitor\_Large\_Data\_Transfers\_To\_External\_IPs **Query 51: Monitor Large Data Transfers to External IPs**
 
@@ -462,9 +462,9 @@ SELECT * FROM Windows.Network.Connection  WHERE RemotePort = 22 AND State = 'EST
 ```
 {% endcode %}
 
-## <mark style="color:blue;">12. Impact</mark>
+### 12. Impact
 
-**12.1. Inhibit System Recovery: Disable or Modify Tools (T1490)**
+#### **12.1. Inhibit System Recovery: Disable or Modify Tools (T1490)**
 
 **Hunt Name:** Monitor\_Volume\_Shadow\_Copy\_Deletion **Query 56: Monitor Volume Shadow Copy Deletion**
 
@@ -504,9 +504,9 @@ SELECT * FROM Windows.Registry.KeyValue  WHERE KeyPath = 'HKEY_LOCAL_MACHINE\\SY
 ```
 {% endcode %}
 
-## <mark style="color:blue;">13. Execution (Continued)</mark>
+### 13. Execution (Continued)
 
-**13.1. User Execution: Malicious File (T1204.002)**
+#### **13.1. User Execution: Malicious File (T1204.002)**
 
 **Hunt Name:** Identify\_Unsigned\_Executable\_Execution **Query 61: Identify Execution of Unsigned Executables**
 
@@ -540,9 +540,9 @@ SELECT * FROM pslist()  WHERE command_line LIKE 'C:\\Users\\%\\AppData\\Local\\T
 ```
 {% endcode %}
 
-## <mark style="color:blue;">14. Persistence (Continued)</mark>
+### 14. Persistence (Continued)
 
-**14.1. Boot or Logon Autostart Execution: Registry Run Keys (T1547.001)**
+#### **14.1. Boot or Logon Autostart Execution: Registry Run Keys (T1547.001)**
 
 **Hunt Name:** Identify\_Registry\_Autostart\_Entries **Query 66: Identify Autostart Entries in Registry**
 
@@ -584,9 +584,9 @@ SELECT Key, Value, Data FROM registry()  WHERE Data LIKE '%.exe' AND (Key LIKE '
 ```
 {% endcode %}
 
-## <mark style="color:blue;">15. Defence Evasion (Continued)</mark>
+### 15. Defence Evasion (Continued)
 
-**15.1. Process Injection: Process Hollowing (T1055.012)**
+#### **15.1. Process Injection: Process Hollowing (T1055.012)**
 
 **Hunt Name:** Detect\_Process\_Hollowing\_Indicators **Query 71: Monitor for Suspicious Process Hollowing Indicators**
 
@@ -626,9 +626,9 @@ SELECT * FROM Windows.MemoryMap()  WHERE PrivateMemory = true AND Writable = tru
 ```
 {% endcode %}
 
-## <mark style="color:blue;">16. Credential Access (Continued)</mark>
+### 16. Credential Access (Continued)
 
-**16.1. OS Credential Dumping: NTDS (T1003.003)**
+#### **16.1. OS Credential Dumping: NTDS (T1003.003)**
 
 **Hunt Name:** Search\_For\_NTDS\_dit\_Access\_Attempts **Query 76: Search for NTDS.dit Access Attempts**
 
@@ -668,9 +668,9 @@ SELECT * FROM Windows.Processes()  WHERE name = 'ntds.dit' AND ParentProcessName
 ```
 {% endcode %}
 
-## <mark style="color:blue;">17. Discovery (Continued)</mark>
+### 17. Discovery (Continued)
 
-**17.1. File and Directory Discovery (T1083)**
+#### **17.1. File and Directory Discovery (T1083)**
 
 **Hunt Name:** Identify\_File\_And\_Directory\_Enumeration\_Commands **Query 81: Identify Commands Enumerating Files or Directories**
 
@@ -708,9 +708,9 @@ SELECT * FROM pslist()  WHERE command_line LIKE '%dir%' AND command_line LIKE 'C
 SELECT * FROM pslist()  WHERE command_line LIKE '%dir /S%'
 ```
 
-## <mark style="color:blue;">18. Lateral Movement (Continued)</mark>
+### 18. Lateral Movement (Continued)
 
-**18.1. Pass the Hash (T1550.002)**
+#### **18.1. Pass the Hash (T1550.002)**
 
 **Hunt Name:** Monitor\_LSASS\_For\_Credential\_Extraction **Query 86: Monitor LSASS for Credential Extraction**
 
@@ -748,9 +748,9 @@ SELECT * FROM Windows.EventLogs.Security  WHERE EventID = 4624 AND LogonType = 2
 ```
 {% endcode %}
 
-## <mark style="color:blue;">19. Collection (Continued)</mark>
+### 19. Collection (Continued)
 
-**19.1. Screen Capture (T1113)**
+#### **19.1. Screen Capture (T1113)**
 
 **Hunt Name:** Search\_For\_Screen\_Capture\_Tools **Query 91: Search for Screen Capture Tools**
 
@@ -788,9 +788,9 @@ SELECT FullPath, Size, CreationTime FROM FileSystem  WHERE FullPath LIKE 'C:\\Us
 ```
 {% endcode %}
 
-## <mark style="color:blue;">20. Impact (Continued)</mark>
+### 20. Impact (Continued)
 
-**20.1. Data Encrypted for Impact (T1486)**
+#### **20.1. Data Encrypted for Impact (T1486)**
 
 **Hunt Name:** Monitor\_Unusual\_File\_Modifications **Query 96: Monitor Unusual File Modifications Indicating Encryption**
 
