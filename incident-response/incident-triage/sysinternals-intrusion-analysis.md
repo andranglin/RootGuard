@@ -14,9 +14,9 @@ layout:
 
 # Sysinternals Intrusion Analysis
 
-## <mark style="color:blue;">1. Initial Access</mark>
+### 1. Initial Access
 
-### 1.1. Phishing: Spearphishing Attachment (T1566.001)
+#### 1.1. Phishing: Spearphishing Attachment (T1566.001)
 
 **Objective:** Detect and collect evidence of malicious email attachments that may have been used to gain initial access.
 
@@ -62,9 +62,9 @@ strings.exe C:\Users\%USERNAME%\Downloads\suspicious.exe > C:\Output\strings_out
 
 **Analysis:** Search the extracted strings for URLs, IP addresses, or encoded scripts that may indicate malicious activity.
 
-## <mark style="color:blue;">2. Execution</mark>
+### 2. Execution
 
-### 2.1. Command and Scripting Interpreter: PowerShell (T1059.001)
+#### 2.1. Command and Scripting Interpreter: PowerShell (T1059.001)
 
 **Objective:** Detect and analyze PowerShell usage that may indicate the execution of malicious scripts.
 
@@ -108,9 +108,9 @@ procdump.exe -ma powershell.exe C:\Output\powershell_dump.dmp
 
 **Analysis:** Analyze the memory dump using forensic tools to search for suspicious scripts or commands.
 
-## <mark style="color:blue;">3. Persistence</mark>
+### 3. Persistence
 
-### 3.1. Registry Run Keys / Startup Folder (T1547.001)
+#### 3.1. Registry Run Keys / Startup Folder (T1547.001)
 
 **Objective:** Detect persistence mechanisms that use registry run keys or startup folders.
 
@@ -164,9 +164,9 @@ autorunsc.exe -a * > C:\Output\autoruns_output.txt
 
 **Analysis:** Review the output for suspicious autorun entries, focusing on unknown or unsigned executables.
 
-## <mark style="color:blue;">4. Privilege Escalation</mark>
+### 4. Privilege Escalation
 
-### 4.1. Scheduled Task/Job (T1053.005)
+#### 4.1. Scheduled Task/Job (T1053.005)
 
 **Objective:** Detect and analyze scheduled tasks that may have been created for privilege escalation.
 
@@ -210,9 +210,9 @@ psexec.exe \\TARGET -s schtasks /query /FO LIST > C:\Output\scheduled_tasks_outp
 
 **Analysis:** Collect and analyze scheduled task configurations from remote systems for signs of privilege escalation.
 
-## <mark style="color:blue;">5. Defence Evasion</mark>
+### 5. Defence Evasion
 
-### 5.1. Obfuscated Files or Information (T1027)
+#### 5.1. Obfuscated Files or Information (T1027)
 
 **Objective:** Detect and analyze obfuscated files and scripts used to evade detection.
 
@@ -254,9 +254,9 @@ streams.exe -s C:\Path\To\Directory > C:\Output\streams_output.txt
 
 **Analysis:** Look for files with unexpected ADS, which could indicate hidden malicious content.
 
-## <mark style="color:blue;">6. Credential Access</mark>
+### 6. Credential Access
 
-### 6.1. OS Credential Dumping: LSASS Memory (T1003.001)
+#### 6.1. OS Credential Dumping: LSASS Memory (T1003.001)
 
 **Objective:** Detect and analyse attempts to dump credentials from the LSASS process.
 
@@ -298,9 +298,9 @@ procdump.exe -ma lsass.exe C:\Output\lsass_dump.dmp
 
 **Analysis:** Analyse the dump file with a forensic tool to detect signs of credential dumping.
 
-## <mark style="color:blue;">7. Discovery</mark>
+### 7. Discovery
 
-### 7.1. System Information Discovery (T1082)
+#### 7.1. System Information Discovery (T1082)
 
 **Objective:** Detect and collect evidence of system information discovery commands executed by an attacker.
 
@@ -332,7 +332,7 @@ psexec.exe \\TARGET cmd.exe /c "systeminfo & ipconfig & netstat -an" > C:\Output
 strings.exe C:\Path\To\SuspiciousFile.bat > C:\Output\strings_sysinfo.txt
 ```
 
-**Analysis:** Look for common system discovery commands such as `systeminfo`, `ipconfig`, and `tasklist`.
+**Analysis:** Look for common system discovery commands, such as `systeminfo`, `ipconfig`, and `tasklist`.
 
 **Tool: Tasklist**
 
@@ -344,15 +344,15 @@ tasklist /v > C:\Output\tasklist_output.txt
 
 **Analysis:** Review the list of running processes for known discovery tools or suspicious activity.
 
-## <mark style="color:blue;">8. Collection</mark>
+### 8. Collection
 
-### 8.1. Data from Local System (T1005)
+#### 8.1. Data from Local System (T1005)
 
-**Objective:** Detect and collect artifacts related to data collection from the local system.
+**Objective:** Detect and collect artefacts related to data collection from the local system.
 
 **Tool: Procmon**
 
-**Instruction:** Monitor file system access, especially in sensitive directories like `Documents` or `Downloads`. **Steps:** 1. Set filters: `Operation is ReadFile` or `WriteFile` targeting sensitive directories. 2. Capture events where files are accessed or copied. 3. Save the logs for further analysis.
+**Instruction:** Monitor file system access, especially in sensitive directories such as `Documents` or `Downloads`. **Steps:** 1. Set filters: `Operation is ReadFile` or `WriteFile` targeting sensitive directories. 2. Capture events where files are accessed or copied. 3. Save the logs for further analysis.
 
 **Tool: PsExec**
 
@@ -394,9 +394,9 @@ streams.exe -s C:\Users\%USERNAME%\Documents\ > C:\Output\streams_output.txt
 
 **Analysis:** Check for files with unexpected ADS, indicating potential data hiding or exfiltration.
 
-## <mark style="color:blue;">9. Exfiltration</mark>
+### 9. Exfiltration
 
-### 9.1. Exfiltration Over C2 Channel (T1041)
+#### 9.1. Exfiltration Over C2 Channel (T1041)
 
 **Objective:** Detect and analyse data exfiltration attempts over command-and-control (C2) channels.
 

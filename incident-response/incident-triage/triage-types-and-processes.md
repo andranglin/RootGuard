@@ -19,7 +19,7 @@ layout:
 
 # Triage Types and Processes
 
-## **Introduction**
+### **Introduction**
 
 **Incident triage** is the process of evaluating and prioritising cybersecurity incidents based on their severity, impact, and urgency. It is a critical step in the **Incident Response (IR) process**, helping organisations focus resources on the most significant threats and ensure efficient incident handling.
 
@@ -86,7 +86,7 @@ layout:
 4. **Enhanced Visibility**:
    * Provides a clear understanding of incident trends and recognise
 
-## **Define an Incident Triage Framework**
+### **Define an Incident Triage Framework**
 
 A well-structured framework ensures consistency in prioritising incidents. The following is a basic approach to incident triage:
 
