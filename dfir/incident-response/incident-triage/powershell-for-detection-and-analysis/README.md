@@ -14,9 +14,9 @@ layout:
 
 # PowerShell for Detection and Analysis
 
-## Incident Identification
+### Incident Identification
 
-### General Indicators Of Compromise
+#### General Indicators Of Compromise
 
 ```powershell
 1. Attack Surface Vulnerability Exists
@@ -44,7 +44,7 @@ layout:
 23. File Hashes
 ```
 
-### Internal Threat Indicators
+#### Internal Threat Indicators
 
 ```powershell
 1. Logons To New Or Unusual Systems
@@ -74,7 +74,7 @@ layout:
 25. Sensitive Data Movement Combined With Other Risk Indicators
 ```
 
-### Network Forensic Indicators
+#### Network Forensic Indicators
 
 ```powershell
 1. Known Signatures
@@ -91,7 +91,7 @@ layout:
 12. Prohibited Protocols
 ```
 
-### Suspicious Domain Indicators
+#### Suspicious Domain Indicators
 
 ```powershell
 1. Domain registered date is recent
@@ -103,7 +103,7 @@ layout:
 7. Domain has suspicious IP addresses / DNS data
 ```
 
-### Azure & Office 365 Indicators
+#### Azure & Office 365 Indicators
 
 ```powershell
 1. Privileged account logon from foreign address
@@ -115,7 +115,7 @@ layout:
 7. High priority target's mailbox is accessed
 ```
 
-### Important event logs
+#### Important event logs
 
 {% code overflow="wrap" %}
 ```powershell
@@ -137,7 +137,7 @@ Some of the common event logs that you want to collect as part of live response 
 ```
 {% endcode %}
 
-## Identify Notable Processes
+#### Identify Notable Processes
 
 * **Monitor process behaviour:** Look for any unusual or suspicious activities, such as high CPU or memory usage, unexpected network traffic, or processes running from unfamiliar locations.
 * **Check process file locations:** Verify the file locations of running processes. Legitimate Windows processes typically reside in specific system directories (e.g., C:\Windows\System32). If you find a process running from an unusual location, it could indicate malware.
@@ -147,7 +147,7 @@ Some of the common event logs that you want to collect as part of live response 
 * **Check for unusual network connections**: Use network monitoring tools to identify any abnormal network connections initiated by processes. Look for connections to suspicious IP addresses or domains that are known to be associated with malware or botnets.
 * **Be cautious of system changes:** Be vigilant when new processes suddenly appear after installing software or visiting unknown websites. Malware may attempt to install additional processes or modify existing ones. Monitor your system for any unauthorized changes.
 
-## System Processes
+#### System Processes
 
 * **System** (Profile: start at boot, no parent, one instance, runs .sys and .dll executables, runs for ntoskml.exe)
 * **Services** (Profile: Parent is wininit.exe, Starts at boot, path= C\Windows\System32, only one instance running)
@@ -160,16 +160,16 @@ Some of the common event logs that you want to collect as part of live response 
 * **WININIT.exe** (Profile: Starts immediately after boot, Will not see Parent(smss.exe), Only one instance, Associated with starting: (lsm.exe, lsass.exe, services.exe))
 * **SVCHOST.exe** (Profile: Parent is services.exe, multiple instances running, Used for running service DLLS, Path = C\Windows\System32)
 
-## User Processes
+#### User Processes
 
 * **Explorer.exe** (Profile: Parent not shown, Path=C\Windows\System32, One for each logged-on user, Running underneath it should be user programs)
 * **Iexplore.exe** (Profile: Parent is explorer.exe, Path="Program files\Internet Explorer" OR Path=Program files (x86), One for each logged-on user, Running underneath it should be user programs)
 
 ***
 
-## Accounts and Groups
+### Accounts and Groups
 
-### Local Groups
+Local Groups
 
 {% code overflow="wrap" %}
 ```powershell
@@ -180,7 +180,7 @@ Get-ChildItem C:\Users | ft Name
 ```
 {% endcode %}
 
-### Logged in Users
+Logged in Users
 
 {% code overflow="wrap" %}
 ```powershell
@@ -189,7 +189,7 @@ Start-Process "qwinsta" -NoNewWindow -Wait
 ```
 {% endcode %}
 
-### Local Users
+Local Users
 
 {% code overflow="wrap" %}
 ```powershell
@@ -199,7 +199,7 @@ Get-LocalUser | where Enabled -eq $True
 ```
 {% endcode %}
 
-### &#x20;Local Administrators
+&#x20;Local Administrators
 
 {% code overflow="wrap" %}
 ```powershell
@@ -207,7 +207,7 @@ Get-LocalGroupMember Administrators | ft Name, PrincipalSource
 ```
 {% endcode %}
 
-### Domain Account - Users | Group | Computers
+Domain Account - Users | Group | Computers
 
 {% code overflow="wrap" %}
 ```powershell
@@ -217,7 +217,7 @@ Get-ADComputer -Filter "Name -Like '*'" -Properties * | where Enabled -eq $True 
 ```
 {% endcode %}
 
-### List of IPV4 Addresses Who Have Connected (RDP)
+List of IPV4 Addresses Who Have Connected (RDP)
 
 {% code overflow="wrap" %}
 ```powershell
@@ -225,7 +225,7 @@ Get-WinEvent -Log 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operat
 ```
 {% endcode %}
 
-### User Autologon Registry Items
+User Autologon Registry Items
 
 {% code overflow="wrap" %}
 ```powershell
@@ -233,7 +233,7 @@ Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows 
 ```
 {% endcode %}
 
-### Check for executables in the Local System User Profile and Files
+Check for executables in the Local System User Profile and Files
 
 {% code overflow="wrap" %}
 ```powershell
@@ -241,13 +241,13 @@ Get-ChildItem C:\Windows\*\config\systemprofile -recurse -force -ea 0 -include *
 ```
 {% endcode %}
 
-### Startup Commands for Certain Programs
+Startup Commands for Certain Programs
 
 ```cs
 Get-CimInstance Win32_StartupCommand | select Name, command, Location, User
 ```
 
-### Installed Software Directories
+Installed Software Directories
 
 {% code overflow="wrap" %}
 ```powershell
@@ -255,7 +255,7 @@ Get-ChildItem "C:\Program Files", "C:\Program Files (x86)" | ft Parent,Name,Last
 ```
 {% endcode %}
 
-### Software in Registry
+Software in Registry
 
 {% code overflow="wrap" %}
 ```powershell
@@ -263,7 +263,7 @@ Get-ChildItem -path Registry::HKEY_LOCAL_MACHINE\SOFTWARE | ft Name
 ```
 {% endcode %}
 
-### Connected Drives
+Connected Drives
 
 {% code overflow="wrap" %}
 ```powershell
@@ -272,19 +272,19 @@ Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"};
 ```
 {% endcode %}
 
-### Firewall Config
+Firewall Config
 
 ```powershell
 Start-Process "netsh" -ArgumentList "firewall show config" -NoNewWindow -Wait
 ```
 
-### Credential Manager
+Credential Manager
 
 ```cs
 start-process "cmdkey" -ArgumentList "/list" -NoNewWindow -Wait
 ```
 
-### Scan Process Creation Logs for AppData
+Scan Process Creation Logs for AppData
 
 {% code overflow="wrap" %}
 ```powershell
@@ -296,7 +296,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Security'; Id='4688';}| ? {$_.Message 
 
 ### T1176 Browser Extensions
 
-#### **Chrome**
+**Chrome**
 
 {% code overflow="wrap" %}
 ```powershell
@@ -306,7 +306,7 @@ Get-ChildItem -path 'C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Ex
 ```
 {% endcode %}
 
-#### **Firefox**
+**Firefox**
 
 {% code overflow="wrap" %}
 ```powershell
@@ -318,7 +318,7 @@ Get-ChildItem -path registry::HKLM\SOFTWARE\Mozilla\*\extensions
 ```
 {% endcode %}
 
-#### **Edge**
+**Edge**
 
 {% code overflow="wrap" %}
 ```powershell
@@ -326,7 +326,7 @@ Get-ChildItem -Path C:\Users\*\AppData\Local\Packages\ -recurse -erroraction Sil
 ```
 {% endcode %}
 
-#### **Internet Explorer**
+**Internet Explorer**
 
 {% code overflow="wrap" %}
 ```powershell
@@ -334,7 +334,9 @@ Get-ChildItem -path "C:\Program Files\Internet Explorer\Plugins\" -recurse -erro
 ```
 {% endcode %}
 
-### T1031 Modify Existing Service
+***
+
+T1031 Modify Existing Service
 
 {% code overflow="wrap" %}
 ```powershell
@@ -342,7 +344,7 @@ Get-ItemProperty REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\\ -ea 0 | wher
 ```
 {% endcode %}
 
-### T1050 New Service
+T1050 New Service
 
 {% code overflow="wrap" %}
 ```powershell
@@ -351,7 +353,7 @@ Get-WinEvent -FilterHashtable @{ LogName='System'; Id='7045';} | FL TimeCreated,
 ```
 {% endcode %}
 
-### T1137 Office Application Startup
+T1137 Office Application Startup
 
 {% code overflow="wrap" %}
 ```powershell
@@ -367,7 +369,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Microsoft Office Alerts'; Id='300';} |
 ```
 {% endcode %}
 
-### T1060 Registry Run Keys / Startup Folder
+T1060 Registry Run Keys / Startup Folder
 
 {% code overflow="wrap" %}
 ```powershell
@@ -376,7 +378,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Microsoft-Windows-Shell-Core/Operation
 ```
 {% endcode %}
 
-### T1053 Scheduled Task
+T1053 Scheduled Task
 
 {% code overflow="wrap" %}
 ```powershell
@@ -388,7 +390,7 @@ gci -path 'registry::HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\
 ```
 {% endcode %}
 
-### T1019 System Firmware
+T1019 System Firmware
 
 {% code overflow="wrap" %}
 ```powershell
@@ -396,7 +398,7 @@ Get-CimInstance -Class win32_bios
 ```
 {% endcode %}
 
-### T1100 Web Shell
+T1100 Web Shell
 
 {% code overflow="wrap" %}
 ```powershell
@@ -405,7 +407,7 @@ gci -path "C:\inetpub\wwwroot" -recurse -File -ea SilentlyContinue | Select-Stri
 ```
 {% endcode %}
 
-### T1074 Data Staging
+T1074 Data Staging
 
 {% code overflow="wrap" %}
 ```powershell
@@ -453,7 +455,7 @@ reg query 'HKU\[SID]\Software\Microsoft\Office\[versionnumber]\Word\Security\Tru
 
 ***
 
-### Check Office Security Settings
+Check Office Security Settings
 
 {% code overflow="wrap" %}
 ```powershell
@@ -462,7 +464,7 @@ gci REGISTRY::HKCU\Software\Microsoft\Office\*\*\Security -rec
 ```
 {% endcode %}
 
-### Check Outlook Temporary Files
+Check Outlook Temporary Files
 
 {% code overflow="wrap" %}
 ```powershell
@@ -539,7 +541,7 @@ Get-NetTCPConnection -State LISTEN |? LocalAddress -Like "127.0.0.1" | Select Lo
 ```
 {% endcode %}
 
-### Obtain Workstation Name for Tunnelled Authentication
+Obtain Workstation Name for Tunnelled Authentication
 
 {% code overflow="wrap" %}
 ```powershell
@@ -547,7 +549,7 @@ Get-WinEvent -FilterHashtable @{ LogName='Security'; Id='4624'; Data='::';} | FL
 ```
 {% endcode %}
 
-### Obtain Processes Where the Binary File Version Doesn’t Match the OS Release
+Obtain Processes Where the Binary File Version Doesn’t Match the OS Release
 
 {% code overflow="wrap" %}
 ```powershell
@@ -555,7 +557,7 @@ gps -FileVersionInfo -ea 0|? {$_.ProductVersion -notmatch $([System.Environment]
 ```
 {% endcode %}
 
-### Obtain Process Binary File External Names
+Obtain Process Binary File External Names
 
 {% code overflow="wrap" %}
 ```powershell
@@ -565,7 +567,7 @@ gps -module -FileVersionInfo -ea 0 | sort -uniq | FL *name,*version
 ```
 {% endcode %}
 
-### Baseline Processes and Services
+Baseline Processes and Services
 
 {% code overflow="wrap" %}
 ```powershell
@@ -582,9 +584,9 @@ Compare-Object $edservice $edservice1 -Property servicename
 
 ***
 
-## Alternate Data Streams Discovery
+### Alternate Data Streams Discovery
 
-#### Use Alternate Data Streams to find the download location
+Use Alternate Data Streams to find the download location
 
 {% code overflow="wrap" %}
 ```powershell
