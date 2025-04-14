@@ -13,9 +13,9 @@ layout:
     visible: true
 ---
 
-# Advanced Roadmap to Become a Blue Team and Microsoft Cloud Security Expert
+# Advanced Roadmap to Become a Blue Team and Microsoft Cloud Security Expert Architect
 
-## Architects<mark style="color:blue;">1. Deepen Microsoft Cloud Security Expertise</mark>
+## <mark style="color:blue;">1. Deepen Microsoft Cloud Security Expertise</mark>
 
 * Azure Security:
   * Advanced Configurations: Secure hybrid/multi-cloud environments with Microsoft Defender for Cloud. Implement Azure Firewall Premium for intrusion prevention, Web Application Firewall (WAF) for app-layer protection, and Just-In-Time (JIT) VM access for minimal exposure.
@@ -78,7 +78,7 @@ layout:
     * Resource: Microsoft Learn’s “[SC-200 Threat Hunting](https://learn.microsoft.com/en-us/certifications/security-operations-analyst-associate/)” (advanced labs).
     * Resource: Microsoft Docs’ “[SC-200 Advanced Guide](https://learn.microsoft.com/en-us/certifications/exams/sc-200)” (detailed objectives).
 * Advanced:
-  * Microsoft SC-100 (Cybersecurity Architect Expert): Architect Microsoft security solutions for global enterprises. Requires AZ-500.
+  * Microsoft SC-100 (Cybersecurity Architect Expert): Architects Microsoft security solutions for global enterprises. Requires AZ-500.
     * Resource: Microsoft Learn’s “[SC-100 Architecture](https://learn.microsoft.com/en-us/certifications/cybersecurity-architect-expert/)” (enterprise labs).
     * Resource: YouTube channel Microsoft Security’s “[SC-100 Strategies](https://www.youtube.com/@MicrosoftSecurity)” (architect-level insights).
   * GIAC Certified Incident Handler (GCIH): Advanced incident response and forensics.
@@ -191,4 +191,4 @@ layout:
 * Simulate Attacks: Emulate APTs with MITRE ATT\&CK in labs.
 * Mentor: Share on r/BlueTeamSec to solidify expertise.
 * Show Impact: Quantify results (e.g., “Reduced detection gaps by 40% with Sentinel”).
-* Stay Legal: Use only authorized systems
+* Stay Legal: Use only authorised systems.

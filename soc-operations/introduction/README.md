@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 cover: ../../.gitbook/assets/SOC-1 (1).png
 coverY: 0
 layout:

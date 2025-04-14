@@ -5,7 +5,7 @@
 * [RootGuard](README.md)
   * [Who Am I?](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
-  * [Advanced Roadmap to Become a Blue Team and Microsoft Cloud Security Expert](welcome/rootguard/advanced-roadmap-to-become-a-blue-team-and-microsoft-cloud-security-expert.md)
+  * [Advanced Roadmap to Become a Blue Team and Microsoft Cloud Security Expert Architect](welcome/rootguard/advanced-roadmap-to-become-a-blue-team-and-microsoft-cloud-security-expert-architect.md)
 
 ## Resources Hub
 

@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 cover: ../../../.gitbook/assets/Screenshot 2025-01-04 151855 (2).png
 coverY: 0
 layout:

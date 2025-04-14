@@ -1,5 +1,4 @@
 ---
-icon: laptop-code
 layout:
   title:
     visible: true

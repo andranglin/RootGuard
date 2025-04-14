@@ -1,5 +1,4 @@
 ---
-icon: hand-wave
 cover: .gitbook/assets/Screenshot 2025-01-10 083130.png
 coverY: 0
 layout:
