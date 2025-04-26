@@ -47,4 +47,4 @@ _**Jump into the sections to learn more:**_
 
 [Investigate Using MITRE ATT\&CK Methodology](investigate-using-mitre-att-and-ck-methodology/)
 
-[Investigate Process Execution Using KQL](investigate-process-execution-using-kql.md)
+[Investigate Process Execution Using KQL](../../detection-engineering/process-execution-kql-triage.md)
