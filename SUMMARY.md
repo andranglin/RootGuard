@@ -231,3 +231,17 @@
     * [Detecting CommandLine Executions (MITRE ATT\&CK: T1059)](detection-engineering/threat-hunting/hunting-with-kql/detecting-commandline-executions-mitre-att-and-ck-t1059.md)
     * [Windows Security Logs (Identity and Logon Activities)](detection-engineering/threat-hunting/hunting-with-kql/windows-security-logs-identity-and-logon-activities.md)
   * [Hunting With Splunk](detection-engineering/threat-hunting/hunting-with-splunk.md)
+
+## Penetration Testing
+
+* [Penetration Testing Process](penetration-testing/penetration-testing-process.md)
+* [Pre-Engagement](penetration-testing/pre-engagement/README.md)
+  * [Page 1](penetration-testing/pre-engagement/page-1.md)
+* [Information Gathering](penetration-testing/information-gathering.md)
+* [Vulnerability Assessment](penetration-testing/vulnerability-assessment.md)
+* [Exploitation](penetration-testing/exploitation.md)
+* [Post-Exploitation](penetration-testing/post-exploitation.md)
+* [Lateral Movement](penetration-testing/lateral-movement.md)
+* [Proof-of-Concept](penetration-testing/proof-of-concept.md)
+* [Post-Engagement](penetration-testing/post-engagement.md)
+* [Practice](penetration-testing/practice.md)
