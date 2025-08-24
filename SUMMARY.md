@@ -257,3 +257,4 @@
 * [Proof-of-Concept](penetration-testing/proof-of-concept.md)
 * [Post-Engagement](penetration-testing/post-engagement.md)
 * [Practice](penetration-testing/practice.md)
+* [Pentesting Cheatsheet](penetration-testing/pentesting-cheatsheet.md)
