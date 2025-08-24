@@ -4,7 +4,7 @@ description: The penetration testing process and considerations
 
 # Penetration Testing
 
-## Introduction
+### Introduction
 
 Penetration testing, often referred to as "pen testing", is a critical cybersecurity practice designed to identify, evaluate, and mitigate vulnerabilities within an organisation’s IT infrastructure, applications, or network systems. By simulating real-world cyberattacks, penetration testing provides a proactive approach to assessing the security posture of systems, uncovering weaknesses before malicious actors can exploit them. This controlled and authorised process mimics the tactics, techniques, and procedures (TTPs) of adversaries, enabling organisations to strengthen their defences, comply with regulatory requirements, and protect sensitive data.&#x20;
 
@@ -12,7 +12,7 @@ The penetration testing process is systematic, structured, and methodical, ensur
 
 The importance of penetration testing cannot be overstated in today’s threat landscape, where cyberattacks such as ransomware, data breaches, and phishing are increasingly sophisticated and prevalent. Organisations across industries—finance, healthcare, government, and beyond—rely on penetration testing to safeguard their assets, maintain customer trust, and meet compliance standards like GDPR, PCI-DSS, or HIPAA. By identifying exploitable vulnerabilities and providing a roadmap for remediation, penetration testing empowers organisations to stay ahead of cyber threats and build resilient security programmes.
 
-## Considerations
+### Considerations
 
 When planning and executing a penetration test, several key considerations ensure its effectiveness, ethical execution, and alignment with organisational goals. These considerations address scope, methodology, legal and ethical boundaries, and post-test actions:
 
