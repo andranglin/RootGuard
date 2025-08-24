@@ -298,3 +298,5 @@ Maximise the value of your scan results with these strategies:
 4. **Optimise Principled**: Avoid intrusive scripts unless you have explicit permission.
 5. **Optimise Performance**: Adjust timing (`-T`) and parallelism based on network conditions.
 6. **Review Output**: Regularly analyse results to identify next steps (e.g., manual testing of vulnerabilities).
+
+For additional cheatsheets and Nmap guides, visit [StationX Nmap Cheat Sheet](https://www.stationx.net/nmap-cheat-sheet/)
