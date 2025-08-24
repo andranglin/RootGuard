@@ -25,7 +25,7 @@ When planning and executing a penetration test, several key considerations ensur
    * Ensure compliance with relevant laws, regulations, and contractual obligations, especially when testing third-party systems or cloud environments.
    * Adhere to ethical guidelines, such as those outlined by frameworks like the Penetration Testing Execution Standard (PTES) or certifications like CEH or OSCP.
 3. **Selection of Testing Team:**
-   * Choose qualified and experienced testers, whether in-house or third-party, with relevant certifications (e.g., OSCP, CEH, or CISSP) and expertise in the target environment.
+   * Choose qualified and experienced testers, whether in-house or third-party, with relevant certifications (e.g., OSCP, CEH, or CPTS) and expertise in the target environment.
    * Ensure testers follow a structured methodology and maintain professionalism to avoid unintended damage or disruption.
 4. **Methodology and Tools:**
    * Adopt a standardised methodology, such as OWASP, NIST SP 800-115, or PTES, to ensure comprehensive coverage and repeatability.

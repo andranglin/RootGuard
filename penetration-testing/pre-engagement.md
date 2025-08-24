@@ -10,9 +10,9 @@ The Pre-Engagement phase is the foundational step in the penetration testing pro
 
 The Pre-Engagement phase encompasses three key components:
 
-1. Scoping Survey
-2. Pre-Engagement Consultation
-3. Kick-Off Session
+1. **Scoping Survey**
+2. **Pre-Engagement Consultation**
+3. **Kick-Off Session**
 
 Before diving into these components, all parties must sign a Non-Disclosure Agreement (NDA) to safeguard sensitive information. This section explores each component, the necessary documentation, and critical considerations to ensure a successful penetration test.
 
