@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Axiom Cyber Examiner
 
 #### **Getting Started in AXIOM Examine** Objective: Orient yourself to the Windows evidence.

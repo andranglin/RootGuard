@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Initial Access Assessment
 
 **Description:** Investigating initial access in a network, particularly in Windows workstations and server systems, involves a structured approach to identify how an unauthorised entity first gained entry. This process is critical for understanding the scope and impact of a security incident.

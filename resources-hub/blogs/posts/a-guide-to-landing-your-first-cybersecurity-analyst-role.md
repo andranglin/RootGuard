@@ -1,20 +1,6 @@
 ---
 cover: ../../../.gitbook/assets/Screenshot 2025-01-10 082032.png
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # A Guide to Landing Your First Cybersecurity Analyst Role

@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Malicious Network Behaviour Detection Playbook
 
 ### Introduction: The Need for Effective Malicious Network Behavior Detection Capabilities

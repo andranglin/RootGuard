@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Linux Intrusion Detection Playbook
 
 ### Introduction: The Need for Effective Linux Intrusion Detection Capabilities

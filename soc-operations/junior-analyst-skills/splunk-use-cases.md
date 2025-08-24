@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Splunk Use Cases
 
 ### **Why Splunk is a Desirable Tool for Security Operations and Supporting Analysts**

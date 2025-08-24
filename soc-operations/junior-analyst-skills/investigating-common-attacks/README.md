@@ -1,18 +1,4 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
-# Investigating Specific Types of Attacks
+# Investigating Common Attacks
 
 As a security professional, you aim to stay ahead of adversaries and secure your organisation’s attack surface. An ideal place to begin this journey is to understand your vulnerabilities and recognise how social engineering attacks, malware, and other sophisticated tactics could breach your defences.
 

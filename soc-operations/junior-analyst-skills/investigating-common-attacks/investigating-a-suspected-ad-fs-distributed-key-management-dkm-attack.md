@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Investigating a Suspected AD FS Distributed Key Management (DKM) Attack
 
 ### Investigating a **suspected AD FS Distributed Key Management (DKM) attack** on an endpoint using **KQL (Kusto Query Language)** and **Microsoft Defender.**

@@ -3,17 +3,6 @@ description: >-
   Prefetch, Amcache.hve, ShimCache, Shell Bags, Jump Lists, Recycle Bin, Master
   File Table ($MFT), $J, $LogFile, Alternate Data Streams (ADS), and Link File -
   Shortcut (.ink)
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Evidence of Execution

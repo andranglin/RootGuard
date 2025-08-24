@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Detecting Virtual Drive Mounted From Archive
 
 This query is designed to detect virtual drives mounted from archives. It helps identify instances where virtual drives are mounted from archives, which can indicate suspicious or malicious activity.

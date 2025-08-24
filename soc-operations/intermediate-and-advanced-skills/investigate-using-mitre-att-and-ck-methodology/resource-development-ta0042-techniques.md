@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Resource Development (TA0042) Techniques
 
 Resource Development techniques involve adversaries establishing, maintaining, or expanding resources used for future operations. These resources can include infrastructure, accounts, or tools that enable various stages of an attack.

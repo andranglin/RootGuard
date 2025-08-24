@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Customer Phishing Detection Playbook
 
 ### Introduction: The Need for Effective Customer Phishing Detection Capabilities

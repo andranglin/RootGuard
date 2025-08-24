@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Information Leakage Detection Playbook
 
 ### Introduction: The Need for Effective Information Leakage Detection Capabilities

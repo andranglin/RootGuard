@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Identify and Investigate Phishing Attacks with KQL
 
 To detect potential phishing emails sent to users using KQL in Microsoft Sentinel or Microsoft Defender for Office 365, you can leverage the `EmailEvents` table. Below are some examples that can be used to identify suspicious emails:

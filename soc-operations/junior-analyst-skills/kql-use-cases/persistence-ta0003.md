@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Persistence (TA0003)
 
 ### **Sub-technique: T1547.001 - Registry Run Keys / Startup Folder**

@@ -1,18 +1,4 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
-# Learning to Investigate Suspicious Process Execution Using Windows Event Logs and KQL Queries
+# Process Execution (KQL Triage)
 
 Investigating suspicious process execution using **Windows Security Logs**, **Microsoft Defender XDR**, and **KQL (Kusto Query Language)** in **Microsoft Sentinel**. Below are **extensive KQL query examples** to help you detect, analyse, and respond to malicious activity effectively.
 

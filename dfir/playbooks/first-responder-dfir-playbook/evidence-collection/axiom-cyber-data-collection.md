@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # AXIOM Cyber Data Collection
 
 ### <mark style="color:purple;">1. Case Creation</mark>

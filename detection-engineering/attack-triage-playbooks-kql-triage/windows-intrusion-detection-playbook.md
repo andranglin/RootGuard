@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Windows Intrusion Detection Playbook
 
 ### Introduction: The Need for Effective Windows Intrusion Detection Capabilities

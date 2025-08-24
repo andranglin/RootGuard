@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Command Execution Assessment
 
 **Description:** Investigating command execution on a network, particularly in Windows workstations and server systems, is a crucial aspect of understanding the extent and impact of a security incident. This process involves identifying and analysing the commands that an attacker executes after gaining access.

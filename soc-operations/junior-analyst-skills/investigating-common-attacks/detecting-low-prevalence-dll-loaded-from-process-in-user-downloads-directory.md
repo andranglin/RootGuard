@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Detecting Low Prevalence DLL Loaded From Process In User Downloads Directory
 
 Query designed to detect low prevalence DLLs loaded from processes in the user's Downloads folder:

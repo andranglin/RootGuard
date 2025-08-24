@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Active Directory Events for Detecting Compromise
 
 Recommended event IDs to log and monitor to detect the Active Directory compromises detailed in the  [Detect and Mitigate Active Directory Compromise](./) sections

@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # KQL Use Cases
 
 ### **Why KQL is a Desirable Tool for Security Operations and Supporting Analysts**

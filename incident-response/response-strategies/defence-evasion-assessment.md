@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Defence Evasion Assessment
 
 **Description:** Forensically investigating defence evasion involves understanding and identifying attackers' methods to avoid detection and bypass security measures on workstations and server systems. Defence evasion is a critical tactic in the MITRE ATT\&CK framework, and it includes techniques like disabling security software, deleting logs, obfuscation, rootkits, privilege escalation, and more.

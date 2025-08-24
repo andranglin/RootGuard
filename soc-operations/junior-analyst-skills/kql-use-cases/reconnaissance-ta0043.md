@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Reconnaissance (TA0043)
 
 ### **Sub-technique: T1595.001 - Scanning IP Blocks**

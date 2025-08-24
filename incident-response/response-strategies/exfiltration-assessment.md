@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Exfiltration Assessment
 
 **Description**: Investigating data exfiltration forensically on workstations and server systems involves identifying and analysing how sensitive data was transferred from the network. This process is critical in understanding the scope of a security breach. Exfiltration can occur in various ways, including unauthorised email transmissions, external storage devices, cloud storage uploads, and covert channels.

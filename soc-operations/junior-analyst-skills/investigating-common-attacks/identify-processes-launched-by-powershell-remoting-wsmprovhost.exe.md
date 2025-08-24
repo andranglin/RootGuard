@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Identify Processes Launched by PowerShell Remoting (WSMProvHost.exe)
 
 ### Description of the Query:

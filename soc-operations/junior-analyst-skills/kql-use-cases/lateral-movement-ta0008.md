@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Lateral Movement (TA0008)
 
 ### **Sub-technique: T1021.001 - Remote Desktop Protocol (RDP)**

@@ -1,18 +1,4 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
-# Critical Windows Event ID’s to Monitor
+# Critical Windows EventIDs to Monitor
 
 When building your security program, there are a number of critical Windows Event IDs that should be monitored; the following is not an exhaustive list but a very good starting point.
 

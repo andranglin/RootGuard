@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Identify Instances of PowerShell Invoke-WebRequest, IWR or Net.WebClient
 
 ### Description of the Query:

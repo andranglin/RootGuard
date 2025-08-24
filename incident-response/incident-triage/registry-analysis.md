@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Registry Analysis
 
 The Windows registry contains information that is helpful during a forensic analysis. It is an excellent source for evidential data, and knowing the type of information that could possibly exist in the registry and its location is critical during the forensic analysis process.

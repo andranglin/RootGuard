@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Command and Control Assessment
 
 **Description**: Forensically investigating Command and Control (C\&C) techniques on workstations and server systems involves identifying how an attacker communicates with compromised systems to control them remotely and potentially exfiltrate data. This process is critical for understanding the scope of an attack and mitigating further risks.

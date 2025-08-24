@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Initial Impact Assessment Techniques
 
 **Description:** Forensically investigating the impact of a compromise on workstations and server systems is an essential step in understanding the extent of damage, the data affected, and what steps are necessary for recovery and future prevention. This process involves thoroughly examining affected systems to identify the scope of the attack, assess the damage, and uncover the methods used by the attackers.

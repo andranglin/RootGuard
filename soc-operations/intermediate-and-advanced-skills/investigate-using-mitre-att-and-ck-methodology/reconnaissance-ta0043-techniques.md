@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Reconnaissance (TA0043) Techniques
 
 Reconnaissance is the tactic used by adversaries to gather information about a target network, system, or organisation before launching an attack.

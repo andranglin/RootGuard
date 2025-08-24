@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Using The Unified Kill Chain Model to Analyse  Individual Cyber Attacks
 
 ## The Unified Kill Chain <a href="#f5bb" id="f5bb"></a>

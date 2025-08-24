@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Evidence Collection
 
 Efficient tools and capabilities for Digital Forensics and Incident Response (DFIR) evidence collection are critical in today’s fast-evolving cyber threat landscape, where time is often the deciding factor in mitigating damage and preserving evidence. When a security incident occurs—be it a ransomware attack, data breach, or insider threat—the window to collect volatile data, such as running processes, network connections, or memory contents, can close within minutes as systems are powered off or adversaries cover their tracks. Tools like KAPE, Velociraptor, and FTK Imager enable responders to rapidly acquire triage data or full forensic images, ensuring that ephemeral evidence isn’t lost.&#x20;

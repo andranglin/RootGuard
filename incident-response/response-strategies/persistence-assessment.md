@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Persistence Assessment
 
 **Description:** Investigating persistence mechanisms in a network, Windows workstations, and server systems is crucial in understanding how attackers maintain access to compromised environments. Persistence allows attackers to regain entry even after initial entry points are closed, making it a critical aspect of forensic analysis.

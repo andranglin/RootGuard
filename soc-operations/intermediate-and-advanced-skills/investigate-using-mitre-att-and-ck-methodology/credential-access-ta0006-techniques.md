@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Credential Access (TA0006) Techniques
 
 Credential Access techniques involve adversaries attempting to steal account credentials such as usernames and passwords.

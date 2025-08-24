@@ -1,18 +1,4 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
-# Cyber Incident Triage Playbooks (Using KQL)
+# Attack Triage Playbooks (KQL Triage)
 
 ### Introduction
 

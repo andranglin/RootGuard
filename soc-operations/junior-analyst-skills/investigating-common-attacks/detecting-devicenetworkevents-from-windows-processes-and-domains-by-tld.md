@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Detecting DeviceNetworkEvents From Windows Processes and Domains by TLD
 
 This query detects DeviceNetworkEvents from Windows processes and summarises them by Top-Level Domain (TLD):

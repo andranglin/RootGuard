@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Discovery Assessment
 
 **Discovery**: Techniques Forensically investigating discovery techniques on workstations and server systems involves identifying how an attacker or malicious entity gathered information about your systems and network. Discovery is a tactic in the MITRE ATT\&CK framework that encompasses various techniques adversaries use to gain knowledge about the system, network, and environment they have compromised.

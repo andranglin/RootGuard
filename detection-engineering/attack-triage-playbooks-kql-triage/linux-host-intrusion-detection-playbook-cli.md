@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Linux Host Intrusion Detection Playbook (CLI)
 
 ### Introduction: The Need for Effective Linux Host Detection Capabilities

@@ -234,7 +234,8 @@
 
 ## Penetration Testing
 
-* [Penetration Testing Process](penetration-testing/penetration-testing-process.md)
+* [Penetration Testing](penetration-testing/penetration-testing/README.md)
+  * [The Penetration Testing Process](penetration-testing/penetration-testing/the-penetration-testing-process.md)
 * [Pre-Engagement](penetration-testing/pre-engagement/README.md)
   * [Page 1](penetration-testing/pre-engagement/page-1.md)
 * [Information Gathering](penetration-testing/information-gathering.md)

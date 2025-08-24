@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Detecting Files Containing Potentially Sensitive Data
 
 The following query is designed to detect files potentially holding sensitive information like credentials, secrets, or API tokens. The query also looks for file events involving files with specific strings in their names and certain file extensions:

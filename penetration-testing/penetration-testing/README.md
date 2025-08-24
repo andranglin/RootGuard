@@ -1,10 +1,10 @@
 ---
-description: The pe
+description: The penetration testing process and considerations
 ---
 
-# Penetration Testing Process
+# Penetration Testing
 
-### Introduction to the Penetration Testing Process
+## Introduction
 
 Penetration testing, often referred to as "pen testing", is a critical cybersecurity practice designed to identify, evaluate, and mitigate vulnerabilities within an organisation’s IT infrastructure, applications, or network systems. By simulating real-world cyberattacks, penetration testing provides a proactive approach to assessing the security posture of systems, uncovering weaknesses before malicious actors can exploit them. This controlled and authorised process mimics the tactics, techniques, and procedures (TTPs) of adversaries, enabling organisations to strengthen their defences, comply with regulatory requirements, and protect sensitive data.&#x20;
 
@@ -12,9 +12,9 @@ The penetration testing process is systematic, structured, and methodical, ensur
 
 The importance of penetration testing cannot be overstated in today’s threat landscape, where cyberattacks such as ransomware, data breaches, and phishing are increasingly sophisticated and prevalent. Organisations across industries—finance, healthcare, government, and beyond—rely on penetration testing to safeguard their assets, maintain customer trust, and meet compliance standards like GDPR, PCI-DSS, or HIPAA. By identifying exploitable vulnerabilities and providing a roadmap for remediation, penetration testing empowers organisations to stay ahead of cyber threats and build resilient security programmes.
 
-### Considerations for the Penetration Testing Process
+## Considerations
 
-When planning and executing a penetration testing process, several key considerations ensure its effectiveness, ethical execution, and alignment with organisational goals. These considerations address scope, methodology, legal and ethical boundaries, and post-test actions:
+When planning and executing a penetration test, several key considerations ensure its effectiveness, ethical execution, and alignment with organisational goals. These considerations address scope, methodology, legal and ethical boundaries, and post-test actions:
 
 1. **Defining Objectives and Scope:**
    * Clearly outline the goals of the penetration test, such as identifying vulnerabilities, testing incident response, or ensuring compliance.
@@ -56,4 +56,4 @@ When planning and executing a penetration testing process, several key considera
     * Align testing with business objectives, such as protecting customer data, ensuring uptime, or meeting compliance requirements.
     * Consider the organisation’s risk tolerance and resource constraints when planning the scope and depth of testing.
 
-By addressing these considerations, organisations can maximise the value of the penetration testing process, ensuring it not only uncovers vulnerabilities but also drives meaningful improvements in security. A well-executed penetration test is an investment in resilience, providing clarity on risks and actionable steps to mitigate them in an ever-evolving cyberthreat landscape.
+By addressing these considerations, organisations can maximise the value of the penetration testing process, ensuring it not only uncovers vulnerabilities but also drives meaningful security improvements. A well-executed penetration test is an investment in resilience, providing clarity on risks and actionable steps to mitigate them in an ever-evolving cyberthreat landscape.

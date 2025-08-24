@@ -1,16 +1,5 @@
 ---
 hidden: true
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Advanced Roadmap to Become a Blue Team and Microsoft Cloud Security Expert Architect

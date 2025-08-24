@@ -1,18 +1,4 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
-# Investigating Suspicious Emails Activities Using KQL
+# Investigating Suspicious Emails Using KQL
 
 Investigating phishing emails using **Kusto Query Language (KQL)** in Microsoft Sentinel and Microsoft Defender XDR. This will involve querying data from various sources, such as email logs, threat intelligence feeds, endpoint telemetry, and more.
 

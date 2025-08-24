@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Detecting Silent cmd.exe Execution With Redirected STDERR & STDOUT
 
 This query helps identify instances where `cmd.exe` is executed silently with output redirection, which can be indicative of malicious activity or attempts to hide command execution.

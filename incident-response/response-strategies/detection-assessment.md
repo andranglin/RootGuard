@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Detection Assessment
 
 **Description:** Forensically investigating detection evasion techniques on workstations and server systems is critical to understanding how an attacker avoids being discovered by security measures. These techniques can range from disabling security software and log tampering to more advanced methods like rootkits or steganography.

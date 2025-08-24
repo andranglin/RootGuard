@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Privilege Escalation (TA0004)
 
 ### **Sub-technique: T1068 - Exploitation for Privilege Escalation**

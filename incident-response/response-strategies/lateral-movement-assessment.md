@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Lateral Movement Assessment
 
 **Description:** Forensically investigating lateral movement techniques on workstations and server systems is crucial to understanding how an attacker moves within a network after gaining initial access. Lateral movement involves techniques that enable an attacker to access and control remote systems within a network.

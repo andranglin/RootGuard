@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Lateral Movement (MITRE ATT\&CK: T1076, T1021)
 
 **Note: Sometimes, you may have to customise the queries to your environment. Also, queries will only work if the data is available.**

@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Business Email Compromise Detection Playbook
 
 ### Introduction: The Need for Effective Business Email Compromise Detection Capabilities

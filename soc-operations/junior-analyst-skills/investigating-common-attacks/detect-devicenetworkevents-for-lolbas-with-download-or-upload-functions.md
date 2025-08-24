@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Detect DeviceNetworkEvents for LOLBAS with Download or Upload Functions
 
 ### Description of the Query:

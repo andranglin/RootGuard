@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Discovery Activities (MITRE ATT\&CK: T1016, T1083, T1046)
 
 **Note: Sometimes, you may have to customise the queries to your environment. Also, queries will only work if the data is available.**

@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Linux Commandline Basics
 
 **Knowing the Linux command line** is essential for leveraging the full potential of Linux systems, particularly in technical fields such as cybersecurity, software development, and system administration. The command line offers unmatched control and flexibility, allowing users to perform tasks more efficiently than through graphical interfaces. With the command line, users can quickly manage files, configure systems, automate repetitive tasks using shell scripts, and troubleshoot issues. Its power and precision make it indispensable for professionals managing servers, networks, and cloud environments where remote and headless systems are common.

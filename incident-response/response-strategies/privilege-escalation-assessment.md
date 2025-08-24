@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Privilege Escalation Assessment
 
 **Description:** Investigating privilege escalation incidents forensically on workstations and server systems is critical in identifying how an attacker or malicious user gained elevated access. Privilege escalation can occur in various ways, such as exploiting system vulnerabilities, misconfigurations, or leveraging stolen credentials.
