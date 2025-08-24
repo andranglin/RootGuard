@@ -249,6 +249,7 @@
   * [Attacking Common Applications](penetration-testing/information-gathering/attacking-common-applications.md)
   * [Windows Privilege Escalation](penetration-testing/information-gathering/windows-privilege-escalation.md)
   * [Attacking Enterprise Networks](penetration-testing/information-gathering/attacking-enterprise-networks.md)
+  * [Initial Enumeration](penetration-testing/information-gathering/initial-enumeration.md)
 * [Vulnerability Assessment](penetration-testing/vulnerability-assessment.md)
 * [Exploitation](penetration-testing/exploitation.md)
 * [Post-Exploitation](penetration-testing/post-exploitation.md)
