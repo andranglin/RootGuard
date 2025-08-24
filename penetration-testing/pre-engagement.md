@@ -10,9 +10,9 @@ The Pre-Engagement phase is the foundational step in the penetration testing pro
 
 The Pre-Engagement phase encompasses three key components:
 
-1. **Scoping Survey**
-2. **Pre-Engagement Consultation**
-3. **Kick-Off Session**
+1. Scoping Survey
+2. Pre-Engagement Consultation
+3. Kick-Off Session
 
 Before diving into these components, all parties must sign a Non-Disclosure Agreement (NDA) to safeguard sensitive information. This section explores each component, the necessary documentation, and critical considerations to ensure a successful penetration test.
 
@@ -30,7 +30,9 @@ The NDA must be signed before detailed discussions occur to prevent unauthorised
 
 ### Authorised Stakeholders
 
-A critical aspect of the Pre-Engagement phase is verifying the authority of the individual or team commissioning the penetration test. Unauthorised requests, such as those from employees without proper approval, can lead to legal and ethical complications. For example, an employee might hire a testing team under the guise of a security check but intend to misuse the results to harm the organisation. To mitigate this risk, the testing team must confirm that the requester has the authority to initiate the test. Typical roles with signatory authority include:
+A critical aspect of the Pre-Engagement phase is verifying the authority of the individual or team commissioning the penetration test. Unauthorised requests, such as those from employees without proper approval, can lead to legal and ethical complications. For example, an employee might hire a testing team under the guise of a security check but intend to misuse the results to harm the organisation. To mitigate this risk, the testing team must confirm that the requester has the authority to initiate the test.&#x20;
+
+Typical roles with signatory authority include:
 
 * **C-Level Executives:** Chief Executive Officer (CEO), Chief Information Officer (CIO), Chief Information Security Officer (CISO), Chief Technology Officer (CTO), or Chief Risk Officer (CRO).
 * **Senior Management:** Vice President of IT, Director of Information Security, or Internal Audit Manager.
@@ -56,7 +58,9 @@ Note: Legal counsel should review all documents to ensure compliance with applic
 
 ### Scoping Survey
 
-The Scoping Survey is the first step in understanding the client’s requirements and tailoring the penetration test to their needs. After initial contact, the testing team sends a detailed questionnaire to gather information about the client’s environment, objectives, and preferences. The survey helps the team assess the scope, allocate resources, and estimate costs accurately. The Scoping Survey typically includes options for the client to select from a range of services, such as:
+The Scoping Survey is the first step in understanding the client’s requirements and tailoring the penetration test to their needs. After initial contact, the testing team sends a detailed questionnaire to gather information about the client’s environment, objectives, and preferences. The survey helps the team assess the scope, allocate resources, and estimate costs accurately.&#x20;
+
+The Scoping Survey typically includes options for the client to select from a range of services, such as:
 
 * Internal Network Penetration Test
 * External Network Penetration Test
@@ -121,7 +125,9 @@ The consultation results in the Penetration Testing Agreement (also known as the
 
 ### Rules of Engagement (RoE)
 
-The Rules of Engagement (RoE) document is a critical agreement that defines the boundaries, methodologies, and protocols for the penetration test. It ensures that testing is conducted safely, ethically, and in alignment with the client’s expectations. The RoE is finalised before the Kick-Off Session and includes:
+The Rules of Engagement (RoE) document is a critical agreement that defines the boundaries, methodologies, and protocols for the penetration test. It ensures that testing is conducted safely, ethically, and in alignment with the client’s expectations.&#x20;
+
+The RoE is finalised before the Kick-Off Session and includes:
 
 | **Checkpoint**       | **Contents**                                                                                                              |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
