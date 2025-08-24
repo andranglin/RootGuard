@@ -240,6 +240,7 @@
 * [Information Gathering](penetration-testing/information-gathering/README.md)
   * [Network Enumeration with Nmap](penetration-testing/information-gathering/network-enumeration-with-nmap/README.md)
     * [Nmap Guide to Network Scanning](penetration-testing/information-gathering/network-enumeration-with-nmap/nmap-guide-to-network-scanning.md)
+    * [Nmap Protocol Scan](penetration-testing/information-gathering/network-enumeration-with-nmap/nmap-protocol-scan.md)
   * [Password Attacks](penetration-testing/information-gathering/password-attacks.md)
   * [Active Directory Enumeration & Attacks](penetration-testing/information-gathering/active-directory-enumeration-and-attacks.md)
   * [Attacking Common Services](penetration-testing/information-gathering/attacking-common-services.md)
