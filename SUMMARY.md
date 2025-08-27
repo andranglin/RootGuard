@@ -260,3 +260,4 @@
 * [Pentesting Cheatsheet](penetration-testing/pentesting-cheatsheet/README.md)
   * [From Discovery to Enumeration](penetration-testing/pentesting-cheatsheet/from-discovery-to-enumeration.md)
   * [Penetration Testing Cheatsheet](penetration-testing/pentesting-cheatsheet/penetration-testing-cheatsheet.md)
+  * [Enumeration Checklist](penetration-testing/pentesting-cheatsheet/enumeration-checklist.md)
