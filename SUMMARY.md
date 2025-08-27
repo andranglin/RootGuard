@@ -258,6 +258,7 @@
 * [Post-Engagement](penetration-testing/post-engagement.md)
 * [Practice](penetration-testing/practice.md)
 * [Pentesting Cheatsheet](penetration-testing/pentesting-cheatsheet/README.md)
+  * [Enumeration Checklist](penetration-testing/pentesting-cheatsheet/enumeration-checklist.md)
   * [From Discovery to Enumeration](penetration-testing/pentesting-cheatsheet/from-discovery-to-enumeration.md)
   * [Penetration Testing Cheatsheet](penetration-testing/pentesting-cheatsheet/penetration-testing-cheatsheet.md)
-  * [Enumeration Checklist](penetration-testing/pentesting-cheatsheet/enumeration-checklist.md)
+  * [Pentesting Cheatsheet (HTB)](penetration-testing/pentesting-cheatsheet/pentesting-cheatsheet-htb.md)
