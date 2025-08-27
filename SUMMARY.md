@@ -259,4 +259,4 @@
 * [Practice](penetration-testing/practice.md)
 * [Pentesting Cheatsheet](penetration-testing/pentesting-cheatsheet/README.md)
   * [From Discovery to Enumeration](penetration-testing/pentesting-cheatsheet/from-discovery-to-enumeration.md)
-  * [Page 1](penetration-testing/pentesting-cheatsheet/page-1.md)
+  * [Penetration Testing Cheatsheet](penetration-testing/pentesting-cheatsheet/penetration-testing-cheatsheet.md)
