@@ -10,13 +10,9 @@ coverY: 0
 **Location:** London\
 **Experience Level:** 10+ Years in Cyber and Information Security
 
-***
-
 ### Professional Summary
 
 Accomplished cybersecurity professional with over a decade of experience protecting organisations from evolving cyber threats. Expertise spans designing and implementing secure architectures, managing security operations, leading incident response efforts, and developing strategic security initiatives. Adept at aligning security initiatives with business objectives to mitigate risks, ensure compliance, and safeguard critical assets. Recognised for building and leading organisational security initiatives and delivering practical solutions to complex cybersecurity challenges.
-
-***
 
 ### Key Skills and Expertise
 
@@ -37,8 +33,6 @@ Accomplished cybersecurity professional with over a decade of experience protect
   * Experience in supporting comprehensive employee training programs to foster a strong security culture.
   * Adept at engaging cross-functional teams and leadership in cybersecurity best practices.
 
-***
-
 ### Certifications
 
 * **Industry Certifications:**
@@ -55,8 +49,6 @@ Accomplished cybersecurity professional with over a decade of experience protect
   * Certified Cloud Security Professional (CCSP)
 * Vendor Certifications:
   * Cisco Certified Network Associate
-
-***
 
 ### Professional Experience
 
@@ -75,14 +67,10 @@ Accomplished cybersecurity professional with over a decade of experience protect
 * Develop/implement security best practices, policies and standards.
 * Evaluate operational risk that allows informed decisions to be made and appropriate control implemented.
 
-***
-
 ### Education
 
 * Master of Science in Computing | The Open University, 2023
 * Bachelor of Science in Computing | The Open University, 2019
-
-***
 
 ### Technical Proficiencies
 
