@@ -5,35 +5,35 @@ coverY: 0
 
 # Who Am I?
 
-Hi, I'm Adrian Anglin. I'm an Information and Cyber Security Professional interested in offensive and defensive security operations. These days, most of my time is spent doing Digital Forensics, Incident Response, Threat Hunting, and other operational areas within InfoSec. My journey into the tech space started as a Network Engineer, and some years later, I moved into InfoSec. Feel free to checkout my [Professional Profile](professional-profile.md)
+A seasoned Information and Cybersecurity Professional specialising in offensive and defensive operations, including Digital Forensics and Incident Response (DFIR), threat hunting, and cloud security. With a background as a Network Engineer, I transitioned into cybersecurity, bringing years of experience in managing complex security operations and implementing enterprise-grade solutions. My work encompasses DFIR, threat intelligence, and operational security, grounded in a commitment to continuous learning and adherence to industry best practices.
 
-Over the years, I have studied various areas of information and cybersecurity and earned several degrees and professional certifications. I am a cybersecurity enthusiast at heart and a continuous learner. The reason for setting up this site is to share my experiences and the content of other professionals whose work has been helpful in my development. Thanks to all the other professionals who have shared their expertise and knowledge with the broader community.&#x20;
+View My [Professional Profile](professional-profile.md)
 
-My passion and interest in information technology and security go beyond my own employment, and therefore, I wanted to:
+### My Mission
 
-* A place to publish some of my learning outcomes to help others improve their skills, knowledge, and processes relating to information and cybersecurity.
-* Lower the barrier of entry for upcoming security professionals who are interested in entering the field but lack the knowledge and skills.
-* And finally, a place to consolidate and publish some of my achievements and the thought process that led to them.
+RootGuard is my platform for sharing expertise, insights, and practical resources with the cybersecurity community. Designed for experienced professionals—such as SOC managers, CISOs, cloud security engineers, and IT leaders—this site focuses on high-impact areas, including threat hunting, incident response, and zero-trust architectures. My goal is to provide actionable knowledge, from technical playbooks to strategic guidance, to help you navigate sophisticated threats such as AI-driven attacks, supply chain vulnerabilities, and regulatory complexity.
 
-The aim is to provide some theoretical and practical approaches to help others delve deeper into the more common tools and technology. The content on the site reflects the tools, processes, and methodologies I have used and am familiar with. It's impossible to cover all areas at a level appropriate for everyone, so in the areas of focus, I will reference other online resources that I think may be helpful. On these occasions, I will attribute the appropriate credit and request that you support their work. A significant part of our field is the willingness of others to share their research, knowledge and expertise; let's help them so their work continues.
+I'm passionate about contributing to a resilient cybersecurity ecosystem by sharing methodologies, tools, and processes I've honed through real-world experience. RootGuard also serves as a space to highlight the work of other professionals whose insights have shaped my journey, with proper attribution to their contributions. By fostering collaboration and knowledge sharing, I aim to elevate cybersecurity standards and support the community's collective growth.
 
-### Why should anyone listen to me?
+### What to Expect
 
-My area of knowledge isn't focused on a single area within the technology space, nor am I an expert; what I am is a continuous learner and someone who has invested time into my development and has gained a considerable amount of experience working in multiple areas with information technology. In my professional career and spare time, I have undertaken multiple successful technology implementations, achieving the goals based on agreed objectives. As part of the day job, managed day-to-day information and cybersecurity operations and implemented organisational cyber initiatives.
+* Expert Insights: In-depth analysis of current trends, including AI-powered threat mitigation, supply chain risk management, and zero-trust strategies.
+* Technical Playbooks: Detailed guides on DFIR workflows, offensive security techniques, and tools of the trade.
+* Practical Resources: Tool comparisons, frameworks (e.g., MITRE ATT\&CK, NIST 800-207), and diagrams (e.g., zero-trust architectures, threat intelligence workflows) to support implementation.
+
+### Why RootGuard?
+
+My expertise is built on years of hands-on experience across diverse cybersecurity domains, from network defence to incident response. Rather than claiming mastery in a single area, I offer a broad perspective shaped by continuous learning and practical application. RootGuard reflects the tools, processes, and methodologies I've used successfully in enterprise environments, complemented by references to valuable community resources, credited to their creators. My goal is to deliver concise, actionable content that acknowledges the complexity of our field while fostering collaboration.
 
 ### Disclaimer
 
-Unless I am explicitly quoting someone, the thoughts and opinions expressed are my own. This website and content are provided without warranty of any kind.
+The thoughts and opinions expressed here are my own unless explicitly attributed to others. Content is provided as-is, without warranty. Tool or product mentions reflect my personal experience and are not sponsored unless stated otherwise.
 
-### Tools and product mentions <a href="#product-mentions" id="product-mentions"></a>
+### Sharing Content
 
-I use many daily, and any mention of a particular tool, product, or service is of my own accord and is not sponsored unless otherwise stated.
+Feel free to share RootGuard's content with attribution to support the cybersecurity community's knowledge-sharing ethos.
 
-### Can the site content be shared?
-
-Most definitely, provided you give attribution.
-
-### **You can also visit my:**
+**You can also visit my:**
 
 [**LinkedIn**](https://www.linkedin.com/in/adrian-anglin-76b29972)
 
