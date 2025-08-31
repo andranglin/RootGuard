@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/Screenshot 2025-01-04 151532.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 151532.png
 coverY: 0
 ---
 
@@ -15,6 +15,6 @@ Learning KQL is essential for security professionals working with Defender and S
 
 ### Start Learning:
 
-* [Endpoint](endpoint.md)
-* [Office](office.md)
-* [Identity](identity.md)
+* [Endpoint](mde-endpoint.md)
+* [Office](mdo-office.md)
+* [Identity](mdi-identity.md)

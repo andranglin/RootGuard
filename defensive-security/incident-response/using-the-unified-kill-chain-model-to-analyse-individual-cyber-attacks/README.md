@@ -8,7 +8,7 @@ The **Unified Kill Chain (UKC)** is an evolution of traditional attack kill chai
 
 **UKC** defines the attack lifecycle through **three overarching phases**, further broken into **18 distinct steps**. These phases encapsulate the attacker’s journey from initial access to achieving their objectives, providing a comprehensive understanding of modern cyberattacks.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-01-25 110158.png" alt=""><figcaption><p>The Unified Kill Chain Model</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-25 110158.png" alt=""><figcaption><p>The Unified Kill Chain Model</p></figcaption></figure>
 
 ### Key Characteristics of the Unified Kill Chain
 
