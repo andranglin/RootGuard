@@ -219,6 +219,7 @@
   * [Windows Intrusion Detection Playbook](detection-engineering/attack-triage-playbooks-kql-triage/windows-intrusion-detection-playbook.md)
   * [Vulnerability Detection Playbook](detection-engineering/attack-triage-playbooks-kql-triage/vulnerability-detection-playbook.md)
   * [Business Email Compromise Detection Playbook](detection-engineering/attack-triage-playbooks-kql-triage/business-email-compromise-detection-playbook.md)
+  * [Hunting APT TTPs and LOLBAS Operations - Playbook](detection-engineering/attack-triage-playbooks-kql-triage/hunting-apt-ttps-and-lolbas-operations-playbook.md)
 * [Process Execution (KQL Triage)](detection-engineering/process-execution-kql-triage.md)
 * [Threat Hunting](detection-engineering/threat-hunting/README.md)
   * [Hunting Ransomware Indicators](detection-engineering/threat-hunting/hunting-ransomware-indicators.md)
