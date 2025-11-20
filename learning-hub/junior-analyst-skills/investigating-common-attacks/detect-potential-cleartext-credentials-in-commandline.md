@@ -94,7 +94,6 @@ Security teams can use this query in Microsoft Sentinel or other SIEM platforms 
 * **Customisation**: The list of credential-related keywords can be expanded based on the organisation's environment and known attack vectors.
 * **Performance**: To optimise performance, consider narrowing the time range or filtering by specific devices/users if needed.
 
-\
+<br>
 
-
-\
+<br>

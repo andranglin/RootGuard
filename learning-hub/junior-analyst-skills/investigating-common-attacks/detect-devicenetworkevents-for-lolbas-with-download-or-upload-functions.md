@@ -88,4 +88,4 @@ Security teams can use this query in Microsoft Sentinel or other SIEM platforms 
 
 * **False Positives**: Legitimate administrative tasks may also use these tools for legitimate purposes. Analysts should review the results to differentiate between benign and malicious activity.
 * **Customisation**: The list of LOLBAS tools can be expanded based on the organisation's environment and known attack vectors.
-* **Performance**: To optimise performance, consider narrowing the time range or filtering by specific devices/users if needed.\
+* **Performance**: To optimise performance, consider narrowing the time range or filtering by specific devices/users if needed.<br>
