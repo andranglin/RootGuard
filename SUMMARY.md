@@ -264,3 +264,4 @@
   * [Penetration Testing Cheatsheet](offensive-security/pentesting-cheatsheet/penetration-testing-cheatsheet.md)
   * [Pentesting Cheatsheet (HTB)](offensive-security/pentesting-cheatsheet/pentesting-cheatsheet-htb.md)
   * [Powershell Tips and Use Cases](offensive-security/pentesting-cheatsheet/powershell-tips-and-use-cases.md)
+  * [Powershell Basic Training Workflow](offensive-security/pentesting-cheatsheet/powershell-basic-training-workflow.md)
