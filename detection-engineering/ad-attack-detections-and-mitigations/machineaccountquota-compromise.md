@@ -179,11 +179,8 @@ SecurityEvent
 1. **Whitelist Known Legitimate Activity:**
    *   Exclude trusted service accounts or administrators:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where not (InitiatorAccount in ("trusted_admin", "service_account"))
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where not (InitiatorAccount in ("trusted_admin", "service_account"))
+       </code></pre>
 2. **Tune Thresholds:**
    * Adjust thresholds for `CreationCount` and `TimeGenerated` based on your environment’s baseline.
 3. **Correlate with Other Events:**
@@ -196,11 +193,8 @@ SecurityEvent
 1. **Audit MachineAccountQuota Settings:**
    *   Periodically check the `ms-DS-MachineAccountQuota` value in your domain:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADDomain | Select-Object Name, ms-DS-MachineAccountQuota
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADDomain | Select-Object Name, ms-DS-MachineAccountQuota
+       </code></pre>
 2. **Enable Alerts:**
    * Configure alerts for `SuspiciousScore = High` to notify SOC analysts of potential abuse.
 3. **Dashboard Integration:**
@@ -302,11 +296,8 @@ index=windows EventCode=4741 OR EventCode=4720
 2. **Whitelist Legitimate Activity:**
    *   Exclude known service accounts or administrators:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where NOT CallerUserName IN ("trusted_admin", "service_account")
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where NOT CallerUserName IN ("trusted_admin", "service_account")
+       </code></pre>
 3. **Account Filtering:**
    *   Focus specifically on machine accounts (accounts ending with `$`):
 
@@ -321,11 +312,8 @@ index=windows EventCode=4741 OR EventCode=4720
 1. **Audit MachineAccountQuota Settings:**
    *   Regularly check the `ms-DS-MachineAccountQuota` setting in your Active Directory:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADDomain | Select-Object Name, ms-DS-MachineAccountQuota
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADDomain | Select-Object Name, ms-DS-MachineAccountQuota
+       </code></pre>
 2. **Correlate with Other Events:**
    * Look for lateral movement or privilege escalation attempts following the creation of machine accounts.
 3. **Create Alerts:**

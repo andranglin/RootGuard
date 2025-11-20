@@ -31,11 +31,8 @@
   1. Open an admin Command Prompt or PowerShell.
   2.  Run:cmd
 
-      {% code overflow="wrap" %}
-      ```powershell
-      D:\Tools\DumpIt.exe /O D:\MemoryDump\MemoryImage_%COMPUTERNAME%_%DATE%.raw
-      ```
-      {% endcode %}
+      <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">D:\Tools\DumpIt.exe /O D:\MemoryDump\MemoryImage_%COMPUTERNAME%_%DATE%.raw
+      </code></pre>
 
       * /O: Specifies output path and filename (e.g., MemoryImage\_PC1\_20250226.raw).
   3. Confirm with Y when prompted.
@@ -50,11 +47,8 @@ Option 2: WinPmem
   1. Open an admin Command Prompt.
   2.  Run:cmd
 
-      {% code overflow="wrap" %}
-      ```powershell
-      D:\Tools\winpmem.exe -o D:\MemoryDump\MemoryImage_%COMPUTERNAME%_%DATE%.raw
-      ```
-      {% endcode %}
+      <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">D:\Tools\winpmem.exe -o D:\MemoryDump\MemoryImage_%COMPUTERNAME%_%DATE%.raw
+      </code></pre>
 
       * -o: Output file path.
       * Optional: Add --format raw for explicit raw format.
@@ -118,18 +112,12 @@ Get-ComputerInfo | Export-Csv "$OutputPath\SystemInfo_$Timestamp.csv" -NoTypeInf
 * Check Output: Ensure the file exists and matches RAM size (e.g., dir D:\MemoryDump or Get-ChildItem $OutputPath).
 *   Hash for Integrity:powershell
 
-    {% code overflow="wrap" %}
-    ```powershell
-    Get-FileHash -Path "$OutputPath\MemoryImage_$env:COMPUTERNAME_$Timestamp.raw" -Algorithm SHA256 | Export-Csv "$OutputPath\MemoryHash_$Timestamp.csv"
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-FileHash -Path "$OutputPath\MemoryImage_$env:COMPUTERNAME_$Timestamp.raw" -Algorithm SHA256 | Export-Csv "$OutputPath\MemoryHash_$Timestamp.csv"
+    </code></pre>
 *   Compress:powershell
 
-    {% code overflow="wrap" %}
-    ```powershell
-    Compress-Archive -Path "$OutputPath\*" -DestinationPath "D:\MemoryTriage_$Timestamp.zip"
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Compress-Archive -Path "$OutputPath\*" -DestinationPath "D:\MemoryTriage_$Timestamp.zip"
+    </code></pre>
 
 6\. Analyze the Memory Image
 

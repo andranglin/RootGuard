@@ -241,7 +241,7 @@
 * [Information Gathering](offensive-security/information-gathering/README.md)
   * [Network Enumeration with Nmap](offensive-security/information-gathering/network-enumeration-with-nmap/README.md)
     * [Guide to Nmap Scanning](offensive-security/information-gathering/network-enumeration-with-nmap/guide-to-nmap-scanning.md)
-    * [Network Scanning With Nmap](offensive-security/information-gathering/network-enumeration-with-nmap/network-scanning-with-nmap.md)
+    * [Network Enumeration](offensive-security/information-gathering/network-enumeration-with-nmap/network-enumeration.md)
     * [Nmap Protocol Scan](offensive-security/information-gathering/network-enumeration-with-nmap/nmap-protocol-scan.md)
     * [Initial Enumeration](offensive-security/information-gathering/network-enumeration-with-nmap/initial-enumeration.md)
   * [Password Attacks](offensive-security/information-gathering/password-attacks.md)

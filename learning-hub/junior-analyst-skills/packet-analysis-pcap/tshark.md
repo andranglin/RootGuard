@@ -125,11 +125,8 @@ tshark -r sample.pcap -Y "smb" -T fields -e frame.time -e ip.src -e ip.dst -e sm
 
 *   **FTP**:
 
-    {% code overflow="wrap" %}
-    ```bash
-    tshark -r sample.pcap -Y "ftp.request.command == USER or ftp.request.command == PASS" -T fields -e ftp.request.command -e ftp.request.arg
-    ```
-    {% endcode %}
+    <pre class="language-bash" data-overflow="wrap"><code class="lang-bash">tshark -r sample.pcap -Y "ftp.request.command == USER or ftp.request.command == PASS" -T fields -e ftp.request.command -e ftp.request.arg
+    </code></pre>
 *   **HTTP Basic Auth**:
 
     ```bash
@@ -148,11 +145,8 @@ tshark -r sample.pcap -Y "smb" -T fields -e frame.time -e ip.src -e ip.dst -e sm
     ```
 *   **DNS Tunneling**:
 
-    {% code overflow="wrap" %}
-    ```bash
-    tshark -r sample.pcap -Y "dns.qry.name and frame.len > 300" -T fields -e dns.qry.name -e frame.len
-    ```
-    {% endcode %}
+    <pre class="language-bash" data-overflow="wrap"><code class="lang-bash">tshark -r sample.pcap -Y "dns.qry.name and frame.len > 300" -T fields -e dns.qry.name -e frame.len
+    </code></pre>
 * **Explanation**: Filters packets for C2 activity over HTTP or DNS. Replace the IP or payload length as needed.
 
 ***

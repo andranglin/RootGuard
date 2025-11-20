@@ -280,11 +280,8 @@ SecurityEvent
 2. **Whitelist Trusted Templates or Accounts:**
    *   Exclude known safe templates or service accounts:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where not(Templates contains "SafeTemplate") and not(Requestors has "TrustedServiceAccount")
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where not(Templates contains "SafeTemplate") and not(Requestors has "TrustedServiceAccount")
+       </code></pre>
 3. **Time-Based Analysis:**
    *   Group events into smaller intervals (e.g., 15 minutes) to detect bursts of suspicious activity:
 
@@ -431,11 +428,8 @@ index=windows (EventCode=4624 OR EventCode=4625)
 1. **Whitelist Trusted Templates:**
    *   Exclude known safe templates:
 
-       {% code overflow="wrap" %}
-       ```splunk-spl
-       | where NOT Templates IN ("SafeTemplate1", "SafeTemplate2")
-       ```
-       {% endcode %}
+       <pre class="language-splunk-spl" data-overflow="wrap"><code class="lang-splunk-spl">| where NOT Templates IN ("SafeTemplate1", "SafeTemplate2")
+       </code></pre>
 2. **Adjust Thresholds:**
    * Modify the thresholds for `LogonCount` or event volume based on your organization's normal behaviour.
 3. **Filter Authorized Accounts:**

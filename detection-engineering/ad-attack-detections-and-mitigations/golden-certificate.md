@@ -214,11 +214,8 @@ SecurityEvent
 1. **Whitelist Legitimate Templates or Accounts:**
    *   Exclude known safe templates or accounts:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where not(CertificateTemplate contains "SafeTemplate") and not(Requestor has "TrustedServiceAccount")
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where not(CertificateTemplate contains "SafeTemplate") and not(Requestor has "TrustedServiceAccount")
+       </code></pre>
 2. **Adjust Thresholds:**
    * Modify thresholds for `EventCount` and `TicketCount` to align with your environment’s activity.
 3. **Time-Based Grouping:**
@@ -388,11 +385,8 @@ index=windows EventCode=5136
 1. **Whitelist Trusted Templates or Accounts:**
    *   Exclude known safe templates or accounts:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where NOT CertificateTemplate IN ("SafeTemplate") AND NOT Requestor IN ("TrustedAdmin", "ServiceAccount")
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where NOT CertificateTemplate IN ("SafeTemplate") AND NOT Requestor IN ("TrustedAdmin", "ServiceAccount")
+       </code></pre>
 2. **Adjust Thresholds:**
    * Modify `EventCount > 5` based on the normal activity levels in your environment.
 3. **Time-Based Grouping:**
@@ -404,11 +398,8 @@ index=windows EventCode=5136
 4. **Track Privileged Template Usage:**
    *   Monitor usage of all templates associated with administrative privileges:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where CertificateTemplate IN ("DomainAdmin", "Administrator", "EnterpriseAdmin")
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where CertificateTemplate IN ("DomainAdmin", "Administrator", "EnterpriseAdmin")
+       </code></pre>
 
 ***
 

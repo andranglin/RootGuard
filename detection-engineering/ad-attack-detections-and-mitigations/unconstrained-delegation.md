@@ -41,11 +41,8 @@ Unconstrained delegation is classified under the **Credential Access** and **Pri
    * Attackers enumerate domain objects to identify computers or services with unconstrained delegation enabled. This can be done using tools like **BloodHound** or PowerShell commands.
    *   For example:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
+       </code></pre>
 2. **Compromise Target System:**
    * The attacker compromises a machine or service account configured for unconstrained delegation.
 3. **Extract TGTs:**
@@ -75,11 +72,8 @@ Unconstrained delegation is classified under the **Credential Access** and **Pri
 2. **Audit and Monitor:**
    *   Regularly audit domain controllers, servers, and service accounts for unconstrained delegation:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
+       </code></pre>
 3. **Network Segmentation:**
    * Segregate high-value resources (e.g., domain controllers) from systems configured for delegation.
 4. **Log and Monitor for Anomalies:**
@@ -230,11 +224,8 @@ AADDomainServicesSigninLogs
 1. **Audit Unconstrained Delegation Configurations:**
    *   Use PowerShell to query all systems with `TrustedForDelegation` enabled:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
+       </code></pre>
 2. **Whitelist Trusted Systems:**
    *   Exclude known safe systems or accounts:
 
@@ -336,11 +327,8 @@ index=windows EventCode=5136
 1. **Whitelist Trusted Systems:**
    *   Exclude known safe systems (e.g., trusted services or domain controllers):
 
-       {% code overflow="wrap" %}
-       ```splunk-spl
-       | search NOT ComputerName IN ("TrustedDC1", "TrustedAppServer")
-       ```
-       {% endcode %}
+       <pre class="language-splunk-spl" data-overflow="wrap"><code class="lang-splunk-spl">| search NOT ComputerName IN ("TrustedDC1", "TrustedAppServer")
+       </code></pre>
 2. **Thresholds for Suspicious Activity:**
    *   Add thresholds for excessive delegation changes:
 
@@ -365,11 +353,8 @@ index=windows EventCode=5136
 3. **Audit Active Directory:**
    *   Regularly review systems with `TrustedForDelegation` enabled using:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADComputer -Filter {TrustedForDelegation -eq $true} -Properties TrustedForDelegation
+       </code></pre>
 
 ***
 

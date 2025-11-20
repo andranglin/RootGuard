@@ -143,11 +143,8 @@ Steps to Isolate a Device Using Live Response in Microsoft Defender
 2. Execute Commands to Isolate the Device:
    *   In the Live Response CLI, you’ll manually disable network connectivity to isolate the device. Since Live Response supports PowerShell, you can run a command to disable all active network adapters:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       run powershell.exe -Command "Get-NetAdapter | Where-Object { $_.Status -eq 'Up' } | Disable-NetAdapter -Confirm:$false"
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">run powershell.exe -Command "Get-NetAdapter | Where-Object { $_.Status -eq 'Up' } | Disable-NetAdapter -Confirm:$false"
+       </code></pre>
 
        * What this does:
          * Get-NetAdapter: Lists all network adapters on the device.
@@ -157,11 +154,8 @@ Steps to Isolate a Device Using Live Response in Microsoft Defender
 3. Verify the Isolation:
    *   Check the network adapter status to confirm:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       run powershell.exe -Command "Get-NetAdapter | Select-Object Name, Status | Out-File C:\temp\netstatus.txt"
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">run powershell.exe -Command "Get-NetAdapter | Select-Object Name, Status | Out-File C:\temp\netstatus.txt"
+       </code></pre>
 
        * This saves the adapter status to a file on the device.
    *   Retrieve the file to review:
@@ -192,13 +186,10 @@ Optional: Use a Pre-Uploaded ScriptFor efficiency or reusability, you can upload
 * Go to Settings > Endpoints > Live Response > Library > Upload File.
 *   Upload this script (e.g., isolate\_device.ps1):
 
-    {% code overflow="wrap" %}
-    ```powershell
-    # Isolate device by disabling network adapters
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"># Isolate device by disabling network adapters
     Get-NetAdapter | Where-Object { $_.Status -eq "Up" } | Disable-NetAdapter -Confirm:$false
     Write-Output "Device isolated - network adapters disabled."
-    ```
-    {% endcode %}
+    </code></pre>
 *   In the Live Response session, run it:
 
     ```powershell
@@ -416,20 +407,14 @@ Steps:
 
     Run:
 
-    {% code overflow="wrap" %}
-    ```cmake
-    run cmd.exe -Command "for /f \"skip=1\" %%a in ('wmic path Win32_NetworkAdapter where \"DeviceEnabled=true\" get DeviceID') do (wmic path Win32_NetworkAdapter where \"DeviceID='%%a'\" call Disable)"
-    ```
-    {% endcode %}
+    <pre class="language-cmake" data-overflow="wrap"><code class="lang-cmake">run cmd.exe -Command "for /f \"skip=1\" %%a in ('wmic path Win32_NetworkAdapter where \"DeviceEnabled=true\" get DeviceID') do (wmic path Win32_NetworkAdapter where \"DeviceID='%%a'\" call Disable)"
+    </code></pre>
 3.  Verify:
 
     Check status:
 
-    {% code overflow="wrap" %}
-    ```powershell
-    run cmd.exe -Command "wmic path Win32_NetworkAdapter get DeviceID, DeviceEnabled"
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">run cmd.exe -Command "wmic path Win32_NetworkAdapter get DeviceID, DeviceEnabled"
+    </code></pre>
 
 Reversal:
 

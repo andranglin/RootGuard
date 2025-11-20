@@ -28,11 +28,8 @@
 * CLI Method:
   *   Generate a collector with a command like:
 
-      {% code overflow="wrap" %}
-      ```powershell
-      velociraptor.exe config generate -i && velociraptor.exe --config server.config.yaml artifacts collect Windows.KapeFiles.Targets --args Target=KapeTriage --output D:\TriageOutput\triage.zip
-      ```
-      {% endcode %}
+      <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">velociraptor.exe config generate -i &#x26;&#x26; velociraptor.exe --config server.config.yaml artifacts collect Windows.KapeFiles.Targets --args Target=KapeTriage --output D:\TriageOutput\triage.zip
+      </code></pre>
 
       * \--args Target=KapeTriage: Specifies the triage scope.
       * \--output: Defines the ZIP file location.
@@ -57,18 +54,12 @@ Option B: Direct Collection (Live System with Server)
 * Forensic Image:
   *   Mount the image or use raw access. For mounted drives:
 
-      {% code overflow="wrap" %}
-      ```powershell
-      velociraptor.exe deaddisk --image E:\mounted_image triage --output D:\TriageOutput\triage.zip
-      ```
-      {% endcode %}
+      <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">velociraptor.exe deaddisk --image E:\mounted_image triage --output D:\TriageOutput\triage.zip
+      </code></pre>
   *   For raw images, create a remapping.yaml file to map partitions (e.g., with --add\_windows\_disk), then:
 
-      {% code overflow="wrap" %}
-      ```powershell
-      velociraptor.exe --remap remapping.yaml deaddisk --image E:\raw_image triage --output D:\TriageOutput\triage.zip
-      ```
-      {% endcode %}
+      <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">velociraptor.exe --remap remapping.yaml deaddisk --image E:\raw_image triage --output D:\TriageOutput\triage.zip
+      </code></pre>
 
 5\. Verify and Analyze
 

@@ -56,18 +56,12 @@ tcpdump -r sample.pcap src net 192.168.1.0/24 and dst net not 192.168.1.0/24 and
 
 *   **Over HTTPS (Port 443)**:
 
-    {% code overflow="wrap" %}
-    ```bash
-    tcpdump -r sample.pcap port 443 and src net 192.168.1.0/24 and dst net not 192.168.1.0/24
-    ```
-    {% endcode %}
+    <pre class="language-bash" data-overflow="wrap"><code class="lang-bash">tcpdump -r sample.pcap port 443 and src net 192.168.1.0/24 and dst net not 192.168.1.0/24
+    </code></pre>
 *   **DNS Tunneling (Port 53)**:
 
-    {% code overflow="wrap" %}
-    ```bash
-    tcpdump -r sample.pcap port 53 and src net 192.168.1.0/24 and dst net not 192.168.1.0/24 and greater 300
-    ```
-    {% endcode %}
+    <pre class="language-bash" data-overflow="wrap"><code class="lang-bash">tcpdump -r sample.pcap port 53 and src net 192.168.1.0/24 and dst net not 192.168.1.0/24 and greater 300
+    </code></pre>
 * **Explanation**: Identifies external communication to untrusted destinations, which may indicate ransomware contacting its C2 server for encryption keys or instructions.
 
 ***

@@ -11,11 +11,8 @@
     ```
 *   Execution Policy: Check with Get-ExecutionPolicy. If restricted (Restricted), bypass it temporarily:
 
-    {% code overflow="wrap" %}
-    ```powershell
-    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force
+    </code></pre>
 *   Logging: Start a transcript to log commands and output:powershell
 
     ```powershell
@@ -143,25 +140,16 @@ Write-Host "Triage data collection complete. Output saved to D:\TriageData_$Time
 
 *   Memory Dump: Pair with DumpIt or winpmem for RAM capture (PowerShell can’t do this natively):
 
-    {% code overflow="wrap" %}
-    ```powershell
-    Start-Process -FilePath "C:\Tools\DumpIt.exe" -ArgumentList "/O $OutputPath\MemoryDump_$Timestamp.raw" -Wait
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Start-Process -FilePath "C:\Tools\DumpIt.exe" -ArgumentList "/O $OutputPath\MemoryDump_$Timestamp.raw" -Wait
+    </code></pre>
 *   Hash Files: Add MD5 hashes for integrity:
 
-    {% code overflow="wrap" %}
-    ```powershell
-    Get-ChildItem "$OutputPath\Prefetch" | Get-FileHash -Algorithm MD5 | Export-Csv "$OutputPath\PrefetchHashes_$Timestamp.csv" -NoTypeInformation
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ChildItem "$OutputPath\Prefetch" | Get-FileHash -Algorithm MD5 | Export-Csv "$OutputPath\PrefetchHashes_$Timestamp.csv" -NoTypeInformation
+    </code></pre>
 *   Remote Execution: Run on networked systems:
 
-    {% code overflow="wrap" %}
-    ```powershell
-    Invoke-Command -ComputerName TARGET-PC -FilePath .\Triage.ps1 -Credential (Get-Credential)
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Invoke-Command -ComputerName TARGET-PC -FilePath .\Triage.ps1 -Credential (Get-Credential)
+    </code></pre>
 
 7\. Tips and Considerations
 

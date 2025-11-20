@@ -47,11 +47,8 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 3. **Threat Hunting:**
    *   Query Active Directory to identify accounts with the `DONT_REQUIRE_PREAUTH` attribute enabled:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADUser -Filter {DoesNotRequirePreAuth -eq $true} -Properties DoesNotRequirePreAuth
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADUser -Filter {DoesNotRequirePreAuth -eq $true} -Properties DoesNotRequirePreAuth
+       </code></pre>
 4. **Use EDR/SIEM Tools:**
    * Configure detection rules for tools like Splunk, Elastic, or Microsoft Sentinel to flag unusual AS-REP requests.
 

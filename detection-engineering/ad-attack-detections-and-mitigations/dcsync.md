@@ -237,11 +237,8 @@ AzureNetworkAnalytics_CL
 2. **Audit Replication Permissions:**
    *   Regularly review accounts with **Replicating Directory Changes** and **Replicating Directory Changes All** permissions:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADUser -Filter * -Properties ReplicatingDirectoryChanges
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADUser -Filter * -Properties ReplicatingDirectoryChanges
+       </code></pre>
 3. **Harden Active Directory:**
    * Limit replication permissions to necessary accounts only (e.g., domain controllers).
 4. **Enable Advanced Auditing:**
@@ -335,11 +332,8 @@ index=network (dest_port=389 OR dest_port=636)  // LDAP and LDAPS ports
 1. **Whitelist Known Accounts or Activities:**
    *   Exclude trusted accounts or service accounts:
 
-       {% code overflow="wrap" %}
-       ```splunk-spl
-       | search NOT User_Name IN ("TrustedAdmin", "BackupService")
-       ```
-       {% endcode %}
+       <pre class="language-splunk-spl" data-overflow="wrap"><code class="lang-splunk-spl">| search NOT User_Name IN ("TrustedAdmin", "BackupService")
+       </code></pre>
 2. **Adjust Thresholds:**
    *   Modify thresholds for event counts based on your environment’s normal behavior:
 
@@ -364,11 +358,8 @@ index=network (dest_port=389 OR dest_port=636)  // LDAP and LDAPS ports
 2. **Audit Permissions:**
    *   Regularly review accounts with **Replicating Directory Changes** permissions:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ADUser -Filter * -Properties ReplicatingDirectoryChanges
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADUser -Filter * -Properties ReplicatingDirectoryChanges
+       </code></pre>
 3. **Enable Advanced Auditing:**
    * Configure advanced object access auditing for directory services in Group Policy.
 4. **Restrict Replication Permissions:**

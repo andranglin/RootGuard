@@ -59,11 +59,8 @@ Attackers can exploit this vulnerability to extract plaintext passwords from GPP
 1. **Audit and Remove GPP Passwords:**
    *   Search for and remove any passwords stored in GPP XML files:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ChildItem -Path \\<domain>\SYSVOL\<domain>\Policies -Recurse -Include *.xml | Select-String -Pattern "cpassword"
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ChildItem -Path \\&#x3C;domain>\SYSVOL\&#x3C;domain>\Policies -Recurse -Include *.xml | Select-String -Pattern "cpassword"
+       </code></pre>
 2. **Rotate Credentials:**
    * Reset passwords for any accounts found in GPP files to prevent further misuse.
 3. **Restrict SYSVOL Access:**
@@ -196,11 +193,8 @@ SecurityEvent
 1. **Whitelist Known Users or Systems:**
    *   Exclude authorized administrative accounts or systems that legitimately access these files:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where not(Account in ("AdminAccount1", "BackupService"))
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where not(Account in ("AdminAccount1", "BackupService"))
+       </code></pre>
 2. **Threshold Adjustment:**
    * Adjust the `AccessCount > 10` threshold based on your environment’s baseline activity.
 3. **Time-Based Grouping:**
@@ -212,11 +206,8 @@ SecurityEvent
 4. **Audit SYSVOL Content Periodically:**
    *   Use PowerShell to identify GPP files containing passwords:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ChildItem -Path \\<domain>\SYSVOL\<domain>\Policies -Recurse -Include *.xml | Select-String -Pattern "cpassword"
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ChildItem -Path \\&#x3C;domain>\SYSVOL\&#x3C;domain>\Policies -Recurse -Include *.xml | Select-String -Pattern "cpassword"
+       </code></pre>
 
 ***
 
@@ -388,11 +379,8 @@ index=windows EventCode=5145
 2. **Whitelist Legitimate Activity:**
    *   Exclude trusted accounts or systems that access SYSVOL:
 
-       {% code overflow="wrap" %}
-       ```splunk-spl
-       | search NOT Account_Name IN ("trusted_admin", "service_account")
-       ```
-       {% endcode %}
+       <pre class="language-splunk-spl" data-overflow="wrap"><code class="lang-splunk-spl">| search NOT Account_Name IN ("trusted_admin", "service_account")
+       </code></pre>
 3. **Add Time-Based Grouping:**
    *   Group events into smaller time intervals to detect bursts of activity:
 
@@ -415,11 +403,8 @@ index=windows EventCode=5145
 2. **Audit SYSVOL:**
    *   Regularly check for GPP passwords using PowerShell:
 
-       {% code overflow="wrap" %}
-       ```powershell
-       Get-ChildItem -Path \\<domain>\SYSVOL\<domain>\Policies -Recurse -Include *.xml | Select-String -Pattern "cpassword"
-       ```
-       {% endcode %}
+       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ChildItem -Path \\&#x3C;domain>\SYSVOL\&#x3C;domain>\Policies -Recurse -Include *.xml | Select-String -Pattern "cpassword"
+       </code></pre>
 3. **Rotate Compromised Credentials:**
    * Immediately rotate credentials if a `cpassword` is detected in GPP XML files.
 4. **Harden SYSVOL Permissions:**

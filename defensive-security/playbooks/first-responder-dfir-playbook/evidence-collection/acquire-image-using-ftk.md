@@ -91,11 +91,8 @@ Option 4: Custom Content Image (Specific Files/Folders)
 * Hash Backup: Export hashes manually via Tools > Export Disk Image Hashes if needed.
 *   Compress (Optional): Use Compress-Archive in PowerShell for transport:powershell
 
-    {% code overflow="wrap" %}
-    ```powershell
-    Compress-Archive -Path "D:\ForensicImages\*" -DestinationPath "D:\Case_20250226.zip"
-    ```
-    {% endcode %}
+    <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Compress-Archive -Path "D:\ForensicImages\*" -DestinationPath "D:\Case_20250226.zip"
+    </code></pre>
 * Secure Storage: Move to an evidence locker or encrypted drive.
 
 6\. Analyze the Image

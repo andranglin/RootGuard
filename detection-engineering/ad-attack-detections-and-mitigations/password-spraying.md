@@ -157,11 +157,8 @@ FailedLogons
 3. **Exclusions:**
    *   Exclude trusted IPs or service accounts to reduce false positives:
 
-       {% code overflow="wrap" %}
-       ```kusto
-       | where not (ClientIP in ("trusted_ip1", "trusted_ip2") or AccountName startswith "svc_")
-       ```
-       {% endcode %}
+       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where not (ClientIP in ("trusted_ip1", "trusted_ip2") or AccountName startswith "svc_")
+       </code></pre>
 
 ***
 
@@ -314,22 +311,16 @@ index=windows (EventCode=4625 OR EventCode=4624)
 
 *   **Whitelist Known Sources or Accounts:**
 
-    {% code overflow="wrap" %}
-    ```kusto
-    | search NOT [ | inputlookup whitelist_ips.csv ]
-    ```
-    {% endcode %}
+    <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| search NOT [ | inputlookup whitelist_ips.csv ]
+    </code></pre>
 * **Threshold Adjustments:**
   * Tune `FailedAttempts > 10` and `UniqueAccounts > 5` based on your environment’s normal behaviour.
 * **Include Geolocation:**
   *   Add geographic context to identify activity from unexpected regions:
 
-      {% code overflow="wrap" %}
-      ```kusto
-      | iplocation IpAddress
+      <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| iplocation IpAddress
       | table IpAddress, Country, Region, City, TotalAttempts, FailedAttempts, SuccessfulAttempts
-      ```
-      {% endcode %}
+      </code></pre>
 
 ***
 
