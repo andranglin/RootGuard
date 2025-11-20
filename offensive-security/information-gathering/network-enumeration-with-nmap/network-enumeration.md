@@ -133,19 +133,16 @@ ssh-audit <target>
   * **Tools:** `nmap`, `xfreerdp`
 
 {% code overflow="wrap" %}
-````bash
+```bash
 # Nmap (Check for vulnerabilities and encryption)
 sudo nmap -p 3389 --script=rdp-ntlm-info,rdp-enum-encryption,rdp-vuln-ms12-020 <target>
 # xfreerdp (Attempt to connect)
-xfreerdp /v:<target>
-        ```
-        
-- **WinRM (5985, 5986):**
-    - **Tools:** `nmap`, `evil-winrm`
-``` bash
+xfreerdp /v:<target>   
+## WinRM (5985, 5986):
+## Tools: `nmap`, `evil-winrm`
 sudo nmap -p 5985,5986 --script=http-winrm-info,wsman-info <target>
 evil-winrm -i <target> -u <user> -p <pass>
-````
+```
 {% endcode %}
 
 * **VNC (5900):**

@@ -251,6 +251,7 @@
   * [Attacking Common Applications](offensive-security/information-gathering/attacking-common-applications.md)
   * [Windows Privilege Escalation](offensive-security/information-gathering/windows-privilege-escalation.md)
   * [Attacking Enterprise Networks](offensive-security/information-gathering/attacking-enterprise-networks.md)
+  * [Footprinting (Scan-Enum) Full](offensive-security/information-gathering/footprinting-scan-enum-full.md)
 * [Vulnerability Assessment](offensive-security/vulnerability-assessment.md)
 * [Exploitation](offensive-security/exploitation.md)
 * [Post-Exploitation](offensive-security/post-exploitation.md)

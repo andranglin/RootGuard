@@ -1,4 +1,4 @@
-# Nmap Guide to Network Scanning
+# Guide to Nmap Scanning
 
 Nmap (Network Mapper) is a powerful open-source tool for network exploration, security auditing, and reconnaissance. It allows users to discover hosts, services, operating systems, and vulnerabilities on a network. This cheat sheet organises Nmap’s key commands and flags into categories, with explanations and practical tips to help you use them effectively. Use this guide for quick reference during network scanning tasks, whether you're performing host discovery, port scanning, or advanced vulnerability assessments.
 
@@ -8,6 +8,7 @@ Nmap (Network Mapper) is a powerful open-source tool for network exploration, se
 
 Host discovery identifies live hosts on a network before performing detailed scans. These flags help determine which hosts are active without necessarily scanning ports.
 
+{% code overflow="wrap" %}
 ```bash
 -sL    nmap 192.168.1.1-3 -sL                       # Lists targets without scanning (useful for planning)
 -sn    nmap 192.168.1.1/24 -sn                      # Ping scan, disables port scanning (quick host check)
@@ -18,6 +19,7 @@ Host discovery identifies live hosts on a network before performing detailed sca
 -PR    nmap 192.168.1.0/24 -PR                      # ARP discovery for local networks (fast and reliable)
 -n     nmap 192.168.1.1 -n                          # Disables DNS resolution (speeds up scans)
 ```
+{% endcode %}
 
 **Tips**:
 
@@ -31,16 +33,18 @@ Host discovery identifies live hosts on a network before performing detailed sca
 
 Define which hosts or networks to scan. Nmap supports various input formats for flexibility.
 
+{% code overflow="wrap" %}
 ```bash
-nmap 192.168.1.1                                    # Scans a single IP
-nmap 192.168.1.1 192.168.2.1                        # Scans multiple specific IPs
-nmap 192.168.1.1-254                                # Scans a range of IPs
-nmap scanme.nmap.org                                # Scans a domain (resolves to IP)
-nmap 192.168.1.0/24                                 # Scans a subnet using CIDR notation
--iL    nmap -iL targets.txt                         # Scans IPs listed in a file
--iR    nmap -iR 100                                 # Scans 100 random hosts (useful for research)
---exclude nmap --exclude 192.168.1.1                # Excludes specific hosts from scan
+nmap 192.168.1.1                         # Scans a single IP
+nmap 192.168.1.1 192.168.2.1             # Scans multiple specific IPs
+nmap 192.168.1.1-254                     # Scans a range of IPs
+nmap scanme.nmap.org                     # Scans a domain (resolves to IP)
+nmap 192.168.1.0/24                      # Scans a subnet using CIDR notation
+-iL    nmap -iL targets.txt              # Scans IPs listed in a file
+-iR    nmap -iR 100                      # Scans 100 random hosts (useful for research)
+--exclude nmap --exclude 192.168.1.1     # Excludes specific hosts from scan
 ```
+{% endcode %}
 
 **Tips**:
 
@@ -54,14 +58,16 @@ nmap 192.168.1.0/24                                 # Scans a subnet using CIDR 
 
 Choose the type of scan based on your goals, network conditions, and stealth requirements.
 
+{% code overflow="wrap" %}
 ```bash
--sS    nmap 192.168.1.1 -sS                         # TCP SYN scan (default, stealthy, fast)
--sT    nmap 192.168.1.1 -sT                         # TCP connect scan (reliable, but noisier)
--sU    nmap 192.168.1.1 -sU                         # UDP scan (slower, for UDP services like DNS)
--sA    nmap 192.168.1.1 -sA                         # TCP ACK scan (maps firewall rules)
--sW    nmap 192.168.1.1 -sW                         # TCP Window scan (detects filtered ports)
--sM    nmap 192.168.1.1 -sM                         # TCP Maimon scan (rare, for specific firewalls)
+-sS    nmap 192.168.1.1 -sS           # TCP SYN scan (default, stealthy, fast)
+-sT    nmap 192.168.1.1 -sT           # TCP connect scan (reliable, but noisier)
+-sU    nmap 192.168.1.1 -sU           # UDP scan (slower, for UDP services like DNS)
+-sA    nmap 192.168.1.1 -sA           # TCP ACK scan (maps firewall rules)
+-sW    nmap 192.168.1.1 -sW           # TCP Window scan (detects filtered ports)
+-sM    nmap 192.168.1.1 -sM           # TCP Maimon scan (rare, for specific firewalls)
 ```
+{% endcode %}
 
 **Tips**:
 
@@ -75,6 +81,7 @@ Choose the type of scan based on your goals, network conditions, and stealth req
 
 Control which ports to scan, from specific ports to all 65,535 ports.
 
+{% code overflow="wrap" %}
 ```bash
 -p     nmap 192.168.1.1 -p 21                     # Scans specific port (e.g., FTP)
 -p     nmap 192.168.1.1 -p 21-100                 # Scans a port range
@@ -82,8 +89,9 @@ Control which ports to scan, from specific ports to all 65,535 ports.
 -p-    nmap 192.168.1.1 -p-                       # Scans all 65,535 ports (comprehensive but slow)
 -p     nmap 192.168.1.1 -p http,https             # Scans by service name (e.g., ports 80, 443)
 -F     nmap 192.168.1.1 -F                        # Fast scan of 100 common ports
---top-ports nmap 192.168.1.1 --top-ports 2000     # Scans top 2000 most common ports
+--top-ports nmap 192.168.1.1 --top-ports 200     # Scans top 2000 most common ports
 ```
+{% endcode %}
 
 **Tips**:
 
@@ -97,26 +105,28 @@ Control which ports to scan, from specific ports to all 65,535 ports.
 
 Adjust scan speed and behaviour to balance accuracy, stealth, and performance.
 
+{% code overflow="wrap" %}
 ```bash
--T0    nmap -T0 <target>                            # Paranoid (very slow, for IDS evasion)
--T1    nmap -T1 <target>                            # Sneaky (slow, stealthy)
--T2    nmap -T2 <target>                            # Polite (conserves bandwidth)
--T3    nmap -T3 <target>                            # Normal (default, balanced)
--T4    nmap -T4 <target>                            # Aggressive (faster, for reliable networks)
--T5    nmap -T5 <target>                            # Insane (fastest, may miss results)
---host-timeout <time>                               # Max time per host (e.g., 30m, 1h)
---min-rtt-timeout <time>                            # Min probe timeout (e.g., 100ms)
---max-rtt-timeout <time>                            # Max probe timeout (e.g., 500ms)
---min-hostgroup <size>                              # Min hosts scanned in parallel
---max-hostgroup <size>                              # Max hosts scanned in parallel
---min-parallelism <num>                             # Min probes sent in parallel
---max-parallelism <num>                             # Max probes sent in parallel
---scan-delay <time>                                 # Delay between probes (e.g., 1s)
---max-scan-delay <time>                             # Max delay between probes
---max-retries <tries>                               # Max retransmissions per port
---min-rate <number>                                 # Min packets per second
---max-rate <number>                                 # Max packets per second
+-T0    nmap -T0 <target>              # Paranoid (very slow, for IDS evasion)
+-T1    nmap -T1 <target>              # Sneaky (slow, stealthy)
+-T2    nmap -T2 <target>              # Polite (conserves bandwidth)
+-T3    nmap -T3 <target>              # Normal (default, balanced)
+-T4    nmap -T4 <target>              # Aggressive (faster, for reliable networks)
+-T5    nmap -T5 <target>              # Insane (fastest, may miss results)
+--host-timeout <time>                 # Max time per host (e.g., 30m, 1h)
+--min-rtt-timeout <time>              # Min probe timeout (e.g., 100ms)
+--max-rtt-timeout <time>              # Max probe timeout (e.g., 500ms)
+--min-hostgroup <size>                # Min hosts scanned in parallel
+--max-hostgroup <size>                # Max hosts scanned in parallel
+--min-parallelism <num>               # Min probes sent in parallel
+--max-parallelism <num>               # Max probes sent in parallel
+--scan-delay <time>                   # Delay between probes (e.g., 1s)
+--max-scan-delay <time>               # Max delay between probes
+--max-retries <tries>                 # Max retransmissions per port
+--min-rate <number>                   # Min packets per second
+--max-rate <number>                   # Max packets per second
 ```
+{% endcode %}
 
 
 
@@ -132,6 +142,7 @@ Adjust scan speed and behaviour to balance accuracy, stealth, and performance.
 
 Identify services and their versions running on open ports.
 
+{% code overflow="wrap" %}
 ```bash
 -sV                                # Detects service versions (e.g., Apache 2.4.7)
 --version-intensity <0-9>          # Sets detection intensity (0=light, 9=aggressive)
@@ -139,6 +150,7 @@ Identify services and their versions running on open ports.
 --version-all                      # Thorough version scan (intensity 9)
 -A                                 # Enables OS detection, version detection, scripts, and traceroute
 ```
+{% endcode %}
 
 **Tips**:
 
@@ -192,6 +204,7 @@ Bypass firewalls and intrusion detection systems (IDS) with these techniques.
 
 Leverage Nmap’s scripting engine for advanced tasks like vulnerability scanning and enumeration.
 
+{% code overflow="wrap" %}
 ```bash
 -sC                                # Runs default scripts (safe and common)
 --script default                   # Same as -sC
@@ -201,9 +214,11 @@ Leverage Nmap’s scripting engine for advanced tasks like vulnerability scannin
 --script "not intrusive"           # Excludes intrusive scripts for safety
 --script-args                      # Passes arguments to scripts (e.g., credentials)
 ```
+{% endcode %}
 
 **Example NSE Scripts**:
 
+{% code overflow="wrap" %}
 ```bash
 nmap -Pn --script=http-sitemap-generator scanme.nmap.org                  # Maps website structure
 nmap -n -Pn -p 80 --open -sV -vvv --script banner,http-title -iR 1000     # Grabs banners and titles
@@ -213,9 +228,11 @@ nmap --script whois* domain.com                                            # Per
 nmap -p80 --script http-unsafe-output-escaping scanme.nmap.org             # Checks for XSS vulnerabilities
 nmap -p80 --script http-sql-injection scanme.nmap.org                      # Tests for SQL injection
 ```
+{% endcode %}
 
 **Web App-Specific NSE Scripts**:
 
+{% code overflow="wrap" %}
 ```bash
 nmap -p80 --script http-methods --script-args http-methods.test-all http://target
 nmap -p80 --script http-headers http://target
@@ -226,14 +243,17 @@ nmap -p80 --script http-userdir-enum http://target
 nmap -p80 --script http-vhosts,http-iis-short-name-brute http://target
 nmap -p80 --script http-dombased-xss,http-xssed,http-stored-xss,http-csrf 192.168.1.1
 ```
+{% endcode %}
 
 **Advanced NSE Script Usage**:
 
+{% code overflow="wrap" %}
 ```bash
 nmap --script-args "userdb=users.txt,passdb=passlist.txt" -p21 ftp.target.com --script ftp-brute
 nmap -p445 --script smb-enum-users,smb-enum-shares --script-args smbuser=admin,smbpass=password 192.168.1.100
 nmap -p80 --script http-form-brute --script-args http-form-brute.hostname=target.com,http-form-brute.path=/login,http-form-brute.uservar=username,http-form-brute.passvar=password,http-form-brute.failmsg="invalid login" 192.168.1.1
 ```
+{% endcode %}
 
 **Vulnerability Scanning Scripts**:
 

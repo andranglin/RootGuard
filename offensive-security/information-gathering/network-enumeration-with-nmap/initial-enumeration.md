@@ -23,9 +23,11 @@ sudo nmap -Pn -v -sS -sV -sC -oN tcp-quick.nmap <IP>
 
 #### Nmap TCP Full Scan
 
+{% code overflow="wrap" %}
 ```bash
 nmap -Pn -sS --stats-every 3m --max-retries 1 --max-scan-delay 20 --defeat-rst-ratelimit -T4 -p1-65535 -oN tcp-full.nmap -sV <IP>
 ```
+{% endcode %}
 
 * **Purpose**: Comprehensive TCP SYN scan of all 65,535 ports with version detection, optimised for speed (`-T4`) and reliability.
 * **Use Case**: Detailed enumeration of all TCP ports and services on a target, ideal for thorough assessments.
@@ -62,9 +64,11 @@ nmap -Pn -v -sU -sV --top-ports=30 -oN udp-quick.nmap <IP>
 
 #### Nmap UDP 1000 Scan
 
+{% code overflow="wrap" %}
 ```bash
 nmap -Pn --top-ports 1000 -sU --stats-every 3m --max-retries 1 -T4 -oN udp-1000.nmap <IP>
 ```
+{% endcode %}
 
 * **Purpose**: Scans the top 1,000 UDP ports with aggressive timing, providing progress updates.
 * **Use Case**: Broader UDP enumeration for less common services.
@@ -124,9 +128,11 @@ These commands and checks focus on enumerating specific services and protocols, 
   * Check for read/write access to directories (e.g., web root, system files).
 * **Commands**:
 
+{% code overflow="wrap" %}
 ```bash
 nmap -sV --script=ftp-anon,ftp-bounce,ftp-syst,ftp-vsftpd-backdoor,ftp-proftpd-backdoor,ftp-libopie -p21 <IP>
 ```
+{% endcode %}
 
 * **Context**: Enumerates FTP services for misconfigurations or vulnerabilities.
 * **Tips**:
@@ -352,6 +358,7 @@ sudo nmap -Pn -sC -p80,443 <IP>
   * Probe for SQL injection, LFI, RFI, or command execution vulnerabilities.
 * **Directory Enumeration**:
 
+{% code overflow="wrap" %}
 ```bash
 dirb <IP>
 dirb <IP> -X .php,.asp,.txt,.jsp
@@ -363,6 +370,7 @@ whatweb http://<IP>
 wappalyzer http://<IP>
 wpscan --url http://<IP> --enumerate u
 ```
+{% endcode %}
 
 * **Context**: Enumerates web servers, applications, and vulnerabilities.
 * **Tips**:
@@ -374,11 +382,13 @@ wpscan --url http://<IP> --enumerate u
 
 * **Nmap Vulnerability Scans**
 
+{% code overflow="wrap" %}
 ```bash
 sudo nmap -Pn --script=smb-proto*,smb-os-discovery,smb-enum*,smb-vuln* -p139,445 <IP>
 nmap -p445 -vv --script=smb-vuln-cve2009-3103,smb-vuln-ms06-025,smb-vuln-ms07-029,smb-vuln-ms08-067,smb-vuln-ms10-054,smb-vuln-ms10-061,smb-vuln-ms17-010 <IP>
 crackmapexec smb <IP> -u '' -p '' --shares
 ```
+{% endcode %}
 
 * **Null Session Checks**
 
