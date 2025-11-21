@@ -261,6 +261,7 @@
     * [SQL](offensive-security/exploitation-and-lateral-movement/attacking-common-services/sql.md)
   * [Password Attacks](offensive-security/exploitation-and-lateral-movement/password-attacks/README.md)
     * [Login Brute Forcing](offensive-security/exploitation-and-lateral-movement/password-attacks/login-brute-forcing.md)
+  * [Full Active Directory (AD) Enumeration](offensive-security/exploitation-and-lateral-movement/full-active-directory-ad-enumeration.md)
 * [Post-Exploitation](offensive-security/post-exploitation.md)
 * [Proof-of-Concept](offensive-security/proof-of-concept.md)
 * [Post-Engagement](offensive-security/post-engagement.md)
