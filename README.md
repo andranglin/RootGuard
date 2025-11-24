@@ -43,7 +43,7 @@ Digital Forensics (DFIR) Deep-dive reference guides for when you need to reconst
 
 Navigate the repository to find the specific procedure you need:
 
-* [Detection Engineering](https://www.google.com/search?q=%23) _(AD Attacks, KQL Triage)_
-* [Defensive Security](https://www.google.com/search?q=%23) _(Windows Forensics, IR Strategies)_
-* [Offensive Security](https://www.google.com/search?q=%23) _(Exploitation, Password Attacks)_
-* [Learning Hub](https://www.google.com/search?q=%23) _(Core Skills & Role Development)_
+* [Detection Engineering](https://rootguard.gitbook.io/cyberops/detection-engineering/attack-triage-playbooks-kql-triage) _(AD Attacks, KQL Triage)_
+* [Defensive Security](https://rootguard.gitbook.io/cyberops/detection-engineering/ad-detections-and-mitigations) _(Windows Forensics, IR Strategies)_
+* [Offensive Security](https://rootguard.gitbook.io/cyberops/offensive-security/exploitation-and-lateral-movement) _(Exploitation, Password Attacks)_
+* [Learning Hub](https://rootguard.gitbook.io/cyberops/resources-hub/blogs/posts) _(Core Skills & Role Development)_
