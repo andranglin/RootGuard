@@ -5,7 +5,6 @@
 * [RootGuard](README.md)
   * [Who Am I?](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
-  * [Advanced Roadmap to Become a Blue Team and Microsoft Cloud Security Expert Architect](welcome/rootguard/advanced-roadmap-to-become-a-blue-team-and-microsoft-cloud-security-expert-architect.md)
 
 ## Resources Hub
 
@@ -25,6 +24,7 @@
     * [SOC Analysts Roadmap](learning-hub/introduction/development-resources/soc-analysts-roadmap.md)
     * [Becoming A SOC Analyst](learning-hub/introduction/development-resources/becoming-a-soc-analyst.md)
     * [SOC Analysts Prep Interview Questions](learning-hub/introduction/development-resources/soc-analysts-prep-interview-questions.md)
+    * [Beyond the Perimeter: The Advanced, Hybrid Blue Team Roadmap](learning-hub/introduction/development-resources/beyond-the-perimeter-the-advanced-hybrid-blue-team-roadmap.md)
 * [Essential Skills](learning-hub/essential-skills/README.md)
   * [Critical Windows EventIDs to Monitor](learning-hub/essential-skills/critical-windows-eventids-to-monitor.md)
 * [Junior Analyst Skills](learning-hub/junior-analyst-skills/README.md)
