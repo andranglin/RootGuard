@@ -5,12 +5,24 @@ coverY: 0
 
 # Blogs
 
-### Introduction
+## Operational Insights & Field Notes
 
-This section on the site is dedicated to hosting articles and posts on specific subjects pertinent to cyber defence. Frequently, I’ll publish pieces focused primarily on security operations, tactics, and techniques critical to cybersecurity and information protection. The intention is to provide insights through easily digestible articles and posts focusing on specific subjects. Whether you’re a cybersecurity professional sharpening your skills or an enthusiast eager to understand today’s digital threats, this space is here to serve as a resource.
+This section serves as an operational journal for RootGuard. Here, I publish technical deep dives, tactical analyses, and strategic commentaries focused on Security Operations (SecOps), Threat Hunting, and Defensive Tradecraft.
 
-In a world where cyber threats grow more sophisticated by the day, knowledge is our primary defence. The goal is to go beyond surface-level advice and delve into the intricacies of cybersecurity defences—from emerging attack vectors to advanced strategies for securing networks, cloud environments, and sensitive data. The mission is to equip readers with the tools and understanding needed to not just react to threats but to anticipate and prevent them. The belief is a well-informed community is resilient, and I’m committed to fostering that resilience through reliable, up-to-date content.
+Modern defence requires more than just passive monitoring; it requires the ability to anticipate adversary tradecraft before it impacts the enterprise. The goal of this section is to move beyond surface-level advice and dissect the intricacies of hybrid defence—from analysing emerging attack vectors to architecting resilient cloud environments.
 
-RootGuard is a growing knowledge base designed to evolve with the cybersecurity landscape. The objective is to publish articles that bring a level of awareness, ensuring what you read is both practical and relevant. From analysing the latest vulnerabilities to offering step-by-step mitigation or detection techniques, the aim is to make topics accessible and understandable to readers.&#x20;
+#### The Mission
 
-Join us and explore the resources. Whether protecting your devices or defending an enterprise, we aim to help you secure your digital assets. Dive in, stay curious, and let’s build a safer tomorrow together!
+To equip those looking to get into the security space and practitioners with the info needed to assist with the professional tasks
+
+#### What to Expect
+
+RootGuard is a living knowledge base that evolves alongside the threat landscape.&#x20;
+
+**In this section, you will find:**
+
+* **Tactical Analysis:** Breakdowns of new vulnerabilities and exploitation techniques.
+* **Detection Engineering:** Practical guides on tuning SIEM/XDR logic to catch sophisticated threats.
+* **Strategic Guidance:** Perspectives on managing risk, compliance, and security architecture in complex organisations.
+
+This space is dedicated to actionable intelligence. Whether you are defending a cloud-native startup or a global enterprise, the aim is to provide the operational clarity required to secure your critical assets.
