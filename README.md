@@ -5,37 +5,45 @@ coverY: 0
 
 # RootGuard
 
-### Introduction
+## Operational Intelligence for Cyber Defence
 
-RootGuard is a professional resource for offensive and defensive cybersecurity operations, with a focus on Digital Forensics and Incident Response (DFIR). Crafted for experienced cybersecurity professionals—SOC operators, cloud security engineers, and Security/IT leaders—our platform provides in-depth insights, technical playbooks, and strategic guidance to address the evolving threat landscape.
+**RootGuard is a professional knowledge base for cybersecurity operations.**
 
-&#x20;Today's digital environment demands sophisticated strategies to counter complex threats, including AI-powered attacks, supply chain vulnerabilities, and ransomware. RootGuard delivers practical resources, expert analysis, and community-driven insights to strengthen your security operations and advance your expertise.
+We built this for the people actually doing the work—SOC analysts, detection engineers, and incident responders. This is not a training course; it is a field manual. We provide the technical playbooks, detection logic, and forensic breakdowns you need to handle active threats in real-world environments.
 
-### &#x20;Our Mission
+Whether you are hunting for Active Directory compromise, analysing Windows artefacts, or tuning a SIEM, RootGuard bridges the gap between theory and the daily reality of the SOC.
 
-RootGuard is dedicated to fostering cybersecurity excellence through expert knowledge sharing and collaboration. We specialise in high-impact areas like threat hunting, cloud security, and incident response, equipping professionals with actionable resources to tackle challenges like AI-driven threats, supply chain security, and regulatory complexity. Our mission is to empower you to protect critical systems and contribute to a resilient cybersecurity community.
+### Our Mission
 
-### &#x20;What We Offer
+**This site exists to solve a specific problem:** to make actionable, deployment-ready documentation available to defenders.
 
-* **Expert Insights:** Access analysis of current trends, including AI-powered threat mitigation, supply chain risk management, and zero-trust strategies.
-* **Technical Playbooks:** Explore detailed guides on DFIR workflows, covering threat detection, incident response, and offensive security techniques.
-* **Practical Resources:** Utilise Microsoft Security for threat analysis and response, tools like Sentinel and Defender XDR, Splunk, Velociraptor, and frameworks like MITRE ATT\&CK or NIST Cybersecurity.
-* **Community Collaboration:** Engage with cybersecurity professionals, share strategies, and contribute to collective knowledge.
-* **Visual Tools:** Leverage diagrams, such as zero-trust architectures or threat intelligence workflows, to clarify complex concepts and support implementation.
+Our goal is to help raise the standard of defence by sharing tested tradecraft. We focus on high-impact areas like Identity Security, Digital Forensics, and Detection Engineering, equipping you with the resources to detect sophisticated attacks and respond faster.
 
-### Why RootGuard?
+### Inside the Knowledge Base
 
-* **Professional Expertise:** Our content is grounded in professional experience in DFIR, cloud security, and enterprise defence, reflecting industry-leading practices.
-* **Actionable Knowledge:** Access step-by-step playbooks, scripts, and visuals designed for immediate application in enterprise environments.
-* **Forward-Thinking:** Address emerging threats like AI-driven phishing, supply chain risks, and workforce challenges with innovative strategies.
-* **Community-Focused:** Join a platform dedicated to collaboration and elevating cybersecurity standards.
+**Detection Engineering & KQL**: Stop relying on default alerts. We provide the logic and KQL queries to detect advanced threats, with a deep focus on Active Directory attacks (Golden Ticket, Kerberoasting) and cloud identity risks.
 
-### Get Started
+Digital Forensics (DFIR) Deep-dive reference guides for when you need to reconstruct an incident.
 
-Deepen your expertise and enhance your security operations with RootGuard's resources. Explore technical playbooks, analyse threat trends, and engage with our community to share insights.
+* **Windows Forensics:** Registry analysis, ShimCache, AmCache, and evidence of execution.
+* **Malware Analysis:** Static and dynamic analysis workflows to dissect malicious binaries.
+* **Network Forensics:** Packet capture (PCAP) analysis using Wireshark and TShark.
 
-**Explore Now:**
+**Incident Response Playbooks:** Structured workflows for handling live incidents. From "Attack Triage" to specific scenarios like "Privilege Escalation" or "Ransomware Containment", these guides help you move from alert to remediation without missing a step.
 
-* DFIR Playbooks and How-Tos (#)
-* Incident Response Strategies (#)
-* Offensive Security Techniques (#)
+**Offensive Security for Defenders:** You cannot defend what you do not understand. We break down offensive techniques—like Login Brute Forcing, Credential Stuffing, and Lateral Movement—so you can engineer better detections and harden your perimeter.
+
+### Why Use RootGuard?
+
+* **No Fluff:** Pages are focused on technical utility—commands, logs, and analysis steps.
+* **Platform Agnostic:** While we cover Microsoft Sentinel and Defender in depth, the principles apply to any SIEM or EDR.
+* **Living Document:** The threat landscape changes fast. Documentation will evolve to cover new attack vectors and defence strategies as they emerge.
+
+### Explore the Manual
+
+Navigate the repository to find the specific procedure you need:
+
+* [Detection Engineering](https://www.google.com/search?q=%23) _(AD Attacks, KQL Triage)_
+* [Defensive Security](https://www.google.com/search?q=%23) _(Windows Forensics, IR Strategies)_
+* [Offensive Security](https://www.google.com/search?q=%23) _(Exploitation, Password Attacks)_
+* [Learning Hub](https://www.google.com/search?q=%23) _(Core Skills & Role Development)_

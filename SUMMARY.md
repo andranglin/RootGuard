@@ -16,17 +16,15 @@
     * [Starting a Career in Cybersecurity](resources-hub/blogs/posts/starting-a-career-in-cybersecurity.md)
     * [A Guide to Landing Your First Cybersecurity Analyst Role](resources-hub/blogs/posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
     * [Moving from Intermediate to Expert Incident Responder](resources-hub/blogs/posts/moving-from-intermediate-to-expert-incident-responder.md)
+    * [Beyond the Perimeter: The Advanced, Hybrid Blue Team Roadmap](resources-hub/blogs/posts/beyond-the-perimeter-the-advanced-hybrid-blue-team-roadmap.md)
+    * [SOC Analysts Prep Interview Questions](resources-hub/blogs/posts/soc-analysts-prep-interview-questions.md)
+    * [SOC Analysts Roadmap](resources-hub/blogs/posts/soc-analysts-roadmap.md)
+    * [Becoming A SOC Analyst](resources-hub/blogs/posts/becoming-a-soc-analyst.md)
+    * [The Essential Skills & Requirements for Modern SOC Personnel](resources-hub/blogs/posts/the-essential-skills-and-requirements-for-modern-soc-personnel/README.md)
+      * [Critical Windows EventIDs to Monitor](resources-hub/blogs/posts/the-essential-skills-and-requirements-for-modern-soc-personnel/critical-windows-eventids-to-monitor.md)
 
 ## Learning Hub
 
-* [Introduction](learning-hub/introduction/README.md)
-  * [Development Resources](learning-hub/introduction/development-resources/README.md)
-    * [SOC Analysts Roadmap](learning-hub/introduction/development-resources/soc-analysts-roadmap.md)
-    * [Becoming A SOC Analyst](learning-hub/introduction/development-resources/becoming-a-soc-analyst.md)
-    * [SOC Analysts Prep Interview Questions](learning-hub/introduction/development-resources/soc-analysts-prep-interview-questions.md)
-    * [Beyond the Perimeter: The Advanced, Hybrid Blue Team Roadmap](learning-hub/introduction/development-resources/beyond-the-perimeter-the-advanced-hybrid-blue-team-roadmap.md)
-* [Essential Skills](learning-hub/essential-skills/README.md)
-  * [Critical Windows EventIDs to Monitor](learning-hub/essential-skills/critical-windows-eventids-to-monitor.md)
 * [Junior Analyst Skills](learning-hub/junior-analyst-skills/README.md)
   * [Splunk Use Cases](learning-hub/junior-analyst-skills/splunk-use-cases.md)
   * [KQL Use Cases](learning-hub/junior-analyst-skills/kql-use-cases/README.md)
@@ -104,8 +102,6 @@
     * [Command and Control (C2) (TA0011) Techniques](learning-hub/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/command-and-control-c2-ta0011-techniques.md)
     * [Exfiltration (TA0010) Techniques](learning-hub/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/exfiltration-ta0010-techniques.md)
     * [Impact (TA0040) Techniques](learning-hub/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/impact-ta0040-techniques.md)
-* [Vulnerability Management](learning-hub/vulnerability-management.md)
-* [Malware Analysis](learning-hub/malware-analysis.md)
 
 ## Defensive Security
 
