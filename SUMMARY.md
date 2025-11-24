@@ -9,19 +9,19 @@
 ## Resources Hub
 
 * [Blogs](resources-hub/blogs/README.md)
-  * [Articles](resources-hub/blogs/articles/README.md)
-    * [Safeguarding SMEs: The Strategic Importance of a Security Operations Center (SOC)](resources-hub/blogs/articles/safeguarding-smes-the-strategic-importance-of-a-security-operations-center-soc.md)
-  * [Posts](resources-hub/blogs/posts/README.md)
-    * [Roadmap to Becoming a Cybersecurity Specialist](resources-hub/blogs/posts/roadmap-to-becoming-a-cybersecurity-specialist.md)
-    * [Starting a Career in Cybersecurity](resources-hub/blogs/posts/starting-a-career-in-cybersecurity.md)
-    * [A Guide to Landing Your First Cybersecurity Analyst Role](resources-hub/blogs/posts/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
-    * [Moving from Intermediate to Expert Incident Responder](resources-hub/blogs/posts/moving-from-intermediate-to-expert-incident-responder.md)
-    * [Beyond the Perimeter: The Advanced, Hybrid Blue Team Roadmap](resources-hub/blogs/posts/beyond-the-perimeter-the-advanced-hybrid-blue-team-roadmap.md)
-    * [SOC Analysts Prep Interview Questions](resources-hub/blogs/posts/soc-analysts-prep-interview-questions.md)
-    * [SOC Analysts Roadmap](resources-hub/blogs/posts/soc-analysts-roadmap.md)
-    * [Becoming A SOC Analyst](resources-hub/blogs/posts/becoming-a-soc-analyst.md)
-    * [The Essential Skills & Requirements for Modern SOC Personnel](resources-hub/blogs/posts/the-essential-skills-and-requirements-for-modern-soc-personnel/README.md)
-      * [Critical Windows EventIDs to Monitor](resources-hub/blogs/posts/the-essential-skills-and-requirements-for-modern-soc-personnel/critical-windows-eventids-to-monitor.md)
+  * [Articles: Operational Analysis & Security](resources-hub/blogs/articles-operational-analysis-and-security/README.md)
+    * [Safeguarding SMEs: The Strategic Importance of a Security Operations Center (SOC)](resources-hub/blogs/articles-operational-analysis-and-security/safeguarding-smes-the-strategic-importance-of-a-security-operations-center-soc.md)
+  * [Posts: Field Reports & Security](resources-hub/blogs/posts-field-reports-and-security/README.md)
+    * [Roadmap to Becoming a Cybersecurity Specialist](resources-hub/blogs/posts-field-reports-and-security/roadmap-to-becoming-a-cybersecurity-specialist.md)
+    * [Starting a Career in Cybersecurity](resources-hub/blogs/posts-field-reports-and-security/starting-a-career-in-cybersecurity.md)
+    * [A Guide to Landing Your First Cybersecurity Analyst Role](resources-hub/blogs/posts-field-reports-and-security/a-guide-to-landing-your-first-cybersecurity-analyst-role.md)
+    * [Moving from Intermediate to Expert Incident Responder](resources-hub/blogs/posts-field-reports-and-security/moving-from-intermediate-to-expert-incident-responder.md)
+    * [Beyond the Perimeter: The Advanced, Hybrid Blue Team Roadmap](resources-hub/blogs/posts-field-reports-and-security/beyond-the-perimeter-the-advanced-hybrid-blue-team-roadmap.md)
+    * [SOC Analysts Prep Interview Questions](resources-hub/blogs/posts-field-reports-and-security/soc-analysts-prep-interview-questions.md)
+    * [SOC Analysts Roadmap](resources-hub/blogs/posts-field-reports-and-security/soc-analysts-roadmap.md)
+    * [Becoming A SOC Analyst](resources-hub/blogs/posts-field-reports-and-security/becoming-a-soc-analyst.md)
+    * [The Essential Skills & Requirements for Modern SOC Personnel](resources-hub/blogs/posts-field-reports-and-security/the-essential-skills-and-requirements-for-modern-soc-personnel/README.md)
+      * [Critical Windows EventIDs to Monitor](resources-hub/blogs/posts-field-reports-and-security/the-essential-skills-and-requirements-for-modern-soc-personnel/critical-windows-eventids-to-monitor.md)
 
 ## Learning Hub
 
