@@ -5,147 +5,123 @@ coverY: 0
 
 # Becoming A SOC Analyst
 
-### **What is the Role of a Security Analyst?**
+#### (The Real Day-to-Day, Not the Job Description Fantasy)
 
-A Security Analyst is a crucial team member responsible for safeguarding an organisation’s digital infrastructure. Working primarily within a Security Operations Center (SOC) or similar environments, they specialise in identifying, analysing, and responding to potential security threats.
+There are three distinct levels you will see in the wild. Know which one you’re interviewing for – the responsibilities, pay, and interview difficulty are completely different.
 
-### Key Responsibilities
+| Level           | Common Titles                                               | Real Daily Work (2025 reality)                                                                              | Avg Salary Range (US) |
+| --------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------- |
+| Tier 1          | SOC Analyst, Security Analyst L1, MDR Analyst               | Triage 200–800 alerts/shift, close 90 % as false positive or low-sev, write tickets, escalate the real ones | $65k–$95k             |
+| Tier 2          | Senior SOC Analyst, Security Analyst L2, Incident Responder | Deep investigation, PCAP/memory/log analysis, containment, write detailed reports, talk to customers        | $100k–$145k           |
+| Tier 3 / Hunter | Threat Hunter, IR Lead, DFIR                                | Proactive hunting, red-team sims, memory forensics, breach lead, testify in legal cases                     | $150k–$220k+          |
 
-1. **Monitoring**: Continuously monitor threats using security tools like SIEM platforms (e.g., Splunk, Microsoft Sentinel) to detect suspicious activities. This involves analysing logs, network traffic, and alerts from various sources to identify anomalies and trends that may indicate malicious activity.
-2. **Analysis**: Investigate alerts to determine their legitimacy and assess potential risks. This includes triaging incidents, correlating data from multiple sources, and leveraging threat intelligence to understand the nature and severity of threats.
-3. **Incident Response**: Support senior analysts in responding to and mitigating security incidents. Tasks may involve containing threats, mitigating vulnerabilities, and restoring normal operations while minimising impact on the organisation.
-4. **Reporting**: Document findings and generate reports on security events and trends to enhance organisational resilience. Reports may be used to inform management, refine security policies, or comply with regulatory requirements.
+99% of entry-level openings are Tier 1. This guide is built for that reality.
 
-***
+#### Key Responsibilities of a Tier 1 SOC Analyst (what you’ll do 95 % of the time)
 
-### Interview Preparation
+1. Alert Triage – Open SIEM/EDR alert → decide in < 8 minutes if it’s noise, benign, or evil
+2. Phishing Investigation – The #1 alert volume. Verify delivery → detonate → block URL/hash → write user email
+3. Credential-Based Alerts – Impossible traveler, brute-force, unusual logon type (4624 type 10 after hours)
+4. Endpoint Alerts – PowerShell downgrades, living-off-the-land binaries (rundll32, mshta, wscript), suspicious parent-child processes
+5. Ticketing & Escalation – Write clear, reproducible tickets for Tier 2. Bad tickets mean you don’t last long
+6. Basic Enrichment – VirusTotal, AbuseIPDB, Greynoise, urlscan.io – you’ll have these tabs permanently open
+7. Daily/Weekly Reporting – How many alerts, top 10 malicious IPs, phishing campaigns seen this week
 
-#### **1. Understand the Role and Expectations**
+That’s it. You are not “hacking back” or doing memory forensics on your first day.
 
-* **Learn the Basics**: Familiarise yourself with the day-to-day responsibilities of a Security Analyst, including monitoring, analysis, and response.
-* **Common Tools**: Gain experience with industry-standard tools like Splunk, Wireshark, and Microsoft Defender for Endpoint. Explore their dashboards, common use cases, and how they integrate into an organisation's security framework.
-* **Focus Areas**: Prioritise foundational skills such as log analysis, threat detection, basic malware analysis, and incident reporting. Understand how these tasks contribute to the overall security strategy.
+#### Realistic & Comprehensive Interview Preparation Guide
 
-#### **2. Building a Strong Foundation**
+1. **Know the Exact Tools the Company Uses (this is now mandatory)**
 
-* **Core Concepts**:
-  * **CIA Triad**: Confidentiality, Integrity, Availability. Understand how these principles guide security policies and solutions.
-  * **Types of Attacks**: Learn the mechanisms and indicators of malware, phishing, DDoS, insider threats, and other common attack vectors.
-  * **Security Measures**: Study the functionality of firewalls, IDS/IPS, endpoint protection, and other essential defences.
-* **Recommended Resources**:
-  * **Free Courses**: Explore Cybrary for SOC-specific modules and TryHackMe for interactive rsecurity labs.
-  * **Books**: Read "Cybersecurity Essentials" and "Network Security Fundamentals" to strengthen your theoretical knowledge.
-  * **Blogs and Forums**: Follow security blogs and participate in online forums to stay updated on trends and best practices.
+Before you apply:
 
-#### **3. Learn Basic Networking**
+* Go to YARA-L.com or cyberbackgroundchecks.com → type company name → see their exact SIEM/EDR stack
+* Check their job postings for the last 12 months
+* Look at employee LinkedIn profiles (“Skills” section often lists Splunk, Sentinel, CrowdStrike, etc.)
 
-A strong grasp of networking is essential for effective threat analysis and understanding attacker methodologies.
+Tailor everything below to their stack. Generic answers aren't the way forward.&#x20;
 
-* **Key Concepts**:
-  * OSI Model and TCP/IP. Understand how data flows through networks and where vulnerabilities may exist.
-  * Common protocols: HTTP, HTTPS, FTP, DNS, SMTP. Know how these protocols function and their role in communication.
-  * Basics of IP addressing, subnetting, and DNS resolution. This knowledge helps in recognising anomalies and identifying malicious activities.
-* **Hands-on Practice**:
-  * Analyse network traffic using Wireshark or TCPdump. Learn how to identify malicious packets or irregular patterns.
-  * Use tools like Nmap for network scanning and vulnerability assessment.
-  * Set up scenarios to understand how data travels across networks and how attackers may exploit weaknesses.
+2. **Core Knowledge You Must Own Cold**
 
-#### **4. Understand Log formats and Important ID and Types to Monitor**
+Networking (you will be tested)
 
-Logs are the primary source of data for identifying security threats, and understanding them is essential for threat detection and response.
+* Explain the 3-way TCP handshake in < 30 seconds
+* Common evil ports: 4444, 3389, 22, 445, 135–139
+* How to spot beaconing in PCAP (regular intervals, same-size packets)
+* DNS tunnelling indicators
+* Difference between TCP and UDP with real attack examples
 
-* **Windows Event Logs**:
-  * Key Event IDs: 4624 (Successful Logon), 4625 (Failed Logon), 4688 (Process Creation). Learn to filter and interpret these events to identify suspicious activities.
-* **Linux Logs**:
-  * Understand logs in "/var/log/syslog" and "/var/log/auth.log." Practice identifying authentication attempts, configuration changes, and system errors.
-* **SIEM Tools**:
-  * Learn basic querying techniques in platforms like Splunk, Sentinel, or ELK Stack. Experiment with creating dashboards, alerts, and reports to simulate real-world monitoring scenarios.
+Windows (80% of breaches still occur here)
 
-#### **5. Gain Hands-On Experience**
+Memorise these Event IDs:
 
-Practical experience is crucial to develop confidence and proficiency.
+* 4624/4625 – Logon/Logon failure (know logon types 2, 3, 10)
+* 4688 – Process creation (learn key LOLBAS: cmstp.exe, mshta.exe, regsvr32.exe)
+* 4104 – PowerShell script block logging (the goldmine)
+* 1/2/3 – Sysmon process creation, network, DNS
 
-* **Set Up a Home Lab**:
-  * Use VirtualBox or VMware to create isolated environments for testing and learning.
-  * Install and configure Windows and Linux virtual machines to simulate enterprise environments.
-  * Deploy free tools like Velociraptor, Sysmon, and the ELK Stack for log collection and analysis.
-* **Simulate Attacks**:
-  * Use tools like Metasploit or Atomic Red Team to understand common attack techniques.
-  * Monitor logs and network traffic for anomalies, documenting your findings to build a troubleshooting process.
+**Linux (you’ll see less, but still asked)**
 
-#### **6. Develop Good Analytical Skills**
+* /var/log/auth.log → failed su/sudo
+* Unusual cron jobs, .ssh/authorised\_keys changes
 
-Analytical skills are critical for identifying and addressing threats effectively.
+3. **Hands-On Skills That Get You Hired**
 
-* Practice recognising patterns in logs and traffic, correlating data from various sources to uncover insights.
-* Map observed behaviours to the MITRE ATT\&CK framework, understanding how adversaries operate and the tactics they employ.
-* Simulate incident response scenarios to refine your ability to handle real-world challenges.
+**Y**ou need proof, not theory.
 
-#### **7. Earn Relevant Certifications**
+#### **Minimum Viable Portfolio – build this in 2–3 months**
 
-Certifications validate your skills and demonstrate your knowledge to potential employers.
+1. GitHub or Notion page titled “SOC Analyst Portfolio – \[Your Name]”
+2. 8–12 write-ups containing:
+   * Phishing investigation (full detonations + screenshots)
+   * Suspicious PowerShell in Sysmon/WinEvent logs
+   * Living-off-the-land attack (e.g., certutil download)
+   * Beaconing PCAP analysis in Wireshark
+   * One KQL or SPL query you wrote that found real evil in a lab
+3. Link to completed learning paths:
+   * TryHackMe SOC Level 1 (full path)
+   * LetsDefend or Blue Team Labs Online – 50+ rooms
+   * Splunk Fundamentals 1 certificate (free)
 
-* **Entry-Level Certifications**:
-  * CompTIA Security+
-  * (ISC)² Certified in Cybersecurity
-  * EC-Council’s Certified Ethical Hacker (CEH)
-* **SOC-Specific Certifications**:
-  * Splunk Core Certified User
-  * Blue Team Level 1 (BTL1)
-  * GIAC Security Essentials (GSEC)
-  * SC-200: Microsoft Security Operations Analyst
-  * Cisco Certified CyberOps Associate
+Recruiters and hiring managers open this link in < 2 minutes and decide.
 
-#### **8. Prepare for Common Interview Topics**
+#### 4. Certifications That Actually Move the Needle (2025 ranking)
 
-* **Behavioural Questions**:
-  * "How do you handle multiple priorities?" Demonstrate your ability to prioritise and manage time effectively.
-  * "Describe a time you solved a problem under pressure." Provide specific examples showcasing your problem-solving skills.
-* **Technical Questions**:
-  * "What is the difference between a vulnerability, threat, and risk?" Be prepared to explain concepts clearly.
-  * "Explain the differences between TCP and UDP." Highlight the use cases and characteristics of each protocol.
-  * "How would you investigate a failed logon attempt?" Describe your process from log analysis to remediation.
+| Priority | Certification             | Why It Matters in 2025               |
+| -------- | ------------------------- | ------------------------------------ |
+| 1        | CompTIA Security+ SY0-701 | Still the #1 ATS filter              |
+| 2        | Microsoft SC-200          | Sentinel + Defender explosion        |
+| 3        | Splunk Core → Power User  | Splunk still in 40 %+ of enterprises |
+| 4        | Cisco CyberOps Associate  | Good for service-provider/MDR roles  |
+| 5        | Blue Team Level 1 (BTL1)  | Proves hands-on blue skills          |
 
-#### **9. Build a Portfolio**
+#### 5. Top 15 Interview Questions You Will Get (with winning answer framework)
 
-A well-organised portfolio sets you apart by showcasing your skills and dedication.
+1. Walk me through how you investigate a phishing alert.\
+   → Use the exact 7-step process most MDRs teach internally
+2. What are the top 5 Event IDs you look at daily?
+3. Explain living-off-the-land binaries with examples.
+4. You see 4624 logon type 10 from Russia at 3 a.m. – what next?
+5. How do you spot beaconing in Wireshark?
+6. What is the difference between an indicator of compromise (IoC) and tactic/technique (TTP)?
+7. Write a KQL/SPL query on a whiteboard to find PowerShell downgrades.
+8. Tell me about a time you were wrong about an alert (shows maturity).
+9. How would you explain a ransomware incident to a non-technical executive?\
+   10–15: Tool-specific (Splunk time modifiers, Sentinel hunting bookmarks, CrowdStrike process explorer, etc.)
 
-* Include projects, labs, certifications, and hands-on experiences.
-* Document your approach to solving challenges, including screenshots and detailed explanations.
-* Use platforms like GitHub or create a personal website to present your work professionally.
+#### 6. One-Page Interview Prep Checklist (print this)
 
-#### **10. Practice with Mock Interviews**
+* MemorisedFinished TryHackMe SOC Level 1 + 30 extra rooms
+* Portfolio live with 8+ public write-ups
+* Security+ or SC-200 passed
+* Memorised top 20 Windows Event IDs + 10 Sysmon
+* Can explain MITRE ATT\&CK initial access + execution tactics
+* Practiced 5 mock interviews (use Pramp, interviewing.io or a friend)
+* Researched exact company stack + prepared one question about their tools
+* Clean LinkedIn headline: “Aspiring SOC Analyst | Security+ | SC-200 | 80+ Labs | Ex-Helpdesk”
 
-Mock interviews help you refine your communication and problem-solving skills.
+Do the above, and you are no longer “another resume”—you’re the candidate they fight over.
 
-* Practice with mentors, peers, or through online platforms.
-* Prepare to explain technical concepts in simple terms, demonstrating your ability to communicate effectively with non-technical stakeholders.
-* Simulate scenarios to showcase your analytical and investigative skills.
+You don’t need to be a genius. You need to be disciplined, document everything publicly, and speak clearly about the 5–6 things Tier 1 does every shift.
 
-#### **11. Research the Company**
-
-Understanding the organisation’s needs and priorities shows initiative and interest.
-
-* Learn about their industry focus (e.g., finance, healthcare) and any unique security challenges they face.
-* Research the tools and platforms they use, such as Splunk, CrowdStrike, or Palo Alto.
-* Stay informed on recent security incidents or trends relevant to their industry to discuss during the interview.
-
-#### **12. Stay Updated on Current Events in Security**&#x20;
-
-Staying informed helps you remain competitive and prepared.
-
-* Follow security blogs, podcasts, and newsletters to stay abreast of emerging threats and technologies.
-* Use threat intelligence platforms like MITRE ATT\&CK, US-CERT, and AlienVault OTX to understand adversary tactics and techniques.
-* Engage in online communities like Reddit’s r/cybersecurity, LinkedIn groups, and Discord channels to network and learn from peers.
-
-***
-
-### Create a Checklist to Guide the Interview Preparation
-
-* Review core security and networking concepts.
-* Practice using SIEM tools and analysing logs.
-* Prepare examples of past projects and experiences.
-* Rehearse answers to both technical and behavioural questions.
-* Review the company’s security focus and align your responses to their priorities.
-
-With structured preparation, you’ll be well-equipped to excel in a Security Analyst interview and lay the groundwork for a successful career in the field.
+Now go build the proof. The SOC needs you.
