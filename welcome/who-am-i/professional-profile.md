@@ -21,12 +21,11 @@ Currently, I lead security initiatives that do not just "lock down" systems but 
 
 I hold industry-standard credentials that validate both my management capabilities and technical expertise.
 
-| **Management & Architecture**                   | **Technical & Operations**                       | **Cloud & Privacy**                            |
-| ----------------------------------------------- | ------------------------------------------------ | ---------------------------------------------- |
-| CISM (Certified Information Security Manager)   | OSCP (Offensive Security Certified Professional) | CCSP (Certified Cloud Security Professional)   |
-| CISSP-ISSAP (Architecture Professional)         | GCIH (GIAC Certified Incident Handler)           | CDPSE (Data Privacy Solutions Engineer)        |
-| CISSP (Certified InfoSys Security Professional) | CEH (Certified Ethical Hacker)                   | SSCP (Systems Security Certified Practitioner) |
-|                                                 | CHFI (Computer Hacking Forensic Investigator)    |                                                |
+| **Management & Architecture**                   | **Technical & Operations**                                        | **Cloud & Privacy**                            |
+| ----------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------- |
+| CISM (Certified Information Security Manager)   | CEH (Certified Ethical Hacker)                                    | CCSP (Certified Cloud Security Professional)   |
+| CISSP-ISSAP (Architecture Professional)         | CHFI (Computer Hacking Forensic Investigator)                     | CDPSE (Data Privacy Solutions Engineer)        |
+| CISSP (Certified InfoSys Security Professional) | SC-200 Microsoft Certified: Security Operations Analyst Associate | SSCP (Systems Security Certified Practitioner) |
 
 ### Core Leadership Competencies
 
@@ -48,7 +47,7 @@ I hold industry-standard credentials that validate both my management capabiliti
 
 My management style is grounded in hands-on experience. I understand the tools my team uses because I have mastered them myself.
 
-* **SIEM & Analytics:** Microsoft Sentinel, Splunk, Defender XDR.
+* **SIEM & Analytics:** Microsoft Sentinel, Splunk, and Defender XDR.
 * **Forensics & IR:** Velociraptor, Magnet AXIOM, Binalyze AIR, Autopsy.
 * **Infrastructure:** Secure Architecture for Azure Hybrid Clouds, Firewalls/IDS, and Zero Trust implementations.
 
