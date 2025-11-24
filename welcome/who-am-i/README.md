@@ -13,7 +13,7 @@ My journey into security began in Network Engineering. This infrastructure backg
 
 Today, I leverage that experience to bridge the gap between IT operations and security architecture, managing complex security operations and implementing enterprise-grade solutions for hybrid environments.
 
-[View My LinkedIn Profile](https://rootguard.gitbook.io/cyberops/welcome/rootguard/about-the-author)
+[View My Professional Profile](https://rootguard.gitbook.io/cyberops/welcome/rootguard/about-the-author)
 
 ### The Purpose of RootGuard
 
