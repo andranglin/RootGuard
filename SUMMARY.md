@@ -235,6 +235,7 @@
 
 ## Offensive Security
 
+* [Post-Engagement](offensive-security/post-engagement.md)
 * [Penetration Testing](offensive-security/penetration-testing/README.md)
   * [The Penetration Testing Process](offensive-security/penetration-testing/the-penetration-testing-process.md)
 * [Pre-Engagement](offensive-security/pre-engagement.md)
@@ -264,9 +265,6 @@
     * [Login Brute Forcing](offensive-security/exploitation-and-lateral-movement/password-attacks/login-brute-forcing.md)
   * [Living-Off-the-Land Binaries (LOLBins) for AD enumeration](offensive-security/exploitation-and-lateral-movement/living-off-the-land-binaries-lolbins-for-ad-enumeration.md)
 * [Post-Exploitation](offensive-security/post-exploitation.md)
-* [Proof-of-Concept](offensive-security/proof-of-concept.md)
-* [Post-Engagement](offensive-security/post-engagement.md)
-* [Practice](offensive-security/practice.md)
 * [Pentesting Cheatsheet](offensive-security/pentesting-cheatsheet/README.md)
   * [Enumeration Checklist](offensive-security/pentesting-cheatsheet/enumeration-checklist.md)
   * [From Discovery to Enumeration](offensive-security/pentesting-cheatsheet/from-discovery-to-enumeration.md)
@@ -274,3 +272,6 @@
   * [Pentesting Cheatsheet (HTB)](offensive-security/pentesting-cheatsheet/pentesting-cheatsheet-htb.md)
   * [Powershell Tips and Use Cases](offensive-security/pentesting-cheatsheet/powershell-tips-and-use-cases.md)
   * [Powershell Basic Training Workflow](offensive-security/pentesting-cheatsheet/powershell-basic-training-workflow.md)
+  * [70+ Essential Linux Commands](offensive-security/pentesting-cheatsheet/70+-essential-linux-commands.md)
+  * [70+ Essential Powershell Commands](offensive-security/pentesting-cheatsheet/70+-essential-powershell-commands.md)
+  * [70+ Essential Windows CMD Commands](offensive-security/pentesting-cheatsheet/70+-essential-windows-cmd-commands.md)
