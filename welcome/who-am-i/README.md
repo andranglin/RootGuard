@@ -1,5 +1,5 @@
 ---
-cover: ../../../.gitbook/assets/Screenshot 2025-01-10 082509.png
+cover: ../../.gitbook/assets/Screenshot 2025-01-10 082509.png
 coverY: 0
 ---
 
@@ -13,7 +13,7 @@ My journey into security began in Network Engineering. This infrastructure backg
 
 Today, I leverage that experience to bridge the gap between IT operations and security architecture, managing complex security operations and implementing enterprise-grade solutions for hybrid environments.
 
-View My LinkedIn Profile
+[View My LinkedIn Profile](https://rootguard.gitbook.io/cyberops/welcome/rootguard/about-the-author)
 
 ### The Purpose of RootGuard
 
@@ -45,7 +45,7 @@ I encourage the sharing of knowledge. Feel free to share RootGuard’s content t
 
 Connect with me:
 
-* [LinkedIn](https://www.google.com/search?q=LINK)
+* [LinkedIn](https://www.linkedin.com/in/adrian-anglin-76b29972)
 * [X (Twitter): @adriananglin](https://www.google.com/search?q=LINK)
 * [Bluesky: @andranglin.bsky.social](https://www.google.com/search?q=LINK)
 

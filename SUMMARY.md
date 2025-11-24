@@ -3,8 +3,8 @@
 ## Welcome
 
 * [RootGuard](README.md)
-  * [About the Author](welcome/rootguard/about-the-author/README.md)
-    * [Professional Profile](welcome/rootguard/about-the-author/professional-profile.md)
+  * [About the Author](welcome/who-am-i/README.md)
+    * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
 ## Resources Hub
 
