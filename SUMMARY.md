@@ -172,6 +172,7 @@
       * [Axiom Cyber Examiner](defensive-security/playbooks/first-responder-dfir-playbook/initial-analysis/axiom-cyber-examiner.md)
     * [Escalation and Reporting](defensive-security/playbooks/first-responder-dfir-playbook/escalation-and-reporting.md)
     * [Windows AD Attack Investigation – Velociraptor Cheatsheet](defensive-security/playbooks/first-responder-dfir-playbook/windows-ad-attack-investigation-velociraptor-cheatsheet.md)
+  * [Windows AD Attack Investigation – Defender & Sentinel KQL Cheat Sheet](defensive-security/playbooks/windows-ad-attack-investigation-defender-and-sentinel-kql-cheat-sheet.md)
 
 ## Detection Engineering
 
