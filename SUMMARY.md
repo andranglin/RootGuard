@@ -171,6 +171,7 @@
       * [Memory Analysis  (Vol 3)](defensive-security/playbooks/first-responder-dfir-playbook/initial-analysis/memory-analysis-vol-3.md)
       * [Axiom Cyber Examiner](defensive-security/playbooks/first-responder-dfir-playbook/initial-analysis/axiom-cyber-examiner.md)
     * [Escalation and Reporting](defensive-security/playbooks/first-responder-dfir-playbook/escalation-and-reporting.md)
+    * [Windows AD Attack Investigation – Velociraptor Cheatsheet](defensive-security/playbooks/first-responder-dfir-playbook/windows-ad-attack-investigation-velociraptor-cheatsheet.md)
 
 ## Detection Engineering
 
