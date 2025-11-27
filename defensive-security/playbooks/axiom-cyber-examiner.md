@@ -1,7 +1,3 @@
----
-icon: computer-classic
----
-
 # Axiom Cyber Examiner
 
 ### Comprehensive Windows DFIR Analysis Guide
