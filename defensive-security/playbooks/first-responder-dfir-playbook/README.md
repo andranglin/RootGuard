@@ -30,4 +30,4 @@ Finally, the importance of a First Responder Cyber Incident Response Playbook li
 
 [Initial Analysis](initial-analysis/)
 
-[Escalation and Reporting](escalation-and-reporting.md)
+[Escalation and Reporting](/broken/pages/Sk8OqK3EX44VfdkHpbGX)
