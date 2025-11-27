@@ -34,7 +34,7 @@ The key elements of the attack are:
 
 ***
 
-### Significance for Security Operations Centers (SOCs)
+### Significance for Security Operations Centres (SOCs)
 
 The Golden Ticket attack is particularly devastating in the context of **enterprise security** because of its capability to completely compromise Active Directory environments. SOC analysts and security teams must prioritise proactive threat hunting and defence strategies to mitigate its impact, including:
 
@@ -94,7 +94,7 @@ SecurityEvent
 1. **Validate with Additional Context**:
    * Cross-reference detected anomalies with other logs, such as process creation or lateral movement events.
 2. **Examine KRBTGT Activity**:
-   * Look for unauthorized access to the KRBTGT account and verify its password change history.
+   * Look for unauthorised access to the KRBTGT account and verify its password change history.
 3. **Forensic Actions**:
    * Isolate affected systems and reset KRBTGT passwords (twice) to invalidate forged tickets.
 {% endtab %}
@@ -165,7 +165,7 @@ KerberosAnomalies
      * Elevated privilege actions or anomalous logon behaviours.
 2. **Behavioural Context**:
    * Incorporates related events like privileged logons (`EventID 4672`) and process executions (`EventID 4688`) to correlate potential misuse of privileges with Kerberos anomalies.
-3. **Dynamic Labeling**:
+3. **Dynamic Labelling**:
    * Events are dynamically tagged with `AnomalousBehavior` descriptions to help analysts understand the context.
 4. **Summarisation and Prioritisation**:
    * Groups suspicious activities by computer, account, and domain, along with timestamps (`FirstSeen`, `LastSeen`) for a time-based view of the attack.
@@ -177,12 +177,12 @@ KerberosAnomalies
 #### Advanced Use Cases
 
 * **Golden Ticket Behaviour Analysis**: Detect extended persistence or lateral movement enabled by forged TGTs.
-* **Prioritized Alerts**: Focus on accounts or systems with multiple anomalous activities.
+* **Prioritised Alerts**: Focus on accounts or systems with multiple anomalous activities.
 * **Forensic Investigation**: Time window (`TimeWindow`) and event summaries aid in tracing attack paths.
 
 ***
 
-#### Recommendations for Customization
+#### Recommendations for Customisation
 
 * Adjust the thresholds for **TimeToLive** and logon types to align with your organisation’s specific Kerberos and logon policies.
 * Incorporate integration with **Defender XDR** or **Active Directory audit logs** for deeper analysis of account behaviours.
@@ -234,7 +234,7 @@ The following are Splunk queries to detect potential **Golden Ticket** attacks b
 Splunk Query: Detecting Golden Ticket Activity
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=wineventlog (EventCode=4768 OR EventCode=4769 OR EventCode=4770) 
 | eval AnomalousBehavior = case(
     EventCode==4768 AND like(Ticket_Options, "%0x40810010%"), "Suspicious TGT Options",
@@ -293,7 +293,7 @@ index=wineventlog (EventCode=4768 OR EventCode=4769 OR EventCode=4770)
 Splunk query to detect potential Golden Ticket attacks in your environment:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows sourcetype=WinEventLog:Security
 (EventCode=4768 OR EventCode=4769 OR EventCode=4770 OR EventCode=4771)
 TargetUserName="*$"

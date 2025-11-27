@@ -255,7 +255,7 @@ To detect **DCSync** attacks in **Splunk**, focus on identifying unusual directo
 Splunk Query to Detect DCSync
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (EventCode=4662 OR EventCode=4672)
 | eval EventDescription = case(
     EventCode == 4662, "Sensitive Directory Object Access",
@@ -314,7 +314,7 @@ index=windows (EventCode=4662 OR EventCode=4672)
 To enhance detection, correlate with network activity targeting domain controllers:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=network (dest_port=389 OR dest_port=636)  // LDAP and LDAPS ports
 | stats count AS ConnectionCount, 
         values(src_ip) AS SourceIPs, 
@@ -370,7 +370,7 @@ index=network (dest_port=389 OR dest_port=636)  // LDAP and LDAPS ports
 Query to detect potential DCSync attacks:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows sourcetype=add_your_sourcetype
 | eval AccountName = mvindex(Account_Name, 1)
 | where EventCode=4662 // An operation was performed on an object

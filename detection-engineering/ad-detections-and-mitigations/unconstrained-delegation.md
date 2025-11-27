@@ -257,7 +257,7 @@ To detect **Unconstrained Delegation** in Splunk, you can query Windows Event Lo
 Splunk Query to Detect Unconstrained Delegation Changes
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (EventCode=4742 OR EventCode=5136)
 | eval ModifiedAccount = coalesce(TargetUserName, ObjectName), 
         InitiatorAccount = coalesce(SubjectUserName, UserID), 
@@ -304,7 +304,7 @@ index=windows (EventCode=4742 OR EventCode=5136)
 To list all systems or accounts with unconstrained delegation enabled:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows EventCode=5136
 | eval ModifiedAccount = coalesce(TargetUserName, ObjectName), 
         InitiatorAccount = coalesce(SubjectUserName, UserID)

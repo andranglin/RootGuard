@@ -236,7 +236,7 @@ Query performs the following steps:
 Basic Splunk Query for Password Spraying Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (EventCode=4625 OR EventCode=4624)
 | eval LogonType = case(EventCode=4625, "Failed Logon", EventCode=4624, "Successful Logon")
 | stats count AS TotalAttempts, 
@@ -327,11 +327,11 @@ index=windows (EventCode=4625 OR EventCode=4624)
 #### **Recommendations**
 
 1. **Create Alerts:**
-   * Trigger alerts for `SuspiciousScore = High` to notify SOC analysts in realtime.
+   * Trigger alerts for `SuspiciousScore = High` to notify SOC analysts in real-time.
 2. **Correlate with Threat Intelligence:**
    * Cross-reference `SourceIPs` with threat feeds to identify known malicious actors.
 3. **Build Dashboards:**
-   * Visualize password spraying activity trends and affected accounts in a Splunk dashboard.
+   * Visualise password spraying activity trends and affected accounts in a Splunk dashboard.
 {% endtab %}
 {% endtabs %}
 

@@ -283,8 +283,8 @@ SuspiciousCertRequests
 Query performs the following steps:
 
 1. **Defines the time range** for the query to look back over the past 7 days.
-2. **Identifies suspicious certificate requests** by looking for Event ID 4886 and summarizing the data based on the requester and certificate template.
-3. **Identifies certificate issuance events** by looking for Event ID 4887 and summarizing the data based on the issuer and certificate template.
+2. **Identifies suspicious certificate requests** by looking for Event ID 4886 and summarising the data based on the requester and certificate template.
+3. **Identifies certificate issuance events** by looking for Event ID 4887 and summarising the data based on the issuer and certificate template.
 4. **Combines the results** to identify potential compromises by matching suspicious certificate requests with issuance events.
 {% endtab %}
 {% endtabs %}
@@ -298,7 +298,7 @@ Detecting a **Golden Certificate** attack in Splunk involves monitoring unusual 
 Splunk Query to Detect Golden Certificate
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (EventCode=4886 OR EventCode=4887 OR EventCode=4624 OR EventCode=4769)
 | eval EventDescription = case(
     EventCode == 4886, "Certificate Request",
@@ -363,7 +363,7 @@ index=windows (EventCode=4886 OR EventCode=4887 OR EventCode=4624 OR EventCode=4
 To detect potential access or export attempts for the CA private key:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows EventCode=5136
 | eval ObjectName = coalesce(ObjectName, ""), 
         AttributeName = coalesce(AttributeName, "")
@@ -425,7 +425,7 @@ index=windows EventCode=5136
 Query to detect potential Golden Certificate attacks:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows sourcetype=add_your_sourcetype
 | eval AccountName = mvindex(Account_Name, 1)
 | where EventCode IN (4886, 4887) // Certificate Services received a certificate request or issued a certificate

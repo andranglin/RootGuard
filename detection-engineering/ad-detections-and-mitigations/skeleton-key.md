@@ -366,7 +366,7 @@ The following are **Splunk queries** designed to detect potential **Skeleton Key
 Splunk Query for Skeleton Key Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=security OR index=windows OR index=active_directory
 sourcetype=WinEventLog:Security
 (EventCode=4688 OR EventCode=4624 OR EventCode=4672)
@@ -451,7 +451,7 @@ This Splunk query provides a robust framework for detecting and responding to Sk
 Splunk query to detect potential Skeleton Key attacks by monitoring specific event codes that are indicative of such activities:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows
 | search EventCode IN (1102, 3033, 3063, 4103, 4104, 4663, 4673, 4697, 4703)
 | eval EventDescription = case(

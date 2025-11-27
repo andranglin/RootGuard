@@ -363,7 +363,7 @@ Splunk Detection Queries
 **Splunk Query for Microsoft Entra Connect Compromise**
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=security OR index=azuread OR index=windows
 sourcetype=AzureAuditLogs OR sourcetype=AzureSigninLogs OR sourcetype=WinEventLog:Security
 (
@@ -441,7 +441,7 @@ Use this query to create Splunk alerts or dashboards for continuous monitoring o
 Splunk query to detect potential Microsoft Entra Connect compromises by monitoring specific event codes that are indicative of such activities:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows
 | search EventCode IN (611, 650, 651, 656, 657, 1102, 4103, 4104)
 | eval EventDescription = case(

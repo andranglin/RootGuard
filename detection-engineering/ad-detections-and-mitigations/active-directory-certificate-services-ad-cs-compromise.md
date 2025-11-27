@@ -312,14 +312,14 @@ SecurityEvent
 
 ### Splunk Detection Queries
 
-To detect **Active Directory Certificate Services (AD CS) compromise** in Splunk, you can focus on Windows Security logs and Certificate Services logs for suspicious certificate requests, template abuse, and unauthorized access to Certificate Authority (CA) servers. Below is a Splunk query to detect suspicious AD CS activity.
+To detect **Active Directory Certificate Services (AD CS) compromise** in Splunk, you can focus on Windows Security logs and Certificate Services logs for suspicious certificate requests, template abuse, and unauthorised access to Certificate Authority (CA) servers. Below is a Splunk query to detect suspicious AD CS activity.
 
 {% tabs %}
 {% tab title="Query 1" %}
 Splunk Query to Detect AD CS Compromise
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (EventCode=4886 OR EventCode=4887 OR EventCode=4888 OR EventCode=4889)
 | eval EventDescription = case(
     EventCode == 4886, "Certificate Request",
@@ -375,7 +375,7 @@ index=windows (EventCode=4886 OR EventCode=4887 OR EventCode=4888 OR EventCode=4
 Query to detect potential compromises in Active Directory Certificate Services (AD CS):
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows sourcetype=add_your_sourcetype
 | eval AccountName = mvindex(Account_Name, 1)
 | where EventCode IN (4886, 4887) // Certificate Services received a certificate request or issued a certificate
@@ -396,12 +396,12 @@ Query performs the following steps:
 {% endtab %}
 
 {% tab title="Query 3" %}
-#### **Advanced Query: Detect Unauthorized Logins to AD CS Servers**
+#### **Advanced Query: Detect Unauthorised Logins to AD CS Servers**
 
-To detect unauthorized or unusual access to AD CS servers, you can monitor logon activity:
+To detect unauthorised or unusual access to AD CS servers, you can monitor logon activity:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (EventCode=4624 OR EventCode=4625)
 | eval LogonTypeDescription = case(
     LogonType == 2, "Interactive",
@@ -428,20 +428,20 @@ index=windows (EventCode=4624 OR EventCode=4625)
 1. **Whitelist Trusted Templates:**
    *   Exclude known safe templates:
 
-       <pre class="language-splunk-spl" data-overflow="wrap"><code class="lang-splunk-spl">| where NOT Templates IN ("SafeTemplate1", "SafeTemplate2")
+       <pre class="language-spl" data-overflow="wrap"><code class="lang-spl">| where NOT Templates IN ("SafeTemplate1", "SafeTemplate2")
        </code></pre>
 2. **Adjust Thresholds:**
-   * Modify the thresholds for `LogonCount` or event volume based on your organization's normal behaviour.
-3. **Filter Authorized Accounts:**
-   *   Exclude accounts that are authorized to request certificates or access CA servers:
+   * Modify the thresholds for `LogonCount` or event volume based on your organisation's normal behaviour.
+3. **Filter Authorised Accounts:**
+   *   Exclude accounts that are authorised to request certificates or access CA servers:
 
-       ```splunk-spl
+       ```spl
        | where NOT Requestors IN ("TrustedServiceAccount", "CAAdmin")
        ```
 4. **Time-Based Analysis:**
    *   Add time-based grouping to detect bursts of activity:
 
-       ```splunk-spl
+       ```spl
        | bin _time span=15m
        ```
 
@@ -452,7 +452,7 @@ index=windows (EventCode=4624 OR EventCode=4625)
 1. **Set Alerts:**
    * Configure alerts in Splunk for high-risk activity, such as:
      * Certificate requests using sensitive templates.
-     * Unauthorized logins to CA servers.
+     * Unauthorised logins to CA servers.
 2. **Audit Certificate Templates:**
    *   Periodically review certificate templates for overly permissive configurations:
 

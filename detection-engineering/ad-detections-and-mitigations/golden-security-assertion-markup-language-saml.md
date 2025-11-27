@@ -289,7 +289,7 @@ The following **Splunk queries are** designed to detect potential **Golden SAML*
 Splunk Query for Golden SAML Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows
 sourcetype=WinEventLog:Security
 (EventCode=4768 OR EventCode=4769 OR EventCode=4771 OR EventCode=5136)
@@ -350,7 +350,7 @@ This Splunk query identifies potential **Golden SAML** activities by correlating
 Splunk query to detect Golden Security Assertion Markup Language (SAML) attacks by looking for specific event IDs that are indicative of such activities:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=security
 | search EventCode IN (70, 307, 510, 1007, 1102, 1200, 1202, 4662)
 | eval EventDescription = case(
@@ -377,7 +377,7 @@ index=security
 A more advanced Splunk query that includes additional filtering, anomaly detection, and correlation with other logs to enhance the detection of Golden SAML attacks:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=security
 | search EventCode IN (70, 307, 510, 1007, 1102, 1200, 1202, 4662)
 | eval EventDescription = case(
@@ -427,7 +427,7 @@ Advanced Splunk Query for Golden SAML Detection
 An **advanced Splunk query** for detecting potential **Golden SAML** attacks. This version incorporates additional correlations across multiple event types, monitors unusual token usage patterns, and includes federated authentication events for a more comprehensive detection approach.
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows OR index=azuread OR index=federation
 sourcetype=WinEventLog:Security OR sourcetype=AzureADLogs OR sourcetype=FederationLogs
 (EventCode=4768 OR EventCode=4769 OR EventCode=4771 OR EventCode=5136 OR EventID=1200)

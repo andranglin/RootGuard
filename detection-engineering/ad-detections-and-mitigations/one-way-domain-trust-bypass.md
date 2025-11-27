@@ -330,7 +330,7 @@ Feel free to adjust the thresholds and parameters based on your specific environ
 Splunk Query for One-Way Domain Trust Bypass Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=security OR index=windows OR index=active_directory
 sourcetype=WinEventLog:Security
 (EventCode=4624 OR EventCode=4769 OR EventCode=4625 OR EventCode=4672)
@@ -410,7 +410,7 @@ By integrating this query into your security operations, you can proactively ide
 A Splunk query to detect potential One-Way Domain Trust Bypass activities by monitoring specific event codes that are indicative of such activities:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows
 | search EventCode IN (1102, 4103, 4104, 4768, 4624, 4769, 4728, 4732)
 | eval EventDescription = case(

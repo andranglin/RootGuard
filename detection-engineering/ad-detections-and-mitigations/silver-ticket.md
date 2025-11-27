@@ -253,7 +253,7 @@ The following are **Splunk queries** designed to detect **Silver Ticket** activi
 Splunk Query for Silver Ticket Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows
 sourcetype=WinEventLog:Security
 (EventCode=4769)  // Kerberos Service Ticket Operation
@@ -298,7 +298,7 @@ sourcetype=WinEventLog:Security
 The following is a Splunk query to detect potential Silver Ticket attacks by analyzing Kerberos-related events and focusing on anomalies like unusual service ticket usage, forged tickets, and suspicious patterns in authentication:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows
 sourcetype=WinEventLog:Security
 (EventCode=4768 OR EventCode=4769 OR EventCode=4770 OR EventCode=4771)

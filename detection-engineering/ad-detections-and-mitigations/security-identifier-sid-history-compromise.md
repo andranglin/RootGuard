@@ -333,7 +333,7 @@ The following are **Splunk queries** to detect **Security Identifier (SID) Histo
 Splunk Query for SID History Compromise Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=security OR index=windows OR index=active_directory
 sourcetype=WinEventLog:Security
 (EventCode=5136 OR EventCode=4624 OR EventCode=4672 OR EventCode=4728 OR EventCode=4732)
@@ -418,7 +418,7 @@ This query enhances detection and response capabilities for **SID History Compro
 Splunk query to detect potential Security Identifier (SID) History Compromise activities by monitoring specific event codes that are indicative of such activities:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=security
 | search EventCode IN (1102, 4103, 4104, 4675, 4738)
 | eval EventDescription = case(

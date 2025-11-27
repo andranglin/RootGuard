@@ -308,7 +308,7 @@ To detect **NTDS.dit dumping** in **Splunk**, you should focus on monitoring act
 Splunk Query to Detect NTDS.dit Dumping
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (EventCode=4688 OR EventCode=4663 OR EventCode=5145)
 | eval EventDescription = case(
     EventCode == 4688, "Process Creation",
@@ -370,7 +370,7 @@ index=windows (EventCode=4688 OR EventCode=4663 OR EventCode=5145)
 To focus on shadow copy creation, use the following query:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows EventCode=4688
 | eval CommandLine = coalesce(Process_Command_Line, "")
 | where CommandLine like "%vssadmin create shadow%" OR CommandLine like "%diskshadow%"
@@ -391,7 +391,7 @@ index=windows EventCode=4688
 1. **Whitelist Trusted Activity:**
    *   Exclude known administrative or backup tasks:
 
-       ```splunk-spl
+       ```spl
        | where NOT Account_Name IN ("BackupService", "TrustedAdmin")
        ```
 2. **Adjust Thresholds:**
@@ -430,7 +430,7 @@ index=windows EventCode=4688
 Query to detect potential dumping of the `ntds.dit` file:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=your_index sourcetype=your_sourcetype
 | eval ObjectName = mvindex(TargetObject, 1)
 | where EventCode=4662 // An operation was performed on an object

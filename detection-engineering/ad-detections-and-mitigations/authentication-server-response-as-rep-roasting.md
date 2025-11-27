@@ -33,7 +33,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 
 ### **Detection and Mitigation**
 
-**Detection:**
+#### **Detection:**
 
 1. **Log Monitoring:**
    * Monitor Windows Security Event Logs for Kerberos authentication anomalies:
@@ -52,7 +52,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 4. **Use EDR/SIEM Tools:**
    * Configure detection rules for tools like Splunk, Elastic, or Microsoft Sentinel to flag unusual AS-REP requests.
 
-**Mitigation:**
+#### **Mitigation:**
 
 1. **Disable Legacy Settings:**
    * Audit and disable the "Do not require Kerberos pre-authentication" setting for all accounts unless absolutely necessary.
@@ -78,7 +78,7 @@ AS-REP Roasting is categorised under the **Credential Access** tactic in the MIT
 
 AS-REP Roasting highlights how minor misconfigurations in Kerberos authentication can lead to significant security risks. By understanding how the attack works and implementing proactive detection and mitigation measures, organisations can better protect their Active Directory environments from credential theft and lateral movement threats.
 
-### KQL Dection Queries:
+### KQL Detection Queries:
 
 {% tabs %}
 {% tab title="Query 1" %}
@@ -300,7 +300,7 @@ Query performs the following steps:
 {% tabs %}
 {% tab title="Windows" %}
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows (sourcetype="WinEventLog:Security" OR EventCode=4768)
 | eval TargetAccount=TargetUserName, ClientIP=IpAddress, FailureCode=Status
 | where FailureCode="0x12"  // Preauthentication not required
@@ -367,7 +367,7 @@ index=windows (sourcetype="WinEventLog:Security" OR EventCode=4768)
 Sysmon Query for AS-REP Roasting Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=sysmon EventCode=13
 | eval TargetAccount=AccountName, ClientIP=coalesce(IpAddress, SourceHost), RequestingHost=ComputerName
 | stats count AS RequestCount, values(ClientIP) AS RequestingIPs, dc(ClientIP) AS UniqueIPs, min(_time) AS FirstSeen, max(_time) AS LastSeen 
@@ -431,7 +431,7 @@ index=sysmon EventCode=13
 
 {% tab title="Sysmon" %}
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=sysmon sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 | eval AccountName = mvindex(Account_Name, 1)
 | where EventCode=4768 AND Status="0x12" // Preauthentication not required

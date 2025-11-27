@@ -59,7 +59,7 @@ This technique is categorised under the **Persistence** and **Credential Access*
 1. **Monitor Account Creation Logs:**
    * Windows Event ID **4741**: Logs when a computer account is created.
    * Windows Event ID **4720**: Logs when a user account is created (occasionally relevant if attackers disguise machine accounts as users).
-2. **Look for Anomalous Behavior:**
+2. **Look for Anomalous Behaviour:**
    * Machine accounts (names ending with `$`) logging in from unusual locations or performing abnormal activities.
 3. **Audit Active Directory:**
    *   Periodically check the **MachineAccountQuota** setting using PowerShell:
@@ -211,7 +211,7 @@ The **MachineAccountQuota** attribute in Active Directory defines the number of 
 Splunk Query for MachineAccountQuota Compromise Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows EventCode=4741 OR EventCode=4720
 | eval AccountName = coalesce(TargetUserName, AccountName)
 | eval EventDescription = case(
@@ -267,7 +267,7 @@ index=windows EventCode=4741 OR EventCode=4720
 Advanced Query with Temporal Analysis
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows EventCode=4741 OR EventCode=4720
 | eval AccountName = coalesce(TargetUserName, AccountName)
 | bin _time span=15m  // Group events into 15-minute intervals

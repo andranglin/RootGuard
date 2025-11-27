@@ -167,7 +167,7 @@ SecurityEvent
 This query searches for GPP-related keywords (`cpassword`) in the content of accessed files if the logs contain such data.
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 SecurityEvent
 | where EventID == 5145
 | extend AccessedFile = tostring(EventData.ShareName) + "\\" + tostring(EventData.RelativeTargetName)
@@ -275,7 +275,7 @@ To detect **Password in Group Policy Preferences (GPP) compromise** in Splunk, y
 Splunk Query for GPP Password Compromise Detection
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows EventCode=5145
 | eval AccessedFile = Resource + "\\" + Object_Name
 | where like(AccessedFile, "%\\SYSVOL%") AND (like(AccessedFile, "%.xml") OR match(AccessedFile, "(Groups|Services|Scheduledtasks)\\.xml$"))
@@ -325,7 +325,7 @@ index=windows EventCode=5145
 Query to detect the presence of passwords in Group Policy Preferences (GPP):
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows sourcetype=add_your_sourcetype
 | eval FilePath = mvindex(TargetObject, 1)
 | where EventCode=5145 // File Accessed
@@ -352,7 +352,7 @@ Advanced Query: Searching for "cpassword" in Logs
 If your Splunk environment captures file content or metadata, you can extend the query to detect the `cpassword` field directly:
 
 {% code overflow="wrap" %}
-```splunk-spl
+```spl
 index=windows EventCode=5145
 | eval AccessedFile = Resource + "\\" + Object_Name
 | where like(AccessedFile, "%\\SYSVOL%") AND (like(AccessedFile, "%.xml") OR match(AccessedFile, "(Groups|Services|Scheduledtasks)\\.xml$"))
@@ -379,18 +379,18 @@ index=windows EventCode=5145
 2. **Whitelist Legitimate Activity:**
    *   Exclude trusted accounts or systems that access SYSVOL:
 
-       <pre class="language-splunk-spl" data-overflow="wrap"><code class="lang-splunk-spl">| search NOT Account_Name IN ("trusted_admin", "service_account")
+       <pre class="language-spl" data-overflow="wrap"><code class="lang-spl">| search NOT Account_Name IN ("trusted_admin", "service_account")
        </code></pre>
 3. **Add Time-Based Grouping:**
    *   Group events into smaller time intervals to detect bursts of activity:
 
-       ```splunk-spl
+       ```spl
        | bin _time span=15m
        ```
 4. **Monitor All Access to SYSVOL:**
    *   Expand the query to detect broader patterns of unusual SYSVOL access:
 
-       ```splunk-spl
+       ```spl
        | where like(AccessedFile, "%\\SYSVOL%")
        ```
 
