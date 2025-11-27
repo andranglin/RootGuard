@@ -141,6 +141,7 @@
     * [Browser Usage](defensive-security/windows-forensics/window-artifact-analysis/browser-usage.md)
     * [Deleted File or File Knowledge](defensive-security/windows-forensics/window-artifact-analysis/deleted-file-or-file-knowledge.md)
     * [External Device & USB Usage](defensive-security/windows-forensics/window-artifact-analysis/external-device-and-usb-usage.md)
+  * [Windows DFIR Artifact Analysis Guide](defensive-security/windows-forensics/windows-dfir-artifact-analysis-guide.md)
 * [Linux Forensics](defensive-security/linux-forensics/README.md)
   * [Linux Commandline Basics](defensive-security/linux-forensics/linux-commandline-basics.md)
   * [Host Compromise Assessment](defensive-security/linux-forensics/host-compromise-assessment.md)
