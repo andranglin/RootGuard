@@ -1,6 +1,6 @@
 # Acquire Triage Data Using Powershell
 
-1\. Preparation
+### 1. Preparation
 
 * Launch PowerShell: Open PowerShell as Administrator (powershell.exe or pwsh.exe for PowerShell Core). Right-click the Start menu > "Windows PowerShell (Admin)" or use Run > PowerShell > Ctrl+Shift+Enter.
 *   Set Output Location: Define a directory for triage data (e.g., local drive or external USB). Create it with:
@@ -19,7 +19,11 @@
     Start-Transcript -Path "$OutputPath\PowerShellTranscript.txt"
     ```
 
-2\. Define Triage ObjectivesFor effective triage, collect artifacts that reveal system state, user activity, potential persistence, and compromise indicators:
+### 2. Define Triage&#x20;
+
+**Objectives**
+
+For effective triage, collect artifacts that reveal system state, user activity, potential persistence, and compromise indicators:
 
 * System info (OS, hardware, users)
 * Running processes and services
@@ -29,7 +33,7 @@
 * Filesystem (recent files, prefetch, temp)
 * Scheduled tasks and accounts
 
-3\. Comprehensive Collection ScriptBelow is a detailed PowerShell script (Triage.ps1) to collect these artifacts. Copy this into a .ps1 file or run commands individually.
+Comprehensive Collection Script Below is a detailed PowerShell script (Triage.ps1) to collect these artifacts. Copy this into a .ps1 file or run commands individually.
 
 {% code overflow="wrap" %}
 ```powershell
@@ -113,7 +117,7 @@ Write-Host "Triage data collection complete. Output saved to D:\TriageData_$Time
 ```
 {% endcode %}
 
-4\. Execute the Collection
+### 3. Execute the Collection
 
 *   Run the Script: Save as Triage.ps1 and execute:powershell
 
@@ -123,20 +127,20 @@ Write-Host "Triage data collection complete. Output saved to D:\TriageData_$Time
 * Alternative: Copy-paste commands into an admin PowerShell session or run individually.
 * Duration: Takes 5-20 minutes depending on system size, event log volume, and filesystem recursion depth.
 
-5\. Verify and Analyse
+### 4. Verify and Analyse
 
 * Output Check: Inspect $OutputPath for:
   * CSV files (e.g., Processes\_20250226\_123456.csv)
   * Text files (e.g., Netstat\_20250226\_123456.txt)
   * Exported files (e.g., Prefetch folder, .reg files)
   * ZIP archive (e.g., TriageData\_20250226\_123456.zip)
-* Analysis Tools:
+* **Analysis Tools:**
   * CSVs: Open in Excel or import with Import-Csv for filtering.
   * Prefetch: Use PEcmd or forensic suites (Autopsy, FTK).
   * Event Logs: Parse with Event Log Explorer or custom scripts.
   * Registry: Import .reg files or analyse CSVs in RegRipper.
 
-6\. Advanced Enhancements
+### 5. Advanced Enhancements
 
 *   Memory Dump: Pair with DumpIt or winpmem for RAM capture (PowerShell can’t do this natively):
 
@@ -151,7 +155,7 @@ Write-Host "Triage data collection complete. Output saved to D:\TriageData_$Time
     <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Invoke-Command -ComputerName TARGET-PC -FilePath .\Triage.ps1 -Credential (Get-Credential)
     </code></pre>
 
-7\. Tips and Considerations
+### 6. Tips and Considerations
 
 * Scope Control: Adjust -MaxEvents (e.g., 5000 to 1000) or file search depth to speed up collection.
 * Error Handling: ErrorAction SilentlyContinue skips inaccessible areas (e.g., locked files).

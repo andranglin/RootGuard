@@ -1,10 +1,10 @@
 # Acquire Triage Image Using KAPE
 
-### Acquiring a triage image with KAPE
+### Acquiring a Triage Image With KAPE
 
-1. Setup: Download KAPE from Kroll’s site or GitHub. Run it from a USB or local folder with admin privileges on your forensic workstation.
-2. Target: Choose your source—e.g., C: for a live system or a mounted image’s drive letter (use Arsenal Image Mounter for E01 files).
-3. Command: Open an admin command prompt, navigate to KAPE’s directory, and run:
+1. **Setup**: Download KAPE from Kroll’s site or GitHub. Run it from a USB or local folder with admin privileges on your forensic workstation.
+2. **Target**: Choose your source—e.g., C: for a live system or a mounted image’s drive letter (use Arsenal Image Mounter for E01 files).
+3. **Command**: Open an admin command prompt, navigate to KAPE’s directory, and run:
 
 {% code overflow="wrap" %}
 ```powershell
@@ -27,13 +27,13 @@ kape.exe --tsource C: --target KapeTriage --tdest D:\TriageOutput --vhdx TriageI
 * \--vss: Includes Volume Shadow Copies for locked/historical data.
 
 1. Execution: Takes minutes depending on system size. Logs are saved in D:\TriageOutput.
-2. Verify: Mount TriageImage.vhdx (right-click > Mount in Windows) or open in FTK Imager/Autopsy to analyze.
+2. Verify: Mount TriageImage.vhdx (right-click > Mount in Windows) or open in FTK Imager/Autopsy to analyse.
 
-Tips: Add --tflush to wipe the destination first. Customize targets in the Targets folder (e.g., RegistryHives or !BasicCollection). For parsing, add --module !EZParser --mdest D:\Parsed. Ready for triage!
+**Tips**: Add --tflush to wipe the destination first. Customise targets in the Targets folder (e.g., RegistryHives or !BasicCollection). For parsing, add --module !EZParser --mdest D:\Parsed. Ready for triage!
 
-## KAPE cheatsheet <a href="#kape-cheatsheet" id="kape-cheatsheet"></a>
+## KAPE Cheatsheet <a href="#kape-cheatsheet" id="kape-cheatsheet"></a>
 
-#### Basic command
+#### Basic Commands
 
 {% code overflow="wrap" %}
 ```powershell
@@ -46,7 +46,7 @@ Tips: Add --tflush to wipe the destination first. Customize targets in the Targe
 
 ### Target <a href="#target" id="target"></a>
 
-#### KAPE target extraction <a href="#kape-target-extraction" id="kape-target-extraction"></a>
+#### KAPE Target Extraction <a href="#kape-target-extraction" id="kape-target-extraction"></a>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -56,7 +56,7 @@ Tips: Add --tflush to wipe the destination first. Customize targets in the Targe
 
 ### Module: Live Response <a href="#module-live-response" id="module-live-response"></a>
 
-#### Memory dump <a href="#memory-dump" id="memory-dump"></a>
+#### Memory Dump <a href="#memory-dump" id="memory-dump"></a>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -64,7 +64,7 @@ Tips: Add --tflush to wipe the destination first. Customize targets in the Targe
 ```
 {% endcode %}
 
-#### Live response command and scanner <a href="#live-response-command-and-scanner" id="live-response-command-and-scanner"></a>
+#### Live Response Command and Scanner <a href="#live-response-command-and-scanner" id="live-response-command-and-scanner"></a>
 
 {% code overflow="wrap" %}
 ```ps1
@@ -80,11 +80,11 @@ Tips: Add --tflush to wipe the destination first. Customize targets in the Targe
 ```
 {% endcode %}
 
-### Module: Parsing and scanning <a href="#module-parsing-and-scanning" id="module-parsing-and-scanning"></a>
+### Module: Parsing & Scanning <a href="#module-parsing-and-scanning" id="module-parsing-and-scanning"></a>
 
-#### All in one artifact parsing <a href="#all-in-one-artifact-parsing" id="all-in-one-artifact-parsing"></a>
+#### All-in-one Artifact Parsing <a href="#all-in-one-artifact-parsing" id="all-in-one-artifact-parsing"></a>
 
-Warning: Super slow!
+**Warning: Super Slow!**
 
 {% code overflow="wrap" %}
 ```powershell
@@ -92,7 +92,7 @@ Warning: Super slow!
 ```
 {% endcode %}
 
-#### Event log / log scanning and parsing <a href="#event-log--log-scanning-and-parsing" id="event-log--log-scanning-and-parsing"></a>
+#### EventLog - Log Scanning & Parsing <a href="#event-log--log-scanning-and-parsing" id="event-log--log-scanning-and-parsing"></a>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -108,7 +108,7 @@ Warning: Super slow!
 ```
 {% endcode %}
 
-#### File folder activity <a href="#file-folder-activity" id="file-folder-activity"></a>
+#### File Folder Activity <a href="#file-folder-activity" id="file-folder-activity"></a>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -116,7 +116,7 @@ Warning: Super slow!
 ```
 {% endcode %}
 
-#### NTFS and FileSystem parsing <a href="#ntfs-and-filesystem-parsing" id="ntfs-and-filesystem-parsing"></a>
+#### NTFS and FileSystem Parsing <a href="#ntfs-and-filesystem-parsing" id="ntfs-and-filesystem-parsing"></a>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -124,7 +124,7 @@ Warning: Super slow!
 ```
 {% endcode %}
 
-#### System activity <a href="#system-activity" id="system-activity"></a>
+#### System Activity <a href="#system-activity" id="system-activity"></a>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -132,7 +132,7 @@ Warning: Super slow!
 ```
 {% endcode %}
 
-#### Mounted image scanner <a href="#mounted-image-scanner" id="mounted-image-scanner"></a>
+#### Mounted Image Scanner <a href="#mounted-image-scanner" id="mounted-image-scanner"></a>
 
 {% code overflow="wrap" %}
 ```powershell
@@ -140,4 +140,3 @@ Warning: Super slow!
 .\kape.exe --msource E:\ --mdest E:\EvidenceCaseFiles\ --module DensityScout --gui
 ```
 {% endcode %}
-

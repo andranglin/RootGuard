@@ -167,11 +167,10 @@
       * [External Device Usage](defensive-security/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/external-device-usage.md)
       * [Network Activity](defensive-security/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/network-activity.md)
       * [Windows Event Logs](defensive-security/playbooks/first-responder-dfir-playbook/windows-forensic-artefacts/windows-event-logs.md)
-    * [Initial Analysis](defensive-security/playbooks/first-responder-dfir-playbook/initial-analysis/README.md)
-      * [Memory Analysis  (Vol 3)](defensive-security/playbooks/first-responder-dfir-playbook/initial-analysis/memory-analysis-vol-3.md)
-      * [Axiom Cyber Examiner](defensive-security/playbooks/first-responder-dfir-playbook/initial-analysis/axiom-cyber-examiner.md)
   * [Windows AD Attack Investigation – Defender & Sentinel KQL Cheat Sheet](defensive-security/playbooks/windows-ad-attack-investigation-defender-and-sentinel-kql-cheat-sheet.md)
   * [Windows AD Attack Investigation – Velociraptor Cheatsheet](defensive-security/playbooks/windows-ad-attack-investigation-velociraptor-cheatsheet.md)
+  * [Axiom Cyber Examiner](defensive-security/playbooks/axiom-cyber-examiner.md)
+  * [Memory Analysis  (Vol 3)](defensive-security/playbooks/memory-analysis-vol-3.md)
 
 ## Detection Engineering
 

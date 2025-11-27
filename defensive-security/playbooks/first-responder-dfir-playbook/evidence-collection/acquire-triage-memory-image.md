@@ -1,6 +1,6 @@
 # Acquire Triage Memory Image
 
-1\. Preparation
+### 1. Preparation
 
 * Understand the Goal: A triage memory image captures volatile data for quick analysis, not a full forensic memory dump (though the process is similar). Prioritize speed and minimal system impact.
 * Select a Tool: Choose a memory acquisition tool based on availability and system compatibility.
@@ -9,21 +9,27 @@
   * Magnet RAM Capture: Free, user-friendly, Windows-only.
   * FTK Imager: Free, includes memory capture alongside disk imaging.
   * Belkasoft Live RAM Capturer: Free, lightweight, Windows-specific.
-* Requirements:
+* **Requirements**:
   * Administrative privileges on the target system.
   * External storage (e.g., USB drive) with enough space (RAM size + overhead, e.g., 8-16 GB for a typical system).
-*   Output Location: Define a destination (e.g., D:\MemoryDump). Create it manually or via command:cmd
+*   **Output Location:** Define a destination (e.g., D:\MemoryDump). Create it manually or via command:cmd
 
     ```
     mkdir D:\MemoryDump
     ```
 
-2\. Choose Acquisition MethodMemory capture tools typically produce a raw memory dump (.raw, .bin, or .dmp) suitable for triage analysis. Select based on your scenario:
+### 2. Choose Acquisition Method
+
+Memory capture tools typically produce a raw memory dump (.raw, .bin, or .dmp) suitable for triage analysis. Select based on your scenario:
 
 * Live System: Run the tool directly on the target.
 * No Forensic Image Support: These methods are for live systems only, not mounted disk images.
 
-3\. Acquire the Memory ImageBelow are detailed steps for popular tools. Use one based on your setup.Option 1: DumpIt
+### 3. Acquire the Memory Image
+
+Below are detailed steps for popular tools. Use one based on your setup.
+
+#### **Option 1: DumpIt**
 
 * Download: Get DumpIt from the Comae website (free for non-commercial use).
 * Setup: Copy DumpIt.exe to a USB or the target system (e.g., D:\Tools\DumpIt.exe).
@@ -37,9 +43,8 @@
       * /O: Specifies output path and filename (e.g., MemoryImage\_PC1\_20250226.raw).
   3. Confirm with Y when prompted.
 * Output: A raw memory file (size matches system RAM, e.g., 8 GB for 8 GB RAM).
-* Time: 1-5 minutes depending on RAM size and storage speed.
 
-Option 2: WinPmem
+#### **Option 2: WinPmem**
 
 * Download: Obtain winpmem.exe from the Rekall GitHub or Velociraptor’s tools directory.
 * Setup: Place winpmem.exe on a USB (e.g., D:\Tools\winpmem.exe).
@@ -54,9 +59,8 @@ Option 2: WinPmem
       * Optional: Add --format raw for explicit raw format.
   3. Wait for completion (no prompt; watch the file size grow).
 * Output: Raw memory dump (.raw).
-* Time: 2-10 minutes.
 
-Option 3: Magnet RAM Capture
+#### **Option 3: Magnet RAM Capture**
 
 * Download: Free from Magnet Forensics’ website.
 * Setup: Run the installer or use the portable .exe on a USB (e.g., D:\Tools\MagnetRAMCapture.exe).
@@ -65,9 +69,8 @@ Option 3: Magnet RAM Capture
   2. Set output: D:\MemoryDump\MemoryImage\_%COMPUTERNAME%\_%DATE%.raw.
   3. Click "Capture Memory."
 * Output: Raw memory file.
-* Time: 3-15 minutes, with a progress bar.
 
-Option 4: FTK Imager
+#### **Option 4: FTK Imager**
 
 * Download: Free from AccessData’s site.
 * Setup: Install or use the portable version (e.g., D:\Tools\FTKImager.exe).
@@ -78,9 +81,8 @@ Option 4: FTK Imager
   4. Check "Include pagefile" (optional, increases size).
   5. Click "Capture Memory."
 * Output: Raw dump plus a .txt log.
-* Time: 5-20 minutes.
 
-Option 5: Belkasoft Live RAM Capturer
+#### **Option 5: Belkasoft Live RAM Capturer**
 
 * Download: Free from Belkasoft’s website.
 * Setup: Extract to a USB (e.g., D:\Tools\BelkaRAMCapturer.exe).
@@ -89,9 +91,10 @@ Option 5: Belkasoft Live RAM Capturer
   2. Select output: D:\MemoryDump\MemoryImage\_%COMPUTERNAME%\_%DATE%.dmp.
   3. Click "Capture."
 * Output: Memory dump (.dmp).
-* Time: 2-10 minutes.
 
-4\. Enhance with PowerShell (Optional)PowerShell can’t capture memory but can automate tool execution and add metadata:powershell
+### 4. Enhance with PowerShell (Optional)
+
+PowerShell can’t capture memory but can automate tool execution and add metadata:powershell
 
 {% code overflow="wrap" %}
 ```powershell
@@ -107,7 +110,7 @@ Get-ComputerInfo | Export-Csv "$OutputPath\SystemInfo_$Timestamp.csv" -NoTypeInf
 ```
 {% endcode %}
 
-5\. Verify and Package
+### 5. Verify and Package
 
 * Check Output: Ensure the file exists and matches RAM size (e.g., dir D:\MemoryDump or Get-ChildItem $OutputPath).
 *   Hash for Integrity:powershell
@@ -119,20 +122,20 @@ Get-ComputerInfo | Export-Csv "$OutputPath\SystemInfo_$Timestamp.csv" -NoTypeInf
     <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Compress-Archive -Path "$OutputPath\*" -DestinationPath "D:\MemoryTriage_$Timestamp.zip"
     </code></pre>
 
-6\. Analyze the Memory Image
+### 6. Analyse the Memory Image
 
-* Tools:
+* **Tools**:
   * Volatility: Open-source, command-line (e.g., vol.py -f MemoryImage.raw --profile=Win10x64 pslist).
   * Rekall: Similar to Volatility, with WinPmem integration.
   * Autopsy: GUI, load the .raw file under "Add Data Source."
   * Magnet AXIOM: Commercial, supports memory analysis.
-* Key Artifacts:
+* **Key Artifacts:**
   * Processes (pslist, pstree)
   * Network connections (netscan)
   * Loaded DLLs (dlllist)
   * Registry hives in memory (hivelist)
 
-7\. Tips and Considerations
+### 7. Tips and Considerations
 
 * Speed: Triage capture takes minutes (e.g., 1 GB/min on fast storage), ideal for rapid response.
 * Size: Plan for RAM size (e.g., 16 GB system = 16+ GB dump with pagefile).

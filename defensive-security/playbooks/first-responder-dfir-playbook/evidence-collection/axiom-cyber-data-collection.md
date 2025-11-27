@@ -1,6 +1,6 @@
 # AXIOM Cyber Data Collection
 
-### <mark style="color:purple;">1. Case Creation</mark>
+### 1. Case Creation
 
 Create a new case to organise and store all the evidence collected throughout the investigation.
 
@@ -24,11 +24,11 @@ Scanned by: <mark style="color:green;">\<investigator name></mark>
 
 NEXT: _<mark style="color:green;">Go to Evident Sources</mark>_
 
-### <mark style="color:purple;">2. Evidence Sources</mark>
+### <mark style="color:$primary;">2. Evidence Sources</mark>
 
-#### <mark style="color:purple;">**Remote Computer**</mark>
+#### <mark style="color:$primary;">Remote Computer</mark>
 
-<mark style="color:purple;">**Create New Agent**</mark>
+<mark style="color:$primary;">Create New Agent</mark>
 
 <mark style="color:orange;">**General Agent Settings:**</mark>\
 The agent will be saved to the default location: _<mark style="color:green;">C:\AXIOM-Agents</mark>_ \
@@ -50,7 +50,7 @@ Disconnected Keep alive: _<mark style="color:green;">1</mark>_ <mark style="colo
 
 Next, _<mark style="color:green;">Create Agent</mark>_
 
-#### <mark style="color:purple;">**Create Agent**</mark>
+#### <mark style="color:$primary;">Create Agent</mark>
 
 <mark style="color:orange;">**Review Agent Details**</mark>\
 <mark style="color:green;">**<**</mark><mark style="color:green;">Review details></mark>
@@ -85,11 +85,11 @@ Depending on the size and amount of files to be downloaded, it could take some t
 When data capture is complete, select Next for the final section of EVIDENCE SOURCES: _<mark style="color:green;">Preparing Selected Items</mark>_ \
 Note: AXIOM will archive and do its final checks. When complete, click: _<mark style="color:green;">Go to Evidence Sources</mark>_ and next click _<mark style="color:green;">Go to Processing Details</mark>_
 
-### <mark style="color:purple;">3. Processing Details</mark>
+### <mark style="color:$primary;">3. Processing Details</mark>
 
 PROCESSING DETAILS allow additional IOCs or search keywords to be added to the search.
 
-<mark style="color:purple;">**Data Processing Options**</mark>\
+<mark style="color:$primary;">Data Processing Options</mark>\
 <mark style="color:orange;">**Quick Scan**</mark><mark style="color:orange;">:</mark> A faster option focusing on key artefact types and providing quick insights into major evidence categories. \
 <mark style="color:orange;">**Full Scan**</mark><mark style="color:orange;">:</mark> Performs a comprehensive scan of all collected data, including a deeper search for deleted files, file system artefacts, and more granular evidence. \
 <mark style="color:orange;">**Custom Scan**</mark><mark style="color:orange;">:</mark> Customise the scan to focus on specific artefact types, such as system logs, user activity, or network traffic.
