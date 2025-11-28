@@ -246,6 +246,7 @@
 * [Exploitation & Lateral Movement](offensive-security/exploitation-and-lateral-movement/README.md)
   * [Active Directory Enumeration & Attacks](offensive-security/exploitation-and-lateral-movement/active-directory-enumeration-and-attacks.md)
   * [Full Active Directory (AD) Enumeration](offensive-security/exploitation-and-lateral-movement/full-active-directory-ad-enumeration.md)
+  * [Active Directory Pentesting Workflow & Cheatsheet](offensive-security/exploitation-and-lateral-movement/active-directory-pentesting-workflow-and-cheatsheet.md)
   * [Attacking Common Services](offensive-security/exploitation-and-lateral-movement/attacking-common-services/README.md)
     * [DNS](offensive-security/exploitation-and-lateral-movement/attacking-common-services/dns.md)
     * [FTP](offensive-security/exploitation-and-lateral-movement/attacking-common-services/ftp.md)
