@@ -268,3 +268,7 @@
   * [70+ Essential Linux Commands](offensive-security/pentesting-cheatsheet/70+-essential-linux-commands.md)
   * [70+ Essential Powershell Commands](offensive-security/pentesting-cheatsheet/70+-essential-powershell-commands.md)
   * [70+ Essential Windows CMD Commands](offensive-security/pentesting-cheatsheet/70+-essential-windows-cmd-commands.md)
+
+***
+
+* [Malware Analysis Workflow & Cheatsheet for SOC Analysts](malware-analysis-workflow-and-cheatsheet-for-soc-analysts.md)
