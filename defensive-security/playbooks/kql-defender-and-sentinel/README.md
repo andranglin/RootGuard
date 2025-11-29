@@ -1,0 +1,2 @@
+# KQL - Defender & Sentinel
+
