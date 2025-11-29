@@ -111,6 +111,8 @@
     * [PowerShell for Detection and Analysis](defensive-security/incident-response/incident-triage/powershell-for-detection-and-analysis/README.md)
       * [Malware or Compromise Investigation](defensive-security/incident-response/incident-triage/powershell-for-detection-and-analysis/malware-or-compromise-investigation.md)
       * [Lateral Movement Discovery](defensive-security/incident-response/incident-triage/powershell-for-detection-and-analysis/lateral-movement-discovery.md)
+      * [PowerShell Mastery for Senior SOC Analysts](defensive-security/incident-response/incident-triage/powershell-for-detection-and-analysis/powershell-mastery-for-senior-soc-analysts.md)
+      * [PowerShell for Junior SOC Analysts](defensive-security/incident-response/incident-triage/powershell-for-detection-and-analysis/powershell-for-junior-soc-analysts.md)
     * [Registry Analysis](defensive-security/incident-response/incident-triage/registry-analysis.md)
     * [Sysinternals Intrusion Analysis](defensive-security/incident-response/incident-triage/sysinternals-intrusion-analysis.md)
     * [PowerShell Intrusion Analysis](defensive-security/incident-response/incident-triage/powershell-intrusion-analysis.md)
