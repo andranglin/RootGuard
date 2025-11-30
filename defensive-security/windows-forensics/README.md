@@ -110,7 +110,7 @@ Aspiring forensic analysts can build a successful and impactful career in digita
 
 * [Evidence of Execution](evidence-of-execution.md)
 * [Windows Artifact Analysis](window-artifact-analysis/)
-* [Incident Triage](../incident-response/incident-triage/)
+* [Incident Triage](/broken/pages/Rp02ogoL3BaKHwwYuCgE)
 * [KAPE Artifacts Analysis](../playbooks/zimmerman-tools/kape-artifacts-analysis.md)
 * [Velociraptor Artifacts Analysis](/broken/pages/oxvAocM49KhUyImQzKO5)
 
