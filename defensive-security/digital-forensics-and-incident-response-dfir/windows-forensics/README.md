@@ -108,7 +108,7 @@ Aspiring forensic analysts can build a successful and impactful career in digita
 
 ### Start Learning
 
-* [Evidence of Execution](evidence-of-execution.md)
+* [Evidence of Execution](../incident-response/evidence-of-execution-forensics-socb-analyst-cheatsheet.md)
 * [Windows Artifact Analysis](window-artifact-analysis/)
 * [Incident Triage](/broken/pages/Rp02ogoL3BaKHwwYuCgE)
 * [KAPE Artifacts Analysis](../playbooks/zimmerman-tools/kape-artifacts-analysis.md)
