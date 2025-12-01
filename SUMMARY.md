@@ -163,6 +163,12 @@
       * [MDI (Identity)](defensive-security/digital-forensics-and-incident-response-dfir/playbooks/kql-defender-and-sentinel/mdi-identity.md)
       * [MDE (Endpoint)](defensive-security/digital-forensics-and-incident-response-dfir/playbooks/kql-defender-and-sentinel/mde-endpoint.md)
       * [Windows AD Attack Investigation – Defender & Sentinel KQL Cheat Sheet](defensive-security/digital-forensics-and-incident-response-dfir/playbooks/kql-defender-and-sentinel/windows-ad-attack-investigation-defender-and-sentinel-kql-cheat-sheet.md)
+* [DFIR Runbooks](defensive-security/dfir-runbooks/README.md)
+  * [Identity Attack Investigation Runbook](defensive-security/dfir-runbooks/identity-attack-investigation-runbook.md)
+  * [Malware Attack Investigation Runbook](defensive-security/dfir-runbooks/malware-attack-investigation-runbook.md)
+  * [Unauthorised Access & Privilege Escalation Investigation Runbook](defensive-security/dfir-runbooks/unauthorised-access-and-privilege-escalation-investigation-runbook.md)
+  * [Lateral Movement Investigation Runbook](defensive-security/dfir-runbooks/lateral-movement-investigation-runbook.md)
+  * [Business Email Compromise (BEC) Investigation Runbook](defensive-security/dfir-runbooks/business-email-compromise-bec-investigation-runbook.md)
 
 ## Detection Engineering
 
