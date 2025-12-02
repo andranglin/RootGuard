@@ -145,6 +145,8 @@
   * [Unauthorised Access & Privilege Escalation Investigation Runbook](defensive-security/dfir-runbooks/unauthorised-access-and-privilege-escalation-investigation-runbook.md)
   * [Lateral Movement Investigation Runbook](defensive-security/dfir-runbooks/lateral-movement-investigation-runbook.md)
   * [Business Email Compromise (BEC) Investigation Runbook](defensive-security/dfir-runbooks/business-email-compromise-bec-investigation-runbook.md)
+  * [Data Exfiltration Investigation Runbook](defensive-security/dfir-runbooks/data-exfiltration-investigation-runbook.md)
+  * [Ransomware Investigation & Response Runbook](defensive-security/dfir-runbooks/ransomware-investigation-and-response-runbook.md)
 * [DFIR Playbooks](defensive-security/dfir-playbooks/README.md)
   * [PowerShell](defensive-security/dfir-playbooks/powershell/README.md)
     * [PowerShell for Junior SOC Analysts](defensive-security/dfir-playbooks/powershell/powershell-for-junior-soc-analysts.md)
