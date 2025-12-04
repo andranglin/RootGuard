@@ -153,6 +153,8 @@
     * [PowerShell Mastery for Senior SOC Analysts](defensive-security/dfir-playbooks/powershell/powershell-mastery-for-senior-soc-analysts.md)
     * [PowerShell for Detection and Analysis](defensive-security/dfir-playbooks/powershell/powershell-for-detection-and-analysis.md)
     * [PowerShell Intrusion Analysis](defensive-security/dfir-playbooks/powershell/powershell-intrusion-analysis.md)
+    * [The PowerShell Operator’s Guide](defensive-security/dfir-playbooks/powershell/the-powershell-operators-guide.md)
+    * [The Ultimate Blue Team/DFIR Powershell](defensive-security/dfir-playbooks/powershell/the-ultimate-blue-team-dfir-powershell.md)
   * [Velociraptor](defensive-security/dfir-playbooks/velociraptor/README.md)
     * [Velociraptor Intrusion Analysis](defensive-security/dfir-playbooks/velociraptor/velociraptor-intrusion-analysis.md)
     * [Windows AD Attack Investigation – Velociraptor Cheatsheet](defensive-security/dfir-playbooks/velociraptor/windows-ad-attack-investigation-velociraptor-cheatsheet.md)
@@ -267,3 +269,4 @@
     * [70+ Essential Linux Commands](offensive-security/penetration-testing-pentesting/pentesting-cheatsheet/70+-essential-linux-commands.md)
     * [70+ Essential Powershell Commands](offensive-security/penetration-testing-pentesting/pentesting-cheatsheet/70+-essential-powershell-commands.md)
     * [70+ Essential Windows CMD Commands](offensive-security/penetration-testing-pentesting/pentesting-cheatsheet/70+-essential-windows-cmd-commands.md)
+    * [PowerShell Red & Purple Team Cheatsheet](offensive-security/penetration-testing-pentesting/pentesting-cheatsheet/powershell-red-and-purple-team-cheatsheet.md)
