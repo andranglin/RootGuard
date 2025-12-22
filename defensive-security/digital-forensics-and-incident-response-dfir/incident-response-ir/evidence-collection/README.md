@@ -1,12 +1,45 @@
 # Evidence Collection
 
-Efficient tools and capabilities for Digital Forensics and Incident Response (DFIR) evidence collection are critical in today’s fast-evolving cyber threat landscape, where time is often the deciding factor in mitigating damage and preserving evidence. When a security incident occurs—be it a ransomware attack, data breach, or insider threat—the window to collect volatile data, such as running processes, network connections, or memory contents, can close within minutes as systems are powered off or adversaries cover their tracks. Tools like KAPE, Velociraptor, and FTK Imager enable responders to rapidly acquire triage data or full forensic images, ensuring that ephemeral evidence isn’t lost.&#x20;
+Speed and integrity determine whether evidence survives—and whether your investigation succeeds.
 
-This speed accelerates the identification of attack vectors and compromised assets and supports timely containment, reducing the potential for prolonged downtime, financial loss, or reputational harm. Beyond speed, efficiency in DFIR tools enhances the accuracy and reliability of evidence collection, which is foundational for both technical resolution and legal admissibility. Modern tools are designed to minimise system impact while maximising data integrity—features like write-blocking, hash verification (e.g., MD5/SHA1 in FTK Imager), and structured output formats (e.g., JSONL in Velociraptor) ensure that collected evidence remains unaltered and defensible in court. Inefficient or manual methods, such as relying solely on native OS commands, risk missing critical artefacts, introducing errors, or failing to meet chain-of-custody standards. Efficient tools automate repetitive tasks, reduce human error, and provide comprehensive coverage—capturing everything from registry hives to unallocated disk space—enabling analysts to confidently build a complete picture of the incident.&#x20;
+***
 
-Robust DFIR capabilities foster organisational resilience and preparedness, aligning technical responses with business and regulatory demands. Efficient tools allow teams to scale evidence collection across multiple endpoints, whether for a single compromised laptop or a network-wide breach, without overwhelming limited resources. This scalability is vital for meeting compliance requirements (e.g., GDPR, HIPAA) that mandate rapid incident reporting and evidence preservation. Moreover, streamlined workflows—such as KAPE’s triage collections or PowerShell’s scripted automation—empower even smaller teams to handle complex investigations, freeing them to focus on analysis and remediation rather than collection logistics. Investing in efficient DFIR tools transforms evidence collection from a bottleneck into a strategic advantage, strengthening an organisation’s ability to respond, recover, and defend against future threats.
+### Why Efficient Collection Matters
 
-The following page of this playbook provides some guidance for conducting DFIR in a Windows environment.
+When an incident occurs, volatile evidence disappears fast. Running processes, network connections, and memory contents can be lost within minutes as systems shut down or attackers cover their tracks.
+
+Efficient tooling solves three problems:
+
+<table><thead><tr><th width="154">Challenge</th><th>Solution</th></tr></thead><tbody><tr><td><strong>Speed</strong></td><td>Rapid triage before volatile data is lost</td></tr><tr><td><strong>Integrity</strong></td><td>Write-blocking, hashing, and structured output ensure evidence is defensible</td></tr><tr><td><strong>Scale</strong></td><td>Collect across multiple endpoints without overwhelming limited resources</td></tr></tbody></table>
+
+***
+
+### Core Tooling
+
+<table><thead><tr><th width="175">Tool</th><th>Primary Use</th></tr></thead><tbody><tr><td><strong>KAPE</strong></td><td>Rapid triage collection, targeted artifact acquisition</td></tr><tr><td><strong>Velociraptor</strong></td><td>Scalable collection across endpoints, structured JSONL output</td></tr><tr><td><strong>FTK Imager</strong></td><td>Full forensic imaging with hash verification</td></tr><tr><td><strong>PowerShell</strong></td><td>Scripted automation for live response</td></tr></tbody></table>
+
+***
+
+### Key Principles
+
+* **Capture volatile data first** — Memory, processes, and network connections before disk artifacts
+* **Maintain integrity** — Hash verification (MD5/SHA1/SHA256) and write-blocking preserve chain of custody
+* **Automate collection** — Reduces human error and ensures comprehensive artifact coverage
+* **Document everything** — Collection timestamps, methods, and personnel for legal admissibility
+
+***
+
+### Business Alignment
+
+Efficient evidence collection supports:
+
+* **Regulatory compliance** — GDPR, HIPAA, and others mandate rapid incident reporting and evidence preservation
+* **Faster containment** — Quick identification of attack vectors reduces downtime and financial impact
+* **Legal defensibility** — Properly collected evidence holds up in court and supports law enforcement engagement
+
+***
+
+_The following sections provide practical guidance for conducting DFIR collections in Windows environments._
 
 [Acquire Triage Image Using Kape](acquire-triage-image-using-kape.md)
 
@@ -94,11 +127,3 @@ The following page of this playbook provides some guidance for conducting DFIR i
 | Volume Serial Number (VSN)   | `SOFTWARE\Microsoft\WindowsNT\CurrentVersion\EMDMgmt`                                                    | Registry Explorer |
 | Shortcut (LNK) Files         | `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\\Office\Recent\`                                        | Autopsy           |
 | Event Logs                   | `System.evtx`                                                                                            | Event log viewer  |
-
-
-
-### Reference
-
-[https://fareedfauzi.github.io/2023/12/22/Windows-Forensics-checklist-cheatsheet.html](https://fareedfauzi.github.io/2023/12/22/Windows-Forensics-checklist-cheatsheet.html)\
-[https://www.jaiminton.com/cheatsheet/DFIR/#](https://www.jaiminton.com/cheatsheet/DFIR/)\
-[https://ericzimmerman.github.io/#!index.md](https://ericzimmerman.github.io/#!index.md)
