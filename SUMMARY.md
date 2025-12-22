@@ -256,6 +256,7 @@
       * [Password Attacks Workflow](offensive-security/penetration-testing-pentesting/exploitation-and-lateral-movement/password-attacks/password-attacks-workflow.md)
       * [Password Attack Methodology & Workflow](offensive-security/penetration-testing-pentesting/exploitation-and-lateral-movement/password-attacks/password-attack-methodology-and-workflow.md)
     * [Living-Off-the-Land Binaries (LOLBins) for AD enumeration](offensive-security/penetration-testing-pentesting/exploitation-and-lateral-movement/living-off-the-land-binaries-lolbins-for-ad-enumeration.md)
+    * [Sql Injection Pentesting Workflow](offensive-security/penetration-testing-pentesting/exploitation-and-lateral-movement/sql-injection-pentesting-workflow.md)
   * [Post-Exploitation](offensive-security/penetration-testing-pentesting/post-exploitation/README.md)
     * [Living Off the Land: Windows Post-Exploitation](offensive-security/penetration-testing-pentesting/post-exploitation/living-off-the-land-windows-post-exploitation.md)
     * [Living Off the Land: Windows Post-Exploitation—With Tactical Context & Usage Guide](offensive-security/penetration-testing-pentesting/post-exploitation/living-off-the-land-windows-post-exploitation-with-tactical-context-and-usage-guide.md)
