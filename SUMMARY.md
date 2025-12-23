@@ -272,3 +272,12 @@
     * [70+ Essential Powershell Commands](offensive-security/penetration-testing/pentesting-cheatsheet/70+-essential-powershell-commands.md)
     * [70+ Essential Windows CMD Commands](offensive-security/penetration-testing/pentesting-cheatsheet/70+-essential-windows-cmd-commands.md)
     * [PowerShell Red & Purple Team Cheatsheet](offensive-security/penetration-testing/pentesting-cheatsheet/powershell-red-and-purple-team-cheatsheet.md)
+
+## AI Prompts For SOC Analysts
+
+* [Prompt Engineering](ai-prompts-for-soc-analysts/prompt-engineering/README.md)
+  * [Foundational Prompt Structure](ai-prompts-for-soc-analysts/prompt-engineering/foundational-prompt-structure.md)
+  * [Reusable AI Prompt Library](ai-prompts-for-soc-analysts/prompt-engineering/reusable-ai-prompt-library.md)
+  * [Defender XDR & Sentinel-Specific Prompt Packs](ai-prompts-for-soc-analysts/prompt-engineering/defender-xdr-and-sentinel-specific-prompt-packs.md)
+  * [Junior Analyst AI Playbooks](ai-prompts-for-soc-analysts/prompt-engineering/junior-analyst-ai-playbooks.md)
+  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](ai-prompts-for-soc-analysts/prompt-engineering/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
