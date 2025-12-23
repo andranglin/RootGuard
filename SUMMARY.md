@@ -273,11 +273,11 @@
     * [70+ Essential Windows CMD Commands](offensive-security/penetration-testing/pentesting-cheatsheet/70+-essential-windows-cmd-commands.md)
     * [PowerShell Red & Purple Team Cheatsheet](offensive-security/penetration-testing/pentesting-cheatsheet/powershell-red-and-purple-team-cheatsheet.md)
 
-## AI Prompts For SOC Analysts
+## Prompt Engineering
 
-* [Prompt Engineering](ai-prompts-for-soc-analysts/prompt-engineering/README.md)
-  * [Foundational Prompt Structure](ai-prompts-for-soc-analysts/prompt-engineering/foundational-prompt-structure.md)
-  * [Reusable AI Prompt Library](ai-prompts-for-soc-analysts/prompt-engineering/reusable-ai-prompt-library.md)
-  * [Defender XDR & Sentinel-Specific Prompt Packs](ai-prompts-for-soc-analysts/prompt-engineering/defender-xdr-and-sentinel-specific-prompt-packs.md)
-  * [Junior Analyst AI Playbooks](ai-prompts-for-soc-analysts/prompt-engineering/junior-analyst-ai-playbooks.md)
-  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](ai-prompts-for-soc-analysts/prompt-engineering/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
+* [Prompt Basics](prompt-engineering/prompt-basics/README.md)
+  * [Foundational Prompt Structure](prompt-engineering/prompt-basics/foundational-prompt-structure.md)
+  * [Reusable AI Prompt Library](prompt-engineering/prompt-basics/reusable-ai-prompt-library.md)
+  * [Defender XDR & Sentinel-Specific Prompt Packs](prompt-engineering/prompt-basics/defender-xdr-and-sentinel-specific-prompt-packs.md)
+  * [Junior Analyst AI Playbooks](prompt-engineering/prompt-basics/junior-analyst-ai-playbooks.md)
+  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](prompt-engineering/prompt-basics/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)

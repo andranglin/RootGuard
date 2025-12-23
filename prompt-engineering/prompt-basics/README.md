@@ -1,4 +1,4 @@
-# Prompt Engineering
+# Prompt Basics
 
 Authorised simulated attacks against systems and networks to identify vulnerabilities before adversaries do—providing defenders with an attacker's perspective.
 
