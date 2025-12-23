@@ -275,9 +275,9 @@
 
 ## Prompt Engineering
 
-* [Prompt Basics](prompt-engineering/prompt-basics/README.md)
-  * [Foundational Prompt Structure](prompt-engineering/prompt-basics/foundational-prompt-structure.md)
-  * [Reusable AI Prompt Library](prompt-engineering/prompt-basics/reusable-ai-prompt-library.md)
-  * [Defender XDR & Sentinel-Specific Prompt Packs](prompt-engineering/prompt-basics/defender-xdr-and-sentinel-specific-prompt-packs.md)
-  * [Junior Analyst AI Playbooks](prompt-engineering/prompt-basics/junior-analyst-ai-playbooks.md)
-  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](prompt-engineering/prompt-basics/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
+* [AI Prompt Basics](prompt-engineering/ai-prompt-basics/README.md)
+  * [Foundational Prompt Structure](prompt-engineering/ai-prompt-basics/foundational-prompt-structure.md)
+  * [Reusable AI Prompt Library](prompt-engineering/ai-prompt-basics/reusable-ai-prompt-library.md)
+  * [Defender XDR & Sentinel-Specific Prompt Packs](prompt-engineering/ai-prompt-basics/defender-xdr-and-sentinel-specific-prompt-packs.md)
+  * [Junior Analyst AI Playbooks](prompt-engineering/ai-prompt-basics/junior-analyst-ai-playbooks.md)
+  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](prompt-engineering/ai-prompt-basics/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
