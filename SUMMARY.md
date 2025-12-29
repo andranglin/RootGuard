@@ -103,6 +103,7 @@
       * [Command and Control (C2) (TA0011) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/command-and-control-c2-ta0011-techniques.md)
       * [Exfiltration (TA0010) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/exfiltration-ta0010-techniques.md)
       * [Impact (TA0040) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/impact-ta0040-techniques.md)
+* [Linux Find Command Cheatsheet](learning-hub/linux-find-command-cheatsheet.md)
 
 ## Defensive Security
 
@@ -275,9 +276,9 @@
 
 ## Prompt Engineering
 
-* [AI Prompt Basics](prompt-engineering/ai-prompt-basics/README.md)
-  * [Foundational Prompt Structure](prompt-engineering/ai-prompt-basics/foundational-prompt-structure.md)
-  * [Reusable AI Prompt Library](prompt-engineering/ai-prompt-basics/reusable-ai-prompt-library.md)
-  * [Defender XDR & Sentinel-Specific Prompt Packs](prompt-engineering/ai-prompt-basics/defender-xdr-and-sentinel-specific-prompt-packs.md)
-  * [Junior Analyst AI Playbooks](prompt-engineering/ai-prompt-basics/junior-analyst-ai-playbooks.md)
-  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](prompt-engineering/ai-prompt-basics/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
+* [Prompt Guide for SOC Analysts](prompt-engineering/prompt-guide-for-soc-analysts/README.md)
+  * [Foundational Prompt Structure](prompt-engineering/prompt-guide-for-soc-analysts/foundational-prompt-structure.md)
+  * [Reusable AI Prompt Library](prompt-engineering/prompt-guide-for-soc-analysts/reusable-ai-prompt-library.md)
+  * [Defender XDR & Sentinel-Specific Prompt Packs](prompt-engineering/prompt-guide-for-soc-analysts/defender-xdr-and-sentinel-specific-prompt-packs.md)
+  * [Junior Analyst AI Playbooks](prompt-engineering/prompt-guide-for-soc-analysts/junior-analyst-ai-playbooks.md)
+  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](prompt-engineering/prompt-guide-for-soc-analysts/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
