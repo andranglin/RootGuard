@@ -9,19 +9,19 @@
 
 ```bash
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   DETECTION &   │──▶│    EVIDENCE     │───▶│  LIVE SYSTEM    │
+│   DETECTION &   │──▶│   EVIDENCE     │───▶│  LIVE SYSTEM    │
 │  INITIAL TRIAGE │    │   COLLECTION    │    │    ANALYSIS     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                                            │
          ▼                                            ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   FILESYSTEM    │◀───│   LOG ANALYSIS  │◀───│     MEMORY     │
+│   FILESYSTEM   │◀───│  LOG ANALYSIS  │◀───│     MEMORY     │
 │    ANALYSIS     │    │                 │    │   FORENSICS     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                                            │
          ▼                                            ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   PERSISTENCE   │───▶│    TIMELINE     │───▶│   ROOT CAUSE   │
+│   PERSISTENCE  │───▶│    TIMELINE     │───▶│   ROOT CAUSE   │
 │   MECHANISMS    │    │    ANALYSIS     │    │    ANALYSIS     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
