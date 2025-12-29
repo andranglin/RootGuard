@@ -7,24 +7,11 @@
 
 ### Investigation Phases Overview
 
-```bash
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   DETECTION &   │──▶│   EVIDENCE     │───▶│  LIVE SYSTEM    │
-│  INITIAL TRIAGE │    │   COLLECTION    │    │    ANALYSIS     │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                                            │
-         ▼                                            ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   FILESYSTEM   │◀───│  LOG ANALYSIS  │◀───│     MEMORY     │
-│    ANALYSIS     │    │                 │    │   FORENSICS     │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                                            │
-         ▼                                            ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   PERSISTENCE  │───▶│    TIMELINE     │───▶│   ROOT CAUSE   │
-│   MECHANISMS    │    │    ANALYSIS     │    │    ANALYSIS     │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
+<table><thead><tr><th width="95">Phase</th><th>Name</th><th>Primary Focus</th><th>Key Outputs</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>Detection &#x26; Initial Triage</td><td>Identify scope, assess criticality, make containment decisions</td><td>Triage report, scope determination, initial IOCs</td></tr><tr><td><strong>2</strong></td><td>Evidence Collection</td><td>Preserve volatile data, acquire memory and disk images</td><td>Memory dump, disk image, live collection archive</td></tr><tr><td><strong>3</strong></td><td>Live System Analysis</td><td>Examine running processes, network connections, user sessions</td><td>Process tree, network map, active threat identification</td></tr><tr><td><strong>4</strong></td><td>Filesystem Analysis</td><td>Hunt for malicious files, check integrity, find webshells</td><td>Suspicious file inventory, integrity violations</td></tr><tr><td><strong>5</strong></td><td>Log Analysis</td><td>Parse authentication, system, and audit logs for anomalies</td><td>Authentication timeline, privilege escalation events</td></tr><tr><td><strong>6</strong></td><td>Memory Forensics</td><td>Analyze RAM for hidden processes, injected code, credentials</td><td>Hidden artifacts, malware in memory, encryption keys</td></tr><tr><td><strong>7</strong></td><td>Persistence Mechanisms</td><td>Identify all attacker footholds for maintaining access</td><td>Complete persistence inventory, removal checklist</td></tr><tr><td><strong>8</strong></td><td>Timeline Analysis</td><td>Correlate events across all sources chronologically</td><td>Master timeline, attack sequence reconstruction</td></tr><tr><td><strong>9</strong></td><td>Root Cause Analysis</td><td>Determine initial access vector and contributing factors</td><td>Attack vector, vulnerability identification, gaps</td></tr><tr><td><strong>10</strong></td><td>Containment &#x26; Remediation</td><td>Eradicate threat and harden environment</td><td>IOC package, remediation plan, lessons learned</td></tr></tbody></table>
+
+**Investigation Flow:**
+
+<table><thead><tr><th width="181">Stage</th><th width="215">Phases</th><th>Objective</th></tr></thead><tbody><tr><td><strong>Initial Response</strong></td><td>1 → 2</td><td>Assess and preserve</td></tr><tr><td><strong>Active Analysis</strong></td><td>3 → 4 → 5 → 6</td><td>Understand the compromise</td></tr><tr><td><strong>Deep Dive</strong></td><td>7 → 8</td><td>Map persistence and timeline</td></tr><tr><td><strong>Resolution</strong></td><td>9 → 10</td><td>Determine cause and remediate</td></tr></tbody></table>
 
 ***
 
