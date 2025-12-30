@@ -3,9 +3,7 @@ cover: ../../../.gitbook/assets/Screenshot 2025-01-05 105640.png
 coverY: 0
 ---
 
-# Posts: Field Reports & Security
-
-## Field Reports & Security Briefings
+# Posts: Field Notes
 
 This feed serves as the operational pulse of RootGuard. Here, we track and analyse the rapid shifts in the cybersecurity landscape, spanning AI-driven tradecraft, ransomware campaigns, and critical infrastructure vulnerabilities.
 

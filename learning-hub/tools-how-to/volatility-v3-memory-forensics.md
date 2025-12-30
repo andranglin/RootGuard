@@ -1,6 +1,6 @@
-# Volatility 3 Memory Forensics Cheatsheet
+# Volatility v3 Memory Forensics
 
-### verview
+### Overview
 
 Volatility 3 is an open-source memory forensics framework for analysing RAM dumps from Windows, Linux, and macOS systems. It extracts digital artifacts including running processes, network connections, loaded modules, registry data, and evidence of malicious activity.
 

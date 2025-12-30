@@ -1,9 +1,9 @@
 ---
-cover: ../../.gitbook/assets/Screenshot 2025-01-05 105444.png
+cover: ../../../.gitbook/assets/Screenshot 2025-01-05 105444.png
 coverY: 0
 ---
 
-# DFIR Playbooks
+# Playbooks
 
 ### Modernised Cybersecurity Incident Response Strategy
 
