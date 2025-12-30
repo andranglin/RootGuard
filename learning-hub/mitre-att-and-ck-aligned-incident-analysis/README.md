@@ -1,9 +1,9 @@
 ---
-cover: ../../../../.gitbook/assets/Screenshot 2025-01-04 152247 (1).png
+cover: ../../.gitbook/assets/Screenshot 2025-01-04 152247 (1).png
 coverY: 0
 ---
 
-# Investigate Using MITRE ATT\&CK Methodology
+# MITRE ATT\&CK-Aligned Incident Analysis
 
 ### **Introduction to the MITRE ATT\&CK Framework**
 
@@ -20,7 +20,7 @@ The MITRE ATT\&CK (Adversarial Tactics, Techniques, and Common Knowledge) Framew
 3. [**Initial Access**:](/broken/pages/pskZUMhNiI20BNFzb3jv) Gaining entry to the target environment (e.g., phishing, exploiting vulnerabilities).
 4. [**Execution**: ](command-execution-ta0002-techniques.md)Running malicious code on the system.
 5. [**Persistence**:](persistence-ta0003-techniques.md) Maintaining access to the system over time.
-6. [**Privilege Escalation**: ](../../junior-analyst-skills/kql-use-cases/privilege-escalation-ta0004.md)Gaining higher-level permissions on the system.
+6. [**Privilege Escalation**: ](../junior-analyst-skills/kql-use-cases/privilege-escalation-ta0004.md)Gaining higher-level permissions on the system.
 7. [**Defence Evasion**](defence-evasion-ta0005-techniques.md): Avoiding detection by security tools.
 8. [**Credential Access**:](credential-access-ta0006-techniques.md) Stealing account credentials.
 9. [**Discovery**:](discovery-ta0007-techniques.md) Gaining knowledge about the environment.
