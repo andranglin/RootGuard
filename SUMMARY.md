@@ -104,6 +104,7 @@
       * [Exfiltration (TA0010) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/exfiltration-ta0010-techniques.md)
       * [Impact (TA0040) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/impact-ta0040-techniques.md)
 * [Linux Find Command Cheatsheet](learning-hub/linux-find-command-cheatsheet.md)
+* [SQLMap Cheatsheet](learning-hub/sqlmap-cheatsheet.md)
 
 ## Defensive Security
 
