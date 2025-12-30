@@ -103,9 +103,11 @@
       * [Command and Control (C2) (TA0011) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/command-and-control-c2-ta0011-techniques.md)
       * [Exfiltration (TA0010) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/exfiltration-ta0010-techniques.md)
       * [Impact (TA0040) Techniques](learning-hub/learning-and-development/intermediate-and-advanced-skills/investigate-using-mitre-att-and-ck-methodology/impact-ta0040-techniques.md)
-* [Linux Find Command Cheatsheet](learning-hub/linux-find-command-cheatsheet.md)
-* [SQLMap Cheatsheet](learning-hub/sqlmap-cheatsheet.md)
-* [Volatility 3 Memory Forensics Cheatsheet](learning-hub/volatility-3-memory-forensics-cheatsheet.md)
+* [Tools & App Cheatsheets](learning-hub/tools-and-app-cheatsheets/README.md)
+  * [Linux Find Command Cheatsheet](learning-hub/tools-and-app-cheatsheets/linux-find-command-cheatsheet.md)
+  * [SQLMap Cheatsheet](learning-hub/tools-and-app-cheatsheets/sqlmap-cheatsheet.md)
+  * [Volatility 3 Memory Forensics Cheatsheet](learning-hub/tools-and-app-cheatsheets/volatility-3-memory-forensics-cheatsheet.md)
+  * [Nmap Network Scanning Cheatsheet](learning-hub/tools-and-app-cheatsheets/nmap-network-scanning-cheatsheet.md)
 
 ## Defensive Security
 
