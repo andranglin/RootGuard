@@ -104,6 +104,7 @@
   * [Volatility v3 Memory Forensics](learning-hub/tools-how-to/volatility-v3-memory-forensics.md)
   * [Nmap Scanning](learning-hub/tools-how-to/nmap-scanning.md)
   * [SQLMap](learning-hub/tools-how-to/sqlmap.md)
+  * [Netcat Weaponisation: Attack Techniques & Detection](learning-hub/tools-how-to/netcat-weaponisation-attack-techniques-and-detection.md)
 * [AI Prompts](learning-hub/ai-prompts/README.md)
   * [Foundational Prompt Structure](learning-hub/ai-prompts/foundational-prompt-structure.md)
   * [Reusable AI Prompt Library](learning-hub/ai-prompts/reusable-ai-prompt-library.md)
