@@ -106,6 +106,12 @@
   * [SQLMap Cheatsheet](learning-hub/tools-and-app-cheatsheets/sqlmap-cheatsheet.md)
   * [Volatility 3 Memory Forensics Cheatsheet](learning-hub/tools-and-app-cheatsheets/volatility-3-memory-forensics-cheatsheet.md)
   * [Nmap Network Scanning Cheatsheet](learning-hub/tools-and-app-cheatsheets/nmap-network-scanning-cheatsheet.md)
+* [AI Prompts](learning-hub/ai-prompts/README.md)
+  * [Foundational Prompt Structure](learning-hub/ai-prompts/foundational-prompt-structure.md)
+  * [Reusable AI Prompt Library](learning-hub/ai-prompts/reusable-ai-prompt-library.md)
+  * [Defender XDR & Sentinel-Specific Prompt Packs](learning-hub/ai-prompts/defender-xdr-and-sentinel-specific-prompt-packs.md)
+  * [Junior Analyst AI Playbooks](learning-hub/ai-prompts/junior-analyst-ai-playbooks.md)
+  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](learning-hub/ai-prompts/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
 
 ## Detection Engineering
 
@@ -229,12 +235,6 @@
     * [MDE (Endpoint)](defensive-security/dfir-playbooks/kql-defender-and-sentinel/mde-endpoint.md)
     * [Windows AD Attack Investigation – Defender & Sentinel KQL Cheat Sheet](defensive-security/dfir-playbooks/kql-defender-and-sentinel/windows-ad-attack-investigation-defender-and-sentinel-kql-cheat-sheet.md)
 * [Malware Analysis Workflow & Cheatsheet](defensive-security/malware-analysis-workflow-and-cheatsheet.md)
-* [AI Prompts](defensive-security/ai-prompts/README.md)
-  * [Foundational Prompt Structure](defensive-security/ai-prompts/foundational-prompt-structure.md)
-  * [Reusable AI Prompt Library](defensive-security/ai-prompts/reusable-ai-prompt-library.md)
-  * [Defender XDR & Sentinel-Specific Prompt Packs](defensive-security/ai-prompts/defender-xdr-and-sentinel-specific-prompt-packs.md)
-  * [Junior Analyst AI Playbooks](defensive-security/ai-prompts/junior-analyst-ai-playbooks.md)
-  * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](defensive-security/ai-prompts/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
 
 ## Offensive Security
 
