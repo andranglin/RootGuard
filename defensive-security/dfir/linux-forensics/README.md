@@ -33,4 +33,4 @@ Lastly, learning Linux fosters a deeper understanding of system internals and co
 
 [Host Compromise Assessment](host-compromise-assessment.md)
 
-[Linux Commandline Basics](linux-commandline-basics.md)
+[Linux Commandline Basics](commandline-basics.md)
