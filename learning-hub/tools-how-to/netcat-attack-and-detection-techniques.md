@@ -1,12 +1,10 @@
-# Netcat Weaponisation: Attack Techniques & Detection
+# Netcat: Attack & Detection Techniques
 
 ## Netcat Weaponisation: Attack Techniques & Detection Cheatsheet
 
 ### Overview
 
 Netcat (nc) is a versatile networking utility that reads and writes data across network connections. Its legitimate uses include debugging, port scanning, and file transfers—but attackers weaponise it for reconnaissance, reverse shells, data exfiltration, and lateral movement. This guide covers offensive techniques mapped to MITRE ATT\&CK tactics and comprehensive detection strategies.
-
-**Authorized Testing Only** — Only perform these techniques against systems you have explicit written permission to test.
 
 ***
 
