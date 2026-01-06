@@ -21,7 +21,7 @@
     * [Becoming A SOC Analyst](resources-hub/blogs/posts-field-notes/becoming-a-soc-analyst.md)
     * [Key Windows Event-IDs to Monitor](resources-hub/blogs/posts-field-notes/key-windows-event-ids-to-monitor.md)
 * [Tools](resources-hub/tools/README.md)
-  * [Cerberus Triage v1.0 (DFIR Toolkit)](resources-hub/tools/cerberus-triage-v1.0-dfir-toolkit.md)
+  * [Cerberus-Triage Toolkit User Guide](resources-hub/tools/cerberus-triage-toolkit-user-guide.md)
 
 ## Knowledge Base
 
