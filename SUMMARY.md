@@ -285,4 +285,7 @@
     * [PowerShell Red & Purple Team Cheatsheet](offensive-security/hacking/pentesting-cheatsheet/powershell-red-and-purple-team-cheatsheet.md)
 * [Attacking Active Directory (AD)](offensive-security/attacking-active-directory-ad.md)
 
-## Prompt Engineering
+## Resources
+
+* [Tools](resources/tools/README.md)
+  * [Cerberus Triage v1.0 (DFIR Toolkit)](resources/tools/cerberus-triage-v1.0-dfir-toolkit.md)
