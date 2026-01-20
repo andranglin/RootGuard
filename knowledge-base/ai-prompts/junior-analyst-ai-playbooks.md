@@ -8,14 +8,14 @@ Below is a **complete, reusable SOC AI framework** consisting of **three tightly
 
 Written to be **enterprise-ready**, **repeatable**, and **defensible** in regulated SOC environments.
 
-## 1. Reusable SOC Prompt Library (Core)
+### 1. Reusable SOC Prompt Library (Core)
 
 This library is **platform-agnostic** and should be treated as your **SOC AI baseline**.\
 Each prompt is designed to be copied verbatim and populated with evidence.
 
 ***
 
-### 1.1 Alert Triage Prompt (Universal)
+#### 1.1 Alert Triage Prompt (Universal)
 
 {% code overflow="wrap" %}
 ```bash
@@ -49,7 +49,7 @@ Constraints:
 
 ***
 
-### 1.2 Investigation Expansion Prompt
+#### 1.2 Investigation Expansion Prompt
 
 ```bash
 You are conducting an active SOC investigation.
@@ -74,7 +74,7 @@ Tasks:
 
 ***
 
-### 1.3 Threat Hunting Prompt (Hypothesis-Driven)
+#### 1.3 Threat Hunting Prompt (Hypothesis-Driven)
 
 ```bash
 You are a threat hunter.
@@ -98,7 +98,7 @@ Tasks:
 
 ***
 
-### 1.4 Incident Response Decision Support Prompt
+#### 1.4 Incident Response Decision Support Prompt
 
 ```bash
 You are advising the incident response lead.
@@ -118,13 +118,13 @@ Tasks:
 
 ***
 
-## 2. Defender XDR Prompt Pack
+### 2. Defender XDR Prompt Pack
 
 These prompts are **optimised for Defender XDR telemetry and workflows**.
 
 ***
 
-### 2.1 Defender XDR Alert Analysis
+#### 2.1 Defender XDR Alert Analysis
 
 ```bash
 You are a Microsoft Defender XDR specialist.
@@ -142,7 +142,7 @@ Tasks:
 
 ***
 
-### 2.2 Advanced Hunting (KQL) Support
+#### 2.2 Advanced Hunting (KQL) Support
 
 ```bash
 You are assisting with Defender XDR Advanced Hunting.
@@ -159,7 +159,7 @@ Tasks:
 
 ***
 
-### 2.3 Identity-Based Attack Analysis (Entra ID / MDI)
+#### 2.3 Identity-Based Attack Analysis (Entra ID / MDI)
 
 ```bash
 You are analysing a potential identity compromise.
@@ -178,7 +178,7 @@ Tasks:
 
 ***
 
-### 2.4 Endpoint Compromise Investigation
+#### 2.4 Endpoint Compromise Investigation
 
 ```bash
 You are investigating a suspected compromised endpoint using Defender XDR.
@@ -193,13 +193,13 @@ Tasks:
 
 ***
 
-## 3. Microsoft Sentinel Prompt Pack
+### 3. Microsoft Sentinel Prompt Pack
 
 Optimised for **SIEM correlation, analytics rules, and incidents**.
 
 ***
 
-### 3.1 Sentinel Incident Correlation
+#### 3.1 Sentinel Incident Correlation
 
 ```bash
 You are investigating a Microsoft Sentinel incident.
@@ -218,7 +218,7 @@ Tasks:
 
 ***
 
-### 3.2 Analytics Rule Validation
+#### 3.2 Analytics Rule Validation
 
 ```bash
 You are reviewing a Sentinel analytics rule.
@@ -235,7 +235,7 @@ Tasks:
 
 ***
 
-### 3.3 Post-Incident Detection Engineering
+#### 3.3 Post-Incident Detection Engineering
 
 ```bash
 You are performing detection engineering after an incident.
@@ -252,13 +252,13 @@ Tasks:
 
 ***
 
-## 4. Junior Analyst AI Playbooks
+### 4. Junior Analyst AI Playbooks
 
 These are **step-by-step AI-assisted workflows** designed for **Tier-1 analysts**, with escalation paths.
 
 ***
 
-### 4.1 Tier-1 Alert Handling Playbook
+#### 4.1 Tier-1 Alert Handling Playbook
 
 **Trigger:** New SOC alert
 
@@ -280,7 +280,7 @@ These are **step-by-step AI-assisted workflows** designed for **Tier-1 analysts*
 
 ***
 
-### 4.2 Endpoint Investigation Playbook
+#### 4.2 Endpoint Investigation Playbook
 
 **Trigger:** Suspicious endpoint alert
 
@@ -299,7 +299,7 @@ These are **step-by-step AI-assisted workflows** designed for **Tier-1 analysts*
 
 ***
 
-### 4.3 Identity Compromise Playbook
+#### 4.3 Identity Compromise Playbook
 
 **Trigger:** Risky sign-in or MDI alert
 
@@ -312,7 +312,7 @@ These are **step-by-step AI-assisted workflows** designed for **Tier-1 analysts*
 
 ***
 
-### 4.4 Threat Hunt Escalation Playbook (Tier-2)
+#### 4.4 Threat Hunt Escalation Playbook (Tier-2)
 
 **Trigger:** Confirmed malicious behaviour
 
@@ -325,7 +325,7 @@ These are **step-by-step AI-assisted workflows** designed for **Tier-1 analysts*
 
 ***
 
-## 5. Governance & Safe Use Controls
+### 5. Governance & Safe Use Controls
 
 **Mandatory Rules for Analysts**
 

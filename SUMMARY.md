@@ -111,10 +111,11 @@
   * [PowerShell Attack & Detection Techniques](knowledge-base/tools-how-to/powershell-attack-and-detection-techniques.md)
 * [AI Prompts](knowledge-base/ai-prompts/README.md)
   * [Foundational Prompt Structure](knowledge-base/ai-prompts/foundational-prompt-structure.md)
-  * [Reusable AI Prompt Library](knowledge-base/ai-prompts/reusable-ai-prompt-library.md)
+  * [SOC Prompt Library – Enterprise Defensive Security Edition](knowledge-base/ai-prompts/soc-prompt-library-enterprise-defensive-security-edition.md)
   * [Defender XDR & Sentinel-Specific Prompt Packs](knowledge-base/ai-prompts/defender-xdr-and-sentinel-specific-prompt-packs.md)
   * [Junior Analyst AI Playbooks](knowledge-base/ai-prompts/junior-analyst-ai-playbooks.md)
   * [Prompts Aligned MITRE ATT\&CK and NIST IR lifecycle](knowledge-base/ai-prompts/prompts-aligned-mitre-att-and-ck-and-nist-ir-lifecycle.md)
+  * [Incident Response AI Prompt Templates](knowledge-base/ai-prompts/incident-response-ai-prompt-templates.md)
 
 ## Detection Engineering
 

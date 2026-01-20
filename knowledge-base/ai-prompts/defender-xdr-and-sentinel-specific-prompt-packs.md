@@ -1,15 +1,12 @@
 # Defender XDR & Sentinel-Specific Prompt Packs
 
-Below is a **production-ready, reusable SOC prompt library,** followed by **Microsoft Defender XDR and Microsoft Sentinel–specific prompt packs**.\
-Designed for **operational SOC use**, **DFIR investigations**, **threat hunting**, and **detection engineering**, with a forward-looking focus on scale, consistency, and analyst maturity.
-
-## 1. Reusable SOC Prompt Library (Core Framework)
+### 1. Reusable SOC Prompt Library (Core Framework)
 
 This library is **platform-agnostic** and should be used as the foundation for all SOC AI interactions.
 
 ***
 
-### 1.1 Universal SOC Prompt Header (Mandatory)
+#### 1.1 Universal SOC Prompt Header (Mandatory)
 
 Use this header in **every SOC prompt** to enforce discipline and accuracy.
 
@@ -34,7 +31,7 @@ Response Format:
 
 ***
 
-### 1.2 Alert Triage Prompt
+#### 1.2 Alert Triage Prompt
 
 ```bash
 Objective:
@@ -58,7 +55,7 @@ Data:
 
 ***
 
-### 1.3 Incident Correlation Prompt
+#### 1.3 Incident Correlation Prompt
 
 ```bash
 Objective:
@@ -78,7 +75,7 @@ Tasks:
 
 ***
 
-### 1.4 DFIR Investigation Prompt
+#### 1.4 DFIR Investigation Prompt
 
 ```bash
 Objective:
@@ -99,7 +96,7 @@ Tasks:
 
 ***
 
-### 1.5 Threat Hunting Prompt
+#### 1.5 Threat Hunting Prompt
 
 ```bash
 Objective:
@@ -117,7 +114,7 @@ Tasks:
 
 ***
 
-### 1.6 Detection Engineering Prompt
+#### 1.6 Detection Engineering Prompt
 
 ```bash
 Objective:
@@ -135,7 +132,7 @@ Tasks:
 
 ***
 
-### 1.7 Executive Reporting Prompt
+#### 1.7 Executive Reporting Prompt
 
 ```bash
 Objective:
@@ -155,13 +152,13 @@ Requirements:
 
 ***
 
-## 2. Microsoft Defender XDR Prompt Pack
+### 2. Microsoft Defender XDR Prompt Pack
 
 These prompts are **explicitly aligned** to Defender XDR data tables and workflows.
 
 ***
 
-### 2.1 Defender XDR Alert Deep Analysis
+#### 2.1 Defender XDR Alert Deep Analysis
 
 ```bash
 You are analysing a Microsoft Defender XDR alert.
@@ -182,7 +179,7 @@ Tasks:
 
 ***
 
-### 2.2 Advanced Hunting (KQL) Analysis Prompt
+#### 2.2 Advanced Hunting (KQL) Analysis Prompt
 
 ```bash
 Objective:
@@ -206,7 +203,7 @@ KQL Output:
 
 ***
 
-### 2.3 Credential Compromise Investigation
+#### 2.3 Credential Compromise Investigation
 
 ```bash
 Objective:
@@ -227,7 +224,7 @@ Tasks:
 
 ***
 
-### 2.4 Defender XDR Threat Hunting Prompt
+#### 2.4 Defender XDR Threat Hunting Prompt
 
 ```bash
 Hypothesis:
@@ -242,13 +239,13 @@ Tasks:
 
 ***
 
-## 3. Microsoft Sentinel Prompt Pack
+### 3. Microsoft Sentinel Prompt Pack
 
 These prompts assume **Sentinel as the SIEM/SOAR platform**.
 
 ***
 
-### 3.1 Sentinel Incident Investigation Prompt
+#### 3.1 Sentinel Incident Investigation Prompt
 
 ```bash
 You are investigating a Microsoft Sentinel incident.
@@ -267,7 +264,7 @@ Tasks:
 
 ***
 
-### 3.2 KQL Analytics Rule Review
+#### 3.2 KQL Analytics Rule Review
 
 ```bash
 Objective:
@@ -285,7 +282,7 @@ Tasks:
 
 ***
 
-### 3.3 Cross-Workspace Correlation Prompt
+#### 3.3 Cross-Workspace Correlation Prompt
 
 ```bash
 Objective:
@@ -305,7 +302,7 @@ Tasks:
 
 ***
 
-### 3.4 Sentinel Threat Hunting Prompt
+#### 3.4 Sentinel Threat Hunting Prompt
 
 ```bash
 Hypothesis:
@@ -320,7 +317,7 @@ Tasks:
 
 ***
 
-### 3.5 Sentinel Automation & SOAR Review
+#### 3.5 Sentinel Automation & SOAR Review
 
 ```bash
 Objective:
@@ -337,7 +334,7 @@ Tasks:
 
 ***
 
-## 4. How to Operationalise This Library
+### 4. How to Operationalise This Library
 
 **Recommended Usage Model**
 
