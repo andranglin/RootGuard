@@ -1,4 +1,26 @@
-# Penetration Testing
+---
+cover: ../../.gitbook/assets/RootGuardHackingLandingPage.png
+coverY: 0
+layout:
+  width: default
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
+# Hacking
 
 Authorised simulated attacks against systems and networks to identify vulnerabilities before adversaries do—providing defenders with an attacker's perspective.
 

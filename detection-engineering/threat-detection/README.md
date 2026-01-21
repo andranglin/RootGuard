@@ -1,4 +1,26 @@
-# SOC Detection Engineer
+---
+cover: ../../.gitbook/assets/RootGuardTHLandingPage.png
+coverY: 0
+layout:
+  width: default
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
+# Threat Detection
 
 The practice of designing, building, and maintaining detection logic that identifies threats in your environment—turning threat intelligence into actionable alerts.
 

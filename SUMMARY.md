@@ -284,6 +284,7 @@
 
 ## AI Security
 
+* [AI Security & Governance](ai-security/ai-security-and-governance.md)
 * [Prompt Engineering](ai-security/prompt-engineering/README.md)
   * [Security OPerations Prompt Library](ai-security/prompt-engineering/security-operations-prompt-library.md)
   * [Core SOC Prompt Playbooks](ai-security/prompt-engineering/core-soc-prompt-playbooks.md)

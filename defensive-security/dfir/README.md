@@ -1,8 +1,27 @@
 ---
 description: Digital Forensics & Incident Response
+cover: ../../.gitbook/assets/RootGuardDFIRLandingPage.png
+coverY: 0
+layout:
+  width: default
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
 ---
 
-# Digital Forensics & Incident Response (DFIR)
+# DFIR
 
 The discipline of investigating, containing, and remediating cyber incidents—combining investigative rigour with operational speed.
 
