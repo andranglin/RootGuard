@@ -1,4 +1,26 @@
-# DFIR Runbooks
+---
+cover: ../../../.gitbook/assets/image.jpg
+coverY: 0
+layout:
+  width: default
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
+# Runbooks
 
 While Playbooks cover the high-level strategy (the "Who, What, and Why"), Runbooks focus on the low-level execution (the "How"). The Runbooks included emphasise technical specificity, command-line precision, and automation.
 

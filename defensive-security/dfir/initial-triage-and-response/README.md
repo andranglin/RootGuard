@@ -1,9 +1,9 @@
 ---
-cover: ../../../.gitbook/assets/Screenshot 2025-01-04 145751 (1).png
+cover: ../../../.gitbook/assets/image.jpg
 coverY: 0
 ---
 
-# Incident Response (IR)
+# Initial Triage & Response
 
 ## Incident Response Analyst
 

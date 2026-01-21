@@ -1,9 +1,9 @@
 ---
-cover: ../../.gitbook/assets/Screenshot 2025-01-04 152247 (1).png
+cover: ../../.gitbook/assets/image.jpg
 coverY: 0
 ---
 
-# MITRE ATT\&CK-Aligned Incident Analysis
+# MITRE-Aligned Threat Dectection
 
 ### **Introduction to the MITRE ATT\&CK Framework**
 
