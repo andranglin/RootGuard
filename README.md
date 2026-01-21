@@ -5,81 +5,86 @@ coverY: 0
 
 # RootGuard
 
-### Introduction
+#### Operational Defence & Incident Response Procedures
 
-### Built for the Front Lines
+**Practical. Field-Tested. Enterprise-Ready.**
 
-This is **not** another beginner guide or certification checklist.&#x20;
+RootGuard serves as a comprehensive field manual for SOC analysts, detection engineers, and incident responders operating in high-threat environments. Moving beyond theoretical certification checklists, this repository focuses on immediate operational utility for active defence scenarios.
 
-RootGuard is a **battle-tested field** manual for SOC analysts, detection engineers, threat hunters, and incident responders who need to act—fast and decisively—when real threats hit.
+We provide high-density, deployment-ready resources: precision KQL queries, forensic artifact breakdowns, and structured playbooks designed to detect, contain, and eradicate sophisticated threats.
 
-We deliver n**o-fluff, deployment-ready resources**: precise KQL queries, forensic breakdowns, step-by-step playbooks, and analysis of attacker tradecraft you can use today to detect, contain, and eradicate threats.
+#### Core Objectives
 
-### Focus Areas
+* **Identity Security:** Mitigation strategies for Active Directory and Entra ID vectors.
+* **Digital Forensics & IR:** Methodologies for surgical breach reconstruction.
+* **Detection Engineering:** Development of high-fidelity alerting logic.
 
-* **Identity Security** → Master Active Directory and Entra ID attacks
-* **Digital Forensics & Incident Response** → Reconstruct incidents with surgical precision
-* **Detection Engineering** → Build high-fidelity alerts that actually matter
+***
 
-### What You'll Find
+### Technical Modules
 
-#### &#x20;Detection Engineering & KQL
+#### 🛡️ Detection Engineering & KQL
 
-High-signal detection logic for the attacks that bypass default rules:
+High-signal logic for detecting evasion techniques.
 
-* Golden/Silver Ticket forgery
-* Kerberoasting & AS-REP Roasting
-* DCSync, Pass-the-Ticket, Overpass-the-Hash
-* Cloud identity compromise (Entra ID)\
-  Ready-to-deploy **KQL queries** for Microsoft Sentinel & Defender
+* **Identity Forgery:** Golden/Silver Ticket analysis.
+* **Credential Attacks:** Kerberoasting, AS-REP Roasting, and DCSync detection.
+* **Lateral Movement:** Pass-the-Ticket and Overpass-the-Hash validation.
+* **Cloud Security:** Entra ID compromise and privilege escalation monitoring.
+* _**Scope:** Deployable queries optimised for Microsoft Sentinel & Defender._
 
-#### &#x20;Windows Forensics & DFIR
+#### 🔬 Windows Forensics & DFIR
 
-Deep artifact analysis to prove what happened:
+Deep-dive artifact analysis for evidence verification.
 
-* Registry hives (ShimCache, AmCache, UserAssist)
-* Event Logs, Prefetch, SRUM, BAM
-* Evidence of execution, persistence, and lateral movement\
-  Structured timelines and correlation playbooks
+* **Execution Evidence:** Registry analysis (ShimCache, AmCache, UserAssist).
+* **Timeline Reconstruction:** Event Logs, Prefetch, SRUM, and BAM data.
+* **Attack Patterns:** Correlating persistence mechanisms and lateral movement.
+* _**Output:** Structured timelines and correlation playbooks._
 
-#### &#x20;Incident Response Playbooks
+#### 🩸 Incident Response Playbooks
 
-From alert to remediation — no steps missed:
+Lifecycle management from detection to recovery.
 
-* Rapid Attack Triage
-* Privilege Escalation Containment
-* Ransomware Response & Recovery
-* Data Exfiltration Detection & Blocking
+* **Triage:** Rapid assessment protocols.
+* **Containment:** Privilege escalation isolation.
+* **Recovery:** Ransomware response procedures.
+* **Data Protection:** Exfiltration detection and blocking at the wire.
 
-#### Offensive Security for Defenders
+#### ⚔️ Offensive Security for Defenders
 
-Understand the adversary to defeat them:
+Adversary tradecraft analysis for proactive hardening.
 
-* Credential attacks (Brute Force, Spraying, Stuffing)
-* Lateral movement (PsExec, WMI, WinRM)
-* Exploitation techniques and post-exploitation tradecraft
+* **Access Vectors:** Credential stuffing, spraying, and brute-force patterns.
+* **Lateral Movement:** Analysis of PsExec, WMI, and WinRM traffic.
+* **Exploitation:** Post-exploitation techniques and "living-off-the-land" binaries.
 
-#### Malware & Network Forensics
+#### 🕸️ Malware & Network Forensics
 
-* Static/dynamic malware dissection workflows
-* PCAP analysis with Wireshark/TShark
-* Behavioural indicators and hunting rules
+Artifact dissection and traffic analysis.
 
-#### Why RootGuard Stands Out
+* Static and dynamic malware analysis workflows.
+* PCAP investigation using Wireshark and TShark.
+* IOC extraction and behavioural hunting rule generation.
 
-* **Actionable Firs**t — Commands, queries, logs, and exact steps
-* **Platform Agnostic** — Core principles work everywhere; deep Microsoft ecosystem examples
-* **Living Resource** — Continuously updated with emerging threats and community feedback
-* **Defender-Centric** — Written from real incidents, for real defenders
+***
 
-#### Quick Links to Dive In
+### The RootGuard Standard
 
-* [Detection Engineering →](https://rootguard.gitbook.io/cyberops/detection-engineering/attack-triage-playbooks-kql-triage) AD Attacks & KQL Triage
-* [Defensive Security →](https://rootguard.gitbook.io/cyberops/detection-engineering/ad-detections-and-mitigations) Windows Forensics & IR Strategies
-* [Offensive Security →](https://rootguard.gitbook.io/cyberops/offensive-security/exploitation-and-lateral-movement) Exploitation & Password Attacks
-* [Learning Hub →](https://rootguard.gitbook.io/cyberops/resources-hub/blogs/posts) Core Skills & Career Development
-* About the Author → ([about-the-author](welcome/who-am-i/)) Meet the defender behind it all
+<table data-header-hidden><thead><tr><th width="164.9091796875"></th><th></th></tr></thead><tbody><tr><td><strong>Feature</strong></td><td><strong>Operational Value</strong></td></tr><tr><td>Actionable Utility</td><td>Prioritises exact commands, queries, log samples, and execution steps over theory.</td></tr><tr><td>Platform Agnostic</td><td>Core principles apply universally, supported by deep integration with the Microsoft ecosystem.</td></tr><tr><td>Living Intelligence</td><td>Continuously updated based on emerging threats and operational feedback.</td></tr><tr><td>Defender Centric</td><td>Derived from active incident response engagements and real-world breach data.</td></tr></tbody></table>
 
-**RootGuard: Raising the defender baseline — one playbook at a time.**
+***
 
-For authorised defensive operations only. Always adhere to legal and ethical standards.
+### Access the Arsenal
+
+* [Detection Engineering](https://rootguard.gitbook.io/cyberops/detection-engineering/attack-triage-playbooks-kql-triage): AD Attacks & KQL Triage
+* [Defensive Security](https://rootguard.gitbook.io/cyberops/detection-engineering/ad-detections-and-mitigations): Windows Forensics & IR Strategies
+* [Offensive Security](https://rootguard.gitbook.io/cyberops/offensive-security/exploitation-and-lateral-movement): Exploitation & Password Attacks
+* [Learning Hub](https://rootguard.gitbook.io/cyberops): Core Skills & Career Development
+* [About the Author](https://www.google.com/search?q=https://rootguard.gitbook.io/cyberops/about-the-author): Operational Background
+
+***
+
+**RootGuard:** Elevating the defensive baseline.
+
+_**Authorised for defensive operations only. Ensure compliance with all applicable legal frameworks and ethical standards.**_
