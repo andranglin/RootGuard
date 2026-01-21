@@ -1,6 +1,24 @@
 ---
-cover: .gitbook/assets/Screenshot 2025-01-10 083130.png
+cover: .gitbook/assets/RootGuardLandingPage.png
 coverY: 0
+coverHeight: 236
+layout:
+  width: default
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
 ---
 
 # RootGuard
