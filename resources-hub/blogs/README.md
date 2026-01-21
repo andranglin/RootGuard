@@ -1,11 +1,11 @@
 ---
-cover: ../../.gitbook/assets/soc-4.png
+cover: ../../.gitbook/assets/RootGuardBlogsLandingPage.png
 coverY: 0
 layout:
   width: default
   cover:
     visible: true
-    size: full
+    size: hero
   title:
     visible: true
   description:

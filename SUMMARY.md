@@ -20,9 +20,9 @@
     * [SOC Analysts Roadmap](resources-hub/blogs/posts-field-notes/soc-analysts-roadmap.md)
     * [Becoming A SOC Analyst](resources-hub/blogs/posts-field-notes/becoming-a-soc-analyst.md)
     * [Key Windows Event-IDs to Monitor](resources-hub/blogs/posts-field-notes/key-windows-event-ids-to-monitor.md)
-* [Tools](resources-hub/tools/README.md)
-  * [Cerberus: PowerShell DFIR Investigation Toolkit](resources-hub/tools/cerberus-powershell-dfir-investigation-toolkit.md)
-  * [Chimera: PowerShell Incident Response Toolkit](resources-hub/tools/chimera-powershell-incident-response-toolkit.md)
+* [Tool Arsenal](resources-hub/tool-arsenal/README.md)
+  * [Cerberus: PowerShell DFIR Investigation Toolkit](resources-hub/tool-arsenal/cerberus-powershell-dfir-investigation-toolkit.md)
+  * [Chimera: PowerShell Incident Response Toolkit](resources-hub/tool-arsenal/chimera-powershell-incident-response-toolkit.md)
 
 ## Knowledge Base
 
