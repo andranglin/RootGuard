@@ -1,5 +1,5 @@
 ---
-cover: ../../.gitbook/assets/Screenshot 2025-01-10 082509.png
+cover: ../../.gitbook/assets/RootGuardAuthorLandingPage.png
 coverY: 0
 ---
 
