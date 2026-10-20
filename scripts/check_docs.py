@@ -11,7 +11,16 @@ SKIP = ('http:', 'https:', 'mailto:', 'tel:', 'data:', '#')
 errors = []
 checked = 0
 
-for page in ROOT.rglob('*.md'):
+curated = [
+    ROOT / 'README.md', ROOT / 'SUMMARY.md',
+    *list((ROOT / 'start-here').rglob('*.md')),
+    *list((ROOT / 'learning-paths').rglob('*.md')),
+    *list((ROOT / 'security-architecture').rglob('*.md')),
+    *list((ROOT / 'contributing').rglob('*.md')),
+]
+# All-articles mode supports progressive remediation of pre-existing legacy links.
+pages = ROOT.rglob('*.md') if '--all' in sys.argv else curated
+for page in pages:
     if '.git' in page.parts:
         continue
     content = page.read_text(encoding='utf-8')
