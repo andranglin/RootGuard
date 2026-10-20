@@ -31,6 +31,12 @@
   * [Evidence Acquisition & Integrity](defensive-security/dfir/field-guides/evidence-acquisition-and-integrity.md)
   * [Windows Artefact Interpretation](defensive-security/dfir/field-guides/windows-artifact-interpretation.md)
 
+## Investigation Case Studies
+
+* [Downloadable Case Studies](practice-labs/case-studies/README.md)
+  * [CS-01: Phishing and Identity Compromise](practice-labs/case-studies/cs-01-phishing/README.md)
+  * [CS-02: Windows Lateral Movement](practice-labs/case-studies/cs-02-lateral-movement/README.md)
+
 ## Practical Labs
 
 * [Practical Investigation Labs](practice-labs/README.md)
