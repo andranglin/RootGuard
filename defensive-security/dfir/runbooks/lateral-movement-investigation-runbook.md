@@ -1,5 +1,6 @@
 # Lateral Movement Investigation Runbook
 
+> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
 ## SOC & DFIR Operations Guide
 
 **Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
@@ -863,8 +864,10 @@ Log: Yes
 #### Disable Compromised Account
 
 ```powershell
-# On-premises AD
-Disable-ADAccount -Identity "compromised_user"
+# Verify identity, service dependencies and incident-command approval first.
+# Use -WhatIf where supported to preview the intended targeted account change:
+Disable-ADAccount -Identity "compromised_user" -WhatIf
+# Execute the targeted containment separately after approval.
 
 # Entra ID
 Update-MgUser -UserId "user@domain.com" -AccountEnabled:$false

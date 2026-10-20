@@ -1,5 +1,6 @@
 # Ransomware Investigation & Response Runbook
 
+> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
 ## SOC & DFIR Operations Guide
 
 **Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
@@ -258,6 +259,7 @@ $compromisedUsers = @("user1", "user2", "admin1")
 
 foreach ($user in $compromisedUsers) {
     # Disable AD account
+    # STATE-CHANGING: run only for a verified compromised account, after approval.
     Disable-ADAccount -Identity $user
     
     # Disable Entra ID account
@@ -516,8 +518,10 @@ Get-GPO -All | ForEach-Object {
     # Analyse for suspicious settings
 }
 
-# Remove malicious GPOs
-Remove-GPO -Name "Suspicious GPO Name" -Confirm
+# Preserve the GPO's configuration, links, change history and evidence before any modification.
+# Never remove a suspected GPO directly from an exploratory runbook.
+Get-GPO -Name "Suspicious GPO Name"
+# Escalate any disabling, unlinking or removal to AD change control and incident command.
 ```
 
 #### Step 4.4: Validate Eradication
@@ -1067,6 +1071,7 @@ $compromisedAccounts = @(
 # Entra ID
 Connect-MgGraph -Scopes "User.ReadWrite.All"
 foreach ($user in $compromisedAccounts) {
+    # STATE-CHANGING: verify tenant/user identity and incident approval.
     Update-MgUser -UserId $user -AccountEnabled:$false
     Revoke-MgUserSignInSession -UserId $user
     Write-Host "Disabled and revoked sessions: $user"
@@ -1075,6 +1080,7 @@ foreach ($user in $compromisedAccounts) {
 # On-premises AD
 foreach ($user in $compromisedAccounts) {
     $samAccount = ($user -split "@")[0]
+    # STATE-CHANGING: verify this UPN-to-sAMAccountName mapping; prefix stripping is not a reliable mapping.
     Disable-ADAccount -Identity $samAccount
     Write-Host "Disabled AD account: $samAccount"
 }
