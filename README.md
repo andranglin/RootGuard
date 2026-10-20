@@ -23,13 +23,13 @@ layout:
 
 # RootGuard
 
-#### Operational Defence & Incident Response Procedures
+#### Security Operations, Detection Engineering & Incident Response
 
-**Practical. Field-Tested. Enterprise-Ready.**
+**Practical guidance for cybersecurity practitioners.**
 
-RootGuard serves as a comprehensive field manual for SOC analysts, detection engineers, and incident responders operating in high-threat environments. Moving beyond theoretical certification checklists, this repository focuses on immediate operational utility for active defence scenarios.
+RootGuard is an independent cybersecurity knowledge base for practitioners working across detection engineering, threat hunting, digital forensics and incident response, cloud and identity security, and defensive security architecture.
 
-We provide high-density, deployment-ready resources: precision KQL queries, forensic artifact breakdowns, and structured playbooks designed to detect, contain, and eradicate sophisticated threats.
+The aim is to turn complex security concepts into usable investigation workflows, KQL and PowerShell examples, technical references, and operational playbooks. Each example should be reviewed and adapted to its environment, available telemetry, and applicable permissions before use.
 
 #### Core Objectives
 
@@ -49,7 +49,7 @@ High-signal logic for detecting evasion techniques.
 * **Credential Attacks:** Kerberoasting, AS-REP Roasting, and DCSync detection.
 * **Lateral Movement:** Pass-the-Ticket and Overpass-the-Hash validation.
 * **Cloud Security:** Entra ID compromise and privilege escalation monitoring.
-* _**Scope:** Deployable queries optimised for Microsoft Sentinel & Defender._
+* _**Scope:** Example queries for Microsoft Sentinel and Microsoft Defender XDR; validate table availability and schema before use._
 
 #### 🔬 Windows Forensics & DFIR
 
@@ -89,20 +89,20 @@ Artifact dissection and traffic analysis.
 
 ### The RootGuard Standard
 
-<table data-header-hidden><thead><tr><th width="164.9091796875"></th><th></th></tr></thead><tbody><tr><td><strong>Feature</strong></td><td><strong>Operational Value</strong></td></tr><tr><td>Actionable Utility</td><td>Prioritises exact commands, queries, log samples, and execution steps over theory.</td></tr><tr><td>Platform Agnostic</td><td>Core principles apply universally, supported by deep integration with the Microsoft ecosystem.</td></tr><tr><td>Living Intelligence</td><td>Continuously updated based on emerging threats and operational feedback.</td></tr><tr><td>Defender Centric</td><td>Derived from active incident response engagements and real-world breach data.</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="164.9091796875"></th><th></th></tr></thead><tbody><tr><td><strong>Feature</strong></td><td><strong>Operational Value</strong></td></tr><tr><td>Actionable Utility</td><td>Prioritises exact commands, queries, log samples, and execution steps over theory.</td></tr><tr><td>Platform Agnostic</td><td>Core principles apply universally, supported by deep integration with the Microsoft ecosystem.</td></tr><tr><td>Living Intelligence</td><td>Continuously updated based on emerging threats and operational feedback.</td></tr><tr><td>Defender Centric</td><td>Focused on practical defensive workflows, with validation and limitations identified where relevant.</td></tr></tbody></table>
 
 ***
 
 ### Access the Arsenal
 
-* [Detection Engineering](https://rootguard.gitbook.io/cyberops/detection-engineering/attack-triage-playbooks-kql-triage): AD Attacks & KQL Triage
-* [Defensive Security](https://rootguard.gitbook.io/cyberops/detection-engineering/ad-detections-and-mitigations): Windows Forensics & IR Strategies
-* [Offensive Security](https://rootguard.gitbook.io/cyberops/offensive-security/exploitation-and-lateral-movement): Exploitation & Password Attacks
-* [Learning Hub](https://rootguard.gitbook.io/cyberops): Core Skills & Career Development
-* [About the Author](https://www.google.com/search?q=https://rootguard.gitbook.io/cyberops/about-the-author): Operational Background
+* [Detection Engineering](detection-engineering/threat-detection/attack-triage-playbooks-kql-triage/README.md): AD Attacks & KQL Triage
+* [Defensive Security](defensive-security/dfir/README.md): Windows Forensics & IR Strategies
+* [Offensive Security](offensive-security/hacking/exploitation-and-lateral-movement/README.md): Exploitation & Password Attacks
+* [Knowledge Base](knowledge-base/junior-analyst-skills/README.md): Security operations concepts, technical references, and investigation notes
+* [About the Author](welcome/who-am-i/README.md): Operational Background
 
 ***
 
-**RootGuard:** Elevating the defensive baseline.
+**RootGuard:** Learn the systems. Validate the evidence. Improve the defence.
 
 _**Authorised for defensive operations only. Ensure compliance with all applicable legal frameworks and ethical standards.**_

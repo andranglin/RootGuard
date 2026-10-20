@@ -1,402 +1,83 @@
-# DCSync
+# DCSync: Detection and Mitigation
 
-### **Introduction**
+## Overview
 
-**DCSync** is a technique used by attackers to replicate credentials from an Active Directory (AD) domain controller by impersonating a Domain Controller using the **Directory Replication Service (DRS) Remote Protocol**. This attack does not require code execution on the domain controller itself but instead abuses the replication permissions within AD.
+DCSync (MITRE ATT&CK T1003.006) abuses Active Directory Directory Replication Service Remote Protocol (MS-DRSR) access to request replicated directory information, potentially including credential material. It does not require interactive execution on the domain controller. An account needs appropriate directory replication rights, and authorised domain controllers and some synchronisation products legitimately use replication.
 
-DCSync is a stealthy and highly effective technique for extracting sensitive credentials, including password hashes for user accounts, service accounts, and even privileged accounts like **krbtgt**, which can be used to generate Golden Tickets. It is categorised under the **Credential Access** tactic in the **MITRE ATT\&CK Framework** (ID: T1003.006).
+**Detection hypothesis:** A non-domain-controller principal or unexpected source invokes directory replication operations against a domain controller.
 
-***
+## Prerequisites
 
-### **How DCSync Works**
+- Collect Windows Security Event **4662** from domain controllers and configure the necessary Directory Service Access auditing and directory object SACLs. Event 4662 is not automatically generated for every DCSync attempt.
+- Inspect actual `SecurityEvent` records and their `Properties` and `AccessMask` contents. Schema and event rendering vary by agent and collection method.
+- Relevant replication extended-right GUIDs include:
+  - `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2` — DS-Replication-Get-Changes
+  - `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2` — DS-Replication-Get-Changes-All
+  - `89e95b76-444d-4c62-991a-0facbeda640c` — DS-Replication-Get-Changes-In-Filtered-Set
 
-1. **Understanding Directory Replication:**
-   * In an Active Directory environment, domain controllers replicate information using the **DRS Remote Protocol** to keep the directory consistent across the domain.
-   * The replication process includes account credentials (e.g., NTLM hashes, Kerberos keys) as part of the directory data.
-2. **Abusing Replication Permissions:**
-   * An attacker gains access to an account with replication privileges (e.g., **Domain Admin**, **Enterprise Admin**, or accounts with the **Replicating Directory Changes** permissions).
-   * Using tools like **Mimikatz**, attackers query the domain controller and request the replication of credential-related data.
-3. **Key Targets:**
-   * **krbtgt Account:** Used to forge Kerberos tickets (e.g., Golden Tickets).
-   * **Privileged Accounts:** NTLM hashes or Kerberos keys for domain admins or service accounts.
-   * **All User Accounts:** Complete credential database for lateral movement or data theft.
-4. **Execution:**
-   * Attackers use tools like **Mimikatz**, **Impacket (secretsdump.py)**, or **PowerShell scripts** to perform the DCSync attack.
+Event 4662 reports object operations on the domain controller. It does **not** reliably give the network originator's IP address. Neither Event 4672 nor ordinary LDAP connections alone prove DCSync activity.
 
-***
+## Query: Review replication-right accesses
 
-### **Why DCSync is Dangerous**
+**Status: Concept / unvalidated.** This example hunts for replication-related 4662 events. Verify ingestion and fields before using it in a scheduled detection.
 
-1. **No Code Execution on the DC:**
-   * The attacker does not need to run malicious code on the domain controller itself, reducing the chances of detection.
-2. **Full Credential Access:**
-   * Provides access to sensitive credentials for all users in the domain.
-3. **Privilege Escalation:**
-   * Allows attackers to escalate privileges by extracting credentials for domain administrators or the krbtgt account.
-4. **Persistence:**
-   * Extracted hashes can be reused to access the domain or forge tickets at a later time.
-5. **Stealth:**
-   * DCSync mimics legitimate domain controller replication requests, making it harder to detect.
-
-***
-
-### **Indicators of DCSync**
-
-1. **Unusual Account Activity:**
-   * Non-DC accounts performing replication-related operations.
-2. **Suspicious LDAP Operations:**
-   * LDAP calls involving `GetNCChanges` or `Replicate Directory Changes`.
-3. **Event Logs:**
-   * Windows Security Event Logs:
-     * **4662:** An operation was performed on an object (indicates directory replication permissions).
-     * **4672:** Special privileges assigned to a new logon.
-   * Directory Service Event Logs:
-     * **1644:** Domain controller logs a replication request.
-
-***
-
-### **Detection Techniques**
-
-1. **Event that detects a DCSync:**&#x20;
-   *   Event ID 4662: This event is generated when an operation is performed on an object. When DCSync is executed, this event is generated on the targeted Domain Controller, and the event properties contain the following values:
-
-       * 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2 (DS-Replication-Get-Changes-All)&#x20;
-       * 19195a5b-6da0-11d0-afd3-00c04fd930c9 (Domain-DNS class WRITE\_DAC)&#x20;
-       * 89e95b76-444d-4c62-991a-0facbeda640c (DS-Replication-Get-Changes-In-Filtered-Set)
-
-       If this event is not generated by a Domain Controller, it may indicate a DCSync has occurred.
-2. **Monitor for Replication Permissions:**
-   * Identify accounts with **Replicating Directory Changes** permissions.
-3. **Detect Suspicious LDAP Operations:**
-   * Monitor for replication-related API calls, such as `GetNCChanges`.
-4. **Log Analysis:**
-   * Review logs for unexpected replication requests or access to the **krbtgt** account.
-5. **Unusual Network Activity:**
-   * Monitor traffic between non-DC hosts and domain controllers.
-
-***
-
-### **Mitigation Strategies**
-
-1. **Restrict Replication Permissions:**
-   * Limit accounts with **Replicating Directory Changes** and **Replicating Directory Changes All** permissions.
-2. **Enable Advanced Auditing:**
-   * Configure auditing for sensitive actions like directory replication.
-3. **Monitor Account Activity:**
-   * Regularly review accounts with elevated permissions and disable unused accounts.
-4. **Protect the krbtgt Account:**
-   * Regularly rotate the krbtgt account password to invalidate stolen tickets.
-5. **The following security controls should be implemented to mitigate DCSync:**
-   * Minimise the number of user objects with DCSync permissions. By default, members of the Enterprise Admins, Domain Admins and Administrators security group have permissions to perform DCSync. Therefore, the number of user objects in these security groups should be minimised and direct assignment of these permissions to other user objects should be limited.
-   * Ensure user objects that are configured with a SPN do not have DCSync permissions. This is to reduce the risk of a user object with a SPN being compromised as the result of a successful Kerberoasting and then being used by malicious actors to execute DCSync.
-   * Ensure user objects with DCSync permissions cannot log on to unprivileged operating environments. Lower privileged operating environments, such as those used by internet-facing systems and user workstations, are often exploited by malicious actors to gain initial access and to pivot to higher privileged operating environments. Preventing privileged user objects from logging into these lower privileged operating environments reduces the risk of these user objects being compromised and subsequently used to pivot to higher privileged operating environments. This is a key protection in the tiered administrative model.
-   * Review user objects with DCSync permissions every 12 months to determine if these permissions are still required. Regularly reviewing permissions, and removing them when no longer required, reduces the attack surface that malicious actors can target.
-   * Disable the NTLMv1 protocol. This prevents NTLM password hashes from being retrieved by DCSync and then being either cracked or used as part of PtH.
-   * Ensure LAN Manager (LM) password hashes are not used. This can be enforced by requiring and updating passwords to be a minimum of 15-characters. LM only supports passwords up to 14-characters in length and passwords that are 15-characters or more will not be stored as a LM hash. LM password hashes can be quickly cracked to reveal cleartext passwords and are not considered secure.
-6. **Segment Network Access:**
-   * Restrict network access to domain controllers to prevent unauthorised replication.
-
-***
-
-### **Tools Commonly Used for DCSync**
-
-1. **Mimikatz:**
-   * Command: `lsadump::dcsync /user:<target user>` to replicate credentials for a specific user.
-2. **Impacket (secretsdump.py):**
-   * Extracts hashes from domain controllers using replication permissions.
-3. **PowerShell Scripts:**
-   * Scripts that leverage LDAP and DRSUAPI functions to perform DCSync.
-
-***
-
-DCSync is one of the most powerful and stealthy techniques attackers use to compromise Active Directory environments. By abusing legitimate replication mechanisms, it enables attackers to extract credentials for the entire domain without needing direct access to domain controllers. Effective detection and mitigation require a combination of logging, auditing, and restricting replication permissions.
-
-### KQL Detection Queries:
-
-Detecting **DCSync** attacks requires monitoring specific Active Directory events for suspicious replication requests and activity. DCSync typically involves abusing **Replicating Directory Changes** permissions to request credential data from domain controllers using the **DRSUAPI** or **LDAP** protocols.
-
-{% tabs %}
-{% tab title="Query 1" %}
-Query to detect potential DCSync attacks:
-
-{% code overflow="wrap" %}
 ```kusto
-// Define the time range for the query
-let startTime = ago(7d);
-let endTime = now();
-
-// Step 1: Identify suspicious replication requests
-let DCSyncEvents = SecurityEvent
-| where TimeGenerated between (startTime .. endTime)
-| where EventID == 4662 // An operation was performed on an object
-| extend OperationType = tostring(OperationType), ObjectClass = tostring(ObjectClass), AccessMask = tostring(AccessMask)
-| where ObjectClass == "replication" and AccessMask contains "0x100" // Replication access
-| extend AccountName = tostring(TargetUserName), Domain = tostring(TargetDomainName), ClientIP = tostring(IpAddress)
-| project AccountName, Domain, ClientIP, OperationType, ObjectClass, AccessMask, TimeGenerated;
-
-// Step 2: Identify unusual replication requests
-let UnusualDCSyncRequests = DCSyncEvents
-| summarize RequestCount = count(), UniqueIPs = dcount(ClientIP), ClientIPs = make_set(ClientIP), FirstSeen = min(TimeGenerated), LastSeen = max(TimeGenerated) by AccountName, Domain
-| where RequestCount > 5 // Adjust threshold based on your environment
-| project AccountName, Domain, RequestCount, UniqueIPs, ClientIPs, FirstSeen, LastSeen
-| sort by RequestCount desc;
-
-UnusualDCSyncRequests
-```
-{% endcode %}
-
-Query performs the following steps:
-
-1. **Defines the time range** for the query to look back over the past 7 days.
-2. **Identifies suspicious replication requests** by looking for Event ID 4662, which indicates an operation was performed on an object.
-3. **Filters events** to include only those related to replication access.
-4. **Aggregates the data** to count the number of replication requests and unique IPs per account.
-5. **Filters the results** to include only those with more than 5 requests (adjust the threshold based on your environment).
-6. **Displays the results** in a table format, sorted by the number of requests.
-{% endtab %}
-
-{% tab title="Query 2" %}
-KQL Query to Detect DCSync
-
-{% code overflow="wrap" %}
-```kusto
-// Detect suspicious replication requests indicative of DCSync
+let ReplicationRights = dynamic([
+    "1131f6aa-9c07-11d1-f79f-00c04fc2dcd2",
+    "1131f6ad-9c07-11d1-f79f-00c04fc2dcd2",
+    "89e95b76-444d-4c62-991a-0facbeda640c"
+]);
 SecurityEvent
-| where EventID in (4662, 4672)  // Directory object access and privileged logon events
-| extend ObjectAccessed = tostring(parse_json(EventData.ObjectName)),
-         PermissionsGranted = tostring(parse_json(EventData.AccessMask)),
-         AccountName = tostring(Account),
-         PrivilegesAssigned = tostring(EventData.Privileges)
-| where ObjectAccessed contains "replicating directory changes" 
-    or PermissionsGranted has_any ("Replicating Directory Changes", "Replicating Directory Changes All")
-    or PrivilegesAssigned has "SeSyncAgentPrivilege"  // Sync Agent Privilege is a key indicator
-| summarize EventCount = count(), 
-            AffectedObjects = make_set(ObjectAccessed), 
-            SuspiciousAccounts = make_set(AccountName), 
-            FirstSeen = min(TimeGenerated), 
-            LastSeen = max(TimeGenerated) 
-    by Computer, EventID
-| extend SuspiciousActivity = case(
-    EventID == 4662 and SuspiciousAccounts != "Domain Controllers", "High",
-    EventID == 4672 and PrivilegesAssigned contains "SeSyncAgentPrivilege", "Medium",
-    true(), "Low"
-)
-| where SuspiciousActivity in ("High", "Medium")
-| project Computer, EventID, AffectedObjects, SuspiciousAccounts, EventCount, FirstSeen, LastSeen, SuspiciousActivity
-| sort by SuspiciousActivity desc, LastSeen desc
-
+| where TimeGenerated > ago(7d)
+| where EventID == 4662
+| extend EventProperties = tostring(column_ifexists("Properties", ""))
+| where EventProperties has_any (ReplicationRights)
+    or tostring(EventData) has_any (ReplicationRights)
+| project TimeGenerated, Computer, Account, SubjectUserName,
+          AccessMask, EventProperties, EventData
+| order by TimeGenerated desc
 ```
-{% endcode %}
 
-#### **Query Breakdown**
+**Triage:** Identify the principal and domain controller, inspect the original event, and compare the principal with approved domain controller and synchronisation identities. Correlate with network RPC telemetry and endpoint events when available. Some environments may record GUID strings in different formats, or not expose them in indexed fields; compare against raw examples.
 
-1. **Targeted Event IDs:**
-   * **4662:** Tracks object access attempts in Active Directory, including replication-related objects.
-   * **4672:** Logs when accounts are assigned special privileges, such as `SeSyncAgentPrivilege` (used for replication).
-2. **Extract Key Details:**
-   * `ObjectAccessed`: The object or resource accessed during the operation.
-   * `PermissionsGranted`: Specific permissions associated with the operation (e.g., **Replicating Directory Changes**).
-   * `PrivilegesAssigned`: Privileges granted to the account during the operation (e.g., **SeSyncAgentPrivilege**).
-3. **Filter for Suspicious Activity:**
-   * Identifies:
-     * **Non-DC accounts** accessing replication objects.
-     * Accounts granted replication-related privileges.
-4. **Aggregate and Flag:**
-   * Groups data by `Computer` and `EventID`.
-   * Flags events with suspicious replication access or permission assignment as **High** or **Medium** severity.
-5. **Output:**
-   * Displays affected objects, accounts involved, and a summary of events for further investigation.
-{% endtab %}
+## Review directory replication permissions
 
-{% tab title="Query 3" %}
-#### **Additional Query: Correlate with Network Activity**
+Replication rights are **extended control access permissions**, usually assigned on the domain naming context. They are not regular attributes of AD user objects. Inspect effective access control entries and nested group membership rather than relying on a nonexistent `ReplicatingDirectoryChanges` property from `Get-ADUser`.
 
-If network logs are available, you can correlate with suspicious network activity targeting the domain controller:
+Example for authorised administrators with the ActiveDirectory module:
 
-{% code overflow="wrap" %}
-```kusto
-AzureNetworkAnalytics_CL
-| where RemotePort == 389 or RemotePort == 636  // LDAP or LDAPS
-| where Message has "DRSUAPI" or Message has "replication"
-| summarize ConnectionCount = count(), 
-            SourceIPs = make_set(SourceIP), 
-            TargetHosts = make_set(DestinationHost) 
-    by bin(TimeGenerated, 1h)
-| where ConnectionCount > 10  // Adjust threshold based on environment
-| project TimeGenerated, SourceIPs, TargetHosts, ConnectionCount
-| sort by ConnectionCount desc
+```powershell
+Import-Module ActiveDirectory
+$domainDn = (Get-ADDomain).DistinguishedName
+(Get-Acl -Path "AD:\\$domainDn").Access |
+    Where-Object {
+        $_.ObjectType -in @(
+            [guid]'1131f6aa-9c07-11d1-f79f-00c04fc2dcd2',
+            [guid]'1131f6ad-9c07-11d1-f79f-00c04fc2dcd2',
+            [guid]'89e95b76-444d-4c62-991a-0facbeda640c'
+        )
+    } |
+    Select-Object IdentityReference, ActiveDirectoryRights,
+                  ObjectType, AccessControlType, IsInherited
 ```
-{% endcode %}
 
-#### **Detection Recommendations**
+This lists matching explicit or inherited access control entries, **not an exhaustive effective-permission calculation**. Group nesting, inheritance, denies and other rights must be considered.
 
-1. **Set Alerts:**
-   * Configure alerts in Microsoft Sentinel for:
-     * Non-DC accounts accessing replication objects (`EventID 4662`).
-     * Accounts assigned `SeSyncAgentPrivilege` (`EventID 4672`).
-2. **Audit Replication Permissions:**
-   *   Regularly review accounts with **Replicating Directory Changes** and **Replicating Directory Changes All** permissions:
+## Hardening and response
 
-       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADUser -Filter * -Properties ReplicatingDirectoryChanges
-       </code></pre>
-3. **Harden Active Directory:**
-   * Limit replication permissions to necessary accounts only (e.g., domain controllers).
-4. **Enable Advanced Auditing:**
-   * Ensure advanced object access auditing is enabled in Active Directory Group Policy.
-{% endtab %}
-{% endtabs %}
+1. Restrict directory replication rights to approved domain controllers and required synchronisation identities.
+2. Review high-privilege group membership and delegated replication permissions regularly.
+3. Prevent privileged identities from authenticating on lower-trust endpoints.
+4. Restrict unnecessary network access to domain controllers and monitor RPC-based replication from non-DC systems.
+5. Investigate suspected credential compromise; if the `krbtgt` credential was exposed, follow a coordinated recovery plan for its password rotation rather than a routine unplanned reset.
+6. Keep Windows and domain controllers patched; review related account activity and persistence.
 
-### Splunk Detection Queries
+## Limitations
 
-To detect **DCSync** attacks in **Splunk**, focus on identifying unusual directory replication requests and suspicious access to replication-related objects. This involves monitoring Windows Security Event Logs for specific events that indicate abuse of **Replicating Directory Changes** permissions or unauthorized access to sensitive objects.
+Event 4662 can be missing due to auditing or SACL configuration; legitimate replication creates similar events. The KQL above was not executed in the target environment, and a negative result does not prove DCSync did not occur.
 
-{% tabs %}
-{% tab title="Query 1" %}
-Splunk Query to Detect DCSync
+## References
 
-{% code overflow="wrap" %}
-```spl
-index=windows (EventCode=4662 OR EventCode=4672)
-| eval EventDescription = case(
-    EventCode == 4662, "Sensitive Directory Object Access",
-    EventCode == 4672, "Special Privileges Assigned",
-    true(), "Unknown"
-)
-| eval ObjectAccessed = coalesce(Object_Name, ""),
-        PermissionsGranted = AccessMask,
-        PrivilegesAssigned = Privileges,
-        AccountName = User_Name
-| where (EventCode == 4662 AND ObjectAccessed LIKE "%Replicating Directory Changes%")
-  OR (EventCode == 4672 AND PrivilegesAssigned LIKE "%SeSyncAgentPrivilege%")
-| stats count AS EventCount, 
-        values(ObjectAccessed) AS AccessedObjects, 
-        values(AccountName) AS SuspiciousAccounts, 
-        values(PermissionsGranted) AS PermissionsUsed, 
-        min(_time) AS FirstSeen, 
-        max(_time) AS LastSeen 
-    BY ComputerName, EventCode, EventDescription
-| eval SuspiciousScore = case(
-    EventCode == 4662 AND "Replicating Directory Changes All" IN PermissionsUsed, "High",
-    EventCode == 4672 AND PrivilegesAssigned LIKE "%SeSyncAgentPrivilege%", "Medium",
-    true(), "Low"
-)
-| where SuspiciousScore IN ("High", "Medium")
-| table ComputerName, EventDescription, AccessedObjects, SuspiciousAccounts, PermissionsUsed, EventCount, FirstSeen, LastSeen, SuspiciousScore
-| sort - SuspiciousScore, -EventCount
-```
-{% endcode %}
-
-#### **Query Breakdown**
-
-1. **Targeted Event Codes:**
-   * **4662:** Logs access to sensitive AD objects, including replication-related permissions like `Replicating Directory Changes` or `Replicating Directory Changes All`.
-   * **4672:** Logs special privileges assigned to accounts, such as `SeSyncAgentPrivilege` (often required for DCSync).
-2. **Extract Key Fields:**
-   * **ObjectAccessed:** The object targeted by the replication request.
-   * **PermissionsGranted:** Specific permissions used in the operation.
-   * **PrivilegesAssigned:** Privileges assigned to the account.
-3. **Filter for Suspicious Activity:**
-   * Focuses on:
-     * Access to replication-related objects or permissions (`4662`).
-     * Accounts assigned replication privileges (`4672`).
-4. **Aggregate and Score:**
-   * Groups events by `ComputerName` and `EventCode`.
-   * Assigns a **SuspiciousScore** based on activity:
-     * **High:** Access to `Replicating Directory Changes All`.
-     * **Medium:** Accounts with `SeSyncAgentPrivilege`.
-5. **Output:**
-   * Displays key information, including accessed objects, suspicious accounts, and permissions used.
-{% endtab %}
-
-{% tab title="Query 2" %}
-#### **Advanced Query: Correlating with Network Activity**
-
-To enhance detection, correlate with network activity targeting domain controllers:
-
-{% code overflow="wrap" %}
-```spl
-index=network (dest_port=389 OR dest_port=636)  // LDAP and LDAPS ports
-| stats count AS ConnectionCount, 
-        values(src_ip) AS SourceIPs, 
-        values(dest_ip) AS DestinationDCs, 
-        min(_time) AS FirstSeen, 
-        max(_time) AS LastSeen
-| where ConnectionCount > 10  // Adjust threshold based on baseline
-| table SourceIPs, DestinationDCs, ConnectionCount, FirstSeen, LastSeen
-| sort - ConnectionCount
-```
-{% endcode %}
-
-#### **Customisations**
-
-1. **Whitelist Known Accounts or Activities:**
-   *   Exclude trusted accounts or service accounts:
-
-       <pre class="language-splunk-spl" data-overflow="wrap"><code class="lang-splunk-spl">| search NOT User_Name IN ("TrustedAdmin", "BackupService")
-       </code></pre>
-2. **Adjust Thresholds:**
-   *   Modify thresholds for event counts based on your environment’s normal behavior:
-
-       ```spl
-       splCopyEdit| where EventCount > 5
-       ```
-3. **Time-Based Grouping:**
-   *   Use `bin _time` to detect bursts of activity within a short timeframe:
-
-       ```splunk-spl
-       | bin _time span=15m
-       ```
-
-***
-
-#### **Detection Recommendations**
-
-1. **Set Alerts:**
-   * Create alerts for:
-     * Access to `Replicating Directory Changes` permissions by non-DC accounts.
-     * Assignment of `SeSyncAgentPrivilege` to unexpected accounts.
-2. **Audit Permissions:**
-   *   Regularly review accounts with **Replicating Directory Changes** permissions:
-
-       <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell">Get-ADUser -Filter * -Properties ReplicatingDirectoryChanges
-       </code></pre>
-3. **Enable Advanced Auditing:**
-   * Configure advanced object access auditing for directory services in Group Policy.
-4. **Restrict Replication Permissions:**
-   * Limit `Replicating Directory Changes` and `Replicating Directory Changes All` permissions to only domain controllers.
-{% endtab %}
-
-{% tab title="Query 3" %}
-Query to detect potential DCSync attacks:
-
-{% code overflow="wrap" %}
-```spl
-index=windows sourcetype=add_your_sourcetype
-| eval AccountName = mvindex(Account_Name, 1)
-| where EventCode=4662 // An operation was performed on an object
-| search ObjectClass="replication" AND AccessMask="0x100" // Replication access
-| stats count AS RequestCount, values(IpAddress) AS ClientIPs, dc(IpAddress) AS UniqueIPs BY AccountName
-| where RequestCount > 5 // Adjust threshold based on your environment
-| table _time, AccountName, RequestCount, UniqueIPs, ClientIPs
-| sort - RequestCount
-```
-{% endcode %}
-
-Query performs the following steps:
-
-1. **Filters events** to include only those with EventCode 4662, which corresponds to operations performed on objects.
-2. **Searches for replication access** by filtering for ObjectClass "replication" and AccessMask "0x100".
-3. **Aggregates the data** to count the number of replication requests and unique IPs per AccountName.
-4. **Filters the results** to include only those with more than 5 requests (adjust the threshold based on your environment).
-5. **Displays the results** in a table format, sorted by the number of requests.
-{% endtab %}
-{% endtabs %}
-
-### Reference
-
-* [Microsoft Identity and Access documentation](https://learn.microsoft.com/en-au/windows-server/identity/identity-and-access)
-* [Detecting and mitigating Active Directory compromises](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/detecting-and-mitigating-active-directory-compromises?ref=search)
-* [Best Practices for Securing Active Directory](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
-* [Securing Domain Controllers Against Attack](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
-* [Top 25 Active Directory Security Best Practices](https://activedirectorypro.com/active-directory-security-best-practices/)
-* [Active Directory Security Best Practices](https://www.netwrix.com/active-directory-best-practices.html)
+- [MITRE ATT&CK T1003.006: DCSync](https://attack.mitre.org/techniques/T1003/006/)
+- [Microsoft Security Event 4662](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662)
+- [Detection Validation Checklist](../detection-validation-checklist.md)

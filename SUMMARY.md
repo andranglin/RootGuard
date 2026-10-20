@@ -113,6 +113,7 @@
 ## Detection Engineering
 
 * [Threat Detection](detection-engineering/threat-detection/README.md)
+  * [Detection Validation Checklist](detection-engineering/threat-detection/detection-validation-checklist.md)
   * [AD Detections & Mitigations](detection-engineering/threat-detection/ad-detections-and-mitigations/README.md)
     * [Kerberoasting](detection-engineering/threat-detection/ad-detections-and-mitigations/kerberoasting.md)
     * [Authentication Server Response (AS-REP) Roasting](detection-engineering/threat-detection/ad-detections-and-mitigations/authentication-server-response-as-rep-roasting.md)
