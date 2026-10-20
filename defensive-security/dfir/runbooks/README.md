@@ -22,6 +22,8 @@ layout:
 
 # Runbooks
 
+**Safety and validation:** Review the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md) before executing any procedure. The four core runbooks underwent a targeted static safety review on 20 October 2026; their KQL and operational commands are **not** comprehensively runtime-validated.
+
 While Playbooks cover the high-level strategy (the "Who, What, and Why"), Runbooks focus on the low-level execution (the "How"). The Runbooks included emphasise technical specificity, command-line precision, and automation.
 
 ### Cybersecurity Incident Response Runbooks
