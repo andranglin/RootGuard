@@ -2,7 +2,7 @@
 
 > **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
 
-**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated.  
+**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated. 
 **Review:** 20 October 2026 · **Owner:** SOC/CSIRT · **Authorisation:** Follow local incident command, privacy and evidence procedures.
 
 > **Important:** Queries below are *investigation pivots*, not finished alerts. Microsoft Defender XDR Advanced Hunting and Microsoft Sentinel Log Analytics use different tables and schema. Execute each query only in its stated environment. Preserve evidence, record approvals and do not delay urgent containment when harm is ongoing.
@@ -15,7 +15,7 @@
 4. Preserve relevant logs, incident exports and endpoint artefacts through approved tools. Track collection time, retention gaps and custody.
 5. Keep **observations**, **hypotheses** and **confirmed conclusions** in separate notes.
 
-**Technology coverage:** Microsoft Entra, Defender XDR, Windows AD, workload identities  
+**Technology coverage:** Microsoft Entra, Defender XDR, Windows AD, workload identities 
 **Trigger:** suspicious authentication, token exposure, credential addition, role change or endpoint credential-access alert.
 
 ## 2. Confirm telemetry prerequisites
@@ -30,7 +30,7 @@ let User = "analyst@example.invalid";
 SigninLogs
 | where TimeGenerated > ago(72h) and UserPrincipalName =~ User
 | project TimeGenerated, UserPrincipalName, IPAddress, AppDisplayName,
-          ResultType, ConditionalAccessStatus, CorrelationId
+ ResultType, ConditionalAccessStatus, CorrelationId
 | order by TimeGenerated desc
 ```
 
@@ -57,7 +57,7 @@ DeviceProcessEvents
 | where Timestamp > ago(72h)
 | where ProcessCommandLine has_any ("lsass","comsvcs.dll","procdump")
 | project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine,
-          InitiatingProcessFileName, SHA1
+ InitiatingProcessFileName, SHA1
 | order by Timestamp desc
 ```
 
