@@ -1,10 +1,9 @@
 # Data Exfiltration Investigation Runbook
 
-## SOC & DFIR Operations Guide
+Assess suspected data movement using endpoint, cloud and network evidence while preserving uncertainty.
 
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access.
-
-***
+**Validation:** Not independently tested  
+**Reviewed:** 20 October 2026
 
 ## Overview & Scope
 
