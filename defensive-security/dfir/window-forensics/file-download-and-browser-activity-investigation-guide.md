@@ -6,15 +6,15 @@
 
 ### 📚 Table of Contents
 
-1. [Investigation Framework](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-framework)
-2. [Browser History Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#browser-history-analysis)
-3. [Download History Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#download-history-analysis)
-4. [Internet Explorer/Edge File Access](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#internet-exploreredge-file-access)
-5. [Email Attachments Investigation](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#email-attachments-investigation)
-6. [Cross-Browser Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#cross-browser-analysis)
-7. [Investigation Playbooks](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-playbooks)
-8. [Tool Reference](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#tool-reference)
-9. [Quick Reference Cards](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#quick-reference-cards)
+1. [Investigation Framework](#investigation-framework)
+2. [Browser History Analysis](#browser-history-analysis)
+3. [Download History Analysis](#download-history-analysis)
+4. [Internet Explorer/Edge File Access](#internet-exploreredge-file-access)
+5. [Email Attachments Investigation](#email-attachments-investigation)
+6. [Cross-Browser Analysis](#cross-browser-analysis)
+7. [Investigation Playbooks](#investigation-playbooks)
+8. [Tool Reference](#tool-reference)
+9. [Quick Reference Cards](#quick-reference-cards)
 
 ***
 

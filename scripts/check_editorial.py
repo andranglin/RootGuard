@@ -41,6 +41,13 @@ def main():
             found = PATTERN.search(added)
             if "—" in added or found:
                 issues.append((path, added[:180]))
+    # A public knowledge base should not link its table of contents to private AI chats.
+    for markdown in pathlib.Path(".").rglob("*.md"):
+        if ".git" in markdown.parts:
+            continue
+        body = markdown.read_text(encoding="utf-8", errors="replace")
+        if re.search(r"https?://(?:claude\.ai/chat|chatgpt\.com/c/|chat\.openai\.com/c/)", body, re.I):
+            issues.append((str(markdown), "Public page contains an AI chat-session URL"))
     for path, excerpt in issues:
         print(f"Editorial review required: {path}: {excerpt}")
     if issues:
