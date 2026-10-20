@@ -1,346 +1,80 @@
-# Password Spraying
+# Password Spraying: Detection and Investigation
 
-> **Technical review required (20 October 2026):** This legacy article contains detection guidance that has not been validated against current source telemetry and product schemas. Do not deploy its existing example queries or rely on platform-specific assertions without technical review. Consult the [content review register](../../../contributing/content-review-register.md) and [validation checklist](../detection-validation-checklist.md).\n\n
-### **Introduction**
+**ATT&CK:** [T1110.003](https://attack.mitre.org/techniques/T1110/003/)  
+**Review date:** 20 October 2026  
+**Validation:** Concept / unvalidated; verify with your environment's telemetry.
 
-**Password spraying** is a technique used by attackers to gain unauthorised access to user accounts by exploiting weak or commonly used passwords. Unlike traditional brute-force attacks that repeatedly try many passwords on a single account (risking account lockout due to failed attempts), password spraying involves attempting a single password across multiple accounts. This method helps avoid triggering lockout policies, making it a stealthier and more effective attack technique.
+## Detection hypothesis
 
-Password spraying is categorised under the **Credential Access** tactic in the MITRE ATT\&CK framework (ID: T1110.003) and is frequently used as a precursor to further attacks, such as lateral movement, privilege escalation, or data exfiltration.
+A single source attempts authentication against many distinct identities over a short period, potentially followed by successful access to one of those identities. No event alone confirms credential compromise.
 
-***
+## Microsoft Entra sign-in hunting
 
-### **How Password Spraying Works**
+**Requirements:** Microsoft Entra interactive sign-ins ingested into Microsoft Sentinel's `SigninLogs` table. The query is intended for exploratory triage, not immediate scheduled alerting.
 
-1. **Account Discovery:**
-   * Attackers compile a list of valid usernames or email addresses.
-   * This can be achieved through OSINT (Open Source Intelligence), compromised databases, or reconnaissance tools.
-2. **Weak Password Selection:**
-   * Commonly used passwords, such as `Password123`, `Welcome1`, or season/year combinations like `Spring2025`, are selected as attack vectors.
-3. **Spraying Process:**
-   * A single weak password is tested across multiple accounts.
-   * If unsuccessful, another password is selected, avoiding consecutive failed attempts on any single account to evade lockout policies.
-4. **Successful Compromise:**
-   * Once a valid username-password pair is identified, the attacker gains unauthorised access to the account.
-   * They can then escalate privileges or use the account to launch further attacks.
-
-***
-
-### **Why Password Spraying is Effective**
-
-1. **Avoids Lockouts:**
-   * By distributing authentication attempts across many accounts, attackers stay under account lockout thresholds.
-2. **Exploits Weak Password Policies:**
-   * Organisations with poorly enforced password complexity policies are especially vulnerable.
-3. **Large Attack Surface:**
-   * Modern organisations with hundreds or thousands of user accounts provide attackers with ample opportunities.
-4. **Low Detection Probability:**
-   * Spraying attacks mimic normal authentication attempts, making them harder to detect.
-
-***
-
-### **Indicators of Password Spraying**
-
-1. **High Volume of Failed Logons:**
-   * A significant number of failed authentication attempts distributed across multiple accounts within a short timeframe.
-2. **Unusual Authentication Sources:**
-   * Logon attempts originating from unknown or suspicious IP addresses, especially from geographic locations where the organisation has no presence.
-3. **Targeting Multiple Accounts:**
-   * Logon failures affecting many accounts, often with the same password.
-4. **Successful Logons Following Failures:**
-   * Successful logons from the same IP after multiple failed attempts suggest spraying success.
-
-***
-
-### **Mitigation Strategies**
-
-1. **Strong Password Policies:**
-   * Enforce password complexity requirements (e.g., length, special characters, and no common passwords).
-   * Implement password expiration policies.
-2. **Multi-Factor Authentication (MFA):**
-   * Require MFA for all user accounts, making password spraying ineffective even if the password is compromised.
-3. **Account Lockout Policies:**
-   * Configure account lockout settings to limit the number of failed login attempts.
-4. **Monitor Authentication Logs:**
-   * Continuously analyse logs for patterns of failed and successful logons.
-   * Set alerts for unusual logon activity.
-5. **Limit Exposure:**
-   * Reduce publicly accessible account lists, such as employee directories or email address formats.
-6. **User Awareness Training:**
-   * Educate users on creating strong passwords and recognising social engineering techniques.
-
-***
-
-### **Detection Techniques**
-
-1. **Log Analysis:**
-   * Event ID 4625: Monitor logs for failed login attempts.
-   * Event ID 4624:  Event is generated when an object logs on successfully, such as to a user
-   * Event ID 2889: Event is generated when a computer object tries to make an unsigned LDAP bind.
-   * Event ID 4648: Event is generated when a logon is attempted using explicit credentials.
-   * Event ID 4740: Event is generated when a user object is locked out.
-   * Event ID 4771: Event is generated when Kerberos pre-authentication fails.
-   * Detect patterns of failures distributed across multiple accounts from the same IP.
-2. **Correlation Rules:**
-   * Use SIEM solutions (e.g., Splunk, Sentinel) to detect suspicious patterns, such as failed logons from unusual IPs followed by a successful logon.
-3. **Geographic Analysis:**
-   * Flag logons from locations inconsistent with the user's typical behaviour.
-4. **Threat Intelligence Integration:**
-   * Cross-reference IP addresses with known malicious actors or threat intelligence feeds.
-
-***
-
-Password spraying remains a prevalent and effective attack method due to its simplicity and the prevalence of weak passwords in many organisations. By understanding how it works and proactively implementing strong defences and monitoring, organisations can significantly reduce their exposure to this attack vector.
-
-### KQL Detection Queries
-
-{% tabs %}
-{% tab title="Query 1" %}
-Query to Detect Password Spraying
-
-{% code overflow="wrap" %}
 ```kusto
-let FailedLogons = SecurityEvent
-| where EventID == 4625  // Failed logons
-| extend AccountName = tostring(TargetUserName), 
-         ClientIP = tostring(IpAddress), 
-         FailureReason = tostring(Status)
-| summarize FailedAttempts = count(), UniqueAccounts = dcount(AccountName) 
-    by ClientIP, bin(TimeGenerated, 15m)  // Group by client IP and 15-minute intervals
-| where FailedAttempts > 10 and UniqueAccounts > 5;  // Thresholds for potential spraying
-
-let SuccessfulLogons = SecurityEvent
-| where EventID == 4624  // Successful logons
-| extend AccountName = tostring(TargetUserName), ClientIP = tostring(IpAddress)
-| summarize SuccessfulAttempts = count(), UniqueAccounts = dcount(AccountName) 
-    by ClientIP, bin(TimeGenerated, 15m);
-
-FailedLogons
-| join kind=inner (SuccessfulLogons) on ClientIP, TimeGenerated
-| extend SuspiciousScore = case(
-    FailedAttempts > 20 and UniqueAccounts > 10 and SuccessfulAttempts > 5, "High",
-    FailedAttempts > 10 and UniqueAccounts > 5, "Medium",
-    "Low"
-)
-| project TimeGenerated, ClientIP, FailedAttempts, SuccessfulAttempts, UniqueAccounts, SuspiciousScore
-| where SuspiciousScore in ("High", "Medium")
-| sort by SuspiciousScore desc, FailedAttempts desc
+let Lookback = 24h;
+let Window = 15m;
+let MinimumUsers = 5;
+let Failures =
+    SigninLogs
+    | where TimeGenerated > ago(Lookback)
+    | where ResultType == "50126"
+    | where isnotempty(IPAddress) and isnotempty(UserPrincipalName)
+    | summarize FailedAttempts=count(),
+                TargetedUsers=dcount(UserPrincipalName),
+                Accounts=make_set(UserPrincipalName, 30)
+        by IPAddress, WindowStart=bin(TimeGenerated, Window)
+    | where TargetedUsers >= MinimumUsers;
+Failures
+| order by TargetedUsers desc, FailedAttempts desc
 ```
-{% endcode %}
 
-#### **Query Breakdown**
+**Interpretation:** Error 50126 commonly indicates invalid username or password, but this filter is not an exhaustive inventory of unsuccessful sign-ins. Analyse other result codes and non-interactive sign-in sources according to your investigative context. A shared NAT, VPN, proxy or automation can aggregate unrelated users behind one IP.
 
-1. **Failed Logons (Event ID 4625):**
-   * Captures failed logon events, grouping by `ClientIP` and aggregating failed attempts over 15-minute intervals.
-   * Identifies IPs with a high number of failed attempts and multiple targeted accounts:
-     * `FailedAttempts > 10`: Adjust based on environment baseline.
-     * `UniqueAccounts > 5`: Indicates many accounts were targeted.
-2. **Successful Logons (Event ID 4624):**
-   * Captures successful logons from the same IPs within the same 15-minute window.
-   * Identifies instances where spraying attempts succeeded.
-3. **Suspicious Scoring:**
-   * Assigns a `SuspiciousScore` based on the severity of activity:
-     * **High:** Over 20 failed attempts, more than 10 accounts, and successful logons.
-     * **Medium:** Over 10 failed attempts and 5 accounts targeted.
-4. **Correlation:**
-   * Joins failed logon data with successful logon data using `ClientIP` and `TimeGenerated`.
-5. **Final Output:**
-   * Displays the client IP, time, number of failed attempts, number of successful attempts, and targeted accounts.
-   * Focuses on **High** and **Medium** suspicious activity.
+## Correlate with later successful sign-ins
 
-***
+Use results from the first query to identify relevant source IPs and accounts, then inspect successful and interrupted sign-ins. For an exploratory source-based view:
 
-#### **Customisations**
-
-1. **Threshold Tuning:**
-   * Adjust thresholds (`FailedAttempts > 10`, `UniqueAccounts > 5`) based on the baseline of your environment.
-2. **Time Binning:**
-   * Modify `bin(TimeGenerated, 15m)` to adjust the time window for detecting spraying.
-3. **Exclusions:**
-   *   Exclude trusted IPs or service accounts to reduce false positives:
-
-       <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| where not (ClientIP in ("trusted_ip1", "trusted_ip2") or AccountName startswith "svc_")
-       </code></pre>
-
-***
-
-#### **Additional Recommendations**
-
-1. **Alert Configuration:**
-   * Set up alerts for `SuspiciousScore = High` to notify SOC analysts.
-2. **Dashboard Integration:**
-   * Create a visualisation showing failed logon trends, unique accounts targeted, and suspicious IPs.
-3. **Threat Intelligence:**
-   * Cross-reference `ClientIP` with known malicious IPs from threat intelligence feeds.
-{% endtab %}
-
-{% tab title="Query 2" %}
-{% code overflow="wrap" %}
 ```kusto
-// Define the time range for the query
-let startTime = ago(7d);
-let endTime = now();
-
-// Define thresholds for suspicious activity
-let Threshold_FailedLogons = 10;
-let Threshold_UniqueIPs = 3;
-let RareAccountThreshold = 5;
-
-// Step 1: Identify failed logon attempts (Event ID 4625)
-let FailedLogons = SecurityEvent
-| where TimeGenerated between (startTime .. endTime)
-| where EventID == 4625
-| extend AccountName = tostring(TargetUserName), Domain = tostring(TargetDomainName), ClientIP = tostring(IpAddress), FailureReason = tostring(Status)
-| project AccountName, Domain, ClientIP, FailureReason, TimeGenerated;
-
-// Step 2: Aggregate failed logon activity
-let Aggregated_FailedLogons = FailedLogons
-| summarize FailedLogonCount = count(), UniqueIPs = dcount(ClientIP), ClientIPs = make_set(ClientIP), FirstSeen = min(TimeGenerated), LastSeen = max(TimeGenerated) by AccountName, Domain;
-
-// Step 3: Identify Rare Accounts (Low Authentication Activity)
-let RareAccounts = SecurityEvent
-| where EventID == 4624 // Successful Logon
-| summarize LogonCount = count(), LogonIPs = make_set(IpAddress) by AccountName
-| where LogonCount < RareAccountThreshold
-| project AccountName, LogonCount, LogonIPs;
-
-// Step 4: Combine Failed Logon Events with Rare Account Info
-Aggregated_FailedLogons
-| join kind=leftouter (RareAccounts) on AccountName
-| extend IsRareAccount = iff(isnull(LogonCount), 1, 0)
-| extend SuspiciousScore = case(
-    FailedLogonCount > Threshold_FailedLogons and UniqueIPs > Threshold_UniqueIPs and IsRareAccount == 1, 3,
-    FailedLogonCount > Threshold_FailedLogons and UniqueIPs > Threshold_UniqueIPs, 2,
-    FailedLogonCount > Threshold_FailedLogons or UniqueIPs > Threshold_UniqueIPs, 1,
-    0
-)
-| where SuspiciousScore > 0
-| project AccountName, Domain, FailedLogonCount, UniqueIPs, ClientIPs, FirstSeen, LastSeen, IsRareAccount, SuspiciousScore
-| sort by SuspiciousScore desc, FailedLogonCount desc
+let SuspiciousSources = (
+    SigninLogs
+    | where TimeGenerated > ago(24h)
+    | where ResultType == "50126"
+    | where isnotempty(IPAddress) and isnotempty(UserPrincipalName)
+    | summarize Users=dcount(UserPrincipalName) by IPAddress, bin(TimeGenerated, 15m)
+    | where Users >= 5
+    | distinct IPAddress
+);
+SigninLogs
+| where TimeGenerated > ago(24h)
+| where IPAddress in (SuspiciousSources)
+| project TimeGenerated, IPAddress, UserPrincipalName, ResultType,
+          AppDisplayName, ConditionalAccessStatus, CorrelationId
+| order by IPAddress asc, TimeGenerated asc
 ```
-{% endcode %}
 
-Query performs the following steps:
+**Limitations:** A result code of 0 does not independently establish that every authentication requirement was completed or that a usable session was issued. Review authentication details, conditional access, device/session context and subsequent activity. Source IPs alone may not uniquely identify a device or attacker.
 
-1. **Defines the time range** for the query to look back over the past 7 days.
-2. **Identifies failed logon attempts** (Event ID 4625) and extracts relevant information.
-3. **Aggregates failed logon activity** to count the number of failed logons and unique IPs per account.
-4. **Identifies rare accounts** with low authentication activity (Event ID 4624).
-5. **Combines failed logon events with rare account information** to calculate a SuspiciousScore based on multiple factors.
-6. **Displays the results** in a table format, sorted by SuspiciousScore and FailedLogonCount.
-{% endtab %}
-{% endtabs %}
+## On-premises Active Directory
 
-### Splunk Detection Queries
+Collect appropriate domain-controller authentication telemetry (such as Event 4771 and 4776 where applicable) and validate field semantics before adapting the analytic. Endpoint Event 4625 alone cannot reliably replace domain-controller coverage. Account lockout behaviour and authentication protocols change the pattern.
 
-{% tabs %}
-{% tab title="Basic Query" %}
-Basic Splunk Query for Password Spraying Detection
+## Investigation workflow
 
-{% code overflow="wrap" %}
-```spl
-index=windows (EventCode=4625 OR EventCode=4624)
-| eval LogonType = case(EventCode=4625, "Failed Logon", EventCode=4624, "Successful Logon")
-| stats count AS TotalAttempts, 
-        count(eval(EventCode=4625)) AS FailedAttempts, 
-        count(eval(EventCode=4624)) AS SuccessfulAttempts, 
-        values(AccountName) AS TargetAccounts, 
-        dc(AccountName) AS UniqueAccounts, 
-        values(IpAddress) AS SourceIPs, 
-        dc(IpAddress) AS UniqueSourceIPs 
-    BY LogonType, IpAddress
-| where FailedAttempts > 10 AND UniqueAccounts > 5  // Threshold: Failed attempts across multiple accounts
-| eval SuspiciousScore = case(
-    FailedAttempts > 20 AND UniqueAccounts > 10, "High",
-    FailedAttempts > 10 AND UniqueAccounts > 5, "Medium",
-    true(), "Low"
-)
-| where SuspiciousScore IN ("High", "Medium")
-| table IpAddress, TotalAttempts, FailedAttempts, SuccessfulAttempts, UniqueAccounts, SourceIPs, SuspiciousScore
-| sort - SuspiciousScore, -FailedAttempts
-```
-{% endcode %}
+1. Validate the events, time window, sign-in type and normal source behaviour.
+2. Identify the distinct accounts and their sensitivity.
+3. Review authentication outcomes and whether any session was established.
+4. Correlate with endpoint, identity, device and user activity.
+5. Escalate with supporting evidence; take containment actions under approved response procedures.
 
-**Query Breakdown**
+## Mitigation
 
-1. **Filters Relevant Events:**
-   * `EventCode=4625`: Failed logons.
-   * `EventCode=4624`: Successful logons.
-2. **Evaluates Logon Type:**
-   * Label events as "Failed Logon" or "Successful Logon" for clarity.
-3. **Aggregates Data:**
-   * `FailedAttempts`: Count of failed logons per source IP.
-   * `SuccessfulAttempts`: Count of successful logons per source IP.
-   * `UniqueAccounts`: Number of distinct accounts targeted by the source IP.
-   * `SourceIPs`: IP addresses involved in the activity.
-4. **Detects Suspicious Behavior:**
-   * Flags source IPs with:
-     * More than **10 failed attempts** across **5 or more accounts**.
-     * Assigns a "High" or "Medium" **SuspiciousScore** for prioritised analysis.
-5. **Excludes Low-Risk Activity:**
-   * Focuses only on high or medium risk patterns by filtering out low scores.
-{% endtab %}
+Use phishing-resistant MFA where possible, password protection against known weak values, risk-based identity controls, least privilege and active monitoring. MFA significantly reduces the risk of password-only takeover but does not prevent password-guessing attempts and cannot be treated as universal protection against all downstream session attacks.
 
-{% tab title="Advance Query" %}
-Advanced Query with Temporal Analysis
+## Validation limitations and references
 
-{% code overflow="wrap" %}
-```kusto
-index=windows (EventCode=4625 OR EventCode=4624)
-| eval LogonType = case(EventCode=4625, "Failed Logon", EventCode=4624, "Successful Logon")
-| bin _time span=15m  // Group events into 15-minute intervals
-| stats count AS TotalAttempts, 
-        count(eval(EventCode=4625)) AS FailedAttempts, 
-        count(eval(EventCode=4624)) AS SuccessfulAttempts, 
-        values(AccountName) AS TargetAccounts, 
-        dc(AccountName) AS UniqueAccounts, 
-        values(IpAddress) AS SourceIPs, 
-        dc(IpAddress) AS UniqueSourceIPs 
-    BY _time, IpAddress
-| where FailedAttempts > 10 AND UniqueAccounts > 5
-| eval SuspiciousScore = case(
-    FailedAttempts > 20 AND UniqueAccounts > 10, "High",
-    FailedAttempts > 10 AND UniqueAccounts > 5, "Medium",
-    true(), "Low"
-)
-| where SuspiciousScore IN ("High", "Medium")
-| table _time, IpAddress, TotalAttempts, FailedAttempts, SuccessfulAttempts, UniqueAccounts, SourceIPs, SuspiciousScore
-| sort - _time, -SuspiciousScore, -FailedAttempts
-```
-{% endcode %}
+These queries have not been run against a tenant or approved test dataset for this publication. The thresholds are illustrative. Consult the [Detection Validation Checklist](../detection-validation-checklist.md).
 
-#### **Query Enhancements**
-
-*   **Whitelist Known Sources or Accounts:**
-
-    <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| search NOT [ | inputlookup whitelist_ips.csv ]
-    </code></pre>
-* **Threshold Adjustments:**
-  * Tune `FailedAttempts > 10` and `UniqueAccounts > 5` based on your environment’s normal behaviour.
-* **Include Geolocation:**
-  *   Add geographic context to identify activity from unexpected regions:
-
-      <pre class="language-kusto" data-overflow="wrap"><code class="lang-kusto">| iplocation IpAddress
-      | table IpAddress, Country, Region, City, TotalAttempts, FailedAttempts, SuccessfulAttempts
-      </code></pre>
-
-***
-
-#### **Recommendations**
-
-1. **Create Alerts:**
-   * Trigger alerts for `SuspiciousScore = High` to notify SOC analysts in real-time.
-2. **Correlate with Threat Intelligence:**
-   * Cross-reference `SourceIPs` with threat feeds to identify known malicious actors.
-3. **Build Dashboards:**
-   * Visualise password spraying activity trends and affected accounts in a Splunk dashboard.
-{% endtab %}
-{% endtabs %}
-
-### Reference
-
-* [Microsoft Identity and Access documentation](https://learn.microsoft.com/en-au/windows-server/identity/identity-and-access)
-* [Detecting and mitigating Active Directory compromises](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/detecting-and-mitigating-active-directory-compromises?ref=search)
-* [Best Practices for Securing Active Directory](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
-* [Securing Domain Controllers Against Attack](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
-* [Top 25 Active Directory Security Best Practices](https://activedirectorypro.com/active-directory-security-best-practices/)
-* [Active Directory Security Best Practices](https://www.netwrix.com/active-directory-best-practices.html)
+- [Microsoft SigninLogs schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/signinlogs)
+- [MITRE ATT&CK: Password Spraying](https://attack.mitre.org/techniques/T1110/003/)
