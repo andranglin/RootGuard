@@ -29,6 +29,9 @@ These paths help readers move from fundamentals to repeatable operational tasks.
 
 ## DFIR foundations
 
+New: [Windows endpoint triage field guide](../defensive-security/dfir/field-guides/windows-endpoint-triage.md) and [Lab 04: Windows endpoint timeline](../practice-labs/windows-timeline-triage.md).
+
+
 1. [DFIR overview](../defensive-security/dfir/README.md)
 2. [Initial triage](../defensive-security/dfir/initial-triage-and-response/README.md)
 3. [Evidence collection](../defensive-security/dfir/initial-triage-and-response/evidence-collection/README.md)
