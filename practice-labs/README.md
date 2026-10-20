@@ -1,5 +1,7 @@
 # Practical Investigation Labs
 
+For complete evidence packages, see the [downloadable investigation case studies](case-studies/README.md), including CSV event records, independent analyst worksheets and answer guides.
+
 RootGuard labs are self-contained exercises designed for defensive analysts. No production account or tenant is needed for the synthetic-data exercises.
 
 ## Labs
