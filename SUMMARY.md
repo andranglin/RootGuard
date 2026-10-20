@@ -2,6 +2,9 @@
 
 ## Welcome
 
+* [Documentation Design System](design-system/README.md)
+  * [Diagram Patterns](design-system/diagram-patterns.md)
+
 * [Start Here](start-here/README.md)
 * [Guided Learning Paths](learning-paths/README.md)
 * [Security Architecture & Engineering](security-architecture/README.md)

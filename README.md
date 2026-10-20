@@ -53,6 +53,8 @@ RootGuard is an independent technical reference for security practitioners inves
 
 ## How to use this reference
 
+For consistent article layouts and diagrams, see the [RootGuard documentation design system](design-system/README.md).
+
 **1. Check the prerequisites.** Identify the product and query execution environment, the required audit settings, retention and permissions.
 
 **2. Investigate, then corroborate.** A matching event is an observation, not a finding of compromise. Correlate multiple sources and document limitations.
