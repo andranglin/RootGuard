@@ -1,0 +1,9 @@
+event_id,time_utc,source,actor,src_ip,target,event_type,result,details
+P01,2026-10-20T08:41:00Z,EmailEvents,external@example.invalid,203.0.113.10,maria@example.invalid,email_delivered,delivered,Message MID-001 subject Shared document
+P02,2026-10-20T08:42:00Z,EmailEvents,external@example.invalid,203.0.113.10,ben@example.invalid,email_delivered,delivered,Message MID-001 same campaign
+P03,2026-10-20T08:45:00Z,UrlClickEvents,maria@example.invalid,192.0.2.44,https://files.example.invalid/secure,link_clicked,clicked,URL in message MID-001
+P04,2026-10-20T08:46:00Z,SigninLogs,maria@example.invalid,198.51.100.77,Microsoft 365,sign_in,50126,Invalid username or password
+P05,2026-10-20T08:48:00Z,SigninLogs,maria@example.invalid,198.51.100.77,Microsoft 365,sign_in,0,Success result no auth-details provided
+P06,2026-10-20T08:51:00Z,MailboxAudit,maria@example.invalid,198.51.100.77,Inbox,inbox_rule_created,success,Rule forwards matching invoice subjects to archive folder
+P07,2026-10-20T08:53:00Z,SigninLogs,ben@example.invalid,192.0.2.60,Microsoft 365,sign_in,0,Known managed endpoint in exercise
+P08,2026-10-20T09:03:00Z,EmailEvents,security@example.invalid,192.0.2.22,maria@example.invalid,email_notification,delivered,User awareness notification
