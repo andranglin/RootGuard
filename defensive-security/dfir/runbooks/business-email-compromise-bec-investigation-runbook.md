@@ -5,16 +5,7 @@ Investigate suspected mailbox compromise, unauthorised access and payment fraud 
 **Validation:** Static safety reviewed; queries and commands require local testing  
 **Reviewed:** 20 October 2026
 
-
-## SOC & DFIR Operations Guide
-
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
-
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating Business Email Compromise (BEC) attacks across the Microsoft 365 environment. BEC attacks are sophisticated social engineering schemes that exploit email to defraud organisations, often resulting in significant financial losses and data breaches.
+## Investigation scope
 
 ### What is Business Email Compromise?
 
