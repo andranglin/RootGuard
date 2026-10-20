@@ -6,6 +6,7 @@ These paths help readers move from fundamentals to repeatable operational tasks.
 
 - [Practical Labs](../practice-labs/README.md)
 - [Password-spray investigation using synthetic data](../practice-labs/password-spray-investigation.md)
+- [Kerberos ticket investigation using synthetic data](../practice-labs/kerberos-ticket-investigation.md)
 
 ## SOC investigation foundations
 
