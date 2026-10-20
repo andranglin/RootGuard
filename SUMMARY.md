@@ -15,6 +15,11 @@
   * [About the Author](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
+## Practical Labs
+
+* [Practical Investigation Labs](practice-labs/README.md)
+  * [Lab 01: Password-Spray Investigation](practice-labs/password-spray-investigation.md)
+
 ## Resources Hub
 
 * [Blogs](resources-hub/blogs/README.md)
