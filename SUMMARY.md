@@ -16,6 +16,13 @@
   * [About the Author](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
+## DFIR Field Guides
+
+* [DFIR Field Guides](defensive-security/dfir/field-guides/README.md)
+  * [Windows Endpoint Triage](defensive-security/dfir/field-guides/windows-endpoint-triage.md)
+  * [Evidence Acquisition & Integrity](defensive-security/dfir/field-guides/evidence-acquisition-and-integrity.md)
+  * [Windows Artefact Interpretation](defensive-security/dfir/field-guides/windows-artifact-interpretation.md)
+
 ## Practical Labs
 
 * [Practical Investigation Labs](practice-labs/README.md)
