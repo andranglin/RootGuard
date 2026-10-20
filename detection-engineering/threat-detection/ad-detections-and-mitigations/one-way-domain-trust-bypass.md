@@ -1,6 +1,8 @@
 # One-way Domain Trust Bypass
 
-### **Introduction**
+Review cross-domain trust boundaries, permitted authentication and unexpected access across a one-way trust.
+
+## Background
 
 In multi-domain Active Directory (AD) environments, **one-way domain trust** is a mechanism that allows users in one domain (the trusted domain) to access resources in another domain (the trusting domain). This trust relationship is often used to facilitate resource sharing while maintaining administrative separation between domains. However, this setup can be exploited by attackers through a **one-way domain trust bypass**, enabling unauthorised access to resources in the trusting domain. This occurs when attackers abuse the trust relationship to escalate privileges, perform lateral movement, or access sensitive data.
 
