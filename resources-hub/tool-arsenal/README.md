@@ -22,6 +22,10 @@ layout:
 
 # Tool Arsenal
 
+Find tools used for authorised security operations, evidence collection and investigation. Check the tool's current documentation, version and licensing before using commands from RootGuard.
+
+## Tools and workflows
+
 ## Operational Tooling for the Modern Defender
 
 **Automate. Hunt. Eradicate.**
