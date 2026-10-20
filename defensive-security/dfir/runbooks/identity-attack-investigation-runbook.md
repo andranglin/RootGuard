@@ -1,5 +1,6 @@
 # Identity Attack Investigation Runbook
 
+> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
 ## SOC & DFIR Operations Guide
 
 **Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
@@ -320,11 +321,11 @@ PaloAltoPrismaAccess
 | Scenario                      | Action                | Command/Location                         |
 | ----------------------------- | --------------------- | ---------------------------------------- |
 | **Compromised Cloud Account** | Revoke sessions       | Entra ID → Users → Revoke Sessions       |
-| **Active Attack**             | Disable account       | `Set-AzureADUser -AccountEnabled $false` |
-| **Token Theft**               | Revoke refresh tokens | `Revoke-AzureADUserAllRefreshToken`      |
+| **Active Attack**             | Disable account       | Entra admin centre: **Block sign-in**, after approval |
+| **Token Theft**               | Revoke refresh tokens | Microsoft Graph: **Revoke-MgUserSignInSession** (approved use)      |
 | **On-Prem Account**           | Disable AD account    | `Disable-ADAccount -Identity <user>`     |
-| **Malicious OAuth App**       | Remove app consent    | `Remove-AzureADOAuth2PermissionGrant`    |
-| **Golden Ticket**             | Reset KRBTGT (2x)     | `Reset-KrbtgtKeyInteractive.ps1`         |
+| **Malicious OAuth App**       | Remove app consent    | Approved Microsoft Graph OAuth grant review and targeted removal    |
+| **Golden Ticket**             | Reset KRBTGT (2x)     | AD recovery team: staged, documented krbtgt rotation procedure         |
 
 ### Post-Incident Hardening
 
