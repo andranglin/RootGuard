@@ -16,6 +16,14 @@
   * [About the Author](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
+## End-to-End Incident Playbooks
+
+* [Incident Investigation Playbooks](defensive-security/dfir/end-to-end-playbooks/README.md)
+  * [Phishing Compromise](defensive-security/dfir/end-to-end-playbooks/phishing-compromise.md)
+  * [Ransomware](defensive-security/dfir/end-to-end-playbooks/ransomware.md)
+  * [Credential Theft](defensive-security/dfir/end-to-end-playbooks/credential-theft.md)
+  * [Lateral Movement](defensive-security/dfir/end-to-end-playbooks/lateral-movement.md)
+
 ## DFIR Field Guides
 
 * [DFIR Field Guides](defensive-security/dfir/field-guides/README.md)
