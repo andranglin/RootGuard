@@ -1,7 +1,5 @@
 # Kerberoasting: Detection and Investigation
 
-> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
-
 **ATT&CK:** [T1558.003](https://attack.mitre.org/techniques/T1558/003/) 
 **Review date:** 20 October 2026 
 **Validation:** Concept / unvalidated; domain-controller telemetry must be confirmed.
