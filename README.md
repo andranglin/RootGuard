@@ -39,6 +39,21 @@ The aim is to turn complex security concepts into usable investigation workflows
 
 ***
 
+### Find what you need
+
+| Your objective | Start here |
+| --- | --- |
+| New to RootGuard | [Start Here](start-here/README.md) |
+| Follow a structured learning route | [Guided Learning Paths](learning-paths/README.md) |
+| Investigate a security incident | [Digital Forensics & Incident Response](defensive-security/dfir/README.md) |
+| Build or validate a detection | [Threat Detection & Hunting](detection-engineering/threat-detection/README.md) |
+| Review secure design decisions | [Security Architecture & Engineering](security-architecture/README.md) |
+| Contribute or review guidance | [Documentation Standards](contributing/README.md) |
+
+> **Using technical content:** Confirm prerequisites and product versions before executing commands. Detection examples without reproducible validation evidence are not production-ready rules.
+
+***
+
 ### Technical Modules
 
 #### 🛡️ Detection Engineering & KQL
