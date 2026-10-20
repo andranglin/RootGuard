@@ -1,6 +1,6 @@
 # Windows Endpoint Triage: First-Response Field Guide
 
-**Reviewed:** 20 October 2026  
+> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.\n\n**Reviewed:** 20 October 2026  
 **Status:** Methodology reference; commands must be validated and authorised locally.
 
 ## Initial decisions
