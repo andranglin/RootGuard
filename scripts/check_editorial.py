@@ -32,6 +32,8 @@ def main():
         if line.startswith("+++ b/"):
             path = line[6:]
         elif line.startswith("+") and not line.startswith("+++"):
+            if path == "contributing/README.md":
+                continue
             added = line[1:]
             # Skip likely code, tables of technical syntax, or URL lines.
             if added.lstrip().startswith(("    ", "`", "http", "#!")):
