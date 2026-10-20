@@ -1,6 +1,8 @@
 # Unconstrained Delegation
 
-### **Introduction**
+Review unconstrained Kerberos delegation exposure and investigate possible credential misuse on delegated hosts.
+
+## Background
 
 **Unconstrained delegation** is a feature in Microsoft Active Directory (AD) that allows a server or service to impersonate any user who authenticates to it. This is done by granting the server access to the user's Kerberos **Ticket-Granting Tickets (TGTs)**, which are stored in memory. While designed to support scenarios where a service needs to act on behalf of a user across multiple resources, unconstrained delegation introduces significant security risks if misconfigured or exploited by attackers.
 
