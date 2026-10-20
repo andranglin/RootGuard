@@ -1,0 +1,9 @@
+event_id,time_utc,source,host,account,src_ip,dst_ip,event_type,result,details
+L01,2026-10-20T13:10:00Z,DeviceProcessEvents,WS-22,CONTOSO\\helpdesk,192.0.2.22,198.51.100.40,process_start,success,wmic.exe with remote target SRV-04
+L02,2026-10-20T13:10:30Z,DeviceNetworkEvents,WS-22,CONTOSO\\helpdesk,192.0.2.22,198.51.100.40,network_connection,observed,RPC connection
+L03,2026-10-20T13:11:00Z,SecurityEvent,SRV-04,CONTOSO\\helpdesk,192.0.2.22,198.51.100.40,logon_4624,success,LogonType 3
+L04,2026-10-20T13:12:00Z,SystemEvent,SRV-04,CONTOSO\\SYSTEM,192.0.2.22,198.51.100.40,service_7045,observed,New service RemoteUpdater path C:\\Windows\\Temp\\updater.exe
+L05,2026-10-20T13:12:30Z,DeviceProcessEvents,SRV-04,CONTOSO\\SYSTEM,198.51.100.40,198.51.100.40,process_start,observed,updater.exe invoked by services.exe
+L06,2026-10-20T13:16:00Z,SecurityEvent,DC-01,CONTOSO\\helpdesk,198.51.100.40,198.51.100.11,logon_4624,success,LogonType 3 from server
+L07,2026-10-20T13:17:00Z,DeviceNetworkEvents,SRV-04,CONTOSO\\helpdesk,198.51.100.40,198.51.100.11,network_connection,observed,SMB connection to DC-01
+L08,2026-10-20T13:20:00Z,ChangeRegister,SRV-04,CONTOSO\\helpdesk,192.0.2.22,198.51.100.40,change_record,pending_review,Maintenance window exists but no matching service deployment recorded
