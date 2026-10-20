@@ -1,8 +1,6 @@
 # Linux Intrusion Analysis Workflow
 
-### Overview
-
-This workflow provides a structured methodology for investigating Linux system compromises. Commands can be executed during live response or adapted for post-compromise disk analysis by prepending the mount path (e.g., `cat /media/compromised_disk/var/log/auth.log`).
+Investigate a suspected Linux compromise by preserving evidence, examining host activity and building a supported timeline. Commands can be executed during live response or adapted for post-compromise disk analysis by prepending the mount path (e.g., `cat /media/compromised_disk/var/log/auth.log`).
 
 **Investigation Phases:**
 
