@@ -6,16 +6,16 @@
 
 ### 📚 Table of Contents
 
-1. [Investigation Framework](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-framework)
-2. [Account Usage Investigation](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#account-usage-investigation)
-3. [Lateral Movement Detection](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#lateral-movement-detection)
-4. [Persistence Mechanisms](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#persistence-mechanisms)
-5. [Privilege Escalation](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#privilege-escalation)
-6. [PowerShell & WMI Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#powershell--wmi-analysis)
-7. [Malware Execution Evidence](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#malware-execution-evidence)
-8. [Event Log Collection](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#event-log-collection)
-9. [Tool Reference](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#tool-reference)
-10. [Investigation Playbooks](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-playbooks)
+1. [Investigation Framework](#investigation-framework)
+2. [Account Usage Investigation](#account-usage-investigation)
+3. [Lateral Movement Detection](#lateral-movement-detection)
+4. [Persistence Mechanisms](#persistence-mechanisms)
+5. [Privilege Escalation](#privilege-escalation)
+6. [PowerShell & WMI Analysis](#powershell--wmi-analysis)
+7. [Malware Execution Evidence](#malware-execution-evidence)
+8. [Event Log Collection](#event-log-collection)
+9. [Tool Reference](#tool-reference)
+10. [Investigation Playbooks](#investigation-playbooks)
 
 ***
 
