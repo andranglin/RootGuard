@@ -5,16 +5,7 @@ Trace suspicious authentication and remote administration across hosts, identiti
 **Validation:** Static safety reviewed; queries and commands require local testing  
 **Reviewed:** 20 October 2026
 
-
-## SOC & DFIR Operations Guide
-
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
-
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating lateral movement attacks across the hybrid enterprise environment. Lateral movement is a critical phase in the attack lifecycle where adversaries move through a network in search of key assets and data. Detecting and disrupting lateral movement is essential to preventing major breaches.
+## Investigation scope
 
 ### Lateral Movement Definition
 
