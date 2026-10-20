@@ -22,15 +22,9 @@ layout:
 
 # Prompt Engineering
 
-### Introduction
+Use AI-assisted analysis carefully in security operations. Check outputs against the original logs, product documentation and investigation evidence before acting on a recommendation.
 
-**Artificial intelligence**—particularly generative AI and large language models (LLMs)—has become a core tool in cybersecurity operations. From accelerating threat detection to automating incident response and enriching threat intelligence, AI augments defenders' capabilities at an unprecedented scale.
-
-However, **the quality of AI outputs depends almost entirely on the quality of the inputs:** this is where prompt engineering comes in. Prompt engineering is the disciplined practice of crafting precise, structured, context-rich instructions (prompts) to guide AI models toward reliable, accurate, and actionable results.
-
-While some argue that autonomous AI agents and auto-optimisation reduce the need for manual prompting (e.g., shifting focus to oversight and judgement), prompt engineering remains essential in cybersecurity, where precision, evidence-based reasoning, hallucination avoidance, and auditability are non-negotiable.
-
-This page explores why prompt engineering matters profoundly for cyber defenders (SOC analysts, DFIR practitioners, threat hunters, and detection engineers) and the broader cybersecurity field.
+## Background
 
 ### What Is Prompt Engineering?
 

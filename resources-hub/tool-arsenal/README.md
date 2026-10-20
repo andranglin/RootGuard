@@ -22,17 +22,11 @@ layout:
 
 # Tool Arsenal
 
-## Operational Tooling for the Modern Defender
+Find tools used for authorised security operations, evidence collection and investigation. Check the tool's current documentation, version and licensing before using commands from RootGuard.
 
-**Automate. Hunt. Eradicate.**
+## Tools and workflows
 
-Manual forensics doesn't scale. RootGuard Operational Tooling bridges the gap between detection and remediation, providing battle-tested tools to accelerate triage, automate evidence collection, and execute deep-dive investigations.
-
-This is not a script dump. This is a curated armoury of frameworks designed to function in hostile environments without deployment friction.
-
-***
-
-### The Arsenal
+## The Arsenal
 
 #### 🛡️ Custodian-HT
 
