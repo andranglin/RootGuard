@@ -1,5 +1,7 @@
 # RootGuard Documentation Standards
 
+Follow the [RootGuard Documentation Design System](../design-system/README.md) for visual hierarchy, metadata, and diagram conventions. Use the [Operational Article Template](templates/operational-article.md) for new practitioner workflows.
+
 [Technical Content Review Register](content-review-register.md) tracks prioritised legacy corrections and validation status.
 
 ## Publishing principles
