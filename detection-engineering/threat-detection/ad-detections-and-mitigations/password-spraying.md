@@ -1,6 +1,6 @@
 # Password Spraying: Detection and Investigation
 
-**ATT&CK:** [T1110.003](https://attack.mitre.org/techniques/T1110/003/)  
+> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.\n\n**ATT&CK:** [T1110.003](https://attack.mitre.org/techniques/T1110/003/)  
 **Review date:** 20 October 2026  
 **Validation:** Concept / unvalidated; verify with your environment's telemetry.
 
