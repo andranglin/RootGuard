@@ -6,6 +6,7 @@
 * [Guided Learning Paths](learning-paths/README.md)
 * [Security Architecture & Engineering](security-architecture/README.md)
 * [Documentation Standards](contributing/README.md)
+  * [Technical Content Review Register](contributing/content-review-register.md)
   * [Detection Guide Template](contributing/templates/detection-guide.md)
   * [Incident Playbook Template](contributing/templates/incident-playbook.md)
   * [Architecture Decision Template](contributing/templates/architecture-decision.md)
