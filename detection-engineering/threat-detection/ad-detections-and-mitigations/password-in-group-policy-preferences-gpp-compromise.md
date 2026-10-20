@@ -1,6 +1,8 @@
 # Password in Group Policy Preferences (GPP) Compromise
 
-### **Introduction**
+Identify legacy Group Policy Preferences credentials and assess potential exposure.
+
+## Background
 
 **Group Policy Preferences (GPP)** is a feature in Microsoft Active Directory that allows administrators to configure and deploy system settings, including mapped drives, scheduled tasks, and local user accounts, across domain-joined computers. GPP once supported the deployment of local accounts with embedded passwords stored in the policy files. However, these passwords were encrypted using a weak AES key that was published publicly by Microsoft.
 
