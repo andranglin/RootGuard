@@ -1,5 +1,7 @@
 # Active Directory Events for Detecting Compromise
 
+Use domain controller security events as investigation leads, taking audit policy and event coverage into account.
+
 Recommended event IDs to log and monitor to detect the Active Directory compromises detailed in the  [Detect and Mitigate Active Directory Compromise](./) sections
 
 ### Domain Controller Events
