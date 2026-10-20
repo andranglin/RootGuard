@@ -95,9 +95,9 @@ Artifact dissection and traffic analysis.
 
 ### Access the Arsenal
 
-* [Detection Engineering](https://rootguard.gitbook.io/cyberops/detection-engineering/attack-triage-playbooks-kql-triage): AD Attacks & KQL Triage
-* [Defensive Security](https://rootguard.gitbook.io/cyberops/detection-engineering/ad-detections-and-mitigations): Windows Forensics & IR Strategies
-* [Offensive Security](https://rootguard.gitbook.io/cyberops/offensive-security/exploitation-and-lateral-movement): Exploitation & Password Attacks
+* [Detection Engineering](detection-engineering/threat-detection/attack-triage-playbooks-kql-triage/README.md): AD Attacks & KQL Triage
+* [Defensive Security](defensive-security/dfir/README.md): Windows Forensics & IR Strategies
+* [Offensive Security](offensive-security/hacking/exploitation-and-lateral-movement/README.md): Exploitation & Password Attacks
 * [Knowledge Base](knowledge-base/junior-analyst-skills/README.md): Security operations concepts, technical references, and investigation notes
 * [About the Author](welcome/who-am-i/README.md): Operational Background
 
