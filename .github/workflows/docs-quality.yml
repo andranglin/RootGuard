@@ -12,6 +12,7 @@ on:
     paths:
       - '**/*.md'
       - 'scripts/check_docs.py'
+      - 'practice-labs/case-studies/**'
       - '.github/workflows/docs-quality.yml'
 
 permissions:
