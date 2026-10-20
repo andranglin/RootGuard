@@ -11,9 +11,9 @@ DCSync (MITRE ATT&CK T1003.006) abuses Active Directory Directory Replication Se
 - Collect Windows Security Event **4662** from domain controllers and configure the necessary Directory Service Access auditing and directory object SACLs. Event 4662 is not automatically generated for every DCSync attempt.
 - Inspect actual `SecurityEvent` records and their `Properties` and `AccessMask` contents. Schema and event rendering vary by agent and collection method.
 - Relevant replication extended-right GUIDs include:
-  - `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2` — DS-Replication-Get-Changes
-  - `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2` — DS-Replication-Get-Changes-All
-  - `89e95b76-444d-4c62-991a-0facbeda640c` — DS-Replication-Get-Changes-In-Filtered-Set
+  - `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2` ,  DS-Replication-Get-Changes
+  - `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2` ,  DS-Replication-Get-Changes-All
+  - `89e95b76-444d-4c62-991a-0facbeda640c` ,  DS-Replication-Get-Changes-In-Filtered-Set
 
 Event 4662 reports object operations on the domain controller. It does **not** reliably give the network originator's IP address. Neither Event 4672 nor ordinary LDAP connections alone prove DCSync activity.
 

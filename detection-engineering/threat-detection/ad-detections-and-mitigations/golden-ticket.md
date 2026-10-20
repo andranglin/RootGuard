@@ -1,9 +1,7 @@
 # Golden Ticket: Detection and Response
 
-> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
-
-**ATT&CK:** [T1558.001](https://attack.mitre.org/techniques/T1558/001/)  
-**Reviewed:** 20 October 2026  
+**ATT&CK:** [T1558.001](https://attack.mitre.org/techniques/T1558/001/) 
+**Reviewed:** 20 October 2026 
 **Validation:** Concept / unvalidated; verify all fields and behaviour in an authorised lab.
 
 ## Threat overview
@@ -31,13 +29,13 @@ SecurityEvent
 | where TimeGenerated > ago(24h)
 | where EventID == 4769
 | extend Requester = tostring(Account),
-         Service = tostring(ServiceName),
-         SourceAddress = tostring(IpAddress)
+ Service = tostring(ServiceName),
+ SourceAddress = tostring(IpAddress)
 | where isnotempty(Requester)
 | summarize Requests=count(), DistinctServices=dcount(Service),
-            Services=make_set(Service, 30),
-            Sources=make_set(SourceAddress, 20)
-    by Requester, bin(TimeGenerated, 1h)
+ Services=make_set(Service, 30),
+ Sources=make_set(SourceAddress, 20)
+ by Requester, bin(TimeGenerated, 1h)
 | order by DistinctServices desc, Requests desc
 ```
 

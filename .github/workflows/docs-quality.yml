@@ -5,6 +5,7 @@ on:
     paths:
       - '**/*.md'
       - 'scripts/check_docs.py'
+      - 'scripts/check_editorial.py'
       - 'practice-labs/case-studies/**'
       - '.github/workflows/docs-quality.yml'
   push:
@@ -23,9 +24,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Check added prose for editorial style
+        run: python scripts/check_editorial.py --base HEAD^
       - name: Validate internal Markdown links
         run: python scripts/check_docs.py
       - name: Validate synthetic case study datasets

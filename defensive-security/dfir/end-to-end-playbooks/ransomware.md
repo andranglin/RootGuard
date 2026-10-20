@@ -1,8 +1,6 @@
 # Ransomware: Operational Incident Investigation Playbook
 
-> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
-
-**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated.  
+**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated. 
 **Review:** 20 October 2026 · **Owner:** SOC/CSIRT · **Authorisation:** Follow local incident command, privacy and evidence procedures.
 
 > **Important:** Queries below are *investigation pivots*, not finished alerts. Microsoft Defender XDR Advanced Hunting and Microsoft Sentinel Log Analytics use different tables and schema. Execute each query only in its stated environment. Preserve evidence, record approvals and do not delay urgent containment when harm is ongoing.
@@ -15,7 +13,7 @@
 4. Preserve relevant logs, incident exports and endpoint artefacts through approved tools. Track collection time, retention gaps and custody.
 5. Keep **observations**, **hypotheses** and **confirmed conclusions** in separate notes.
 
-**Technology coverage:** Defender for Endpoint, Windows/AD, backup systems, network controls  
+**Technology coverage:** Defender for Endpoint, Windows/AD, backup systems, network controls 
 **Trigger:** mass file modification, ransom note, backup tampering, encryption or extortion claim.
 
 ## 2. Confirm telemetry prerequisites
@@ -30,7 +28,7 @@ DeviceProcessEvents
 | where Timestamp > ago(24h)
 | where ProcessCommandLine has_any ("vssadmin","wbadmin","bcdedit")
 | project Timestamp, DeviceName, AccountName, FileName,
-          ProcessCommandLine, InitiatingProcessFileName, SHA1, ReportId
+ ProcessCommandLine, InitiatingProcessFileName, SHA1, ReportId
 | order by Timestamp desc
 ```
 
@@ -44,8 +42,8 @@ let Host = "REPLACE_WITH_DEVICE_NAME";
 DeviceFileEvents
 | where Timestamp > ago(24h) and DeviceName =~ Host
 | summarize FileEvents=count(), DistinctPaths=dcount(FolderPath),
-          Samples=make_set(FileName, 12)
-    by bin(Timestamp, 15m), InitiatingProcessFileName
+ Samples=make_set(FileName, 12)
+ by bin(Timestamp, 15m), InitiatingProcessFileName
 | order by Timestamp desc
 ```
 
@@ -59,7 +57,7 @@ let Host = "REPLACE_WITH_DEVICE_NAME";
 DeviceNetworkEvents
 | where Timestamp > ago(24h) and DeviceName =~ Host
 | project Timestamp, DeviceName, InitiatingProcessFileName,
-          RemoteIP, RemotePort, RemoteUrl, ActionType
+ RemoteIP, RemotePort, RemoteUrl, ActionType
 | order by Timestamp desc
 ```
 
