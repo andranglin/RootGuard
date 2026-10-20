@@ -1,77 +1,106 @@
-# Phishing Compromise: End-to-End Investigation
+# Phishing Compromise: Operational Incident Investigation Playbook
 
-**Status:** Practitioner procedure; adapt to approved organisational policies and validate queries locally.  
-**Owner:** Incident Commander / CSIRT  
-**Last reviewed:** 20 October 2026
+**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated.  
+**Review:** 20 October 2026 · **Owner:** SOC/CSIRT · **Authorisation:** Follow local incident command, privacy and evidence procedures.
 
-> **Safety and evidence:** Preserve relevant evidence and timestamps, respect access approvals and legal/privacy requirements, and do not delay urgent containment to finish collection. A single indicator or KQL result does not prove compromise.
+> **Important:** Queries below are *investigation pivots*, not finished alerts. Microsoft Defender XDR Advanced Hunting and Microsoft Sentinel Log Analytics use different tables and schema. Execute each query only in its stated environment. Preserve evidence, record approvals and do not delay urgent containment when harm is ongoing.
 
-## Incident governance and decision checkpoints
+## 1. Activate, assess and preserve
 
-| Stage | Decision and record |
-| --- | --- |
-| Declare | Incident ID, severity, affected business services, initial confidence, decision owner |
-| Scope | Confirm affected identities, hosts, tenants, data and known evidence gaps |
-| Contain | Select reversible measures where feasible; obtain approvals and record business impact |
-| Eradicate | Remove verified persistence and underlying access paths, after understanding cause |
-| Recover | Restore approved services and monitor for recurrence, with explicit acceptance criteria |
-| Close | Document timeline, confidence, exposure, lessons, follow-up owners and review dates |
+1. Create an incident record with UTC start/end, reporting source, owner, severity and affected business services.
+2. Confirm the alert is based on real telemetry; capture original record IDs, device/user identifiers and time bounds.
+3. Establish whether emergency containment is required; coordinate with incident command, asset owners and identity/network teams.
+4. Preserve relevant logs, incident exports and endpoint artefacts through approved tools. Track collection time, retention gaps and custody.
+5. Keep **observations**, **hypotheses** and **confirmed conclusions** in separate notes.
 
-**Roles:** SOC investigator develops hypotheses and evidence timeline; endpoint/identity teams validate and execute technical changes; incident command approves response, engages business owner, legal/privacy and communications as required. Retain command/output logs and decisions.
+**Technology coverage:** Defender for Office 365, Defender XDR, Entra ID, Exchange Online  
+**Trigger:** malicious email, user click, credential submission, mailbox change or suspicious endpoint execution.
 
+## 2. Confirm telemetry prerequisites
 
-## Trigger and scope
+Check table availability, licences, audit policy, retention, time synchronisation, analyst permissions and actual column values. Confirm the intended query portal and lookback before running any example.
 
-Reported malicious message, Defender for Office alert, suspicious click or attachment execution, user-reported credential submission, anomalous mailbox rules, or unexpected cloud account access. Distinguish email delivery from **credential theft**, **session compromise**, **endpoint execution** and **account misuse**; they require different evidence and containment.
-
-**Required sources:** Microsoft Defender for Office 365 `EmailEvents`, `EmailUrlInfo`, `UrlClickEvents` where available; `SigninLogs`, `AuditLogs`, Exchange mailbox audit, Defender endpoint telemetry and security incidents. Verify licensing, retention and exact schema. Message ID fields are not interchangeable.
-
-## 1. Initial triage (SOC)
-
-1. Preserve original message as evidence, including internet headers, URLs, attachment names/hashes and message identifiers. Avoid visiting URLs on an analyst endpoint.
-2. Confirm sender authentication, message disposition, actual recipients, delivery actions and user interaction.
-3. Establish user-reported actions: message opened, link clicked, file launched, credentials submitted or unexpected MFA prompt.
-4. Correlate sign-ins, session/device details, audit events and endpoint process activity around the interaction.
-5. Record initial affected users, confidence and containment decision.
-
-### Illustrative Sentinel email pivot
+## 3. First-pass detection and triage
 
 ```kusto
+// Microsoft Defender XDR Advanced Hunting; replace the sample recipient
+let TargetMailbox = "analyst@example.invalid";
 EmailEvents
 | where Timestamp > ago(7d)
-| where RecipientEmailAddress =~ "analyst@example.invalid"
-| project Timestamp, RecipientEmailAddress, SenderFromAddress,
-          Subject, NetworkMessageId, DeliveryAction, ThreatTypes
+| where RecipientEmailAddress =~ TargetMailbox
+| project Timestamp, NetworkMessageId, RecipientEmailAddress,
+          SenderFromAddress, Subject, DeliveryAction, ThreatTypes
 | order by Timestamp desc
 ```
 
-Replace the fictional mailbox, verify permissions/schema, and pivot by the exact `NetworkMessageId` across relevant Defender tables. This is a triage search, not proof of malicious activity.
+**Interpretation:** Inspect raw results, corroborate the triggering event and separate noise from suspicious behaviour. A matching record does not confirm malicious intent.
 
-## 2. Scope and investigation
+## 4. Expand scope with a second pivot
 
-- Find all recipients, delivered copies, user clicks, attachment execution and subsequent related messages.
-- For likely credential theft, review sign-in results, authentication requirements, session behaviour, newly added credentials, OAuth consent, conditional access, and sensitive resource access.
-- For mailbox misuse, assess inbox rules, forwarding settings, sent items, delegated access and application permissions.
-- For endpoint execution, correlate document process ancestry, command line, downloaded files, persistence and network connections.
-- Preserve a UTC timeline and track each finding as confirmed/possible/unsubstantiated.
+```kusto
+// Microsoft Defender XDR; paste a verified NetworkMessageId from the first query
+let Message = "REPLACE_WITH_NETWORK_MESSAGE_ID";
+EmailUrlInfo
+| where Timestamp > ago(7d) and NetworkMessageId == Message
+| project Timestamp, NetworkMessageId, Url, UrlDomain, UrlLocation
+```
 
-## 3. Containment decisions
+Use the actual event/identity/device identifiers from step 3, taking care not to assume correlation from time proximity or shared IP alone. Record missing data sources.
 
-- Coordinate removal/quarantine of delivered messages via approved Defender controls after identifying impacted mailboxes.
-- Where account compromise is supported, revoke active sessions and reset credentials or enforce reauthentication through approved identity processes; investigate persistent tokens, registered authentication methods, app credentials and delegated access.
-- Isolate a compromised endpoint when justified, considering loss of volatile evidence and operational impact.
-- For suspected BEC, coordinate finance/banking recall and stakeholder notifications immediately if payment fraud is possible.
+## 5. Cross-validate with independent telemetry
 
-## 4. Eradication and recovery
+```kusto
+// Microsoft Defender XDR; endpoint execution pivot after obtaining device name
+let Host = "REPLACE_WITH_DEVICE_NAME";
+DeviceProcessEvents
+| where Timestamp > ago(48h) and DeviceName =~ Host
+| where InitiatingProcessFileName in~ ("winword.exe","excel.exe","outlook.exe","msedge.exe")
+| project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine,
+          InitiatingProcessFileName, InitiatingProcessCommandLine, SHA1
+| order by Timestamp desc
+```
 
-Remove malicious mailbox rules, unauthorised apps/consents and persistence; address compromised devices; validate MFA/Conditional Access controls; restore mailbox access and monitor sign-ins, mail actions and endpoint activity. Only release the account/device after ownership confirms risk is acceptable.
+Record row identifiers, time, host, account, source, context and uncertainty. Investigate normal administrative activity and known operational changes before alleging malicious execution.
 
-## 5. Closure and evidence
+## 6. Analyst decision tree
 
-Record impacted recipients, interaction counts, compromised identities, evidence of data access/exfiltration, message lineage, control failures and reasons for ruling out alternatives. Document business/legal reporting decisions and an approved user communication.
+- **Positive result with corroboration:** Broaden investigation across affected identities, devices, services and time; assess incident severity and urgent containment.
+- **Positive result without corroboration:** Review raw source events, collection health, change tickets and alternate explanations.
+- **No result:** Confirm telemetry exists, table/time filters are correct, permissions and retention sufficient. Absence is not proof of safety.
+- **Evidence of ongoing harm:** Escalate immediate containment without waiting for full causal proof.
 
-**Exit criteria:** Delivery spread understood; compromise vectors remediated; sessions and access reviewed; recurrence monitored; handover complete.
+### Questions to answer
 
-## Further reading
+Did the message arrive? Was the URL merely present or clicked? Did the person enter credentials? Did a usable session result? Did a mailbox rule or OAuth grant persist? Were any messages/data accessed?
 
-[Defender email investigation](../playbooks/kql-defender-and-sentinel/mdo-office.md) · [BEC runbook](../runbooks/business-email-compromise-bec-investigation-runbook.md) · [Evidence integrity](../field-guides/evidence-acquisition-and-integrity.md)
+## 7. Containment: approvals, execution and verification
+
+Use approved Explorer/Defender investigation and remediation to quarantine matching messages. Confirm user activity and use Entra session revocation/account restriction when supported by evidence. Review inbox rules, forwarding, authentication methods, OAuth grants and endpoint compromise; isolate affected endpoint when justified.
+
+For every action record: approver, command/control used, timestamp, target, expected impact, evidence changes, rollback plan and verification result. Use tenant-approved UI/API workflows rather than copying untested destructive commands.
+
+## 8. Eradication and recovery
+
+Identify the root cause and persistence, remove only confirmed unauthorised access paths, remediate weaknesses, rebuild or restore from trusted baselines where necessary. Verify log visibility and functional access after recovery. Obtain business owner acceptance before closing.
+
+## 9. Closure criteria and deliverables
+
+Recipient population and click coverage understood; identity and endpoint compromise dispositioned; illicit rules/grants removed if confirmed; sessions/access reassessed; enhanced monitoring assigned.
+
+| Deliverable | Minimum content |
+| --- | --- |
+| Incident timeline | UTC timestamps, event IDs, user/device, provenance and confidence |
+| Evidence register | Source, collector, time, retention and integrity information |
+| Scope matrix | Confirmed / suspected / excluded assets and identities |
+| Decision log | Approvals, containment trade-offs, actions and outcomes |
+| Findings | Evidence-backed conclusions, benign alternatives and unknowns |
+| Follow-up | Recovery tests, monitoring, accountable owners and deadlines |
+
+## 10. References and operational caveats
+
+- [RootGuard evidence acquisition](../field-guides/evidence-acquisition-and-integrity.md)
+- [RootGuard triage field guide](../field-guides/windows-endpoint-triage.md)
+- [Microsoft Defender advanced hunting schema](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-schema-tables)
+- [Microsoft Sentinel data source schema reference](https://learn.microsoft.com/en-us/azure/sentinel/data-source-schema-reference)
+
+**Validation status:** Documented and linked, not executed against the reader's tenant. Verify every query, action, source and result before incorporation into production procedures.
