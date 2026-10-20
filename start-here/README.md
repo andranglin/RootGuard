@@ -25,13 +25,13 @@
 
 ## Content labels
 
-**Operational playbook** — step-by-step investigative workflow with decision gates and response criteria.
+**Operational playbook**, step-by-step investigative workflow with decision gates and response criteria.
 
-**Technical reference** — focused explanation of a technique, artefact, query or platform.
+**Technical reference**, focused explanation of a technique, artefact, query or platform.
 
-**Practical exercise** — optional synthetic training material, never evidence from a real incident.
+**Practical exercise**, optional synthetic training material, never evidence from a real incident.
 
-**Validation status** — technical claims may be subject to static review, syntax testing, lab verification or production validation. Follow the label on each document.
+**Validation status**, technical claims may be subject to static review, syntax testing, lab verification or production validation. Follow the label on each document.
 
 For command and query testing, use the [Runbook Execution and Validation Matrix](../defensive-security/dfir/runbooks/runbook-execution-validation-matrix.md).
 
