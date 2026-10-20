@@ -6,16 +6,16 @@
 
 ### 📚 Table of Contents
 
-1. [Artifact Priority Matrix](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#artifact-priority-matrix)
-2. [Investigation Framework](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-framework)
-3. [MRU Artifacts Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#mru-artifacts-analysis)
-4. [Recent Files Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#recent-files-analysis)
-5. [LNK Files Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#lnk-files-analysis)
-6. [Office Artifacts Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#office-artifacts-analysis)
-7. [Deleted Items Investigation](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#deleted-items-investigation)
-8. [Search and Navigation History](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#search-and-navigation-history)
-9. [Investigation Playbooks](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-playbooks)
-10. [Tool Reference](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#tool-reference)
+1. [Artifact Priority Matrix](#artifact-priority-matrix)
+2. [Investigation Framework](#investigation-framework)
+3. [MRU Artifacts Analysis](#mru-artifacts-analysis)
+4. [Recent Files Analysis](#recent-files-analysis)
+5. [LNK Files Analysis](#lnk-files-analysis)
+6. [Office Artifacts Analysis](#office-artifacts-analysis)
+7. [Deleted Items Investigation](#deleted-items-investigation)
+8. [Search and Navigation History](#search-and-navigation-history)
+9. [Investigation Playbooks](#investigation-playbooks)
+10. [Tool Reference](#tool-reference)
 
 ***
 
