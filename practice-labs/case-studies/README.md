@@ -1,5 +1,7 @@
 # Downloadable Investigation Case Studies
 
+> **Professional-track update:** CS-01 and CS-02 now also include 72-row extended CSV datasets, expanded investigation briefs, evidence-quality guidance and a 100-point assessment rubric. The original eight-event CSVs remain available as quick introductory exercises. Larger synthetic datasets do not equal realistic production telemetry; an authentic multi-product telemetry lab remains a further development requirement.
+
 These case studies contain **fictional evidence** created for defensive training. IP addresses use documentation-only ranges and accounts use the reserved `example.invalid` domain. They are not evidence from actual incidents.
 
 ## Choose a case
