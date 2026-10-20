@@ -5,16 +5,7 @@ Examine suspicious identity activity across Microsoft Entra ID and Active Direct
 **Validation:** Static safety reviewed; queries and commands require local testing  
 **Reviewed:** 20 October 2026
 
-
-## SOC & DFIR Operations Guide
-
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
-
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating identity-based attacks across the hybrid enterprise environment. It covers detection, investigation, containment, and remediation workflows for both on-premises Active Directory and cloud identity platforms.
+## Investigation scope
 
 ### Identity Attack Categories
 
