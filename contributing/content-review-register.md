@@ -15,6 +15,11 @@
 | [Golden Ticket](../detection-engineering/threat-detection/ad-detections-and-mitigations/golden-ticket.md) | High | Rewritten; lab validation pending | Clarified forged-TGT limitations, DC evidence gaps and staged krbtgt recovery | Execute representative event triage and review recovery with AD specialists |
 | [Silver Ticket](../detection-engineering/threat-detection/ad-detections-and-mitigations/silver-ticket.md) | High | Rewritten; lab validation pending | Clarified service-ticket scope, missing 4769 ambiguity and host telemetry | Validate against lab resource-server logs and service configurations |
 
+| [PowerShell live triage](../defensive-security/dfir/initial-triage-and-response/evidence-collection/acquire-triage-data-using-powershell.md) | High | Rewritten; runtime validation pending | Removed execution-policy bypass and replaced broad untested collection script with limited, documented live triage | Verify cmdlets and exports on representative Windows builds |
+| [Memory acquisition](../defensive-security/dfir/initial-triage-and-response/evidence-collection/acquire-triage-memory-image.md) | High | Rewritten; tool validation pending | Explicit version, driver and sensitive evidence requirements; no unverified flags | Test approved acquisition tool/version and hash transfer workflow |
+| [KAPE acquisition](../defensive-security/dfir/initial-triage-and-response/evidence-collection/acquire-triage-image-using-kape.md) | High | Rewritten; tool validation pending | Distinguished targeted artefact collection from full forensic imaging, removed unverified flag combinations | Validate approved KAPE version and Target selections |
+| [FTK imaging](../defensive-security/dfir/initial-triage-and-response/evidence-collection/acquire-image-using-ftk.md) | High | Rewritten; tool validation pending | Clarified physical/logical selection, write-blocking and verification scope | Test selected FTK version and image format in lab |
+
 ## Rules for continued review
 
 - Review high-risk operational commands and misleading event semantics before editorial polish.
