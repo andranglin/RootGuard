@@ -1,21 +1,22 @@
-# Practical Investigation Labs
+# Practical Exercises
 
-For complete evidence packages, see the [downloadable investigation case studies](case-studies/README.md), including CSV event records, independent analyst worksheets and answer guides.
+This area is for **optional learning and investigative reasoning**, not for operational incident procedures. Use the [operational playbooks](../defensive-security/dfir/end-to-end-playbooks/README.md) when responding to a real incident.
 
-RootGuard labs are self-contained exercises designed for defensive analysts. No production account or tenant is needed for the synthetic-data exercises.
+The exercises below use synthetic data. They can help develop evidence interpretation and report writing, but they do not reproduce production Microsoft 365, Windows or endpoint telemetry.
 
-## Labs
+## Short exercises
 
-1. [Lab 01: Investigating password-spray patterns](password-spray-investigation.md) — analyse synthetic Entra-style sign-in events, distinguish widespread failures from a follow-on successful authentication, and document evidential limitations.
+| Exercise | Focus |
+| --- | --- |
+| [01 · Password spraying](password-spray-investigation.md) | Sign-in patterns and false-positive considerations |
+| [02 · Kerberos ticket requests](kerberos-ticket-investigation.md) | SPN activity and event limitations |
+| [03 · Kerberos logon triage](kerberos-triage-case-study.md) | Evidence supporting, but not proving, forged ticket hypotheses |
+| [04 · Windows endpoint timeline](windows-timeline-triage.md) | Process, network and service chronology |
 
-2. [Lab 02: Kerberos ticket investigation](kerberos-ticket-investigation.md) — examine synthetic service-ticket requests, compare affected SPNs and document competing explanations.
+## Case-study packages
 
-3. [Lab 03: Kerberos logon triage](kerberos-triage-case-study.md) — reason about suspicious resource-server logons without assuming forged Kerberos tickets.
+[Investigation case studies](case-studies/README.md) contain fictional CSV records, analyst prompts and marking criteria. These remain teaching exercises and should not be mistaken for lab-captured forensic evidence.
 
-4. [Lab 04: Windows endpoint timeline](windows-timeline-triage.md) — analyse synthetic process, network and service records and distinguish evidence from inference.
+## For practitioners
 
-## Working method
-
-Read the scenario, execute the self-contained KQL using a compatible Kusto environment, compare results with expected observations, and document your hypothesis, supporting facts, alternative explanations and escalation criteria. Queries over synthetic events demonstrate analytic logic but **do not validate an operational detection in a real tenant**.
-
-All lab data are fictional. Do not execute authentication attacks against live systems.
+For immediately applicable guidance, begin with [Windows endpoint triage](../defensive-security/dfir/field-guides/windows-endpoint-triage.md), [Evidence acquisition and integrity](../defensive-security/dfir/field-guides/evidence-acquisition-and-integrity.md), or [the incident playbook library](../defensive-security/dfir/end-to-end-playbooks/README.md).

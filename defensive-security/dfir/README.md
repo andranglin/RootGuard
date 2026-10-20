@@ -1,5 +1,5 @@
 ---
-description: Digital Forensics & Incident Response
+description: Incident investigation, forensic evidence and operational response guidance
 cover: ../../.gitbook/assets/RootGuardDFIRLandingPage.png
 coverY: 0
 layout:
@@ -17,122 +17,37 @@ layout:
     visible: true
   pagination:
     visible: true
-  metadata:
-    visible: true
 ---
 
-# DFIR
+# Digital Forensics & Incident Response
 
-The discipline of investigating, containing, and remediating cyber incidents—combining investigative rigour with operational speed.
+**Investigate with evidence. Contain with control. Recover with verification.**
 
-***
+Use this section for practical incident workflows, evidence acquisition, Windows and Linux investigations, and technical reference material. Begin with the operational incident category or the artefact you need to examine.
 
-### Practitioner playbooks
+## Respond to an incident
 
-Follow the [End-to-End Incident Investigation Playbooks](end-to-end-playbooks/README.md) for phishing compromise, ransomware, credential theft and lateral movement. Each integrates detection, scoping, evidence preservation, containment, eradication, recovery and lessons learned. Queries are exploratory and require validation before production use.
+| Incident type | Operational playbook |
+| --- | --- |
+| Malicious email and identity misuse | [Phishing compromise](end-to-end-playbooks/phishing-compromise.md) |
+| Encryption, propagation or extortion | [Ransomware](end-to-end-playbooks/ransomware.md) |
+| Compromised accounts, secrets or sessions | [Credential theft](end-to-end-playbooks/credential-theft.md) |
+| Cross-host remote access or execution | [Lateral movement](end-to-end-playbooks/lateral-movement.md) |
 
-***
+## Collect and analyse evidence
 
-### What is DFIR?
+- [Windows endpoint triage](field-guides/windows-endpoint-triage.md): initial assessment, prioritisation and scope.
+- [Evidence acquisition and integrity](field-guides/evidence-acquisition-and-integrity.md): preservation, hashes and custody.
+- [Windows artefact interpretation](field-guides/windows-artifact-interpretation.md): execution and file-system evidence and its limitations.
+- [Windows forensic workflows](window-forensics/README.md) and [Linux forensics](linux-forensics/README.md).
+- [Detailed runbooks](runbooks/README.md): deeper technical guidance, subject to documented validation status.
 
-DFIR integrates two complementary capabilities:
+## Operational standards
 
-| Digital Forensics                        | Incident Response            |
-| ---------------------------------------- | ---------------------------- |
-| Evidence preservation & chain of custody | Real-time threat containment |
-| Timeline reconstruction                  | Rapid triage & escalation    |
-| Artifact & malware analysis              | Eradication & recovery       |
-| Attribution & root cause                 | Stakeholder coordination     |
+Confirm the data source, permissions, telemetry coverage and product-specific schema before using a query. Separate observations from hypotheses, capture approvals before making impactful changes, and record what cannot be established.
 
-Together, they enable organisations to detect intrusions, understand scope, eliminate threats, and prevent recurrence.
+**Validation matters:** The linked runbooks underwent targeted static safety review, but their remaining KQL and administrative actions require authorised environment testing. See the [Runbook Execution and Validation Matrix](runbooks/runbook-execution-validation-matrix.md).
 
-***
+## Additional references
 
-### Why DFIR Matters
-
-Modern adversaries move fast. The data speaks for itself:
-
-| Metric                                    | Current State                    |
-| ----------------------------------------- | -------------------------------- |
-| Median time to exfiltration               | **2 days** (45% within 24 hours) |
-| Ransomware dwell time                     | **5 days**                       |
-| Average breach cost                       | **$4.88M**                       |
-| Breaches involving cloud data             | **82%**                          |
-| Repeat incidents (incomplete remediation) | **67%**                          |
-
-_Sources: IBM Cost of a Data Breach 2024, Mandiant M-Trends 2024, Unit 42 IR Report 2024_
-
-Without effective DFIR, organisations face extended dwell times, incomplete remediation, regulatory penalties, and catastrophic business disruption.
-
-***
-
-### The Threat Landscape
-
-**What we're up against:**
-
-* **Nation-state APTs** — Salt Typhoon, Volt Typhoon conducting multi-year intrusions using LOTL techniques
-* **RaaS Operations** — LockBit, BlackCat, Qilin, RansomHub with double/triple extortion (87% of attacks)
-* **Supply Chain Attacks** — Snowflake breach (165+ customers), credential theft at scale
-* **Identity Compromise** — Stolen credentials remain top attack vector (292 days to detect)
-* **AI-Enhanced Threats** — GenAI-powered phishing, deepfakes, automated reconnaissance
-
-***
-
-### DFIR Capabilities
-
-#### Detection & Hunting
-
-Proactive threat hunting, behavioural analytics, XDR correlation, and anomaly detection across hybrid environments.
-
-#### Investigation & Forensics
-
-Timeline reconstruction, memory forensics, cloud audit analysis, malware reverse engineering, and artifact examination.
-
-#### Containment & Eradication
-
-Rapid isolation, lateral movement prevention, persistence removal, and validated clean-state recovery.
-
-#### Intelligence & Prevention
-
-IOC extraction, TTP mapping to MITRE ATT\&CK, detection engineering, and lessons learned integration.
-
-***
-
-### Quantified Impact
-
-Investments in DFIR capabilities deliver measurable returns:
-
-| Capability                      | Impact                                   |
-| ------------------------------- | ---------------------------------------- |
-| AI/automation in prevention     | **$2.2M** cost reduction                 |
-| Tested IR plan + dedicated team | **$248K** savings                        |
-| Law enforcement engagement      | **\~$1M** savings, 63% avoid ransom      |
-| XDR implementation              | **29 days** faster containment           |
-| Internal detection capability   | **$1M** savings vs external notification |
-
-***
-
-### Core Tooling
-
-| Category           | Examples                         |
-| ------------------ | -------------------------------- |
-| Endpoint Forensics | Velociraptor, KAPE, CyLR         |
-| Memory Analysis    | Volatility, MemProcFS            |
-| Log Analysis       | Chainsaw, Hayabusa, SIEM/XDR     |
-| Network Forensics  | Zeek, Wireshark, full PCAP       |
-| Cloud Forensics    | Native audit logs, CIEM tools    |
-| Automation         | SOAR platforms, custom playbooks |
-
-***
-
-### Getting Started
-
-\{% hint style="info" %\} This resource covers practical DFIR workflows, investigation techniques, detection engineering, and operational playbooks for security practitioners working in hybrid enterprise environments. \{% endhint %\}
-
-**What you'll find here:**
-
-* Investigation playbooks for common incident types
-* KQL and detection queries for threat hunting
-* Forensic artifact analysis guides
-* Response procedures and checklists
-* Tool configurations and automation scripts
+[DFIR playbook index](end-to-end-playbooks/README.md) · [Forensic tooling references](playbooks/README.md) · [Optional practice exercises](../../practice-labs/README.md)
