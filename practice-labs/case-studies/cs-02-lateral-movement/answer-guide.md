@@ -1,29 +1,27 @@
-# CS-02: Expected Findings and Answer Guide
+# Instructor Answer Guide: Windows Remote Execution and Privileged Lateral Movement
 
-## Evidence-backed sequence
+This answer guide supports the [advanced investigation brief](README.md) and [72-row evidence file](extended-evidence.csv). The original eight-row `evidence.csv` is retained as an introductory micro-exercise.
 
-| Stage | Evidence IDs | Supported observation |
-| --- | --- | --- |
-| WS-22 remote management | L01–L02 | `wmic.exe` process and RPC connection toward SRV-04 |
-| Server authentication | L03 | Network logon recorded on SRV-04 for helpdesk identity |
-| Service creation/execution | L04–L05 | Service installation record followed by a service-launched executable |
-| Activity toward DC | L06–L07 | DC-01 logon and an SMB connection from SRV-04; no DC code execution is demonstrated |
-| Change context | L08 | Maintenance window exists, but no matching service installation record is provided |
+## Model assessment
 
-## Interpretation
+A high-quality response separates **recorded fact** (a synthetic row), **hypothesis** (possible malicious behaviour) and **conclusion** (supported by multiple independent sources). No event in the enlarged dataset alone establishes an actual intrusion.
 
-The ordered observations make lateral movement a **reasonable hypothesis**, not a confirmed malicious campaign. A legitimate but undocumented maintenance action is a plausible alternative; L08 does not validate the service as approved.
+**Priority review:** LM-023 flags a service executable path that requires service-control events, file-hash provenance and change ticket evidence. It does not independently prove attacker-installed malware.
 
-The synthetic records do not include full command lines, file hashes, service binary provenance, authenticated change approvals, endpoint alerts or complete domain controller logs.
+## Minimum acceptable submission
 
-## Further evidence to request
+- Evidence and chain-of-custody limitations documented.
+- At least 12 cited evidence IDs in a UTC timeline, without assuming chronological sequence proves causation.
+- Entity correlation and explicit uncertainty over shared IPs and accounts.
+- Three competing hypotheses and falsification tests.
+- Containment decision with approver, potential service impact and evidence-preservation implications.
+- A detection improvement proposal with prerequisites, false-positive hypotheses and safe tests.
+- A report describing what is *not* established.
 
-Change ticket and operator confirmation; service configuration and binary hash/signature; process tree and remote WMI evidence; credential and privileged group review; logon session IDs and target-side process audit; EDR alerts; domain controller and file-share audit details.
+## Score out of 100
 
-## Suggested response
+Use the weighted rubric in [the case brief](README.md). Penalise unsupported assertion, particularly claims of confirmed compromise, human attribution, completed authentication, credential theft or data loss based on these synthetic records alone.
 
-Escalate the service installation and privileged cross-host access, preserve WS-22/SRV-04/DC-01 telemetry and verify the helpdesk account. If malicious execution is supported, coordinate isolation and access restriction using the incident-response process. Do not assume DC-01 was compromised solely because a network connection was observed.
+## Instructor debrief
 
-## Assessment rubric
-
-A strong analyst submission cites L01–L08 where relevant, differentiates authentication from execution, addresses the maintenance alternative, describes evidence limitations and makes a proportionate containment recommendation.
+Debrief missing provenance, alternate normal operational causes, incomplete authentication context, difference between detection engineering and forensic proof, and how analysts should report uncertainty to incident command. Recommend repeat exercise after providing richer authentic-looking but non-sensitive lab telemetry.
