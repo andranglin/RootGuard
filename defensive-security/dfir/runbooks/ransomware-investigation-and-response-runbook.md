@@ -5,16 +5,7 @@ Investigate suspected ransomware, establish affected systems and coordinate cont
 **Validation:** Static safety reviewed; queries and commands require local testing  
 **Reviewed:** 20 October 2026
 
-
-## SOC & DFIR Operations Guide
-
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
-
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating and responding to ransomware attacks across the hybrid enterprise environment. Ransomware incidents require rapid, coordinated response to minimise damage, preserve evidence, and enable recovery. Time is critical—every minute of delay can result in additional encrypted systems and data loss.
+## Investigation scope
 
 ### What is Ransomware?
 
