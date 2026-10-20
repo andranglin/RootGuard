@@ -52,6 +52,12 @@ Without detection engineering, SOCs drown in vendor-default rules that generate 
 
 ***
 
+### Before Deploying a Detection
+
+Use the [Detection Validation Checklist](detection-validation-checklist.md) to document source telemetry, schema assumptions, test evidence, tuning and operational ownership. Queries without test evidence should be labelled as unvalidated examples.
+
+***
+
 ### Core Responsibilities
 
 #### Rule Development
@@ -124,7 +130,7 @@ Detection engineering is a natural progression for analysts who want to move fro
 * **Scripting** — Python/PowerShell for automation and validation
 * **Adversary mindset** — Thinking like an attacker to anticipate evasion
 
-\{% hint style="info" %\} **Start here:** Take alerts you've triaged, identify the detection logic behind them, and propose improvements based on false positive patterns or missed context. \{% endhint %\}
+{% hint style="info" %} **Start here:** Take alerts you've triaged, identify the detection logic behind them, and propose improvements based on false positive patterns or missed context. {% endhint %}
 
 ***
 
