@@ -721,47 +721,16 @@ union
 
 #### Account Containment
 
-```powershell
-# Connect to Exchange Online
-Connect-ExchangeOnline
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-# Connect to Microsoft Graph
-Connect-MgGraph -Scopes "User.ReadWrite.All", "Mail.ReadWrite"
-
-# Block sign-in
-Update-MgUser -UserId "user@domain.com" -AccountEnabled:$false
-
-# Revoke all sessions
-Revoke-MgUserSignInSession -UserId "user@domain.com"
-
-# Never embed reusable temporary passwords in an incident-response document.
-# Use approved identity verification and password-reset workflows in Entra admin centre.
-# Record who approved the reset, how the user was verified, and how session revocation was validated.
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 
 #### Remove Malicious Inbox Rules
 
 {% code overflow="wrap" %}
-```powershell
-# List all inbox rules
-Get-InboxRule -Mailbox "user@domain.com" | Format-List Name, Description, Enabled, ForwardTo, ForwardAsAttachmentTo, RedirectTo, DeleteMessage, MoveToFolder
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-# Remove specific rule
-# First preserve rule details and verify authorisation:
-Get-InboxRule -Mailbox "user@domain.com" | Format-List Name, Identity, Description, Enabled, ForwardTo, RedirectTo
-# After incident approval, preview a targeted operation before execution:
-Remove-InboxRule -Mailbox "user@domain.com" -Identity "Rule Name" -WhatIf
-# Execute a targeted removal only after change approval and impact assessment.
-
-# DO NOT mass-delete inbox rules; legitimate rules and Outlook client-side rules may be affected.
-# Inspect, preserve and remediate only individually confirmed malicious rules.
-
-# Check for forwarding
-Get-Mailbox "user@domain.com" | Select-Object ForwardingSmtpAddress, ForwardingAddress, DeliverToMailboxAndForward
-
-# Remove forwarding
-Set-Mailbox "user@domain.com" -ForwardingSmtpAddress $null -ForwardingAddress $null -DeliverToMailboxAndForward $false
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 {% endcode %}
 
 #### Remove OAuth App Consents
@@ -1004,21 +973,9 @@ $headers | Where-Object {$_.Event -eq "Receive"} | Select-Object -ExpandProperty
 ### Mailbox Forensics
 
 {% code overflow="wrap" %}
-```powershell
-# Search mailbox audit log
-Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date) `
-    -UserIds "user@yourdomain.com" `
-    -Operations "New-InboxRule","Set-InboxRule","Set-Mailbox","MailItemsAccessed" `
-    -ResultSize 1000
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-# Get mailbox folder statistics (identify hidden folders)
-Get-MailboxFolderStatistics -Identity "user@yourdomain.com" | 
-    Select-Object Name, FolderPath, ItemsInFolder, FolderSize |
-    Sort-Object ItemsInFolder -Descending
-
-# Get mailbox audit log (classic)
-Search-MailboxAuditLog -Identity "user@yourdomain.com" -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date) -ShowDetails
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 {% endcode %}
 
 ### OAuth App Investigation
