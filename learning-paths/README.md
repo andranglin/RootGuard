@@ -2,6 +2,11 @@
 
 These paths help readers move from fundamentals to repeatable operational tasks. They link to existing materials rather than duplicating articles.
 
+## Downloadable investigation cases
+
+- [Phishing and identity compromise case](../practice-labs/case-studies/cs-01-phishing/README.md)
+- [Windows lateral movement case](../practice-labs/case-studies/cs-02-lateral-movement/README.md)
+
 ## Hands-on investigation labs
 
 - [Practical Labs](../practice-labs/README.md)
