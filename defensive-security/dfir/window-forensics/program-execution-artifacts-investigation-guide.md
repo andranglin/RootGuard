@@ -1,26 +1,28 @@
 # Program Execution Artifacts Investigation Guide
 
-### baComplete DFIR Workflow & Cheatsheet
+Investigate Windows program execution using multiple artefacts, documenting what each source can and cannot establish.
+
+## Investigation contents
 
 ***
 
 ### 📚 Table of Contents
 
-1. [Artifact Priority Matrix](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#artifact-priority-matrix)
-2. [Investigation Workflow](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-workflow)
-3. [Prefetch Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#prefetch-analysis)
-4. [BAM/DAM Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#bamdam-analysis)
-5. [ShimCache Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#shimcache-analysis)
-6. [Amcache Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#amcache-analysis)
-7. [Jump Lists Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#jump-lists-analysis)
-8. [UserAssist Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#userassist-analysis)
-9. [Windows Timeline Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#windows-timeline-analysis)
-10. [SRUM Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#srum-analysis)
-11. [MRU Analysis](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#mru-analysis)
-12. [PowerShell History](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#powershell-history)
-13. [NTFS Artifacts](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#ntfs-artifacts)
-14. [Investigation Playbooks](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#investigation-playbooks)
-15. [Tool Reference](https://claude.ai/chat/a68948bd-1cb3-4710-bb7f-5de81727a337#tool-reference)
+1. [Artifact Priority Matrix](#artifact-priority-matrix)
+2. [Investigation Workflow](#investigation-workflow)
+3. [Prefetch Analysis](#prefetch-analysis)
+4. [BAM/DAM Analysis](#bamdam-analysis)
+5. [ShimCache Analysis](#shimcache-analysis)
+6. [Amcache Analysis](#amcache-analysis)
+7. [Jump Lists Analysis](#jump-lists-analysis)
+8. [UserAssist Analysis](#userassist-analysis)
+9. [Windows Timeline Analysis](#windows-timeline-analysis)
+10. [SRUM Analysis](#srum-analysis)
+11. [MRU Analysis](#mru-analysis)
+12. [PowerShell History](#powershell-history)
+13. [NTFS Artifacts](#ntfs-artifacts)
+14. [Investigation Playbooks](#investigation-playbooks)
+15. [Tool Reference](#tool-reference)
 
 ***
 

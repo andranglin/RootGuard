@@ -5,11 +5,9 @@ coverY: 0
 
 # Linux Forensics
 
-### Introduction
+## Linux incident response
 
-Managing incident response on Linux can be challenging, considering that much attention, tools, training and other resources are focused on the Windows operating system.
-
-Managing incidents on Linux most often involves utilising existing tools, scripts, and various commandline utilities. On the subsections of this page, we explore essential commands for incident response on Linux. The commands, tools and other content discussed are information gathered from training, day-to-day activities and various internet sources. A list of resources used and for additional research is provided at the end of each subsection.
+Use this section to collect, preserve and interpret Linux host evidence. The guides cover authentication records, process and network activity, system persistence and log analysis.. The commands, tools and other content discussed are information gathered from training, day-to-day activities and various internet sources. A list of resources used and for additional research is provided at the end of each subsection.
 
 The commands used and the resources list are not exhaustive; however, they will serve as a guide for those looking for pathways.
 
