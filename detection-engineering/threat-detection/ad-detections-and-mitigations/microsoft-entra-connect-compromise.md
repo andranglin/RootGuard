@@ -1,6 +1,8 @@
 # Microsoft Entra Connect Compromise
 
-### **Introduction**
+Investigate suspicious changes and access involving Microsoft Entra Connect and hybrid identity synchronization.
+
+## Background
 
 Microsoft Entra Connect (formerly Azure AD Connect) is a critical tool for synchronising on-premises Active Directory (AD) with Azure Active Directory (Azure AD). It allows organisations to manage identities across hybrid environments seamlessly. A **Microsoft Entra Connect Compromise** occurs when attackers exploit misconfigurations, vulnerabilities, or compromised credentials related to the Entra Connect server or its components. Such compromises can enable adversaries to manipulate identity synchronisation, escalate privileges, or exfiltrate sensitive data.
 
