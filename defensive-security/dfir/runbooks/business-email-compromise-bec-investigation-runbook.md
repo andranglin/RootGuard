@@ -1,5 +1,6 @@
 # Business Email Compromise (BEC) Investigation Runbook
 
+> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
 ## SOC & DFIR Operations Guide
 
 **Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
@@ -733,12 +734,9 @@ Update-MgUser -UserId "user@domain.com" -AccountEnabled:$false
 # Revoke all sessions
 Revoke-MgUserSignInSession -UserId "user@domain.com"
 
-# Reset password (requires additional permissions)
-$newPassword = ConvertTo-SecureString "TempP@ssw0rd123!" -AsPlainText -Force
-Update-MgUser -UserId "user@domain.com" -PasswordProfile @{
-    Password = "TempP@ssw0rd123!"
-    ForceChangePasswordNextSignIn = $true
-}
+# Never embed reusable temporary passwords in an incident-response document.
+# Use approved identity verification and password-reset workflows in Entra admin centre.
+# Record who approved the reset, how the user was verified, and how session revocation was validated.
 ```
 
 #### Remove Malicious Inbox Rules
@@ -749,10 +747,14 @@ Update-MgUser -UserId "user@domain.com" -PasswordProfile @{
 Get-InboxRule -Mailbox "user@domain.com" | Format-List Name, Description, Enabled, ForwardTo, ForwardAsAttachmentTo, RedirectTo, DeleteMessage, MoveToFolder
 
 # Remove specific rule
-Remove-InboxRule -Mailbox "user@domain.com" -Identity "Rule Name" -Confirm:$false
+# First preserve rule details and verify authorisation:
+Get-InboxRule -Mailbox "user@domain.com" | Format-List Name, Identity, Description, Enabled, ForwardTo, RedirectTo
+# After incident approval, preview a targeted operation before execution:
+Remove-InboxRule -Mailbox "user@domain.com" -Identity "Rule Name" -WhatIf
+# Execute a targeted removal only after change approval and impact assessment.
 
-# Remove ALL inbox rules (use with caution)
-Get-InboxRule -Mailbox "user@domain.com" | Remove-InboxRule -Confirm:$false
+# DO NOT mass-delete inbox rules; legitimate rules and Outlook client-side rules may be affected.
+# Inspect, preserve and remediate only individually confirmed malicious rules.
 
 # Check for forwarding
 Get-Mailbox "user@domain.com" | Select-Object ForwardingSmtpAddress, ForwardingAddress, DeliverToMailboxAndForward
@@ -776,8 +778,9 @@ foreach ($grant in $grants) {
     Write-Host "App: $($sp.DisplayName) - Scopes: $($grant.Scope)"
 }
 
-# Remove specific OAuth grant
-Remove-MgOauth2PermissionGrant -OAuth2PermissionGrantId "grant-id"
+# Review application, principal, scope, owner and business dependency.
+# Revoke a confirmed malicious OAuth permission grant only with approved change control.
+# Record the grant ID and expected impact before using an authenticated Graph procedure.
 ```
 
 #### Purge Malicious Emails
