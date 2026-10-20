@@ -27,6 +27,12 @@ The discipline of investigating, containing, and remediating cyber incidents—c
 
 ***
 
+### Practitioner playbooks
+
+Follow the [End-to-End Incident Investigation Playbooks](end-to-end-playbooks/README.md) for phishing compromise, ransomware, credential theft and lateral movement. Each integrates detection, scoping, evidence preservation, containment, eradication, recovery and lessons learned. Queries are exploratory and require validation before production use.
+
+***
+
 ### What is DFIR?
 
 DFIR integrates two complementary capabilities:
