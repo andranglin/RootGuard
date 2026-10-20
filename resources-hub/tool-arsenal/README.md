@@ -26,17 +26,7 @@ Find tools used for authorised security operations, evidence collection and inve
 
 ## Tools and workflows
 
-## Operational Tooling for the Modern Defender
-
-**Automate. Hunt. Eradicate.**
-
-Manual forensics doesn't scale. RootGuard Operational Tooling bridges the gap between detection and remediation, providing battle-tested tools to accelerate triage, automate evidence collection, and execute deep-dive investigations.
-
-This is not a script dump. This is a curated armoury of frameworks designed to function in hostile environments without deployment friction.
-
-***
-
-### The Arsenal
+## The Arsenal
 
 #### 🛡️ Custodian-HT
 
