@@ -1,6 +1,8 @@
 # Windows Forensic Artifacts – Investigation Workflow & Cheatsheet
 
-### 🎯 Master Investigation Workflow
+Investigate Windows artefacts through a scoped, evidence-led workflow. Interpret each artefact alongside independent data and record acquisition limitations.
+
+## Investigation workflow
 
 ### Phase 1: Evidence Identification & Scoping
 
