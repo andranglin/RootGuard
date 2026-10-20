@@ -253,24 +253,9 @@ Invoke-MgGraphRequest -Method POST `
 **Account Containment Commands**
 
 {% code overflow="wrap" %}
-```powershell
-# Disable potentially compromised accounts
-$compromisedUsers = @("user1", "user2", "admin1")
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-foreach ($user in $compromisedUsers) {
-    # Disable AD account
-    # STATE-CHANGING: run only for a verified compromised account, after approval.
-    Disable-ADAccount -Identity $user
-    
-    # Disable Entra ID account
-    Update-MgUser -UserId "$user@domain.com" -AccountEnabled:$false
-    
-    # Revoke sessions
-    Revoke-MgUserSignInSession -UserId "$user@domain.com"
-    
-    Write-Host "Contained account: $user"
-}
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 {% endcode %}
 
 #### Step 2.4: Preserve Evidence
@@ -441,27 +426,9 @@ Exploited Vulnerability: [If applicable]
 **Domain Admin Reset**
 
 {% code overflow="wrap" %}
-```powershell
-# Reset all Domain Admin passwords
-$domainAdmins = Get-ADGroupMember -Identity "Domain Admins" -Recursive |
-    Where-Object {$_.objectClass -eq "user"}
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-foreach ($admin in $domainAdmins) {
-    # Generate secure random password
-    $newPassword = -join ((65..90) + (97..122) + (48..57) + (33..47) | 
-        Get-Random -Count 20 | ForEach-Object {[char]$_})
-    
-    # Reset password
-    Set-ADAccountPassword -Identity $admin.SamAccountName `
-        -Reset -NewPassword (ConvertTo-SecureString $newPassword -AsPlainText -Force)
-    
-    # Log securely (store password securely for distribution)
-    Write-Host "Reset password for: $($admin.SamAccountName)"
-}
-
-# Force password change at next logon for all users
-Get-ADUser -Filter * | Set-ADUser -ChangePasswordAtLogon $true
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 {% endcode %}
 
 #### Step 4.2: Malware Removal
@@ -1060,31 +1027,9 @@ Rule 3: Block Known C2
 
 #### Mass Account Disable
 
-```powershell
-# Disable compromised accounts in bulk
-$compromisedAccounts = @(
-    "user1@domain.com",
-    "user2@domain.com",
-    "admin1@domain.com"
-)
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-# Entra ID
-Connect-MgGraph -Scopes "User.ReadWrite.All"
-foreach ($user in $compromisedAccounts) {
-    # STATE-CHANGING: verify tenant/user identity and incident approval.
-    Update-MgUser -UserId $user -AccountEnabled:$false
-    Revoke-MgUserSignInSession -UserId $user
-    Write-Host "Disabled and revoked sessions: $user"
-}
-
-# On-premises AD
-foreach ($user in $compromisedAccounts) {
-    $samAccount = ($user -split "@")[0]
-    # STATE-CHANGING: verify this UPN-to-sAMAccountName mapping; prefix stripping is not a reliable mapping.
-    Disable-ADAccount -Identity $samAccount
-    Write-Host "Disabled AD account: $samAccount"
-}
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 
 ### Evidence Collection
 

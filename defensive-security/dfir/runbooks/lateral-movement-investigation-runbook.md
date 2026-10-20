@@ -863,18 +863,9 @@ Log: Yes
 
 #### Disable Compromised Account
 
-```powershell
-# Verify identity, service dependencies and incident-command approval first.
-# Use -WhatIf where supported to preview the intended targeted account change:
-Disable-ADAccount -Identity "compromised_user" -WhatIf
-# Execute the targeted containment separately after approval.
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-# Entra ID
-Update-MgUser -UserId "user@domain.com" -AccountEnabled:$false
-
-# Revoke all sessions
-Revoke-MgUserSignInSession -UserId "user@domain.com"
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 
 ### Post-Incident Remediation
 

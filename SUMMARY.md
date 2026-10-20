@@ -19,6 +19,7 @@
 ## Runbook Technical Assurance
 
 * [Runbook Safety and Validation Standard](defensive-security/dfir/runbooks/runbook-technical-safety-standard.md)
+* [Runbook Execution and Validation Matrix](defensive-security/dfir/runbooks/runbook-execution-validation-matrix.md)
 
 ## End-to-End Incident Playbooks
 

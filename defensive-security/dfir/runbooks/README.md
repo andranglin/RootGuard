@@ -54,3 +54,5 @@ Testing runbooks requires a different approach than strategic tabletops. It dema
 * Query: Run KQL to find `SigninLogs` where `Location` != `UserHomeCountry`.
 * Action: If impossible travel detected (>500 miles in <1 hour), trigger "Revoke Session Token" script in Entra ID/Okta.
 * Validation: Ping user via Out-of-Band (OOB) verified push notification to confirm identity.
+
+[Runbook Execution and Validation Matrix](runbook-execution-validation-matrix.md): query-by-query testing handoff, permission gates and approval requirements.

@@ -426,58 +426,17 @@ All identity incidents must include:
 ### Entra ID / Azure AD (Microsoft Graph)
 
 {% code overflow="wrap" %}
-```powershell
-# Get user sign-in activity
-Get-MgAuditLogSignIn -Filter "userPrincipalName eq 'user@domain.com'" -Top 100
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-# Revoke all sessions
-Revoke-MgUserSignInSession -UserId "user@domain.com"
-
-# Get user's OAuth consent grants
-Get-MgUserOauth2PermissionGrant -UserId "user@domain.com"
-
-# Remove OAuth grant
-Remove-MgOauth2PermissionGrant -OAuth2PermissionGrantId "<grant-id>"
-
-# Check user risk state
-Get-MgRiskyUser -Filter "userPrincipalName eq 'user@domain.com'"
-
-# Get user's authentication methods
-Get-MgUserAuthenticationMethod -UserId "user@domain.com"
-
-# Force password change on next login
-Update-MgUser -UserId "user@domain.com" -PasswordProfile @{ForceChangePasswordNextSignIn = $true}
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 {% endcode %}
 
 ### On-Premises Active Directory
 
 {% code overflow="wrap" %}
-```powershell
-# Get account lockout status
-Get-ADUser -Identity username -Properties LockedOut, LastBadPasswordAttempt, BadPwdCount
+> **Restricted remediation example (static review):** The previous code block combined investigative commands with changes to production identity, mailbox or infrastructure state. It is intentionally withdrawn pending an approved, individually scoped procedure. Use the read-only inspection references and the decision gate below. Do not run the earlier script from a cached copy.
 
-# Unlock account
-Unlock-ADAccount -Identity username
-
-# Check group membership
-Get-ADPrincipalGroupMembership -Identity username | Select Name
-
-# Get recent logon events
-Get-WinEvent -FilterHashtable @{LogName='Security';ID=4624} -MaxEvents 100
-
-# Find service accounts with SPNs (Kerberoasting targets)
-Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
-
-# Get users with Kerberos pre-auth disabled (AS-REP Roasting targets)
-Get-ADUser -Filter {DoesNotRequirePreAuth -eq $true} -Properties DoesNotRequirePreAuth
-
-# Find recently created accounts
-Get-ADUser -Filter {Created -gt $((Get-Date).AddDays(-7))} -Properties Created | Select Name, Created
-
-# Check AdminSDHolder protected accounts
-Get-ADUser -Filter {AdminCount -eq 1} -Properties AdminCount, MemberOf
-```
+**Required decision gate:** verify exact target object ID and tenant/domain; preserve pre-change state; confirm incident commander approval; select the least disruptive action; document dependencies, rollback and verification. Use approved administrative interfaces or a separately tested change script.
 {% endcode %}
 
 ### Microsoft Graph API (REST)
