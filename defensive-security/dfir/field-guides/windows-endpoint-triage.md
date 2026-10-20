@@ -2,7 +2,7 @@
 
 > **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
 
-**Reviewed:** 20 October 2026  
+**Reviewed:** 20 October 2026 
 **Status:** Methodology reference; commands must be validated and authorised locally.
 
 ## Initial decisions
