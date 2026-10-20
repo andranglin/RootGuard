@@ -1,5 +1,7 @@
 # Windows Forensic Artefacts: Interpretation Reference
 
+> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
+
 **Status:** Technical reference; artefact meaning and location depend on Windows build and configuration.
 
 | Artefact | What it may help establish | Important limitation |

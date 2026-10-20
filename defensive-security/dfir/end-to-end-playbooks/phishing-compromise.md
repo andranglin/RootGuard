@@ -1,5 +1,7 @@
 # Phishing Compromise: Operational Incident Investigation Playbook
 
+> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
+
 **Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated.  
 **Review:** 20 October 2026 · **Owner:** SOC/CSIRT · **Authorisation:** Follow local incident command, privacy and evidence procedures.
 

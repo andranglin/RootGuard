@@ -51,4 +51,4 @@ Review contrast after configuring colours; do not assume every combination meets
 
 Use Mermaid source in Markdown for diagrams that GitBook renders correctly in your deployment. Use short labels, top-down flow for decision paths, and left-to-right flow for investigation pipelines. Diagrams must have explanatory text for accessibility. Avoid placing secrets, customer-specific hostnames or internal addresses in public examples.
 
-[Diagram patterns](diagram-patterns.md) · [Operational article template](../contributing/templates/operational-article.md) · [RootGuard homepage](../README.md)
+[GitBook appearance checklist](gitbook-appearance-checklist.md) · [Diagram patterns](diagram-patterns.md) · [Operational article template](../contributing/templates/operational-article.md) · [RootGuard homepage](../README.md)
