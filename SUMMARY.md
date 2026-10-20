@@ -16,6 +16,10 @@
   * [About the Author](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
+## Runbook Technical Assurance
+
+* [Runbook Safety and Validation Standard](defensive-security/dfir/runbooks/runbook-technical-safety-standard.md)
+
 ## End-to-End Incident Playbooks
 
 * [Incident Investigation Playbooks](defensive-security/dfir/end-to-end-playbooks/README.md)
