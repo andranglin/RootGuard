@@ -1,7 +1,7 @@
 # Silver Ticket: Detection and Response
 
-**ATT&CK:** [T1558.002](https://attack.mitre.org/techniques/T1558/002/)  
-**Reviewed:** 20 October 2026  
+**ATT&CK:** [T1558.002](https://attack.mitre.org/techniques/T1558/002/) 
+**Reviewed:** 20 October 2026 
 **Validation:** Concept / unvalidated; verify on representative services.
 
 ## Threat overview
@@ -30,10 +30,10 @@ SecurityEvent
 | where EventID == 4624
 | where AuthenticationPackageName =~ "Kerberos"
 | extend AccountName = tostring(Account),
-         SourceAddress = tostring(IpAddress)
+ SourceAddress = tostring(IpAddress)
 | summarize Logons=count(), Accounts=make_set(AccountName, 30),
-            Sources=make_set(SourceAddress, 20)
-    by Computer, LogonType, bin(TimeGenerated, 1h)
+ Sources=make_set(SourceAddress, 20)
+ by Computer, LogonType, bin(TimeGenerated, 1h)
 | order by Logons desc
 ```
 
