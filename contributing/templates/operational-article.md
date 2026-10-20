@@ -1,12 +1,10 @@
 # [Investigation or Procedure Title]
 
-**Purpose:** What problem does this page solve?  
-**Audience:** Analyst level and specialist roles.  
-**Environment:** Product/OS and minimum versions where known.  
-**Required telemetry:** Specific source tables or logs.  
-**Permissions:** Read permissions versus state-changing roles.  
-**Review date:** YYYY-MM-DD.  
-**Validation:** Concept / unvalidated until tested.
+Explain in one sentence what the reader will investigate or accomplish.
+
+**Environment:** [Relevant products, operating systems or telemetry]  
+**Validation:** [Actual test status, such as Queries require local testing]  
+**Reviewed:** [YYYY-MM-DD]
 
 ## Before you begin
 
