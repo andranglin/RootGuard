@@ -1,15 +1,11 @@
 # Business Email Compromise (BEC) Investigation Runbook
 
-> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
-## SOC & DFIR Operations Guide
+Investigate suspected mailbox compromise, unauthorised access and payment fraud using identity, email and mailbox evidence.
 
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
+**Validation:** Static safety reviewed; queries and commands require local testing  
+**Reviewed:** 20 October 2026
 
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating Business Email Compromise (BEC) attacks across the Microsoft 365 environment. BEC attacks are sophisticated social engineering schemes that exploit email to defraud organisations, often resulting in significant financial losses and data breaches.
+## Investigation scope
 
 ### What is Business Email Compromise?
 

@@ -1,14 +1,11 @@
 # Data Exfiltration Investigation Runbook
 
-## SOC & DFIR Operations Guide
+Assess suspected data movement using endpoint, cloud and network evidence while preserving uncertainty.
 
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access.
+**Validation:** Not independently tested  
+**Reviewed:** 20 October 2026
 
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating data exfiltration attacks across the hybrid enterprise environment. Data exfiltration is a critical phase in the attack lifecycle where adversaries steal sensitive data from the organisation, often representing the primary objective of sophisticated attacks.
+## Investigation scope
 
 ### What is Data Exfiltration?
 

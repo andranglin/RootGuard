@@ -1,15 +1,11 @@
 # Lateral Movement Investigation Runbook
 
-> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
-## SOC & DFIR Operations Guide
+Trace suspicious authentication and remote administration across hosts, identities and network connections.
 
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
+**Validation:** Static safety reviewed; queries and commands require local testing  
+**Reviewed:** 20 October 2026
 
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating lateral movement attacks across the hybrid enterprise environment. Lateral movement is a critical phase in the attack lifecycle where adversaries move through a network in search of key assets and data. Detecting and disrupting lateral movement is essential to preventing major breaches.
+## Investigation scope
 
 ### Lateral Movement Definition
 

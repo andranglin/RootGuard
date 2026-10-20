@@ -1,14 +1,11 @@
 # Unauthorised Access & Privilege Escalation Investigation Runbook
 
-## SOC & DFIR Operations Guide
+Investigate unusual account access and privilege changes across on-premises and cloud identity systems.
 
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
+**Validation:** Not independently tested  
+**Reviewed:** 20 October 2026
 
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating unauthorised access attempts and privilege escalation attacks across the hybrid enterprise environment. It covers detection, investigation, containment, and remediation workflows for both on-premises Active Directory and cloud identity platforms.
+## Investigation scope
 
 ### Attack Categories
 

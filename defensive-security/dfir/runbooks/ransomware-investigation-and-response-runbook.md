@@ -1,15 +1,11 @@
 # Ransomware Investigation & Response Runbook
 
-> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
-## SOC & DFIR Operations Guide
+Investigate suspected ransomware, establish affected systems and coordinate controlled containment and recovery.
 
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
+**Validation:** Static safety reviewed; queries and commands require local testing  
+**Reviewed:** 20 October 2026
 
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating and responding to ransomware attacks across the hybrid enterprise environment. Ransomware incidents require rapid, coordinated response to minimise damage, preserve evidence, and enable recovery. Time is critical—every minute of delay can result in additional encrypted systems and data loss.
+## Investigation scope
 
 ### What is Ransomware?
 

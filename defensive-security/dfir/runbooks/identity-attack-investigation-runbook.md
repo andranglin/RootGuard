@@ -1,15 +1,11 @@
 # Identity Attack Investigation Runbook
 
-> **Technical remediation status (20 October 2026): STATIC SAFETY REVIEW ONLY.** This legacy runbook includes investigation queries and operational procedures that have **not** been run or verified against a current tenant/lab. Verify query table/column schemas and all cmdlet permissions before use. State-changing steps need incident-command approval, target verification, preserved evidence and post-action confirmation. Follow the [Runbook Technical Safety and Validation Standard](runbook-technical-safety-standard.md).\n\n
-## SOC & DFIR Operations Guide
+Examine suspicious identity activity across Microsoft Entra ID and Active Directory, then assess access and persistence.
 
-**Environment:** Windows AD | Microsoft 365 | Defender XDR | Sentinel | Entra ID | Palo Alto Prisma Access
+**Validation:** Static safety reviewed; queries and commands require local testing  
+**Reviewed:** 20 October 2026
 
-***
-
-## Overview & Scope
-
-This runbook provides standardised procedures for investigating identity-based attacks across the hybrid enterprise environment. It covers detection, investigation, containment, and remediation workflows for both on-premises Active Directory and cloud identity platforms.
+## Investigation scope
 
 ### Identity Attack Categories
 
