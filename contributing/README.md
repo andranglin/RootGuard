@@ -4,6 +4,19 @@ Follow the [RootGuard Documentation Design System](../design-system/README.md) f
 
 [Technical Content Review Register](content-review-register.md) tracks prioritised legacy corrections and validation status.
 
+## Writing in plain English
+
+RootGuard is a public technical reference, not an internal status report or marketing brochure.
+
+- Write for a practising analyst or engineer. State the task, prerequisites, procedure, expected observations and limitations without promotional introductions.
+- Use direct verbs such as **inspect**, **query**, **compare**, **preserve**, **verify** and **escalate**.
+- Avoid em dashes in prose. Prefer a full stop, colon, semicolon or a rewritten sentence.
+- Avoid stock phrases such as *ever-evolving threat landscape*, *cutting-edge*, *seamlessly*, *game changer*, *unlock the power of*, *delve into* and *robust solution*. Replace them with a specific claim or remove them.
+- Do not repeat generic warning banners on every page. Put important requirements next to the relevant command or decision.
+- Do not describe examples as comprehensive, complete, validated or production-ready unless the article provides evidence for that claim.
+- Preserve literal syntax in KQL, PowerShell, command output, quoted source material and URLs. Language cleanup must never alter executable logic.
+- Read the final article aloud. Remove filler, repeated ideas and unnecessary adjectives.
+
 ## Publishing principles
 
 - Prefer evidence-based guidance, clear prerequisites and explicit limitations over unsupported claims.
