@@ -5,6 +5,7 @@ on:
     paths:
       - '**/*.md'
       - 'scripts/check_docs.py'
+      - 'practice-labs/case-studies/**'
       - '.github/workflows/docs-quality.yml'
   push:
     branches: [master]
@@ -26,3 +27,5 @@ jobs:
           python-version: '3.12'
       - name: Validate internal Markdown links
         run: python scripts/check_docs.py
+      - name: Validate synthetic case study datasets
+        run: python practice-labs/case-studies/validate_datasets.py
