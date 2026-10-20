@@ -1,5 +1,8 @@
 # Authentication Server Response (AS-REP) Roasting
 
+> **Technical review required (October 2026):** The KQL examples below are legacy, unvalidated examples and should **not** be deployed as production detections without correction and testing. Several examples incorrectly treat Kerberos status `0x12` as proof that pre-authentication is disabled. Microsoft documents `0x12` as `KDC_ERR_CLIENT_REVOKED`; `PreAuthType = 0` in a successful domain-controller Event 4768 is the relevant no-pre-authentication indicator. Query 3 also contains an extra closing parenthesis and references a non-projected column. See the [Detection Validation Checklist](../detection-validation-checklist.md) and [Microsoft's Event 4768 documentation](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4768). These examples are retained for remediation review, not endorsed as working rules.
+
+
 ### **Introduction**
 
 AS-REP Roasting is a post-exploitation technique used by attackers to extract and crack password hashes for user accounts in a Kerberos authentication environment. It specifically targets user accounts that have **"Do not require Kerberos preauthentication"** enabled, exploiting a feature of the Kerberos protocol that allows attackers to obtain encrypted password hashes without direct interaction with the target user.
