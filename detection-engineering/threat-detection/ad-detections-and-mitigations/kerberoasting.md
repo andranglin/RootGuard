@@ -1,5 +1,6 @@
 # Kerberoasting
 
+> **Technical review required (20 October 2026):** This legacy article contains detection guidance that has not been validated against current source telemetry and product schemas. Do not deploy its existing example queries or rely on platform-specific assertions without technical review. Consult the [content review register](../../../contributing/content-review-register.md) and [validation checklist](../detection-validation-checklist.md).\n\n
 ### Introduction
 
 Kerberoasting targets user objects configured with a Service Principal Name (SPN). When a user object has an SPN, any other object, including unprivileged users, can request its Ticket Granting Service (TGS) ticket from a Domain Controller. By design, this functionality allows user objects to interact with services. The TGS ticket is encrypted with the user object's password hash. Malicious actors can capture this ticket and attempt to crack the password hash offline to reveal the plaintext password. If successful, they can authenticate as the user object, gaining access to its permissions and potentially escalating their privileges within the network.

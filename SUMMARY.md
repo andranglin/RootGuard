@@ -6,6 +6,7 @@
 * [Guided Learning Paths](learning-paths/README.md)
 * [Security Architecture & Engineering](security-architecture/README.md)
 * [Documentation Standards](contributing/README.md)
+  * [Technical Content Review Register](contributing/content-review-register.md)
   * [Detection Guide Template](contributing/templates/detection-guide.md)
   * [Incident Playbook Template](contributing/templates/incident-playbook.md)
   * [Architecture Decision Template](contributing/templates/architecture-decision.md)
@@ -14,6 +15,11 @@
 * [RootGuard](README.md)
   * [About the Author](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
+
+## Practical Labs
+
+* [Practical Investigation Labs](practice-labs/README.md)
+  * [Lab 01: Password-Spray Investigation](practice-labs/password-spray-investigation.md)
 
 ## Resources Hub
 

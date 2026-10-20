@@ -2,6 +2,11 @@
 
 These paths help readers move from fundamentals to repeatable operational tasks. They link to existing materials rather than duplicating articles.
 
+## Hands-on investigation labs
+
+- [Practical Labs](../practice-labs/README.md)
+- [Password-spray investigation using synthetic data](../practice-labs/password-spray-investigation.md)
+
 ## SOC investigation foundations
 
 1. [Junior analyst essentials](../knowledge-base/junior-analyst-skills/README.md)
