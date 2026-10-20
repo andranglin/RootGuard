@@ -1,11 +1,12 @@
-# Lateral Movement: Operational Incident Investigation Playbook
+# Lateral Movement
 
-**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated. 
-**Review:** 20 October 2026 · **Owner:** SOC/CSIRT · **Authorisation:** Follow local incident command, privacy and evidence procedures.
+Trace suspicious access between Windows systems, establish whether remote execution occurred and assess the wider scope.
 
-> **Important:** Queries below are *investigation pivots*, not finished alerts. Microsoft Defender XDR Advanced Hunting and Microsoft Sentinel Log Analytics use different tables and schema. Execute each query only in its stated environment. Preserve evidence, record approvals and do not delay urgent containment when harm is ongoing.
+**Environment:** Microsoft Defender XDR, Windows Security logs and network telemetry  
+**Validation:** Investigation queries require local testing  
+**Reviewed:** 20 October 2026
 
-## 1. Activate, assess and preserve
+## 1. Before you begin
 
 1. Create an incident record with UTC start/end, reporting source, owner, severity and affected business services.
 2. Confirm the alert is based on real telemetry; capture original record IDs, device/user identifiers and time bounds.

@@ -1,11 +1,12 @@
-# Phishing Compromise: Operational Incident Investigation Playbook
+# Phishing Compromise
 
-**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated. 
-**Review:** 20 October 2026 · **Owner:** SOC/CSIRT · **Authorisation:** Follow local incident command, privacy and evidence procedures.
+Investigate a suspected phishing incident, identify affected users and devices, and determine whether account or mailbox access was misused.
 
-> **Important:** Queries below are *investigation pivots*, not finished alerts. Microsoft Defender XDR Advanced Hunting and Microsoft Sentinel Log Analytics use different tables and schema. Execute each query only in its stated environment. Preserve evidence, record approvals and do not delay urgent containment when harm is ongoing.
+**Environment:** Microsoft Defender XDR, Defender for Office 365, Microsoft Entra ID  
+**Validation:** Investigation queries require local testing  
+**Reviewed:** 20 October 2026
 
-## 1. Activate, assess and preserve
+## 1. Before you begin
 
 1. Create an incident record with UTC start/end, reporting source, owner, severity and affected business services.
 2. Confirm the alert is based on real telemetry; capture original record IDs, device/user identifiers and time bounds.
