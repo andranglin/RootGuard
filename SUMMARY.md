@@ -21,6 +21,7 @@
 * [Practical Investigation Labs](practice-labs/README.md)
   * [Lab 01: Password-Spray Investigation](practice-labs/password-spray-investigation.md)
   * [Lab 02: Kerberos Ticket Investigation](practice-labs/kerberos-ticket-investigation.md)
+  * [Lab 03: Kerberos Logon Triage](practice-labs/kerberos-triage-case-study.md)
 
 ## Resources Hub
 

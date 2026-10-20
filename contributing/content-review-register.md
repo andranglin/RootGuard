@@ -12,6 +12,9 @@
 | [Detection validation checklist](../detection-engineering/threat-detection/detection-validation-checklist.md) | Medium | Published standard | Process guidance only | Apply to new detections consistently |
 | [Password spray lab](../practice-labs/password-spray-investigation.md) | Medium | Synthetic exercise | Designed to demonstrate KQL logic; not operational telemetry validation | Run example in Kusto environment and record results |
 
+| [Golden Ticket](../detection-engineering/threat-detection/ad-detections-and-mitigations/golden-ticket.md) | High | Rewritten; lab validation pending | Clarified forged-TGT limitations, DC evidence gaps and staged krbtgt recovery | Execute representative event triage and review recovery with AD specialists |
+| [Silver Ticket](../detection-engineering/threat-detection/ad-detections-and-mitigations/silver-ticket.md) | High | Rewritten; lab validation pending | Clarified service-ticket scope, missing 4769 ambiguity and host telemetry | Validate against lab resource-server logs and service configurations |
+
 ## Rules for continued review
 
 - Review high-risk operational commands and misleading event semantics before editorial polish.
