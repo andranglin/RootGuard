@@ -1,6 +1,6 @@
 # Lateral Movement: Operational Incident Investigation Playbook
 
-**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated.  
+> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.\n\n**Operational status:** Practitioner workflow; KQL syntax and outcomes require testing against your deployed product schema. Not production-validated.  
 **Review:** 20 October 2026 · **Owner:** SOC/CSIRT · **Authorisation:** Follow local incident command, privacy and evidence procedures.
 
 > **Important:** Queries below are *investigation pivots*, not finished alerts. Microsoft Defender XDR Advanced Hunting and Microsoft Sentinel Log Analytics use different tables and schema. Execute each query only in its stated environment. Preserve evidence, record approvals and do not delay urgent containment when harm is ongoing.
