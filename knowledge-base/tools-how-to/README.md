@@ -22,6 +22,10 @@ layout:
 
 # Tools How-To
 
+Practical notes for security tooling. Use these guides to understand capabilities, prerequisites and common investigative workflows. Verify all commands before use on production systems.
+
+## Tool guides
+
 ## Operational Tooling Guides
 
 #### Master the Instruments of Cyber Warfare
