@@ -2,35 +2,18 @@
 
 ## Welcome
 
-* [RootGuard 3.0 Quality and Maturity Roadmap](contributing/rootguard-3-quality-roadmap.md)
-* [Enterprise Security Architecture Assessment](security-architecture/enterprise-security-assessment.md)
-* [Incident Response Handoff Checklist](defensive-security/dfir/end-to-end-playbooks/response-handoff-checklist.md)
-
-* [Documentation Design System](design-system/README.md)
-  * [Diagram Patterns](design-system/diagram-patterns.md)
-
-* [Start Here](start-here/README.md)
-* [Guided Learning Paths](learning-paths/README.md)
-* [Security Architecture & Engineering](security-architecture/README.md)
-* [Documentation Standards](contributing/README.md)
-  * [Technical Content Review Register](contributing/content-review-register.md)
-  * [Detection Guide Template](contributing/templates/detection-guide.md)
-  * [Incident Playbook Template](contributing/templates/incident-playbook.md)
-  * [Architecture Decision Template](contributing/templates/architecture-decision.md)
-
-
 * [RootGuard](README.md)
+  * [Start Here](start-here/README.md)
   * [About the Author](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
-
-## Runbook Technical Assurance
-
-* [Runbook Safety and Validation Standard](defensive-security/dfir/runbooks/runbook-technical-safety-standard.md)
-* [Runbook Execution and Validation Matrix](defensive-security/dfir/runbooks/runbook-execution-validation-matrix.md)
+* [Guided Learning Paths](learning-paths/README.md)
+* [Security Architecture & Engineering](security-architecture/README.md)
+  * [Enterprise Security Architecture Assessment](security-architecture/enterprise-security-assessment.md)
 
 ## End-to-End Incident Playbooks
 
 * [Incident Investigation Playbooks](defensive-security/dfir/end-to-end-playbooks/README.md)
+  * [Incident Response Handoff Checklist](defensive-security/dfir/end-to-end-playbooks/response-handoff-checklist.md)
   * [Phishing Compromise](defensive-security/dfir/end-to-end-playbooks/phishing-compromise.md)
   * [Ransomware](defensive-security/dfir/end-to-end-playbooks/ransomware.md)
   * [Credential Theft](defensive-security/dfir/end-to-end-playbooks/credential-theft.md)

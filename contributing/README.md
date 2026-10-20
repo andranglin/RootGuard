@@ -1,7 +1,5 @@
 # RootGuard Documentation Standards
 
-See the [RootGuard 3.0 Technical Quality Roadmap](rootguard-3-quality-roadmap.md) for the current quality baseline, outstanding reviews and acceptance criteria.
-
 Follow the [RootGuard Documentation Design System](../design-system/README.md) for visual hierarchy, metadata, and diagram conventions. Use the [Operational Article Template](templates/operational-article.md) for new practitioner workflows.
 
 [Technical Content Review Register](content-review-register.md) tracks prioritised legacy corrections and validation status.
