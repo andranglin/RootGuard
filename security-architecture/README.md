@@ -1,5 +1,7 @@
 # Security Architecture & Engineering
 
+For a practical end-to-end review, use the [Enterprise Security Architecture Assessment](enterprise-security-assessment.md), including trust boundaries, control evidence, decisions and verification.
+
 Architecture connects business requirements, trust boundaries, identity, data, infrastructure, telemetry, and response capabilities. This section provides a starting framework for documenting decisions and validating controls in hybrid and cloud environments.
 
 ## Architecture review workflow

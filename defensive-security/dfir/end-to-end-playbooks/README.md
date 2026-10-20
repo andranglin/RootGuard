@@ -1,5 +1,7 @@
 # Operational Incident Investigation Playbooks
 
+Use the [Analyst-to-Response Handoff Checklist](response-handoff-checklist.md) for formal scoping, approvals, containment decisions and verification.
+
 The incident lifecycle can be followed using the [standard investigation diagram](../../../design-system/diagram-patterns.md). Each playbook presents prerequisites, investigative pivots, response decisions and verification criteria.
 
 Practical, phase-based workflows that connect initial alert triage with containment, forensic scoping, eradication, safe recovery and post-incident activities.

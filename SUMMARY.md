@@ -2,6 +2,10 @@
 
 ## Welcome
 
+* [RootGuard 3.0 Quality and Maturity Roadmap](contributing/rootguard-3-quality-roadmap.md)
+* [Enterprise Security Architecture Assessment](security-architecture/enterprise-security-assessment.md)
+* [Incident Response Handoff Checklist](defensive-security/dfir/end-to-end-playbooks/response-handoff-checklist.md)
+
 * [Documentation Design System](design-system/README.md)
   * [Diagram Patterns](design-system/diagram-patterns.md)
 
