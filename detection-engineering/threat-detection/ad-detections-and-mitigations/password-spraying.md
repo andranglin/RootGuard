@@ -1,5 +1,6 @@
 # Password Spraying
 
+> **Technical review required (20 October 2026):** This legacy article contains detection guidance that has not been validated against current source telemetry and product schemas. Do not deploy its existing example queries or rely on platform-specific assertions without technical review. Consult the [content review register](../../../contributing/content-review-register.md) and [validation checklist](../detection-validation-checklist.md).\n\n
 ### **Introduction**
 
 **Password spraying** is a technique used by attackers to gain unauthorised access to user accounts by exploiting weak or commonly used passwords. Unlike traditional brute-force attacks that repeatedly try many passwords on a single account (risking account lockout due to failed attempts), password spraying involves attempting a single password across multiple accounts. This method helps avoid triggering lockout policies, making it a stealthier and more effective attack technique.
