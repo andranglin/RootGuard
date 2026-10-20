@@ -1,6 +1,8 @@
 # Active Directory Security Controls
 
-### **Introduction**
+Review Active Directory security controls and the evidence needed to assess their effectiveness.
+
+## Background
 
 Organisations with effective mitigation controls are better equipped to prevent, detect, and respond to cybersecurity threats. These controls include a mix of preventive measures, such as firewalls, endpoint protection, and intrusion prevention systems, as well as detective mechanisms like security information and event management (SIEM) systems and anomaly detection tools. By layering these defences, organisations create a robust security framework that minimises the likelihood of breaches while maintaining continuous visibility into their network. Regular vulnerability assessments, penetration testing, and timely patch management ensure that known vulnerabilities are promptly addressed, reducing exposure to attacks.
 
