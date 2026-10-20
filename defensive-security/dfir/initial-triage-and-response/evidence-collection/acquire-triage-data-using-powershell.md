@@ -1,5 +1,7 @@
 # Acquire Triage Data Using Powershell
 
+> **Legacy procedure, technical validation required (20 October 2026):** This page includes commands that may be incompatible with PowerShell 7, require elevation, alter live-system state or weaken local execution-policy settings. **Do not execute the collection script as-is on evidence systems.** Use the [Windows Endpoint Triage Field Guide](../../field-guides/windows-endpoint-triage.md) and [Evidence Acquisition and Integrity](../../field-guides/evidence-acquisition-and-integrity.md) for a safer planning framework. Execution policy bypass is not a routine forensic prerequisite.
+
 ### 1. Preparation
 
 * Launch PowerShell: Open PowerShell as Administrator (powershell.exe or pwsh.exe for PowerShell Core). Right-click the Start menu > "Windows PowerShell (Admin)" or use Run > PowerShell > Ctrl+Shift+Enter.

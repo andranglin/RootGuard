@@ -16,12 +16,20 @@
   * [About the Author](welcome/who-am-i/README.md)
     * [Professional Profile](welcome/who-am-i/professional-profile.md)
 
+## DFIR Field Guides
+
+* [DFIR Field Guides](defensive-security/dfir/field-guides/README.md)
+  * [Windows Endpoint Triage](defensive-security/dfir/field-guides/windows-endpoint-triage.md)
+  * [Evidence Acquisition & Integrity](defensive-security/dfir/field-guides/evidence-acquisition-and-integrity.md)
+  * [Windows Artefact Interpretation](defensive-security/dfir/field-guides/windows-artifact-interpretation.md)
+
 ## Practical Labs
 
 * [Practical Investigation Labs](practice-labs/README.md)
   * [Lab 01: Password-Spray Investigation](practice-labs/password-spray-investigation.md)
   * [Lab 02: Kerberos Ticket Investigation](practice-labs/kerberos-ticket-investigation.md)
   * [Lab 03: Kerberos Logon Triage](practice-labs/kerberos-triage-case-study.md)
+  * [Lab 04: Windows Endpoint Timeline](practice-labs/windows-timeline-triage.md)
 
 ## Resources Hub
 
