@@ -1,6 +1,8 @@
 # Evidence Acquisition and Integrity
 
-> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.\n\n**Status:** Procedure template requiring organisational approval and tool-specific validation.
+> **RootGuard technical reference** · **Environment:** Verify product, platform and telemetry prerequisites · **Validation:** Refer to the status below; examples are not automatically production-ready.
+
+**Status:** Procedure template requiring organisational approval and tool-specific validation.
 
 ## Before acquisition
 
