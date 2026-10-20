@@ -1,5 +1,7 @@
 # RootGuard Documentation Standards
 
+[Technical Content Review Register](content-review-register.md) tracks prioritised legacy corrections and validation status.
+
 ## Publishing principles
 
 - Prefer evidence-based guidance, clear prerequisites and explicit limitations over unsupported claims.
