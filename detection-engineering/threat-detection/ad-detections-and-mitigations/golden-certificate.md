@@ -1,6 +1,8 @@
 # Golden Certificate
 
-### **Introduction**
+Examine suspected abuse of a compromised certificate authority and the certificates an attacker may have issued.
+
+## Background
 
 A **Golden Certificate** is an advanced attack technique used to compromise Active Directory Certificate Services (AD CS). Similar to the **Golden Ticket** in Kerberos attacks, a Golden Certificate allows an attacker to forge a legitimate certificate that can be used to impersonate any user, escalate privileges, or maintain persistent access within a domain environment. The attack exploits the trust model of the Public Key Infrastructure (PKI) and the inherent design of certificates issued by AD CS.
 
