@@ -26,22 +26,6 @@ Practical notes for security tooling. Use these guides to understand capabilitie
 
 ## Tool guides
 
-## Operational Tooling Guides
-
-#### Master the Instruments of Cyber Warfare
-
-**Theory is useless without execution.**
-
-This section is the technical field manual for the tools that define the battlefield. Whether you are hunting persistence in memory, mapping an adversary's perimeter, or living off the land, proficiency with these binaries is non-negotiable.
-
-We do not provide "man page" summaries. We provide operational syntax—the exact flags, chains, and logic required to achieve effects in real-world environments.
-
-***
-
-[Select Your Weapon →](https://rootguard.gitbook.io/cyberops/resources-hub/tool-arsenal)
-
-***
-
 ### The Philosophy of Tooling
 
 In the hands of a novice, `nmap` is a noise generator. In the hands of an operator, it is a surgical scalpel. RootGuard "How-To" guides are structured to bridge the gap between basic usage and advanced tradecraft.
