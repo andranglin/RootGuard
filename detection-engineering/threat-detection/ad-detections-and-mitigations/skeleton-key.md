@@ -1,6 +1,8 @@
 # Skeleton Key
 
-### **Introduction**
+Investigate suspicious domain controller authentication behaviour consistent with possible authentication-package tampering.
+
+## Background
 
 The **Skeleton Key** attack is an advanced persistence technique targeting Microsoft Active Directory (AD) environments. It involves injecting a malicious patch into the Local Security Authority Subsystem Service (LSASS) process on a domain controller, allowing attackers to bypass authentication mechanisms. This creates a "skeleton key" password that works for any user account without altering existing credentials or logs. The attack is particularly dangerous because it enables covert and persistent access to all accounts within the domain.
 

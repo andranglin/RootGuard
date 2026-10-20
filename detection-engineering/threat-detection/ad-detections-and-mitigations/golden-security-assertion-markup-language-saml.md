@@ -1,6 +1,8 @@
 # Golden Security Assertion Markup Language (SAML)
 
-### Introduction
+Investigate suspected federation signing-key compromise and potentially forged SAML assertions.
+
+## Background
 
 The **Golden SAML** attack is a sophisticated technique targeting federated identity systems that utilise Security Assertion Markup Language (SAML) for authentication. In this attack, adversaries exploit the trust relationship between identity providers (IdPs) and service providers (SPs) to forge authentication tokens. By compromising the private key of the IdP or gaining administrative access, attackers can create valid SAML assertions, impersonate any user (including administrators), and gain unauthorised access to federated services. This attack is particularly dangerous in cloud environments, such as Office 365, AWS, and GCP, where SAML is commonly used for single sign-on (SSO).
 

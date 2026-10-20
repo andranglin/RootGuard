@@ -1,6 +1,8 @@
 # Security Identifier (SID) History Compromise
 
-### **Introduction**
+Investigate changes to SIDHistory and evidence of privilege misuse across trusted domains.
+
+## Background
 
 In Microsoft Active Directory (AD), the **Security Identifier (SID) History** attribute is used to maintain a record of SIDs from previous domains when objects like users or groups are migrated. This allows users to retain access to resources in the original domain without requiring reconfiguration. While SID History is essential for seamless domain migrations and consolidations, it can be exploited in a **SID History Compromise** attack.
 

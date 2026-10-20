@@ -1,6 +1,8 @@
 # MachineAccountQuota Compromise
 
-### **Introduction**
+Review the risks of computer-account creation rights and suspicious machine account activity.
+
+## Background
 
 **MachineAccountQuota** is an attribute in Active Directory that specifies how many machine accounts a user can create in the domain. By default, this value is set to **10**, meaning any authenticated domain user can create up to 10 machine accounts without administrative privileges. While this setting supports certain use cases, it also introduces a security risk if exploited by attackers.
 
