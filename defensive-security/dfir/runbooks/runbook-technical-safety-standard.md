@@ -37,3 +37,5 @@ Current four-runbook classification: **Static safety reviewed / runtime validati
 - [Microsoft Graph Revoke-MgUserSignInSession](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession)
 - [Microsoft Entra PowerShell module migration](https://learn.microsoft.com/en-us/powershell/entra-powershell/azuread-powershell-migration)
 - [RootGuard Evidence Acquisition and Integrity](../field-guides/evidence-acquisition-and-integrity.md)
+
+[Runbook Execution and Validation Matrix](runbook-execution-validation-matrix.md): query-by-query testing handoff, permission gates and approval requirements.
