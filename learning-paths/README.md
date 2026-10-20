@@ -29,6 +29,9 @@ These paths help readers move from fundamentals to repeatable operational tasks.
 
 ## DFIR foundations
 
+Explore the [end-to-end incident investigation playbooks](../defensive-security/dfir/end-to-end-playbooks/README.md) for phishing compromise, ransomware, credential theft and lateral movement, including containment, recovery and closure.
+
+
 New: [Windows endpoint triage field guide](../defensive-security/dfir/field-guides/windows-endpoint-triage.md) and [Lab 04: Windows endpoint timeline](../practice-labs/windows-timeline-triage.md).
 
 
